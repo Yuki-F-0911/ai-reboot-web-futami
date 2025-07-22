@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Noto Sans JPフォントのインポート */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* AIリブート ブランドカラー - Will（意思）と成長を表現 */
+  --color-will-primary: #FF4B8B;    /* 情熱と決意のピンク */
+  --color-will-secondary: #9747FF;  /* 創造性と可能性のパープル */
+  --color-will-tertiary: #3B82F6;   /* 知性と信頼のブルー */
+  
+  /* 感情的深度を表現するカラーパレット */
+  --color-warmth: #FF6B9D;         /* 人間的な温かさ */
+  --color-growth: #C44569;         /* 成長と変革 */
+  --color-wisdom: #574B90;         /* 知恵と洞察 */
+  --color-harmony: #2E86AB;        /* 調和と共創 */
+  
+  /* 繊細なトーンバリエーション */
+  --color-will-light: #FFE4ED;
+  --color-will-lighter: #FFF4F7;
+  --color-wisdom-light: #E9D5FF;
+  --color-wisdom-lighter: #F5EDFF;
+  --color-harmony-light: #DBEAFE;
+  --color-harmony-lighter: #EBF4FF;
+  
+  /* アクセシビリティ向上のための調整 */
+  --color-text-primary: #1A1A23;    /* WCAG AAコントラスト基準満たす */
+  --color-text-secondary: #42425A;  /* コントラスト改善 */
+  --color-text-tertiary: #6B6B85;
+  
+  /* 深層的なグレースケール */
+  --color-depth-900: #0F0F14;      /* 深淵 */
+  --color-depth-800: #1A1A23;      /* 深層 */
+  --color-depth-700: #2D2D3F;      /* 内省 */
+  --color-depth-600: #42425A;      /* 思考 */
+  --color-depth-500: #6B6B85;      /* 理解 */
+  --color-depth-400: #9494AC;      /* 洞察 */
+  --color-depth-300: #BDBDD2;      /* 明晰 */
+  --color-depth-200: #E6E6EE;      /* 覚醒 */
+  --color-depth-100: #F7F7FA;      /* 純粋 */
+  
+  /* インタラクティブ要素 */
+  --color-interactive-hover: #FF5A8A;
+  --color-interactive-active: #E6437B;
+  --color-interactive-focus: rgba(151, 71, 255, 0.25);
+  
+  /* 空間的レイヤリング */
+  --shadow-subtle: 0 2px 8px rgba(15, 15, 20, 0.04);
+  --shadow-soft: 0 4px 20px rgba(15, 15, 20, 0.08);
+  --shadow-elevated: 0 8px 40px rgba(15, 15, 20, 0.12);
+  --shadow-floating: 0 20px 60px rgba(15, 15, 20, 0.16);
+  
+  /* 詩的な境界線 */
+  --border-whisper: 1px solid rgba(15, 15, 20, 0.06);
+  --border-gentle: 1px solid rgba(15, 15, 20, 0.10);
+  --border-presence: 2px solid rgba(151, 71, 255, 0.20);
+  
+  /* デフォルトカラー */
+  --background: #ffffff;
+  --foreground: #1A1A23;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply text-ai-dark-gray bg-white;
+    font-family: 'Noto Sans JP', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  /* ヘディングスタイル */
+  h1 {
+    @apply text-h1 font-bold;
+  }
+  
+  h2 {
+    @apply text-h2 font-semibold;
+  }
+  
+  h3 {
+    @apply text-h3 font-semibold;
+  }
+  
+  /* フォーカススタイル（アクセシビリティ） */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ai-purple;
+  }
+}
+
+@layer components {
+  /* プライマリボタン - タッチターゲット最小44px */
+  .btn-primary {
+    @apply bg-will-gradient text-white font-semibold py-4 px-6 rounded-2xl min-h-[44px];
+    @apply transition-all duration-300 hover:shadow-floating;
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-will-primary;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none;
+    @apply active:scale-[0.98];
+  }
+  
+  /* セカンダリボタン - タッチターゲット最小44px */
+  .btn-secondary {
+    @apply bg-white text-will-primary border-2 border-will-primary font-semibold py-4 px-6 rounded-2xl min-h-[44px];
+    @apply transition-all duration-300 hover:bg-will-lighter hover:shadow-soft;
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-will-primary;
+    @apply active:scale-[0.98];
+  }
+  
+  /* カードコンポーネント - より洗練されたホバー効果 */
+  .card {
+    @apply bg-white rounded-3xl p-8 shadow-soft;
+    @apply border border-depth-200;
+    @apply transition-all duration-300;
+    @apply hover:shadow-elevated hover:border-will-primary/20;
+    @apply hover:bg-gradient-to-br hover:from-white hover:to-will-lighter/30;
+  }
+  
+  /* グラデーションテキスト */
+  .gradient-text {
+    @apply bg-ai-gradient bg-clip-text text-transparent;
+  }
+  
+  /* セクションコンテナ */
+  .container-section {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  /* グラデーションアニメーション */
+  .gradient-animate {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  /* 有機的なアニメーション */
+  .organic-float {
+    animation: organic-float 6s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  
+  /* テキストの詩的表現 */
+  .text-depth {
+    text-shadow: 0 2px 4px rgba(15, 15, 20, 0.1);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px currentColor;
+  }
+  
+  /* 空間的な奥行き */
+  .layer-base {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .layer-content {
+    position: relative;
+    z-index: 20;
+  }
+  
+  .layer-overlay {
+    position: relative;
+    z-index: 30;
+  }
+  
+  /* 感情的トランジション */
+  .transition-emotion {
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .transition-thought {
+    transition: all 0.8s cubic-bezier(0.37, 0, 0.63, 1);
+  }
+  
+  /* モーション設定を減らす */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* カスタムアニメーション */
+@keyframes organic-float {
+  0%, 100% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotateZ(1deg);
+  }
+  66% {
+    transform: translateY(-5px) rotateZ(-1deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.8;
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(2px);
+  }
+}

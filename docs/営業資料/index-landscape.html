@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成AI活用力研修「AIリブート」</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Hiragino Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* A4横向きページ設定 */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        .page {
+            width: 297mm;
+            height: 210mm;
+            padding: 15mm 20mm;
+            margin: 0 auto 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            page-break-after: always;
+            overflow: hidden;
+        }
+
+        /* 2カラムレイアウト用 */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+            align-items: start;
+        }
+
+        /* 3カラムレイアウト用 */
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+            align-items: start;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 表紙ページ */
+        .cover-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+
+        .cover-page h1 {
+            font-size: 3.2em;
+            margin-bottom: 60px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .cover-page .client-name {
+            font-size: 2em;
+            margin-top: auto;
+            padding-top: 60px;
+        }
+
+        /* タイトルページ */
+        .title-page {
+            background: #f8f9fa;
+        }
+
+        .title-page h1 {
+            font-size: 2.2em;
+            color: #2a5298;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .title-page .subtitle {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #555;
+            text-align: left;
+        }
+
+        .title-page h2 {
+            font-size: 1.6em;
+            color: #2a5298;
+            margin: 30px 0 15px 0;
+        }
+
+        .title-page .challenges {
+            margin-top: 20px;
+        }
+
+        .title-page .challenges li {
+            margin-bottom: 20px;
+            list-style: none;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95em;
+        }
+
+        .title-page .challenges li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #2a5298;
+            font-weight: bold;
+        }
+
+        .title-page .challenges li strong {
+            color: #2a5298;
+            display: inline;
+            margin-right: 5px;
+        }
+
+        /* コンテンツページ共通 */
+        .content-page h2 {
+            font-size: 2em;
+            color: #2a5298;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #2a5298;
+        }
+
+        .content-page h3 {
+            font-size: 1.3em;
+            color: #2a5298;
+            margin: 25px 0 15px 0;
+        }
+
+        .content-page p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        .content-page .highlight {
+            background: #e8f0fe;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        /* リストスタイル */
+        .content-page ul {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .content-page ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .content-page ul li:before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            color: #2a5298;
+            font-weight: bold;
+        }
+
+        .content-page ul ul {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .content-page ul ul li:before {
+            content: "◦";
+        }
+
+        .content-page ol {
+            padding-left: 25px;
+            margin: 10px 0;
+        }
+
+        .content-page ol li {
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        /* スケジュールページ */
+        .schedule-content {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .schedule-content p {
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        /* 料金ページ */
+        .pricing-breakdown {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .pricing-breakdown ul {
+            margin-bottom: 25px;
+        }
+
+        .pricing-breakdown li {
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+
+        .total-price {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2a5298;
+            text-align: center;
+            padding-top: 15px;
+            border-top: 2px solid #2a5298;
+        }
+
+        /* 講師ページ */
+        .instructor {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .instructor-photo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        .instructor-info {
+            flex: 1;
+        }
+
+        .instructor-info h3 {
+            color: #2a5298;
+            font-size: 1.2em;
+            margin-bottom: 3px;
+        }
+
+        .instructor-info .title {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .instructor-info p {
+            font-size: 0.85em;
+            margin: 0;
+        }
+
+        /* CTAページ */
+        .cta-page {
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .cta-page h2 {
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            color: white;
+            border: none;
+        }
+
+        .cta-page p {
+            font-size: 1.4em;
+            line-height: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 印刷時の設定 */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+
+        /* レスポンシブ（画面表示用） */
+        @media screen and (max-width: 1200px) {
+            .page {
+                width: 100%;
+                height: auto;
+                min-height: 100vh;
+                padding: 40px 20px;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .cover-page h1 {
+                font-size: 2.5em;
+            }
+            
+            .content-page h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 表紙 -->
+    <div class="page cover-page">
+        <img src="../../public/images/logo.png" alt="AIリブートロゴ" style="width: 250px; margin-bottom: 60px; filter: brightness(0) invert(1);">
+        <h1>生成AI活用力研修<br>「AIリブート」</h1>
+        <p class="client-name">株式会社ウィルトラスト様</p>
+    </div>
+
+    <!-- ページ1: タイトルと課題（2カラム） -->
+    <div class="page title-page">
+        <h1>生成AI活用力研修「AIリブート」<br><span style="font-size: 0.6em;">（通称：AIリブート）</span></h1>
+        <div class="two-column">
+            <div class="column">
+                <p class="subtitle" style="margin-top: 60px;">
+                    座学＋実践＋伴走型開発支援の三段構成で<br>
+                    企業と個人をAIによってアップデート
+                </p>
+                
+                <div class="highlight" style="margin-top: 30px;">
+                    <strong>AIの急速な進化は既存の常識を大きく変え、<br>
+                    企業がAIを活用せずに成長を続けることは<br>
+                    困難な時代です。</strong>
+                </div>
+            </div>
+            
+            <div class="column">
+                <h2>企業が直面するAI時代の課題</h2>
+                
+                <ul class="challenges">
+                    <li>
+                        <strong>AI導入の迷い:</strong>
+                        AIを活用せずに成長を続けることは困難な時代。でも何から始めればいいか分からない。
+                    </li>
+                    <li>
+                        <strong>成長の停滞:</strong>
+                        従来のやり方では限界を感じている。新しい価値創造の方法を模索している。
+                    </li>
+                    <li>
+                        <strong>人材の課題:</strong>
+                        AI時代に対応できる人材の採用も育成も難しい。組織全体の変革が必要。
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ページ2: プログラムの内容と特徴 -->
+    <div class="page content-page">
+        <h2>プログラムの内容と特徴</h2>
+        
+        <div class="highlight">
+            <strong style="font-size: 1.3em;">座学＋実践＋伴走型開発支援の三段構成</strong><br><br>
+            <span style="font-size: 1.1em;">生成AIの活用環境を整え、個人・チームレベルで業務に組み込み、<br>
+            メンターが開発・実装まで徹底伴走します</span>
+        </div>
+
+        <div class="three-column" style="margin-top: 40px;">
+            <div class="column">
+                <h3>1. 初回集中研修<br>（12時間）</h3>
+                <p>AIの活用方法や編集スキルの習得を目的とした対面での集中研修</p>
+                <ul>
+                    <li>生成AI活用で実現できること</li>
+                    <li>個人・チーム作業環境の構築</li>
+                    <li>実践的な活用演習</li>
+                </ul>
+            </div>
+            
+            <div class="column">
+                <h3>2. オンライン講座学習<br>（10時間超）</h3>
+                <p>受講者が各自で学習を進める形式</p>
+                <ul>
+                    <li>生成AIの仕組みと倫理</li>
+                    <li>実践演習（データ分析、資料作成、画像・動画生成等）</li>
+                    <li>各講義ごとの学習評価テスト</li>
+                </ul>
+            </div>
+            
+            <div class="column">
+                <h3>3. 伴走型開発支援<br>（10時間/人）</h3>
+                <p>専属メンターが現場での実践を徹底サポート</p>
+                <ul>
+                    <li>初回研修後の実践をサポート</li>
+                    <li>業務への実装支援</li>
+                    <li>課題解決の伴走</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ページ3: 初回集中研修の詳細（2カラム） -->
+    <div class="page content-page">
+        <h2>初回集中研修（12時間）の詳細</h2>
+        <p style="margin-bottom: 30px;">AIの活用方法や編集スキルの習得を目的とした対面での集中研修。</p>
+        
+        <div class="two-column">
+            <div class="column">
+                <h3>DAY1：個人作業環境の構築</h3>
+                <ul>
+                    <li>生成AI活用で実現できること</li>
+                    <li>生成AIが変える未来</li>
+                    <li>生成AI活用事例
+                        <ul>
+                            <li>データ分析</li>
+                            <li>資料作成</li>
+                            <li>画像生成／動画生成</li>
+                            <li>音楽生成</li>
+                            <li>チャットボット開発 等</li>
+                        </ul>
+                    </li>
+                    <li>個人作業環境（AI搭載IDEおよびLLMチャットツール等）の構築</li>
+                    <li>生成AI活用実践（実際に個別の業務にAIを活用する）</li>
+                </ul>
+            </div>
+            
+            <div class="column">
+                <h3>DAY2：チーム作業環境の構築</h3>
+                <ul>
+                    <li>チームでAI活用にレバレッジをかける</li>
+                    <li>チームで共有できる生成AIリポジトリの構築</li>
+                    <li>ナレッジ共有や情報管理の仕組みを実装</li>
+                    <li>チーム全体でAIを活用した共同作業を体験</li>
+                </ul>
+                
+                <div style="background: #e8f0fe; padding: 20px; border-radius: 10px; margin-top: 30px;">
+                    <strong>研修のポイント</strong><br>
+                    実際の業務環境で即座に活用できる<br>
+                    実践的なスキルを身につけます
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ページ4: オンライン講座の詳細（2カラム） -->
+    <div class="page content-page">
+        <h2>オンライン講座学習（10時間超）</h2>
+        <p style="margin-bottom: 30px;">受講者が各自で学習を進める形式（各自自身の業務と関連性の高い内容の講座を選択）</p>
+        
+        <div class="two-column">
+            <div class="column">
+                <h3>基礎編</h3>
+                <ol>
+                    <li>生成AIの仕組み</li>
+                    <li>生成AI関連言語の理解</li>
+                    <li>AI活用の倫理</li>
+                    <li>生成AIパスポート対策</li>
+                </ol>
+                
+                <h3 style="margin-top: 30px;">実践編（前半）</h3>
+                <ol start="5">
+                    <li>生成AI活用実習（データ分析）</li>
+                    <li>生成AI活用実習（ダッシュボード生成）</li>
+                    <li>生成AI活用実習（資料作成）</li>
+                </ol>
+            </div>
+            
+            <div class="column">
+                <h3>実践編（後半）</h3>
+                <ol start="8">
+                    <li>生成AI活用実習（画像生成）</li>
+                    <li>生成AI活用実習（動画生成）</li>
+                    <li>生成AI活用実習（音楽生成）</li>
+                    <li>自動化・API連携</li>
+                </ol>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 30px;">
+                    <strong>学習のポイント</strong><br>
+                    • 各講義ごとに学習評価テストを実施<br>
+                    • 業務に即した内容を選択可能<br>
+                    • 実践的なスキルの習得に重点
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ページ5: スケジュールと料金（2カラム） -->
+    <div class="page content-page">
+        <div class="two-column">
+            <div class="column">
+                <h2>実施期間とスケジュール</h2>
+                
+                <div class="schedule-content">
+                    <p><strong>プログラム全体期間：</strong>6ヶ月間</p>
+                    <p><strong>・初回研修：</strong><br>プログラム1〜2日目の2日間で開催</p>
+                    <p><strong>・実践期間：</strong><br>初回研修後から6ヶ月間<br>（オンライン講座学習の開催および伴走型開発支援を実施）</p>
+                    <p><strong>・最終成果発表会（3時間）：</strong><br>プログラム開始6ヶ月後を目処に開催</p>
+                </div>
+            </div>
+            
+            <div class="column">
+                <h2>プログラム料金</h2>
+                
+                <div class="pricing-breakdown">
+                    <ul>
+                        <li>AIリブート研修<br>（初回研修、オンライン講座学習、最終成果発表会）<br>：1,400,000円</li>
+                        <li>伴走型開発支援<br>：200,000円／人 × 7人 = 1,400,000円</li>
+                    </ul>
+                    <div class="total-price">
+                        合計：2,800,000円<br>（税込 3,080,000円）
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ページ6: 講師紹介（2カラム） -->
+    <div class="page content-page">
+        <h2>講師・メンター</h2>
+        <p style="margin-bottom: 30px; text-align: center;">実践経験豊富な専門家が、貴社のAI変革を支援します</p>
+        
+        <div class="two-column">
+            <div class="column">
+                <div class="instructor">
+                    <img src="../../public/images/naruse.jpg" alt="成瀬 拓也" class="instructor-photo">
+                    <div class="instructor-info">
+                        <h3>成瀬 拓也</h3>
+                        <p class="title">株式会社ウィルフォワード代表</p>
+                        <p>経営・AX・人材開発の専門家として多くの企業支援実績を持つ。AI活用の戦略設計に精通。</p>
+                    </div>
+                </div>
+                
+                <div class="instructor">
+                    <img src="../../public/images/sakamoto.jpg" alt="坂本 拓磨" class="instructor-photo">
+                    <div class="instructor-info">
+                        <h3>坂本 拓磨</h3>
+                        <p class="title">生成AI活用ディレクター</p>
+                        <p>Web/映像領域でのAI実装経験が豊富。一般社団法人生成AI活用普及協会「生成AIパスポート」保有。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="instructor">
+                    <img src="../../public/images/aoki.jpg" alt="青木 玲仁" class="instructor-photo">
+                    <div class="instructor-info">
+                        <h3>青木 玲仁</h3>
+                        <p class="title">AI業務改善コンサルタント</p>
+                        <p>人事・業務プロセス改善におけるAI活用の実践者。一般社団法人生成AI活用普及協会「生成AIパスポート」保有。</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- ページ7: CTA -->
+    <div class="page cta-page">
+        <h2>AI変革を始めましょう</h2>
+        <p>
+            貴社の課題を、ぜひ私たちにお聞かせください。<br><br>
+            AI時代の波を乗りこなし、貴社がさらなる高みへと飛躍するための<br>
+            最適なAI活用の道筋を、経験豊富な専門家チームが、<br>
+            貴社と共に徹底的に見つけ出し、実現に向けて伴走いたします。<br><br>
+            未来を共に創りましょう。
+        </p>
+    </div>
+</body>
+</html>
