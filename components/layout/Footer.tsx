@@ -15,7 +15,6 @@ export const Footer: React.FC = () => {
     services: [
       { label: 'AIリブートアカデミー', href: '#school' },
       { label: '企業向けコンサルティング', href: '#consulting' },
-      { label: '料金プラン', href: '#pricing' },
     ],
     company: [
       { label: '会社概要', href: '#company' },

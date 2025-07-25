@@ -21,8 +21,8 @@ const AcademyCTA = () => {
             <Link href="/contact" className="btn-primary">
               無料相談を申し込む
             </Link>
-            <Link href="/academy#pricing" className="btn-secondary">
-              料金プランを見る
+            <Link href="/academy#subsidy" className="btn-secondary">
+              補助金・料金を見る
             </Link>
           </div>
         </motion.div>

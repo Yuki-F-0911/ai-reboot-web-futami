@@ -19,7 +19,8 @@ export const Header: React.FC = () => {
 
   const navItems = [
     { label: 'AIリブートとは', href: '#mission' },
-    { label: 'プログラム', href: '#services' },
+    { label: '企業向け研修', href: '/corporate' },
+    { label: 'アカデミー', href: '/academy' },
     { label: '講師', href: '#instructors' },
     { label: '始める', href: '#contact' },
   ];
