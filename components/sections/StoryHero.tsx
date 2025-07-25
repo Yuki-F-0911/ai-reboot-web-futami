@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Link from "next/link";
 
 export const StoryHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);

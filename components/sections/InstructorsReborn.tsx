@@ -76,7 +76,7 @@ export const Instructors: React.FC = () => {
 
         {/* インストラクターカード */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {instructors.map((instructor, index) => (
+          {instructors.map((instructor) => (
             <div
               key={instructor.id}
               className="relative group cursor-pointer"

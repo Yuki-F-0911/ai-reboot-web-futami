@@ -17,7 +17,7 @@ export const ParticleField: React.FC<{ className?: string }> = ({ className = ''
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const mouseRef = useRef({ x: 0, y: 0 });
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number>(0);
   const [isClient, setIsClient] = React.useState(false);
 
   useEffect(() => {
