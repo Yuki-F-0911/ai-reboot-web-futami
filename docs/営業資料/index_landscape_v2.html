@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成AI活用力研修「AIリブート」企画書</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Hiragino Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* A4横向きページ設定 */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        .page {
+            width: 297mm;
+            height: 210mm;
+            padding: 15mm 20mm;
+            margin: 0 auto 20px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            page-break-after: always;
+            overflow: hidden;
+        }
+
+        /* 印刷時の設定 */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .page {
+                margin: 0;
+                border: none;
+                page-break-after: always;
+            }
+            
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+
+        /* レスポンシブ（画面表示用） */
+        @media screen and (max-width: 1024px) {
+            .page {
+                width: 100%;
+                height: auto;
+                min-height: 100vh;
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 表紙 -->
+    <div class="page" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; display: flex; align-items: center; justify-content: center; text-align: center;">
+        <div>
+            <img src="../../public/images/logo.png" alt="AIリブートロゴ" style="width: 280px; margin-bottom: 60px; filter: brightness(0) invert(1);">
+            <h1 style="font-size: 4em; margin-bottom: 60px; font-weight: 700; line-height: 1.3;">生成AI活用力研修<br>「AIリブート」</h1>
+            <p style="font-size: 2.2em; margin-top: auto;">株式会社ウィルトラスト様</p>
+        </div>
+    </div>
+
+    <!-- ページ1: タイトル -->
+    <div class="page" style="display: flex; align-items: center; justify-content: center; text-align: center; background: #f8f9fa;">
+        <div>
+            <div style="position: relative; display: inline-block;">
+                <div style="position: absolute; top: -30px; left: -30px; width: 100px; height: 100px; background: linear-gradient(135deg, #2a5298, #1e3c72); opacity: 0.1; transform: rotate(-15deg);"></div>
+                <h1 style="font-size: 3.5em; color: #2a5298; margin-bottom: 40px; font-weight: 700; position: relative;">
+                    生成AI活用力研修「AIリブート」<br><span style="font-size: 0.6em;">（通称：AIリブート）</span>
+                </h1>
+            </div>
+            <p style="font-size: 1.5em; line-height: 1.8; color: #555; max-width: 850px; margin: 0 auto;">
+                生成AIツールの使い方を学ぶだけではなく、生成AIツールを使いこなすためのマインドセットとスキルを身につけることで、研修後も持続的に生成AI活用で企業と個人をアップデートしつづけるためのプログラム。
+            </p>
+        </div>
+    </div>
+
+    <!-- ページ2: 課題 -->
+    <div class="page" style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.8em; text-align: center; margin-bottom: 40px; color: #2a5298;">企業が直面するAI時代の課題</h2>
+        <p style="font-size: 1.3em; text-align: center; margin-bottom: 50px; color: #555;">AIの急速な進化は既存の常識を大きく変え、<br>企業がAIを活用せずに成長を続けることは困難な時代です。</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1100px; margin: 0 auto;">
+            <div style="position: relative; padding: 30px; background: white; border: 1px solid #e0e0e0; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #2a5298, #1e3c72);"></div>
+                <h3 style="color: #2a5298; font-size: 1.5em; margin: 0 0 15px 0; font-weight: 600;">AI導入の迷い</h3>
+                <p style="font-size: 1.1em; margin: 0; color: #555; line-height: 1.6;">AIを活用せずに成長を続けることは困難な時代。でも何から始めればいいか分からない。</p>
+            </div>
+            
+            <div style="position: relative; padding: 30px; background: white; border: 1px solid #e0e0e0; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #1e3c72, #2a5298);"></div>
+                <h3 style="color: #2a5298; font-size: 1.5em; margin: 0 0 15px 0; font-weight: 600;">成長の停滞</h3>
+                <p style="font-size: 1.1em; margin: 0; color: #555; line-height: 1.6;">従来のやり方では限界を感じている。新しい価値創造の方法を模索している。</p>
+            </div>
+            
+            <div style="position: relative; padding: 30px; background: white; border: 1px solid #e0e0e0; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #2a5298, #1e3c72);"></div>
+                <h3 style="color: #2a5298; font-size: 1.5em; margin: 0 0 15px 0; font-weight: 600;">人材の課題</h3>
+                <p style="font-size: 1.1em; margin: 0; color: #555; line-height: 1.6;">AI時代に対応できる人材の採用も育成も難しい。組織全体の変革が必要。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ページ3: プログラムの内容と特徴 -->
+    <div class="page" style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.8em; text-align: center; margin-bottom: 50px; color: #2a5298;">プログラムの内容と特徴</h2>
+        
+        <div style="text-align: center; margin-bottom: 60px;">
+            <div style="display: inline-block; position: relative;">
+                <div style="position: absolute; top: -20px; left: -20px; width: 60px; height: 60px; background: linear-gradient(135deg, #2a5298, #1e3c72); opacity: 0.1; transform: rotate(45deg);"></div>
+                <h3 style="font-size: 2.2em; color: #2a5298; margin: 0; font-weight: 700; letter-spacing: 0.05em;">インプットとアウトプットの実践型研修プログラム</h3>
+            </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto;">
+            <div style="text-align: center; position: relative;">
+                <div style="font-size: 3em; color: #2a5298; opacity: 0.2; font-weight: bold; margin-bottom: 10px;">01</div>
+                <h4 style="font-size: 1.3em; color: #2a5298; margin-bottom: 10px; font-weight: 600;">学ぶ</h4>
+                <p style="font-size: 1em; color: #666;">生成AI活用の<br>基礎から応用まで</p>
+            </div>
+            <div style="text-align: center; position: relative;">
+                <div style="font-size: 3em; color: #2a5298; opacity: 0.2; font-weight: bold; margin-bottom: 10px;">02</div>
+                <h4 style="font-size: 1.3em; color: #2a5298; margin-bottom: 10px; font-weight: 600;">整える</h4>
+                <p style="font-size: 1em; color: #666;">生成AIを活用する<br>環境を構築</p>
+            </div>
+            <div style="text-align: center; position: relative;">
+                <div style="font-size: 3em; color: #2a5298; opacity: 0.2; font-weight: bold; margin-bottom: 10px;">03</div>
+                <h4 style="font-size: 1.3em; color: #2a5298; margin-bottom: 10px; font-weight: 600;">組み込む</h4>
+                <p style="font-size: 1em; color: #666;">個人・チームで<br>業務に実装</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 50px; text-align: center;">
+            <p style="font-size: 1.3em; color: #555; max-width: 700px; margin: 0 auto; line-height: 1.8;">
+                単なる知識習得で終わらせず、実際の業務環境で<br>
+                継続的に活用できる仕組みまで構築します
+            </p>
+        </div>
+    </div>
+
+    <!-- ページ4: AIリブート研修表題 -->
+    <div class="page" style="display: flex; flex-direction: column; justify-content: center; position: relative;">
+        <div style="position: absolute; top: 20px; right: 20px; width: 150px; height: 150px; border: 5px solid #2a5298; opacity: 0.1; transform: rotate(15deg);"></div>
+        <div style="position: absolute; bottom: 20px; left: 20px; width: 100px; height: 100px; border: 5px solid #1e3c72; opacity: 0.1; transform: rotate(-20deg);"></div>
+        <div style="text-align: center; position: relative;">
+            <h2 style="font-size: 3.5em; color: #2a5298; margin-bottom: 30px; position: relative;">
+                AIリブート研修（24時間）
+                <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 200px; height: 4px; background: linear-gradient(90deg, #2a5298, #1e3c72);"></div>
+            </h2>
+            <p style="font-size: 1.6em; color: #555; margin-bottom: 50px;">AIの活用方法や編集スキルの習得を目的とした対面での集中研修。</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto;">
+            <div style="background: rgba(42, 82, 152, 0.05); padding: 30px; border-radius: 10px;">
+                <h3 style="color: #2a5298; font-size: 1.5em; margin-bottom: 20px; text-align: center;">個人向けAI活用基礎</h3>
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <div style="background: #2a5298; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; flex-shrink: 0;">DAY1</div>
+                    <p style="font-size: 1.1em; color: #555; margin: 0;">個人作業環境の構築</p>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <div style="background: #1e3c72; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; flex-shrink: 0;">DAY2</div>
+                    <p style="font-size: 1.1em; color: #555; margin: 0;">自社データの活用</p>
+                </div>
+            </div>
+            
+            <div style="background: rgba(30, 60, 114, 0.05); padding: 30px; border-radius: 10px;">
+                <h3 style="color: #2a5298; font-size: 1.5em; margin-bottom: 20px; text-align: center;">チームでのAI駆動開発</h3>
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <div style="background: #2a5298; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; flex-shrink: 0;">DAY3</div>
+                    <p style="font-size: 1.1em; color: #555; margin: 0;">チーム作業環境の構築</p>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <div style="background: #1e3c72; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; flex-shrink: 0;">DAY4</div>
+                    <p style="font-size: 1.1em; color: #555; margin: 0;">AI駆動開発の加速</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ページ5: 個人向けAI活用基礎 -->
+    <div class="page" style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.5em; text-align: center; margin-bottom: 40px; color: #2a5298;">個人向けAI活用基礎</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1100px; margin: 0 auto;">
+            <div style="background: linear-gradient(to bottom right, rgba(42, 82, 152, 0.05), transparent); padding: 35px; position: relative;">
+                <div style="position: absolute; top: -15px; right: -15px; font-size: 6em; color: #2a5298; opacity: 0.05; font-weight: bold;">DAY1</div>
+                <h3 style="font-size: 1.6em; color: #2a5298; margin-bottom: 20px; position: relative;">DAY1：個人作業環境の構築</h3>
+                <ul style="list-style: none; position: relative;">
+                    <li style="margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        生成AI活用で実現できること
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        生成AIが変える未来
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        生成AI活用事例
+                        <div style="margin-top: 8px; padding-left: 20px; font-size: 0.9em; color: #666; line-height: 1.6;">
+                            資料作成／画像生成／スライド作成／動画生成／音楽生成
+                        </div>
+                    </li>
+                    <li style="padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        個人作業環境（AI搭載IDEおよびLLMチャットツール等）の構築
+                    </li>
+                </ul>
+            </div>
+            
+            <div style="background: linear-gradient(to bottom right, rgba(30, 60, 114, 0.05), transparent); padding: 35px; position: relative;">
+                <div style="position: absolute; top: -15px; right: -15px; font-size: 6em; color: #1e3c72; opacity: 0.05; font-weight: bold;">DAY2</div>
+                <h3 style="font-size: 1.6em; color: #2a5298; margin-bottom: 20px; position: relative;">DAY2：自社データの活用</h3>
+                <ul style="list-style: none; position: relative;">
+                    <li style="margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        生成AI活用事例
+                        <div style="margin-top: 8px; padding-left: 20px; font-size: 0.9em; color: #666; line-height: 1.6;">
+                            データ分析／ダッシュボード開発／自動化／チャットボット開発
+                        </div>
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        自社データの整理と統合
+                    </li>
+                    <li style="padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        自社データを活用したデータ分析と資料作成
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ページ6: チームでのAI駆動開発 -->
+    <div class="page" style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.5em; text-align: center; margin-bottom: 40px; color: #2a5298;">チームでのAI駆動開発</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1100px; margin: 0 auto;">
+            <div style="background: linear-gradient(to bottom right, rgba(42, 82, 152, 0.05), transparent); padding: 35px; position: relative;">
+                <div style="position: absolute; top: -15px; right: -15px; font-size: 6em; color: #2a5298; opacity: 0.05; font-weight: bold;">DAY3</div>
+                <h3 style="font-size: 1.6em; color: #2a5298; margin-bottom: 20px; position: relative;">DAY3：チーム作業環境の構築</h3>
+                <ul style="list-style: none; position: relative;">
+                    <li style="margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        チームでAI活用にレバレッジをかける
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        チームで共有できる生成AIリポジトリの構築
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        ナレッジ共有や情報管理の仕組みを実装
+                    </li>
+                    <li style="padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        チーム全体でAIを活用した共同作業を体験
+                    </li>
+                </ul>
+            </div>
+            
+            <div style="background: linear-gradient(to bottom right, rgba(30, 60, 114, 0.05), transparent); padding: 35px; position: relative;">
+                <div style="position: absolute; top: -15px; right: -15px; font-size: 6em; color: #1e3c72; opacity: 0.05; font-weight: bold;">DAY4</div>
+                <h3 style="font-size: 1.6em; color: #2a5298; margin-bottom: 20px; position: relative;">DAY4：AI駆動開発の加速</h3>
+                <ul style="list-style: none; position: relative;">
+                    <li style="margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        AIエージェントの理解
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        業務設計と仕様の定義
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        業務フローのエージェント化
+                    </li>
+                    <li style="padding-left: 25px; position: relative; font-size: 1.05em;">
+                        <span style="position: absolute; left: 0; color: #2a5298; font-weight: bold;">▸</span>
+                        AIエージェントのプロトタイピング
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ページ7: 実践フォロー研修 -->
+    <div class="page" style="display: flex; align-items: center; justify-content: center; position: relative;">
+        <div style="position: absolute; top: 40px; left: 40px; width: 200px; height: 200px; border: 8px solid #2a5298; opacity: 0.05; border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: 40px; right: 40px; width: 150px; height: 150px; border: 6px solid #1e3c72; opacity: 0.05; border-radius: 50%;"></div>
+        <div style="text-align: center; max-width: 900px; position: relative; z-index: 1;">
+            <h2 style="font-size: 3em; color: #2a5298; margin-bottom: 30px;">実践フォロー研修<br><span style="font-size: 0.6em; font-weight: normal;">（1時間 × 12回）</span></h2>
+            <div style="width: 80px; height: 4px; background: linear-gradient(90deg, #2a5298, #1e3c72); margin: 0 auto 30px;"></div>
+            <p style="font-size: 1.3em; line-height: 1.8; color: #555;">
+                AIリブート研修で学んだスキルと整えた環境を使って、実際に業務に取り組みながら、さらなるAI活用スキルの向上を目指すサポートプログラム。<br><br>
+                実践フォロー研修を通じて、受講者の進捗確認しながら、生成AI活用に関する課題解決を行い、有用な応用事例や最新事例の共有を行い、社内で生成AI活用を業務に使うことが当たり前のカルチャーを根付かせることを目指します。
+            </p>
+        </div>
+    </div>
+
+    <!-- ページ8: スケジュール -->
+    <div class="page" style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.8em; text-align: center; margin-bottom: 50px; color: #2a5298;">プログラムの実施期間とスケジュール</h2>
+        
+        <div style="background: linear-gradient(135deg, rgba(42, 82, 152, 0.05), rgba(30, 60, 114, 0.05)); padding: 50px; border-radius: 20px; max-width: 800px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h3 style="color: #2a5298; font-size: 1.5em; margin-bottom: 15px;">プログラム全体の推奨期間</h3>
+                <p style="font-size: 2.5em; font-weight: bold; color: #2a5298;">6ヶ月</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div style="text-align: center;">
+                    <h4 style="color: #2a5298; font-size: 1.3em; margin-bottom: 10px;">AIリブート研修</h4>
+                    <p style="font-size: 1.1em; color: #555;">プログラム連続2日間×2セット<br><span style="font-size: 0.9em;">（企業の事情により複数回の分割は可能）</span></p>
+                </div>
+                <div style="text-align: center;">
+                    <h4 style="color: #2a5298; font-size: 1.3em; margin-bottom: 10px;">実践フォロー期間</h4>
+                    <p style="font-size: 1.1em; color: #555;">AIリブート研修後から6ヶ月を目安<br><span style="font-size: 0.9em;">（週1回頻度で実施を推奨）</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ページ9: 料金 -->
+    <div class="page" style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.8em; text-align: center; margin-bottom: 50px; color: #2a5298;">プログラム料金</h2>
+        
+        <div style="max-width: 1000px; margin: 0 auto; width: 100%;">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <div style="background: white; border: 2px solid #ddd; overflow: hidden; position: relative;">
+                    <div style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 20px; text-align: center;">
+                        <h3 style="font-size: 2em; margin: 0;">プランA</h3>
+                    </div>
+                    <div style="padding: 25px;">
+                        <p style="font-size: 1em; color: #555; margin-bottom: 25px; min-height: 80px;">AIリブート研修12時間<br>（DAY1：6時間　DAY2：6時間）</p>
+                        <div style="text-align: center;">
+                            <p style="font-size: 0.9em; color: #888; margin-bottom: 5px;">税抜</p>
+                            <p style="font-size: 1.6em; font-weight: bold; color: #2a5298;">1,400,000円</p>
+                            <p style="font-size: 0.9em; color: #888; margin-top: 10px;">税込 1,540,000円</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: white; border: 2px solid #ddd; overflow: hidden; position: relative;">
+                    <div style="background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 20px; text-align: center;">
+                        <h3 style="font-size: 2em; margin: 0;">プランB</h3>
+                    </div>
+                    <div style="padding: 25px;">
+                        <p style="font-size: 1em; color: #555; margin-bottom: 25px; min-height: 80px;">AIリブート研修12時間<br>＋ フォロー研修<br>（1時間 × 6回 + 振り返り）</p>
+                        <div style="text-align: center;">
+                            <p style="font-size: 0.9em; color: #888; margin-bottom: 5px;">税抜</p>
+                            <p style="font-size: 1.6em; font-weight: bold; color: #2a5298;">2,100,000円</p>
+                            <p style="font-size: 0.9em; color: #888; margin-top: 10px;">税込 2,310,000円</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: white; border: 2px solid #2a5298; overflow: hidden; position: relative;">
+                    <div style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 20px; text-align: center;">
+                        <h3 style="font-size: 2em; margin: 0;">プランC</h3>
+                    </div>
+                    <div style="padding: 25px;">
+                        <p style="font-size: 0.95em; color: #555; margin-bottom: 25px; min-height: 80px;">AIリブート研修アドバンス24時間<br>（DAY1〜4：各6時間）<br>＋ フォロー研修（1時間 × 12回 + 振り返り）</p>
+                        <div style="text-align: center;">
+                            <p style="font-size: 0.9em; color: #888; margin-bottom: 5px;">税抜</p>
+                            <p style="font-size: 1.6em; font-weight: bold; color: #2a5298;">4,200,000円</p>
+                            <p style="font-size: 0.9em; color: #888; margin-top: 10px;">税込 4,620,000円</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ページ10: 講師紹介 -->
+    <div class="page" style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.8em; text-align: center; margin-bottom: 30px; color: #2a5298;">講師・メンター</h2>
+        <p style="font-size: 1.3em; text-align: center; margin-bottom: 40px; color: #555;">実践経験豊富な専門家が、貴社のAI変革を支援します</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1100px; margin: 0 auto;">
+            <div style="background: white; border: 1px solid #ddd; padding: 25px; text-align: center; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #2a5298, #1e3c72);"></div>
+                <img src="../../public/images/naruse.jpg" alt="成瀬 拓也" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
+                <h3 style="color: #2a5298; font-size: 1.4em; margin-bottom: 8px;">成瀬 拓也</h3>
+                <p style="color: #888; font-size: 0.9em; margin-bottom: 10px;">株式会社ウィルフォワード代表</p>
+                <p style="font-size: 0.9em; color: #555; line-height: 1.5;">経営・AX・人材開発の専門家として多くの企業支援実績を持つ。AI活用の戦略設計に精通。</p>
+            </div>
+            
+            <div style="background: white; border: 1px solid #ddd; padding: 25px; text-align: center; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #1e3c72, #2a5298);"></div>
+                <img src="../../public/images/sakamoto.jpg" alt="坂本 拓磨" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
+                <h3 style="color: #2a5298; font-size: 1.4em; margin-bottom: 8px;">坂本 拓磨</h3>
+                <p style="color: #888; font-size: 0.9em; margin-bottom: 10px;">生成AI活用ディレクター</p>
+                <p style="font-size: 0.9em; color: #555; line-height: 1.5;">Web/映像領域でのAI実装経験が豊富。一般社団法人生成AI活用普及協会「生成AIパスポート」保有。</p>
+            </div>
+            
+            <div style="background: white; border: 1px solid #ddd; padding: 25px; text-align: center; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #2a5298, #1e3c72);"></div>
+                <img src="../../public/images/aoki.jpg" alt="青木 玲仁" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
+                <h3 style="color: #2a5298; font-size: 1.4em; margin-bottom: 8px;">青木 玲仁</h3>
+                <p style="color: #888; font-size: 0.9em; margin-bottom: 10px;">AI業務改善コンサルタント</p>
+                <p style="font-size: 0.9em; color: #555; line-height: 1.5;">人事・業務プロセス改善におけるAI活用の実践者。一般社団法人生成AI活用普及協会「生成AIパスポート」保有。</p>
+            </div>
+        </div>
+        
+        <p style="font-size: 1.1em; text-align: center; margin-top: 30px; color: #666;">他、生成AI活用に関して専門性をもった講師・メンターがサポートします</p>
+    </div>
+
+    <!-- ページ11: CTA -->
+    <div class="page" style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <div style="position: relative;">
+            <div style="position: absolute; top: -50px; left: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%; filter: blur(50px);"></div>
+            <h2 style="font-size: 3.5em; margin-bottom: 50px; position: relative;">AI変革を始めましょう</h2>
+            <p style="font-size: 1.6em; line-height: 2; max-width: 900px; margin: 0 auto; position: relative;">
+                貴社の課題を、ぜひ私たちにお聞かせください。<br>
+                AI時代の波を乗りこなし、貴社がさらなる高みへと飛躍するための<br>
+                最適なAI活用の道筋を、経験豊富な専門家チームが、<br>
+                貴社と共に徹底的に見つけ出し、実現に向けて伴走いたします。<br><br>
+                <span style="font-size: 1.2em; font-weight: 700;">未来を共に創りましょう。</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

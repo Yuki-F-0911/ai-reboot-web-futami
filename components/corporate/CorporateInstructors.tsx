@@ -44,7 +44,7 @@ export const CorporateInstructors = () => {
           className="text-center max-w-4xl mx-auto mb-16"
         >
           <h2 className="text-h1 md:text-5xl font-bold mb-8 text-depth-800">
-            講師陣
+            講師・メンター
           </h2>
           <p className="text-xl text-depth-700">
             実践経験豊富な専門家が、貴社のAI変革を支援します

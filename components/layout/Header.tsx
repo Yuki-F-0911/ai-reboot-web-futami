@@ -25,9 +25,7 @@ export const Header: React.FC = () => {
   ];
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-gray-900/95 backdrop-blur-md' : 'bg-transparent'
-    }`}>
+    <header className="fixed top-0 w-full z-50 bg-gray-900/95 backdrop-blur-md">
       <nav className="container-section py-4">
         <div className="flex items-center justify-between">
           {/* ロゴ */}
@@ -59,7 +57,7 @@ export const Header: React.FC = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-light tracking-wide"
+                className="text-gray-100 hover:text-white transition-colors duration-300 text-sm font-medium tracking-wide"
               >
                 {item.label}
               </Link>
@@ -74,9 +72,9 @@ export const Header: React.FC = () => {
             aria-label="メニュー"
           >
             <div className="w-6 h-5 relative">
-              <span className={`absolute w-full h-0.5 bg-gray-300 transition-all duration-300 ${isMenuOpen ? 'rotate-45 top-2' : 'top-0'}`} />
-              <span className={`absolute w-full h-0.5 bg-gray-300 top-2 transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
-              <span className={`absolute w-full h-0.5 bg-gray-300 transition-all duration-300 ${isMenuOpen ? '-rotate-45 top-2' : 'top-4'}`} />
+              <span className={`absolute w-full h-0.5 bg-gray-100 transition-all duration-300 ${isMenuOpen ? 'rotate-45 top-2' : 'top-0'}`} />
+              <span className={`absolute w-full h-0.5 bg-gray-100 top-2 transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
+              <span className={`absolute w-full h-0.5 bg-gray-100 transition-all duration-300 ${isMenuOpen ? '-rotate-45 top-2' : 'top-4'}`} />
             </div>
           </button>
         </div>
@@ -88,7 +86,7 @@ export const Header: React.FC = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-300 hover:text-white transition-colors duration-300"
+                className="text-gray-100 hover:text-white transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

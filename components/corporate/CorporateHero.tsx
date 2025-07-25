@@ -35,7 +35,7 @@ export const CorporateHero = () => {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
           >
-            <span className="block text-depth-800">法人研修</span>
+            <span className="block text-depth-800">生成AI活用力研修</span>
             <span className="block bg-harmony-gradient bg-clip-text text-transparent">
               「AIリブート」
             </span>
@@ -48,21 +48,22 @@ export const CorporateHero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-depth-700 mb-8 leading-relaxed"
           >
-            座学＋実践＋伴走型OJTの三段構成で<br />
+            座学＋実践＋伴走型開発支援の三段構成で<br />
             企業と個人をAIによってアップデート
           </motion.p>
           
-          {/* リスキリング補助金バッジ */}
+          {/* 強調メッセージ */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-harmony to-will-secondary text-white px-8 py-4 rounded-full mb-10 shadow-elevated"
+            className="max-w-3xl mx-auto mb-10"
           >
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            <span className="font-bold text-lg">経済産業省リスキリング補助金対象講座</span>
+            <p className="text-lg md:text-xl text-depth-700 font-bold bg-harmony-lighter p-6 rounded-2xl">
+              AIの急速な進化は既存の常識を大きく変え、<br />
+              企業がAIを活用せずに成長を続けることは<br />
+              困難な時代です。
+            </p>
           </motion.div>
           
           {/* CTA ボタン */}

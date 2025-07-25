@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const Footer: React.FC = () => {
   const [currentYear, setCurrentYear] = useState(2025);
@@ -34,9 +35,25 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* ブランド情報 */}
           <div className="col-span-1">
-            <h3 className="text-2xl font-bold mb-4">
-              <span className="gradient-text">AI REBOOT</span>
-            </h3>
+            <Link href="/" className="relative group flex items-center gap-3 mb-4">
+              {/* シンボルマーク */}
+              <div className="relative w-10 h-10">
+                <Image
+                  src="/images/logo.png"
+                  alt="AI REBOOT"
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
+              </div>
+              {/* テキスト部分 */}
+              <span className="text-2xl font-light tracking-wider text-white">
+                AI
+                <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400 ml-2">
+                  REBOOT
+                </span>
+              </span>
+            </Link>
             <p className="text-ai-light-gray text-sm">
               AIの力で個人と企業の可能性を解き放ち、ウェルビーイングな未来を創造する
             </p>

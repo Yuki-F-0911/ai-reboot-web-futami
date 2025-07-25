@@ -38,12 +38,15 @@ export const CorporateCTA = () => {
           className="text-center max-w-4xl mx-auto"
         >
           <h2 className="text-h1 md:text-5xl lg:text-6xl font-bold mb-8 text-depth-800">
-            今すぐAI変革を始めましょう
+            AI変革を始めましょう
           </h2>
           
           <p className="text-xl md:text-2xl text-depth-700 mb-12 leading-relaxed">
-            貴社の課題をお聞かせください。<br />
-            最適なAI活用の道筋を、一緒に見つけます。
+            貴社の課題を、ぜひ私たちにお聞かせください。<br /><br />
+            AI時代の波を乗りこなし、貴社がさらなる高みへと飛躍するための<br />
+            最適なAI活用の道筋を、経験豊富な専門家チームが、<br />
+            貴社と共に徹底的に見つけ出し、実現に向けて伴走いたします。<br /><br />
+            未来を共に創りましょう。
           </p>
           
           {/* CTAカード */}
@@ -109,18 +112,6 @@ export const CorporateCTA = () => {
             </motion.div>
           </div>
           
-          {/* 補助金特典 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-12 inline-flex items-center gap-2 bg-gradient-to-r from-harmony to-will-secondary text-white px-6 py-3 rounded-full shadow-glow"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-            </svg>
-            <span className="font-bold">今なら補助金申請サポート無料！</span>
-          </motion.div>
         </motion.div>
       </div>
     </section>

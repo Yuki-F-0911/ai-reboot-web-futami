@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { CorporateHero } from "@/components/corporate/CorporateHero";
 import { CorporateProblem } from "@/components/corporate/CorporateProblem";
 import { CorporateProgram } from "@/components/corporate/CorporateProgram";
-import { CorporatePricing } from "@/components/corporate/CorporatePricing";
+import { CorporateSchedule } from "@/components/corporate/CorporateSchedule";
 import { CorporateInstructors } from "@/components/corporate/CorporateInstructors";
 import { CorporateCTA } from "@/components/corporate/CorporateCTA";
 
@@ -17,7 +17,7 @@ export default function CorporatePage() {
       <CorporateHero />
       <CorporateProblem />
       <CorporateProgram />
-      <CorporatePricing />
+      <CorporateSchedule />
       <CorporateInstructors />
       <CorporateCTA />
     </div>

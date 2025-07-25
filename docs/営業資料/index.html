@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>生成AI活用力研修「AIリブート」</title>
+    <title>生成AI活用力研修「AIリブート」企画書</title>
     <style>
         * {
             margin: 0;
@@ -18,37 +18,18 @@
             background-color: #f5f5f5;
         }
 
-        /* A4横向きページ設定 */
-        @page {
-            size: A4 landscape;
-            margin: 0;
-        }
-
+        /* A4ページ設定 */
         .page {
-            width: 297mm;
-            height: 210mm;
-            padding: 15mm 20mm;
-            margin: 0 auto 20px;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 25mm 20mm;
+            margin: 0 auto;
             background: white;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
             position: relative;
             page-break-after: always;
-            overflow: hidden;
-        }
-
-        /* 2カラムレイアウト用 */
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
-        }
-
-        .column {
-            display: flex;
-            flex-direction: column;
         }
 
         /* 表紙ページ */
@@ -88,7 +69,7 @@
         }
 
         .title-page .subtitle {
-            font-size: 1.3em;
+            font-size: 1.2em;
             line-height: 1.8;
             margin-bottom: 50px;
             color: #555;
@@ -144,6 +125,7 @@
         .content-page p {
             margin-bottom: 20px;
             line-height: 1.8;
+            text-align: left;
         }
 
         .content-page .highlight {
@@ -198,29 +180,33 @@
         }
 
         /* 料金ページ */
-        .pricing-breakdown {
-            background: #f8f9fa;
-            padding: 40px;
-            border-radius: 10px;
+        .pricing-table {
             margin-top: 30px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .pricing-breakdown ul {
-            margin-bottom: 30px;
+        .pricing-row {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1.5fr 1.5fr;
+            background: #f8f9fa;
+            border-bottom: 1px solid #ddd;
         }
 
-        .pricing-breakdown li {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
-
-        .total-price {
-            font-size: 1.5em;
+        .pricing-row.header {
+            background: #2a5298;
+            color: white;
             font-weight: bold;
-            color: #2a5298;
-            text-align: center;
-            padding-top: 20px;
-            border-top: 2px solid #2a5298;
+        }
+
+        .pricing-row > div {
+            padding: 15px 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .pricing-row > div:last-child {
+            border-right: none;
         }
 
         /* 講師ページ */
@@ -330,12 +316,11 @@
     <div class="page title-page">
         <h1>生成AI活用力研修「AIリブート」<br><span style="font-size: 0.6em;">（通称：AIリブート）</span></h1>
         <p class="subtitle">
-            座学＋実践＋伴走型開発支援の三段構成で<br>
-            企業と個人をAIによってアップデート
+            生成AIツールの使い方を学ぶだけではなく、生成AIツールを使いこなすためのマインドセットとスキルを身につけることで、研修後も持続的に生成AI活用で企業と個人をアップデートしつづけるためのプログラム。
         </p>
         
         <h2>企業が直面するAI時代の課題</h2>
-        <p style="text-align: left;">AIの急速な進化は既存の常識を大きく変え、<br>
+        <p>AIの急速な進化は既存の常識を大きく変え、<br>
         企業がAIを活用せずに成長を続けることは困難な時代です。</p>
         
         <ul class="challenges">
@@ -359,16 +344,15 @@
         <h2>プログラムの内容と特徴</h2>
         
         <div class="highlight">
-            <strong>座学＋実践＋伴走型開発支援の三段構成</strong><br><br>
-            <span style="text-align: left; display: block;">生成AIの活用環境を整え、個人・チームレベルで業務に組み込み、<br>
-            メンターが開発・実装まで徹底伴走します</span>
+            <strong>インプットとアウトプットの実践型研修プログラム</strong><br><br>
+            <span style="text-align: left; display: block;">生成AI活用を学ぶだけではなく、生成AIを活用する環境を整えて、個人だけではなく、チームとして生成AI活用を業務に組み込みます。</span>
         </div>
     </div>
 
-    <!-- ページ3: 初回集中研修 -->
+    <!-- ページ3: AIリブート研修 -->
     <div class="page content-page">
-        <h2>初回集中研修（12時間）</h2>
-        <p style="text-align: left;">AIの活用方法や編集スキルの習得を目的とした対面での集中研修。</p>
+        <h2>AIリブート研修（12時間）</h2>
+        <p>AIの活用方法や編集スキルの習得を目的とした対面での集中研修。</p>
         
         <h3>DAY1：個人作業環境の構築</h3>
         <ul>
@@ -376,7 +360,8 @@
             <li>生成AIが変える未来</li>
             <li>生成AI活用事例
                 <ul>
-                    <li>データ分析／資料作成／画像生成／動画生成／音楽生成／チャットボット開発 等</li>
+                    <li>資料作成／画像生成／スライド作成／動画生成／音楽生成／<br>
+                    データ分析／ダッシュボード開発／自動化／チャットボット開発 等</li>
                 </ul>
             </li>
             <li>個人作業環境（AI搭載IDEおよびLLMチャットツール等）の構築</li>
@@ -392,65 +377,57 @@
         </ul>
     </div>
 
-    <!-- ページ4: オンライン講座と伴走支援 -->
+    <!-- ページ4: 実践フォロー研修 -->
     <div class="page content-page">
-        <h2>オンライン講座学習（10時間超）</h2>
-        <ul>
-            <li>オンラインコンテンツで学習（以下、例）
-                <ol style="margin-top: 10px; padding-left: 20px;">
-                    <li>生成AIの仕組み</li>
-                    <li>生成AI関連言語の理解</li>
-                    <li>AI活用の倫理</li>
-                    <li>生成AIパスポート対策</li>
-                    <li>生成AI活用実習（データ分析）</li>
-                    <li>生成AI活用実習（ダッシュボード生成）</li>
-                    <li>生成AI活用実習（資料作成）</li>
-                    <li>生成AI活用実習（画像生成）</li>
-                    <li>生成AI活用実習（動画生成）</li>
-                    <li>生成AI活用実習（音楽生成）</li>
-                    <li>自動化・API連携</li>
-                </ol>
-            </li>
-            <li>受講者が各自で学習を進める形式（各自自身の業務と関連性の高い内容の講座を選択）</li>
-            <li>各講義ごとに学習評価テストの実施</li>
-        </ul>
+        <h2>実践フォロー研修（1時間 × 6回）</h2>
+        <p>AIリブート研修で学んだスキルと整えた環境を使って、実際に業務に取り組みながら、さらなるAI活用スキルの向上を目指すサポートプログラム。<br>
+        実践フォロー研修を通じて、受講者の進捗確認・課題解決・応用事例の共有を行い、生成AI活用を業務に根付かせることを目指します。</p>
     </div>
 
-    <!-- ページ5: 伴走型開発支援 -->
-    <div class="page content-page">
-        <h2>伴走型開発支援</h2>
-        <p style="text-align: left;">初回研修で得たスキルを現場で実践していくにあたり、専属メンターが伴走し課題解決を徹底サポート<br>
-        （10時間 / 人）</p>
-    </div>
-
-    <!-- ページ6: スケジュール -->
+    <!-- ページ5: スケジュール -->
     <div class="page content-page">
         <h2>プログラムの実施期間とスケジュール</h2>
         
         <div class="schedule-content">
-            <p><strong>プログラム全体期間：</strong>6ヶ月間</p>
-            <p><strong>・初回研修：</strong>プログラム1〜2日目の2日間で開催</p>
-            <p><strong>・実践期間：</strong>初回研修後から6ヶ月間（オンライン講座学習の開催および伴走型開発支援を実施）</p>
-            <p><strong>・最終成果発表会（3時間）：</strong>プログラム開始6ヶ月後を目処に開催</p>
+            <p><strong>プログラム全体の推奨期間：</strong>3ヶ月以内</p>
+            <p><strong>- AIリブート研修：</strong>プログラム連続2日間（企業の事情により複数回の分割は可能）</p>
+            <p><strong>- 実践フォロー期間：</strong>AIリブート研修後から3ヶ月以内を目安（週1回頻度で実施を推奨）</p>
         </div>
     </div>
 
-    <!-- ページ7: 料金 -->
+    <!-- ページ6: 料金 -->
     <div class="page content-page">
         <h2>プログラム料金</h2>
         
-        <div class="pricing-breakdown">
-            <ul>
-                <li>AIリブート研修（初回研修、オンライン講座学習、最終成果発表会）：1,400,000円</li>
-                <li>伴走型開発支援：200,000円／人 × 7人 = 1,400,000円</li>
-            </ul>
-            <div class="total-price">
-                合計：2,800,000円（税込 3,080,000円）
+        <div class="pricing-table">
+            <div class="pricing-row header">
+                <div>プラン</div>
+                <div>内容</div>
+                <div>料金（税抜）</div>
+                <div>料金（税込）</div>
+            </div>
+            <div class="pricing-row">
+                <div>プランA</div>
+                <div>AIリブート研修12時間（DAY1：6時間　DAY2：6時間）</div>
+                <div>1,400,000円</div>
+                <div>1,540,000円</div>
+            </div>
+            <div class="pricing-row">
+                <div>プランB</div>
+                <div>AIリブート研修12時間（DAY1：6時間　DAY2：6時間）<br>＋ フォロー研修（1時間 × 6回 + 振り返り）</div>
+                <div>2,100,000円</div>
+                <div>2,310,000円</div>
+            </div>
+            <div class="pricing-row">
+                <div>プランC</div>
+                <div>AIリブート研修12時間（DAY1：6時間　DAY2：6時間）<br>＋ フォロー研修（1時間 × 6回 + 振り返り）<br>＋ AIリブートアドバンス研修12時間（DAY3：6時間　DAY4：6時間）</div>
+                <div>3,500,000円</div>
+                <div>3,850,000円</div>
             </div>
         </div>
     </div>
 
-    <!-- ページ8: 講師紹介 -->
+    <!-- ページ7: 講師紹介 -->
     <div class="page content-page">
         <h2>講師・メンター</h2>
         <p style="margin-bottom: 20px;">実践経験豊富な専門家が、貴社のAI変革を支援します</p>
@@ -483,7 +460,7 @@
         </div>
     </div>
 
-    <!-- ページ9: CTA -->
+    <!-- ページ8: CTA -->
     <div class="page cta-page">
         <h2>AI変革を始めましょう</h2>
         <p>
