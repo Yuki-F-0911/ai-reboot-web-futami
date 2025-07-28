@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ScrollAnimationWrapper } from "./ScrollAnimationWrapper";
 
 export const AcademyProgram = () => {
   const phases = [
@@ -66,12 +67,10 @@ export const AcademyProgram = () => {
           
           <div className="space-y-8">
             {phases.map((phase, index) => (
-              <motion.div
+              <ScrollAnimationWrapper
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
+                animation="fadeUp"
+                delay={index * 0.2}
                 className="relative"
               >
                 {/* フェーズカード */}
@@ -132,7 +131,7 @@ export const AcademyProgram = () => {
                     />
                   </div>
                 )}
-              </motion.div>
+              </ScrollAnimationWrapper>
             ))}
           </div>
         </motion.div>

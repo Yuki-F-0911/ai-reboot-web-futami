@@ -3,12 +3,15 @@ import { AcademyHero } from "@/components/academy/AcademyHero";
 import { AcademyOverview } from "@/components/academy/AcademyOverview";
 import { AcademyPurpose } from "@/components/academy/AcademyPurpose";
 import { AcademyProgram } from "@/components/academy/AcademyProgram";
+import { JourneyVisualization } from "@/components/academy/JourneyVisualization";
 import { AcademyFeatures } from "@/components/academy/AcademyFeatures";
 import { AcademyTarget } from "@/components/academy/AcademyTarget";
 import { AcademyInstructors } from "@/components/academy/AcademyInstructors";
 import { AcademyPricing } from "@/components/academy/AcademyPricing";
+import { ApplicationForm } from "@/components/academy/ApplicationForm";
 import { AcademyStory } from "@/components/academy/AcademyStory";
 import { AcademyCTA } from "@/components/academy/AcademyCTA";
+import { SmartCTA } from "@/components/academy/SmartCTA";
 
 export const metadata: Metadata = {
   title: "AIリブートアカデミー | AI REBOOT - ウィルフォワード",
@@ -22,12 +25,15 @@ export default function AcademyPage() {
       <AcademyOverview />
       <AcademyPurpose />
       <AcademyProgram />
+      <JourneyVisualization />
       <AcademyFeatures />
       <AcademyTarget />
       <AcademyInstructors />
       <AcademyPricing />
+      <ApplicationForm />
       <AcademyStory />
       <AcademyCTA />
+      <SmartCTA />
     </div>
   );
 }
