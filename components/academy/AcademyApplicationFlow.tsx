@@ -77,14 +77,15 @@ export const AcademyApplicationFlow = () => {
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
-          {/* Timeline connector */}
-          <div className="hidden md:block absolute left-0 right-0 top-1/2 transform -translate-y-1/2">
-            <div className="flex justify-center">
-              <div className="w-2/3 h-1 bg-gradient-to-r from-will-primary via-will-secondary to-wisdom rounded-full" />
+          <div className="relative">
+            {/* Timeline connector */}
+            <div className="hidden md:block absolute left-0 right-0 top-1/2 transform -translate-y-1/2">
+              <div className="flex justify-center">
+                <div className="w-2/3 h-1 bg-gradient-to-r from-will-primary via-will-secondary to-wisdom rounded-full" />
+              </div>
             </div>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8 relative">
+            <div className="grid md:grid-cols-3 gap-8 relative">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
@@ -131,6 +132,7 @@ export const AcademyApplicationFlow = () => {
                 </div>
               </motion.div>
             ))}
+            </div>
           </div>
         </div>
 

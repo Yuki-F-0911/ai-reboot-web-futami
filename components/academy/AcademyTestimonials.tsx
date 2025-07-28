@@ -64,7 +64,10 @@ export const AcademyTestimonials = () => {
               className={`bg-gradient-to-br ${testimonial.bgColor} rounded-3xl p-8 relative overflow-hidden`}
             >
               {/* Quote icon */}
-              <div className={`absolute top-6 right-6 text-${testimonial.accentColor} opacity-20`}>
+              <div className={`absolute top-6 right-6 opacity-20 ${
+                testimonial.accentColor === 'will-primary' ? 'text-will-primary' : 
+                testimonial.accentColor === 'wisdom' ? 'text-wisdom' : 'text-growth'
+              }`}>
                 <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
                 </svg>
@@ -79,7 +82,10 @@ export const AcademyTestimonials = () => {
                   <div className="text-sm text-depth-600 mb-2">
                     {testimonial.age}・{testimonial.previousJob}
                   </div>
-                  <div className={`text-sm font-semibold text-${testimonial.accentColor}`}>
+                  <div className={`text-sm font-semibold ${
+                    testimonial.accentColor === 'will-primary' ? 'text-will-primary' : 
+                    testimonial.accentColor === 'wisdom' ? 'text-wisdom' : 'text-growth'
+                  }`}>
                     {testimonial.currentJob}
                   </div>
                 </div>
@@ -90,7 +96,10 @@ export const AcademyTestimonials = () => {
               </div>
 
               {/* Accent line */}
-              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-${testimonial.accentColor}`} />
+              <div className={`absolute bottom-0 left-0 right-0 h-1 ${
+                testimonial.accentColor === 'will-primary' ? 'bg-will-primary' : 
+                testimonial.accentColor === 'wisdom' ? 'bg-wisdom' : 'bg-growth'
+              }`} />
             </motion.div>
           ))}
         </div>
