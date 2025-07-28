@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI REBOOT ACADEMY - プレゼンテーション</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* AIリブート ブランドカラー */
+            --ai-pink: #FF4B8B;
+            --ai-purple: #9747FF;
+            --ai-blue: #3B82F6;
+            --ai-dark-gray: #1F2937;
+            --ai-medium-gray: #6B7280;
+            --ai-light-gray: #F3F4F6;
+            --ai-light-pink: #FFE4ED;
+            --ai-light-purple: #E9D5FF;
+            --ai-light-blue: #DBEAFE;
+            
+            /* スペーシング */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* フォントサイズ */
+            --font-hero: clamp(2.5rem, 5vw, 3.5rem);
+            --font-h1: clamp(2rem, 4vw, 2.5rem);
+            --font-h2: clamp(1.5rem, 3vw, 2rem);
+            --font-h3: clamp(1.25rem, 2.5vw, 1.5rem);
+            --font-body: clamp(1rem, 1.5vw, 1.25rem);
+            --font-small: clamp(0.875rem, 1.2vw, 1rem);
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+            line-height: 1.6;
+            color: var(--ai-dark-gray);
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        /* スライドコンテナ */
+        .presentation-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* スライド基本スタイル */
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: var(--space-2xl);
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+
+        /* グラデーション背景 */
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--ai-pink) 0%, var(--ai-purple) 50%, var(--ai-blue) 100%);
+            color: white;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--ai-pink) 0%, var(--ai-purple) 50%, var(--ai-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* タイポグラフィ */
+        h1 {
+            font-size: var(--font-hero);
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: var(--font-h1);
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-size: var(--font-h2);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            line-height: 1.4;
+        }
+
+        p, li {
+            font-size: var(--font-body);
+            line-height: 1.8;
+            margin-bottom: var(--space-sm);
+        }
+
+        /* リスト */
+        ul, ol {
+            margin-left: var(--space-lg);
+            margin-bottom: var(--space-md);
+        }
+
+        li {
+            margin-bottom: var(--space-xs);
+        }
+
+        /* 引用 */
+        blockquote {
+            background: var(--ai-light-purple);
+            border-left: 4px solid var(--ai-purple);
+            padding: var(--space-md);
+            margin: var(--space-md) 0;
+            font-style: italic;
+            border-radius: 8px;
+        }
+
+        /* ボタン */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--ai-pink) 0%, var(--ai-purple) 50%, var(--ai-blue) 100%);
+            color: white;
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 12px;
+            border: none;
+            font-size: var(--font-body);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: var(--space-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(151, 71, 255, 0.3);
+        }
+
+        /* 特別なレイアウト */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: var(--space-lg);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(151, 71, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(151, 71, 255, 0.15);
+        }
+
+        /* タイトルスライド専用 */
+        .title-slide {
+            background: linear-gradient(135deg, var(--ai-pink) 0%, var(--ai-purple) 50%, var(--ai-blue) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: var(--font-h3);
+            font-weight: 300;
+            margin-top: var(--space-md);
+            opacity: 0.9;
+        }
+
+        /* ナビゲーション */
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: var(--space-sm);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn {
+            background: var(--ai-purple);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--ai-pink);
+            transform: scale(1.05);
+        }
+
+        .nav-btn:disabled {
+            background: var(--ai-medium-gray);
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        .slide-indicator {
+            color: var(--ai-dark-gray);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 0 var(--space-sm);
+            display: flex;
+            align-items: center;
+        }
+
+        /* プリント対応 */
+        @media print {
+            body {
+                overflow: visible;
+            }
+
+            .presentation-container {
+                position: static;
+                height: auto;
+            }
+
+            .slide {
+                position: static;
+                opacity: 1;
+                transform: none;
+                height: 100vh;
+                page-break-after: always;
+                page-break-inside: avoid;
+                margin: 0;
+                padding: 40px;
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+        }
+
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            .slide {
+                padding: var(--space-md);
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .navigation {
+                bottom: 10px;
+                padding: var(--space-xs);
+            }
+
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* カスタムレイアウト */
+        .centered-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .left-aligned-content {
+            max-width: 900px;
+            text-align: left;
+        }
+
+        .roadmap-item {
+            background: var(--ai-light-blue);
+            padding: var(--space-md);
+            border-radius: 12px;
+            margin-bottom: var(--space-sm);
+            border-left: 4px solid var(--ai-blue);
+        }
+
+        .testimonial {
+            background: var(--ai-light-pink);
+            padding: var(--space-md);
+            border-radius: 12px;
+            margin-bottom: var(--space-sm);
+            font-style: italic;
+        }
+
+        .highlight {
+            color: var(--ai-purple);
+            font-weight: 600;
+        }
+
+        /* アニメーション */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- スライド1: タイトル -->
+        <div class="slide active title-slide">
+            <div class="centered-content animate-in">
+                <h1>AI REBOOT ACADEMY</h1>
+                <p class="subtitle">生成AI時代に「自分の意志(Will)」でキャリアを再起動（リブート）する</p>
+            </div>
+        </div>
+
+        <!-- スライド2: 問題提起 -->
+        <div class="slide">
+            <div class="centered-content">
+                <h2 class="gradient-text">【問題提起】あなたは、時代の"ど真ん中"にいる</h2>
+                <p>生成AIの登場で、世界のルールが根底から変わろうとしています。かつて「安定」と言われたホワイトカラーの仕事も、AIと共に働くことが当たり前の世界へと急速にシフトしています。</p>
+                <blockquote>
+                    <p>「これまでの経験則が、もう通用しないかもしれない」</p>
+                    <p>「この変化のスピードに、正直ついていけるか不安だ」</p>
+                </blockquote>
+                <p>そんな漠然とした不安は、決してあなただけが感じているものではありません。私たちは今、誰もが先の見えない「スーパーVUCA時代」の"ど真ん中"に立っているのです。</p>
+            </div>
+        </div>
+
+        <!-- スライド3: 共感 -->
+        <div class="slide">
+            <div class="centered-content">
+                <h2 class="gradient-text">【共感】その"モヤモヤ"は、成長のサインかもしれない</h2>
+                <ul style="text-align: left; display: inline-block;">
+                    <li>「本当はもっとやれるはずなのに、なぜか燻っている」</li>
+                    <li>「今の会社や学歴が、自分の限界だとは到底思えない」</li>
+                    <li>「でも、一人では何から手をつけていいか分からない…」</li>
+                </ul>
+                <p>もし、あなたが心のどこかでそう感じているなら、その"モヤモヤ"は停滞のサインではありません。</p>
+                <p>それは、あなたが現状に満足せず、より良い未来を求める強い意志を持っている証拠。</p>
+                <p><strong class="highlight">あなたの人生が、次のステージへ向かうための「成長のサイン」です。</strong></p>
+            </div>
+        </div>
+
+        <!-- スライド4: 解決策 -->
+        <div class="slide">
+            <div class="centered-content">
+                <h2 class="gradient-text">【解決策】"スキル"ではなく"OS"を入れ替えよう</h2>
+                <p>私たちが提供するのは、明日には陳腐化するかもしれない小手先のAI「スキル」ではありません。</p>
+                <p>未知の課題に直面したとき、自ら学び、深く考え、AIを最強の相棒として乗り越えていく力。</p>
+                <p>どんな環境の変化にも適応できる、あなただけの<strong class="highlight">「思考OS」</strong>をインストールする場所。</p>
+                <p>それが、私たちAIリブートアカデミーです。</p>
+            </div>
+        </div>
+
+        <!-- スライド5: コアコンセプト -->
+        <div class="slide">
+            <div class="centered-content">
+                <h2 class="gradient-text">AIリブートのコアコンセプト</h2>
+                <p>「AIリブート」は、AI、特にChatGPTやGeminiなどの生成AIの活用を通じて、<strong class="highlight">企業と個人をアップデートし、イノベーションを起こす</strong>というコンセプトで運営される事業です。</p>
+                <p>これは、単なる教育事業ではなく、<strong class="highlight">AIを通じて人々と企業の可能性を解放する仕組み作り</strong>を目指しています。</p>
+            </div>
+        </div>
+
+        <!-- スライド6: 哲学1 -->
+        <div class="slide">
+            <div class="left-aligned-content">
+                <h2 class="gradient-text">最も重要なメッセージと哲学</h2>
+                <h3>1. Will（意思）とウェルビーイング（Well-being）の実現</h3>
+                <p>ウィルフォワードの根底にある理念は、<strong class="highlight">「世界平和」や「人類が人類と共存し、人類が地球と共存するサステナブルな未来」</strong>の実現です。</p>
+                <p>この実現のためには、<strong class="highlight">一人ひとりが自身の「Will（意思）」に向き合い、自分自身を幸せにすること</strong>が不可欠であるとされています。</p>
+                <p>AI時代において、AIが人間の多くのことを代行する中で、<strong class="highlight">人間が「本来何を果たすのか」という問い</strong>に立ち返り、自身のWillに深く向き合い、自己認知を深めることが強調されています。</p>
+            </div>
+        </div>
+
+        <!-- スライド7: 哲学2 -->
+        <div class="slide">
+            <div class="left-aligned-content">
+                <h3>2. 実践と実績による価値提供</h3>
+                <p>単にAIの知識を「教える」だけでなく、受講者が実際にAIを「使えるようにさせる」こと、そして<strong class="highlight">実践を通じて結果を出し続けること</strong>が重視されています。</p>
+                <p>講師陣は、現役のコンサルタントや生成AIスペシャリストが務め、<strong class="highlight">自身がAIを業務で使いこなし、サービス開発を行っている</strong>という「実績」が、受講生への説得力につながると考えられています。</p>
+                <p>AIは常に進化するため、<strong class="highlight">常に最先端の技術を調査・学習し、それを自社で実践し成果を出す</strong>ことが、コンサルティングや教育において重要であると述べられています。</p>
+            </div>
+        </div>
+
+        <!-- スライド8: 哲学3 -->
+        <div class="slide">
+            <div class="left-aligned-content">
+                <h3>3. 受講生を「顧客」ではなく「仲間」として捉えるエコシステム</h3>
+                <p>AIリブートアカデミーは、受講生を単なる「顧客」としてではなく、<strong class="highlight">共に事業を創造する「仲間」として迎え入れる</strong>という発想の転換を重視しています。</p>
+                <p>受講生が自己投資した費用（例: 15万円の自己負担分）を、将来的に講師やメンターとして活動することで「回収できる」ような仕組みを提示し、<strong class="highlight">長期的な協力関係</strong>を築くことを目指しています。</p>
+            </div>
+        </div>
+
+        <!-- スライド9: 事業展開 -->
+        <div class="slide">
+            <div class="left-aligned-content">
+                <h2 class="gradient-text">AIリブートの具体的な事業展開</h2>
+                <p>AIリブートは、<strong class="highlight">個人向けのAIスクール事業「AIリブートアカデミー」</strong>と、<strong class="highlight">企業向けのAI活用コンサルティング事業</strong>の二つの柱で展開されます。</p>
+                
+                <div class="two-column" style="margin-top: var(--space-lg);">
+                    <div class="feature-card">
+                        <h3>個人向け</h3>
+                        <ul>
+                            <li>経済産業省のリスキリング補助金対象講座として採択</li>
+                            <li><strong class="highlight">100日間で生成AIを使いこなせるようになるプログラム</strong></li>
+                            <li>自身のWill実現のためのキャリア設計も伴走支援</li>
+                            <li>初期の2日間は集合研修（対面）</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>法人向け</h3>
+                        <ul>
+                            <li><strong class="highlight">採用、マーケティング、組織変革</strong>といった分野でAI活用</li>
+                            <li>地方の中堅・中小企業をターゲット</li>
+                            <li>「伝統文化×AI」「介護×AI」「農業×AI」「食×AI」など</li>
+                            <li>座学、実践、伴走型開発支援の三段構成</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド10: 特徴1 -->
+        <div class="slide">
+            <div class="centered-content">
+                <h2 class="gradient-text">【特徴①】「教えない」教育が、本物の自走力を育む</h2>
+                <p>私たちは、安易に「答え」を教えません。代わりに、あなたの思考を深める、本質的な「問い」を投げかけ続けます。</p>
+                <p>ChatGPTやGeminiを文房具のように使いこなし、あなた自身が設定した課題の解決に挑む。私たちメンターは、その挑戦の道のりを全力でサポートする「伴走者」です。</p>
+                <p>ツールの使い方を覚えるのではなく、<strong class="highlight">「学び方を学ぶ」</strong>こと。それこそが、これからの時代を生き抜くための最強の武器になると信じています。</p>
+            </div>
+        </div>
+
+        <!-- スライド11: 特徴2 -->
+        <div class="slide">
+            <div class="left-aligned-content">
+                <h2 class="gradient-text">【特徴②】講師は"先生"ではなく"現役の実践者"</h2>
+                <p>私たちは、教壇から教えるだけの"先生"ではありません。AIを活用したビジネスの最前線で、今この瞬間も価値を創造し、挑戦を続ける<strong class="highlight">"現役の実践者集団"</strong>です。</p>
+                
+                <h3>講師・メンター紹介</h3>
+                <div style="margin-top: var(--space-md);">
+                    <div class="roadmap-item">
+                        <strong>成瀬 （株式会社ウィルフォワード 代表取締役）</strong><br>
+                        数々の事業を立ち上げてきた起業家。変化の時代におけるキャリアの本質を問いかける。
+                    </div>
+                    <div class="roadmap-item">
+                        <strong>久米田 （AIリブートアカデミー 事業責任者）</strong><br>
+                        大手企業からベンチャーへ。自らも安定を捨て未知へ挑戦する当事者として、受講生のキャリアに伴走する。
+                    </div>
+                    <div class="roadmap-item">
+                        <strong>青木 （人事・組織開発のプロフェッショナル）</strong><br>
+                        長年の人事経験と最新のAI活用術を掛け合わせ、個人の生産性を最大化するプロ。
+                    </div>
+                    <div class="roadmap-item">
+                        <strong>坂本（AIプロダクト開発者）</strong><br>
+                        AI相談ツール「ウェルモン」を自ら開発。趣味と実益を兼ねたAIへの深い知見で、技術面をサポート。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド12: ロードマップ -->
+        <div class="slide">
+            <div class="left-aligned-content">
+                <h2 class="gradient-text">【100日間のロードマップ】自分だけの「Will」を見つけ、体現する旅</h2>
+                
+                <ol>
+                    <li><strong class="highlight">AIリブートキャンプ (Kick-off合宿)</strong><br>
+                        全ての始まり。一生の仲間と出会い、徹底的に自分と向き合う。</li>
+                    
+                    <li><strong class="highlight">1ヶ月目：Willの探求と課題設定</strong><br>
+                        メンターとの対話を通じ、心の底から「やりたいこと（Will）」を探求。あなただけの挑戦課題を設定します。</li>
+                    
+                    <li><strong class="highlight">2ヶ月目：AIと共に課題へダイブ</strong><br>
+                        生成AIを駆使し、試行錯誤を繰り返しながら課題解決に没頭。中間メンタリングで軌道修正をサポート。</li>
+                    
+                    <li><strong class="highlight">3ヶ月目：アウトプットの磨き込み</strong><br>
+                        100日間の挑戦の軌跡を、人に伝わる形にまとめ上げていきます。</li>
+                    
+                    <li><strong class="highlight">DEMO DAY：挑戦の発表</strong><br>
+                        あなたの「Will」と「挑戦の物語」を、仲間と企業担当者の前で発表します。</li>
+                </ol>
+                
+                <p style="margin-top: var(--space-md); font-size: var(--font-small);">
+                    ※期間中、オンライン学習、メンタリング、進捗管理ツールなど、あなたの「Will」の実現を強力に後押しする環境が整っています。
+                </p>
+            </div>
+        </div>
+
+        <!-- スライド13: 受講生の声 -->
+        <div class="slide">
+            <div class="centered-content">
+                <h2 class="gradient-text">【受講生の声】「AIリブートが、私の人生のターニングポイントになった」</h2>
+                
+                <div class="testimonial">
+                    「AIの可能性に衝撃を受けました。新しいキャリアの扉が開いたと感じています。」<br>
+                    <small>（30代・男性）</small>
+                </div>
+                
+                <div class="testimonial">
+                    「Willの探求を通じて、本当にやりたいことが明確になりました。これからの人生が楽しみです。」<br>
+                    <small>（40代・女性）</small>
+                </div>
+                
+                <div class="testimonial">
+                    「課題設定から発表まで、講師陣が全力でサポートしてくれました。一人では到達できなかった境地です。」<br>
+                    <small>（20代・男性）</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド14: 選ばれる理由 -->
+        <div class="slide">
+            <div class="left-aligned-content">
+                <h2 class="gradient-text">【選ばれる理由】AIリブートアカデミーの強み</h2>
+                
+                <ol>
+                    <li><strong class="highlight">経済産業省認定の信頼性</strong><br>
+                        リスキリング補助金対象講座として、国の基準を満たした高品質なプログラムを提供します。</li>
+                    
+                    <li><strong class="highlight">WillとAIの融合</strong><br>
+                        単なるAIスキル習得ではなく、あなたの「Will（意思）」の実現を最上位に置いた独自のカリキュラムです。</li>
+                    
+                    <li><strong class="highlight">実践と伴走型サポート</strong><br>
+                        知識の詰め込みではなく、自ら課題を解決する実践力を養い、経験豊富なメンターが徹底的に伴走します。</li>
+                    
+                    <li><strong class="highlight">現役プロフェッショナルによる指導</strong><br>
+                        各分野の最前線で活躍する現役のコンサルタントやスペシャリストが直接指導します。</li>
+                    
+                    <li><strong class="highlight">未来を共に創るコミュニティ</strong><br>
+                        受講生は「顧客」ではなく「仲間」。卒業後も共に学び、成長し合えるエコシステムを提供します。</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- スライド15: CTA -->
+        <div class="slide gradient-bg">
+            <div class="centered-content">
+                <h2>【まずは無料説明会へ】<br>あなたのキャリアを「リブート」する第一歩</h2>
+                
+                <p>AI時代を乗りこなし、自分らしいキャリアを創造したいと願うあなたへ。</p>
+                
+                <p>「AIリブートアカデミー」では、定期的に無料説明会を開催しています。</p>
+                
+                <p>プログラムの詳細、補助金の活用方法、そして何よりも、あなたのキャリアの可能性について、お気軽にご相談ください。</p>
+                
+                <p><strong>未来は、あなたの「Will」で切り拓くことができます。今こそ、キャリアを再起動（リブート）する時です。</strong></p>
+                
+                <a href="#" class="btn-primary" style="background: white; color: var(--ai-purple);">無料説明会への参加はこちら</a>
+            </div>
+        </div>
+
+        <!-- スライド16: エンド -->
+        <div class="slide title-slide">
+            <div class="centered-content">
+                <h1>AI REBOOT ACADEMY</h1>
+                <p class="subtitle">運営：株式会社ウィルフォワード</p>
+                <p style="margin-top: var(--space-xl);">あなたの「Will」で、未来を切り拓こう。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ナビゲーション -->
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">＜ 前へ</button>
+        <span class="slide-indicator" id="slideIndicator">1 / 16</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">次へ ＞</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slideIndicator = document.getElementById('slideIndicator');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function showSlide(n) {
+            // 範囲を制限
+            if (n >= totalSlides) currentSlide = totalSlides - 1;
+            else if (n < 0) currentSlide = 0;
+            else currentSlide = n;
+
+            // すべてのスライドを非表示
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev');
+                if (index < currentSlide) {
+                    slide.classList.add('prev');
+                } else if (index === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+
+            // インジケーターを更新
+            slideIndicator.textContent = `${currentSlide + 1} / ${totalSlides}`;
+
+            // ボタンの有効/無効を更新
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+
+            // アニメーション効果を追加
+            const activeSlide = slides[currentSlide];
+            const animateElements = activeSlide.querySelectorAll('h1, h2, h3, p, li, blockquote, .feature-card, .roadmap-item, .testimonial');
+            animateElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease-out';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // キーボード操作
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            else if (e.key === 'ArrowRight') changeSlide(1);
+            else if (e.key === 'Home') showSlide(0);
+            else if (e.key === 'End') showSlide(totalSlides - 1);
+            else if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+        });
+
+        // タッチ操作（モバイル対応）
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1); // 左スワイプ
+            if (touchEndX > touchStartX + 50) changeSlide(-1); // 右スワイプ
+        }
+
+        // フルスクリーン切り替え
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // マウスホイール操作
+        document.addEventListener('wheel', (e) => {
+            if (e.deltaY > 0) changeSlide(1);
+            else if (e.deltaY < 0) changeSlide(-1);
+        }, { passive: true });
+
+        // 初期化
+        showSlide(0);
+
+        // プリント時の処理
+        window.addEventListener('beforeprint', () => {
+            // すべてのスライドを表示
+            slides.forEach(slide => {
+                slide.classList.add('active');
+                slide.classList.remove('prev');
+            });
+        });
+
+        window.addEventListener('afterprint', () => {
+            // 元の状態に戻す
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>
