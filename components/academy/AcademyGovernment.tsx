@@ -101,28 +101,49 @@ export const AcademyGovernment = () => {
             className="bg-gradient-to-r from-will-primary/10 to-will-secondary/10 rounded-3xl p-8 md:p-10 mb-12"
           >
             <h3 className="text-2xl md:text-3xl font-bold text-center text-depth-800 mb-8">
-              最大70%の受講料補助を実現
+              投資する価値のある、あなたの未来
             </h3>
             
             <div className="text-center mb-8">
-              <p className="text-lg text-depth-700 mb-4">
-                通常受講料300,000円（税抜）が、補助金適用後
-              </p>
-              <p className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-will-primary to-will-secondary">
-                90,000円〜
-              </p>
-              <p className="text-depth-600 mt-2">で受講可能（実質負担額 最大70%OFF）</p>
+              <div className="mb-6">
+                <p className="text-lg text-depth-700 mb-2">受講料</p>
+                <p className="text-3xl md:text-4xl font-bold text-depth-800">
+                  300,000円<span className="text-lg text-depth-600">（税込330,000円）</span>
+                </p>
+              </div>
+              
+              <div className="bg-will-gradient text-white rounded-2xl p-6 mb-6">
+                <p className="text-lg mb-2">リスキリング補助金適用後</p>
+                <p className="text-4xl md:text-5xl font-bold">
+                  最小99,000円〜
+                </p>
+                <p className="text-sm opacity-90 mt-2">最大210,000円の補助</p>
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-6">
               <div className="bg-white/80 rounded-2xl p-4 text-center">
-                <p className="text-depth-600 mb-1">受講修了時（50%補助）</p>
-                <p className="text-2xl font-bold text-will-primary">-150,000円</p>
+                <p className="text-depth-600 mb-1">補助率</p>
+                <p className="text-2xl font-bold text-will-primary">最大70%</p>
               </div>
               <div className="bg-white/80 rounded-2xl p-4 text-center">
-                <p className="text-depth-600 mb-1">転職成功時（追加20%）</p>
-                <p className="text-2xl font-bold text-will-primary">-60,000円</p>
+                <p className="text-depth-600 mb-1">最大補助額</p>
+                <p className="text-2xl font-bold text-will-primary">210,000円</p>
               </div>
+              <div className="bg-white/80 rounded-2xl p-4 text-center">
+                <p className="text-depth-600 mb-1">実質負担額</p>
+                <p className="text-2xl font-bold text-will-primary">99,000円〜</p>
+              </div>
+            </div>
+            
+            <div className="bg-white/60 rounded-xl p-4 text-sm text-depth-600">
+              <h4 className="font-semibold mb-2">補助金の適用条件</h4>
+              <ul className="space-y-1 text-xs">
+                <li>• 在職者であること（正社員・契約社員・パート・アルバイト等）</li>
+                <li>• プログラムの修了（出席率80%以上）</li>
+                <li>• キャリア相談への参加</li>
+              </ul>
+              <p className="mt-2 text-xs">※詳細な条件は説明会でご案内します</p>
             </div>
           </motion.div>
 

@@ -22,10 +22,7 @@ export const AcademyHero = () => {
             className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
           >
             <span className="block bg-will-gradient bg-clip-text text-transparent mb-2">
-              AIを学ぶ。
-            </span>
-            <span className="block text-depth-800">
-              生き方を、変える。
+              100日で、AIを味方につける
             </span>
           </motion.h1>
           
@@ -36,9 +33,9 @@ export const AcademyHero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-xl md:text-2xl text-depth-700 mb-10 leading-relaxed max-w-3xl mx-auto"
           >
-            これは、AIスクールではありません。
-            <br />
-            変化の時代を生きる、あなたのための人生の学校です。
+            <span className="block text-depth-800 font-semibold mb-2">
+              あなたのWill（意思）を見つけ、AIと共に実現する力を
+            </span>
           </motion.p>
           
           {/* 補助金バッジ */}
@@ -51,7 +48,10 @@ export const AcademyHero = () => {
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
-            <span className="font-bold text-lg">経済産業省リスキリング補助金対象講座</span>
+            <div className="text-center">
+              <div className="font-bold text-lg">経済産業省リスキリング補助金対象講座</div>
+              <div className="text-sm opacity-90">最大70%（21万円）補助</div>
+            </div>
           </motion.div>
           
           {/* CTA ボタン */}
@@ -59,12 +59,22 @@ export const AcademyHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Link href="#session">
+            <Link href="#apply">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-5 bg-will-gradient text-white font-bold text-lg rounded-full shadow-elevated hover:shadow-floating transition-all duration-300"
+              >
+                今すぐ申し込む
+              </motion.button>
+            </Link>
+            <Link href="#session">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 border-2 border-will-primary text-will-primary font-semibold text-lg rounded-full hover:bg-will-primary hover:text-white transition-all duration-300"
               >
                 無料説明会に参加
               </motion.button>
