@@ -6,7 +6,10 @@ import { AcademyFeatures } from "@/components/academy/AcademyFeatures";
 import { AcademyPhilosophy } from "@/components/academy/AcademyPhilosophy";
 import { AcademyGovernment } from "@/components/academy/AcademyGovernment";
 import { AcademyCurriculum } from "@/components/academy/AcademyCurriculum";
+import { AcademyTestimonials } from "@/components/academy/AcademyTestimonials";
 import { AcademyInstructors } from "@/components/academy/AcademyInstructors";
+import { AcademyApplicationFlow } from "@/components/academy/AcademyApplicationFlow";
+import { AcademySchedule } from "@/components/academy/AcademySchedule";
 import { AcademyFAQ } from "@/components/academy/AcademyFAQ";
 import { AcademyCTA } from "@/components/academy/AcademyCTA";
 
@@ -25,7 +28,10 @@ export default function AcademyPage() {
       <AcademyPhilosophy />
       <AcademyGovernment />
       <AcademyCurriculum />
+      <AcademyTestimonials />
       <AcademyInstructors />
+      <AcademyApplicationFlow />
+      <AcademySchedule />
       <AcademyFAQ />
       <AcademyCTA />
     </div>

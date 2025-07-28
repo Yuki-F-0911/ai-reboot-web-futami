@@ -9,33 +9,56 @@ const AcademyCurriculum = () => {
 
   const phases = [
     {
-      day: "Day 0",
-      title: "スタート - AIリブートキャンプ",
+      day: "Day 1-14",
+      title: "Phase 1: Foundation",
+      subtitle: "自己理解とAI基礎",
+      items: [
+        "キックオフ集合研修",
+        "Will探索ワークショップ", 
+        "AIリテラシー基礎講座",
+        "プロンプトエンジニアリング基礎"
+      ],
       color: "from-will-primary to-will-secondary",
-      description: "全体像の把握と基礎準備"
+      description: "自分を知り、AIの基礎を身につける"
     },
     {
-      day: "Day 1-30",
-      title: "基礎スキル習得",
-      items: ["AIツールの基本操作", "プロンプト作成", "業務効率化"],
+      day: "Day 15-60",
+      title: "Phase 2: Practice",
+      subtitle: "実践スキルの習得",
+      items: [
+        "ChatGPT/Claude活用術",
+        "画像生成AIマスター",
+        "動画・音声生成AI",
+        "業務効率化の実践"
+      ],
       color: "from-will-secondary to-wisdom",
-      description: "基礎力を身につける"
+      description: "各種AIツールを実践的に習得"
     },
     {
-      day: "Day 31-70",
-      title: "実践プロジェクト",
-      subtitle: "（中級到達、プロジェクト本格化）",
-      items: ["自動化システム構築", "データ分析", "チーム連携"],
+      day: "Day 61-90",
+      title: "Phase 3: Project",
+      subtitle: "個人プロジェクト実践",
+      items: [
+        "テーマ設定とプランニング",
+        "プロトタイプ開発",
+        "メンターとの集中セッション",
+        "中間発表とフィードバック"
+      ],
       color: "from-wisdom to-growth",
-      description: "実務レベルのスキル習得"
+      description: "学んだスキルを統合して成果物を作成"
     },
     {
-      day: "Day 71-100",
-      title: "プロレベル到達",
-      subtitle: "（卒業、AI人材へ）",
-      items: ["高度な活用技術", "リーダーシップ", "キャリア準備"],
+      day: "Day 91-100",
+      title: "Phase 4: Presentation",
+      subtitle: "成果発表と未来設計",
+      items: [
+        "最終成果物の仕上げ",
+        "プレゼンテーション準備",
+        "デモデー（成果発表会）",
+        "キャリアプランニング"
+      ],
       color: "from-growth to-harmony",
-      description: "プロフェッショナルへ"
+      description: "成果を発表し、新しいキャリアを設計"
     }
   ]
 
@@ -70,10 +93,10 @@ const AcademyCurriculum = () => {
           className="text-center mb-16 max-w-4xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-depth-800 mb-6">
-            100日間で確実にスキルが身につくカリキュラム
+            100日間の学習ロードマップ
           </h2>
           <p className="text-xl text-depth-700">
-            段階的な学習プログラムで、着実にAIスキルを習得します。
+            4つのPhaseで構成された体系的なカリキュラムで、確実にAIスキルを習得します。
           </p>
         </motion.div>
 

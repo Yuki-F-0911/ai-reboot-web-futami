@@ -11,31 +11,56 @@ const AcademyFeatures = () => {
   const features = [
     {
       number: "01",
-      title: "AIは目的じゃない、手段である",
-      description: "AIツールは誰もが持つべき最低限のスキル。それが目的ではなく、あなたが本当にやりたいことを実現するための「パスポート」として位置づけています。",
+      title: "Will（価値観・目的）から始まる",
+      description: "自己分析ワークショップ、キャリアコンサルタントとの1on1、あなただけのWillマップ作成。まずは自分を深く理解することから始めます。",
+      items: ["自己分析ワークショップ", "キャリアコンサルタントとの1on1", "あなただけのWillマップ作成"],
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
         </svg>
       )
     },
     {
-      number: "02",
-      title: "教えない、自ら学ぶ力を",
-      description: "私たちはAIの使い方を「教える」のではありません。新しいツールが出てきても、自分で学び、使いこなせるようになる「学習力」を身につけてもらいます。",
+      number: "02", 
+      title: "実践的なAIスキル習得",
+      description: "ChatGPT/Claude/Geminiから画像・動画生成AIまで、現場で使えるスキルを幅広く習得します。",
+      items: ["ChatGPT/Claude/Geminiの実践活用", "画像生成AI（Midjourney、DALL-E）", "動画・音楽生成AI", "プログラミング支援AI"],
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       )
     },
     {
       number: "03",
-      title: "オーセンティックな生き方へ",
-      description: "履歴書に書けない、でも大切な能力。あなたの情熱、価値観、本質的な強み。これらを発見し、AI時代でも輝き続ける「自分らしい生き方」を実現します。",
+      title: "専属メンターの伴走支援", 
+      description: "週1回のオンライン面談、Slackでの日常的な質問対応、個別の課題設定とフィードバック。あなたの成長を最後まで支えます。",
+      items: ["週1回のオンライン面談", "Slackでの日常的な質問対応", "個別の課題設定とフィードバック"],
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+        </svg>
+      )
+    },
+    {
+      number: "04",
+      title: "仲間との切磋琢磨",
+      description: "全国から集まる多様な受講生とのチーム課題で協働体験。卒業後も続くコミュニティがあなたの成長を支え続けます。",
+      items: ["全国から集まる多様な受講生", "チーム課題での協働体験", "卒業後も続くコミュニティ"],
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      )
+    },
+    {
+      number: "05",
+      title: "成果発表の場（デモデー）",
+      description: "100日間の集大成を発表する場。企業担当者も参加するため、新たなキャリアチャンスの創出にもつながります。",
+      items: ["100日間の集大成を発表", "企業担当者も参加", "キャリアチャンスの創出"],
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2h4a1 1 0 011 1v2a1 1 0 01-1 1h-1v10a2 2 0 01-2 2H6a2 2 0 01-2-2V8H3a1 1 0 01-1-1V5a1 1 0 011-1h4zM9 3v1h6V3H9zm-4 5h14v10H5V8z" />
         </svg>
       )
     }
@@ -51,7 +76,7 @@ const AcademyFeatures = () => {
           className="text-center mb-16 max-w-4xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-depth-800 mb-8">
-            AIリブートアカデミーが大切にすること
+            AIリブートアカデミーが選ばれる5つの理由
           </h2>
         </motion.div>
 
@@ -71,7 +96,17 @@ const AcademyFeatures = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold mb-4 text-depth-800">{feature.title}</h3>
-                  <p className="text-lg text-depth-600 leading-relaxed">{feature.description}</p>
+                  <p className="text-lg text-depth-600 leading-relaxed mb-4">{feature.description}</p>
+                  {feature.items && (
+                    <ul className="space-y-2">
+                      {feature.items.map((item, i) => (
+                        <li key={i} className="flex items-start text-depth-700">
+                          <span className="text-will-primary mr-3 mt-2">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
             </motion.div>
