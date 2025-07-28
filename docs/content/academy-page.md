@@ -1,312 +1,244 @@
-# AIリブートアカデミー（個人向け）- コンテンツ構成と原稿
+## **🔷 AIスクール事業「AIリブートアカデミー」プログラム 🔷**
 
-## 1. ヒーローセクション
+## AIリブートアカデミーとは
 
-### メインビジュアル
-- 受講生が実際にAIを活用している様子
-- 多様な背景を持つ受講生たちの集合写真
+生成AIツールの使い方を学ぶだけではなく、生成AIツールを使いこなすためのマインドセットとスキルを身につけることで、研修後も持続的に生成AI活用で個人をアップデートしつづけるためのプログラム。そのために、2日間の宿泊型集合研修を含む100日間の実践プログラムを通して、生成AI時代を生き抜く思考OSをインストールします。
 
-### キャッチコピー
-**100日で、AIを味方につける**
+### **1\. プログラムの目的**
 
-### サブコピー
-**あなたのWill（意思）を見つけ、AIと共に実現する力を**
+1. **“生成AIの時代”を生き抜く思考OSをインストールする**。  
+2. 最先端の生成AI活用スキルと今後進化しつづける生成AI活用をしつづけられるマインドとスキルを身につける。  
+3. 単なるAIスキル習得にとどまらず、「Will（自分の意志）」を軸に、自ら課題を設定・解決できる人材になるための**実践型リスキリングプログラム**。  
+---
 
-### CTA
-- **今すぐ申し込む** （メインボタン）
-- **無料説明会に参加** （サブボタン）
+### **2\. プログラムの流れ（約100日）**
 
-### 補助金バッジ
-**経済産業省リスキリング補助金対象講座**
-最大70%（21万円）補助
+| フェーズ | 概要 |
+| :---: | ----- |
+| **AIリブートキャンプ （2日間の集合研修）** | 集合研修形式。生成AIを活用するための実践技術だけでなく、進化し続けるAIに対して“学び続ける姿勢”と“考え方”を獲得する。共に学ぶメンターや仲間との絆をつくる。  **講義内容案（変更の可能性があります）** オープンニングとチームビルディング AIがもたらす社会変革と未来 生成AI活用で実現できること 生成AI時代のキャリア論とキャリア下剋上 生成AI活用事例 個人作業環境（AI搭載IDEおよびLLMチャットツール等）の構築 AI時代のビジネスマインド マーケティングAI演習 生成AIリポジトリの構築 AIプロトタイピング コミュニケーション 100日プランニング 日程：2025年8月16日(土)13:00〜17日(日)17:00 1泊2日（神奈川県川崎市にて開催予定） |
+| **AIリブート100 （実践100日間）** | キャリアコンサルタントやメンターとの対話を重ねながら、自分の課題を設定し、生成AIを活用して実際に解決に挑む。常に「Will（やりたいこと）」を探求し、伴走支援を受けながら取り組む。 **講義内容案（変更の可能性があります）** オンラインコミュニティ オンラインライブイベント 動画学習コンテンツ メンターへの相談とフィードバック キャリアコンサルタントによるキャリアコンサルティング（月に1度：合計3回）） |
+| **AIリブートDEMO DAY （成果発表）** | 生成AIを活用してできるようになったことや、作った成果物の発表する場。それだけではなく、自分自身の「Will」に基づき、 何を考え、どう行動し、何に挑戦したのか。そして、それを通じて**自分自身がどのように成長したかを語る場**でもある。 日程：2025年11月24（月祝）13:00〜17:00　＊オンライン開催予定 |
 
 ---
 
-## 2. こんな悩みはありませんか？
+### **3\. 特徴**
 
-### セクションタイトル
-**AI時代に感じる不安と焦り**
-
-### 悩みリスト
-- ☑️ AIの進化についていけるか不安
-- ☑️ 今の仕事がAIに奪われるのではないか
-- ☑️ 何から学べばいいのか分からない
-- ☑️ 独学では限界を感じている
-- ☑️ 自分の強みや方向性が見えない
-- ☑️ キャリアチェンジを考えているが踏み出せない
-
-### メッセージ
-**その不安、AIリブートアカデミーが希望に変えます。**
+* **マルチ生成AI活用**：生成AIは常にものすごいスピードで進化するため特定のツールに限定せずに、ChatGPT、gemini、NotebookLM、Whisk、Canva、Claude、Claude Code、dify、n8n、notion、Obsidian、GitHub、Sunoなどをはじめ、その時点で最先端で最も活用するのに実用的なツールの選択をします。  
+* **伴走型支援**：受講生一人ひとりにメンターが伴走し、自分に必要なスキルやテーマを選びながら実践を積む。  
+* **生成AIスキルの体得と思考のアップデートの両立**：技術だけでなく、その学び方を学ぶ。  
+* **「問い」を中心とした教育**：答えを教えるのではなく、本質的な問いを共に探究する。
 
 ---
 
-## 3. AIリブートアカデミーとは
+### **4\. 特にオススメしている対象者**
 
-### セクションタイトル
-**単なるAI講座ではない、人生を変える100日間**
-
-### コンセプト説明
-
-#### オンライン完結ではない理由
-全国から集まる仲間との出会い、リアルな熱量、
-対面でしか生まれない化学反応。
-オンラインとリアルのハイブリッドで、
-最高の学習体験を提供します。
-
-#### やり方ではなく、生き方を学ぶ
-ChatGPTの使い方を覚えるだけなら、
-YouTubeで十分です。
-私たちが提供するのは、
-**AX（AI Transformation）** - 
-AIによる働き方と生き方の変革です。
-
-#### 座学で終わらせない、徹底実践
-知識を詰め込むだけでは意味がありません。
-専属メンターが100日間伴走し、
-あなたの「できた！」まで
-責任を持ってサポートします。
+* 生成AI活用スキルを活かして、キャリアアップをしたい人  
+* 生成AIによる社会の変化の中で、自分も何かをしなくてはいけないと感じている人  
+* 今の自分の現状に不満やモヤモヤを感じている人  
+* これからの働き方・キャリアを“AI時代の前提”で考えたい人  
+* AIスキルを身に付けたいし、それ以上に**自分の価値を高めたい人**
 
 ---
 
-## 4. プログラムの特徴
+### **5\. 講師・メンター**
 
-### セクションタイトル
-**AIリブートアカデミーが選ばれる5つの理由**
+**成瀬 拓也**  
+ビジネスプロデューサー（株式会社ウィルフォワード代表）  
+経営・マーケティングの専門家としてこれまで多くの事業を生み出し、同時にコンサルタントとして、様々な企業の支援実績を持つ。AI活用のサービス開発や戦略設計に精通している。
 
-### 1. Will（価値観・目的）から始まる
-- 自己分析ワークショップ
-- キャリアコンサルタントとの1on1
-- あなただけのWillマップ作成
+**坂本 拓磨**  
+AIエンジニア  
+生成AIを活用して、AIエージェントやWebサービスの開発を手掛けるエンジニア兼デザイナー。  
+一般社団法人生成AI活用普及協会「生成AIパスポート」保有。
 
-### 2. 実践的なAIスキル習得
-- ChatGPT/Claude/Geminiの実践活用
-- 画像生成AI（Midjourney、DALL-E）
-- 動画・音楽生成AI
-- プログラミング支援AI
+**青木 玲仁**  
+生成AI活用コンサルタント  
+複数の生成AIツールを使いこなし、生成AIを活用した業務効率化のスペシャリスト。  
+一般社団法人生成AI活用普及協会「生成AIパスポート」保有。
 
-### 3. 専属メンターの伴走支援
-- 週1回のオンライン面談
-- Slackでの日常的な質問対応
-- 個別の課題設定とフィードバック
+**久米田 克**  
+キャリアコンサルタント  
+一般社団法人生成AI活用普及協会「生成AIパスポート」保有。
 
-### 4. 仲間との切磋琢磨
-- 全国から集まる多様な受講生
-- チーム課題での協働体験
-- 卒業後も続くコミュニティ
+他、生成AI活用に関して専門性をもった講師・メンターがサポートします
 
-### 5. 成果発表の場（デモデー）
-- 100日間の集大成を発表
-- 企業担当者も参加
-- キャリアチャンスの創出
+### ---
 
----
+### **6\. 費用・助成金制度**
 
-## 5. カリキュラム詳細
+| 項目 | 金額（税込） | 補助金後実質負担 |
+| :---: | :---: | :---: |
+| 一般受講料 | 330,000円 | ー |
+| 補助金活用料金 | ▲150,000円 （税抜価格の50%分） | **実質自己負担額：180,000円** |
+| 受講後に転職成功し、 1年勤務した場合 | ▲60,000円 （税抜価格の20%分） | 実質自己負担額：120,000円 |
 
-### セクションタイトル
-**100日間の学習ロードマップ**
-
-### Phase 1: Foundation（Day 1-14）
-**自己理解とAI基礎**
-
-#### Day 1-2: キックオフ集合研修
-- オリエンテーション
-- Will探索ワークショップ
-- AIリテラシー基礎講座
-- チームビルディング
-
-#### Day 3-14: オンライン基礎学習
-- 生成AIの仕組みと可能性
-- プロンプトエンジニアリング基礎
-- 各種AIツールのセットアップ
-- 初めての成果物作成
-
-### Phase 2: Practice（Day 15-60）
-**実践スキルの習得**
-
-#### Week 3-4: テキスト生成AI実践
-- ChatGPT/Claude活用術
-- 業務効率化の実践
-- コンテンツ作成演習
-
-#### Week 5-6: ビジュアルAI実践
-- 画像生成AIマスター
-- デザイン思考とAI
-- ブランディング実践
-
-#### Week 7-8: マルチメディアAI
-- 動画生成AI活用
-- 音声・音楽生成
-- プレゼンテーション作成
-
-### Phase 3: Project（Day 61-90）
-**個人プロジェクト実践**
-
-- テーマ設定とプランニング
-- プロトタイプ開発
-- メンターとの集中セッション
-- 中間発表とフィードバック
-
-### Phase 4: Presentation（Day 91-100）
-**成果発表と未来設計**
-
-- 最終成果物の仕上げ
-- プレゼンテーション準備
-- デモデー（成果発表会）
-- キャリアプランニング
+![][image1]  
+AIリブートアカデミーは経済産業省「リスキリングを通じたキャリアアップ支援事業」認定講座です。
 
 ---
 
-## 6. 受講料金と補助金
+### **7\.** 最後に、なぜ私たちがAIリブートアカデミーをやるのかを知ってください。
 
-### セクションタイトル
-**投資する価値のある、あなたの未来**
+**生成AIによるゲームチェンジ**
 
-### 受講料
-**300,000円（税込330,000円）**
+生成AIの登場で、世界のルールが根底から変わろうとしています。 
 
-### リスキリング補助金を活用すると
-本プログラムは経済産業省「リスキリングを通じたキャリアアップ支援事業」の対象講座です。
+かつては「安定」と言われたホワイトカラーの頂点とも言えるエンジニアやコンサルタントの仕事も、世界的に失業が相次いでいます。
 
-#### 補助率
-- **受講料の最大70%**
-- **最大210,000円の補助**
+生成AIと共に働くことが当たり前の世界へと、急速にシフトする中で、これまでの経験則は通用しなくなってきています。
 
-#### 実質負担額
-**最小90,000円〜**（税込99,000円〜）
+**スーパーVUCAの時代**
 
-### 補助金の適用条件
-- 在職者であること（正社員・契約社員・パート・アルバイト等）
-- プログラムの修了（出席率80%以上）
-- キャリア相談への参加
+「今までのスキルではもう通用しないかもしれない」、「この変化のスピードに、正直ついていけるか不安だ」という反応はむしろ正常で、決してあなただけが感じているものではありません。 何を隠そうこの講座を開講する私たちも同様に、変化の早さに不安を感じています。
 
-※詳細な条件は説明会でご案内します
+今、私たちは、誰もが先の見えない「スーパーVUCAの時代」の“ど真ん中”に立っているのです。
 
-### 分割払い対応
-- 3回、6回、12回払い対応可能
-- クレジットカード決済対応
+ただ一つ、「静観していることは既に退化をしている」ということだけはわかります。
 
----
+なので、不安の中でも歩みを止めてはいけないのです。
 
-## 7. 講師陣
+もし、あなたも心のどこかでそう感じているなら、是非とも私たちの想いを知ってほしいと思います。
 
-### セクションタイトル
-**現場で活躍する、実践派講師陣**
+**生成AIとどう向き合うか**
 
-※講師紹介ページへのリンク
-→ 詳しい講師プロフィールを見る
+人類が生成AIにどう向き合い活用していくのかを、誰かに任せても良かったのかもしれません。でも、私たちは自分たちもその変化に向き合い続ける道を選びました。生成AIの活用の先端に立とうということを。
 
----
+なぜなら、私たちは2011年の創業以来、「世界を一つの家族にする」というビジョンを掲げ、常に働き方・生き方のあり方を問い続け、トライしつづけてきたという歴史があるからです。そして、力がある無しに関係なく、私たち一人ひとりには、この時代をつくる責任があると考えているからです。
 
-## 8. 受講生の声
+**生成AIに取り組む日々**
 
-### セクションタイトル
-**卒業生が語る、リアルな変化**
+そこで、私たちは生成AIの活用に徹底的に取り組みました。これまでの事業を減速させ、人によってはストップさせ、1日中生成AIの活用方法に取り組みました。それでも、あまりの進化の早さに日々目が回るような1年でした。
 
-### 受講生事例1
-**営業職からAIコンサルタントへ**
-山田太郎さん（35歳・元営業職）
+そして、一つのことを悟りました。
 
-「AIなんて自分には関係ないと思っていました。でも、100日後には自社のAI活用を推進する立場に。年収も1.5倍になりました。」
+これは生成AIを使って、「こんなことができる」という生易しいものではなく、人類の歴史の転換点になる、ということです。
 
-### 受講生事例2
-**子育て中でもキャリアアップ**
-鈴木花子さん（42歳・マーケティング）
+大袈裟なことを言うようですが、生成AIによって、人類が幸福で持続可能な未来へ導かれるかもしれないし、残念ながら分断と破壊をつづけ破滅に向かうかもしれない。その両方の未来のどちらにもリアリティがあるということです。
 
-「オンライン中心だから、子育てしながらでも学べました。今では副業でAIライティングの仕事も。可能性が広がりました。」
+**“スキル”ではなく“OS”**
 
-### 受講生事例3
-**定年前の新たな挑戦**
-佐藤次郎さん（58歳・製造業）
+私たちが提供すべきなのは、明日には陳腐化するかもしれない小手先の生成AI活用「スキル」だとは思いません。
 
-「この歳で新しいことを学ぶのは不安でしたが、メンターのサポートで着実に成長。定年後の新しいキャリアが見えてきました。」
+未知の課題に直面したとき、 自ら学び、深く考え、AIを最強の相棒として乗り越えていく力。それこそ、これからの時代に必要な、どんな環境の変化にも適応できるOSを身につける機会。
 
----
+それが、私たちAIリブートアカデミーでありたいと思っています。
 
-## 9. よくある質問
+そして、そのOSは、私たちが与えるものでは完成しません。なぜならば、何を望み、何に幸福を感じるか、つまりあなたのウェルビーイングな状態を知っているのはあなたの中にしかないからです。
 
-### セクションタイトル
-**FAQ - あなたの疑問にお答えします**
+表現が抽象的になり、わかりにくいかもしれませんが、私たちは「教える」教育だけでは、この時代の生き方を身につけることはできないと思っています。あえて「教えない」教育、代わりに、問いを投げつづける伴走。あなたが本当のあなたを理解し、自己認知できるように、キャリアコンサルタントやメンターによる対話を大切にしました。
 
-### Q: プログラミング経験がなくても大丈夫ですか？
-A: 全く問題ありません。受講生の約70%がプログラミング未経験者です。基礎から丁寧に指導します。
+**まだ見ぬどんな生成AIツールでも使えるように**
 
-### Q: 仕事をしながら受講できますか？
-A: はい、可能です。平日夜間と週末を中心にカリキュラムを組んでいます。録画視聴も可能です。
+加えて、今、主流となっているChatGPTやGeminiなどのツールの使い方を覚えるのではなく、これらの生成AIツールの体得の仕方を学び、またマーケティングやエンジニアリングの考え方を身につける。
 
-### Q: 年齢制限はありますか？
-A: ありません。20代から60代まで幅広い年齢層の方が受講されています。
+主流が変化しても、廃れないマインドとスキルを身につけることが、これからの時代を生き抜くための最強の武器になると信じています。
 
-### Q: パソコンのスペックは？
-A: 一般的なノートPCで十分です。特別な機材は不要です。
+そして、あなた自身が設定した課題に、共に学ぶ仲間やメンターたちと挑み、成長と成果を手にしましょう。
 
-### Q: 地方からでも参加できますか？
-A: もちろんです。集合研修以外はオンライン受講可能です。集合研修も主要都市で開催します。
+**同志を求めています**
+
+私たちは、教壇から教えるだけの“先生”ではありません。 AIを活用したビジネスの最前線で、今この瞬間も価値を創造し、挑戦を続ける現役の”実践者集団”です。ゆえにできないこともあります。ただ、今この瞬間に進化している世界に、今この瞬間挑んでいる私たちだからこそ、まだ教科書には載っていない「生きた知見」で、あなたの成長をブーストできるのだと確信しています。
+
+生成AIを身につけて、キャリアアップしたいという方も歓迎ですが、私たちの想いに共感・賛同し、同志になっていただける方でしたら、この上なく嬉しい思いです。全力で応えさせていただきます。
+
+**追記：AIがリライトした文章**  
+**AIリブートアカデミーに込めた想い**
+
+### **■ 生成AIが変えた世界のルール**
+
+生成AIの登場により、世界のルールが根底から塗り替えられようとしています。  
+ かつて「安定」の象徴とされていたホワイトカラーの仕事──エンジニアやコンサルタントさえも、世界各地でリストラの波に直面しています。
+
+生成AIと共に働くことが当たり前になる時代。  
+ これまでの経験やスキルの延長線上だけでは通用しなくなってきています。
 
 ---
 
-## 10. 申込みの流れ
+### **■ 私たちもまた、不安の中に立っています**
 
-### セクションタイトル
-**簡単3ステップで、新しい未来へ**
+「今のスキルではもう通用しないかもしれない」  
+ 「この変化のスピードについていける自信がない」  
+ そう感じているのは、あなただけではありません。
 
-### Step 1: 説明会参加
-無料オンライン説明会で
-プログラムの詳細を確認
+実のところ、私たち自身も同じ不安を抱えています。  
+ それでも一つだけ、確信していることがあります。
 
-### Step 2: 申込み・審査
-簡単な適性審査と
-補助金申請サポート
-
-### Step 3: 受講開始
-仲間と共に
-100日間の挑戦スタート
+それは──「静観していることは、すでに退化の始まりである」ということ。  
+ だからこそ、私たちは動き続けることを選びました。  
+ 不安を抱きながらも、前に進むことを決めたのです。
 
 ---
 
-## 11. 次回開講スケジュール
+### **■ 生成AIと、どう向き合うか**
 
-### セクションタイトル
-**お急ぎください！定員に限りがあります**
+「AIとの未来」を誰かに委ねることもできたかもしれません。  
+ でも私たちは、“自分たち自身が向き合い続ける道”を選びました。
 
-### 第4期生募集
-- **募集期間**: 2025年2月1日〜2月28日
-- **開講日**: 2025年3月15日
-- **定員**: 30名（先着順）
-- **集合研修会場**: 東京・大阪・福岡
-
-### 募集状況
-**残り枠: 12名** （2025年1月20日現在）
+なぜなら、私たちウィルフォワードは2011年の創業以来、  
+ 「世界を一つの家族にする」というビジョンのもと、働き方や生き方を問い続け、実践し続けてきたからです。  
+ そして、私たち一人ひとりにも、“この時代をつくる責任”があると考えているからです。
 
 ---
 
-## 12. CTA（最終訴求）
+### **■ 生成AIに全力で挑んだ日々**
 
-### セクションタイトル
-**今こそ、AIと共に新しい自分へ**
+私たちは過去の事業のスピードを緩め、ときには一時停止しながら、  
+ 1日中生成AIに向き合う日々を送りました。  
+ その進化のスピードに翻弄されながらも、実践を重ねるうちに、一つの確信にたどり着きました。
 
-### メッセージ
-100日後、あなたはどんな自分になっていたいですか？
-AIリブートアカデミーが、その実現をお手伝いします。
+これは単なる「便利なツールの時代」ではありません。  
+ 人類の未来そのものを左右する転換点なのだと。
 
-### CTAボタン
-- **今すぐ申し込む** （メインボタン）
-- **まずは無料説明会へ** （サブボタン）
-- **資料請求** （テキストリンク）
-
-### 緊急性訴求
-⚠️ リスキリング補助金の予算には限りがあります。
-お早めのお申し込みをお勧めします。
+この技術がもたらす未来は、私たちを幸福で持続可能な社会へ導くかもしれない。  
+ 一方で、分断や破壊を深め、破滅へと向かう危うさも孕んでいます。
 
 ---
 
-## 13. お問い合わせ
+### **■ スキルではなく、「思考OS」を**
 
-### 連絡先
-- **メール**: academy@willforward.jp
-- **電話**: 0120-XXX-XXX（平日10:00-18:00）
-- **LINE**: @aireboot_academy
+だからこそ、私たちが提供したいのは、  
+ 明日には古くなるかもしれない「スキル」ではありません。
 
-### 個別相談予約
-プログラムに関する個別相談も承っています。
-**個別相談を予約する →**
+未知の課題に直面したとき、  
+ 自ら問い、学び、AIと共に答えを見つけていく──  
+ \*\*あらゆる変化に適応できる“思考OS”\*\*をインストールする場。
+
+それが、AIリブートアカデミーの本質です。
+
+---
+
+### **■ あなたの中にしかない答えを**
+
+このOSは、私たちが“与える”ものでは完成しません。  
+ なぜなら「何を望み、何に幸せを感じるのか」という“ウェルビーイング”の答えは、あなたの内側にしかないからです。
+
+だからこそ、私たちは「教える教育」だけではなく、  
+ あえて“教えない”教育──問いを投げかける伴走者であることを選びました。
+
+自己認知を深め、ほんとうの自分自身の可能性に出会う。  
+ その旅を支えるのが、私たちキャリアコンサルタントやメンターです。
+
+---
+
+### **■ どんなAIでも使いこなせる力を**
+
+今主流のChatGPTやGeminiなどの使い方を覚えることも重要ですが、  
+ それ以上に、\*\*どんな生成AIでも使いこなせる「考え方」や「学び方」\*\*を身につけることが本質です。
+
+マーケティングやエンジニアリングなどの汎用的な思考スキルと組み合わせることで、  
+ 変化に強い“不変の力”を得ることができます。
+
+---
+
+### **■ そして、共に挑む仲間を求めています**
+
+私たちは、教壇に立つ“先生”ではありません。  
+ 今この瞬間も、現場で価値を生み出す実践者の集団です。
+
+だからこそ、まだ教科書には載っていない「生きた知見」を届けることができる。  
+ まだ見ぬ同志に出会えることを、心から楽しみにしています。
+
+生成AIを学び、キャリアをアップデートしたいという方も大歓迎です。  
+ でも、それ以上に──この想いに共感し、「この時代を共に創っていきたい」と思ってくれるあなたと、出会えることを願っています。
+
+[image1]: <data:image/png;base64,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>
