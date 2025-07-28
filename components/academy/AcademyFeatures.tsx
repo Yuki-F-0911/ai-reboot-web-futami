@@ -6,32 +6,24 @@ export const AcademyFeatures = () => {
   const features = [
     {
       title: "マルチ生成AI活用",
-      description: "生成AIは常にものすごいスピードで進化するため特定のツールに限定せずに、ChatGPT、gemini、NotebookLM、Whisk、Canva、Claude、Claude Code、dify、n8n、notion、Obsidian、GitHub、Sunoなどをはじめ、その時点で最先端で最も活用するのに実用的なツールの選択をします。",
-      icon: "🤖",
-      gradient: "from-will-primary to-will-secondary"
+      description: "ChatGPT、Claude、Geminiなど、最新のAIツールを実践的に習得。特定のツールに依存しない、本質的な活用力を身につけます。"
     },
     {
       title: "伴走型支援",
-      description: "受講生一人ひとりにメンターが伴走し、自分に必要なスキルやテーマを選びながら実践を積む。",
-      icon: "🤝",
-      gradient: "from-wisdom to-harmony"
+      description: "専門メンターが一人ひとりの成長に寄り添い、個別最適化された学習をサポート。挫折させない仕組みがあります。"
     },
     {
-      title: "生成AIスキルの体得と思考のアップデートの両立",
-      description: "技術だけでなく、その学び方を学ぶ。",
-      icon: "🧠",
-      gradient: "from-harmony to-will-secondary"
+      title: "思考のアップデート",
+      description: "技術習得だけでなく、AI時代に必要な思考法を体得。変化し続ける時代に適応する力を養います。"
     },
     {
-      title: "「問い」を中心とした教育",
-      description: "答えを教えるのではなく、本質的な問いを共に探究する。",
-      icon: "❓",
-      gradient: "from-will-secondary to-wisdom"
+      title: "問いを中心とした学び",
+      description: "答えを教えるのではなく、本質的な問いを共に探究。自ら考え、創造する力を育みます。"
     }
   ];
 
   return (
-    <section className="section-spacing bg-depth-50">
+    <section className="py-24 md:py-32 bg-gradient-to-b from-white via-depth-50/30 to-white">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -39,37 +31,26 @@ export const AcademyFeatures = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            <span className="bg-will-gradient bg-clip-text text-transparent">
-              特徴
-            </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-depth-900 mb-16">
+            プログラムの特徴
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group"
               >
-                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-soft hover:shadow-elevated transition-all duration-300 h-full">
-                  <div className="flex items-start gap-4">
-                    <div className={`flex-shrink-0 w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center text-3xl shadow-soft group-hover:scale-110 transition-transform duration-300`}>
-                      {feature.icon}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl md:text-2xl font-bold text-depth-900 mb-3">
-                        {feature.title}
-                      </h3>
-                      <p className="text-depth-700 leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <h3 className="text-xl font-semibold text-depth-900 mb-3 relative">
+                  {feature.title}
+                  <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-will-primary" />
+                </h3>
+                <p className="text-depth-600 leading-relaxed">
+                  {feature.description}
+                </p>
               </motion.div>
             ))}
           </div>

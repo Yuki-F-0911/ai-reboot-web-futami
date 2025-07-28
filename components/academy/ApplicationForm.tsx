@@ -76,7 +76,7 @@ export const ApplicationForm = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="bg-will-gradient bg-clip-text text-transparent">
@@ -107,7 +107,7 @@ export const ApplicationForm = () => {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-elevated p-8">
+          <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-elevated p-10">
             {step === 1 && (
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
@@ -168,7 +168,7 @@ export const ApplicationForm = () => {
                     type="button"
                     onClick={nextStep}
                     disabled={!formData.name || !formData.email}
-                    className="px-6 py-3 bg-gradient-to-r from-will-primary to-will-secondary text-white font-semibold rounded-full hover:shadow-elevated transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-8 py-3 bg-will-primary text-white font-semibold rounded-lg hover:bg-will-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-will-primary/20"
                   >
                     次へ進む
                   </button>
@@ -229,7 +229,7 @@ export const ApplicationForm = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-8 py-3 bg-gradient-to-r from-[#FF5722] to-[#FF7043] text-white font-semibold rounded-full hover:shadow-elevated transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                    className="px-8 py-3 bg-will-primary text-white font-semibold rounded-lg hover:bg-will-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-md shadow-will-primary/20"
                   >
                     {isSubmitting ? (
                       <>

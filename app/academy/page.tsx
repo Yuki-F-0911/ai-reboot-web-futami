@@ -3,7 +3,6 @@ import { AcademyHero } from "@/components/academy/AcademyHero";
 import { AcademyOverview } from "@/components/academy/AcademyOverview";
 import { AcademyPurpose } from "@/components/academy/AcademyPurpose";
 import { AcademyProgram } from "@/components/academy/AcademyProgram";
-import { JourneyVisualization } from "@/components/academy/JourneyVisualization";
 import { AcademyFeatures } from "@/components/academy/AcademyFeatures";
 import { AcademyTarget } from "@/components/academy/AcademyTarget";
 import { AcademyInstructors } from "@/components/academy/AcademyInstructors";
@@ -25,7 +24,6 @@ export default function AcademyPage() {
       <AcademyOverview />
       <AcademyPurpose />
       <AcademyProgram />
-      <JourneyVisualization />
       <AcademyFeatures />
       <AcademyTarget />
       <AcademyInstructors />
