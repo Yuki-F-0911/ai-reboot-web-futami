@@ -1,98 +1,101 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
-const AcademyInstructors = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+export const AcademyInstructors = () => {
   const instructors = [
     {
       name: "成瀬 拓也",
-      title: "ウィルフォワード代表",
-      description: "経営・AX・人材開発の専門家として多くの企業支援実績を持つ。AI活用の戦略設計に精通。",
-      color: "harmony",
-      image: "/images/naruse.jpg"
+      title: "ビジネスプロデューサー",
+      subtitle: "株式会社ウィルフォワード代表",
+      description: "経営・マーケティングの専門家としてこれまで多くの事業を生み出し、同時にコンサルタントとして、様々な企業の支援実績を持つ。AI活用のサービス開発や戦略設計に精通している。",
+      gradient: "from-will-primary to-will-secondary"
     },
     {
       name: "坂本 拓磨",
-      title: "生成AI活用ディレクター",
-      description: "Web/映像領域でのAI実装経験が豊富。一般社団法人生成AI活用普及協会「生成AIパスポート」保有。",
-      certification: true,
-      color: "will-primary",
-      image: "/images/sakamoto.jpg"
+      title: "AIエンジニア",
+      qualification: "一般社団法人生成AI活用普及協会「生成AIパスポート」保有",
+      description: "生成AIを活用して、AIエージェントやWebサービスの開発を手掛けるエンジニア兼デザイナー。",
+      gradient: "from-wisdom to-harmony"
     },
     {
       name: "青木 玲仁",
-      title: "AI業務改善コンサルタント",
-      description: "人事・業務プロセス改善におけるAI活用の実践者。一般社団法人生成AI活用普及協会「生成AIパスポート」保有。",
-      certification: true,
-      color: "wisdom",
-      image: "/images/aoki.jpg"
+      title: "生成AI活用コンサルタント",
+      qualification: "一般社団法人生成AI活用普及協会「生成AIパスポート」保有",
+      description: "複数の生成AIツールを使いこなし、生成AIを活用した業務効率化のスペシャリスト。",
+      gradient: "from-harmony to-will-secondary"
+    },
+    {
+      name: "久米田 克",
+      title: "キャリアコンサルタント",
+      qualification: "一般社団法人生成AI活用普及協会「生成AIパスポート」保有",
+      description: "キャリア支援の専門家として、受講生の自己理解と成長をサポート。",
+      gradient: "from-will-secondary to-wisdom"
     }
   ];
-  
+
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-gradient-to-b from-depth-100 to-white">
+    <section className="section-spacing bg-depth-50">
       <div className="container-section">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto mb-16"
+          viewport={{ once: true }}
         >
-          <h2 className="text-h1 md:text-5xl font-bold mb-8 text-depth-800">
-            講師・メンター
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <span className="bg-will-gradient bg-clip-text text-transparent">
+              講師・メンター
+            </span>
           </h2>
-          <p className="text-xl text-depth-700">
-            実践経験豊富な専門家が、あなたの成長を支援します
-          </p>
-        </motion.div>
-        
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {instructors.map((instructor, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-              className="bg-white rounded-3xl p-8 shadow-elevated hover:shadow-floating transition-all duration-300"
-            >
-              {/* プロフィール画像 */}
-              <div className="w-32 h-32 relative overflow-hidden rounded-full mx-auto mb-6">
-                <div 
-                  className={`w-full h-full flex items-center justify-center ${
-                    instructor.color === 'harmony' ? 'bg-gradient-to-br from-harmony to-harmony/50' :
-                    instructor.color === 'will-primary' ? 'bg-gradient-to-br from-will-primary to-will-secondary' :
-                    'bg-gradient-to-br from-wisdom to-wisdom/50'
-                  }`}
-                >
-                  <span className="text-white text-3xl font-bold">
-                    {instructor.name.charAt(0)}
-                  </span>
+          
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-8">
+            {instructors.map((instructor, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300"
+              >
+                <div className={`h-2 bg-gradient-to-r ${instructor.gradient}`} />
+                <div className="p-6 md:p-8">
+                  <h3 className="text-2xl font-bold text-depth-900 mb-2">
+                    {instructor.name}
+                  </h3>
+                  <p className="text-lg font-semibold text-will-primary mb-1">
+                    {instructor.title}
+                  </p>
+                  {instructor.subtitle && (
+                    <p className="text-depth-700 mb-2">
+                      {instructor.subtitle}
+                    </p>
+                  )}
+                  {instructor.qualification && (
+                    <p className="text-sm text-wisdom font-medium mb-3">
+                      {instructor.qualification}
+                    </p>
+                  )}
+                  <p className="text-depth-700 leading-relaxed">
+                    {instructor.description}
+                  </p>
                 </div>
-              </div>
-              
-              {/* 名前と肩書き */}
-              <h3 className="text-xl font-bold text-center mb-2 text-depth-800">
-                {instructor.name}
-              </h3>
-              <p className="text-center text-depth-600 mb-4">
-                {instructor.title}
-              </p>
-              
-              
-              {/* 説明 */}
-              <p className="text-depth-700 text-center leading-relaxed">
-                {instructor.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center text-lg text-depth-700"
+          >
+            他、生成AI活用に関して専門性をもった講師・メンターがサポートします
+          </motion.p>
+        </motion.div>
       </div>
     </section>
   );
 };
-
-export { AcademyInstructors }

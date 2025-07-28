@@ -91,7 +91,7 @@ export const AcademyTestimonials = () => {
                 </div>
 
                 <blockquote className="text-depth-700 leading-relaxed text-sm md:text-base">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
               </div>
 

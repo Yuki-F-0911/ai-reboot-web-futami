@@ -1,38 +1,32 @@
 import { Metadata } from "next";
 import { AcademyHero } from "@/components/academy/AcademyHero";
-import { AcademyProblem } from "@/components/academy/AcademyProblem";
-import { AcademyConcept } from "@/components/academy/AcademyConcept";
+import { AcademyOverview } from "@/components/academy/AcademyOverview";
+import { AcademyPurpose } from "@/components/academy/AcademyPurpose";
+import { AcademyProgram } from "@/components/academy/AcademyProgram";
 import { AcademyFeatures } from "@/components/academy/AcademyFeatures";
-import { AcademyPhilosophy } from "@/components/academy/AcademyPhilosophy";
-import { AcademyGovernment } from "@/components/academy/AcademyGovernment";
-import { AcademyCurriculum } from "@/components/academy/AcademyCurriculum";
-import { AcademyTestimonials } from "@/components/academy/AcademyTestimonials";
+import { AcademyTarget } from "@/components/academy/AcademyTarget";
 import { AcademyInstructors } from "@/components/academy/AcademyInstructors";
-import { AcademyApplicationFlow } from "@/components/academy/AcademyApplicationFlow";
-import { AcademySchedule } from "@/components/academy/AcademySchedule";
-import { AcademyFAQ } from "@/components/academy/AcademyFAQ";
+import { AcademyPricing } from "@/components/academy/AcademyPricing";
+import { AcademyStory } from "@/components/academy/AcademyStory";
 import { AcademyCTA } from "@/components/academy/AcademyCTA";
 
 export const metadata: Metadata = {
   title: "AIリブートアカデミー | AI REBOOT - ウィルフォワード",
-  description: "AIを学ぶ。生き方を、変える。これは、AIスクールではありません。変化の時代を生きる、あなたのための人生の学校です。経済産業省リスキリング補助金対象講座。",
+  description: "生成AIツールを使いこなすためのマインドセットとスキルを身につけ、生成AI時代を生き抜く思考OSをインストールする100日間の実践プログラム。経済産業省リスキリング補助金対象講座。",
 };
 
 export default function AcademyPage() {
   return (
     <div className="bg-white">
       <AcademyHero />
-      <AcademyProblem />
-      <AcademyConcept />
+      <AcademyOverview />
+      <AcademyPurpose />
+      <AcademyProgram />
       <AcademyFeatures />
-      <AcademyPhilosophy />
-      <AcademyGovernment />
-      <AcademyCurriculum />
-      <AcademyTestimonials />
+      <AcademyTarget />
       <AcademyInstructors />
-      <AcademyApplicationFlow />
-      <AcademySchedule />
-      <AcademyFAQ />
+      <AcademyPricing />
+      <AcademyStory />
       <AcademyCTA />
     </div>
   );

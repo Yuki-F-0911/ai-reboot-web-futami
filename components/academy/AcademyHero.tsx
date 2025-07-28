@@ -14,15 +14,28 @@ export const AcademyHero = () => {
       
       <div className="container-section relative z-10">
         <div className="text-center max-w-5xl mx-auto">
+          {/* キャッチコピー */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-2xl md:text-3xl font-bold text-will-primary mb-4"
+          >
+            🔷 AIスクール事業「AIリブートアカデミー」プログラム 🔷
+          </motion.p>
+          
           {/* メインタイトル */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
           >
-            <span className="block bg-will-gradient bg-clip-text text-transparent mb-2">
-              100日で、AIを味方につける
+            <span className="block bg-will-gradient bg-clip-text text-transparent mb-4">
+              生成AI時代を生き抜く
+            </span>
+            <span className="block text-4xl md:text-5xl lg:text-6xl text-depth-800">
+              思考OSをインストール
             </span>
           </motion.h1>
           
@@ -30,19 +43,19 @@ export const AcademyHero = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-depth-700 mb-10 leading-relaxed max-w-3xl mx-auto"
           >
-            <span className="block text-depth-800 font-semibold mb-2">
-              あなたのWill（意思）を見つけ、AIと共に実現する力を
-            </span>
+            生成AIツールの使い方を学ぶだけではなく、<br />
+            使いこなすためのマインドセットとスキルを身につける<br />
+            <span className="font-bold text-will-primary">100日間の実践プログラム</span>
           </motion.p>
           
           {/* 補助金バッジ */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             className="inline-flex items-center gap-3 bg-gradient-to-r from-will-primary to-will-secondary text-white px-8 py-4 rounded-full mb-12 shadow-glow"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -58,7 +71,7 @@ export const AcademyHero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link href="#apply">
@@ -70,13 +83,13 @@ export const AcademyHero = () => {
                 今すぐ申し込む
               </motion.button>
             </Link>
-            <Link href="#session">
+            <Link href="#program">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-4 border-2 border-will-primary text-will-primary font-semibold text-lg rounded-full hover:bg-will-primary hover:text-white transition-all duration-300"
               >
-                無料説明会に参加
+                プログラム詳細を見る
               </motion.button>
             </Link>
           </motion.div>
