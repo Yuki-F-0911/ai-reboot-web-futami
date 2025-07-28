@@ -1,31 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 export const TrustIndicators = () => {
-  const [count, setCount] = useState(0);
-  const targetCount = 523; // 受講者数
-  
-  useEffect(() => {
-    const duration = 2000; // 2秒でカウントアップ
-    const steps = 60;
-    const increment = targetCount / steps;
-    let current = 0;
-    
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= targetCount) {
-        setCount(targetCount);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, duration / steps);
-    
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -44,38 +21,28 @@ export const TrustIndicators = () => {
         </div>
       </div>
       
-      {/* 受講者数カウンター */}
+      {/* リスキリング補助金 */}
       <div className="text-center">
         <motion.p
           initial={{ scale: 0.5 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="text-3xl md:text-4xl font-bold text-will-primary"
+          className="text-2xl md:text-3xl font-bold text-will-primary"
         >
-          {count}名
+          最大70%補助
         </motion.p>
-        <p className="text-sm text-depth-600">受講者数突破</p>
+        <p className="text-sm text-depth-600">リスキリング補助金対象</p>
       </div>
       
-      {/* 満足度 */}
+      {/* 宿泊型研修 */}
       <div className="text-center">
-        <div className="flex items-center gap-1 mb-1">
-          {[1, 2, 3, 4, 5].map((star) => (
-            <motion.svg
-              key={star}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.8 + star * 0.1 }}
-              className={`w-6 h-6 ${star <= 4 ? 'text-harmony' : 'text-harmony/50'}`}
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </motion.svg>
-          ))}
+        <div className="flex items-center justify-center mb-1">
+          <svg className="w-8 h-8 text-harmony" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
         </div>
-        <p className="text-xl font-bold text-depth-900">4.8/5.0</p>
-        <p className="text-sm text-depth-600">満足度</p>
+        <p className="text-xl font-bold text-depth-900">2日間</p>
+        <p className="text-sm text-depth-600">宿泊型集合研修</p>
       </div>
     </motion.div>
   );

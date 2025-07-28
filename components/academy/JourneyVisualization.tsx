@@ -1,55 +1,65 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useScrollAnimation, useCountAnimation } from "@/hooks/useScrollAnimation";
-import { useEffect } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const JourneyVisualization = () => {
   const { ref, isInView } = useScrollAnimation({ threshold: 0.5 });
-  const { count: dayCount, startAnimation: startDayAnimation } = useCountAnimation(100, 3000);
-  const { count: growthCount, startAnimation: startGrowthAnimation } = useCountAnimation(300, 3000);
-
-  useEffect(() => {
-    if (isInView) {
-      startDayAnimation();
-      startGrowthAnimation();
-    }
-  }, [isInView, startDayAnimation, startGrowthAnimation]);
 
   const milestones = [
     {
       day: 0,
       label: "スタート",
       description: "不安と期待が入り混じる",
-      icon: "😰",
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
       position: 0,
     },
     {
       day: 2,
       label: "AIリブートキャンプ",
       description: "基礎を集中的に習得",
-      icon: "🏃",
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      ),
       position: 10,
     },
     {
       day: 30,
       label: "習慣化",
       description: "AI活用が日常に",
-      icon: "💡",
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+      ),
       position: 35,
     },
     {
       day: 60,
       label: "実践深化",
       description: "自分のプロジェクト開始",
-      icon: "🚀",
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
       position: 65,
     },
     {
       day: 100,
       label: "DEMO DAY",
       description: "新しい自分の誕生",
-      icon: "🎉",
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg>
+      ),
       position: 100,
     },
   ];
@@ -84,21 +94,21 @@ export const JourneyVisualization = () => {
           >
             <div className="bg-white rounded-2xl p-6 shadow-soft text-center">
               <div className="text-4xl font-bold text-will-primary mb-2">
-                {dayCount}日間
+                100日間
               </div>
               <p className="text-depth-600">実践的な学習期間</p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-soft text-center">
               <div className="text-4xl font-bold text-harmony mb-2">
-                {Math.floor(growthCount / 3)}%
+                2日間
               </div>
-              <p className="text-depth-600">平均スキル向上率</p>
+              <p className="text-depth-600">集合研修でスタートダッシュ</p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-soft text-center">
               <div className="text-4xl font-bold text-wisdom mb-2">
-                ∞
+                3回
               </div>
-              <p className="text-depth-600">将来の可能性</p>
+              <p className="text-depth-600">キャリアコンサルティング</p>
             </div>
           </motion.div>
 
@@ -128,7 +138,7 @@ export const JourneyVisualization = () => {
                 >
                   {/* マイルストーンポイント */}
                   <div className="relative">
-                    <div className="w-16 h-16 bg-white rounded-full shadow-elevated flex items-center justify-center text-3xl mb-3">
+                    <div className="w-16 h-16 bg-white rounded-full shadow-elevated flex items-center justify-center text-will-primary mb-3">
                       {milestone.icon}
                     </div>
                     

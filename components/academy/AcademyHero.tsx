@@ -4,22 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ValuePropositionCards } from "./ValuePropositionCards";
 import { TrustIndicators } from "./TrustIndicators";
-import { useState, useEffect } from "react";
 
 export const AcademyHero = () => {
-  const [remainingSeats, setRemainingSeats] = useState(8);
-  
-  // 残席数のリアルタイム更新シミュレーション
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setRemainingSeats(prev => {
-        const next = prev - Math.floor(Math.random() * 2);
-        return next < 3 ? 3 : next;
-      });
-    }, 30000); // 30秒ごとに更新
-    
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <section className="relative min-h-screen pt-20 pb-10 overflow-hidden">
@@ -71,19 +57,6 @@ export const AcademyHero = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center"
         >
-          {/* 緊急性メッセージ */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1 }}
-            className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-2 rounded-full mb-6"
-          >
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-            </span>
-            <span className="font-semibold">残席わずか{remainingSeats}名</span>
-          </motion.div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="#application">
