@@ -83,9 +83,15 @@ export const ApplicationForm = () => {
                 無料説明会お申し込み
               </span>
             </h2>
-            <p className="text-lg text-depth-700">
+            <p className="text-lg text-depth-700 mb-4">
               まずは無料説明会で、プログラムの詳細をご確認ください
             </p>
+            <div className="inline-flex items-center gap-2 bg-will-primary/10 text-will-primary px-4 py-2 rounded-full text-sm font-medium">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              第1回: 2025年8月16日(土)〜17日(日) 川崎市開催
+            </div>
           </motion.div>
 
           {/* プログレスバー */}
@@ -125,7 +131,7 @@ export const ApplicationForm = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-depth-200 focus:border-will-primary focus:ring-2 focus:ring-will-primary/20 transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-depth-200 focus:border-will-primary focus:ring-2 focus:ring-will-primary/20 focus:outline-none transition-all"
                       placeholder="山田 太郎"
                       required
                     />
@@ -141,7 +147,7 @@ export const ApplicationForm = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-depth-200 focus:border-will-primary focus:ring-2 focus:ring-will-primary/20 transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-depth-200 focus:border-will-primary focus:ring-2 focus:ring-will-primary/20 focus:outline-none transition-all"
                       placeholder="example@email.com"
                       required
                     />
@@ -157,7 +163,7 @@ export const ApplicationForm = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-depth-200 focus:border-will-primary focus:ring-2 focus:ring-will-primary/20 transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-depth-200 focus:border-will-primary focus:ring-2 focus:ring-will-primary/20 focus:outline-none transition-all"
                       placeholder="090-1234-5678"
                     />
                   </div>
@@ -192,7 +198,7 @@ export const ApplicationForm = () => {
                       name="preferredDate"
                       value={formData.preferredDate}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-depth-200 focus:border-will-primary focus:ring-2 focus:ring-will-primary/20 transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-depth-200 focus:border-will-primary focus:ring-2 focus:ring-will-primary/20 focus:outline-none transition-all"
                     >
                       <option value="">選択してください</option>
                       <option value="2024-02-10">2月10日（土）14:00-16:00</option>
@@ -212,7 +218,7 @@ export const ApplicationForm = () => {
                       value={formData.concerns}
                       onChange={handleInputChange}
                       rows={4}
-                      className="w-full px-4 py-3 rounded-lg border border-depth-200 focus:border-will-primary focus:ring-2 focus:ring-will-primary/20 transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-lg border border-depth-200 focus:border-will-primary focus:ring-2 focus:ring-will-primary/20 focus:outline-none transition-all resize-none"
                       placeholder="気になること、不安なことなど、お気軽にご記入ください"
                     />
                   </div>

@@ -280,5 +280,5 @@ analytics:
 
 ---
 
-作成日: 2024年1月28日
+作成日: 2025年7月28日
 作成者: Claude (AI Design Consultant)

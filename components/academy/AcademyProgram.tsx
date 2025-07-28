@@ -7,8 +7,9 @@ export const AcademyProgram = () => {
     {
       phase: "Phase 1",
       title: "AIリブートキャンプ",
-      duration: "2日間",
-      date: "2025年8月16日(土)〜17日(日)",
+      duration: "2日間の宿泊型集合研修",
+      date: "2025年8月16日(土)13:00〜17日(日)17:00",
+      location: "神奈川県川崎市",
       description: "集合研修で基礎を固め、仲間と出会う",
       details: [
         "生成AI活用の基礎と応用",
@@ -79,12 +80,17 @@ export const AcademyProgram = () => {
                   
                   {/* コンテンツ */}
                   <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
-                    <div className={`inline-block ${index % 2 === 0 ? 'md:ml-auto' : ''}`}>
+                    <div className={`bg-white rounded-2xl p-6 md:p-8 shadow-md border max-w-md ${
+                      index === 0 ? 'border-2 border-will-primary shadow-lg shadow-will-primary/10' : 'border-depth-100'
+                    } ${index % 2 === 0 ? 'md:ml-auto' : ''}`}>
                       <p className="text-sm font-medium text-will-primary mb-2">{phase.phase}</p>
                       <h3 className="text-2xl font-bold text-depth-900 mb-2">{phase.title}</h3>
                       <p className="text-depth-700 mb-1">{phase.duration}</p>
                       {phase.date && (
-                        <p className="text-sm text-depth-600 mb-4">{phase.date}</p>
+                        <p className="text-sm font-semibold text-depth-800 mb-1">{phase.date}</p>
+                      )}
+                      {phase.location && (
+                        <p className="text-sm text-depth-600 mb-4">📍 {phase.location}</p>
                       )}
                       <p className="text-depth-700 font-medium mb-4">{phase.description}</p>
                       

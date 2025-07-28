@@ -1,15 +1,15 @@
-import { StoryHero } from '@/components/sections/StoryHero';
-import { StoryChapter1 } from '@/components/sections/StoryChapter1';
-import { StoryChapter2 } from '@/components/sections/StoryChapter2';
-import { StoryProgram } from '@/components/sections/StoryProgram';
+import { HomeHero } from '@/components/home/HomeHero';
+import { HomeMission } from '@/components/home/HomeMission';
+import { HomeServices } from '@/components/home/HomeServices';
+import { HomeCTA } from '@/components/home/HomeCTA';
 
 export default function Home() {
   return (
     <div className="bg-white">
-      <StoryHero />
-      <StoryChapter1 />
-      <StoryChapter2 />
-      <StoryProgram />
+      <HomeHero />
+      <HomeMission />
+      <HomeServices />
+      <HomeCTA />
     </div>
   );
 }

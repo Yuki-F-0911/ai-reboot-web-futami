@@ -44,9 +44,15 @@ export const AcademyFeatures = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-xl font-semibold text-depth-900 mb-3 relative">
+                <h3 className="text-xl font-semibold text-depth-900 mb-3 relative inline-block">
                   {feature.title}
-                  <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-will-primary" />
+                  <motion.span 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "3rem" }}
+                    transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+                    viewport={{ once: true }}
+                    className="absolute -bottom-1 left-0 h-0.5 bg-will-primary" 
+                  />
                 </h3>
                 <p className="text-depth-600 leading-relaxed">
                   {feature.description}
