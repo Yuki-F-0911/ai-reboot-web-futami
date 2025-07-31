@@ -3,50 +3,8 @@
 import { motion } from "framer-motion";
 
 export const AcademyProgram = () => {
-  const phases = [
-    {
-      phase: "Phase 1",
-      title: "AIリブートキャンプ",
-      duration: "2日間の宿泊型集合研修",
-      date: "2025年8月16日(土)13:00〜17日(日)17:00",
-      location: "神奈川県川崎市",
-      description: "集合研修で基礎を固め、仲間と出会う",
-      details: [
-        "生成AI活用の基礎と応用",
-        "AI時代のマインドセット",
-        "実践演習とプロトタイピング",
-        "100日間の目標設定"
-      ]
-    },
-    {
-      phase: "Phase 2",
-      title: "AIリブート100",
-      duration: "100日間",
-      description: "実践を通じて着実にスキルを定着",
-      details: [
-        "毎週のオンラインセッション",
-        "メンターによる個別フィードバック",
-        "月1回のキャリアコンサルティング",
-        "実プロジェクトへの挑戦"
-      ]
-    },
-    {
-      phase: "Phase 3",
-      title: "DEMO DAY",
-      duration: "最終日",
-      date: "2025年11月24日(月祝)",
-      description: "成果発表と新たな一歩",
-      details: [
-        "100日間の成果発表",
-        "自己成長の振り返り",
-        "今後のビジョン共有",
-        "修了証授与"
-      ]
-    }
-  ];
-
   return (
-    <section id="program" className="py-24 md:py-32">
+    <section id="program" className="py-24 md:py-32 bg-gradient-to-b from-white to-gray-50">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -58,59 +16,165 @@ export const AcademyProgram = () => {
             プログラムの流れ
           </h2>
           
-          <div className="max-w-5xl mx-auto">
-            {/* タイムライン */}
+          <div className="max-w-3xl mx-auto">
             <div className="relative">
-              {/* 縦線 */}
-              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-will-primary/20 via-will-primary/40 to-will-primary/20" />
+              {/* 左側のタイムライン */}
+              <div className="absolute left-0 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-will-primary via-will-primary/50 to-will-primary" />
               
-              {phases.map((phase, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className={`relative flex flex-col md:flex-row gap-8 mb-16 last:mb-0 ${
-                    index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                  }`}
-                >
-                  {/* タイムラインドット */}
-                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-will-primary border-4 border-white rounded-full z-10 shadow-lg" />
-                  
-                  {/* コンテンツ */}
-                  <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
-                    <div className={`bg-white rounded-2xl p-6 md:p-8 shadow-md border max-w-md ${
-                      index === 0 ? 'border-2 border-will-primary shadow-lg shadow-will-primary/10' : 'border-depth-100'
-                    } ${index % 2 === 0 ? 'md:ml-auto' : ''}`}>
-                      <p className="text-sm font-medium text-will-primary mb-2">{phase.phase}</p>
-                      <h3 className="text-2xl font-bold text-depth-900 mb-2">{phase.title}</h3>
-                      <p className="text-depth-700 mb-1">{phase.duration}</p>
-                      {phase.date && (
-                        <p className="text-sm font-semibold text-depth-800 mb-1">{phase.date}</p>
-                      )}
-                      {phase.location && (
-                        <p className="text-sm text-depth-600 mb-4">📍 {phase.location}</p>
-                      )}
-                      <p className="text-depth-700 font-medium mb-4">{phase.description}</p>
+              {/* AIリブートキャンプ */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="relative flex items-start gap-6 md:gap-8"
+              >
+                {/* タイムラインのポイント */}
+                <div className="absolute left-0 md:left-8 w-4 h-4 bg-will-primary rounded-full -translate-x-[7px] mt-8 z-10">
+                  <div className="absolute inset-0 bg-will-primary rounded-full animate-ping" />
+                </div>
+                
+                <div className="ml-8 md:ml-20 flex-1 bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                  <h3 className="text-2xl font-bold text-depth-900 mb-3">AIリブートキャンプ</h3>
+                  <p className="text-depth-600 mb-4">2日間の宿泊型集合研修</p>
+                  <div className="space-y-2 text-depth-700">
+                    <p>• 生成AI活用の基礎と応用</p>
+                    <p>• AI時代のマインドセット形成</p>
+                    <p>• 実践演習とプロトタイピング</p>
+                    <p>• 100日間の目標設定</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 100日間の期間表示 */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="relative py-2"
+              >
+                <div className="absolute left-0 md:left-8 -translate-x-1/2 bg-white px-2 py-1">
+                  <p className="text-xs font-bold text-will-primary">100日間</p>
+                </div>
+              </motion.div>
+
+              {/* AIリブート100（縦長デザイン） */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="relative flex items-start gap-6 md:gap-8"
+              >
+                {/* 100日間の継続線 */}
+                <div className="absolute left-0 md:left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-will-primary/30 via-will-primary/40 to-will-primary/30 -translate-x-[1px]" />
+                
+                <div className="ml-8 md:ml-20 flex-1">
+                  <div className="bg-gradient-to-br from-will-primary/5 to-will-primary/10 rounded-xl p-8 border border-will-primary/20">
+                    <div className="text-center mb-8">
+                      <h3 className="text-2xl font-bold text-depth-900 mb-2">AIリブート100</h3>
+                      <p className="text-depth-600">100日間の継続的な実践プログラム</p>
+                    </div>
+                    
+                    <div className="space-y-6">
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        viewport={{ once: true }}
+                        className="bg-white/70 rounded-lg p-5"
+                      >
+                        <h4 className="font-semibold text-depth-800 mb-2">📅 毎週のオンラインセッション</h4>
+                        <p className="text-sm text-depth-600">最新のAI活用事例と実践的なワークショップ</p>
+                      </motion.div>
                       
-                      <ul className={`space-y-2 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
-                        {phase.details.map((detail, i) => (
-                          <li key={i} className={`flex items-center gap-2 text-sm text-depth-600 ${
-                            index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                          }`}>
-                            <span className="w-1 h-1 bg-depth-400 rounded-full flex-shrink-0" />
-                            <span>{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        viewport={{ once: true }}
+                        className="bg-white/70 rounded-lg p-5"
+                      >
+                        <h4 className="font-semibold text-depth-800 mb-2">💬 個別メンタリング</h4>
+                        <p className="text-sm text-depth-600">一人ひとりの課題に寄り添うフィードバック</p>
+                      </motion.div>
+                      
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                        viewport={{ once: true }}
+                        className="bg-white/70 rounded-lg p-5"
+                      >
+                        <h4 className="font-semibold text-depth-800 mb-2">🎯 キャリアコンサルティング</h4>
+                        <p className="text-sm text-depth-600">月1回の自己理解とキャリア設計支援</p>
+                      </motion.div>
+                      
+                      <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.6 }}
+                        viewport={{ once: true }}
+                        className="bg-white/70 rounded-lg p-5"
+                      >
+                        <h4 className="font-semibold text-depth-800 mb-2">🚀 実践プロジェクト</h4>
+                        <p className="text-sm text-depth-600">実際の課題解決に挑戦する実践的な学び</p>
+                      </motion.div>
+                    </div>
+                    
+                    {/* 100日間のビジュアル表現 */}
+                    <div className="mt-8 pt-8 border-t border-will-primary/20">
+                      <div className="flex items-center justify-center gap-4">
+                        <div className="text-center">
+                          <p className="text-3xl font-bold text-will-primary">100</p>
+                          <p className="text-xs text-depth-600">DAYS</p>
+                        </div>
+                        <div className="flex gap-1">
+                          {[...Array(10)].map((_, i) => (
+                            <motion.div
+                              key={i}
+                              initial={{ opacity: 0, scale: 0 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.2, delay: 0.7 + i * 0.05 }}
+                              viewport={{ once: true }}
+                              className="w-1 h-8 bg-will-primary/30 rounded-full"
+                            />
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  
-                  {/* スペーサー */}
-                  <div className="flex-1 hidden md:block" />
-                </motion.div>
-              ))}
+                </div>
+              </motion.div>
+
+              {/* スペーサー */}
+              <div className="py-4" />
+
+              {/* DEMO DAY */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="relative flex items-start gap-6 md:gap-8"
+              >
+                {/* タイムラインのポイント */}
+                <div className="absolute left-0 md:left-8 w-4 h-4 bg-will-primary rounded-full -translate-x-[7px] mt-8 z-10">
+                  <div className="absolute inset-0 bg-will-primary rounded-full animate-ping" />
+                </div>
+                
+                <div className="ml-8 md:ml-20 flex-1 bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                  <h3 className="text-2xl font-bold text-depth-900 mb-3">DEMO DAY</h3>
+                  <p className="text-depth-600 mb-4">最終発表会</p>
+                  <div className="space-y-2 text-depth-700">
+                    <p>• 100日間の成果発表</p>
+                    <p>• 自己成長の振り返り</p>
+                    <p>• 今後のビジョン共有</p>
+                    <p>• 修了証授与</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>

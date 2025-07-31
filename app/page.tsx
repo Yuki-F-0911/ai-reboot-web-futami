@@ -1,5 +1,6 @@
 import { HomeHero } from '@/components/home/HomeHero';
 import { HomeMission } from '@/components/home/HomeMission';
+import { HomeStory } from '@/components/home/HomeStory';
 import { HomeServices } from '@/components/home/HomeServices';
 import { HomeCTA } from '@/components/home/HomeCTA';
 
@@ -8,6 +9,7 @@ export default function Home() {
     <div className="bg-white">
       <HomeHero />
       <HomeMission />
+      <HomeStory />
       <HomeServices />
       <HomeCTA />
     </div>

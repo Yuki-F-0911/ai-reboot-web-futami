@@ -125,6 +125,61 @@ export const AcademyStory = () => {
               </div>
             </motion.div>
           ))}
+          
+          {/* note記事リンクカード */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="mt-20"
+          >
+            <div className="bg-white rounded-2xl shadow-elevated overflow-hidden hover:shadow-floating transition-all duration-300">
+              <a 
+                href="https://note.com/naruse_takuya/n/XXXXX" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <div className="p-8 md:p-10">
+                  <div className="flex items-start gap-6">
+                    {/* アイコン部分 */}
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 bg-gradient-to-br from-will-primary to-will-secondary rounded-full flex items-center justify-center">
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {/* コンテンツ部分 */}
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-sm font-medium text-will-primary">note</span>
+                        <span className="text-sm text-depth-500">•</span>
+                        <span className="text-sm text-depth-500">成瀬 拓也</span>
+                      </div>
+                      
+                      <h3 className="text-xl md:text-2xl font-bold text-depth-900 mb-3 group-hover:text-will-primary transition-colors">
+                        AIリブートアカデミーにかける想い
+                      </h3>
+                      
+                      <p className="text-depth-700 line-clamp-3 mb-4">
+                        なぜ私たちがAIリブートアカデミーを立ち上げたのか。生成AIという技術革新の中で、人間の価値と可能性を最大化する教育とは何か。創業者としての想いを綴りました。
+                      </p>
+                      
+                      <div className="flex items-center gap-2 text-will-primary font-medium">
+                        <span>記事を読む</span>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
