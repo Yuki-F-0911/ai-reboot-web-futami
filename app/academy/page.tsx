@@ -7,8 +7,10 @@ import { AcademyFeatures } from "@/components/academy/AcademyFeatures";
 import { AcademyTarget } from "@/components/academy/AcademyTarget";
 import { AcademyInstructors } from "@/components/academy/AcademyInstructors";
 import { AcademyPricing } from "@/components/academy/AcademyPricing";
+import { ApplicationForm } from "@/components/academy/ApplicationForm";
 import { AcademyStory } from "@/components/academy/AcademyStory";
 import { AcademyCTA } from "@/components/academy/AcademyCTA";
+import { SmartCTA } from "@/components/academy/SmartCTA";
 
 export const metadata: Metadata = {
   title: "AIリブートアカデミー | AI REBOOT - ウィルフォワード",
@@ -26,8 +28,10 @@ export default function AcademyPage() {
       <AcademyTarget />
       <AcademyInstructors />
       <AcademyPricing />
+      <ApplicationForm />
       <AcademyStory />
       <AcademyCTA />
+      <SmartCTA />
     </div>
   );
 }

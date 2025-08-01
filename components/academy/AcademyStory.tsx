@@ -1,141 +1,186 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 export const AcademyStory = () => {
-  const [showAIVersion, setShowAIVersion] = useState(false);
-
   const sections = [
     {
-      title: "生成AIによるゲームチェンジ",
-      content: "生成AIの登場で、世界のルールが根底から変わろうとしています。\n\nかつては「安定」と言われたホワイトカラーの頂点とも言えるエンジニアやコンサルタントの仕事も、世界的に失業が相次いでいます。\n\n生成AIと共に働くことが当たり前の世界へと、急速にシフトする中で、これまでの経験則は通用しなくなってきています。"
+      title: "生成AIが変えていく世界のルール",
+      content: [
+        "生成AIの登場により、世界のルールが根底から塗り替えられようとしています。",
+        "かつては「安定」の象徴とされていたホワイトカラーの頂点とも言えるエンジニアやコンサルタントの仕事も、世界各地でリストラの波に直面しています。",
+        "生成AIと共に働くことが当たり前の時代に急速にシフトする中で、これまでの経験やスキルは通用しなくなってきています。"
+      ]
     },
     {
-      title: "スーパーVUCAの時代",
-      content: "「今までのスキルではもう通用しないかもしれない」、「この変化のスピードに、正直ついていけるか不安だ」という反応はむしろ正常で、決してあなただけが感じているものではありません。何を隠そうこの講座を開講する私たちも同様に、変化の早さに不安を感じています。\n\n今、私たちは、誰もが先の見えない「スーパーVUCAの時代」の\"ど真ん中\"に立っているのです。\n\nただ一つ、「静観していることは既に退化をしている」ということだけはわかります。\n\nなので、不安の中でも歩みを止めてはいけないのです。\n\nもし、あなたも心のどこかでそう感じているなら、是非とも私たちの想いを知ってほしいと思います。"
+      title: "不安の前に立って",
+      content: [
+        "「今までのスキルではもう通用しないかもしれない」",
+        "「この変化のスピードに、正直ついていけるか不安だ」",
+        "と感じているのはむしろ正常で、決してあなただけが感じているものではありません。",
+        "何を隠そうこの講座を開講する私たちも同様に、変化の早さに不安を感じています。",
+        "それでも一つ確信していることがあります。",
+        "それは、「静観していることは既に退化をしている」ということ。",
+        "なので、私たちは動き続けることを選びました。",
+        "むしろ、不安の中だからこそ、歩みを止めてはいけないのではないかと思います。",
+        "もし、あなたも心のどこかでそう感じているなら、是非とも私たちの想いを知ってほしいと思います。"
+      ]
     },
     {
       title: "生成AIとどう向き合うか",
-      content: "人類が生成AIにどう向き合い活用していくのかを、誰かに任せても良かったのかもしれません。でも、私たちは自分たちもその変化に向き合い続ける道を選びました。生成AIの活用の先端に立とうということを。\n\nなぜなら、私たちは2011年の創業以来、「世界を一つの家族にする」というビジョンを掲げ、常に働き方・生き方のあり方を問い続け、トライしつづけてきたという歴史があるからです。そして、力がある無しに関係なく、私たち一人ひとりには、この時代をつくる責任があると考えているからです。"
+      content: [
+        "「生成AIとの未来」を誰かに委ねることができたかもしれません。",
+        "でも、私たちは自分たちもその変化に向き合い続ける道を選びました。",
+        "なぜなら、私たちウィルフォワードは2011年の創業以来、「世界を一つの家族にする」というビジョンを掲げ、常に働き方・生き方のあり方を問い続け、トライしつづけてきたという歴史があるからです。",
+        "そして、力がある無しに関係なく、私たち一人ひとりには、この時代をつくる責任があると考えているからです。"
+      ]
     },
     {
       title: "生成AIに取り組む日々",
-      content: "そこで、私たちは生成AIの活用に徹底的に取り組みました。これまでの事業を減速させ、人によってはストップさせ、1日中生成AIの活用方法に取り組みました。それでも、あまりの進化の早さに日々目が回るような1年でした。\n\nそして、一つのことを悟りました。\n\nこれは生成AIを使って、「こんなことができる」という生易しいものではなく、人類の歴史の転換点になる、ということです。\n\n大袈裟なことを言うようですが、生成AIによって、人類が幸福で持続可能な未来へ導かれるかもしれないし、残念ながら分断と破壊をつづけ破滅に向かうかもしれない。その両方の未来のどちらにもリアリティがあるということです。"
+      content: [
+        "そこで、私たちは生成AIの活用に徹底的に取り組みました。とにかく取り組んでみたいことにはわからないことがたくさんあると思ったからです。",
+        "これまでの事業を減速させ、人によってはストップさせ、1日中生成AIの活用方法に取り組みました。とてつもない速度でできることが増えていき、自分が魔法使いにでもなったかのような錯覚を覚えながらも、あまりの進化の早さに日々目が回るような1年でした。",
+        "そして、一つ確信にたどり着きました。",
+        "これは「生成AIを使ったらこんなことができる」という単なる便利ツールの範疇などではなく、「人類の未来そのものを左右する転換点になる」ということです。",
+        "大袈裟なことを言うようですが、生成AIによって、人類が幸福で持続可能な未来へ導かれるかもしれないし、残念ながら分断と破壊をつづけ破滅に向かうかもしれない。その両方の未来のどちらにもリアリティがあるということです。"
+      ]
     },
     {
-      title: "\"スキル\"ではなく\"OS\"",
-      content: "私たちが提供すべきなのは、明日には陳腐化するかもしれない小手先の生成AI活用「スキル」だとは思いません。\n\n未知の課題に直面したとき、自ら学び、深く考え、AIを最強の相棒として乗り越えていく力。それこそ、これからの時代に必要な、どんな環境の変化にも適応できるOSを身につける機会。\n\nそれが、私たちAIリブートアカデミーでありたいと思っています。\n\nそして、そのOSは、私たちが与えるものでは完成しません。なぜならば、何を望み、何に幸福を感じるか、つまりあなたのウェルビーイングな状態を知っているのはあなたの中にしかないからです。\n\n表現が抽象的になり、わかりにくいかもしれませんが、私たちは「教える」教育だけでは、この時代の生き方を身につけることはできないと思っています。あえて「教えない」教育、代わりに、問いを投げつづける伴走。あなたが本当のあなたを理解し、自己認知できるように、キャリアコンサルタントやメンターによる対話を大切にしました。"
+      title: "「スキル」ではなく「思考OS（オペレーションシステム）」",
+      content: [
+        "私たちが提供すべきなのは、明日には陳腐化するかもしれない小手先の生成AI活用「スキル」だとは思いません。",
+        "未知の課題に直面したとき、 自ら問い、学び、AIと共に答えを見つけていく、まさに乗り越えていく力です。",
+        "文明の進化により、剣が銃に変わり、馬が自動車に変わっていったように、時にこれまでの時代に役立った考え方を捨てて、これからの時代に必要などんな環境の変化にも適応できる思考のOSを身につける機会。",
+        "それが、私たちAIリブートアカデミーでありたいと思っています。"
+      ]
+    },
+    {
+      title: "あなたの中にある答えを",
+      content: [
+        "そして、そのOSは、私たちが与えるものでは完成しません。なぜならば、「何を望み、何に幸福を感じるか」というあなたのウェルビーイングの答えは、あなたの内側にしかないからです。",
+        "だから私たちは「教える教育」だけではなく、あえて「教えない」教育、問いを投げつづける伴走者である必要があると感じています。",
+        "あなたが自己認知を深め、本当の自分自身に出会えるように、キャリアコンサルタントやメンターによる対話を大切にすることにしました。"
+      ]
     },
     {
       title: "まだ見ぬどんな生成AIツールでも使えるように",
-      content: "加えて、今、主流となっているChatGPTやGeminiなどのツールの使い方を覚えるのではなく、これらの生成AIツールの体得の仕方を学び、またマーケティングやエンジニアリングの考え方を身につける。\n\n主流が変化しても、廃れないマインドとスキルを身につけることが、これからの時代を生き抜くための最強の武器になると信じています。\n\nそして、あなた自身が設定した課題に、共に学ぶ仲間やメンターたちと挑み、成長と成果を手にしましょう。"
+      content: [
+        "加えて、今、主流となっているChatGPTやGeminiなどのツールの使い方を覚えるのもだいじですが、それ以上に、どんな生成AIも使いこなせる「考え方」や「学び方」を身につけることの方が大事です。",
+        "またマーケティングやエンジニアリングの汎用的な思考スキルと組み合わせることが、時代の主流が変化しつづけたとしても、これからの時代を生き抜くための最強の武器になると信じています。"
+      ]
     },
     {
       title: "同志を求めています",
-      content: "私たちは、教壇から教えるだけの\"先生\"ではありません。AIを活用したビジネスの最前線で、今この瞬間も価値を創造し、挑戦を続ける現役の\"実践者集団\"です。ゆえにできないこともあります。ただ、今この瞬間に進化している世界に、今この瞬間挑んでいる私たちだからこそ、まだ教科書には載っていない「生きた知見」で、あなたの成長をブーストできるのだと確信しています。\n\n生成AIを身につけて、キャリアアップしたいという方も歓迎ですが、私たちの想いに共感・賛同し、同志になっていただける方でしたら、この上なく嬉しい思いです。全力で応えさせていただきます。"
+      content: [
+        "私たちは、教壇に立つ「先生」ではありません。今この瞬間も挑戦を続ける現役の「実践者集団」です。今この瞬間に進化している世界に、今この瞬間挑んでいる私たちだからこそ、まだ教科書には載っていない「生きた知見」で、あなたの成長をブーストできるのだと確信しています。",
+        "生成AIを身につけて、キャリアアップしたいという方も歓迎です。それ以上に、私たちの想いに共感し、「この時代を一緒に創っていきたい」と思っていただける方と出会えることを楽しみにしています。",
+        "そして、もし同志になっていただけたら、この上なく嬉しい思い限りです。"
+      ]
     }
   ];
-
-  const aiVersionSections = [
-    {
-      title: "生成AIが変えた世界のルール",
-      content: "生成AIの登場により、世界のルールが根底から塗り替えられようとしています。\nかつて「安定」の象徴とされていたホワイトカラーの仕事──エンジニアやコンサルタントさえも、世界各地でリストラの波に直面しています。\n\n生成AIと共に働くことが当たり前になる時代。\nこれまでの経験やスキルの延長線上だけでは通用しなくなってきています。"
-    },
-    {
-      title: "私たちもまた、不安の中に立っています",
-      content: "「今のスキルではもう通用しないかもしれない」\n「この変化のスピードについていける自信がない」\nそう感じているのは、あなただけではありません。\n\n実のところ、私たち自身も同じ不安を抱えています。\nそれでも一つだけ、確信していることがあります。\n\nそれは──「静観していることは、すでに退化の始まりである」ということ。\nだからこそ、私たちは動き続けることを選びました。\n不安を抱きながらも、前に進むことを決めたのです。"
-    },
-    {
-      title: "生成AIと、どう向き合うか",
-      content: "「AIとの未来」を誰かに委ねることもできたかもしれません。\nでも私たちは、\"自分たち自身が向き合い続ける道\"を選びました。\n\nなぜなら、私たちウィルフォワードは2011年の創業以来、\n「世界を一つの家族にする」というビジョンのもと、働き方や生き方を問い続け、実践し続けてきたからです。\nそして、私たち一人ひとりにも、\"この時代をつくる責任\"があると考えているからです。"
-    },
-    {
-      title: "生成AIに全力で挑んだ日々",
-      content: "私たちは過去の事業のスピードを緩め、ときには一時停止しながら、\n1日中生成AIに向き合う日々を送りました。\nその進化のスピードに翻弄されながらも、実践を重ねるうちに、一つの確信にたどり着きました。\n\nこれは単なる「便利なツールの時代」ではありません。\n人類の未来そのものを左右する転換点なのだと。\n\nこの技術がもたらす未来は、私たちを幸福で持続可能な社会へ導くかもしれない。\n一方で、分断や破壊を深め、破滅へと向かう危うさも孕んでいます。"
-    },
-    {
-      title: "スキルではなく、「思考OS」を",
-      content: "だからこそ、私たちが提供したいのは、\n明日には古くなるかもしれない「スキル」ではありません。\n\n未知の課題に直面したとき、\n自ら問い、学び、AIと共に答えを見つけていく──\n**あらゆる変化に適応できる\"思考OS\"**をインストールする場。\n\nそれが、AIリブートアカデミーの本質です。"
-    },
-    {
-      title: "あなたの中にしかない答えを",
-      content: "このOSは、私たちが\"与える\"ものでは完成しません。\nなぜなら「何を望み、何に幸せを感じるのか」という\"ウェルビーイング\"の答えは、あなたの内側にしかないからです。\n\nだからこそ、私たちは「教える教育」だけではなく、\nあえて\"教えない\"教育──問いを投げかける伴走者であることを選びました。\n\n自己認知を深め、ほんとうの自分自身の可能性に出会う。\nその旅を支えるのが、私たちキャリアコンサルタントやメンターです。"
-    },
-    {
-      title: "どんなAIでも使いこなせる力を",
-      content: "今主流のChatGPTやGeminiなどの使い方を覚えることも重要ですが、\nそれ以上に、**どんな生成AIでも使いこなせる「考え方」や「学び方」**を身につけることが本質です。\n\nマーケティングやエンジニアリングなどの汎用的な思考スキルと組み合わせることで、\n変化に強い\"不変の力\"を得ることができます。"
-    },
-    {
-      title: "そして、共に挑む仲間を求めています",
-      content: "私たちは、教壇に立つ\"先生\"ではありません。\n今この瞬間も、現場で価値を生み出す実践者の集団です。\n\nだからこそ、まだ教科書には載っていない「生きた知見」を届けることができる。\nまだ見ぬ同志に出会えることを、心から楽しみにしています。\n\n生成AIを学び、キャリアをアップデートしたいという方も大歓迎です。\nでも、それ以上に──この想いに共感し、「この時代を共に創っていきたい」と思ってくれるあなたと、出会えることを願っています。"
-    }
-  ];
-
-  const currentSections = showAIVersion ? aiVersionSections : sections;
 
   return (
-    <section className="section-spacing bg-gradient-to-b from-white to-depth-50">
+    <section className="py-24 md:py-32 bg-gradient-to-b from-white to-depth-50/30">
       <div className="container-section">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-            <span className="bg-will-gradient bg-clip-text text-transparent">
-              最後に、なぜ私たちがAIリブートアカデミーをやるのかを知ってください。
-            </span>
-          </h2>
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-depth-900 mb-2">
+              最後に、なぜ私たちが
+            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-depth-900">
+              AIリブートアカデミーをやるのかを知ってください。
+            </h2>
+          </motion.div>
 
-          {/* バージョン切り替えボタン */}
-          <div className="flex justify-center mb-12">
-            <button
-              onClick={() => setShowAIVersion(!showAIVersion)}
-              className="px-6 py-3 bg-white border-2 border-will-primary text-will-primary rounded-full hover:bg-will-primary hover:text-white transition-all duration-300 shadow-soft"
-            >
-              {showAIVersion ? "オリジナル版を読む" : "AIがリライトした文章を読む"}
-            </button>
-          </div>
-
-          {showAIVersion && (
+          {sections.map((section, index) => (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="mb-8 p-4 bg-wisdom-lighter rounded-lg"
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="mb-16 last:mb-0"
             >
-              <p className="text-sm text-depth-700 text-center">
-                <span className="font-bold">追記：</span>AIがリライトした文章
-              </p>
-              <h3 className="text-2xl font-bold text-center mt-2 text-wisdom">
-                AIリブートアカデミーに込めた想い
+              <h3 className="text-2xl font-bold text-depth-900 mb-6 relative">
+                {section.title}
+                <span className="absolute -bottom-2 left-0 w-16 h-0.5 bg-will-primary" />
               </h3>
+              <div className="space-y-4">
+                {section.content.map((paragraph, i) => (
+                  <p
+                    key={i}
+                    className={`text-lg text-depth-700 leading-relaxed ${
+                      paragraph.startsWith('「') ? 'pl-4 italic' : ''
+                    }`}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </motion.div>
-          )}
-
-          {/* ストーリーセクション */}
-          <div className="space-y-12">
-            {currentSections.map((section, index) => (
-              <motion.div
-                key={`${showAIVersion ? 'ai' : 'original'}-${index}`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 md:p-10 shadow-soft"
+          ))}
+          
+          {/* note記事リンクカード */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="mt-20"
+          >
+            <div className="bg-white rounded-2xl shadow-elevated overflow-hidden hover:shadow-floating transition-all duration-300">
+              <a 
+                href="https://note.com/naruse_takuya/n/XXXXX" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
               >
-                <h3 className="text-2xl md:text-3xl font-bold mb-6 text-depth-900">
-                  ■ {section.title}
-                </h3>
-                <div className="text-lg text-depth-700 leading-relaxed whitespace-pre-line">
-                  {section.content}
+                <div className="p-8 md:p-10">
+                  <div className="flex items-start gap-6">
+                    {/* アイコン部分 */}
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 bg-gradient-to-br from-will-primary to-will-secondary rounded-full flex items-center justify-center">
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {/* コンテンツ部分 */}
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-sm font-medium text-will-primary">note</span>
+                        <span className="text-sm text-depth-500">•</span>
+                        <span className="text-sm text-depth-500">成瀬 拓也</span>
+                      </div>
+                      
+                      <h3 className="text-xl md:text-2xl font-bold text-depth-900 mb-3 group-hover:text-will-primary transition-colors">
+                        AIリブートアカデミーにかける想い
+                      </h3>
+                      
+                      <p className="text-depth-700 line-clamp-3 mb-4">
+                        なぜ私たちがAIリブートアカデミーを立ち上げたのか。生成AIという技術革新の中で、人間の価値と可能性を最大化する教育とは何か。創業者としての想いを綴りました。
+                      </p>
+                      
+                      <div className="flex items-center gap-2 text-will-primary font-medium">
+                        <span>記事を読む</span>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

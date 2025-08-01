@@ -13,9 +13,9 @@ export const AcademyInstructors = () => {
     },
     {
       name: "坂本 拓磨",
-      title: "AIエンジニア",
+      title: "AIトランスフォーメーションリーダー",
       qualification: "一般社団法人生成AI活用普及協会「生成AIパスポート」保有",
-      description: "生成AIを活用して、AIエージェントやWebサービスの開発を手掛けるエンジニア兼デザイナー。",
+      description: "組織のAI活用変革を推進し、生成AIを活用した新しい価値創造とビジネス革新をリードする専門家。",
       gradient: "from-wisdom to-harmony"
     },
     {
@@ -43,13 +43,13 @@ export const AcademyInstructors = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
             <span className="bg-will-gradient bg-clip-text text-transparent">
               講師・メンター
             </span>
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-8">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-10 mb-12">
             {instructors.map((instructor, index) => (
               <motion.div
                 key={index}
@@ -57,7 +57,7 @@ export const AcademyInstructors = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300"
+                className="bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300"
               >
                 <div className={`h-2 bg-gradient-to-r ${instructor.gradient}`} />
                 <div className="p-6 md:p-8">
