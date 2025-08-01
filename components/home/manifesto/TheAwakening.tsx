@@ -100,13 +100,13 @@ export default function TheAwakening() {
           const distance = Math.sqrt(dx * dx + dy * dy)
           
           if (distance > 10) {
-            particle.vx += dx * 0.02
-            particle.vy += dy * 0.02
+            particle.vx += dx * 0.03
+            particle.vy += dy * 0.03
           } else {
             // コアに到達したパーティクルは光を強める
-            coreIntensityRef.current = Math.min(coreIntensityRef.current + 0.02, 1)
+            coreIntensityRef.current = Math.min(coreIntensityRef.current + 0.03, 1)
             // 到達したパーティクルは明るくなる
-            particle.opacity = Math.min(particle.opacity + 0.1, 1)
+            particle.opacity = Math.min(particle.opacity + 0.2, 1)
           }
         }
 
@@ -127,17 +127,18 @@ export default function TheAwakening() {
           Math.pow(particle.x - mousePos.x, 2) + 
           Math.pow(particle.y - mousePos.y, 2)
         )
-        const glowIntensity = distanceToMouse < 150 ? 1 - (distanceToMouse / 150) : 0
+        const glowIntensity = distanceToMouse < 200 ? 1 - (distanceToMouse / 200) : 0
 
-        // グロー効果
+        // グロー効果（より大きく、より明るく）
         if (glowIntensity > 0) {
           ctx.beginPath()
-          ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2)
+          ctx.arc(particle.x, particle.y, particle.size * 5, 0, Math.PI * 2)
           const glowGradient = ctx.createRadialGradient(
             particle.x, particle.y, 0,
-            particle.x, particle.y, particle.size * 3
+            particle.x, particle.y, particle.size * 5
           )
-          glowGradient.addColorStop(0, `rgba(255, 255, 255, ${glowIntensity * 0.3})`)
+          glowGradient.addColorStop(0, `rgba(224, 176, 255, ${glowIntensity * 0.6})`)
+          glowGradient.addColorStop(0.5, `rgba(221, 160, 221, ${glowIntensity * 0.3})`)
           glowGradient.addColorStop(1, 'rgba(255, 255, 255, 0)')
           ctx.fillStyle = glowGradient
           ctx.fill()
@@ -146,7 +147,8 @@ export default function TheAwakening() {
         // メインパーティクル
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity + glowIntensity * 0.5})`
+        const brightness = particle.opacity + glowIntensity * 0.7
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(brightness, 1)})`
         ctx.fill()
       })
 
