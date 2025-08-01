@@ -12,6 +12,14 @@
   --color-will-secondary: #9747FF;  /* 創造性と可能性のパープル */
   --color-will-tertiary: #3B82F6;   /* 知性と信頼のブルー */
   
+  /* マニフェスト用 - より深い神秘的なカラーパレット */
+  --color-manifesto-core: #E0B0FF;      /* 淡い紫 - 内なる光 */
+  --color-manifesto-deep: #7B68EE;      /* 深い紫 - 魂の深淵 */
+  --color-manifesto-mystic: #4B0082;    /* インディゴ - 神秘 */
+  --color-manifesto-cosmos: #191970;    /* ミッドナイトブルー - 宇宙 */
+  --color-manifesto-glow: #DDA0DD;      /* プラム - 輝き */
+  --color-manifesto-aurora: #00CED1;    /* ダークターコイズ - オーロラ */
+  
   /* 感情的深度を表現するカラーパレット */
   --color-warmth: #FF6B9D;         /* 人間的な温かさ */
   --color-growth: #C44569;         /* 成長と変革 */
@@ -248,4 +256,52 @@
     opacity: 1;
     filter: blur(2px);
   }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animation utilities */
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animation-delay-800 {
+  animation-delay: 800ms;
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
