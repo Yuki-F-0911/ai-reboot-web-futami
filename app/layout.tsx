@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="ja" suppressHydrationWarning>
       <body className="antialiased" suppressHydrationWarning>
         <Header />
-        <main className="min-h-screen pt-16">
+        <main className="min-h-screen pt-16 overflow-x-hidden">
           {children}
         </main>
         <Footer />
