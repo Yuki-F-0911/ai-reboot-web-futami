@@ -34,10 +34,6 @@ export const HomeHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Company tag */}
-            <p className="text-sm font-medium text-depth-600 tracking-wider uppercase mb-6">
-              WILL FORWARD × AI REBOOT
-            </p>
 
             {/* Main title */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1]">

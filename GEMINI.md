@@ -1,6 +1,6 @@
-# CLAUDE.md
+# GEMINI.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Gemini when working with code in this repository.
 
 ## プロジェクト概要
 
@@ -105,20 +105,14 @@ docs/                   # ドキュメント (整理済み)
 ## プロジェクト固有のルール
 
 1. **ドキュメント更新時**
-   - `.cursor/rules/project-design.mdc` のルールに従う
-   - 更新時は「============Rulesを確認============」と宣言
+   - 既存のドキュメントの構成やスタイルを参考にしてください。
 
 2. **デザイン作成時**
-   - `prompts/design-agent.md` のプロンプトに従う
+   - `docs/02-design/` 以下のデザイン関連ドキュメントを参考にしてください。
 
 3. **コンポーネント作成時**
-   - 既存コンポーネントのパターンを踏襲
-   - サービス別コンポーネントは適切なディレクトリに配置
-
-4. **作業ログの記録**
-   - 重要な作業完了時に、このファイルの「AIの作業ログ」セクションに記録を残す
-   - フォーマットに従って、実施内容・次回への申し送り・参考情報を記載
-   - コンテキストを失わない開発のため、詳細かつ明確に記録
+   - 既存コンポーネントのパターンを踏襲してください。
+   - サービス別コンポーネントは適切なディレクトリに配置してください。
 
 ## 関連ドキュメント
 
@@ -145,92 +139,3 @@ docs/                   # ドキュメント (整理済み)
 
 ### その他の重要文書
 - `README.md` - 基本的なセットアップ手順
-- `../project-config.yaml` - プロジェクト設定
-- `../.cursor/rules/project-design.mdc` - ドキュメント更新ルール
-- `../prompts/design-agent.md` - デザイン作成プロンプト
-
----
-
-## 📝 AIの作業ログ - コンテキストを失わない開発
-
-### なぜ作業ログを残すのか？
-
-**従来の問題：**
-- AIとの会話が長くなると前の内容を忘れる
-- 新しいセッションで一から説明し直し  
-- チーム間でAIの作業内容が共有されない
-
-**解決策：** AIに定期的にログを残してもらい、コンテキストを維持する
-
-### 作業ログフォーマット
-
-```markdown
-## YYYY-MM-DD 作業ログ
-
-### 実施内容
-1. [作業項目1]
-   - 具体的な実装内容
-   - 採用した技術的判断
-   - 変更したファイル
-   
-2. [作業項目2]
-   - ...
-
-### 次回への申し送り
-- 未完了のタスク
-- 検討事項
-- 注意点
-
-### 参考リンク・情報
-- 関連Issue
-- 参考にしたドキュメント
-- 実装時の議論
-```
-
----
-
-## 2025-08-01 作業ログ
-
-### 実施内容
-
-1. **横スクロール問題の修正**
-   - `app/globals.css`: body に `overflow-x-hidden` を追加
-   - `app/layout.tsx`: main タグに `overflow-x-hidden` を追加
-   - 原因: コンテナからはみ出る要素があったため
-
-2. **トップページのUI修正**
-   - `components/home/HomeHero.tsx`: 「WILL FORWARD × AI REBOOT」テキストを削除
-   - ユーザーの要望に基づく変更
-
-3. **ドキュメント構造の大規模整理**
-   - 新しい階層構造を作成（7カテゴリ: プロジェクト、デザイン、コンテンツ、開発、運用、アーカイブ、アセット）
-   - すべてのドキュメントを適切なフォルダに移動
-   - ルートディレクトリのクリーンアップ実施
-   - `docs/README.md` を作成してドキュメント一覧を提供
-
-4. **CLAUDE.md の更新**
-   - 新しいドキュメント構造を反映
-   - 作業ログセクションを追加
-   - プロジェクト固有のルールに「作業ログの記録」を追加
-
-### 次回への申し送り
-
-- **デザイン改善提案の実装**（`docs/02-design/improvements/design-improvement-proposal.md` 参照）
-  - ビジュアルヒエラルキーの強化
-  - インタラクティブ要素の実装
-  - モバイル体験の向上
-  
-- **未設定の開発環境**
-  - テストフレームワークの導入検討
-  - Prettierなどのフォーマッター設定
-  - CI/CDパイプラインの構築
-
-- **コンテンツの更新**
-  - `docs/03-content/messaging/core-message.md` が更新されている様子
-  - `docs/03-content/pages/academy.md` も変更あり
-
-### 参考情報
-
-- デザイン改善提案書: `/docs/02-design/improvements/design-improvement-proposal.md`
-- プロジェクト概要: `/docs/01-project/overview.md`
-- ブランドガイドライン: `/docs/02-design/brand-guidelines.md`
