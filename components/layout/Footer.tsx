@@ -13,8 +13,9 @@ export const Footer: React.FC = () => {
 
   const footerLinks = {
     services: [
-      { label: 'AIリブートアカデミー', href: '#school' },
-      { label: '企業向けコンサルティング', href: '#consulting' },
+      { label: 'AIリブートアカデミー', href: '/academy' },
+      { label: 'プログラム詳細', href: '/academy#program' },
+      { label: '受講生の声', href: '#testimonials' },
     ],
     company: [
       { label: '会社概要', href: '#company' },
@@ -54,7 +55,7 @@ export const Footer: React.FC = () => {
               </span>
             </Link>
             <p className="text-ai-light-gray text-sm">
-              AIの力で個人と企業の可能性を解き放ち、ウェルビーイングな未来を創造する
+              あなたの「Will」から始まる、AI時代のキャリア変革
             </p>
           </div>
 

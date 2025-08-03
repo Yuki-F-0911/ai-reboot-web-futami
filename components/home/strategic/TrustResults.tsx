@@ -7,10 +7,10 @@ export default function TrustResults() {
   const experts = [
     {
       name: '山田 太郎',
-      title: 'AI戦略コンサルタント',
-      expertise: 'AI戦略・DX推進',
+      title: 'AI戦略アドバイザー',
+      expertise: 'AI戦略・キャリア設計',
       photo: '/images/expert1.jpg', // プレースホルダー
-      achievements: '大手企業20社以上のAI導入支援'
+      achievements: '500名以上の個人キャリア支援'
     },
     {
       name: '佐藤 花子',
@@ -21,54 +21,88 @@ export default function TrustResults() {
     },
     {
       name: '鈴木 一郎',
-      title: '組織開発スペシャリスト',
-      expertise: '組織変革・人材育成',
+      title: 'メンタルコーチ',
+      expertise: '自己探求・目標設定',
       photo: '/images/expert3.jpg',
-      achievements: '組織変革プロジェクト50件以上'
+      achievements: '個人の変革プロセス設計の専門家'
     }
   ]
 
   const testimonials = [
     {
-      type: 'individual',
       name: 'T.K. さん',
+      age: '34歳',
       role: '元営業職 → AIプロダクトマネージャー',
-      comment: '自分の「やりたいこと」から逆算してAIを学んだことで、明確な目標を持って転職できました。',
-      result: '年収150%UP達成'
+      beforeAfter: {
+        before: 'AIに興味はあったが、何から始めればいいか分からない',
+        after: '自分のWillから逆算してAIを学び、理想のキャリアを実現'
+      },
+      comment: '「なぜAIを学ぶのか」という問いから始まったことで、ブレない軸ができました。単なるスキル習得ではなく、自分の人生と向き合う100日間でした。',
+      result: '年収150%UP + やりがいのある仕事'
     },
     {
-      type: 'corporate',
-      company: '製造業A社',
-      scale: '従業員300名',
-      comment: '経営理念に基づいたAI活用で、単なる効率化を超えた新事業創出に成功しました。',
-      result: '新規事業で売上20%増'
+      name: 'M.S. さん',
+      age: '28歳',
+      role: '元事務職 → データアナリスト',
+      beforeAfter: {
+        before: 'キャリアに漠然とした不安を感じていた',
+        after: '自分の強みを活かしたAI活用で新しいキャリアを開拓'
+      },
+      comment: '同じ志を持つ仲間との出会いが何より財産です。一人では挫折していたかもしれない道のりも、仲間と共に乗り越えられました。',
+      result: 'キャリアチェンジ成功 + 充実感のある毎日'
+    },
+    {
+      name: 'Y.T. さん',
+      age: '41歳',
+      role: '元マーケター → AI事業責任者',
+      beforeAfter: {
+        before: 'AIの波に取り残される恐怖感',
+        after: 'AIを味方につけて、新たな価値を創造'
+      },
+      comment: '40代からでも遅くないと証明できました。自分のこれまでの経験とAIを掛け合わせることで、誰にも真似できない価値を生み出せるようになりました。',
+      result: '社内新規事業立ち上げ + 経営層への昇進'
     }
   ]
 
   const stats = [
     { label: '累計受講者数', value: '500+', unit: '名' },
-    { label: '企業導入実績', value: '50+', unit: '社' },
     { label: '平均満足度', value: '4.8', unit: '/5.0' },
-    { label: '転職成功率', value: '92', unit: '%' }
+    { label: 'キャリア転換成功率', value: '92', unit: '%' },
+    { label: '卒業生ネットワーク', value: '350+', unit: '名' }
   ]
 
   return (
-    <section className="py-20 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* ヘッドライン */}
+    <section className="py-32 md:py-40 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* 章タイトル */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <p className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">
+            第四章
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+            先駆者たちの声
+          </h2>
+        </motion.div>
+
+        {/* ヘッドライン */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900">
-            変革のプロフェッショナルと、
-            <span className="block mt-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              確かな実績。
-            </span>
-          </h2>
+          <p className="text-2xl md:text-3xl font-light text-gray-900 leading-relaxed">
+            あなたの変革に伴走する<br className="md:hidden" />
+            プロフェッショナルと、<br className="hidden md:block" />
+            先駆者たちの声。
+          </p>
         </motion.div>
 
         {/* 実績数値 */}
@@ -125,7 +159,7 @@ export default function TrustResults() {
           </div>
         </motion.div>
 
-        {/* お客様の声 */}
+        {/* 卒業生の声 */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,45 +167,62 @@ export default function TrustResults() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-12">
-            お客様の声・導入事例
+            「自分と同じだ」と感じる、先駆者たちのストーリー
           </h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="bg-gray-50 rounded-2xl p-8"
+                transition={{ duration: 0.6, delay: 0.1 * index }}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden"
               >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${
-                    testimonial.type === 'individual' 
-                      ? 'bg-gradient-to-br from-blue-500 to-purple-500' 
-                      : 'bg-gradient-to-br from-purple-500 to-pink-500'
-                  }`}>
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                    </svg>
+                <div className="p-8 md:p-12">
+                  {/* プロフィール */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold text-xl">
+                        {testimonial.name.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-lg">
+                        {testimonial.name} （{testimonial.age}）
+                      </h4>
+                      <p className="text-gray-600">
+                        {testimonial.role}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">
-                      {testimonial.type === 'individual' ? testimonial.name : testimonial.company}
-                    </h4>
-                    <p className="text-sm text-gray-600">
-                      {testimonial.type === 'individual' ? testimonial.role : testimonial.scale}
+
+                  {/* ビフォーアフター */}
+                  <div className="grid md:grid-cols-2 gap-6 mb-8">
+                    <div className="bg-gray-50 rounded-lg p-6">
+                      <p className="text-sm font-semibold text-gray-500 mb-2">BEFORE</p>
+                      <p className="text-gray-700">{testimonial.beforeAfter.before}</p>
+                    </div>
+                    <div className="bg-blue-50 rounded-lg p-6">
+                      <p className="text-sm font-semibold text-blue-600 mb-2">AFTER</p>
+                      <p className="text-gray-700">{testimonial.beforeAfter.after}</p>
+                    </div>
+                  </div>
+
+                  {/* コメント */}
+                  <blockquote className="border-l-4 border-blue-500 pl-6 mb-6">
+                    <p className="text-gray-700 italic text-lg leading-relaxed">
+                      "{testimonial.comment}"
                     </p>
+                  </blockquote>
+
+                  {/* 成果 */}
+                  <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 1.414L10.586 9.5H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-semibold">{testimonial.result}</span>
                   </div>
-                </div>
-                <p className="text-gray-700 mb-4 italic">
-                  "{testimonial.comment}"
-                </p>
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-gray-200">
-                  <svg className="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 1.414L10.586 9.5H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-sm font-semibold text-gray-900">{testimonial.result}</span>
                 </div>
               </motion.div>
             ))}

@@ -4,122 +4,127 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function CoreQuestion() {
-  const [selectedType, setSelectedType] = useState<'individual' | 'corporate' | null>(null)
+  const [isThinking, setIsThinking] = useState(false)
 
   return (
-    <section className="py-20 md:py-32 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* ヘッドライン */}
+    <section className="py-32 md:py-40 bg-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* 章タイトル */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900">
-            AIが、私たちに問いかけている。
+          <p className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">
+            第一章
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+            すべては、一つの問いから始まる
           </h2>
         </motion.div>
 
-        {/* 選択ボタン */}
+        {/* ヘッドライン */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-col md:flex-row gap-6 justify-center mb-16"
+          className="max-w-4xl mx-auto text-center mb-16"
         >
-          <button
-            onClick={() => setSelectedType('individual')}
-            className={`px-8 py-6 rounded-xl font-medium text-lg transition-all duration-300 ${
-              selectedType === 'individual'
-                ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-xl scale-105'
-                : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-500 hover:shadow-lg'
-            }`}
-          >
-            <span className="block text-sm text-gray-500 mb-1">For Individuals</span>
-            個人のキャリアに関する問い
-          </button>
-
-          <button
-            onClick={() => setSelectedType('corporate')}
-            className={`px-8 py-6 rounded-xl font-medium text-lg transition-all duration-300 ${
-              selectedType === 'corporate'
-                ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-xl scale-105'
-                : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-purple-500 hover:shadow-lg'
-            }`}
-          >
-            <span className="block text-sm text-gray-500 mb-1">For Organizations</span>
-            組織の未来に関する問い
-          </button>
+          <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
+            AIという強力な<span className="font-medium">「手段」</span>を手にする前に、<br className="hidden md:block" />
+            あなたには、答えるべき<span className="font-medium">「目的」</span>についての問いがある。
+          </p>
         </motion.div>
 
-        {/* 問いの表示 */}
-        <AnimatePresence mode="wait">
-          {selectedType && (
-            <motion.div
-              key={selectedType}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5 }}
-              className="max-w-4xl mx-auto"
+        {/* コアメッセージ */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="max-w-3xl mx-auto text-center mb-20"
+        >
+          <p className="text-lg md:text-xl text-gray-600 mb-12">
+            それは、あなたのキャリアと人生にとって、<br />
+            最もシンプルで、最も重要な問い。
+          </p>
+
+          <div className="relative">
+            {/* 問いかけのボックス */}
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-12 md:p-16 border border-gray-200">
+              <motion.h3
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.6 }}
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-relaxed"
+              >
+                <span className="block mb-4">
+                  AIを使って、あなたは本当は何がしたいのか？
+                </span>
+                <span className="block text-blue-600">
+                  どんな自分になりたいのか？
+                </span>
+              </motion.h3>
+            </div>
+
+            {/* インタラクティブな要素 */}
+            <motion.button
+              onClick={() => setIsThinking(!isThinking)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-8 inline-flex items-center gap-2 px-6 py-3 text-gray-600 hover:text-gray-900 transition-colors"
             >
-              <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-                {/* アイコン */}
-                <div className="flex justify-center mb-8">
-                  <div className={`w-20 h-20 rounded-full flex items-center justify-center ${
-                    selectedType === 'individual' 
-                      ? 'bg-gradient-to-r from-blue-100 to-purple-100'
-                      : 'bg-gradient-to-r from-purple-100 to-pink-100'
-                  }`}>
-                    <svg className="w-10 h-10 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                </div>
+              <span className="text-sm">この問いについて考える</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </motion.button>
 
-                {/* 問い */}
-                <p className="text-2xl md:text-3xl lg:text-4xl text-center font-light text-gray-800 leading-relaxed">
-                  {selectedType === 'individual' 
-                    ? '今のスキルの延長線上に、本当に望むキャリアはあるか？'
-                    : '今の事業の延長線上に、本当に創りたい未来はあるか？'
-                  }
-                </p>
-
-                {/* クロージングメッセージ */}
+            {/* 考えるための余白 */}
+            <AnimatePresence>
+              {isThinking && (
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="mt-12 pt-8 border-t border-gray-200"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="mt-8 overflow-hidden"
                 >
-                  <p className="text-xl text-center text-gray-700">
-                    その答えは、新しいツールの中にはない。
-                  </p>
-                  <p className="text-xl text-center font-semibold text-gray-900 mt-2">
-                    あなたと、組織の内側にある。
-                  </p>
+                  <div className="bg-blue-50 rounded-lg p-8">
+                    <p className="text-gray-700 leading-relaxed">
+                      少し立ち止まって、考えてみてください。<br />
+                      AIツールの使い方を学ぶ前に、<br />
+                      あなたが本当に実現したいことは何ですか？
+                    </p>
+                  </div>
                 </motion.div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              )}
+            </AnimatePresence>
+          </div>
+        </motion.div>
 
-        {/* 初期状態 */}
-        {!selectedType && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
-          >
-            <p className="text-gray-500 text-lg">
-              あなたの立場に合わせて、問いを選択してください。
+        {/* クロージングメッセージ */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <div className="border-t border-gray-200 pt-12">
+            <p className="text-lg md:text-xl text-gray-700 mb-4">
+              この根源的な問いに、AIは答えてくれません。
             </p>
-          </motion.div>
-        )}
+            <p className="text-lg md:text-xl text-gray-900 font-medium">
+              だからこそ私たちは、まず、<br className="md:hidden" />
+              あなたの<span className="text-blue-600">「Will」</span>を明確に定義することから始めます。
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

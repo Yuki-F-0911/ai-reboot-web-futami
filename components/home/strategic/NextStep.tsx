@@ -6,31 +6,46 @@ import Link from 'next/link'
 
 export default function NextStep() {
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
+    <section className="py-32 md:py-40 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
       {/* 背景の装飾 */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-10" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full blur-3xl opacity-10" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* ヘッドライン */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* 章タイトル */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            さあ、あなたの変革に向けた
-            <span className="block mt-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              対話を始めましょう。
-            </span>
+          <p className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-4">
+            終章
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+            あなたの次の一歩
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            まずは、あなたの現状や課題についてお聞かせください。
-            専門家が、具体的な情報提供や次のステップのご提案をします。
+        </motion.div>
+
+        {/* ヘッドライン */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center mb-16"
+        >
+          <p className="text-2xl md:text-3xl font-light leading-relaxed">
+            さあ、あなたの変革に向けた<br className="md:hidden" />
+            対話を始めましょう。
+          </p>
+          <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            まずは、あなたの現状やキャリアへの想いについて<br className="hidden md:block" />
+            お聞かせください。専門家が、<br className="md:hidden" />
+            具体的な情報提供や次のステップをご提案します。
           </p>
         </motion.div>
 
@@ -51,7 +66,7 @@ export default function NextStep() {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-70 transition-opacity" />
               <div className="relative bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center transform hover:scale-105 transition-all duration-300">
                 <h3 className="text-2xl md:text-3xl font-bold mb-2">
-                  無料個別相談に申し込む
+                  無料キャリア相談に申し込む
                 </h3>
                 <p className="text-lg mb-4 opacity-90">
                   オンライン・60分・完全無料
@@ -86,9 +101,9 @@ export default function NextStep() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-1">サービス詳細資料</h4>
+                  <h4 className="text-lg font-semibold mb-1">AI時代のキャリア設計ガイド</h4>
                   <p className="text-sm text-gray-300 mb-2">
-                    プログラムの詳細情報をPDFでご提供
+                    自己分析から始めるキャリア戦略
                   </p>
                   <span className="inline-flex items-center gap-1 text-sm font-medium text-blue-400 group-hover:text-blue-300">
                     ダウンロードする
@@ -112,9 +127,9 @@ export default function NextStep() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-1">AI活用事例ニュースレター</h4>
+                  <h4 className="text-lg font-semibold mb-1">キャリア事例ニュースレター</h4>
                   <p className="text-sm text-gray-300 mb-2">
-                    最新のAI活用事例を毎月お届け
+                    最新のキャリア転換事例を毎月お届け
                   </p>
                   <span className="inline-flex items-center gap-1 text-sm font-medium text-purple-400 group-hover:text-purple-300">
                     登録する

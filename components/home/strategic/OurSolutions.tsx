@@ -6,175 +6,136 @@ import Link from 'next/link'
 
 export default function OurSolutions() {
   return (
-    <section className="py-20 md:py-32 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* ヘッドライン */}
+    <section className="py-32 md:py-40 bg-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* 章タイトル */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-[1.1]">
-            哲学を、実践へ。<br className="hidden md:block" />
-            <span className="inline-block mt-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              変革を具体化する二つのプログラム。
-            </span>
+          <p className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">
+            第三章
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+            あなたの変革を実現する場所
           </h2>
         </motion.div>
 
-        {/* ソリューションカード */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* 個人向けプログラム */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="group relative h-full bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
-              {/* 背景グラデーション */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 opacity-50 group-hover:opacity-70 transition-opacity" />
-              
-              {/* コンテンツ */}
-              <div className="relative p-8 md:p-10">
-                {/* ラベル */}
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-medium mb-6">
-                  For Individuals
-                </div>
-
-                {/* タイトル */}
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  AI REBOOT<br />ACADEMY
-                </h3>
-
-                {/* キャッチコピー */}
-                <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-                  「Willの探求」と「AIによる実現」を<br className="md:hidden" />
-                  100日間で体験する、<br className="hidden md:block" />
-                  自己変革プログラム。
-                </p>
-
-                {/* 特徴リスト */}
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700">自己分析から始まる本質的な学習</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700">実践的なAIスキルの習得</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700">キャリア設計とポートフォリオ作成</span>
-                  </li>
-                </ul>
-
-                {/* CTA */}
-                <Link
-                  href="/academy"
-                  className="group/btn inline-flex items-center justify-center w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-                >
-                  <span className="flex items-center gap-2">
-                    アカデミーの詳細を見る
-                    <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </span>
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* 法人向けプログラム */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="group relative h-full bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
-              {/* 背景グラデーション */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 opacity-50 group-hover:opacity-70 transition-opacity" />
-              
-              {/* コンテンツ */}
-              <div className="relative p-8 md:p-10">
-                {/* ラベル */}
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-medium mb-6">
-                  For Organizations
-                </div>
-
-                {/* タイトル */}
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  AI REBOOT<br />FOR BIZ
-                </h3>
-
-                {/* キャッチコピー */}
-                <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-                  企業の理念をAIで加速させ、<br className="md:hidden" />
-                  事業成果に繋げる、<br className="hidden md:block" />
-                  実践型組織変革プログラム。
-                </p>
-
-                {/* 特徴リスト */}
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700">経営理念とAI戦略の統合</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700">社内AI人材の育成と環境構築</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700">具体的なビジネス成果の創出</span>
-                  </li>
-                </ul>
-
-                {/* CTA */}
-                <Link
-                  href="/corporate"
-                  className="group/btn inline-flex items-center justify-center w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-                >
-                  <span className="flex items-center gap-2">
-                    法人向けプログラムの詳細を見る
-                    <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </span>
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* 補足メッセージ */}
+        {/* ヘッドライン */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 text-center"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center mb-16"
         >
-          <p className="text-gray-600 text-lg">
-            どちらのプログラムも、<span className="font-semibold text-gray-900">「目的の明確化」</span>から始まり、
-            <span className="font-semibold text-gray-900">「具体的な成果」</span>で終わります。
+          <p className="text-2xl md:text-3xl font-light text-gray-900 leading-relaxed">
+            哲学を、実践へ。<br className="md:hidden" />
+            あなたの変革を実現するプログラムが、<br className="hidden md:block" />
+            ここにあります。
           </p>
+        </motion.div>
+
+        {/* AI REBOOT ACADEMY */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-xl overflow-hidden">
+            {/* 背景の装飾 */}
+            <div className="absolute inset-0">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-20 transform translate-x-48 -translate-y-48" />
+              <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-20 transform -translate-x-48 translate-y-48" />
+            </div>
+
+            <div className="relative p-12 md:p-16">
+              {/* プログラム名 */}
+              <div className="text-center mb-12">
+                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                  AI REBOOT<br />ACADEMY
+                </h3>
+                <p className="text-xl md:text-2xl font-light text-gray-700 leading-relaxed">
+                  「Willの探求」と「AIによる実現」を<br className="md:hidden" />
+                  100日間で体験する、自己変革プログラム。
+                </p>
+              </div>
+
+              {/* 提供価値 */}
+              <div className="grid md:grid-cols-3 gap-8 mb-12">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all"
+                >
+                  <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    キャリアの方向性の明確化
+                  </h4>
+                  <p className="text-gray-600">
+                    あなたの強みと情熱を見つけ、AI時代のキャリア戦略を設計
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all"
+                >
+                  <div className="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg mb-4">
+                    <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    AIを活用した問題解決能力
+                  </h4>
+                  <p className="text-gray-600">
+                    実践的なプロジェクトを通じて、AI活用の本質を習得
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all"
+                >
+                  <div className="flex items-center justify-center w-12 h-12 bg-pink-100 rounded-lg mb-4">
+                    <svg className="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    同じ志を持つ仲間とのネットワーク
+                  </h4>
+                  <p className="text-gray-600">
+                    共に学び、高め合う、一生涯の仲間との出会い
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* CTA */}
+              <div className="text-center">
+                <Link
+                  href="/academy"
+                  className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                >
+                  <span className="flex items-center gap-2">
+                    アカデミーの詳細を見る
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
