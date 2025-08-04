@@ -21,7 +21,7 @@ export default function TheAwakening() {
   const [isCtaVisible, setIsCtaVisible] = useState(false)
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const particlesRef = useRef<Particle[]>([])
-  const animationIdRef = useRef<number>()
+  const animationIdRef = useRef<number>(0)
   const coreIntensityRef = useRef(0)
 
   useEffect(() => {

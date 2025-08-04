@@ -14,7 +14,7 @@ import FinalCTA from './strategic/FinalCTA'
 const AILens = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const [isActive, setIsActive] = useState(false)
-  const rafRef = useRef<number>()
+  const rafRef = useRef<number>(0)
   
   useEffect(() => {
     let lastX = 0
@@ -28,7 +28,7 @@ const AILens = () => {
       if (!rafRef.current) {
         rafRef.current = requestAnimationFrame(() => {
           setMousePos({ x: lastX, y: lastY })
-          rafRef.current = undefined
+          rafRef.current = 0
         })
       }
     }
@@ -184,7 +184,7 @@ const ReflectionPause = ({ focusLevel }: { focusLevel: number }) => {
 export default function InnerScapeContainer() {
   const { scrollYProgress } = useScroll()
   const containerRef = useRef<HTMLDivElement>(null)
-  const rafRef = useRef<number>()
+  const rafRef = useRef<number>(0)
   
   // スクロール進行度に応じてフォーカスレベルを計算（パフォーマンス最適化）
   const focusLevel = useTransform(scrollYProgress, 
@@ -200,7 +200,7 @@ export default function InnerScapeContainer() {
       if (!rafRef.current) {
         rafRef.current = requestAnimationFrame(() => {
           setCurrentFocus(Math.round(latest * 100) / 100) // 小数点2桁に丸める
-          rafRef.current = undefined
+          rafRef.current = 0
         })
       }
     })

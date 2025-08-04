@@ -32,7 +32,7 @@ export default function TheCompass() {
     let willRadius = 0
     let aiRadius = 0
     let transformationOpacity = 0
-    let lightParticles: Array<{
+    const lightParticles: Array<{
       angle: number
       radius: number
       speed: number
