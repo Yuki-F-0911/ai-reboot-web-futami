@@ -362,40 +362,42 @@ export default function QuietDialogue() {
           </motion.div>
         </div>
         
-        {/* SCROLL TO BEGIN - 画面下部固定 */}
+      </div>
+
+      {/* 序章への自然な導入 - より余白を設けた静かな空間 */}
+      <div className="relative h-[50vh] flex items-end justify-center pb-20">
+        {/* 縦書きの章タイトル - デスクトップのみ */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.4 }}
-          transition={{ duration: 1.5, delay: 4 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 text-sm tracking-[0.4em] text-gray-500 flex flex-col items-center"
+          className="text-gray-600 hidden lg:block"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          style={{
+            writingMode: 'vertical-rl',
+            textOrientation: 'mixed',
+            letterSpacing: '0.3em',
+            fontSize: '0.875rem',
+            fontWeight: 400
+          }}
         >
-          <div className="flex items-center">
-            <span>SCROLL TO BEGIN</span>
-            <motion.span
-              className="ml-3"
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              ↓
-            </motion.span>
-          </div>
-          
-          {/* 縦書きの章タイトル - デスクトップのみ */}
-          <motion.div
-            className="mt-12 text-gray-400 hidden lg:block"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 0.6, y: 0 }}
-            transition={{ duration: 1.5, delay: 4.5 }}
-            style={{
-              writingMode: 'vertical-rl',
-              textOrientation: 'mixed',
-              letterSpacing: '0.3em',
-              fontSize: '0.875rem',
-              fontWeight: 300
-            }}
-          >
-            序章｜あなたの物語の始まり
-          </motion.div>
+          序章｜あなたの物語の始まり
+        </motion.div>
+        
+        {/* モバイル用の横書きタイトル */}
+        <motion.div
+          className="text-gray-600 lg:hidden text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          style={{
+            letterSpacing: '0.2em',
+            fontSize: '0.875rem',
+            fontWeight: 400
+          }}
+        >
+          序章｜あなたの物語の始まり
         </motion.div>
       </div>
 
@@ -476,30 +478,42 @@ export default function QuietDialogue() {
         </Section>
       </div>
       
+      {/* 章の区切り */}
+      <div className="relative w-full h-24 flex items-center justify-center">
+        <motion.div
+          className="w-px h-16 bg-gradient-to-b from-transparent via-gray-300 to-transparent"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true }}
+        />
+      </div>
+      
       {/* 第一章 - 問いかけ */}
       <div className="min-h-screen flex items-center justify-center py-20 relative">
-        <Section delay={0.3}>
-          {/* 縦書きの章タイトル - 中央配置 */}
-          <motion.div
-            className="mb-20 flex justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            viewport={{ once: true }}
+        {/* 縦書きの章タイトル - 右寄り配置 */}
+        <motion.div
+          className="absolute right-12 top-1/2 -translate-y-1/2 hidden lg:block"
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 0.6, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <div
+            className="text-gray-400"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              letterSpacing: '0.3em',
+              fontSize: '0.875rem',
+              fontWeight: 300
+            }}
           >
-            <div
-              className="text-gray-400"
-              style={{
-                writingMode: 'vertical-rl',
-                textOrientation: 'mixed',
-                letterSpacing: '0.3em',
-                fontSize: '1rem',
-                fontWeight: 300
-              }}
-            >
-              第一章｜すべては、一つの問いから始まる
-            </div>
-          </motion.div>
+            第一章｜すべては、一つの問いから始まる
+          </div>
+        </motion.div>
+        
+        <Section delay={0.3}>
           
           <TextBlock size="lg">
             <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-900">
@@ -567,30 +581,42 @@ export default function QuietDialogue() {
         </Section>
       </div>
       
+      {/* 章の区切り */}
+      <div className="relative w-full h-24 flex items-center justify-center">
+        <motion.div
+          className="w-px h-16 bg-gradient-to-b from-transparent via-gray-300 to-transparent"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true }}
+        />
+      </div>
+      
       {/* 第二章 - 私たちの哲学と方法論 */}
       <div className="min-h-screen flex items-center justify-center py-20 relative">
-        <Section delay={0.3}>
-          {/* 縦書きの章タイトル - 中央配置 */}
-          <motion.div
-            className="mb-20 flex justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            viewport={{ once: true }}
+        {/* 縦書きの章タイトル - 左寄り配置 */}
+        <motion.div
+          className="absolute left-12 top-1/2 -translate-y-1/2 hidden lg:block"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 0.6, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <div
+            className="text-gray-400"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              letterSpacing: '0.3em',
+              fontSize: '0.875rem',
+              fontWeight: 300
+            }}
           >
-            <div
-              className="text-gray-400"
-              style={{
-                writingMode: 'vertical-rl',
-                textOrientation: 'mixed',
-                letterSpacing: '0.3em',
-                fontSize: '1rem',
-                fontWeight: 300
-              }}
-            >
-              第二章｜私たちの哲学と方法論
-            </div>
-          </motion.div>
+            第二章｜私たちの哲学と方法論
+          </div>
+        </motion.div>
+        
+        <Section delay={0.3}>
           
           <TextBlock size="lg">
             <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-900">
@@ -631,30 +657,42 @@ export default function QuietDialogue() {
         </Section>
       </div>
       
+      {/* 章の区切り */}
+      <div className="relative w-full h-24 flex items-center justify-center">
+        <motion.div
+          className="w-px h-16 bg-gradient-to-b from-transparent via-gray-300 to-transparent"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true }}
+        />
+      </div>
+      
       {/* 第三章 - 探求の末に見つけた、新しい景色 */}
       <div className="min-h-screen flex items-center justify-center py-20 relative">
-        <Section delay={0.3}>
-          {/* 縦書きの章タイトル - 中央配置 */}
-          <motion.div
-            className="mb-20 flex justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            viewport={{ once: true }}
+        {/* 縦書きの章タイトル - 右寄り配置 */}
+        <motion.div
+          className="absolute right-12 top-1/2 -translate-y-1/2 hidden lg:block"
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 0.6, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <div
+            className="text-gray-400"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              letterSpacing: '0.3em',
+              fontSize: '0.875rem',
+              fontWeight: 300
+            }}
           >
-            <div
-              className="text-gray-400"
-              style={{
-                writingMode: 'vertical-rl',
-                textOrientation: 'mixed',
-                letterSpacing: '0.3em',
-                fontSize: '1rem',
-                fontWeight: 300
-              }}
-            >
-              第三章｜探求の末に見つけた、新しい景色
-            </div>
-          </motion.div>
+            第三章｜探求の末に見つけた、新しい景色
+          </div>
+        </motion.div>
+        
+        <Section delay={0.3}>
           
           <TextBlock size="lg">
             <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-900">
@@ -699,30 +737,42 @@ export default function QuietDialogue() {
         </Section>
       </div>
       
+      {/* 章の区切り */}
+      <div className="relative w-full h-24 flex items-center justify-center">
+        <motion.div
+          className="w-px h-16 bg-gradient-to-b from-transparent via-gray-300 to-transparent"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true }}
+        />
+      </div>
+      
       {/* 第四章 - あなただけの「答え」を、共に見つける旅 */}
       <div className="min-h-screen flex items-center justify-center py-20 relative">
-        <Section delay={0.3}>
-          {/* 縦書きの章タイトル - 中央配置 */}
-          <motion.div
-            className="mb-20 flex justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            viewport={{ once: true }}
+        {/* 縦書きの章タイトル - 左寄り配置 */}
+        <motion.div
+          className="absolute left-12 top-1/2 -translate-y-1/2 hidden lg:block"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 0.6, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <div
+            className="text-gray-400"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              letterSpacing: '0.3em',
+              fontSize: '0.875rem',
+              fontWeight: 300
+            }}
           >
-            <div
-              className="text-gray-400"
-              style={{
-                writingMode: 'vertical-rl',
-                textOrientation: 'mixed',
-                letterSpacing: '0.3em',
-                fontSize: '1rem',
-                fontWeight: 300
-              }}
-            >
-              第四章｜あなただけの「答え」を、共に見つける旅
-            </div>
-          </motion.div>
+            第四章｜あなただけの「答え」を、共に見つける旅
+          </div>
+        </motion.div>
+        
+        <Section delay={0.3}>
           
           <TextBlock size="lg">
             <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-900">
@@ -752,30 +802,42 @@ export default function QuietDialogue() {
         </Section>
       </div>
       
+      {/* 章の区切り */}
+      <div className="relative w-full h-24 flex items-center justify-center">
+        <motion.div
+          className="w-px h-16 bg-gradient-to-b from-transparent via-gray-300 to-transparent"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true }}
+        />
+      </div>
+      
       {/* 最終章 - あなたの物語を、ここから始めよう */}
-      <div className="min-h-screen flex items-center justify-center py-20">
-        <Section delay={0.3}>
-          {/* 縦書きの章タイトル - 中央配置 */}
-          <motion.div
-            className="mb-20 flex justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            viewport={{ once: true }}
+      <div className="min-h-screen flex items-center justify-center py-20 relative">
+        {/* 縦書きの章タイトル - 右寄り配置 */}
+        <motion.div
+          className="absolute right-12 top-1/2 -translate-y-1/2 hidden lg:block"
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 0.6, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <div
+            className="text-gray-400"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              letterSpacing: '0.3em',
+              fontSize: '0.875rem',
+              fontWeight: 300
+            }}
           >
-            <div
-              className="text-gray-400"
-              style={{
-                writingMode: 'vertical-rl',
-                textOrientation: 'mixed',
-                letterSpacing: '0.3em',
-                fontSize: '1rem',
-                fontWeight: 300
-              }}
-            >
-              最終章｜あなたの物語を、ここから始めよう
-            </div>
-          </motion.div>
+            最終章｜あなたの物語を、ここから始めよう
+          </div>
+        </motion.div>
+        
+        <Section delay={0.3}>
           
           <TextBlock size="lg">
             <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-900">
