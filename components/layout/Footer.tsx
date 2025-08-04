@@ -13,8 +13,9 @@ export const Footer: React.FC = () => {
 
   const footerLinks = {
     services: [
-      { label: 'AIリブートアカデミー', href: '#school' },
-      { label: '企業向けコンサルティング', href: '#consulting' },
+      { label: 'AIリブートアカデミー', href: '/academy' },
+      { label: 'プログラム詳細', href: '/academy#program' },
+      { label: '受講生の声', href: '#testimonials' },
     ],
     company: [
       { label: '会社概要', href: '#company' },
@@ -54,7 +55,7 @@ export const Footer: React.FC = () => {
               </span>
             </Link>
             <p className="text-ai-light-gray text-sm">
-              AIの力で個人と企業の可能性を解き放ち、ウェルビーイングな未来を創造する
+              あなたの「Will」から始まる、AI時代のキャリア変革
             </p>
           </div>
 
@@ -112,9 +113,18 @@ export const Footer: React.FC = () => {
 
         {/* 経済産業省リスキリング支援事業 */}
         <div className="mt-8 pt-8 border-t border-ai-medium-gray">
-          <p className="text-center text-ai-light-gray text-sm mb-4">
-            経済産業省リスキリング支援事業 採択プログラム
-          </p>
+          <div className="flex flex-col items-center space-y-4">
+            <Image
+              src="/images/keisan-reskiling-logo-darkbg.webp"
+              alt="経済産業省 リスキリング通じたキャリアアップ支援事業"
+              width={240}
+              height={70}
+              className="h-14 md:h-16 w-auto opacity-90 hover:opacity-100 transition-opacity"
+            />
+            <p className="text-center text-ai-light-gray text-sm">
+              経済産業省リスキリング支援事業 採択プログラム
+            </p>
+          </div>
         </div>
 
         {/* コピーライト */}

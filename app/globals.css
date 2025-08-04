@@ -7,10 +7,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
+  /* Blueprint 3.0 - Inner-Space Journey Colors */
+  --color-innerscape-bg: #121828;        /* 深い藍色 - 内省的な静けさ */
+  --color-innerscape-text: #F0F4F8;      /* わずかに青みがかった白 */
+  --color-innerscape-muted: #7F8C9B;     /* 背景に馴染むグレー */
+  --color-innerscape-teal: #38E8D3;      /* 生命の輝き - ティール */
+  --color-innerscape-cyan: #00B2FF;      /* 生命の輝き - シアン */
+  
   /* AIリブート ブランドカラー - Will（意思）と成長を表現 */
   --color-will-primary: #FF4B8B;    /* 情熱と決意のピンク */
   --color-will-secondary: #9747FF;  /* 創造性と可能性のパープル */
   --color-will-tertiary: #3B82F6;   /* 知性と信頼のブルー */
+  
+  /* マニフェスト用 - より深い神秘的なカラーパレット */
+  --color-manifesto-core: #E0B0FF;      /* 淡い紫 - 内なる光 */
+  --color-manifesto-deep: #7B68EE;      /* 深い紫 - 魂の深淵 */
+  --color-manifesto-mystic: #4B0082;    /* インディゴ - 神秘 */
+  --color-manifesto-cosmos: #191970;    /* ミッドナイトブルー - 宇宙 */
+  --color-manifesto-glow: #DDA0DD;      /* プラム - 輝き */
+  --color-manifesto-aurora: #00CED1;    /* ダークターコイズ - オーロラ */
   
   /* 感情的深度を表現するカラーパレット */
   --color-warmth: #FF6B9D;         /* 人間的な温かさ */
@@ -77,7 +92,9 @@
   }
   
   body {
-    @apply text-ai-dark-gray bg-white overflow-x-hidden;
+    @apply overflow-x-hidden;
+    background-color: var(--color-innerscape-bg);
+    color: var(--color-innerscape-text);
     font-family: 'Noto Sans JP', 'Inter', 'Helvetica Neue', Arial, sans-serif;
   }
   
@@ -248,4 +265,52 @@
     opacity: 1;
     filter: blur(2px);
   }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animation utilities */
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animation-delay-800 {
+  animation-delay: 800ms;
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

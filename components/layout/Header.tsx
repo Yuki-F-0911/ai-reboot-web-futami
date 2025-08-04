@@ -9,11 +9,10 @@ export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'AIリブートとは', href: '#mission' },
-    { label: '企業向け研修', href: '/corporate' },
-    { label: 'アカデミー', href: '/academy' },
-    { label: '講師', href: '#instructors' },
-    { label: '始める', href: '#contact' },
+    { label: 'プログラム', href: '/academy' },
+    { label: '卒業生の声', href: '#testimonials' },
+    { label: '講師陣', href: '#instructors' },
+    { label: 'よくある質問', href: '#faq' },
   ];
 
   return (

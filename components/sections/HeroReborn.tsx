@@ -37,7 +37,7 @@ export const HeroReborn: React.FC = () => {
                 }`}
               >
                 <span className="text-gray-400">あなたの</span>
-                <span className="relative inline-block mx-3">
+                <span className="relative inline-block mx-2">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400">
                     Will
                   </span>
@@ -79,8 +79,7 @@ export const HeroReborn: React.FC = () => {
             }`}
           >
             <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
-              AIという新たな知性と共に歩む時代。
-              <br />
+              AIという新たな知性と共に歩む時代。<br className="hidden md:block" />
               <span className="text-purple-300">100日間</span>で、あなたは変わる。
             </p>
           </div>

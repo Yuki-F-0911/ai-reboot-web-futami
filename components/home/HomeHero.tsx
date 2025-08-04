@@ -36,28 +36,27 @@ export const HomeHero = () => {
           >
 
             {/* Main title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1]">
-              <span className="block text-depth-900">生成AIは</span>
-              <span className="block">
-                <span className="bg-will-gradient bg-clip-text text-transparent">道具</span>
-                <span className="text-depth-900">ではなく</span>
-              </span>
-              <span className="block">
-                <span className="bg-harmony-gradient bg-clip-text text-transparent">パートナー</span>
-                <span className="text-depth-900">へ</span>
-              </span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.2]">
+              <span className="inline text-depth-900">生成AIは</span>
+              <span className="inline bg-will-gradient bg-clip-text text-transparent">道具</span>
+              <span className="inline text-depth-900">ではなく</span>
+              <br />
+              <span className="inline bg-harmony-gradient bg-clip-text text-transparent">パートナー</span>
+              <span className="inline text-depth-900">へ</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-depth-700 mb-4 font-light max-w-3xl mx-auto">
-              AI時代の転換点で、あなたの「Will（意志）」を現実に変える
+            <p className="text-xl md:text-2xl text-depth-700 mb-4 font-light max-w-3xl mx-auto leading-relaxed">
+              AI時代の転換点で、<br className="md:hidden" />
+              あなたの「Will（意志）」を現実に変える
             </p>
 
             {/* Core message */}
             <p className="text-base md:text-lg text-depth-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-              単なるツールの使い方ではなく、AIと共創する思考OSを身につけ、
-              <br className="hidden md:block" />
-              変化し続ける時代を生き抜く力を、実践と伴走で支援します
+              単なるツールの使い方ではなく、<br className="md:hidden" />
+              AIと共創する思考OSを身につけ、<br />
+              変化し続ける時代を生き抜く力を、<br className="md:hidden" />
+              実践と伴走で支援します
             </p>
           </motion.div>
 
