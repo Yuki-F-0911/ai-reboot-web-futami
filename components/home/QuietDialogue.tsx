@@ -63,47 +63,75 @@ const TextBlock = ({
 
 export default function QuietDialogue() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const fvRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   })
   
+  // FVエリア専用のスクロール進行度
+  const { scrollYProgress: fvScrollProgress } = useScroll({
+    target: fvRef,
+    offset: ["start start", "end start"]
+  })
+  
   // スクロール進行度による演出
   const readingProgress = useTransform(scrollYProgress, [0, 1], [0, 100])
+  const fvProgress = useTransform(fvScrollProgress, [0, 1], [0, 100])
   const [progress, setProgress] = useState(0)
+  const [fvScrollValue, setFvScrollValue] = useState(0)
   const [currentPhase, setCurrentPhase] = useState<'chaos' | 'question' | 'awakening' | 'confidence' | 'silence'>('chaos')
-  const [showMainMessage, setShowMainMessage] = useState(false)
+  const [showMainMessage, setShowMainMessage] = useState(true)
+  const [currentMessage, setCurrentMessage] = useState<1 | 2>(1)
   const [messageTransition, setMessageTransition] = useState<'first' | 'switching' | 'second'>('first')
   const [noiseLevel, setNoiseLevel] = useState(1)
   
+  // FVエリアのスクロールでメッセージを制御
+  useEffect(() => {
+    const unsub = fvProgress.on("change", () => {
+      const value = fvProgress.get()
+      setFvScrollValue(value)
+      
+      
+      // FVエリア内のスクロール位置に応じてフェーズを更新
+      if (value < 5) {
+        setCurrentPhase('chaos')
+        setNoiseLevel(1)
+        // 最初からメッセージ1を表示
+        setShowMainMessage(true)
+        setCurrentMessage(1)
+      } else if (value < 15) {
+        setCurrentPhase('question')
+        setNoiseLevel(0.8)
+        setShowMainMessage(true)
+        setCurrentMessage(1)
+      } else if (value < 35) {
+        setCurrentPhase('awakening')
+        setNoiseLevel(0.6)
+        // 第1メッセージを継続表示
+        setShowMainMessage(true)
+        setCurrentMessage(1)
+      } else if (value < 60) {
+        setCurrentPhase('confidence')
+        setNoiseLevel(0.3)
+        // 第2メッセージに切り替え（FVエリアの35%から）
+        setShowMainMessage(true)
+        setCurrentMessage(2)
+      } else {
+        setCurrentPhase('silence')
+        setNoiseLevel(0.1)
+        setShowMainMessage(true)
+        setCurrentMessage(2)
+      }
+    })
+    return () => unsub()
+  }, [fvProgress, currentPhase, currentMessage, showMainMessage])
   
+  // ページ全体のスクロール進行度（読書体験用）
   useEffect(() => {
     const unsub = readingProgress.on("change", () => {
       const value = readingProgress.get()
       setProgress(value)
-      
-      // スクロール位置に応じてフェーズを更新
-      if (value < 15) {
-        setCurrentPhase('chaos')
-        setNoiseLevel(1)
-      } else if (value < 30) {
-        setCurrentPhase('question')
-        setNoiseLevel(0.8)
-      } else if (value < 50) {
-        setCurrentPhase('awakening')
-        setNoiseLevel(0.6)
-      } else if (value < 70) {
-        setCurrentPhase('confidence')
-        setNoiseLevel(0.3)
-      } else {
-        setCurrentPhase('silence')
-        setNoiseLevel(0.1)
-      }
-      
-      // メインメッセージの表示制御
-      if (value > 40 && !showMainMessage) {
-        setShowMainMessage(true)
-      }
       
       // メッセージの切り替え演出
       if (value > 20 && value < 30 && messageTransition === 'first') {
@@ -112,7 +140,7 @@ export default function QuietDialogue() {
       }
     })
     return () => unsub()
-  }, [readingProgress, showMainMessage, messageTransition])
+  }, [readingProgress, messageTransition])
   
   return (
     <>
@@ -197,84 +225,144 @@ export default function QuietDialogue() {
         }} />
       </div>
       
-      {/* 序章 - フルスクリーン with グリッチエフェクト */}
-      <div className="min-h-screen relative flex items-center justify-center overflow-hidden">
-        {/* 背景画像レイヤー */}
-        <motion.div 
-          className="absolute inset-0 z-0"
-          animate={{
-            opacity: currentPhase === 'silence' ? 0.1 : 0,
-          }}
-          transition={{ duration: 2 }}
-        >
-          <img 
-            src="/images/fv_bg_image01.png" 
-            alt="" 
-            className="w-full h-full object-cover"
-            style={{
-              filter: `blur(${currentPhase === 'chaos' ? 20 : currentPhase === 'silence' ? 0 : 10}px)`,
-              transform: `scale(${currentPhase === 'confidence' ? 1.1 : 1})`,
-              transition: 'all 2s ease-in-out'
+      {/* 序章 - FVエリア with グリッチエフェクト */}
+      <div ref={fvRef} className="relative">
+        {/* 第1メッセージボックス - 100vh */}
+        <div className="h-screen relative flex items-center justify-center overflow-hidden">
+          {/* 背景画像レイヤー */}
+          <motion.div 
+            className="absolute inset-0 z-0"
+            animate={{
+              opacity: 0.05,
             }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/70 to-white/90" />
-        </motion.div>
-        {/* グリッチメインコピー - フェーズに応じた演出 */}
-        <AnimatePresence mode="wait">
-          {currentPhase === 'chaos' && (
-            <motion.div
-              key="chaos"
-              className="absolute inset-0 flex items-center justify-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-8 lg:gap-16">
-                {/* デスクトップ: 縦書き（右から左へ） */}
-                <div className="hidden lg:block">
-                  <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
-                    <GlitchText
-                      text="AIに、"
-                      className="text-6xl lg:text-8xl font-bold"
-                      delay={0}
-                      fontMix="tech"
-                    />
-                  </div>
-                </div>
-                <div className="hidden lg:block">
-                  <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
-                    <GlitchText
-                      text="あなたの未来を"
-                      className="text-6xl lg:text-8xl font-bold"
-                      delay={200}
-                      fontMix="mixed"
-                    />
-                  </div>
-                </div>
-                <div className="hidden lg:block">
-                  <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
-                    <GlitchText
-                      text="任せるな。"
-                      className="text-6xl lg:text-8xl font-bold"
-                      delay={400}
-                      fontMix="impact"
-                    />
-                  </div>
-                </div>
-                
-                {/* モバイル: 横書き */}
-                <div className="lg:hidden">
-                  <GlitchText
-                    text="AIに、あなたの未来を任せるな。"
-                    className="text-3xl md:text-5xl font-bold text-center"
-                    delay={0}
-                  />
-                </div>
-              </div>
-            </motion.div>
-          )}
+            transition={{ duration: 2 }}
+          >
+            <img 
+              src="/images/fv_bg_image01.png" 
+              alt="" 
+              className="w-full h-full object-cover"
+              style={{
+                filter: 'blur(20px)',
+                transform: 'scale(1.1)',
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/70 to-white/90" />
+          </motion.div>
           
-          {currentPhase === 'question' && messageTransition === 'switching' && (
+          {/* 第1メッセージ表示 */}
+          <AnimatePresence>
+            {showMainMessage && currentMessage === 1 && (
+              <motion.div
+                key="message-1"
+                className="relative z-10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-8 lg:gap-16">
+                  {/* デスクトップ: 縦書き */}
+                  <div className="hidden lg:flex flex-row-reverse gap-12">
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="AIに、"
+                        className="text-5xl lg:text-7xl font-bold"
+                        delay={0}
+                        fontMix="tech"
+                      />
+                    </div>
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="あなたの未来を"
+                        className="text-6xl lg:text-8xl font-bold"
+                        delay={200}
+                        fontMix="mixed"
+                      />
+                    </div>
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="任せるな。"
+                        className="text-6xl lg:text-8xl font-bold"
+                        delay={400}
+                        fontMix="impact"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* モバイル: 横書き */}
+                  <div className="lg:hidden">
+                    <GlitchText
+                      text="AIに、あなたの未来を任せるな。"
+                      className="text-3xl md:text-5xl font-bold text-center"
+                      delay={0}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+        
+        {/* 第2メッセージボックス - 100vh */}
+        <div className="h-screen relative flex items-center justify-center overflow-hidden">
+          <AnimatePresence>
+            {showMainMessage && currentMessage === 2 && (
+              <motion.div
+                key="message-2"
+                className="relative z-10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-8 lg:gap-16">
+                  {/* デスクトップ: 縦書き */}
+                  <div className="hidden lg:flex flex-row-reverse gap-12">
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="物語の"
+                        className="text-5xl lg:text-7xl font-bold"
+                        delay={0}
+                        fontMix="serif"
+                      />
+                    </div>
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="主役は、"
+                        className="text-6xl lg:text-8xl font-bold"
+                        delay={200}
+                        fontMix="mixed"
+                      />
+                    </div>
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="あなた自身だ。"
+                        className="text-6xl lg:text-8xl font-bold"
+                        delay={400}
+                        fontMix="impact"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* モバイル: 横書き */}
+                  <div className="lg:hidden">
+                    <GlitchText
+                      text="物語の主役は、あなた自身だ。"
+                      className="text-3xl md:text-5xl font-bold text-center"
+                      delay={0}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>{/* FVエリア end */}
+      
+      {/* 以下の古い実装は削除 */}
+      {false && (
+        <div>
+          {false && currentPhase === 'question' && messageTransition === 'switching' && (
             <motion.div
               key="switching"
               className="absolute inset-0 flex items-center justify-center"
@@ -313,16 +401,18 @@ export default function QuietDialogue() {
             </motion.div>
           )}
           
-          {currentPhase === 'awakening' && showMainMessage && (
+          {/* 第1メッセージ: AIに、あなたの未来を任せるな。 - 旧実装を無効化 */}
+          {false && showMainMessage && currentMessage === 1 && (
             <motion.div
-              key="awakening"
+              key="message1"
               className="absolute inset-0 flex items-center justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
             >
               <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-12 lg:gap-20">
-                {/* デスクトップ: 縦書き（右から左へ） */}
+                {/* デスクトップ: 縦書き（右から左へ） - 1つ目のメッセージ */}
                 <div className="hidden lg:flex flex-row-reverse gap-12 relative">
                   {/* 背景にデジタルグリッチライン */}
                   <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -356,6 +446,110 @@ export default function QuietDialogue() {
                     />
                   </div>
                   
+                  {/* 第1メッセージ: AIに、あなたの未来を任せるな。 */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                  >
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="AIに、"
+                        className="text-5xl lg:text-7xl font-bold"
+                        delay={300}
+                        fontMix="tech"
+                      />
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.8 }}
+                  >
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="あなたの未来を"
+                        className="text-6xl lg:text-8xl font-bold"
+                        delay={600}
+                        fontMix="mixed"
+                      />
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.9, duration: 0.8 }}
+                  >
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="任せるな。"
+                        className="text-6xl lg:text-8xl font-bold"
+                        delay={900}
+                        fontMix="impact"
+                      />
+                    </div>
+                  </motion.div>
+                </div>
+                
+                {/* モバイル: 横書き */}
+                <div className="lg:hidden">
+                  <GlitchText
+                    text="AIに、あなたの未来を任せるな。"
+                    className="text-3xl md:text-5xl font-bold text-center"
+                    delay={300}
+                    scrollTrigger={true}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          )}
+          
+          {/* 第2メッセージ: 物語の主役は、あなた自身だ。 - 旧実装を無効化 */}
+          {false && showMainMessage && currentMessage === 2 && (
+            <motion.div
+              key="message2"
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-12 lg:gap-20">
+                {/* デスクトップ: 縦書き（右から左へ） */}
+                <div className="hidden lg:flex flex-row-reverse gap-12 relative">
+                  {/* 背景にデジタルグリッチライン */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                    <motion.div
+                      className="absolute w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"
+                      animate={{
+                        y: ['-100%', '200vh'],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 3.5,
+                        repeat: Infinity,
+                        repeatDelay: 1.5,
+                        ease: 'linear',
+                      }}
+                      style={{ filter: 'blur(1px)' }}
+                    />
+                    <motion.div
+                      className="absolute w-full h-0.5 bg-gradient-to-r from-transparent via-yellow-500 to-transparent"
+                      animate={{
+                        y: ['200vh', '-100%'],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 2.8,
+                        repeat: Infinity,
+                        repeatDelay: 2.5,
+                        ease: 'linear',
+                      }}
+                      style={{ filter: 'blur(1px)' }}
+                    />
+                  </div>
+                  
+                  {/* 第2メッセージ: 物語の主役は、あなた自身だ。 */}
                   <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -413,7 +607,7 @@ export default function QuietDialogue() {
             </motion.div>
           )}
           
-          {currentPhase === 'confidence' && (
+          {false && currentPhase === 'confidence' && false && (
             <motion.div
               key="confidence"
               className="absolute inset-0 flex items-center justify-center"
@@ -538,7 +732,7 @@ export default function QuietDialogue() {
             </motion.div>
           )}
           
-          {currentPhase === 'silence' && (
+          {false && currentPhase === 'silence' && currentMessage === 2 && (
             <motion.div
               key="silence"
               className="absolute inset-0 flex items-center justify-center"
@@ -611,7 +805,175 @@ export default function QuietDialogue() {
               </motion.h1>
             </motion.div>
           )}
-        </AnimatePresence>
+        </div>
+      )}
+      
+      {/* 以下の古いスティッキーコンテナ実装は削除 */}
+      {false && (
+        <div className="sticky top-0 h-screen flex items-center justify-center z-50 pointer-events-none">
+          <div className="relative w-full h-full flex flex-col items-center justify-center">
+            {/* 初期ノイズエフェクト */}
+            <AnimatePresence>
+              {currentPhase === 'chaos' && !showMainMessage && (
+                <motion.div
+                  key="initial-noise"
+                  className="absolute inset-0 flex items-center justify-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-8 lg:gap-16">
+                    {/* デスクトップ: 縦書き */}
+                    <div className="hidden lg:flex flex-row-reverse gap-12">
+                      <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                        <GlitchText
+                          text="AIに、"
+                          className="text-5xl lg:text-7xl font-bold"
+                          delay={0}
+                          fontMix="tech"
+                        />
+                      </div>
+                      <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                        <GlitchText
+                          text="あなたの未来を"
+                          className="text-6xl lg:text-8xl font-bold"
+                          delay={200}
+                          fontMix="mixed"
+                        />
+                      </div>
+                      <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                        <GlitchText
+                          text="任せるな。"
+                          className="text-6xl lg:text-8xl font-bold"
+                          delay={400}
+                          fontMix="impact"
+                        />
+                      </div>
+                    </div>
+                    {/* モバイル: 横書き */}
+                    <div className="lg:hidden">
+                      <GlitchText
+                        text="AIに、あなたの未来を任せるな。"
+                        className="text-3xl md:text-5xl font-bold text-center"
+                        delay={0}
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            
+            {/* 第1メッセージ */}
+            <AnimatePresence>
+              {showMainMessage && currentMessage === 1 && (
+                <motion.div
+                  key="glitch-message-1"
+                  className="pointer-events-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-12 lg:gap-20">
+                  {/* デスクトップ: 縦書き */}
+                  <div className="hidden lg:flex flex-row-reverse gap-12">
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="AIに、"
+                        className="text-4xl lg:text-6xl font-bold"
+                        delay={0}
+                        fontMix="tech"
+                      />
+                    </div>
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="あなたの未来を"
+                        className="text-5xl lg:text-7xl font-bold"
+                        delay={200}
+                        fontMix="mixed"
+                      />
+                    </div>
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="任せるな。"
+                        className="text-5xl lg:text-7xl font-bold"
+                        delay={400}
+                        fontMix="impact"
+                      />
+                    </div>
+                  </div>
+                  {/* モバイル: 横書き */}
+                  <div className="lg:hidden">
+                    <GlitchText
+                      text="AIに、あなたの未来を任せるな。"
+                      className="text-2xl md:text-4xl font-bold text-center"
+                      delay={0}
+                      scrollTrigger={false}
+                    />
+                  </div>
+                </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            
+            {/* 第2メッセージ */}
+            <AnimatePresence>
+              {showMainMessage && currentMessage === 2 && (
+                <motion.div
+                  key="glitch-message-2"
+                  className="pointer-events-auto"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  onAnimationStart={() => console.log('Message 2 animation started!')}
+                  onAnimationComplete={() => console.log('Message 2 animation completed!')}
+                >
+                <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-12 lg:gap-20">
+                  {/* デスクトップ: 縦書き */}
+                  <div className="hidden lg:flex flex-row-reverse gap-12">
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="物語の"
+                        className="text-4xl lg:text-6xl font-bold"
+                        delay={0}
+                        fontMix="serif"
+                      />
+                    </div>
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="主役は、"
+                        className="text-5xl lg:text-7xl font-bold"
+                        delay={200}
+                        fontMix="mixed"
+                      />
+                    </div>
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="あなた自身だ。"
+                        className="text-5xl lg:text-7xl font-bold"
+                        delay={400}
+                        fontMix="impact"
+                      />
+                    </div>
+                  </div>
+                  {/* モバイル: 横書き */}
+                  <div className="lg:hidden">
+                    <GlitchText
+                      text="物語の主役は、あなた自身だ。"
+                      className="text-2xl md:text-4xl font-bold text-center"
+                      delay={0}
+                      scrollTrigger={false}
+                    />
+                  </div>
+                </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+      )}
         
       {/* 既存の縦書きレイアウトは一旦非表示 */}
       <div style={{ display: 'none' }}>
@@ -789,8 +1151,7 @@ export default function QuietDialogue() {
             </div>
           </motion.div>
         </div>
-        
-        </div>
+      </div>
         
         {/* モバイル・タブレット用: 横書きレイアウト - グリッチ版 */}
         <div className="lg:hidden flex items-center justify-center min-h-screen px-6" style={{ display: 'none' }}>
@@ -849,8 +1210,6 @@ export default function QuietDialogue() {
             </motion.h2>
           </motion.div>
         </div>
-        
-      </div>
 
       {/* 序章への自然な導入 - より余白を設けた静かな空間 */}
       <div className="relative h-[50vh] flex items-end justify-center pb-20">

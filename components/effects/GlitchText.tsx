@@ -33,6 +33,8 @@ const GlitchChar = ({
   const [fontClass, setFontClass] = useState('font-mono')
   const [displayChar, setDisplayChar] = useState(char)
   const [isClient, setIsClient] = useState(false)
+  const [afterGlitch, setAfterGlitch] = useState(false) // 余韻グリッチ用
+  const [afterGlitchType, setAfterGlitchType] = useState<'noise' | 'rgb' | 'distort' | 'flicker'>('noise')
   
   // シード値から疑似乱数を生成
   const seededRandom = useCallback((seed: number) => {
@@ -40,25 +42,7 @@ const GlitchChar = ({
     return x - Math.floor(x)
   }, [])
   
-  // フォントミックスの設定
-  const getFontByPhase = useCallback(() => {
-    if (phase === 'noise') return 'font-mono'
-    if (phase === 'glitch') {
-      const fonts = ['font-mono', 'font-sans', 'font-serif']
-      return fonts[Math.floor(seededRandom(seed + index) * fonts.length)]
-    }
-    if (phase === 'forming') {
-      if (fontMix === 'tech') return 'font-mono'
-      if (fontMix === 'serif') return 'font-serif'
-      if (fontMix === 'impact') return 'font-black'
-      return isImportant ? 'font-bold' : 'font-medium'
-    }
-    // formed
-    if (fontMix === 'tech') return 'font-mono tracking-wider'
-    if (fontMix === 'serif') return 'font-serif'
-    if (fontMix === 'impact') return 'font-black tracking-tight'
-    return 'font-bold'
-  }, [phase, fontMix, isImportant, seed, index, seededRandom])
+  // getFontByPhase関数を削除（useEffect内でインライン化したため）
   
   const randomValues = useMemo(() => {
     const base = (index + 1) * (seed + 1) * 1000
@@ -79,9 +63,6 @@ const GlitchChar = ({
   // ランダムな文字を生成（より多様なグリッチ文字）
   const randomChars = '!<>-_\\/[]{}—=+*^?#________あいうえおかきくけこ漢字零壱弐参肆伍陸漆捌玖◇◆□■△▲▽▼○●'
   
-  // サブリミナル的に表示する意味のある単語
-  const subliminalWords = ['覚醒', '意志', '創造', '変革', '可能性', '未来', '自由', '成長', '挑戦', '革新']
-  
   // クライアントサイドの初期化
   useEffect(() => {
     setIsClient(true)
@@ -89,80 +70,218 @@ const GlitchChar = ({
   
   // フェーズが変わるたびにフォントを更新
   useEffect(() => {
-    if (isClient) {
-      setFontClass(getFontByPhase())
+    if (!isClient) return
+    
+    // getFontByPhaseのロジックを直接インラインで実装
+    let newFontClass = 'font-mono'
+    if (phase === 'noise') {
+      newFontClass = 'font-mono'
+    } else if (phase === 'glitch') {
+      const fonts = ['font-mono', 'font-sans', 'font-serif']
+      newFontClass = fonts[Math.floor(seededRandom(seed + index) * fonts.length)]
+    } else if (phase === 'forming') {
+      if (fontMix === 'tech') newFontClass = 'font-mono'
+      else if (fontMix === 'serif') newFontClass = 'font-serif'
+      else if (fontMix === 'impact') newFontClass = 'font-black'
+      else newFontClass = isImportant ? 'font-bold' : 'font-medium'
+    } else if (phase === 'formed') {
+      if (fontMix === 'tech') newFontClass = 'font-mono tracking-wider'
+      else if (fontMix === 'serif') newFontClass = 'font-serif'
+      else if (fontMix === 'impact') newFontClass = 'font-black tracking-tight'
+      else newFontClass = 'font-bold'
     }
-  }, [phase, isClient, getFontByPhase])
+    
+    setFontClass(newFontClass)
+  }, [phase, isClient, fontMix, isImportant, seed, index, seededRandom])
   
   // アニメーション制御
   useEffect(() => {
     if (!isClient) return
-    const baseDelay = delay + (index * (isImportant ? 100 : 30))
+    const baseDelay = delay + (index * (isImportant ? 120 : 40))
     
-    // Phase 1: ノイズ
+    // サブリミナル単語を関数内で定義
+    const subliminalWords = ['覚醒', '意志', '創造', '変革', '可能性', '未来', '自由', '成長', '挑戦', '革新']
+    
+    let noiseInterval: NodeJS.Timeout | null = null
+    let glitchInterval: NodeJS.Timeout | null = null
+    
+    // Phase 1: ノイズ (0-800ms)
     const noiseTimer = setTimeout(() => {
+      setPhase('noise')
       let noiseCount = 0
-      const noiseInterval = setInterval(() => {
-        // 時々サブリミナル単語を表示
-        if (Math.random() > 0.85 && noiseCount > 3) {
+      noiseInterval = setInterval(() => {
+        // より頻繁にサブリミナル単語を表示（30%の確率）
+        if (Math.random() > 0.7 && noiseCount > 2) {
           const word = subliminalWords[Math.floor(Math.random() * subliminalWords.length)]
-          setDisplayChar(word[Math.floor(Math.random() * word.length)])
+          // 単語全体または一部を表示
+          if (Math.random() > 0.5) {
+            setDisplayChar(word) // 単語全体を一瞬表示
+          } else {
+            setDisplayChar(word[Math.floor(Math.random() * word.length)])
+          }
         } else {
           setDisplayChar(randomChars[Math.floor(Math.random() * randomChars.length)])
         }
         noiseCount++
-      }, 50)
+        
+        if (noiseCount > 15) { // 安全のため上限を設定
+          if (noiseInterval) clearInterval(noiseInterval)
+        }
+      }, 60)
       
       setTimeout(() => {
-        clearInterval(noiseInterval)
+        if (noiseInterval) clearInterval(noiseInterval)
         setPhase('glitch')
-      }, 600)
+      }, 800)
     }, baseDelay)
     
-    // Phase 2: グリッチ
+    // Phase 2: グリッチ (800-1400ms)
     const glitchTimer = setTimeout(() => {
       setPhase('glitch')
       let glitchCount = 0
-      const glitchInterval = setInterval(() => {
+      glitchInterval = setInterval(() => {
         // グリッチ中も時々サブリミナル単語や正しい文字を混ぜる
         const rand = Math.random()
         if (rand > 0.7) {
-          setDisplayChar(char)
-        } else if (rand > 0.6 && glitchCount > 2) {
+          setDisplayChar(char) // 30%の確率で正しい文字
+        } else if (rand > 0.4) {
+          // 30%の確率でサブリミナル単語
           const word = subliminalWords[Math.floor(Math.random() * subliminalWords.length)]
-          setDisplayChar(word[Math.floor(Math.random() * word.length)])
+          if (Math.random() > 0.3) {
+            setDisplayChar(word) // 単語全体を表示
+          } else {
+            setDisplayChar(word.substring(0, 2)) // 単語の一部を表示
+          }
         } else {
           setDisplayChar(randomChars[Math.floor(Math.random() * randomChars.length)])
         }
         glitchCount++
+        
+        if (glitchCount > 10) { // 安全のため上限を設定
+          if (glitchInterval) clearInterval(glitchInterval)
+        }
       }, 80)
       
       setTimeout(() => {
-        clearInterval(glitchInterval)
+        if (glitchInterval) clearInterval(glitchInterval)
         setDisplayChar(char) // グリッチ終了時に正しい文字を表示
         setPhase('forming')
-      }, 400)
-    }, baseDelay + 600)
+      }, 600)
+    }, baseDelay + 800)
     
-    // Phase 3: 形成
+    // Phase 3: 形成 (1400-2000ms)
     const formingTimer = setTimeout(() => {
       setPhase('forming')
       setDisplayChar(char)
-      setFontClass(getFontByPhase())
       
       setTimeout(() => {
         setPhase('formed')
         setDisplayChar(char) // 最終的に正しい文字を表示
-        setFontClass(getFontByPhase())
-      }, 400)
-    }, baseDelay + 1000)
+      }, 600)
+    }, baseDelay + 1400)
+    
+    // 最終確認タイマー（フェイルセーフ）
+    const finalTimer = setTimeout(() => {
+      setPhase('formed')
+      setDisplayChar(char)
+    }, baseDelay + 2200)
     
     return () => {
+      if (noiseInterval) clearInterval(noiseInterval)
+      if (glitchInterval) clearInterval(glitchInterval)
       clearTimeout(noiseTimer)
       clearTimeout(glitchTimer)
       clearTimeout(formingTimer)
+      clearTimeout(finalTimer)
     }
-  }, [char, index, delay, isImportant, isClient, getFontByPhase, subliminalWords])
+  }, [char, index, delay, isImportant, isClient])
+  
+  // 余韻グリッチエフェクト（収束後）
+  useEffect(() => {
+    if (!isClient || phase !== 'formed') return
+    
+    let afterGlitchTimeout: NodeJS.Timeout | null = null
+    let restoreTimeout: NodeJS.Timeout | null = null
+    
+    // ランダムなタイミングでグリッチを発生させる
+    const scheduleAfterGlitch = () => {
+      // 3〜8秒後にランダムでグリッチ
+      const nextGlitchTime = 3000 + Math.random() * 5000
+      
+      afterGlitchTimeout = setTimeout(() => {
+        setAfterGlitch(true)
+        
+        // グリッチの種類をランダムに選択
+        const glitchType = Math.random()
+        
+        if (glitchType < 0.2) {
+          // ジジ... 軽いノイズ
+          setAfterGlitchType('noise')
+          setDisplayChar(randomChars[Math.floor(Math.random() * randomChars.length)])
+          restoreTimeout = setTimeout(() => {
+            setDisplayChar(char)
+            setAfterGlitch(false)
+            scheduleAfterGlitch() // 次のグリッチをスケジュール
+          }, 50)
+        } else if (glitchType < 0.4) {
+          // RGB色収差効果
+          setAfterGlitchType('rgb')
+          restoreTimeout = setTimeout(() => {
+            setAfterGlitch(false)
+            scheduleAfterGlitch()
+          }, 150)
+        } else if (glitchType < 0.6) {
+          // 歪み効果
+          setAfterGlitchType('distort')
+          restoreTimeout = setTimeout(() => {
+            setAfterGlitch(false)
+            scheduleAfterGlitch()
+          }, 200)
+        } else if (glitchType < 0.8) {
+          // 明滅効果
+          setAfterGlitchType('flicker')
+          let flickerCount = 0
+          const flickerInterval = setInterval(() => {
+            setAfterGlitch(flickerCount % 2 === 0)
+            flickerCount++
+            
+            if (flickerCount > 4) {
+              clearInterval(flickerInterval)
+              setAfterGlitch(false)
+              scheduleAfterGlitch()
+            }
+          }, 50)
+        } else {
+          // ガガガ... 連続グリッチ
+          setAfterGlitchType('noise')
+          let glitchCount = 0
+          const rapidGlitch = setInterval(() => {
+            if (glitchCount % 2 === 0) {
+              setDisplayChar(randomChars[Math.floor(Math.random() * randomChars.length)])
+            } else {
+              setDisplayChar(char)
+            }
+            glitchCount++
+            
+            if (glitchCount > 6) {
+              clearInterval(rapidGlitch)
+              setDisplayChar(char)
+              setAfterGlitch(false)
+              scheduleAfterGlitch()
+            }
+          }, 40)
+        }
+      }, nextGlitchTime)
+    }
+    
+    // 最初のグリッチをスケジュール
+    scheduleAfterGlitch()
+    
+    return () => {
+      if (afterGlitchTimeout) clearTimeout(afterGlitchTimeout)
+      if (restoreTimeout) clearTimeout(restoreTimeout)
+    }
+  }, [phase, isClient, char])
   
   if (!isClient) {
     return <span style={{ opacity: 0 }}>{char}</span>
@@ -173,32 +292,72 @@ const GlitchChar = ({
       className={`inline-block relative ${fontClass}`}
       initial={{ opacity: 0 }}
       animate={{
-        opacity: phase === 'noise' ? [0, 0.3, 0.1, 0.5, 0.2] : phase === 'formed' ? 1 : 0.9,
-        scale: phase === 'forming' ? 
-          (isImportant ? [2, 0.5, 3, 0.8, 1.5, 1] : [1.5, 0.8, 1.2, 1]) : 
-          phase === 'formed' ? 1 : 1,
-        rotateZ: phase === 'glitch' ? [0, -5, 5, -3, 0] : phase === 'formed' ? 0 : 0,
-        x: phase === 'glitch' ? [0, -2, 3, -1, 0] : phase === 'formed' ? 0 : 0,
-        y: phase === 'glitch' ? [0, 3, -2, 1, 0] : phase === 'formed' ? 0 : 0,
-        skewX: phase === 'glitch' ? [0, 10, -10, 5, 0] : phase === 'formed' ? 0 : 0,
+        opacity: afterGlitch && afterGlitchType === 'flicker' ? [1, 0.2, 1, 0.1, 1] :
+                afterGlitch ? [1, 0.8, 1] :
+                phase === 'formed' ? 1 : 
+                phase === 'forming' ? 0.95 :
+                phase === 'glitch' ? [0.3, 0.8, 0.5, 0.9] :
+                phase === 'noise' ? [0, 0.3, 0.1, 0.5, 0.2] : 0.5,
+        scale: afterGlitch && afterGlitchType === 'distort' ? [1, 1.3, 0.7, 1.1, 1] :
+              afterGlitch ? [1, 1.05, 1] :
+              phase === 'formed' ? 1 :
+              phase === 'forming' ? (isImportant ? [2, 0.5, 3, 0.8, 1.5, 1] : [1.5, 0.8, 1.2, 1]) :
+              phase === 'glitch' ? [1, 1.1, 0.95, 1.05, 1] :
+              1,
+        rotateZ: afterGlitch && afterGlitchType === 'distort' ? [0, -5, 8, -3, 0] :
+                afterGlitch ? [0, -1, 1, 0] :
+                phase === 'formed' ? 0 :
+                phase === 'glitch' ? [0, -5, 5, -3, 0] : 0,
+        x: afterGlitch && afterGlitchType === 'rgb' ? [0, -2, 1, 0] :
+          afterGlitch ? [0, -0.5, 0.5, 0] :
+          phase === 'formed' ? 0 :
+          phase === 'glitch' ? [0, -2, 3, -1, 0] : 0,
+        y: afterGlitch && afterGlitchType === 'rgb' ? [0, 1, -1, 0] :
+          afterGlitch ? [0, 0.5, -0.5, 0] :
+          phase === 'formed' ? 0 :
+          phase === 'glitch' ? [0, 3, -2, 1, 0] : 0,
+        skewX: afterGlitch && afterGlitchType === 'distort' ? [0, -10, 15, -5, 0] :
+              afterGlitch ? [0, -2, 2, 0] :
+              phase === 'formed' ? 0 :
+              phase === 'glitch' ? [0, 10, -10, 5, 0] : 0,
+        skewY: afterGlitch && afterGlitchType === 'distort' ? [0, 5, -8, 3, 0] : 0,
       }}
       transition={{
-        duration: phase === 'noise' ? 0.1 : 
-                 phase === 'glitch' ? 0.1 :
-                 phase === 'forming' && isImportant ? 1 : 
-                 phase === 'formed' ? 0.5 : 0.3,
-        repeat: phase === 'noise' || phase === 'glitch' ? Infinity : 0,
+        duration: afterGlitch ? 0.05 :
+                 phase === 'formed' ? 0.5 :
+                 phase === 'forming' ? (isImportant ? 1.2 : 0.8) :
+                 phase === 'glitch' ? 0.15 :
+                 phase === 'noise' ? 0.12 : 0.3,
+        repeat: afterGlitch ? 0 :
+               phase === 'noise' || phase === 'glitch' ? 4 : 0,
+        ease: afterGlitch ? 'linear' :
+              phase === 'formed' ? 'easeOut' : 
+              phase === 'forming' ? 'easeInOut' : 'linear',
       }}
       style={{
-        fontSize: phase === 'forming' && isImportant ? 
-          `calc(${fontSize} * ${randomValues.scale})` : fontSize,
+        fontSize: afterGlitch && afterGlitchType === 'flicker' ? 
+          `calc(${fontSize} * ${0.9 + Math.random() * 0.3})` :
+          phase === 'forming' && isImportant ? 
+          `calc(${fontSize} * ${randomValues.scale})` : 
+          // サブリミナル単語が表示されている時は少し大きく
+          (displayChar.length > 1 && phase !== 'formed' ? `calc(${fontSize} * 1.2)` : fontSize),
         fontWeight: fontMix === 'impact' && phase === 'formed' ? 900 : 
-                   phase === 'formed' ? (isImportant ? 700 : 500) : 300,
+                   phase === 'formed' ? (isImportant ? 700 : 500) : 
+                   // サブリミナル単語は太字で表示
+                   (displayChar.length > 1 && phase !== 'formed' ? 700 : 300),
         letterSpacing: fontMix === 'tech' ? '0.1em' : 
                       fontMix === 'impact' ? '-0.02em' :
                       phase === 'formed' ? '0.05em' : '0.02em',
         textTransform: fontMix === 'tech' && phase === 'formed' ? 'uppercase' : 'none',
-        textShadow: phase === 'glitch' ? `
+        textShadow: afterGlitch && afterGlitchType === 'rgb' ? `
+          -2px 0 0 rgba(255, 0, 0, 0.8),
+          2px 0 0 rgba(0, 255, 255, 0.8),
+          0 0 4px rgba(255, 0, 255, 0.6)
+        ` : afterGlitch && afterGlitchType === 'distort' ? `
+          ${Math.random() * 4 - 2}px ${Math.random() * 4 - 2}px 0 rgba(255, 0, 100, 0.7),
+          ${Math.random() * 4 - 2}px ${Math.random() * 4 - 2}px 0 rgba(0, 255, 200, 0.7),
+          0 0 8px rgba(255, 255, 255, 0.5)
+        ` : phase === 'glitch' ? `
           ${randomValues.glitchX1}px ${randomValues.glitchY1}px 0 rgba(255, 0, 0, 0.7),
           ${randomValues.glitchX2}px ${randomValues.glitchY2}px 0 rgba(0, 255, 255, 0.7),
           ${randomValues.glitchX3}px ${randomValues.glitchY3}px 0 rgba(255, 0, 255, 0.5),
@@ -216,8 +375,11 @@ const GlitchChar = ({
         ` : 'none',
         color: phase === 'formed' ? '#1a1a1a' : 
                phase === 'forming' ? '#2a2a2a' :
-               phase === 'noise' ? `rgba(${randomValues.colorR}, ${randomValues.colorG}, ${randomValues.colorB}, 0.9)` : 
-               '#333',
+               // サブリミナル単語は目立つ色で表示
+               (displayChar.length > 1 && phase !== 'formed' ? 
+                 `rgba(255, ${100 + randomValues.colorG % 155}, ${randomValues.colorB}, 1)` :
+                 phase === 'noise' ? `rgba(${randomValues.colorR}, ${randomValues.colorG}, ${randomValues.colorB}, 0.9)` : 
+                 '#333'),
         mixBlendMode: phase === 'glitch' ? 'difference' : 'normal',
         filter: phase === 'glitch' ? `
           blur(${Math.random() * 0.8}px) 
