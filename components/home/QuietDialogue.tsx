@@ -225,10 +225,10 @@ export default function QuietDialogue() {
         }} />
       </div>
       
-      {/* 序章 - FVエリア with グリッチエフェクト */}
-      <div ref={fvRef} className="relative">
-        {/* 第1メッセージボックス - 100vh */}
-        <div className="h-screen relative flex items-center justify-center overflow-hidden">
+      {/* 序章 - FVエリア with グリッチエフェクト - 高さ固定 */}
+      <div ref={fvRef} className="relative bg-gray-50" style={{ height: '200vh' }}>
+        {/* 第1メッセージボックス - 位置固定 */}
+        <div className="absolute top-0 left-0 right-0 h-screen flex items-center justify-center bg-gradient-to-b from-gray-100 via-gray-50 to-gray-100">
           {/* 背景画像レイヤー */}
           <motion.div 
             className="absolute inset-0 z-0"
@@ -246,7 +246,7 @@ export default function QuietDialogue() {
                 transform: 'scale(1.1)',
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/70 to-white/90" />
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-100/95 via-gray-50/85 to-gray-100/95" />
           </motion.div>
           
           {/* 第1メッセージ表示 */}
@@ -289,13 +289,32 @@ export default function QuietDialogue() {
                     </div>
                   </div>
                   
-                  {/* モバイル: 横書き */}
-                  <div className="lg:hidden">
-                    <GlitchText
-                      text="AIに、あなたの未来を任せるな。"
-                      className="text-3xl md:text-5xl font-bold text-center"
-                      delay={0}
-                    />
+                  {/* モバイル: 縦書き */}
+                  <div className="lg:hidden flex flex-row-reverse gap-6 md:gap-8">
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="AIに、"
+                        className="text-3xl md:text-4xl font-bold"
+                        delay={0}
+                        fontMix="tech"
+                      />
+                    </div>
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="あなたの未来を"
+                        className="text-4xl md:text-5xl font-bold"
+                        delay={200}
+                        fontMix="mixed"
+                      />
+                    </div>
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="任せるな。"
+                        className="text-4xl md:text-5xl font-bold"
+                        delay={400}
+                        fontMix="impact"
+                      />
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -303,8 +322,8 @@ export default function QuietDialogue() {
           </AnimatePresence>
         </div>
         
-        {/* 第2メッセージボックス - 100vh */}
-        <div className="h-screen relative flex items-center justify-center overflow-hidden">
+        {/* 第2メッセージボックス - 位置固定 */}
+        <div className="absolute left-0 right-0 h-screen flex items-center justify-center bg-gradient-to-b from-gray-100 via-gray-50 to-white" style={{ top: '100vh' }}>
           <AnimatePresence>
             {showMainMessage && currentMessage === 2 && (
               <motion.div
@@ -344,13 +363,32 @@ export default function QuietDialogue() {
                     </div>
                   </div>
                   
-                  {/* モバイル: 横書き */}
-                  <div className="lg:hidden">
-                    <GlitchText
-                      text="物語の主役は、あなた自身だ。"
-                      className="text-3xl md:text-5xl font-bold text-center"
-                      delay={0}
-                    />
+                  {/* モバイル: 縦書き */}
+                  <div className="lg:hidden flex flex-row-reverse gap-6 md:gap-8">
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="物語の"
+                        className="text-3xl md:text-4xl font-bold"
+                        delay={0}
+                        fontMix="serif"
+                      />
+                    </div>
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="主役は、"
+                        className="text-4xl md:text-5xl font-bold"
+                        delay={200}
+                        fontMix="mixed"
+                      />
+                    </div>
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="あなた自身だ。"
+                        className="text-4xl md:text-5xl font-bold"
+                        delay={400}
+                        fontMix="impact"
+                      />
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -1231,14 +1269,16 @@ export default function QuietDialogue() {
           序章｜あなたの物語の始まり
         </motion.div>
         
-        {/* モバイル用の横書きタイトル */}
+        {/* モバイル用の縦書きタイトル */}
         <motion.div
-          className="text-gray-600 lg:hidden text-center"
+          className="text-gray-600 lg:hidden"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           style={{
+            writingMode: 'vertical-rl',
+            textOrientation: 'mixed',
             letterSpacing: '0.2em',
             fontSize: '0.875rem',
             fontWeight: 400
@@ -1360,6 +1400,27 @@ export default function QuietDialogue() {
           </div>
         </motion.div>
         
+        {/* モバイル用の縦書きタイトル */}
+        <motion.div
+          className="absolute right-4 top-1/3 -translate-y-1/3 lg:hidden"
+          initial={{ opacity: 0, x: 10 }}
+          whileInView={{ opacity: 0.5, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <div
+            className="text-gray-400 text-xs"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              letterSpacing: '0.2em',
+              fontWeight: 300
+            }}
+          >
+            第一章｜すべては、一つの問いから始まる
+          </div>
+        </motion.div>
+        
         <Section delay={0.3}>
           
           <TextBlock size="lg">
@@ -1463,6 +1524,27 @@ export default function QuietDialogue() {
           </div>
         </motion.div>
         
+        {/* モバイル用の縦書きタイトル */}
+        <motion.div
+          className="absolute left-4 top-1/3 -translate-y-1/3 lg:hidden"
+          initial={{ opacity: 0, x: -10 }}
+          whileInView={{ opacity: 0.5, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <div
+            className="text-gray-400 text-xs"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              letterSpacing: '0.2em',
+              fontWeight: 300
+            }}
+          >
+            第二章｜私たちの哲学と方法論
+          </div>
+        </motion.div>
+        
         <Section delay={0.3}>
           
           <TextBlock size="lg">
@@ -1532,6 +1614,27 @@ export default function QuietDialogue() {
               textOrientation: 'mixed',
               letterSpacing: '0.3em',
               fontSize: '0.875rem',
+              fontWeight: 300
+            }}
+          >
+            第三章｜探求の末に見つけた、新しい景色
+          </div>
+        </motion.div>
+        
+        {/* モバイル用の縦書きタイトル */}
+        <motion.div
+          className="absolute right-4 top-1/3 -translate-y-1/3 lg:hidden"
+          initial={{ opacity: 0, x: 10 }}
+          whileInView={{ opacity: 0.5, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <div
+            className="text-gray-400 text-xs"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              letterSpacing: '0.2em',
               fontWeight: 300
             }}
           >
@@ -1619,6 +1722,27 @@ export default function QuietDialogue() {
           </div>
         </motion.div>
         
+        {/* モバイル用の縦書きタイトル */}
+        <motion.div
+          className="absolute left-4 top-1/3 -translate-y-1/3 lg:hidden"
+          initial={{ opacity: 0, x: -10 }}
+          whileInView={{ opacity: 0.5, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <div
+            className="text-gray-400 text-xs"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              letterSpacing: '0.2em',
+              fontWeight: 300
+            }}
+          >
+            第四章｜あなただけの「答え」を、共に見つける旅
+          </div>
+        </motion.div>
+        
         <Section delay={0.3}>
           
           <TextBlock size="lg">
@@ -1677,6 +1801,27 @@ export default function QuietDialogue() {
               textOrientation: 'mixed',
               letterSpacing: '0.3em',
               fontSize: '0.875rem',
+              fontWeight: 300
+            }}
+          >
+            最終章｜あなたの物語を、ここから始めよう
+          </div>
+        </motion.div>
+        
+        {/* モバイル用の縦書きタイトル */}
+        <motion.div
+          className="absolute right-4 top-1/3 -translate-y-1/3 lg:hidden"
+          initial={{ opacity: 0, x: 10 }}
+          whileInView={{ opacity: 0.5, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <div
+            className="text-gray-400 text-xs"
+            style={{
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              letterSpacing: '0.2em',
               fontWeight: 300
             }}
           >
