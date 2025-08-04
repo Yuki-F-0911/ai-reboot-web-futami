@@ -21,14 +21,14 @@ export default function QuietParticles() {
   useEffect(() => {
     // クライアントサイドでのみパーティクルを生成
     setIsClient(true)
-    const generatedParticles = Array.from({ length: 30 }, (_, i) => ({
+    const generatedParticles = Array.from({ length: 50 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: Math.random() * 4 + 2, // 2-6pxのサイズ
-      duration: Math.random() * 20 + 20, // 20-40秒でゆっくり動く
-      delay: Math.random() * 10,
-      opacity: Math.random() * 0.4 + 0.3 // 0.3-0.7の透明度
+      size: Math.random() * 3 + 1, // 1-4pxのサイズ（より繊細に）
+      duration: Math.random() * 30 + 20, // 20-50秒でゆっくり動く
+      delay: Math.random() * 15,
+      opacity: Math.random() * 0.3 + 0.1 // 0.1-0.4の透明度（より控えめに）
     }))
     setParticles(generatedParticles)
   }, [])
@@ -60,7 +60,11 @@ export default function QuietParticles() {
             top: `${particle.y}%`,
             width: `${particle.size}px`,
             height: `${particle.size}px`,
-            background: `radial-gradient(circle, rgba(99, 102, 241, ${particle.opacity}) 0%, transparent 70%)`,
+            background: particle.id % 3 === 0 
+              ? `radial-gradient(circle, rgba(0, 255, 200, ${particle.opacity}) 0%, transparent 70%)`
+              : particle.id % 3 === 1
+              ? `radial-gradient(circle, rgba(255, 0, 100, ${particle.opacity}) 0%, transparent 70%)`
+              : `radial-gradient(circle, rgba(100, 0, 255, ${particle.opacity}) 0%, transparent 70%)`,
           }}
         />
       ))}

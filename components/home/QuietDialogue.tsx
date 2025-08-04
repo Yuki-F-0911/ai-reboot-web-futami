@@ -1293,7 +1293,13 @@ export default function QuietDialogue() {
         <Section delay={0.3}>
           <TextBlock size="lg">
             <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-900">
-              生成AIが変えていく世界のルール
+              <GlitchText
+                text="生成AIが変えていく世界のルール"
+                className="text-2xl md:text-3xl font-light text-gray-900"
+                delay={800}
+                scrollTrigger={true}
+                fontMix="tech"
+              />
             </h2>
             
             <p className="mb-6">
@@ -1319,13 +1325,33 @@ export default function QuietDialogue() {
               不安の前に立って
             </h2>
             
-            <p className="mb-6 italic text-gray-700 pl-4 border-l-2 border-gray-200">
+            <motion.p 
+              className="mb-6 italic text-gray-700 pl-4 border-l-2 border-gray-200"
+              initial={{ opacity: 0.7 }}
+              whileInView={{ 
+                opacity: 1,
+                transition: { duration: 1 }
+              }}
+              viewport={{ once: true }}
+            >
               「今までのスキルではもう通用しないかもしれない」
-            </p>
+            </motion.p>
             
-            <p className="mb-6 italic text-gray-700 pl-4 border-l-2 border-gray-200">
+            <motion.p 
+              className="mb-6 italic text-gray-700 pl-4 border-l-2 border-gray-200"
+              initial={{ opacity: 0.5 }}
+              whileInView={{ 
+                opacity: [0.5, 0.8, 0.6, 0.9, 0.7, 1],
+                x: [0, -1, 1, -0.5, 0.5, 0]
+              }}
+              transition={{ 
+                duration: 1.5,
+                ease: "easeInOut"
+              }}
+              viewport={{ once: true }}
+            >
               「この変化のスピードに、正直ついていけるか不安だ」
-            </p>
+            </motion.p>
             
             <p className="mb-6">
               と感じているのはむしろ正常で、決してあなただけが感じているものではありません。
@@ -1347,7 +1373,13 @@ export default function QuietDialogue() {
               }}
               viewport={{ once: true }}
             >
-              それは、「静観していることは既に退化をしている」ということ。
+              <GlitchText
+                text="それは、「静観していることは既に退化をしている」ということ。"
+                className="text-xl font-medium text-gray-900"
+                delay={200}
+                scrollTrigger={true}
+                fontMix="impact"
+              />
             </motion.p>
             
             <p className="mb-6">
@@ -1424,9 +1456,17 @@ export default function QuietDialogue() {
         <Section delay={0.3}>
           
           <TextBlock size="lg">
-            <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-900">
+            <motion.h2 
+              className="text-2xl md:text-3xl font-light mb-8 text-gray-900"
+              initial={{ opacity: 0 }}
+              whileInView={{ 
+                opacity: 1,
+                transition: { duration: 1.5, ease: "easeOut" }
+              }}
+              viewport={{ once: true }}
+            >
               すべては、一つの問いから始まる
-            </h2>
+            </motion.h2>
             
             <p className="mb-8">
               AIという強力な「手段」を手にする前に、
@@ -1447,8 +1487,28 @@ export default function QuietDialogue() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              AIを使って、あなたは本当は何がしたいのか？<br />
-              どんな自分になりたいのか？
+              <motion.span
+                className="block mb-2"
+                initial={{ opacity: 0 }}
+                whileInView={{ 
+                  opacity: 1,
+                  transition: { duration: 2, ease: "easeOut" }
+                }}
+                viewport={{ once: true }}
+              >
+                AIを使って、あなたは本当は何がしたいのか？
+              </motion.span>
+              <motion.span
+                className="block"
+                initial={{ opacity: 0 }}
+                whileInView={{ 
+                  opacity: 1,
+                  transition: { duration: 2, delay: 0.5, ease: "easeOut" }
+                }}
+                viewport={{ once: true }}
+              >
+                どんな自分になりたいのか？
+              </motion.span>
             </motion.div>
             
             <p className="mb-8">
@@ -1548,9 +1608,17 @@ export default function QuietDialogue() {
         <Section delay={0.3}>
           
           <TextBlock size="lg">
-            <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-900">
+            <motion.h2 
+              className="text-2xl md:text-3xl font-light mb-8 text-gray-900"
+              initial={{ opacity: 0 }}
+              whileInView={{ 
+                opacity: 1,
+                transition: { duration: 1.5, ease: "easeOut" }
+              }}
+              viewport={{ once: true }}
+            >
               私たちの哲学と方法論
-            </h2>
+            </motion.h2>
             
             <p className="mb-8 text-xl">
               AIという「手段」からではなく、
@@ -1645,9 +1713,17 @@ export default function QuietDialogue() {
         <Section delay={0.3}>
           
           <TextBlock size="lg">
-            <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-900">
+            <motion.h2 
+              className="text-2xl md:text-3xl font-light mb-8 text-gray-900"
+              initial={{ opacity: 0 }}
+              whileInView={{ 
+                opacity: 1,
+                transition: { duration: 1.5, ease: "easeOut" }
+              }}
+              viewport={{ once: true }}
+            >
               探求の末に見つけた、新しい景色
-            </h2>
+            </motion.h2>
             
             <p className="mb-8 text-xl">
               思考OSがアップデートされると、見える世界は一変します。
@@ -1746,9 +1822,17 @@ export default function QuietDialogue() {
         <Section delay={0.3}>
           
           <TextBlock size="lg">
-            <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-900">
+            <motion.h2 
+              className="text-2xl md:text-3xl font-light mb-8 text-gray-900"
+              initial={{ opacity: 0 }}
+              whileInView={{ 
+                opacity: 1,
+                transition: { duration: 1.5, ease: "easeOut" }
+              }}
+              viewport={{ once: true }}
+            >
               あなただけの「答え」を、共に見つける旅
-            </h2>
+            </motion.h2>
             
             <p className="mb-6">
               私たちが提供する「思考OS」は、それだけでは完成しません。
@@ -1832,9 +1916,30 @@ export default function QuietDialogue() {
         <Section delay={0.3}>
           
           <TextBlock size="lg">
-            <h2 className="text-2xl md:text-3xl font-light mb-8 text-gray-900">
-              あなたの物語を、ここから始めよう
-            </h2>
+            <motion.h2 
+              className="text-2xl md:text-3xl font-light mb-8 text-gray-900"
+              initial={{ opacity: 0 }}
+              whileInView={{ 
+                opacity: 1,
+                transition: { duration: 1.5, ease: "easeOut" }
+              }}
+              viewport={{ once: true }}
+            >
+              <GlitchText
+                text="あなたの物語を、"
+                className="text-2xl md:text-3xl font-light text-gray-900 inline"
+                delay={500}
+                scrollTrigger={true}
+                fontMix="serif"
+              />
+              <GlitchText
+                text="ここから始めよう"
+                className="text-2xl md:text-3xl font-light text-gray-900 inline"
+                delay={800}
+                scrollTrigger={true}
+                fontMix="impact"
+              />
+            </motion.h2>
 
             <h3 className="text-xl md:text-2xl font-light mt-12 mb-8">
               同志を求めています
@@ -1852,9 +1957,23 @@ export default function QuietDialogue() {
               そして、もし同志になっていただけたら、この上なく嬉しい思い限りです。
             </p>
 
-            <h3 className="text-xl md:text-2xl font-light mt-16 mb-8">
-              創設メンバーへの招待状
-            </h3>
+            <motion.h3 
+              className="text-xl md:text-2xl font-light mt-16 mb-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ 
+                opacity: 1,
+                transition: { duration: 2, ease: "easeOut" }
+              }}
+              viewport={{ once: true }}
+            >
+              <GlitchText
+                text="創設メンバーへの招待状"
+                className="text-xl md:text-2xl font-light"
+                delay={1000}
+                scrollTrigger={true}
+                fontMix="serif"
+              />
+            </motion.h3>
             
             <p className="mb-6">
               今、このタイミングで出会えたあなたへ。
@@ -1893,38 +2012,347 @@ export default function QuietDialogue() {
               まずは、あなたの現状やキャリアへの想いについてお聞かせください。専門家が、具体的な情報提供や次のステップをご提案します。
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 mt-16">
-              <motion.a
-                href="/contact"
-                className="group inline-block relative overflow-hidden px-6 py-3 rounded-lg border border-indigo-500 transition-all duration-300"
-                whileHover={{ 
-                  y: -2,
-                  scale: 1.02
-                }}
-              >
-                <span className="relative z-10 block transition-all duration-300 group-hover:text-white">
-                  → AIリブートアカデミー無料説明会に申し込む
-                </span>
+            {/* CTAボタンエリア - 強化されたエフェクト */}
+            <motion.div 
+              className="relative mt-20 mb-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              {/* 背景のデジタルグリッド */}
+              <div className="absolute inset-0 -z-10">
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 opacity-10"
+                  style={{
+                    backgroundImage: `linear-gradient(90deg, #6366f1 1px, transparent 1px),
+                                     linear-gradient(#6366f1 1px, transparent 1px)`,
+                    backgroundSize: '40px 40px'
+                  }}
+                  animate={{
+                    backgroundPosition: ['0px 0px', '40px 40px']
+                  }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: 'linear'
+                  }}
                 />
-              </motion.a>
-              
-              <motion.a
-                href="/academy"
-                className="inline-block pb-2 border-b border-current opacity-70 transition-all duration-300"
-                whileHover={{ 
-                  y: -2,
-                  borderColor: "#333333",
-                  opacity: 1
-                }}
+              </div>
+
+              {/* パーティクルエフェクト */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {[...Array(8)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-indigo-400 rounded-full"
+                    style={{
+                      left: `${20 + i * 10}%`,
+                      top: '50%'
+                    }}
+                    animate={{
+                      y: [0, -30, 0],
+                      opacity: [0, 0.6, 0],
+                      scale: [0, 1.5, 0]
+                    }}
+                    transition={{
+                      duration: 3,
+                      delay: i * 0.3,
+                      repeat: Infinity,
+                      ease: 'easeInOut'
+                    }}
+                  />
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+                {/* メインCTAボタン - グリッチエフェクト付き */}
+                <motion.div className="relative group cursor-pointer">
+                  {/* 常時アニメーション - グリッチレイヤー */}
+                  <motion.div 
+                    className="absolute inset-0 opacity-30 group-hover:opacity-60 transition-opacity duration-300 pointer-events-none"
+                    animate={{
+                      x: [0, -1, 1, -0.5, 0.5, 0],
+                      y: [0, 0.5, -0.5, 1, -1, 0]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatType: 'reverse'
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 blur-sm mix-blend-screen" />
+                  </motion.div>
+
+                  <motion.a
+                    href="/contact"
+                    className="relative block overflow-hidden px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium shadow-lg cursor-pointer"
+                    whileHover={{ 
+                      scale: 1.05,
+                      boxShadow: '0 20px 40px rgba(99, 102, 241, 0.3)'
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {/* 常時アニメーション - グロー効果 */}
+                    <motion.div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'radial-gradient(circle at center, rgba(255,255,255,0.1), transparent 70%)'
+                      }}
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.3, 0.6, 0.3]
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: 'easeInOut'
+                      }}
+                    />
+
+                    {/* ボタンテキスト */}
+                    <span className="relative z-10 flex items-center gap-2">
+                      <motion.span
+                        className="text-lg"
+                        animate={{
+                          scale: [1, 1.2, 1]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: 'easeInOut'
+                        }}
+                      >
+                        ▶
+                      </motion.span>
+                      <span className="relative">
+                        <span className="relative z-10">AIリブートアカデミー無料説明会</span>
+                        {/* ホバー時のみ表示 - グリッチテキストシャドウ */}
+                        <span 
+                          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                          style={{
+                            textShadow: '2px 2px 0 rgba(255,0,100,0.5), -2px -2px 0 rgba(0,255,200,0.5)'
+                          }}
+                        >
+                          AIリブートアカデミー無料説明会
+                        </span>
+                      </span>
+                    </span>
+
+                    {/* 常時アニメーション - スキャンライン効果 */}
+                    <motion.div
+                      className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(transparent 50%, rgba(255,255,255,0.05) 50%)',
+                        backgroundSize: '100% 4px'
+                      }}
+                      animate={{
+                        backgroundPosition: ['0 0', '0 8px']
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        repeat: Infinity,
+                        ease: 'linear'
+                      }}
+                    />
+                  </motion.a>
+
+                  {/* 常時アニメーション - パルスリング */}
+                  <motion.div
+                    className="absolute -inset-2 rounded-xl border border-indigo-400/30 group-hover:border-indigo-400/60 transition-all duration-300 pointer-events-none"
+                    animate={{
+                      scale: [1, 1.05, 1]
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: 'easeInOut'
+                    }}
+                  />
+                  
+                  {/* ホバー時のみ - 追加パルスリング */}
+                  <motion.div
+                    className="absolute -inset-4 rounded-xl border border-indigo-400 opacity-0 group-hover:opacity-100 pointer-events-none"
+                    animate={{
+                      scale: [1, 1.1, 1.2],
+                      opacity: [0, 0.5, 0]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity
+                    }}
+                  />
+                </motion.div>
+                
+                {/* セカンダリCTAボタン */}
+                <motion.div className="relative group cursor-pointer">
+                  <motion.a
+                    href="/academy"
+                    className="relative inline-flex items-center gap-2 px-6 py-3 text-gray-700 hover:text-indigo-600 transition-colors duration-300 cursor-pointer"
+                    whileHover={{ 
+                      x: 3
+                    }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <span className="relative">
+                      <span className="relative z-10">アカデミーの詳細を見る</span>
+                      {/* 常時アニメーション - アンダーライン */}
+                      <motion.div 
+                        className="absolute -bottom-1 left-0 h-[2px] bg-gradient-to-r from-indigo-500 to-purple-500"
+                        animate={{
+                          width: ['20%', '40%', '20%'],
+                          x: ['0%', '30%', '60%', '30%', '0%']
+                        }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: 'easeInOut'
+                        }}
+                      />
+                      {/* ホバー時 - フルアンダーライン */}
+                      <div className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-indigo-500 to-purple-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    </span>
+                    <motion.span
+                      className="text-lg"
+                      animate={{
+                        x: [0, 2, 0]
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: 'easeInOut'
+                      }}
+                    >
+                      →
+                    </motion.span>
+                  </motion.a>
+
+                  {/* 常時アニメーション - 繊細なデジタルノイズ */}
+                  <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none mix-blend-screen">
+                    <motion.div
+                      className="w-full h-full"
+                      style={{
+                        backgroundImage: 'url("data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence baseFrequency="0.9" /%3E%3C/filter%3E%3Crect width="100" height="100" filter="url(%23noise)" opacity="0.4"/%3E%3C/svg%3E")'
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* 企業向けCTAセクション */}
+              <motion.div 
+                className="mt-12 pt-12 border-t border-gray-200"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
               >
-                → AIリブートアカデミーの詳細を見る
-              </motion.a>
-            </div>
+                <p className="text-center text-gray-600 mb-6">
+                  企業のAI活用をお考えの方へ
+                </p>
+                
+                <motion.div className="relative group max-w-md mx-auto cursor-pointer">
+                  <motion.a
+                    href="/corporate"
+                    className="relative block text-center px-6 py-3 bg-white border-2 border-gray-300 rounded-lg hover:border-indigo-500 transition-all duration-300 cursor-pointer"
+                    whileHover={{ 
+                      y: -2,
+                      boxShadow: '0 10px 30px rgba(99, 102, 241, 0.1)'
+                    }}
+                  >
+                    {/* 常時アニメーション - 背景グラデーション */}
+                    <motion.div 
+                      className="absolute inset-0 rounded-lg pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.02), rgba(168, 85, 247, 0.02))'
+                      }}
+                      animate={{
+                        opacity: [0.5, 1, 0.5]
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: 'easeInOut'
+                      }}
+                    />
+                    
+                    {/* ホバー時の強調背景 */}
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-lg transition-opacity duration-300 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(168, 85, 247, 0.05))'
+                      }}
+                    />
+                    
+                    <span className="relative z-10 flex items-center justify-center gap-2 text-gray-700 group-hover:text-indigo-600 transition-colors duration-300">
+                      <motion.span
+                        className="text-2xl"
+                        animate={{
+                          rotate: [0, 5, -5, 0]
+                        }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: 'easeInOut'
+                        }}
+                      >
+                        🏢
+                      </motion.span>
+                      企業向けAI活用コンサルティング
+                    </span>
+                  </motion.a>
+
+                  {/* 常時アニメーション - コーナーデコレーション */}
+                  <motion.div 
+                    className="absolute -top-2 -left-2 w-4 h-4 border-t border-l border-indigo-400/30 group-hover:border-indigo-400 transition-all duration-300 pointer-events-none"
+                    animate={{
+                      opacity: [0.3, 0.6, 0.3]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: 'easeInOut'
+                    }}
+                  />
+                  <motion.div 
+                    className="absolute -top-2 -right-2 w-4 h-4 border-t border-r border-indigo-400/30 group-hover:border-indigo-400 transition-all duration-300 pointer-events-none"
+                    animate={{
+                      opacity: [0.3, 0.6, 0.3]
+                    }}
+                    transition={{
+                      duration: 2,
+                      delay: 0.5,
+                      repeat: Infinity,
+                      ease: 'easeInOut'
+                    }}
+                  />
+                  <motion.div 
+                    className="absolute -bottom-2 -left-2 w-4 h-4 border-b border-l border-indigo-400/30 group-hover:border-indigo-400 transition-all duration-300 pointer-events-none"
+                    animate={{
+                      opacity: [0.3, 0.6, 0.3]
+                    }}
+                    transition={{
+                      duration: 2,
+                      delay: 1,
+                      repeat: Infinity,
+                      ease: 'easeInOut'
+                    }}
+                  />
+                  <motion.div 
+                    className="absolute -bottom-2 -right-2 w-4 h-4 border-b border-r border-indigo-400/30 group-hover:border-indigo-400 transition-all duration-300 pointer-events-none"
+                    animate={{
+                      opacity: [0.3, 0.6, 0.3]
+                    }}
+                    transition={{
+                      duration: 2,
+                      delay: 1.5,
+                      repeat: Infinity,
+                      ease: 'easeInOut'
+                    }}
+                  />
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </TextBlock>
         </Section>
       </div>
