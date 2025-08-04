@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import ScrollProgressIndicator from "@/components/ui/ScrollProgressIndicator";
 import { AcademyHero } from "@/components/academy/AcademyHero";
 import { AcademyOverview } from "@/components/academy/AcademyOverview";
 import { AcademyPurpose } from "@/components/academy/AcademyPurpose";
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 export default function AcademyPage() {
   return (
     <div className="bg-white">
+      <ScrollProgressIndicator />
       <AcademyHero />
       <AcademyOverview />
       <AcademyPurpose />

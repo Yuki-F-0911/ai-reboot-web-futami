@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import ScrollProgressIndicator from "@/components/ui/ScrollProgressIndicator";
 import { CorporateHero } from "@/components/corporate/CorporateHero";
 import { CorporateProblem } from "@/components/corporate/CorporateProblem";
 import { CorporateProgram } from "@/components/corporate/CorporateProgram";
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 export default function CorporatePage() {
   return (
     <div className="bg-white">
+      <ScrollProgressIndicator />
       <CorporateHero />
       <CorporateProblem />
       <CorporateProgram />

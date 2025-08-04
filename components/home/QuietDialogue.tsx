@@ -2,6 +2,9 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import ScrollProgressIndicator from '@/components/ui/ScrollProgressIndicator'
+// import GradientOrbs from '@/components/effects/GradientOrbs'
+import QuietParticles from '@/components/effects/QuietParticles' // 別案
 
 // セクションコンポーネント
 const Section = ({ 
@@ -78,44 +81,74 @@ export default function QuietDialogue() {
   }, [readingProgress])
   
   return (
-    <div 
-      ref={containerRef}
-      className="min-h-screen bg-white text-gray-900"
-    >
-      {/* 読書進行インジケーター */}
-      <div className="fixed top-0 left-0 w-full h-2 bg-gray-200 z-50 shadow-sm">
-        <motion.div 
-          className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
-          style={{ width: `${progress}%` }}
-          initial={{ width: 0 }}
-          animate={{ width: `${progress}%` }}
-          transition={{ ease: "easeOut" }}
-        />
-      </div>
+    <>
+      {/* 背景演出 - 最背面に配置 */}
+      <QuietParticles />
       
-      {/* 左側の章インジケーター */}
+      <div 
+        ref={containerRef}
+        className="min-h-screen text-gray-900 relative"
+      >
+      
+      {/* 読書進行インジケーター - 共通コンポーネント */}
+      <ScrollProgressIndicator />
+      
+      {/* 左側の章インジケーター - 洗練されたデザイン */}
       <div className="fixed left-8 top-1/2 -translate-y-1/2 hidden lg:block z-40">
-        <div className="flex flex-col space-y-6">
-          {['序章', 'I', 'II', 'III', 'IV', '終章'].map((chapter, i) => (
-            <motion.div
-              key={chapter}
-              className="relative group cursor-pointer"
-              animate={{
-                x: progress > (i * 100 / 6) ? 5 : 0
-              }}
-            >
+        <div className="flex flex-col items-center space-y-8">
+          {['序章', 'I', 'II', 'III', 'IV', '終章'].map((chapter, i) => {
+            const isActive = progress > (i * 100 / 6)
+            return (
               <motion.div
-                className="w-3 h-3 rounded-full bg-gray-300 transition-all duration-500"
-                animate={{
-                  scale: progress > (i * 100 / 6) ? 1.5 : 1,
-                  backgroundColor: progress > (i * 100 / 6) ? '#6366f1' : '#d1d5db'
-                }}
-              />
-              <span className="absolute left-6 top-1/2 -translate-y-1/2 text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                {chapter}
-              </span>
-            </motion.div>
-          ))}
+                key={chapter}
+                className="relative group cursor-pointer flex items-center justify-center"
+                initial={{ opacity: 0.5 }}
+                animate={{ opacity: isActive ? 1 : 0.5 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* 外側のリング - アクティブ時のみ表示 */}
+                {isActive && (
+                  <motion.div
+                    className="absolute w-5 h-5 rounded-full border border-indigo-400"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 0.5 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                  />
+                )}
+                
+                {/* 中心のドット - サイズ固定で色のみ変更 */}
+                <motion.div
+                  className="w-2 h-2 rounded-full relative z-10"
+                  animate={{
+                    backgroundColor: isActive ? '#6366f1' : '#e5e7eb'
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+                
+                {/* ホバー時のラベル */}
+                <span className="absolute left-10 text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                  {chapter}
+                </span>
+                
+                {/* アクティブ時の縦線（次の章への接続） */}
+                {i < 5 && (
+                  <motion.div
+                    className="absolute top-full left-1/2 -translate-x-1/2 w-px h-8 origin-top"
+                    style={{
+                      background: isActive 
+                        ? 'linear-gradient(to bottom, #6366f1, transparent)'
+                        : 'linear-gradient(to bottom, #e5e7eb, transparent)'
+                    }}
+                    animate={{
+                      scaleY: isActive ? 1 : 0.5,
+                      opacity: isActive ? 0.5 : 0.2
+                    }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </motion.div>
+            )
+          })}
         </div>
       </div>
       
@@ -937,5 +970,6 @@ export default function QuietDialogue() {
         </Section>
       </div>
     </div>
+    </>
   )
 }

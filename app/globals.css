@@ -93,7 +93,7 @@
   
   body {
     @apply overflow-x-hidden antialiased;
-    background-color: #000000;
+    background-color: #ffffff;
     color: #888888;
     font-family: 'Noto Sans JP', 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 300;
