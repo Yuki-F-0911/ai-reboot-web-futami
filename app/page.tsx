@@ -1,5 +1,5 @@
-import ConversationalScroll from '@/components/home/ConversationalScroll';
+import InnerScapeContainer from '@/components/home/InnerScapeContainer';
 
 export default function Home() {
-  return <ConversationalScroll />;
+  return <InnerScapeContainer />;
 }

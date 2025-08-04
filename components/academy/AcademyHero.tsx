@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export const AcademyHero = () => {
   return (
@@ -73,6 +74,18 @@ export const AcademyHero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-16"
           >
+            {/* 経済産業省リスキリング補助金ロゴ */}
+            <div className="flex justify-center mb-8">
+              <Image
+                src="/images/keisan-reskiling-logo.webp"
+                alt="経済産業省 リスキリング通じたキャリアアップ支援事業"
+                width={280}
+                height={80}
+                className="h-16 md:h-20 w-auto"
+                priority
+              />
+            </div>
+            
             <div className="grid sm:grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto">
               {/* 経済産業省認定 */}
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 text-center sm:text-left">

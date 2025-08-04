@@ -7,6 +7,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
+  /* Blueprint 3.0 - Inner-Space Journey Colors */
+  --color-innerscape-bg: #121828;        /* 深い藍色 - 内省的な静けさ */
+  --color-innerscape-text: #F0F4F8;      /* わずかに青みがかった白 */
+  --color-innerscape-muted: #7F8C9B;     /* 背景に馴染むグレー */
+  --color-innerscape-teal: #38E8D3;      /* 生命の輝き - ティール */
+  --color-innerscape-cyan: #00B2FF;      /* 生命の輝き - シアン */
+  
   /* AIリブート ブランドカラー - Will（意思）と成長を表現 */
   --color-will-primary: #FF4B8B;    /* 情熱と決意のピンク */
   --color-will-secondary: #9747FF;  /* 創造性と可能性のパープル */
@@ -85,7 +92,9 @@
   }
   
   body {
-    @apply text-ai-dark-gray bg-white overflow-x-hidden;
+    @apply overflow-x-hidden;
+    background-color: var(--color-innerscape-bg);
+    color: var(--color-innerscape-text);
     font-family: 'Noto Sans JP', 'Inter', 'Helvetica Neue', Arial, sans-serif;
   }
   
