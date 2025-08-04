@@ -1,184 +1,205 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
+import React, { useEffect, useRef, useState } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 
 export default function PerspectiveShift() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start']
+  })
 
+  // マウス追従エフェクト
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-
-    // 静寂と集中を表現する繊細なアニメーション
-    let time = 0
-    const particles: Array<{x: number, y: number, vx: number, vy: number, life: number}> = []
-    
-    // パーティクルの初期化
-    const createParticle = () => {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        life: 1
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth - 0.5) * 5,  // 20→5で動きを控えめに
+        y: (e.clientY / window.innerHeight - 0.5) * 5
       })
     }
-
-    // 初期パーティクルを生成
-    for (let i = 0; i < 50; i++) {
-      createParticle()
-    }
-    
-    const animate = () => {
-      // 背景を徐々にフェード
-      ctx.fillStyle = 'rgba(250, 250, 250, 0.02)'
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-      // パーティクルの更新と描画
-      particles.forEach((particle, index) => {
-        particle.x += particle.vx
-        particle.y += particle.vy
-        particle.life -= 0.005
-
-        // 画面外に出たら削除
-        if (particle.life <= 0 || particle.x < 0 || particle.x > canvas.width || 
-            particle.y < 0 || particle.y > canvas.height) {
-          particles.splice(index, 1)
-          createParticle()
-        }
-
-        // パーティクルを描画
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, 1, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(59, 130, 246, ${particle.life * 0.3})`
-        ctx.fill()
-      })
-
-      time++
-      requestAnimationFrame(animate)
-    }
-    animate()
-
-    const handleResize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
+  // スクロールに応じたパララックス効果（控えめに）
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, -50])  // -150→-50
+  const subtitleY = useTransform(scrollYProgress, [0, 1], [0, -30])  // -100→-30
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])  // より長く表示
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50">
-      {/* 静寂を表現する背景 */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 opacity-30"
+    <section 
+      ref={sectionRef}
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* 背景のグラデーション */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-gray-900/50 to-[#0A0A0A]" />
+      
+      {/* 動的な背景エフェクト（マウス追従） */}
+      <motion.div
+        className="absolute inset-0"
+        animate={{
+          backgroundImage: `radial-gradient(circle at ${50 + mousePosition.x}% ${50 + mousePosition.y}%, rgba(74, 144, 226, 0.03) 0%, transparent 50%)`  // 0.1→0.03でさらに薄く
+        }}
+        transition={{ type: 'tween', ease: 'linear', duration: 0.5 }}  // より滑らかに
       />
 
-      {/* 序章: あなたへの問いかけ */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          {/* メインコピー */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+      {/* メインコンテンツ */}
+      <motion.div 
+        className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        style={{ opacity }}
+      >
+        {/* タイトルアニメーション */}
+        <motion.div style={{ y: titleY }}>
+          <motion.h1 
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-8"
+            initial={{ opacity: 0, y: 20 }}  // 50→20で動きを小さく
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1]">
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.3 }}
-                className="block text-gray-900 mb-4"
-              >
-                AIに、あなたの未来を任せるな。
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.8 }}
-                className="block"
-              >
-                <span className="text-gray-900">あなたの</span>
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">「Will」</span>
-                <span className="text-gray-900">で、</span>
-                <br className="hidden md:block" />
-                <span className="text-gray-900">未来を創れ。</span>
-              </motion.span>
-            </h1>
-          </motion.div>
+            {/* 1行目 - フェードイン */}
+            <motion.span
+              className="block text-[#EAEAEA] mb-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}  // 横移動をなくしてシンプルに
+            >
+              AIに、
+            </motion.span>
+            
+            {/* 2行目 - タイピングエフェクト風 */}
+            <motion.span
+              className="block text-[#EAEAEA] mb-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              あなたの未来を
+            </motion.span>
 
-          {/* サブコピー */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.3 }}
-            className="mt-8 text-xl sm:text-2xl text-gray-700 max-w-3xl mx-auto font-light leading-relaxed"
-          >
-            最高のキャリアは、スキルの習得の先にある、<br className="md:hidden" />
-            心の底からの<span className="font-medium text-gray-900">「目的」</span>から始まる。
-          </motion.p>
+            {/* 3行目 - 強調 */}
+            <motion.span
+              className="block"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.0 }}  // スケールを取り除いてシンプルに
+            >
+              <span className="text-[#EAEAEA]">任せるな。</span>
+            </motion.span>
+          </motion.h1>
 
-          {/* CTA */}
+          {/* 2つ目のメッセージ */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.8 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5 }}  // 遅延を短く
             className="mt-12"
           >
-            <Link
-              href="/academy"
-              className="group relative inline-flex items-center justify-center px-8 py-5 text-lg font-medium"
-            >
-              {/* ボタンの背景 */}
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg transition-all duration-300 group-hover:blur-lg group-hover:scale-105" />
-              
-              {/* ボタンのコンテンツ */}
-              <span className="relative flex items-center gap-3 text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light">
+              <span className="text-[#EAEAEA]">あなたの</span>
+              <motion.span 
+                className="bg-gradient-to-r from-[#4A90E2] to-[#9013FE] bg-clip-text text-transparent mx-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 1.8 }}
+              >
+                「Will」
+              </motion.span>
+              <span className="text-[#EAEAEA]">で、</span>
+              <br className="hidden md:block" />
+              <motion.span 
+                className="text-[#EAEAEA]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 2.0 }}
+              >
+                未来を創れ。
+              </motion.span>
+            </h2>
+          </motion.div>
+        </motion.div>
+
+        {/* サブテキスト */}
+        <motion.div style={{ y: subtitleY }}>
+          <motion.p
+            className="mt-12 text-xl sm:text-2xl text-[#A0A0A0] max-w-3xl mx-auto font-light leading-relaxed"
+            initial={{ opacity: 0, y: 10 }}  // 動きを小さく
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 2.5 }}
+          >
+            最高のキャリアは、スキルの習得の先にある、
+            <br className="md:hidden" />
+            心の底からの
+            <span className="font-medium text-[#EAEAEA]">「目的」</span>
+            から始まる。
+          </motion.p>
+        </motion.div>
+
+        {/* CTA - 最後に現れる */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 3.0 }}
+          className="mt-16"
+        >
+          <Link
+            href="#the_question"
+            className="group relative inline-flex items-center justify-center"
+          >
+            {/* ボタンの光彩エフェクト */}
+            <span className="absolute inset-0 bg-gradient-to-r from-[#4A90E2] to-[#9013FE] rounded-lg opacity-50 blur-lg group-hover:opacity-70 transition-opacity duration-300" />
+            
+            {/* ボタン本体 */}
+            <span className="relative px-8 py-5 bg-gradient-to-r from-[#4A90E2] to-[#9013FE] rounded-lg">
+              <span className="flex items-center gap-3 text-white text-lg font-medium">
                 あなたの物語を始める
                 <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
-            </Link>
-            
-            <p className="mt-4 text-sm text-gray-500">プログラム詳細へ</p>
-          </motion.div>
-
-          {/* スクロールインジケーター */}
-          <motion.div
+            </span>
+          </Link>
+          
+          <motion.p 
+            className="mt-4 text-sm text-[#A0A0A0]"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 2.5 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            animate={{ opacity: 0.6 }}
+            transition={{ duration: 1, delay: 4.5 }}
           >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="text-gray-400"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </motion.div>
-          </motion.div>
-        </div>
-      </div>
+            スクロールして続ける
+          </motion.p>
+        </motion.div>
+      </motion.div>
 
-      {/* 装飾的な要素（控えめに） */}
-      <div className="absolute top-20 left-20 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-10"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-10"></div>
+      {/* スクロールインジケーター（画面下部） */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 5 }}
+      >
+        <motion.div
+          animate={{ 
+            y: [0, 10, 0],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <svg className="w-6 h-6 text-[#A0A0A0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </motion.div>
+      </motion.div>
+
+      {/* 装飾的な要素（極めて控えめに） */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
     </section>
   )
 }

@@ -1,5 +1,5 @@
-import StrategicHomePage from '@/components/home/StrategicHomePage';
+import ConversationalScroll from '@/components/home/ConversationalScroll';
 
 export default function Home() {
-  return <StrategicHomePage />;
+  return <ConversationalScroll />;
 }
