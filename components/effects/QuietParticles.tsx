@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 interface Particle {
@@ -15,17 +15,23 @@ interface Particle {
 
 export default function QuietParticles() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [particles, setParticles] = useState<Particle[]>([])
+  const [isClient, setIsClient] = useState(false)
   
-  // 少なめの粒子で静かな演出
-  const particles: Particle[] = Array.from({ length: 30 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 4 + 2, // 2-6pxのサイズ
-    duration: Math.random() * 20 + 20, // 20-40秒でゆっくり動く
-    delay: Math.random() * 10,
-    opacity: Math.random() * 0.4 + 0.3 // 0.3-0.7の透明度
-  }))
+  useEffect(() => {
+    // クライアントサイドでのみパーティクルを生成
+    setIsClient(true)
+    const generatedParticles = Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 2, // 2-6pxのサイズ
+      duration: Math.random() * 20 + 20, // 20-40秒でゆっくり動く
+      delay: Math.random() * 10,
+      opacity: Math.random() * 0.4 + 0.3 // 0.3-0.7の透明度
+    }))
+    setParticles(generatedParticles)
+  }, [])
 
   return (
     <div 
@@ -33,27 +39,28 @@ export default function QuietParticles() {
       className="fixed inset-0 pointer-events-none overflow-hidden"
       style={{ zIndex: 1 }}
     >
-      {particles.map((particle) => (
+      {isClient && particles.map((particle) => (
         <motion.div
           key={particle.id}
           className="absolute rounded-full"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: particle.size,
-            height: particle.size,
-            background: `radial-gradient(circle, rgba(99, 102, 241, ${particle.opacity}) 0%, transparent 70%)`,
-          }}
+          initial={{ opacity: 0 }}
           animate={{
             y: [0, -30, 0],
             x: [0, 10, 0],
-            opacity: [particle.opacity, particle.opacity * 1.5, particle.opacity]
+            opacity: [0, particle.opacity, particle.opacity * 1.5, particle.opacity]
           }}
           transition={{
             duration: particle.duration,
             delay: particle.delay,
             repeat: Infinity,
             ease: "easeInOut"
+          }}
+          style={{
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
+            width: `${particle.size}px`,
+            height: `${particle.size}px`,
+            background: `radial-gradient(circle, rgba(99, 102, 241, ${particle.opacity}) 0%, transparent 70%)`,
           }}
         />
       ))}

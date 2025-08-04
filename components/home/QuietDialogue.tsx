@@ -1,10 +1,11 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import ScrollProgressIndicator from '@/components/ui/ScrollProgressIndicator'
-// import GradientOrbs from '@/components/effects/GradientOrbs'
-import QuietParticles from '@/components/effects/QuietParticles' // 別案
+import NoiseGlitch from '@/components/effects/NoiseGlitch'
+import GlitchText from '@/components/effects/GlitchText'
+import QuietParticles from '@/components/effects/QuietParticles'
 
 // セクションコンポーネント
 const Section = ({ 
@@ -67,23 +68,59 @@ export default function QuietDialogue() {
     offset: ["start start", "end end"]
   })
   
-  // 常に読みやすい白背景・黒文字
-  const backgroundColor = "#ffffff"
-  const textColor = "#1a1a1a"
-  
   // スクロール進行度による演出
   const readingProgress = useTransform(scrollYProgress, [0, 1], [0, 100])
   const [progress, setProgress] = useState(0)
+  const [currentPhase, setCurrentPhase] = useState<'chaos' | 'question' | 'awakening' | 'confidence' | 'silence'>('chaos')
+  const [showMainMessage, setShowMainMessage] = useState(false)
+  const [messageTransition, setMessageTransition] = useState<'first' | 'switching' | 'second'>('first')
+  const [noiseLevel, setNoiseLevel] = useState(1)
+  
   
   useEffect(() => {
-    const unsub = readingProgress.on("change", setProgress)
+    const unsub = readingProgress.on("change", () => {
+      const value = readingProgress.get()
+      setProgress(value)
+      
+      // スクロール位置に応じてフェーズを更新
+      if (value < 15) {
+        setCurrentPhase('chaos')
+        setNoiseLevel(1)
+      } else if (value < 30) {
+        setCurrentPhase('question')
+        setNoiseLevel(0.8)
+      } else if (value < 50) {
+        setCurrentPhase('awakening')
+        setNoiseLevel(0.6)
+      } else if (value < 70) {
+        setCurrentPhase('confidence')
+        setNoiseLevel(0.3)
+      } else {
+        setCurrentPhase('silence')
+        setNoiseLevel(0.1)
+      }
+      
+      // メインメッセージの表示制御
+      if (value > 40 && !showMainMessage) {
+        setShowMainMessage(true)
+      }
+      
+      // メッセージの切り替え演出
+      if (value > 20 && value < 30 && messageTransition === 'first') {
+        setMessageTransition('switching')
+        setTimeout(() => setMessageTransition('second'), 1000)
+      }
+    })
     return () => unsub()
-  }, [readingProgress])
+  }, [readingProgress, showMainMessage, messageTransition])
   
   return (
     <>
       {/* 背景演出 - 最背面に配置 */}
       <QuietParticles />
+      
+      {/* ノイズグリッチエフェクト */}
+      <NoiseGlitch intensity={noiseLevel} />
       
       <div 
         ref={containerRef}
@@ -160,8 +197,424 @@ export default function QuietDialogue() {
         }} />
       </div>
       
-      {/* 序章 - フルスクリーン with 縦書きメインコピー */}
-      <div className="min-h-screen relative flex items-center justify-center">
+      {/* 序章 - フルスクリーン with グリッチエフェクト */}
+      <div className="min-h-screen relative flex items-center justify-center overflow-hidden">
+        {/* 背景画像レイヤー */}
+        <motion.div 
+          className="absolute inset-0 z-0"
+          animate={{
+            opacity: currentPhase === 'silence' ? 0.1 : 0,
+          }}
+          transition={{ duration: 2 }}
+        >
+          <img 
+            src="/images/fv_bg_image01.png" 
+            alt="" 
+            className="w-full h-full object-cover"
+            style={{
+              filter: `blur(${currentPhase === 'chaos' ? 20 : currentPhase === 'silence' ? 0 : 10}px)`,
+              transform: `scale(${currentPhase === 'confidence' ? 1.1 : 1})`,
+              transition: 'all 2s ease-in-out'
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/70 to-white/90" />
+        </motion.div>
+        {/* グリッチメインコピー - フェーズに応じた演出 */}
+        <AnimatePresence mode="wait">
+          {currentPhase === 'chaos' && (
+            <motion.div
+              key="chaos"
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-8 lg:gap-16">
+                {/* デスクトップ: 縦書き（右から左へ） */}
+                <div className="hidden lg:block">
+                  <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                    <GlitchText
+                      text="AIに、"
+                      className="text-6xl lg:text-8xl font-bold"
+                      delay={0}
+                      fontMix="tech"
+                    />
+                  </div>
+                </div>
+                <div className="hidden lg:block">
+                  <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                    <GlitchText
+                      text="あなたの未来を"
+                      className="text-6xl lg:text-8xl font-bold"
+                      delay={200}
+                      fontMix="mixed"
+                    />
+                  </div>
+                </div>
+                <div className="hidden lg:block">
+                  <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                    <GlitchText
+                      text="任せるな。"
+                      className="text-6xl lg:text-8xl font-bold"
+                      delay={400}
+                      fontMix="impact"
+                    />
+                  </div>
+                </div>
+                
+                {/* モバイル: 横書き */}
+                <div className="lg:hidden">
+                  <GlitchText
+                    text="AIに、あなたの未来を任せるな。"
+                    className="text-3xl md:text-5xl font-bold text-center"
+                    delay={0}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          )}
+          
+          {currentPhase === 'question' && messageTransition === 'switching' && (
+            <motion.div
+              key="switching"
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: [0, 1, 1, 0],
+                scale: [0.8, 1, 1, 1.2],
+                rotateZ: [0, 0, 0, 10]
+              }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <div className="relative">
+                {/* 最初のメッセージが消える */}
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center"
+                  animate={{
+                    opacity: [1, 0],
+                    scale: [1, 0.8],
+                    filter: ['blur(0px)', 'blur(20px)']
+                  }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
+                    <div className="hidden lg:block">
+                      <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                        <span className="text-6xl lg:text-8xl font-bold">AIに、あなたの未来を任せるな。</span>
+                      </div>
+                    </div>
+                    <div className="lg:hidden">
+                      <span className="text-3xl md:text-5xl font-bold">AIに、あなたの未来を任せるな。</span>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+          
+          {currentPhase === 'awakening' && showMainMessage && (
+            <motion.div
+              key="awakening"
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-12 lg:gap-20">
+                {/* デスクトップ: 縦書き（右から左へ） */}
+                <div className="hidden lg:flex flex-row-reverse gap-12 relative">
+                  {/* 背景にデジタルグリッチライン */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                    <motion.div
+                      className="absolute w-full h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"
+                      animate={{
+                        y: ['-100%', '200vh'],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatDelay: 2,
+                        ease: 'linear',
+                      }}
+                      style={{ filter: 'blur(1px)' }}
+                    />
+                    <motion.div
+                      className="absolute w-full h-0.5 bg-gradient-to-r from-transparent via-pink-500 to-transparent"
+                      animate={{
+                        y: ['200vh', '-100%'],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 2.5,
+                        repeat: Infinity,
+                        repeatDelay: 3,
+                        ease: 'linear',
+                      }}
+                      style={{ filter: 'blur(1px)' }}
+                    />
+                  </div>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                  >
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="物語の"
+                        className="text-5xl lg:text-7xl font-bold"
+                        delay={500}
+                        fontMix="serif"
+                      />
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8, duration: 0.8 }}
+                  >
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="主役は、"
+                        className="text-6xl lg:text-8xl font-bold"
+                        delay={800}
+                        fontMix="mixed"
+                      />
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.1, duration: 0.8 }}
+                  >
+                    <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                      <GlitchText
+                        text="あなた自身だ。"
+                        className="text-6xl lg:text-8xl font-bold"
+                        delay={1100}
+                        fontMix="impact"
+                      />
+                    </div>
+                  </motion.div>
+                </div>
+                
+                {/* モバイル: 横書き */}
+                <div className="lg:hidden">
+                  <GlitchText
+                    text="物語の主役は、あなた自身だ。"
+                    className="text-3xl md:text-5xl font-bold text-center"
+                    delay={500}
+                    scrollTrigger={true}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          )}
+          
+          {currentPhase === 'confidence' && (
+            <motion.div
+              key="confidence"
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <motion.div
+                className="relative"
+                animate={{
+                  scale: [1, 1.5, 1.8, 1.5, 1.2, 1],
+                }}
+                transition={{ duration: 2 }}
+              >
+                {/* 漫画的なエフェクト背景 */}
+                <motion.div
+                  className="absolute inset-0 -z-10"
+                  animate={{
+                    background: [
+                      'radial-gradient(circle, rgba(255, 215, 0, 0) 0%, transparent 50%)',
+                      'radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%)',
+                      'radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 90%)',
+                    ]
+                  }}
+                  transition={{ duration: 2 }}
+                  style={{
+                    filter: 'blur(60px)',
+                    transform: 'scale(2)'
+                  }}
+                />
+                
+                {/* デスクトップ: 縦書き漫画風（右から左へ） */}
+                <div className="hidden lg:flex flex-row-reverse items-center justify-center gap-16">
+                  <motion.div
+                    animate={{
+                      y: [0, -10, 0],
+                      rotate: [-2, 2, -2]
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <div style={{ 
+                      writingMode: 'vertical-rl', 
+                      textOrientation: 'upright',
+                      textShadow: '5px 5px 0 rgba(0,0,0,0.1), 10px 10px 0 rgba(0,0,0,0.05)'
+                    }}>
+                      <span className="text-7xl lg:text-9xl font-black">物語の</span>
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    animate={{
+                      y: [0, 10, 0],
+                      rotate: [2, -2, 2]
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 0.5
+                    }}
+                  >
+                    <div style={{ 
+                      writingMode: 'vertical-rl', 
+                      textOrientation: 'upright',
+                      textShadow: '5px 5px 0 rgba(0,0,0,0.1), 10px 10px 0 rgba(0,0,0,0.05)'
+                    }}>
+                      <span className="text-8xl lg:text-[10rem] font-black">主役は、</span>
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    animate={{
+                      y: [0, -10, 0],
+                      rotate: [-2, 2, -2],
+                      scale: [1, 1.1, 1]
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1
+                    }}
+                  >
+                    <div style={{ 
+                      writingMode: 'vertical-rl', 
+                      textOrientation: 'upright',
+                      textShadow: '5px 5px 0 rgba(0,0,0,0.1), 10px 10px 0 rgba(0,0,0,0.05)'
+                    }}>
+                      <span className="text-8xl lg:text-[10rem] font-black bg-gradient-to-b from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                        あなた自身だ。
+                      </span>
+                    </div>
+                  </motion.div>
+                </div>
+                
+                {/* モバイル: 横書き */}
+                <div className="lg:hidden">
+                  <motion.div
+                    animate={{
+                      textShadow: [
+                        '0 0 0px rgba(255, 215, 0, 0)',
+                        '0 0 20px rgba(255, 215, 0, 0.8)',
+                        '0 0 40px rgba(255, 215, 0, 0.6)',
+                        '0 0 60px rgba(255, 215, 0, 0.4)',
+                        '0 0 20px rgba(255, 215, 0, 0.2)',
+                        '0 0 0px rgba(255, 215, 0, 0)'
+                      ]
+                    }}
+                    transition={{ duration: 2, delay: 0.5 }}
+                  >
+                    <h1 className="text-4xl md:text-6xl font-black tracking-wide text-center">
+                      物語の主役は
+                    </h1>
+                    <h1 className="text-4xl md:text-6xl font-black tracking-wide mt-4 text-center">
+                      あなた自身だ
+                    </h1>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+          
+          {currentPhase === 'silence' && (
+            <motion.div
+              key="silence"
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 3 }}
+            >
+              {/* デスクトップ: 縦書き明朝体（右から左へ） */}
+              <div className="hidden lg:flex flex-row-reverse items-center justify-center gap-20">
+                <motion.div
+                  animate={{
+                    opacity: [0.9, 1, 0.9],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    repeatType: 'reverse'
+                  }}
+                >
+                  <div style={{ 
+                    writingMode: 'vertical-rl', 
+                    textOrientation: 'upright',
+                    letterSpacing: '0.3em'
+                  }}>
+                    <span className="text-6xl lg:text-8xl font-serif font-light text-gray-900">
+                      物語の主役は、
+                    </span>
+                  </div>
+                </motion.div>
+                <motion.div
+                  animate={{
+                    opacity: [0.95, 1, 0.95],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    repeatType: 'reverse',
+                    delay: 0.5
+                  }}
+                >
+                  <div style={{ 
+                    writingMode: 'vertical-rl', 
+                    textOrientation: 'upright',
+                    letterSpacing: '0.4em'
+                  }}>
+                    <span className="text-7xl lg:text-9xl font-serif font-light text-gray-900">
+                      あなた自身だ。
+                    </span>
+                  </div>
+                </motion.div>
+              </div>
+              
+              {/* モバイル: 横書き */}
+              <motion.h1
+                className="lg:hidden text-3xl md:text-5xl font-serif font-light tracking-widest text-gray-900 text-center px-8"
+                animate={{
+                  opacity: [1, 0.95, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  repeatType: 'reverse'
+                }}
+                style={{
+                  textShadow: '0 0 30px rgba(255, 255, 255, 0.5)'
+                }}
+              >
+                物語の主役は、あなた自身だ。
+              </motion.h1>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        
+      {/* 既存の縦書きレイアウトは一旦非表示 */}
+      <div style={{ display: 'none' }}>
         {/* デスクトップ用: 縦書きレイアウト - 黄金比配置 */}
         <div className="hidden lg:flex items-start justify-center w-full h-full pt-32">
           {/* 第二メッセージ: 中央より左寄り、下寄り */}
@@ -337,8 +790,10 @@ export default function QuietDialogue() {
           </motion.div>
         </div>
         
-        {/* モバイル・タブレット用: 横書きレイアウト */}
-        <div className="lg:hidden flex items-center justify-center min-h-screen px-6">
+        </div>
+        
+        {/* モバイル・タブレット用: 横書きレイアウト - グリッチ版 */}
+        <div className="lg:hidden flex items-center justify-center min-h-screen px-6" style={{ display: 'none' }}>
           <motion.div 
             className="font-light tracking-tight leading-[1.3] text-gray-900 text-center"
             initial={{ opacity: 0 }}

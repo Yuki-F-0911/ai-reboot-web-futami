@@ -70,6 +70,9 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['Noto Sans JP', 'Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        serif: ['Noto Serif JP', 'Georgia', 'serif'],
+        mono: ['JetBrains Mono', 'Consolas', 'Monaco', 'monospace'],
+        black: ['Anton', 'Impact', 'sans-serif'],
       },
       fontSize: {
         'hero': '3.5rem',     // 56px

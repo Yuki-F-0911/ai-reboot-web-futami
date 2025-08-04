@@ -1,6 +1,33 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header, Footer } from "@/components/layout";
+import { Noto_Sans_JP, Noto_Serif_JP, JetBrains_Mono, Anton } from 'next/font/google';
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ['latin'],
+  variable: '--font-noto-sans',
+  display: 'swap',
+});
+
+const notoSerifJP = Noto_Serif_JP({
+  subsets: ['latin'],
+  variable: '--font-noto-serif',
+  display: 'swap',
+  weight: ['400', '700'],
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains',
+  display: 'swap',
+});
+
+const anton = Anton({
+  subsets: ['latin'],
+  variable: '--font-anton',
+  display: 'swap',
+  weight: '400',
+});
 
 export const metadata: Metadata = {
   title: "AI REBOOT - AIリブート | ウィルフォワード",
@@ -21,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" suppressHydrationWarning>
-      <body className="antialiased" suppressHydrationWarning>
+      <body className={`antialiased ${notoSansJP.variable} ${notoSerifJP.variable} ${jetBrainsMono.variable} ${anton.variable}`} suppressHydrationWarning>
         <Header />
         <main className="min-h-screen pt-16 overflow-x-hidden">
           {children}
