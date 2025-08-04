@@ -95,31 +95,33 @@ export default function QuietDialogue() {
       
       // FVエリア内のスクロール位置に応じてフェーズを更新
       if (value < 5) {
-        setCurrentPhase('chaos')
-        setNoiseLevel(1)
-        // 最初からメッセージ1を表示
+        setCurrentPhase('chaos')  // 最初はデジタルカオス
+        setNoiseLevel(0.6)  // 控えめなノイズから開始
         setShowMainMessage(true)
         setCurrentMessage(1)
-      } else if (value < 15) {
-        setCurrentPhase('question')
-        setNoiseLevel(0.8)
+      } else if (value < 20) {
+        setCurrentPhase('question')  // 問いかけ
+        setNoiseLevel(0.7)  // ノイズ継続
         setShowMainMessage(true)
         setCurrentMessage(1)
       } else if (value < 35) {
-        setCurrentPhase('awakening')
-        setNoiseLevel(0.6)
-        // 第1メッセージを継続表示
+        setCurrentPhase('awakening')  // 覚醒前
+        setNoiseLevel(0.8)  // ノイズ強まる
         setShowMainMessage(true)
         setCurrentMessage(1)
+      } else if (value < 45) {
+        setCurrentPhase('transition')  // メッセージ切り替わり
+        setNoiseLevel(1)  // 最大グリッチ
+        setShowMainMessage(true)
+        setCurrentMessage(2)
       } else if (value < 60) {
-        setCurrentPhase('confidence')
-        setNoiseLevel(0.3)
-        // 第2メッセージに切り替え（FVエリアの35%から）
+        setCurrentPhase('confidence')  // 確信
+        setNoiseLevel(0.5)  // ノイズ弱まる
         setShowMainMessage(true)
         setCurrentMessage(2)
       } else {
-        setCurrentPhase('silence')
-        setNoiseLevel(0.1)
+        setCurrentPhase('silence')  // 静寂へ
+        setNoiseLevel(0.2)  // わずかなノイズ
         setShowMainMessage(true)
         setCurrentMessage(2)
       }
@@ -145,10 +147,11 @@ export default function QuietDialogue() {
   return (
     <>
       {/* 背景演出 - 最背面に配置 */}
-      <QuietParticles />
+      {/* パーティクルは削除（FVエリアにはノイズで十分） */}
       
       {/* ノイズグリッチエフェクト */}
-      <NoiseGlitch intensity={noiseLevel} />
+      {/* ノイズエフェクト - FVエリアのみで使用 */}
+      {noiseLevel > 0 && <NoiseGlitch intensity={noiseLevel} />}
       
       <div 
         ref={containerRef}
@@ -226,9 +229,14 @@ export default function QuietDialogue() {
       </div>
       
       {/* 序章 - FVエリア with グリッチエフェクト - 高さ固定 */}
-      <div ref={fvRef} className="relative bg-gray-50" style={{ height: '200vh' }}>
-        {/* 第1メッセージボックス - 位置固定 */}
-        <div className="absolute top-0 left-0 right-0 h-screen flex items-center justify-center bg-gradient-to-b from-gray-100 via-gray-50 to-gray-100">
+      <div ref={fvRef} className="relative bg-white" style={{ height: '150vh' }}>
+        {/* メッセージ表示エリア - FVエリア内では固定表示 */}
+        <div className={`${fvScrollValue < 100 ? 'fixed' : 'absolute'} top-0 left-0 right-0 h-screen flex items-center justify-center z-10`}
+             style={{ 
+               top: fvScrollValue >= 100 ? '150vh' : '0',
+               opacity: fvScrollValue >= 100 ? 0 : 1,
+               transition: 'opacity 0.5s'
+             }}>
           {/* 背景画像レイヤー */}
           <motion.div 
             className="absolute inset-0 z-0"
@@ -246,11 +254,11 @@ export default function QuietDialogue() {
                 transform: 'scale(1.1)',
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-gray-100/95 via-gray-50/85 to-gray-100/95" />
+
           </motion.div>
           
-          {/* 第1メッセージ表示 */}
-          <AnimatePresence>
+          {/* メッセージ切り替え表示 */}
+          <AnimatePresence mode="wait">
             {showMainMessage && currentMessage === 1 && (
               <motion.div
                 key="message-1"
@@ -319,12 +327,6 @@ export default function QuietDialogue() {
                 </div>
               </motion.div>
             )}
-          </AnimatePresence>
-        </div>
-        
-        {/* 第2メッセージボックス - 位置固定 */}
-        <div className="absolute left-0 right-0 h-screen flex items-center justify-center bg-gradient-to-b from-gray-100 via-gray-50 to-white" style={{ top: '100vh' }}>
-          <AnimatePresence>
             {showMainMessage && currentMessage === 2 && (
               <motion.div
                 key="message-2"
@@ -396,6 +398,9 @@ export default function QuietDialogue() {
           </AnimatePresence>
         </div>
       </div>{/* FVエリア end */}
+      
+      {/* FVエリアとコンテンツの間のスペーサー */}
+      <div className="h-screen" />
       
       {/* 以下の古い実装は削除 */}
       {false && (
@@ -2000,17 +2005,38 @@ export default function QuietDialogue() {
               共に、AI時代の新しい生き方を、定義しませんか。
             </p>
 
-            <h3 className="text-xl md:text-2xl font-light mt-16 mb-8">
-              あなたの次の一歩
-            </h3>
-            
-            <p className="mb-6">
-              さあ、あなたの変革に向けた対話を始めましょう。
-            </p>
-            
-            <p className="mb-12">
-              まずは、あなたの現状やキャリアへの想いについてお聞かせください。専門家が、具体的な情報提供や次のステップをご提案します。
-            </p>
+            {/* 思索から行動への自然な架け橋 */}
+            <motion.div
+              className="mt-20 mb-12"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 2, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-lg md:text-xl font-light text-gray-700 mb-8 text-center">
+                ここまで読んでいただいた、あなたへ。
+              </p>
+              
+              <p className="text-base md:text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
+                長い物語にお付き合いいただき、ありがとうございます。<br />
+                もしかしたら、あなたの中に小さな変化の兆しが生まれているかもしれません。
+              </p>
+              
+              <p className="text-base md:text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+                その感覚を大切にしてください。<br />
+                それは、あなた自身の物語が動き始めた証かもしれません。
+              </p>
+              
+              <motion.p 
+                className="text-lg md:text-xl text-gray-800 font-medium text-center mb-12"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 1 }}
+                viewport={{ once: true }}
+              >
+                もし、その一歩を踏み出す準備ができたなら。
+              </motion.p>
+            </motion.div>
             
             {/* CTAボタンエリア - 強化されたエフェクト */}
             <motion.div 

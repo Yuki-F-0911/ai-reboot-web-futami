@@ -418,7 +418,7 @@ export default function GlitchText({
 }: GlitchTextProps) {
   const [isVisible, setIsVisible] = useState(!scrollTrigger)
   const [isClient, setIsClient] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLSpanElement>(null)
   
   // フォントサイズをクラスから抽出
   const getFontSize = () => {
@@ -478,13 +478,13 @@ export default function GlitchText({
   }, [isClient, scrollTrigger, isVisible])
   
   if (!isClient) {
-    return <div className={className} style={{ opacity: 0 }}>{text}</div>
+    return <span className={className} style={{ opacity: 0 }}>{text}</span>
   }
   
   return (
-    <div ref={containerRef} className={`relative ${className}`}>
+    <span ref={containerRef} className={`relative inline-block ${className}`}>
       {/* 背景のノイズレイヤー */}
-      <motion.div
+      <motion.span
         className="absolute inset-0 pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: isVisible ? [0, 0.3, 0.1, 0.2, 0] : 0 }}
@@ -496,7 +496,7 @@ export default function GlitchText({
       />
       
       {/* テキスト本体 */}
-      <div className="relative">
+      <span className="relative">
         {isVisible && text.split('').map((char, index) => (
           <GlitchChar
             key={index}
@@ -509,10 +509,10 @@ export default function GlitchText({
             fontMix={fontMix}
           />
         ))}
-      </div>
+      </span>
       
       {/* 走査線オーバーレイ */}
-      <motion.div
+      <motion.span
         className="absolute inset-0 pointer-events-none"
         animate={{
           backgroundPosition: ['0% 0%', '0% 100%'],
@@ -527,6 +527,6 @@ export default function GlitchText({
           mixBlendMode: 'screen',
         }}
       />
-    </div>
+    </span>
   )
 }
