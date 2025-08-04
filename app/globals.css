@@ -92,10 +92,13 @@
   }
   
   body {
-    @apply overflow-x-hidden;
-    background-color: var(--color-innerscape-bg);
-    color: var(--color-innerscape-text);
+    @apply overflow-x-hidden antialiased;
+    background-color: #000000;
+    color: #888888;
     font-family: 'Noto Sans JP', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.7;
   }
   
   /* タイポグラフィ階層 - 黄金比率に基づく */
