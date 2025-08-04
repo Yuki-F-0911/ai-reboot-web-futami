@@ -212,7 +212,7 @@ export default function TrustResults() {
                   {/* コメント */}
                   <blockquote className="border-l-4 border-blue-500 pl-6 mb-6">
                     <p className="text-gray-700 italic text-lg leading-relaxed">
-                      "{testimonial.comment}"
+                      &ldquo;{testimonial.comment}&rdquo;
                     </p>
                   </blockquote>
 

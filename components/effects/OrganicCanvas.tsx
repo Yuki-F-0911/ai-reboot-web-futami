@@ -20,7 +20,7 @@ interface OrganicCanvasProps {
 
 export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const animationRef = useRef<number>()
+  const animationRef = useRef<number>(0)
   const nodesRef = useRef<Node[]>([])
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 

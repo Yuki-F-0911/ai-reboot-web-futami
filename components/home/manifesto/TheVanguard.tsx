@@ -102,7 +102,7 @@ export default function TheVanguard() {
                 <h4 className="text-lg font-medium mb-1">{guide.name}</h4>
                 <p className="text-sm text-gray-500 mb-4">{guide.role}</p>
                 <p className="text-sm text-gray-400 italic leading-relaxed">
-                  "{guide.passion}"
+                  &ldquo;{guide.passion}&rdquo;
                 </p>
               </motion.div>
             ))}
