@@ -172,6 +172,7 @@ export const AcademyProgram = () => {
                     <p>• 自己成長の振り返り</p>
                     <p>• 今後のビジョン共有</p>
                     <p>• 修了証授与</p>
+                    <p>• AI人材としての転職支援</p>
                   </div>
                 </div>
               </motion.div>
