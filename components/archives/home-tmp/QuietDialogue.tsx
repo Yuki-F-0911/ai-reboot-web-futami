@@ -80,7 +80,7 @@ export default function QuietDialogue() {
   const fvProgress = useTransform(fvScrollProgress, [0, 1], [0, 100])
   const [progress, setProgress] = useState(0)
   const [fvScrollValue, setFvScrollValue] = useState(0)
-  const [currentPhase, setCurrentPhase] = useState<'chaos' | 'question' | 'awakening' | 'confidence' | 'silence'>('chaos')
+  const [currentPhase, setCurrentPhase] = useState<'chaos' | 'question' | 'awakening' | 'transition' | 'confidence' | 'silence'>('chaos')
   const [showMainMessage, setShowMainMessage] = useState(true)
   const [currentMessage, setCurrentMessage] = useState<1 | 2>(1)
   const [messageTransition, setMessageTransition] = useState<'first' | 'switching' | 'second'>('first')
