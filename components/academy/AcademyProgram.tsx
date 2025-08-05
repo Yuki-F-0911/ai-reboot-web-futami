@@ -172,8 +172,29 @@ export const AcademyProgram = () => {
                     <p>• 自己成長の振り返り</p>
                     <p>• 今後のビジョン共有</p>
                     <p>• 修了証授与</p>
-                    <p>• AI人材としての転職支援</p>
                   </div>
+                </div>
+              </motion.div>
+
+              {/* スペーサー */}
+              <div className="py-4" />
+
+              {/* 転職支援 */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="relative flex items-start gap-6 md:gap-8"
+              >
+                {/* タイムラインのポイント */}
+                <div className="absolute left-0 md:left-8 w-4 h-4 bg-will-primary rounded-full -translate-x-[7px] mt-8 z-10">
+                  <div className="absolute inset-0 bg-will-primary rounded-full animate-ping" />
+                </div>
+                
+                <div className="ml-8 md:ml-20 flex-1 bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                  <h3 className="text-2xl font-bold text-depth-900 mb-3">転職支援</h3>
+                  <p className="text-depth-600">AI人材としてのキャリア形成サポート</p>
                 </div>
               </motion.div>
             </div>
