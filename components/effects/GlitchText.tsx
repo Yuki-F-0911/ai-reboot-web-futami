@@ -379,7 +379,7 @@ const GlitchChar = ({
         color: phase === 'formed' ? '#1a1a1a' : 
                phase === 'forming' ? '#2a2a2a' :
                // サブリミナル単語は目立つ色で表示
-               (displayChar.length > 1 && phase !== 'formed' ? 
+               (displayChar.length > 1 ? 
                  `rgba(255, ${100 + randomValues.colorG % 155}, ${randomValues.colorB}, 1)` :
                  phase === 'noise' ? `rgba(${randomValues.colorR}, ${randomValues.colorG}, ${randomValues.colorB}, 0.9)` : 
                  '#333'),
