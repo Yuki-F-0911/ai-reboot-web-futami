@@ -1,5 +1,10 @@
-import QuietDialogue from '@/components/home/QuietDialogue';
-
 export default function Home() {
-  return <QuietDialogue />;
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">AI REBOOT</h1>
+        <p className="text-gray-600">準備中...</p>
+      </div>
+    </div>
+  );
 }
