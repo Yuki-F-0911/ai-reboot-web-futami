@@ -152,7 +152,7 @@ docs/                   # ドキュメント (整理済み)
 - `../project-config.yaml` - プロジェクト設定
 - `../.cursor/rules/project-design.mdc` - ドキュメント更新ルール
 - `../prompts/design-agent.md` - デザイン作成プロンプト
-- `../prompts/image-prompt-engineer.md` - 画像生成プロンプト作成プロンプト
+- `prompts/image-prompt-engineer.md` - 画像生成プロンプト作成プロンプト
 
 ---
 
