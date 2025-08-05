@@ -15,7 +15,7 @@ export const AcademyInstructors = () => {
       name: "坂本 拓磨",
       title: "生成AI活用マルチクリエイター",
       qualification: "一般社団法人生成AI活用普及協会「生成AIパスポート」保有",
-      description: "AIと人間の創造性を融合させ、アート・デザイン・音楽・映像など多彩な表現領域で革新的な作品を生み出すクリエイター。生成AIを「創造の相棒」として使いこなす実践者。",
+      description: "AIと人間の創造性を融合させ、WEB・アプリ・映像・音楽・アートなど多彩な表現領域で革新的な作品を生み出すクリエイター。生成AIを「創造の相棒」として使いこなす実践者。",
       gradient: "from-wisdom to-harmony"
     },
     {
