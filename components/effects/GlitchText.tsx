@@ -343,11 +343,11 @@ const GlitchChar = ({
           phase === 'forming' && isImportant ? 
           `calc(${fontSize} * ${randomValues.scale})` : 
           // サブリミナル単語が表示されている時は少し大きく
-          (displayChar.length > 1 && phase !== 'formed' ? `calc(${fontSize} * 1.2)` : fontSize),
+          (displayChar.length > 1 ? `calc(${fontSize} * 1.2)` : fontSize),
         fontWeight: fontMix === 'impact' && phase === 'formed' ? 900 : 
                    phase === 'formed' ? (isImportant ? 700 : 500) : 
                    // サブリミナル単語は太字で表示
-                   (displayChar.length > 1 && phase !== 'formed' ? 700 : 300),
+                   (displayChar.length > 1 ? 700 : 300),
         letterSpacing: fontMix === 'tech' ? '0.1em' : 
                       fontMix === 'impact' ? '-0.02em' :
                       phase === 'formed' ? '0.05em' : '0.02em',
