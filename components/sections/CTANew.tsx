@@ -46,7 +46,7 @@ export const CTANew = () => {
               まずは無料説明会へ<br />
               オンライン・オフラインで随時開催中
             </p>
-            <Link href="/academy#contact">
+            <Link href="https://forms.gle/MX5sobbPkch5U2QF8" target="_blank" rel="noopener noreferrer">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
