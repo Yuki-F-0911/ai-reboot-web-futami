@@ -277,6 +277,7 @@ export default function QuietDialogue() {
                         className="text-5xl lg:text-7xl font-bold"
                         delay={0}
                         fontMix="tech"
+                        intensity={0.3}
                       />
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
@@ -285,6 +286,7 @@ export default function QuietDialogue() {
                         className="text-6xl lg:text-8xl font-bold"
                         delay={200}
                         fontMix="mixed"
+                        intensity={0.3}
                       />
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
@@ -293,6 +295,7 @@ export default function QuietDialogue() {
                         className="text-6xl lg:text-8xl font-bold"
                         delay={400}
                         fontMix="impact"
+                        intensity={0.4}
                       />
                     </div>
                   </div>
@@ -305,6 +308,7 @@ export default function QuietDialogue() {
                         className="text-3xl md:text-4xl font-bold"
                         delay={0}
                         fontMix="tech"
+                        intensity={0.3}
                       />
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
@@ -313,6 +317,7 @@ export default function QuietDialogue() {
                         className="text-4xl md:text-5xl font-bold"
                         delay={200}
                         fontMix="mixed"
+                        intensity={0.3}
                       />
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
@@ -321,6 +326,7 @@ export default function QuietDialogue() {
                         className="text-4xl md:text-5xl font-bold"
                         delay={400}
                         fontMix="impact"
+                        intensity={0.4}
                       />
                     </div>
                   </div>
@@ -345,6 +351,7 @@ export default function QuietDialogue() {
                         className="text-5xl lg:text-7xl font-bold"
                         delay={0}
                         fontMix="serif"
+                        intensity={0.2}
                       />
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
@@ -353,6 +360,7 @@ export default function QuietDialogue() {
                         className="text-6xl lg:text-8xl font-bold"
                         delay={200}
                         fontMix="mixed"
+                        intensity={0.3}
                       />
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
@@ -361,6 +369,7 @@ export default function QuietDialogue() {
                         className="text-6xl lg:text-8xl font-bold"
                         delay={400}
                         fontMix="impact"
+                        intensity={0.4}
                       />
                     </div>
                   </div>

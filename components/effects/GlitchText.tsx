@@ -9,6 +9,7 @@ interface GlitchTextProps {
   delay?: number
   scrollTrigger?: boolean
   fontMix?: 'tech' | 'serif' | 'mixed' | 'impact'
+  intensity?: number  // 0-1 でエフェクトの強度を調整
 }
 
 // 個別文字のグリッチコンポーネント
@@ -19,7 +20,8 @@ const GlitchChar = ({
   delay = 0,
   fontSize = 'inherit',
   seed = 0,
-  fontMix = 'mixed'
+  fontMix = 'mixed',
+  intensity = 1
 }: { 
   char: string
   index: number
@@ -28,6 +30,7 @@ const GlitchChar = ({
   fontSize?: string
   seed?: number
   fontMix?: 'tech' | 'serif' | 'mixed' | 'impact'
+  intensity?: number
 }) => {
   const [phase, setPhase] = useState<'noise' | 'glitch' | 'forming' | 'formed'>('noise')
   const [fontClass, setFontClass] = useState('font-mono')
@@ -97,7 +100,7 @@ const GlitchChar = ({
   // アニメーション制御
   useEffect(() => {
     if (!isClient) return
-    const baseDelay = delay + (index * (isImportant ? 120 : 40))
+    const baseDelay = delay + (index * (isImportant ? 120 : 40) * intensity)
     
     // サブリミナル単語を関数内で定義
     const subliminalWords = ['覚醒', '意志', '創造', '変革', '可能性', '未来', '自由', '成長', '挑戦', '革新']
@@ -132,7 +135,7 @@ const GlitchChar = ({
       setTimeout(() => {
         if (noiseInterval) clearInterval(noiseInterval)
         setPhase('glitch')
-      }, 800)
+      }, 800 * intensity)
     }, baseDelay)
     
     // Phase 2: グリッチ (800-1400ms)
@@ -166,8 +169,8 @@ const GlitchChar = ({
         if (glitchInterval) clearInterval(glitchInterval)
         setDisplayChar(char) // グリッチ終了時に正しい文字を表示
         setPhase('forming')
-      }, 600)
-    }, baseDelay + 800)
+      }, 600 * intensity)
+    }, baseDelay + 800 * intensity)
     
     // Phase 3: 形成 (1400-2000ms)
     const formingTimer = setTimeout(() => {
@@ -177,14 +180,14 @@ const GlitchChar = ({
       setTimeout(() => {
         setPhase('formed')
         setDisplayChar(char) // 最終的に正しい文字を表示
-      }, 600)
-    }, baseDelay + 1400)
+      }, 600 * intensity)
+    }, baseDelay + 1400 * intensity)
     
     // 最終確認タイマー（フェイルセーフ）
     const finalTimer = setTimeout(() => {
       setPhase('formed')
       setDisplayChar(char)
-    }, baseDelay + 2200)
+    }, baseDelay + 2200 * intensity)
     
     return () => {
       if (noiseInterval) clearInterval(noiseInterval)
@@ -414,7 +417,8 @@ export default function GlitchText({
   className = "", 
   delay = 0,
   scrollTrigger = false,
-  fontMix = 'mixed'
+  fontMix = 'mixed',
+  intensity = 1
 }: GlitchTextProps) {
   const [isVisible, setIsVisible] = useState(!scrollTrigger)
   const [isClient, setIsClient] = useState(false)
@@ -507,6 +511,7 @@ export default function GlitchText({
             fontSize={getFontSize()}
             seed={textSeed}
             fontMix={fontMix}
+            intensity={intensity}
           />
         ))}
       </span>

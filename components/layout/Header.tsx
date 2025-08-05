@@ -3,16 +3,14 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FluidButton } from '@/components/ui/FluidButton';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'プログラム', href: '/academy' },
-    { label: '卒業生の声', href: '#testimonials' },
-    { label: '講師陣', href: '#instructors' },
-    { label: 'よくある質問', href: '#faq' },
+    { label: '個人向けリスキリング', href: '/academy' },
+    { label: '法人向け研修', href: '/corporate' },
+    { label: 'お問い合わせ', href: '#contact' },
   ];
 
   return (
@@ -53,7 +51,6 @@ export const Header: React.FC = () => {
                 {item.label}
               </Link>
             ))}
-            <FluidButton size="sm" href="#contact">無料相談</FluidButton>
           </div>
 
           {/* モバイルメニューボタン */}
@@ -83,7 +80,6 @@ export const Header: React.FC = () => {
                 {item.label}
               </Link>
             ))}
-            <FluidButton size="sm" href="#contact">無料相談</FluidButton>
           </div>
         </div>
       </nav>

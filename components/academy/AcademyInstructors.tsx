@@ -13,7 +13,7 @@ export const AcademyInstructors = () => {
     },
     {
       name: "坂本 拓磨",
-      title: "AIトランスフォーメーションリーダー",
+      title: "生成AI活用マルチクリエイター",
       qualification: "一般社団法人生成AI活用普及協会「生成AIパスポート」保有",
       description: "組織のAI活用変革を推進し、生成AIを活用した新しい価値創造とビジネス革新をリードする専門家。",
       gradient: "from-wisdom to-harmony"
