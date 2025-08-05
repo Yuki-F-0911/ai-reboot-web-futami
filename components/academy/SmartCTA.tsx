@@ -81,7 +81,7 @@ export const SmartCTA = () => {
               
               {/* CTAボタン */}
               <div className="flex items-center gap-3">
-                <Link href="https://forms.gle/MX5sobbPkch5U2QF8" target="_blank" rel="noopener noreferrer">
+                <Link href={process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || "#"} target="_blank" rel="noopener noreferrer">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

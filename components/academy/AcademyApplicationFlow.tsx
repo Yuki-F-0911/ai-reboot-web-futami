@@ -156,7 +156,7 @@ export const AcademyApplicationFlow = () => {
                 無料説明会に参加
               </motion.button>
             </Link>
-            <Link href="https://forms.gle/MX5sobbPkch5U2QF8" target="_blank" rel="noopener noreferrer">
+            <Link href={process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || "#"} target="_blank" rel="noopener noreferrer">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}

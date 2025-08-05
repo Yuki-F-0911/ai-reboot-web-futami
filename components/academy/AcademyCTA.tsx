@@ -34,7 +34,7 @@ export const AcademyCTA = () => {
           
           {/* CTA ボタン */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="https://forms.gle/MX5sobbPkch5U2QF8" target="_blank" rel="noopener noreferrer">
+            <Link href={process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || "#"} target="_blank" rel="noopener noreferrer">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
