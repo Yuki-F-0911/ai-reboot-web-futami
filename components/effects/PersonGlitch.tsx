@@ -19,12 +19,8 @@ const personVariations = [
   { text: '自分', font: 'font-medium' },
   { text: '俺', font: 'font-bold' },
   { text: 'きみ', font: 'font-light' },
-  { text: '諸君', font: 'font-serif italic' },
   { text: 'YOU', font: 'font-mono uppercase' },
   { text: '汝', font: 'font-serif' },
-  { text: '皆様', font: 'font-medium' },
-  { text: '各位', font: 'font-bold' },
-  { text: 'みんな', font: 'font-light' },
 ]
 
 export default function PersonGlitch({ className = '', delay = 0 }: PersonGlitchProps) {
@@ -86,15 +82,47 @@ export default function PersonGlitch({ className = '', delay = 0 }: PersonGlitch
       if (!initialEffectDone.current) return
 
       const doGlitch = () => {
-        const randomIndex = Math.floor(Math.random() * personVariations.length)
-        setDisplayText(personVariations[randomIndex].text)
-        setDisplayFont(personVariations[randomIndex].font)
+        const glitchType = Math.random()
         
-        // 100-300ms後に必ず「あなた」に戻す
-        setTimeout(() => {
+        if (glitchType < 0.3) {
+          // 30%: ブレ演出（フォントはそのまま、位置だけブレる）
           setDisplayText('あなた')
-          setDisplayFont('font-sans')
-        }, 100 + Math.random() * 200)
+          setIsGlitching(true)
+          setTimeout(() => {
+            setIsGlitching(false)
+          }, 150)
+        } else if (glitchType < 0.6) {
+          // 30%: フォントだけ変化→明滅→単語変化
+          const fonts = ['font-serif italic', 'font-mono', 'font-black', 'font-light']
+          setDisplayFont(fonts[Math.floor(Math.random() * fonts.length)])
+          
+          setTimeout(() => {
+            // 明滅エフェクト
+            setIsGlitching(true)
+            setTimeout(() => {
+              const randomIndex = Math.floor(Math.random() * personVariations.length)
+              setDisplayText(personVariations[randomIndex].text)
+              setDisplayFont(personVariations[randomIndex].font)
+              setIsGlitching(false)
+              
+              // 元に戻す
+              setTimeout(() => {
+                setDisplayText('あなた')
+                setDisplayFont('font-sans')
+              }, 150)
+            }, 50)
+          }, 100)
+        } else {
+          // 40%: 通常のグリッチ
+          const randomIndex = Math.floor(Math.random() * personVariations.length)
+          setDisplayText(personVariations[randomIndex].text)
+          setDisplayFont(personVariations[randomIndex].font)
+          
+          setTimeout(() => {
+            setDisplayText('あなた')
+            setDisplayFont('font-sans')
+          }, 100 + Math.random() * 200)
+        }
       }
 
       // 定期的にグリッチ
@@ -120,22 +148,25 @@ export default function PersonGlitch({ className = '', delay = 0 }: PersonGlitch
       className={`inline-block ${displayFont} ${className}`}
       animate={{
         opacity: isGlitching ? [0.7, 1, 0.8, 1] : 1,
-        scale: isGlitching ? [1, 1.05, 0.95, 1] : 1,
-        x: isGlitching ? [0, -1, 1, 0] : 0,
-        y: isGlitching ? [0, 1, -1, 0] : 0,
+        scale: isGlitching 
+          ? [1, 1.5, 0.7, 1.3, 0.9, 1.2, 1] // よりダイナミックなサイズ変化
+          : 1,
+        x: isGlitching ? [0, -3, 2, -1, 0] : 0,
+        y: isGlitching ? [0, 2, -3, 1, 0] : 0,
+        rotateZ: isGlitching ? [0, -5, 3, -2, 0] : 0, // 回転も追加
       }}
       transition={{
-        duration: isGlitching ? 0.1 : 0.3,
+        duration: isGlitching ? 0.15 : 0.3,
         ease: 'linear',
       }}
       style={{
         textShadow: isGlitching
-          ? `1px 1px 0 rgba(255, 0, 100, 0.5), -1px -1px 0 rgba(0, 255, 200, 0.5)`
+          ? `2px 2px 0 rgba(255, 0, 100, 0.7), -2px -2px 0 rgba(0, 255, 200, 0.7), 0 0 10px rgba(255, 255, 255, 0.5)`
           : '0 2px 8px rgba(0, 0, 0, 0.2)',
         color: displayText !== 'あなた'
           ? (Math.random() > 0.5 ? '#ff006a' : '#00ffcc')
           : '#1a1a1a',
-        filter: isGlitching ? `contrast(1.3)` : 'none',
+        filter: isGlitching ? `contrast(1.5) brightness(1.2)` : 'none',
       }}
     >
       {displayText}

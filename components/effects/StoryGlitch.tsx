@@ -13,15 +13,10 @@ const storyVariations = [
   { text: '物語', font: 'font-sans' },
   { text: 'WILL', font: 'font-mono uppercase tracking-wider' },
   { text: '意志', font: 'font-serif font-bold' },
-  { text: '未来', font: 'font-bold' },
-  { text: 'story', font: 'font-mono' },
   { text: '意思', font: 'font-black' },
   { text: 'will', font: 'font-mono italic' },
-  { text: '可能性', font: 'font-medium' },
   { text: '創造', font: 'font-serif' },
-  { text: 'future', font: 'font-mono lowercase' },
   { text: '変革', font: 'font-bold' },
-  { text: 'vision', font: 'font-mono' },
   { text: '志', font: 'font-black' },
   { text: '挑戦', font: 'font-medium' },
   { text: '革新', font: 'font-serif font-bold' },
@@ -86,15 +81,47 @@ export default function StoryGlitch({ className = '', delay = 0 }: StoryGlitchPr
       if (!initialEffectDone.current) return
 
       const doGlitch = () => {
-        const randomIndex = Math.floor(Math.random() * storyVariations.length)
-        setDisplayText(storyVariations[randomIndex].text)
-        setDisplayFont(storyVariations[randomIndex].font)
+        const glitchType = Math.random()
         
-        // 100-300ms後に必ず「物語」に戻す
-        setTimeout(() => {
+        if (glitchType < 0.3) {
+          // 30%: ブレ演出（フォントはそのまま、位置だけブレる）
           setDisplayText('物語')
-          setDisplayFont('font-sans')
-        }, 100 + Math.random() * 200)
+          setIsGlitching(true)
+          setTimeout(() => {
+            setIsGlitching(false)
+          }, 150)
+        } else if (glitchType < 0.6) {
+          // 30%: フォントだけ変化→明滅→単語変化
+          const fonts = ['font-serif italic', 'font-mono uppercase', 'font-black', 'font-light']
+          setDisplayFont(fonts[Math.floor(Math.random() * fonts.length)])
+          
+          setTimeout(() => {
+            // 明滅エフェクト
+            setIsGlitching(true)
+            setTimeout(() => {
+              const randomIndex = Math.floor(Math.random() * storyVariations.length)
+              setDisplayText(storyVariations[randomIndex].text)
+              setDisplayFont(storyVariations[randomIndex].font)
+              setIsGlitching(false)
+              
+              // 元に戻す
+              setTimeout(() => {
+                setDisplayText('物語')
+                setDisplayFont('font-sans')
+              }, 150)
+            }, 50)
+          }, 100)
+        } else {
+          // 40%: 通常のグリッチ
+          const randomIndex = Math.floor(Math.random() * storyVariations.length)
+          setDisplayText(storyVariations[randomIndex].text)
+          setDisplayFont(storyVariations[randomIndex].font)
+          
+          setTimeout(() => {
+            setDisplayText('物語')
+            setDisplayFont('font-sans')
+          }, 100 + Math.random() * 200)
+        }
       }
 
       // 定期的にグリッチ
@@ -120,22 +147,25 @@ export default function StoryGlitch({ className = '', delay = 0 }: StoryGlitchPr
       className={`inline-block ${displayFont} ${className}`}
       animate={{
         opacity: isGlitching ? [0.7, 1, 0.8, 1] : 1,
-        scale: isGlitching ? [1, 1.05, 0.95, 1] : 1,
-        x: isGlitching ? [0, -1, 1, 0] : 0,
-        y: isGlitching ? [0, 1, -1, 0] : 0,
+        scale: isGlitching 
+          ? [1, 1.4, 0.8, 1.2, 0.85, 1.15, 1] // ダイナミックなサイズ変化
+          : 1,
+        x: isGlitching ? [0, 2, -3, 1, 0] : 0,
+        y: isGlitching ? [0, -2, 3, -1, 0] : 0,
+        rotateZ: isGlitching ? [0, 3, -4, 2, 0] : 0, // 回転も追加
       }}
       transition={{
-        duration: isGlitching ? 0.1 : 0.3,
+        duration: isGlitching ? 0.15 : 0.3,
         ease: 'linear',
       }}
       style={{
         textShadow: isGlitching
-          ? `1px 1px 0 rgba(255, 0, 100, 0.5), -1px -1px 0 rgba(0, 255, 200, 0.5)`
+          ? `2px 2px 0 rgba(255, 0, 100, 0.7), -2px -2px 0 rgba(0, 255, 200, 0.7), 0 0 10px rgba(255, 255, 255, 0.5)`
           : '0 2px 8px rgba(0, 0, 0, 0.2)',
         color: displayText !== '物語'
           ? (Math.random() > 0.5 ? '#ff006a' : '#00ffcc')
           : '#1a1a1a',
-        filter: isGlitching ? `contrast(1.3)` : 'none',
+        filter: isGlitching ? `contrast(1.5) brightness(1.2)` : 'none',
       }}
     >
       {displayText}
