@@ -27,6 +27,8 @@ export default function StoryGlitch({ className = '', delay = 0 }: StoryGlitchPr
   const [displayFont, setDisplayFont] = useState('font-sans')
   const [isGlitching, setIsGlitching] = useState(false)
   const [isClient, setIsClient] = useState(false)
+  const [glitchChars, setGlitchChars] = useState<string[]>([]) // デジタルグリッチ用の文字配列
+  const [isTransitioning, setIsTransitioning] = useState(false) // 切り替え中フラグ
   const initialEffectDone = useRef(false)
 
   useEffect(() => {
@@ -112,15 +114,82 @@ export default function StoryGlitch({ className = '', delay = 0 }: StoryGlitchPr
             }, 50)
           }, 100)
         } else {
-          // 40%: 通常のグリッチ
+          // 40%: デジタルグリッチ演出付き切り替え
           const randomIndex = Math.floor(Math.random() * storyVariations.length)
-          setDisplayText(storyVariations[randomIndex].text)
-          setDisplayFont(storyVariations[randomIndex].font)
+          const targetText = storyVariations[randomIndex].text
+          const targetFont = storyVariations[randomIndex].font
           
-          setTimeout(() => {
-            setDisplayText('物語')
-            setDisplayFont('font-sans')
-          }, 100 + Math.random() * 200)
+          // デジタルグリッチ開始
+          setIsTransitioning(true)
+          const glitchDuration = 300
+          const glitchSteps = 8
+          const stepDuration = glitchDuration / glitchSteps
+          
+          // グリッチ文字を生成
+          let currentStep = 0
+          const glitchInterval = setInterval(() => {
+            currentStep++
+            
+            if (currentStep < glitchSteps / 2) {
+              // 前半：現在の文字が崩れていく
+              const chars = displayText.split('').map((char, i) => {
+                if (Math.random() > 0.5) {
+                  const glitchSet = '▀▄█▌▐░▒▓╔╗╚╝╠╣╦╩╬'
+                  return glitchSet[Math.floor(Math.random() * glitchSet.length)]
+                }
+                return char
+              })
+              setGlitchChars(chars)
+            } else if (currentStep === Math.floor(glitchSteps / 2)) {
+              // 中間：完全にグリッチ
+              setDisplayText(targetText)
+              setDisplayFont(targetFont)
+              setIsGlitching(true)
+            } else {
+              // 後半：新しい文字が形成されていく
+              const chars = targetText.split('').map((char, i) => {
+                if (Math.random() > (currentStep - glitchSteps / 2) / (glitchSteps / 2)) {
+                  const glitchSet = '▓▒░╬═║╱╲'
+                  return glitchSet[Math.floor(Math.random() * glitchSet.length)]
+                }
+                return char
+              })
+              setGlitchChars(chars)
+            }
+            
+            if (currentStep >= glitchSteps) {
+              clearInterval(glitchInterval)
+              setGlitchChars([])
+              setIsTransitioning(false)
+              setIsGlitching(false)
+              
+              // 元に戻す
+              setTimeout(() => {
+                // 戻る時も同じ演出
+                setIsTransitioning(true)
+                let returnStep = 0
+                const returnInterval = setInterval(() => {
+                  returnStep++
+                  
+                  if (returnStep < 4) {
+                    const chars = targetText.split('').map((char) => {
+                      if (Math.random() > 0.6) {
+                        return '░▒▓'[Math.floor(Math.random() * 3)]
+                      }
+                      return char
+                    })
+                    setGlitchChars(chars)
+                  } else {
+                    setDisplayText('物語')
+                    setDisplayFont('font-sans')
+                    setGlitchChars([])
+                    setIsTransitioning(false)
+                    clearInterval(returnInterval)
+                  }
+                }, 30)
+              }, 150)
+            }
+          }, stepDuration)
         }
       }
 
@@ -159,16 +228,34 @@ export default function StoryGlitch({ className = '', delay = 0 }: StoryGlitchPr
         ease: 'linear',
       }}
       style={{
-        textShadow: isGlitching
+        textShadow: isGlitching || isTransitioning
           ? `2px 2px 0 rgba(255, 0, 100, 0.7), -2px -2px 0 rgba(0, 255, 200, 0.7), 0 0 10px rgba(255, 255, 255, 0.5)`
           : '0 2px 8px rgba(0, 0, 0, 0.2)',
-        color: displayText !== '物語'
+        color: isTransitioning 
+          ? '#ff006a'
+          : displayText !== '物語'
           ? (Math.random() > 0.5 ? '#ff006a' : '#00ffcc')
           : '#1a1a1a',
-        filter: isGlitching ? `contrast(1.5) brightness(1.2)` : 'none',
+        filter: isGlitching || isTransitioning ? `contrast(1.5) brightness(1.2)` : 'none',
       }}
     >
-      {displayText}
+      {isTransitioning && glitchChars.length > 0 ? (
+        // デジタルグリッチ表示
+        glitchChars.map((char, i) => (
+          <span 
+            key={i} 
+            style={{ 
+              display: 'inline-block',
+              animation: `glitch-${i} 0.1s infinite`,
+              color: Math.random() > 0.5 ? '#ff006a' : '#00ffcc',
+            }}
+          >
+            {char}
+          </span>
+        ))
+      ) : (
+        displayText
+      )}
     </motion.span>
   )
 }
