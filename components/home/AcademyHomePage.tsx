@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import MainVisual from './sections/MainVisual'
+import TransitionSpace from './sections/TransitionSpace'
 import Prologue from './sections/Prologue'
 import ChapterOne from './sections/ChapterOne'
 import ChapterTwo from './sections/ChapterTwo'
@@ -27,6 +28,7 @@ export default function AcademyHomePage() {
       {/* メインコンテンツ */}
       <div className="relative">
         <MainVisual />
+        <TransitionSpace />
         <Prologue />
         <ChapterOne />
         <ChapterTwo />
