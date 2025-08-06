@@ -14,8 +14,7 @@ export const Footer: React.FC = () => {
   const footerLinks = {
     services: [
       { label: 'AIリブートアカデミー', href: '/academy' },
-      { label: 'プログラム詳細', href: '/academy#program' },
-      { label: '受講生の声', href: '#testimonials' },
+      { label: '生成AI活用力研修「AIリブート」', href: '/corporate' },
     ],
     company: [
       { label: '会社概要', href: '#company' },
@@ -23,7 +22,6 @@ export const Footer: React.FC = () => {
       { label: 'お知らせ', href: '#news' },
     ],
     support: [
-      { label: 'よくある質問', href: '#faq' },
       { label: 'お問い合わせ', href: '#contact' },
       { label: 'プライバシーポリシー', href: '#privacy' },
     ],
@@ -32,10 +30,10 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-ai-dark-gray text-white">
       <div className="container-section py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* ブランド情報 */}
           <div className="col-span-1">
-            <Link href="/" className="relative group flex items-center gap-3 mb-4">
+            <Link href="/academy" className="relative group flex items-center gap-3 mb-4">
               {/* シンボルマーク */}
               <div className="relative w-10 h-10">
                 <Image
@@ -76,22 +74,6 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* 会社情報 */}
-          <div>
-            <h4 className="font-semibold mb-4">会社情報</h4>
-            <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-ai-light-gray hover:text-white transition-colors duration-base text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* サポート */}
           <div>
@@ -130,7 +112,7 @@ export const Footer: React.FC = () => {
         {/* コピーライト */}
         <div className="mt-4 text-center">
           <p className="text-ai-light-gray text-sm">
-            © {currentYear} ウィルフォワード株式会社. All rights reserved.
+            © {currentYear} 株式会社ウィルフォワード. All rights reserved.
           </p>
         </div>
       </div>

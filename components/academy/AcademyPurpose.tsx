@@ -35,7 +35,7 @@ export const AcademyPurpose = () => {
             プログラムの目的
           </h2>
           
-          <div className="space-y-8">
+          <div className="space-y-10 max-w-3xl mx-auto">
             {purposes.map((purpose, index) => (
               <motion.div
                 key={index}
@@ -43,16 +43,16 @@ export const AcademyPurpose = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex gap-6 items-start"
+                className="flex gap-6 items-start bg-white/50 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-depth-100/50 hover:shadow-soft transition-shadow duration-300"
               >
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-will-primary/10 to-wisdom/10 rounded-lg flex items-center justify-center text-will-primary font-mono text-sm font-semibold border border-will-primary/20">
+                <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-will-primary/20 to-wisdom/20 rounded-xl flex items-center justify-center text-will-primary font-mono text-sm font-bold border border-will-primary/30">
                   {purpose.number}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-depth-900 mb-2">
+                  <h3 className="text-xl md:text-2xl font-semibold text-depth-900 mb-3">
                     {purpose.title}
                   </h3>
-                  <p className="text-depth-600 leading-relaxed">
+                  <p className="text-depth-600 leading-relaxed text-base md:text-lg">
                     {purpose.description}
                   </p>
                 </div>

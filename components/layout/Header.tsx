@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
       <nav className="container-section py-4">
         <div className="flex items-center justify-between">
           {/* ロゴ */}
-          <Link href="/" className="relative group flex items-center gap-3">
+          <Link href="/academy" className="relative group flex items-center gap-3">
             {/* シンボルマーク */}
             <div className="relative w-10 h-10">
               <Image

@@ -25,7 +25,7 @@ export const AcademyHero = () => {
             </p>
             
             {/* メインタイトル */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-depth-900 mb-6 leading-[1.15]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-depth-900 mb-6 leading-[1.15]">
               生成AI時代の
               <br />
               <span className="relative inline-block">
