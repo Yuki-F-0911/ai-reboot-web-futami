@@ -422,17 +422,21 @@ export default function GlitchText({
 }: GlitchTextProps) {
   const [isVisible, setIsVisible] = useState(!scrollTrigger)
   const [isClient, setIsClient] = useState(false)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const containerRef = useRef<HTMLSpanElement>(null)
   
   // フォントサイズをクラスから抽出
   const getFontSize = () => {
+    // 親要素から継承する場合
+    if (!className || className === '') return 'inherit'
+    
     if (className.includes('text-9xl')) return '6rem'
     if (className.includes('text-8xl')) return '6rem'
     if (className.includes('text-7xl')) return '4.5rem'
     if (className.includes('text-6xl')) return '3.75rem'
     if (className.includes('text-5xl')) return '3rem'
     if (className.includes('text-4xl')) return '2.25rem'
-    return '1rem'
+    return 'inherit'
   }
   
   // シード値をテキストから生成
@@ -454,6 +458,16 @@ export default function GlitchText({
   
   useEffect(() => {
     setIsClient(true)
+    // アクセシビリティ: モーション設定を確認
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches)
+    }
+    
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
   
   // スクロールによるトリガー (シンプルなIntersection Observerを使用)
@@ -483,6 +497,11 @@ export default function GlitchText({
   
   if (!isClient) {
     return <span className={className} style={{ opacity: 0 }}>{text}</span>
+  }
+  
+  // アクセシビリティ: モーション設定が減らされている場合はシンプルな表示
+  if (prefersReducedMotion) {
+    return <span className={className}>{text}</span>
   }
   
   return (

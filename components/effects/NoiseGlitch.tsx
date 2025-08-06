@@ -15,14 +15,22 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
   // ノイズ生成関数 - スタイリッシュ版
   const generateNoise = (ctx: CanvasRenderingContext2D, width: number, height: number, density: number, time: number) => {
     // 解像度を下げてパフォーマンス改善
-    const scale = 3  // より細かいノイズ
+    const scale = 2  // より細かいノイズ（3から2に変更）
     const scaledWidth = Math.ceil(width / scale)
     const scaledHeight = Math.ceil(height / scale)
-    const imageData = ctx.createImageData(scaledWidth, scaledHeight)
+    
+    // 一時的なキャンバスを作成
+    const tempCanvas = document.createElement('canvas')
+    tempCanvas.width = scaledWidth
+    tempCanvas.height = scaledHeight
+    const tempCtx = tempCanvas.getContext('2d')
+    if (!tempCtx) return
+    
+    const imageData = tempCtx.createImageData(scaledWidth, scaledHeight)
     const data = imageData.data
     
-    // ブロックノイズサイズ（ランダム化）
-    const blockSize = 2 + Math.floor(Math.random() * 3)
+    // ブロックノイズサイズ（より小さく）
+    const blockSize = 1 + Math.floor(Math.random() * 2)
     
     for (let y = 0; y < scaledHeight; y += blockSize) {
       for (let x = 0; x < scaledWidth; x += blockSize) {
@@ -47,7 +55,7 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
             // 黒（アクセント）
             r = g = b = 0
           }
-          const alpha = (0.08 + Math.random() * 0.15) * intensity
+          const alpha = (0.15 + Math.random() * 0.2) * intensity
           
           for (let by = 0; by < blockSize && y + by < scaledHeight; by++) {
             for (let bx = 0; bx < blockSize && x + bx < scaledWidth; bx++) {
@@ -64,10 +72,12 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
       }
     }
     
-    // 拡大して描画
-    ctx.putImageData(imageData, 0, 0)
+    // 一時キャンバスに描画
+    tempCtx.putImageData(imageData, 0, 0)
+    
+    // メインキャンバスに拡大して描画
     ctx.imageSmoothingEnabled = false
-    ctx.drawImage(ctx.canvas, 0, 0, scaledWidth, scaledHeight, 0, 0, width, height)
+    ctx.drawImage(tempCanvas, 0, 0, scaledWidth, scaledHeight, 0, 0, width, height)
   }
   
   // 走査線エフェクト - スタイリッシュ版
@@ -189,8 +199,8 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
         // キャンバスをクリア
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         
-        // ノイズ密度を時間で変化
-        const noiseDensity = 0.08 + Math.sin(time * 0.01) * 0.05
+        // ノイズ密度を時間で変化（より高密度に）
+        const noiseDensity = 0.15 + Math.sin(time * 0.01) * 0.1
         
         // 各レイヤーを描画
         generateNoise(ctx, canvas.width, canvas.height, noiseDensity, time)
@@ -232,7 +242,9 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
         className="fixed inset-0 pointer-events-none z-30"
         style={{
           mixBlendMode: 'screen',
-          opacity: 0.4 + intensity * 0.2
+          opacity: 0.4 + intensity * 0.2,
+          width: '100%',
+          height: '100%'
         }}
       />
       
