@@ -82,17 +82,6 @@ export default function Prologue() {
           {/* 右側：本文 */}
           <div className="flex-1 max-w-prose mx-auto">
             <div className="space-y-10 text-lg leading-loose text-white/70 text-ja-body">
-              <motion.blockquote 
-                className="border-l-4 border-white/20 pl-6 py-4 italic"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.5, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <p>毎日、同じことの繰り返し。</p>
-                <p>その違和感を、見て見ぬふりしている。</p>
-              </motion.blockquote>
-
               <motion.p
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}

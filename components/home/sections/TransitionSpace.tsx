@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import InnerVoiceBubble from './InnerVoiceBubble'
 
 export default function TransitionSpace() {
   return (
@@ -34,6 +35,9 @@ export default function TransitionSpace() {
       >
         <div className="w-px h-16 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
       </motion.div>
+      
+      {/* 内省の吹き出し - トランジションと序章の境界に配置 */}
+      <InnerVoiceBubble />
     </section>
   )
 }
