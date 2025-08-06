@@ -84,7 +84,7 @@ export default function QuietDialogue() {
   const [showMainMessage, setShowMainMessage] = useState(true)
   const [currentMessage, setCurrentMessage] = useState<1 | 2>(1)
   const [messageTransition, setMessageTransition] = useState<'first' | 'switching' | 'second'>('first')
-  const [noiseLevel, setNoiseLevel] = useState(1)
+  const [noiseLevel, setNoiseLevel] = useState(0.8) // 初期表示時からノイズを表示
   
   // FVエリアのスクロールでメッセージを制御
   useEffect(() => {
@@ -93,35 +93,47 @@ export default function QuietDialogue() {
       setFvScrollValue(value)
       
       
-      // FVエリア内のスクロール位置に応じてフェーズを更新
-      if (value < 5) {
-        setCurrentPhase('chaos')  // 最初はデジタルカオス
-        setNoiseLevel(0.6)  // 控えめなノイズから開始
+      // 初期表示時からノイズを表示し、徐々にフェードアウト
+      // value = 0のときから演出開始
+      if (value === 0) {
+        setCurrentPhase('chaos')  // 初期表示時はカオス
+        setNoiseLevel(0.8)  // 強めのノイズから開始
         setShowMainMessage(true)
         setCurrentMessage(1)
-      } else if (value < 20) {
+      } else if (value < 15) {
+        setCurrentPhase('chaos')  // デジタルカオス継続
+        setNoiseLevel(Math.max(0.8 - value * 0.02, 0.5))  // 徐々に弱まる（0.8→0.5）
+        setShowMainMessage(true)
+        setCurrentMessage(1)
+      } else if (value < 30) {
         setCurrentPhase('question')  // 問いかけ
-        setNoiseLevel(0.7)  // ノイズ継続
-        setShowMainMessage(true)
-        setCurrentMessage(1)
-      } else if (value < 35) {
-        setCurrentPhase('awakening')  // 覚醒前
-        setNoiseLevel(0.8)  // ノイズ強まる
+        setNoiseLevel(Math.max(0.5 - (value - 15) * 0.02, 0.3))  // さらに弱まる（0.5→0.3）
         setShowMainMessage(true)
         setCurrentMessage(1)
       } else if (value < 45) {
+        setCurrentPhase('awakening')  // 覚醒前
+        setNoiseLevel(0.4)  // 一時的に少し強まる
+        setShowMainMessage(true)
+        setCurrentMessage(1)
+      } else if (value < 55) {
         setCurrentPhase('transition')  // メッセージ切り替わり
-        setNoiseLevel(1)  // 最大グリッチ
+        setNoiseLevel(0.6)  // 切り替え時に少し強まる
         setShowMainMessage(true)
         setCurrentMessage(2)
-      } else if (value < 60) {
+      } else if (value < 70) {
         setCurrentPhase('confidence')  // 確信
-        setNoiseLevel(0.5)  // ノイズ弱まる
+        setNoiseLevel(Math.max(0.3 - (value - 55) * 0.01, 0.15))  // 徐々に弱まる（0.3→0.15）
+        setShowMainMessage(true)
+        setCurrentMessage(2)
+      } else if (value < 90) {
+        setCurrentPhase('silence')  // 静寂へ
+        setNoiseLevel(Math.max(0.15 - (value - 70) * 0.005, 0.05))  // ほぼ消える（0.15→0.05）
         setShowMainMessage(true)
         setCurrentMessage(2)
       } else {
-        setCurrentPhase('silence')  // 静寂へ
-        setNoiseLevel(0.2)  // わずかなノイズ
+        // 序章部分では薄くノイズを残す
+        setCurrentPhase('silence')
+        setNoiseLevel(0.05)  // わずかにノイズを残す
         setShowMainMessage(true)
         setCurrentMessage(2)
       }
