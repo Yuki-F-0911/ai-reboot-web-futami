@@ -9,37 +9,10 @@ import StoryGlitch from '@/components/effects/StoryGlitch'
 export default function MainVisual() {
   const [mounted, setMounted] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [isSwapped, setIsSwapped] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
-
-  // 収束後のグリッチで入れ替え演出
-  useEffect(() => {
-    if (!mounted) return
-
-    let swapInterval: NodeJS.Timeout | null = null
-    
-    // 初期グリッチが完全に収束するまで待つ（5秒後から開始）
-    const initialDelay = setTimeout(() => {
-      swapInterval = setInterval(() => {
-        // ランダムな確率で入れ替え（15%の確率）
-        if (Math.random() < 0.15) {
-          setIsSwapped(true)
-          // 100-200ms後に元に戻す
-          setTimeout(() => {
-            setIsSwapped(false)
-          }, 100 + Math.random() * 100)
-        }
-      }, 6000 + Math.random() * 4000) // 6-10秒ごとにチェック
-    }, 5000)
-
-    return () => {
-      clearTimeout(initialDelay)
-      if (swapInterval) clearInterval(swapInterval)
-    }
-  }, [mounted])
 
   // マウス追従エフェクト
   useEffect(() => {
@@ -99,7 +72,7 @@ export default function MainVisual() {
                     transform: `translateX(${mousePosition.x * 0.05}px)`,
                     transition: 'all 0.1s ease-out'
                   }}>
-                    {isSwapped ? <StoryGlitch delay={0} /> : <PersonGlitch delay={0} />}
+                    <PersonGlitch delay={0} />
                   </span>
                   <span style={{ fontSize: '0.8em', opacity: 0.8 }}>の</span>
                   <span style={{ 
@@ -110,7 +83,7 @@ export default function MainVisual() {
                     transform: `translateX(${mousePosition.x * -0.05}px)`,
                     transition: 'all 0.1s ease-out'
                   }}>
-                    {isSwapped ? <PersonGlitch delay={200} /> : <StoryGlitch delay={200} />}
+                    <StoryGlitch delay={200} />
                   </span>
                   <span>を</span>
                 </>

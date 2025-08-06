@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 interface StoryGlitchProps {
@@ -28,52 +28,88 @@ const storyVariations = [
 ]
 
 export default function StoryGlitch({ className = '', delay = 0 }: StoryGlitchProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [displayText, setDisplayText] = useState('物語')
+  const [displayFont, setDisplayFont] = useState('font-sans')
   const [isGlitching, setIsGlitching] = useState(false)
-  const [displayText, setDisplayText] = useState(storyVariations[0].text)
-  const [displayFont, setDisplayFont] = useState(storyVariations[0].font)
   const [isClient, setIsClient] = useState(false)
+  const initialEffectDone = useRef(false)
 
   useEffect(() => {
     setIsClient(true)
   }, [])
 
+  // 初期グリッチエフェクト（一度だけ実行）
   useEffect(() => {
-    if (!isClient) return
+    if (!isClient || initialEffectDone.current) return
 
     let glitchInterval: NodeJS.Timeout | null = null
     let stabilizeTimeout: NodeJS.Timeout | null = null
 
-    // 初期遅延（最低100ms確保して初期表示を保証）
+    // 遅延後にグリッチ開始
     const startTimeout = setTimeout(() => {
       setIsGlitching(true)
-      // グリッチ開始（最適化: バッチ更新）
+      
+      // グリッチアニメーション
       glitchInterval = setInterval(() => {
         const randomIndex = Math.floor(Math.random() * storyVariations.length)
-        // 状態更新を1回にまとめる
-        requestAnimationFrame(() => {
-          setCurrentIndex(randomIndex)
-          setDisplayText(storyVariations[randomIndex].text)
-          setDisplayFont(storyVariations[randomIndex].font)
-        })
-      }, 100) // 100msごとに変化
+        setDisplayText(storyVariations[randomIndex].text)
+        setDisplayFont(storyVariations[randomIndex].font)
+      }, 100)
 
-      // 1.5秒後に「物語」で安定
+      // グリッチ終了と収束
       stabilizeTimeout = setTimeout(() => {
-        if (glitchInterval) clearInterval(glitchInterval)
+        if (glitchInterval) {
+          clearInterval(glitchInterval)
+          glitchInterval = null
+        }
         setIsGlitching(false)
-        setCurrentIndex(0)
-        setDisplayText(storyVariations[0].text)
-        setDisplayFont(storyVariations[0].font)
+        // 確実に「物語」に戻す
+        setDisplayText('物語')
+        setDisplayFont('font-sans')
+        initialEffectDone.current = true
       }, 1500)
-    }, Math.max(100, delay))
+    }, delay + 300)
 
     return () => {
-      if (glitchInterval) clearInterval(glitchInterval)
-      if (stabilizeTimeout) clearTimeout(stabilizeTimeout)
       clearTimeout(startTimeout)
+      if (stabilizeTimeout) clearTimeout(stabilizeTimeout)
+      if (glitchInterval) clearInterval(glitchInterval)
     }
   }, [isClient, delay])
+
+  // 余韻グリッチエフェクト（初期エフェクト終了後）
+  useEffect(() => {
+    if (!isClient) return
+
+    // 初期エフェクトが終わるまで待つ
+    const waitForInitial = setTimeout(() => {
+      if (!initialEffectDone.current) return
+
+      const doGlitch = () => {
+        const randomIndex = Math.floor(Math.random() * storyVariations.length)
+        setDisplayText(storyVariations[randomIndex].text)
+        setDisplayFont(storyVariations[randomIndex].font)
+        
+        // 100-300ms後に必ず「物語」に戻す
+        setTimeout(() => {
+          setDisplayText('物語')
+          setDisplayFont('font-sans')
+        }, 100 + Math.random() * 200)
+      }
+
+      // 定期的にグリッチ
+      const afterglowInterval = setInterval(() => {
+        // 40%の確率でグリッチ
+        if (Math.random() < 0.40) {
+          doGlitch()
+        }
+      }, 2000) // 2秒ごとにチェック
+
+      return () => clearInterval(afterglowInterval)
+    }, 2200) // 初期エフェクト終了まで2.2秒待つ（PersonGlitchより少し遅め）
+
+    return () => clearTimeout(waitForInitial)
+  }, [isClient])
 
   if (!isClient) {
     return <span className={className}>物語</span>
@@ -96,16 +132,10 @@ export default function StoryGlitch({ className = '', delay = 0 }: StoryGlitchPr
         textShadow: isGlitching
           ? `1px 1px 0 rgba(255, 0, 100, 0.5), -1px -1px 0 rgba(0, 255, 200, 0.5)`
           : '0 2px 8px rgba(0, 0, 0, 0.2)',
-        color: isGlitching
-          ? currentIndex % 3 === 0
-            ? '#ff006a'
-            : currentIndex % 3 === 1
-            ? '#00ffcc'
-            : '#1a1a1a'
+        color: displayText !== '物語'
+          ? (Math.random() > 0.5 ? '#ff006a' : '#00ffcc')
           : '#1a1a1a',
-        filter: isGlitching
-          ? `contrast(1.3)`  // シンプルなフィルターに最適化
-          : 'none',
+        filter: isGlitching ? `contrast(1.3)` : 'none',
       }}
     >
       {displayText}
