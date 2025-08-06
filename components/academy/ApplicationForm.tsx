@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 export const ApplicationForm = () => {
-  // Google フォームのURL（実際のURLに置き換えてください）
-  const GOOGLE_FORM_URL = "https://forms.google.com/your-form-url";
+  // Google フォームのURLを環境変数から取得
+  const GOOGLE_FORM_URL = process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || "#";
 
   return (
     <section id="application" className="section-spacing bg-gradient-to-b from-white to-will-lighter">
