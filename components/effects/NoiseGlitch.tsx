@@ -239,10 +239,10 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
       {/* ノイズキャンバス */}
       <canvas
         ref={canvasRef}
-        className="fixed inset-0 pointer-events-none z-30"
+        className="fixed inset-0 pointer-events-none z-50"
         style={{
           mixBlendMode: 'screen',
-          opacity: 0.4 + intensity * 0.2,
+          opacity: 0.6 + intensity * 0.3,
           width: '100%',
           height: '100%'
         }}
@@ -250,7 +250,7 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
       
       {/* グリッチオーバーレイ - 軽量版 */}
       <motion.div
-        className="fixed inset-0 pointer-events-none z-20"
+        className="fixed inset-0 pointer-events-none z-40"
         animate={{
           opacity: [0, 0.15, 0],
         }}

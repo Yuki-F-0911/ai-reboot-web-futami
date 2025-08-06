@@ -84,7 +84,7 @@ export default function QuietDialogue() {
   const [showMainMessage, setShowMainMessage] = useState(true)
   const [currentMessage, setCurrentMessage] = useState<1 | 2>(1)
   const [messageTransition, setMessageTransition] = useState<'first' | 'switching' | 'second'>('first')
-  const [noiseLevel, setNoiseLevel] = useState(0.8) // 初期表示時からノイズを表示
+  const [noiseLevel, setNoiseLevel] = useState(1) // 初期表示時から強いノイズを表示
   
   // FVエリアのスクロールでメッセージを制御
   useEffect(() => {
@@ -97,12 +97,12 @@ export default function QuietDialogue() {
       // value = 0のときから演出開始
       if (value === 0) {
         setCurrentPhase('chaos')  // 初期表示時はカオス
-        setNoiseLevel(0.8)  // 強めのノイズから開始
+        setNoiseLevel(1)  // 最大ノイズから開始
         setShowMainMessage(true)
         setCurrentMessage(1)
       } else if (value < 15) {
         setCurrentPhase('chaos')  // デジタルカオス継続
-        setNoiseLevel(Math.max(0.8 - value * 0.02, 0.5))  // 徐々に弱まる（0.8→0.5）
+        setNoiseLevel(Math.max(1 - value * 0.03, 0.6))  // 徐々に弱まる（1.0→0.6）
         setShowMainMessage(true)
         setCurrentMessage(1)
       } else if (value < 30) {
