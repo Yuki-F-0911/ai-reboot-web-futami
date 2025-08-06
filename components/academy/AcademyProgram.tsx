@@ -19,7 +19,27 @@ export const AcademyProgram = () => {
           <div className="max-w-3xl mx-auto">
             <div className="relative">
               {/* 左側のタイムライン */}
-              <div className="absolute left-0 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-will-primary via-will-primary/50 to-will-primary" />
+              <div className="absolute left-0 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-will-primary via-will-primary/50 to-transparent" />
+              
+              {/* 無料説明会 */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="relative flex items-start gap-6 md:gap-8 mb-8"
+              >
+                {/* タイムラインのポイント */}
+                <div className="absolute left-0 md:left-8 w-4 h-4 bg-will-primary/50 rounded-full -translate-x-[7px] mt-6 z-10" />
+                
+                <div className="ml-8 md:ml-20 flex-1 bg-gradient-to-br from-will-primary/5 to-will-primary/10 rounded-xl p-6 border border-will-primary/20">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-sm font-medium text-will-primary bg-will-primary/10 px-3 py-1 rounded-full">無料</span>
+                    <h3 className="text-lg font-bold text-depth-900">オンライン説明会</h3>
+                  </div>
+                  <p className="text-sm text-depth-600">プログラムの詳細説明・質疑応答・個別相談</p>
+                </div>
+              </motion.div>
               
               {/* AIリブートキャンプ */}
               <motion.div
@@ -143,6 +163,9 @@ export const AcademyProgram = () => {
                           ))}
                         </div>
                       </div>
+                      <p className="text-xs text-depth-500 text-center mt-3">
+                        ※期間は目安です。スケジュールにより前後する場合があります。
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -165,6 +188,9 @@ export const AcademyProgram = () => {
                 </div>
                 
                 <div className="ml-8 md:ml-20 flex-1 bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                  <div className="absolute -top-4 left-8 bg-will-primary text-white text-xs px-3 py-1 rounded-full font-medium">
+                    100日間終了
+                  </div>
                   <h3 className="text-2xl font-bold text-depth-900 mb-3">DEMO DAY</h3>
                   <p className="text-depth-600 mb-4">最終発表会</p>
                   <div className="space-y-2 text-depth-700">
@@ -176,8 +202,12 @@ export const AcademyProgram = () => {
                 </div>
               </motion.div>
 
-              {/* スペーサー */}
-              <div className="py-4" />
+              {/* プログラム終了後のサポート */}
+              <div className="relative mt-12 pt-12 border-t-2 border-dashed border-depth-200">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gray-50 px-4">
+                  <p className="text-sm font-semibold text-depth-500">プログラム終了後のサポート</p>
+                </div>
+              </div>
 
               {/* 転職支援 */}
               <motion.div
@@ -185,15 +215,22 @@ export const AcademyProgram = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="relative flex items-start gap-6 md:gap-8"
+                className="relative flex items-start gap-6 md:gap-8 mt-8"
               >
-                {/* タイムラインのポイント */}
-                <div className="absolute left-0 md:left-8 w-4 h-4 bg-will-primary rounded-full -translate-x-[7px] mt-8 z-10">
-                  <div className="absolute inset-0 bg-will-primary rounded-full animate-ping" />
+                {/* タイムラインのポイント（色変更） */}
+                <div className="absolute left-0 md:left-8 w-4 h-4 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full -translate-x-[7px] mt-8 z-10">
+                  <div className="absolute inset-0 bg-emerald-500 rounded-full animate-ping" />
                 </div>
                 
-                <div className="ml-8 md:ml-20 flex-1 bg-white rounded-xl p-8 shadow-sm border border-gray-100">
-                  <h3 className="text-2xl font-bold text-depth-900 mb-3">転職支援</h3>
+                <div className="ml-8 md:ml-20 flex-1 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-8 shadow-sm border border-emerald-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-depth-900">転職支援</h3>
+                  </div>
                   <p className="text-depth-600 mb-4">AI人材としてのキャリア形成サポート</p>
                   <div className="space-y-2 text-depth-700">
                     <p>• AI人材としてのポートフォリオ作成支援</p>
