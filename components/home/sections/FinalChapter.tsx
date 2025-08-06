@@ -5,8 +5,11 @@ import Link from 'next/link'
 
 export default function FinalChapter() {
   return (
-    <section className="section-padding-lg px-6 md:px-8 bg-depth-100">
-      <div className="max-w-prose mx-auto">
+    <section className="relative section-padding-lg px-6 md:px-8">
+      {/* 背景 - 完全に白 */}
+      <div className="absolute inset-0 bg-white z-20 pointer-events-none" />
+      
+      <div className="relative z-30 max-w-prose mx-auto">
         <h2 className="text-h2 font-bold mb-12 text-depth-800 text-ja-heading">
           最終章：選ぶのは、あなただ
         </h2>

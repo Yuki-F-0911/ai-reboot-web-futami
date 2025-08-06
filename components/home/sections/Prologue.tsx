@@ -4,8 +4,11 @@ import React from 'react'
 
 export default function Prologue() {
   return (
-    <section className="section-padding px-6 md:px-8">
-      <div className="max-w-prose mx-auto">
+    <section className="relative section-padding px-6 md:px-8">
+      {/* 背景グラデーション - 上部は透明から始まり、下部で完全に白に */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white z-20 pointer-events-none" />
+      
+      <div className="relative z-30 max-w-prose mx-auto">
         <h2 className="text-h2 font-bold mb-12 text-depth-800 text-ja-heading">
           序章：その違和感が、始まりのサイン
         </h2>

@@ -15,7 +15,7 @@ export default function AcademyHomePage() {
   const backgroundOpacity = useTransform(scrollYProgress, [0, 0.2], [0, 0.05])
 
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen">
       {/* 背景グラデーション */}
       <motion.div 
         className="fixed inset-0 pointer-events-none"

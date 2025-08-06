@@ -11,11 +11,12 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const frameRef = useRef<number | undefined>(undefined)
   const [isClient, setIsClient] = useState(false)
+  const [isInitialized, setIsInitialized] = useState(false)
   
-  // ノイズ生成関数 - スタイリッシュ版
+  // ノイズ生成関数 - 最適化版
   const generateNoise = (ctx: CanvasRenderingContext2D, width: number, height: number, density: number, time: number) => {
     // 解像度を下げてパフォーマンス改善
-    const scale = 2  // より細かいノイズ（3から2に変更）
+    const scale = 4  // パフォーマンス重視（2から4に変更）
     const scaledWidth = Math.ceil(width / scale)
     const scaledHeight = Math.ceil(height / scale)
     
@@ -32,9 +33,11 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
     // ブロックノイズサイズ（より小さく）
     const blockSize = 1 + Math.floor(Math.random() * 2)
     
-    for (let y = 0; y < scaledHeight; y += blockSize) {
-      for (let x = 0; x < scaledWidth; x += blockSize) {
-        if (Math.random() < density) {
+    // パフォーマンス最適化: ステップを大きくする
+    const step = 2  // ピクセルをスキップ
+    for (let y = 0; y < scaledHeight; y += blockSize * step) {
+      for (let x = 0; x < scaledWidth; x += blockSize * step) {
+        if (Math.random() < density * 0.8) {  // 密度を少し下げる
           // スタイリッシュなノイズ色（シアン・マゼンタ・白のデジタルパレット）
           const colorType = Math.random()
           let r, g, b
@@ -85,7 +88,7 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
     // 複数の走査線をグラデーションで描画
     const scanlineCount = 3
     for (let i = 0; i < scanlineCount; i++) {
-      const scanlineY = ((time * (0.2 + i * 0.1)) % height)
+      const scanlineY = ((time * (50 + i * 20)) % height)  // スピードを速く
       const alpha = (0.2 - i * 0.05) * intensity
       
       // グラデーション走査線
@@ -106,7 +109,7 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
     
     // 縦の干渉波（複数でより繊細に）
     for (let i = 0; i < 2; i++) {
-      const interferenceX = ((time * (0.15 + i * 0.1)) % width)
+      const interferenceX = ((time * (30 + i * 15)) % width)  // スピードを速く
       const alpha = (0.15 - i * 0.05) * intensity
       ctx.strokeStyle = `rgba(200, 0, 255, ${alpha})`
       ctx.lineWidth = 1
@@ -169,10 +172,33 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
   
   useEffect(() => {
     setIsClient(true)
+    // クライアントサイドであることを確認後、即座に初期化
+    setIsInitialized(true)
   }, [])
   
+  // 初期描画専用のuseEffect
   useEffect(() => {
-    if (!isClient) return
+    if (!isClient || !isInitialized) return
+    
+    const canvas = canvasRef.current
+    if (!canvas) return
+    
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+    
+    // 即座にキャンバスサイズを設定して描画
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+    
+    // 濃いノイズで即座に描画
+    const strongDensity = 0.4
+    generateNoise(ctx, canvas.width, canvas.height, strongDensity, 0)
+    drawScanlines(ctx, canvas.width, canvas.height, 0)
+    drawArtifacts(ctx, canvas.width, canvas.height, 0)
+  }, [isClient, isInitialized])
+  
+  useEffect(() => {
+    if (!isClient || !isInitialized) return
     
     const canvas = canvasRef.current
     if (!canvas) return
@@ -188,38 +214,48 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
     updateCanvas()
     window.addEventListener('resize', updateCanvas)
     
-    let time = 0
-    let frameCount = 0
-    const animate = () => {
-      time += 1
-      frameCount++
+    let startTime = Date.now()
+    let lastFrameTime = 0
+    const targetFPS = 30  // 30FPSに制限してパフォーマンス改善
+    const frameInterval = 1000 / targetFPS
+    
+    // アニメーションループ
+    const animate = (timestamp: number = 0) => {
+      // FPS制限
+      if (timestamp - lastFrameTime < frameInterval) {
+        frameRef.current = requestAnimationFrame(animate)
+        return
+      }
+      lastFrameTime = timestamp
       
-      // 3フレームに1回だけ更新（パフォーマンス改善）
-      if (frameCount % 3 === 0) {
-        // キャンバスをクリア
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        
-        // ノイズ密度を時間で変化（より高密度に）
-        const noiseDensity = 0.15 + Math.sin(time * 0.01) * 0.1
-        
-        // 各レイヤーを描画
-        generateNoise(ctx, canvas.width, canvas.height, noiseDensity, time)
-        drawScanlines(ctx, canvas.width, canvas.height, time)
-        drawArtifacts(ctx, canvas.width, canvas.height, time)
+      const currentTime = (Date.now() - startTime) / 1000
+      
+      // キャンバスをクリア
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      
+      // 固定密度でノイズを描画（時間パラメータでアニメーション）
+      const noiseDensity = 0.25  // 密度を下げる
+      
+      // 各レイヤーを描画（アーティファクトは頻度を下げる）
+      generateNoise(ctx, canvas.width, canvas.height, noiseDensity, currentTime)
+      drawScanlines(ctx, canvas.width, canvas.height, currentTime)
+      if (Math.random() > 0.7) {  // 30%の確率でのみアーティファクトを描画
+        drawArtifacts(ctx, canvas.width, canvas.height, currentTime)
       }
       
       frameRef.current = requestAnimationFrame(animate)
     }
     
+    // アニメーション開始
     animate()
     
     return () => {
       window.removeEventListener('resize', updateCanvas)
-      if (frameRef.current) {
+      if (frameRef.current !== undefined) {
         cancelAnimationFrame(frameRef.current)
       }
     }
-  }, [intensity, isClient])
+  }, [intensity, isClient, isInitialized])
   
   // RGB分離エフェクト用のスタイル
   const rgbShiftStyle = {
@@ -230,7 +266,7 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
     `
   }
   
-  if (!isClient) {
+  if (!isClient || !isInitialized) {
     return null
   }
   
@@ -239,34 +275,43 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
       {/* ノイズキャンバス */}
       <canvas
         ref={canvasRef}
-        className="fixed inset-0 pointer-events-none z-50"
+        className="fixed inset-0 pointer-events-none z-10"
         style={{
-          mixBlendMode: 'screen',
-          opacity: 0.6 + intensity * 0.3,
+          mixBlendMode: 'multiply',
+          opacity: 0.7 + intensity * 0.2,
           width: '100%',
           height: '100%'
         }}
       />
       
-      {/* グリッチオーバーレイ - 軽量版 */}
-      <motion.div
-        className="fixed inset-0 pointer-events-none z-40"
-        animate={{
-          opacity: [0, 0.15, 0],
-        }}
-        transition={{
-          duration: 0.5,
-          repeat: Infinity,
-          repeatDelay: 3,
-          times: [0, 0.5, 1]
-        }}
+      {/* グリッチオーバーレイ - 静的版 */}
+      <div
+        className="fixed inset-0 pointer-events-none z-10"
         style={{
           background: `linear-gradient(
             45deg,
-            rgba(0, 255, 200, 0.1),
-            rgba(255, 0, 100, 0.1)
+            rgba(0, 255, 200, 0.03),
+            rgba(255, 0, 100, 0.03)
           )`,
-          mixBlendMode: 'screen'
+          mixBlendMode: 'overlay',
+          opacity: 0.6
+        }}
+      />
+      
+      {/* ビネット効果 - 放射状グラデーション */}
+      <div
+        className="fixed inset-0 pointer-events-none z-10"
+        style={{
+          background: `radial-gradient(
+            ellipse at center,
+            transparent 0%,
+            transparent 40%,
+            rgba(0, 0, 0, 0.1) 60%,
+            rgba(0, 0, 0, 0.2) 80%,
+            rgba(0, 0, 0, 0.3) 95%,
+            rgba(0, 0, 0, 0.4) 100%
+          )`,
+          mixBlendMode: 'multiply'
         }}
       />
       

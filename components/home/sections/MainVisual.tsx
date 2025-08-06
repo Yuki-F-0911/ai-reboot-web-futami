@@ -1,28 +1,21 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import NoiseGlitch from '@/components/effects/NoiseGlitch'
+import { motion } from 'framer-motion'
 import GlitchText from '@/components/effects/GlitchText'
+import PersonGlitch from '@/components/effects/PersonGlitch'
 
 export default function MainVisual() {
   const [mounted, setMounted] = useState(false)
-  const { scrollY } = useScroll()
-  const heroOpacity = useTransform(scrollY, [0, 400], [1, 0])
-  const heroScale = useTransform(scrollY, [0, 400], [1, 0.9])
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
   return (
-    <motion.section 
+    <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
-      style={{ opacity: heroOpacity, scale: heroScale }}
     >
-      {/* ノイズグリッチ背景 */}
-      <NoiseGlitch />
-
       {/* メインテキスト */}
       <div className="relative z-10 text-center px-8 max-w-5xl mx-auto">
         <motion.div
@@ -38,7 +31,12 @@ export default function MainVisual() {
               animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              {mounted && <GlitchText text="あなたの物語を、" delay={0} />}
+              {mounted && (
+                <>
+                  <PersonGlitch delay={0} />
+                  <span>の物語を、</span>
+                </>
+              )}
             </motion.div>
             <motion.div 
               className="text-depth-800 font-bold leading-none whitespace-nowrap tracking-tight text-ja-heading"
@@ -47,7 +45,7 @@ export default function MainVisual() {
               animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
               transition={{ duration: 1, delay: 0.8 }}
             >
-              {mounted && <GlitchText text="AIが待っている" delay={0.3} />}
+              {mounted && <GlitchText text="AIが待っている" delay={0.3} intensity={0.7} />}
             </motion.div>
           </div>
           
@@ -84,6 +82,6 @@ export default function MainVisual() {
         </motion.div>
         <p className="text-depth-400 text-sm mt-3 text-center tracking-wider uppercase">scroll</p>
       </motion.div>
-    </motion.section>
+    </section>
   )
 }

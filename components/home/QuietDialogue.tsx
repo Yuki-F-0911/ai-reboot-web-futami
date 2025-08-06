@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import ScrollProgressIndicator from '@/components/ui/ScrollProgressIndicator'
-import NoiseGlitch from '@/components/effects/NoiseGlitch'
 import GlitchText from '@/components/effects/GlitchText'
 import QuietParticles from '@/components/effects/QuietParticles'
 
@@ -84,7 +83,14 @@ export default function QuietDialogue() {
   const [showMainMessage, setShowMainMessage] = useState(true)
   const [currentMessage, setCurrentMessage] = useState<1 | 2>(1)
   const [messageTransition, setMessageTransition] = useState<'first' | 'switching' | 'second'>('first')
-  const [noiseLevel, setNoiseLevel] = useState(1) // 初期表示時から強いノイズを表示
+  
+  // 初期マウント時の設定
+  useEffect(() => {
+    // コンポーネントマウント時の設定
+    setCurrentPhase('chaos')
+    setShowMainMessage(true)
+    setCurrentMessage(1)
+  }, [])  // 空の依存配列で初回のみ実行
   
   // FVエリアのスクロールでメッセージを制御
   useEffect(() => {
@@ -93,47 +99,38 @@ export default function QuietDialogue() {
       setFvScrollValue(value)
       
       
-      // 初期表示時からノイズを表示し、徐々にフェードアウト
-      // value = 0のときから演出開始
-      if (value === 0) {
+      // スクロール値に応じてメッセージを制御
+      if (value < 0.1) {
         setCurrentPhase('chaos')  // 初期表示時はカオス
-        setNoiseLevel(1)  // 最大ノイズから開始
         setShowMainMessage(true)
         setCurrentMessage(1)
       } else if (value < 15) {
         setCurrentPhase('chaos')  // デジタルカオス継続
-        setNoiseLevel(Math.max(1 - value * 0.03, 0.6))  // 徐々に弱まる（1.0→0.6）
         setShowMainMessage(true)
         setCurrentMessage(1)
       } else if (value < 30) {
         setCurrentPhase('question')  // 問いかけ
-        setNoiseLevel(Math.max(0.5 - (value - 15) * 0.02, 0.3))  // さらに弱まる（0.5→0.3）
         setShowMainMessage(true)
         setCurrentMessage(1)
       } else if (value < 45) {
         setCurrentPhase('awakening')  // 覚醒前
-        setNoiseLevel(0.4)  // 一時的に少し強まる
         setShowMainMessage(true)
         setCurrentMessage(1)
       } else if (value < 55) {
         setCurrentPhase('transition')  // メッセージ切り替わり
-        setNoiseLevel(0.6)  // 切り替え時に少し強まる
         setShowMainMessage(true)
         setCurrentMessage(2)
       } else if (value < 70) {
         setCurrentPhase('confidence')  // 確信
-        setNoiseLevel(Math.max(0.3 - (value - 55) * 0.01, 0.15))  // 徐々に弱まる（0.3→0.15）
         setShowMainMessage(true)
         setCurrentMessage(2)
       } else if (value < 90) {
         setCurrentPhase('silence')  // 静寂へ
-        setNoiseLevel(Math.max(0.15 - (value - 70) * 0.005, 0.05))  // ほぼ消える（0.15→0.05）
         setShowMainMessage(true)
         setCurrentMessage(2)
       } else {
-        // 序章部分では薄くノイズを残す
+        // 序章部分
         setCurrentPhase('silence')
-        setNoiseLevel(0.05)  // わずかにノイズを残す
         setShowMainMessage(true)
         setCurrentMessage(2)
       }
@@ -157,17 +154,9 @@ export default function QuietDialogue() {
   }, [readingProgress, messageTransition])
   
   return (
-    <>
-      {/* 背景演出 - 最背面に配置 */}
-      {/* パーティクルは削除（FVエリアにはノイズで十分） */}
-      
-      {/* ノイズグリッチエフェクト */}
-      {/* ノイズエフェクト - FVエリアのみで使用 */}
-      {noiseLevel > 0 && <NoiseGlitch intensity={noiseLevel} />}
-      
       <div 
         ref={containerRef}
-        className="min-h-screen text-gray-900 relative"
+        className="min-h-screen text-gray-900 relative z-20"
       >
       
       {/* 読書進行インジケーター - 共通コンポーネント */}
@@ -232,18 +221,11 @@ export default function QuietDialogue() {
         </div>
       </div>
       
-      {/* 背景の微細なパターン */}
-      <div className="fixed inset-0 opacity-[0.02] pointer-events-none">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #6366f1 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
       
       {/* 序章 - FVエリア with グリッチエフェクト - 高さ固定 */}
-      <div ref={fvRef} className="relative bg-white" style={{ height: '150vh' }}>
+      <div ref={fvRef} className="relative" style={{ height: '150vh' }}>
         {/* メッセージ表示エリア - FVエリア内では固定表示 */}
-        <div className={`${fvScrollValue < 100 ? 'fixed' : 'absolute'} top-0 left-0 right-0 h-screen flex items-center justify-center z-10`}
+        <div className={`${fvScrollValue < 100 ? 'fixed' : 'absolute'} top-0 left-0 right-0 h-screen flex items-center justify-center z-30`}
              style={{ 
                top: fvScrollValue >= 100 ? '150vh' : '0',
                opacity: fvScrollValue >= 100 ? 0 : 1,
@@ -2404,6 +2386,5 @@ export default function QuietDialogue() {
         </Section>
       </div>
     </div>
-    </>
   )
 }
