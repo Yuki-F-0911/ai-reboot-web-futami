@@ -235,11 +235,11 @@ export const AcademyProgram = () => {
                   <div className="space-y-2 text-depth-700">
                     <p>• AI人材としてのポートフォリオ作成支援</p>
                     <p>• キャリアカウンセリング</p>
-                    <p>• 転職エージェント連携</p>
                     <p>• 継続的なスキルアップ支援</p>
                   </div>
                 </div>
               </motion.div>
+
             </div>
           </div>
         </motion.div>
