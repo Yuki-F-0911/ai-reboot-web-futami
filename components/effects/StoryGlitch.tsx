@@ -3,35 +3,35 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
-interface PersonGlitchProps {
+interface StoryGlitchProps {
   className?: string
   delay?: number
 }
 
-// 様々な人称のバリエーション
-const personVariations = [
-  { text: 'あなた', font: 'font-sans' },
-  { text: '私', font: 'font-serif' },
-  { text: '僕', font: 'font-mono' },
-  { text: '君', font: 'font-sans font-light' },
-  { text: '貴社', font: 'font-serif font-bold' },
-  { text: '我々', font: 'font-black' },
-  { text: '自分', font: 'font-medium' },
-  { text: '俺', font: 'font-bold' },
-  { text: 'きみ', font: 'font-light' },
-  { text: '諸君', font: 'font-serif italic' },
-  { text: 'YOU', font: 'font-mono uppercase' },
-  { text: '汝', font: 'font-serif' },
-  { text: '皆様', font: 'font-medium' },
-  { text: '各位', font: 'font-bold' },
-  { text: 'みんな', font: 'font-light' },
+// 物語に関連する様々なバリエーション - メッセージの本質を補強
+const storyVariations = [
+  { text: '物語', font: 'font-sans' },
+  { text: 'WILL', font: 'font-mono uppercase tracking-wider' },
+  { text: '意志', font: 'font-serif font-bold' },
+  { text: '未来', font: 'font-bold' },
+  { text: 'story', font: 'font-mono' },
+  { text: '意思', font: 'font-black' },
+  { text: 'will', font: 'font-mono italic' },
+  { text: '可能性', font: 'font-medium' },
+  { text: '創造', font: 'font-serif' },
+  { text: 'future', font: 'font-mono lowercase' },
+  { text: '変革', font: 'font-bold' },
+  { text: 'vision', font: 'font-mono' },
+  { text: '志', font: 'font-black' },
+  { text: '挑戦', font: 'font-medium' },
+  { text: '革新', font: 'font-serif font-bold' },
 ]
 
-export default function PersonGlitch({ className = '', delay = 0 }: PersonGlitchProps) {
+export default function StoryGlitch({ className = '', delay = 0 }: StoryGlitchProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isGlitching, setIsGlitching] = useState(false)
-  const [displayText, setDisplayText] = useState(personVariations[0].text)
-  const [displayFont, setDisplayFont] = useState(personVariations[0].font)
+  const [displayText, setDisplayText] = useState(storyVariations[0].text)
+  const [displayFont, setDisplayFont] = useState(storyVariations[0].font)
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
@@ -49,22 +49,22 @@ export default function PersonGlitch({ className = '', delay = 0 }: PersonGlitch
       setIsGlitching(true)
       // グリッチ開始（最適化: バッチ更新）
       glitchInterval = setInterval(() => {
-        const randomIndex = Math.floor(Math.random() * personVariations.length)
+        const randomIndex = Math.floor(Math.random() * storyVariations.length)
         // 状態更新を1回にまとめる
         requestAnimationFrame(() => {
           setCurrentIndex(randomIndex)
-          setDisplayText(personVariations[randomIndex].text)
-          setDisplayFont(personVariations[randomIndex].font)
+          setDisplayText(storyVariations[randomIndex].text)
+          setDisplayFont(storyVariations[randomIndex].font)
         })
-      }, 100) // 100msごとに変化（少し遅く）
+      }, 100) // 100msごとに変化
 
-      // 1.5秒後に「あなた」で安定
+      // 1.5秒後に「物語」で安定
       stabilizeTimeout = setTimeout(() => {
         if (glitchInterval) clearInterval(glitchInterval)
         setIsGlitching(false)
         setCurrentIndex(0)
-        setDisplayText(personVariations[0].text)
-        setDisplayFont(personVariations[0].font)
+        setDisplayText(storyVariations[0].text)
+        setDisplayFont(storyVariations[0].font)
       }, 1500)
     }, Math.max(100, delay))
 
@@ -76,7 +76,7 @@ export default function PersonGlitch({ className = '', delay = 0 }: PersonGlitch
   }, [isClient, delay])
 
   if (!isClient) {
-    return <span className={className}>あなた</span>
+    return <span className={className}>物語</span>
   }
 
   return (
