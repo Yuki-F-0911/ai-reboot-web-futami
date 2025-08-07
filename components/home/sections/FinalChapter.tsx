@@ -16,7 +16,7 @@ export default function FinalChapter() {
     // Contextがない場合はデフォルト値を使用
   }
   return (
-    <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-white via-purple-50/20 to-white">
+    <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-pink-50 via-purple-50 to-gray-50">
       {/* 控えめな背景効果 */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -114,11 +114,11 @@ export default function FinalChapter() {
             viewport={{ once: true }}
             className="border-y border-gray-200 py-12 text-center"
           >
-            <p className="text-lg text-gray-800 font-medium">
+            <p className="text-lg md:text-xl text-gray-800 font-medium">
               我々は、その「Will」を一緒に見つける、<br />
               小さな秘密基地です。
             </p>
-            <p className="text-sm text-gray-600 mt-6">
+            <p className="text-base md:text-lg text-gray-600 mt-6">
               経済産業省認定で、最大70%の受講料支援。
             </p>
           </motion.div>
@@ -236,7 +236,7 @@ export default function FinalChapter() {
             className="text-center pt-16"
           >
             <p className="font-bold text-gray-800 mb-4 text-2xl tracking-wider">-AI REBOOT-</p>
-            <p className="text-base text-gray-600">
+            <p className="text-base md:text-lg text-gray-600">
               あなたの「Will」が、静かに待っている。
             </p>
           </motion.div>

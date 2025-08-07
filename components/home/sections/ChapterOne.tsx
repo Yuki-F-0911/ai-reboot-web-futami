@@ -9,7 +9,7 @@ export default function ChapterOne() {
   const isEmphasized = emphasis.chapter1
 
   return (
-    <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-white to-gray-50">
+    <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-gray-50 to-slate-50">
       {/* 微細な背景パターン */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{

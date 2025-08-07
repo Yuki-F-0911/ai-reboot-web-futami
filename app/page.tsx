@@ -5,6 +5,7 @@ import AcademyHomePage from '@/components/home/AcademyHomePage'
 import NoiseGlitch from '@/components/effects/NoiseGlitch'
 import MangaMontage from '@/components/effects/MangaMontage'
 import OnboardingFlow from '@/components/onboarding/OnboardingFlow'
+import PersistentMusicControl from '@/components/ui/PersistentMusicControl'
 import { PersonalizationProvider } from '@/contexts/PersonalizationContext'
 
 export default function Home() {
@@ -41,6 +42,9 @@ export default function Home() {
     <PersonalizationProvider>
       {/* オンボーディングフロー（質問→名前→音楽） */}
       <OnboardingFlow onComplete={() => setContentReady(true)} />
+      
+      {/* 永続的な音楽コントロール */}
+      <PersistentMusicControl />
       
       {/* コンテンツは設定完了後に表示 */}
       {contentReady && (

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 export default function ChapterTwo() {
   return (
-    <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-gray-50 via-indigo-50/30 to-white">
+    <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-slate-50 via-indigo-50 to-blue-50">
       {/* 動的な背景要素 */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -68,7 +68,7 @@ export default function ChapterTwo() {
                 className="relative"
               >
                 <div className="absolute -left-[33px] top-2 w-2 h-2 bg-indigo-400 rounded-full" />
-                <p className="text-gray-600">今日覚えたAIツールが、明日には別のものに置き換わる。</p>
+                <p className="text-base md:text-lg text-gray-600">今日覚えたAIツールが、明日には別のものに置き換わる。</p>
               </motion.div>
               
               <motion.div
@@ -79,7 +79,7 @@ export default function ChapterTwo() {
                 className="relative"
               >
                 <div className="absolute -left-[33px] top-2 w-2 h-2 bg-indigo-400 rounded-full" />
-                <p className="text-gray-600">毎朝のニュースで、また新しいサービスが生まれている。</p>
+                <p className="text-base md:text-lg text-gray-600">毎朝のニュースで、また新しいサービスが生まれている。</p>
               </motion.div>
               
               <motion.div
@@ -90,7 +90,7 @@ export default function ChapterTwo() {
                 className="relative"
               >
                 <div className="absolute -left-[33px] top-2 w-2 h-2 bg-indigo-400 rounded-full" />
-                <p className="text-gray-600">
+                <p className="text-base md:text-lg text-gray-600">
                   ChatGPTの使い方だけ覚えても、<br />
                   来週にはもっとすごいツールが出てくるかもしれない。
                 </p>
@@ -168,7 +168,7 @@ export default function ChapterTwo() {
                 <p className="text-lg text-gray-700 font-medium">
                   まず必要なのは、自分の軸を見つけること。
                 </p>
-                <p className="text-gray-600">
+                <p className="text-base md:text-lg text-gray-600">
                   「私は本当は何がしたいんだっけ？」<br />
                   散らばった経験や想いを整理して、<br />
                   あなたの中にある「Will」を言語化する。
@@ -184,7 +184,7 @@ export default function ChapterTwo() {
                 <p className="text-lg text-gray-700 font-medium">
                   そうすると、AIとの関係が変わる。
                 </p>
-                <p className="text-gray-600">
+                <p className="text-base md:text-lg text-gray-600">
                   「このAIで何ができるか」じゃなくて、<br />
                   「私のやりたいことに、このAIをどう使うか」<br />
                   という発想に自然と切り替わる。

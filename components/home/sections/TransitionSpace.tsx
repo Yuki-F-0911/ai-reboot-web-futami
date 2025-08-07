@@ -6,7 +6,7 @@ import InnerVoiceBubble from './InnerVoiceBubble'
 
 export default function TransitionSpace() {
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-[150vh] overflow-hidden">
       {/* FVから序章へ: 透明から完全な闇へ */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black" />

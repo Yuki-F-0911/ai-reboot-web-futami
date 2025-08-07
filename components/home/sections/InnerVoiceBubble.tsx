@@ -14,7 +14,7 @@ export default function InnerVoiceBubble() {
     <>
       {/* 1つ目の思考バブル - 左寄り配置 */}
       <motion.div
-        className="absolute top-[30%] left-[20%] md:left-[25%] z-40"
+        className="absolute top-[20%] left-[20%] md:left-[25%] z-40"
         initial={{ 
           opacity: 0, 
           y: 60, 
@@ -91,7 +91,7 @@ export default function InnerVoiceBubble() {
 
       {/* 2つ目の思考バブル - 右寄り配置、少し下に */}
       <motion.div
-        className="absolute top-[55%] right-[15%] md:right-[20%] z-40"
+        className="absolute top-[45%] right-[15%] md:right-[20%] z-40"
         initial={{ 
           opacity: 0, 
           y: 80, 
@@ -172,7 +172,7 @@ export default function InnerVoiceBubble() {
 
       {/* 3つ目の思考バブル - 下部やや左寄り */}
       <motion.div
-        className="absolute bottom-[10%] left-[35%] transform -translate-x-1/2 z-40"
+        className="absolute top-[75%] left-[35%] transform -translate-x-1/2 z-40"
         initial={{ 
           opacity: 0, 
           y: 100, 
@@ -251,7 +251,7 @@ export default function InnerVoiceBubble() {
 
       {/* 装飾的な思考の痕跡（連続する小さな円） */}
       <motion.div
-        className="absolute bottom-[5%] left-[50%] z-20"
+        className="absolute top-[90%] left-[50%] z-20"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 2, delay: 0.9 }}

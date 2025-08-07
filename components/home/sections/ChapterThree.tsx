@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 export default function ChapterThree() {
   return (
-    <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-white via-emerald-50/20 to-white">
+    <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-blue-50 via-emerald-50 to-green-50">
       {/* 控えめな背景効果 */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

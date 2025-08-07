@@ -71,7 +71,7 @@ export default function NameInput({ onComplete }: NameInputProps) {
                 onChange={(e) => setName(e.target.value)}
                 placeholder="ニックネームでもOK（例：たろう）"
                 className="w-full max-w-md mx-auto block px-6 py-4 text-xl text-center border-2 border-gray-200 rounded-xl focus:border-will-primary focus:outline-none transition-colors"
-                maxLength={20}
+                maxLength={10}
                 autoFocus
               />
             </motion.div>

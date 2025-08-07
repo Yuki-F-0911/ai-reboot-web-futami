@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 export default function ChapterFour() {
   return (
-    <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-white via-rose-50/20 to-white">
+    <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-green-50 via-rose-50 to-pink-50">
       {/* 控えめな背景効果 */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -120,8 +120,8 @@ export default function ChapterFour() {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <p className="text-lg text-gray-800 font-medium">月曜日の朝が、憂鬱じゃなくなる。</p>
-              <p className="text-base text-gray-600 pl-8 mt-2">「今週は何を試してみようか」</p>
+              <p className="text-lg md:text-xl text-gray-800 font-medium">月曜日の朝が、憂鬱じゃなくなる。</p>
+              <p className="text-base md:text-lg text-gray-600 pl-8 mt-2">「今週は何を試してみようか」</p>
             </motion.div>
 
             <motion.div
@@ -130,8 +130,8 @@ export default function ChapterFour() {
               transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              <p className="text-lg text-gray-800 font-medium">会議での発言が変わる。</p>
-              <p className="text-base text-gray-600 pl-8 mt-2">
+              <p className="text-lg md:text-xl text-gray-800 font-medium">会議での発言が変わる。</p>
+              <p className="text-base md:text-lg text-gray-600 pl-8 mt-2">
                 「それは難しいですね」から<br />
                 「こんなアプローチはどうでしょう」へ。
               </p>
@@ -143,8 +143,8 @@ export default function ChapterFour() {
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
             >
-              <p className="text-lg text-gray-800 font-medium">同僚との雑談が変わる。</p>
-              <p className="text-base text-gray-600 pl-8 mt-2">愚痴の時間が、アイデアを出し合う時間に。</p>
+              <p className="text-lg md:text-xl text-gray-800 font-medium">同僚との雑談が変わる。</p>
+              <p className="text-base md:text-lg text-gray-600 pl-8 mt-2">愚痴の時間が、アイデアを出し合う時間に。</p>
             </motion.div>
 
             <motion.div
@@ -153,8 +153,8 @@ export default function ChapterFour() {
               transition={{ duration: 0.6, delay: 0.7 }}
               viewport={{ once: true }}
             >
-              <p className="text-lg text-gray-800 font-medium">退屈だった仕事が、自分だけの実験場に変わる。</p>
-              <p className="text-base text-gray-600 pl-8 mt-2">「こうあるべき」から「こうありたい」へ。</p>
+              <p className="text-lg md:text-xl text-gray-800 font-medium">退屈だった仕事が、自分だけの実験場に変わる。</p>
+              <p className="text-base md:text-lg text-gray-600 pl-8 mt-2">「こうあるべき」から「こうありたい」へ。</p>
             </motion.div>
           </motion.div>
 
@@ -184,7 +184,7 @@ export default function ChapterFour() {
             }}>
               そして、家族との時間も大切にできる。
             </p>
-            <p className="text-base text-gray-600 mt-2">
+            <p className="text-base md:text-lg text-gray-600 mt-2">
               効率化で生まれた時間を、本当に大切なことに。
             </p>
           </motion.div>

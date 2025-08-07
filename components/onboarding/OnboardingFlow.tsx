@@ -1,10 +1,11 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import PersonalityQuiz from './PersonalityQuiz'
 import NameInput from './NameInput'
 import { usePersonalization, QuizAnswers } from '@/contexts/PersonalizationContext'
+import { playGlobalMusic } from '@/components/ui/PersistentMusicControl'
 
 interface OnboardingFlowProps {
   onComplete: () => void
@@ -13,13 +14,10 @@ interface OnboardingFlowProps {
 type OnboardingStep = 'quiz' | 'name' | 'music' | 'complete'
 
 export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
+  const { data, updateQuizAnswers, updateUserName, updateMusicPreference, setCompleted } = usePersonalization()
+  
   const [currentStep, setCurrentStep] = useState<OnboardingStep>('quiz')
   const [showMusicDialog, setShowMusicDialog] = useState(false)
-  const [userChoice, setUserChoice] = useState<'play' | 'mute' | null>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const audioRef = useRef<HTMLAudioElement | null>(null)
-  
-  const { data, updateQuizAnswers, updateUserName, updateMusicPreference, setCompleted } = usePersonalization()
 
   // 既に完了している場合はスキップ
   useEffect(() => {
@@ -28,19 +26,6 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
     }
   }, [data.hasCompleted, onComplete])
 
-  // オーディオ要素を作成
-  useEffect(() => {
-    audioRef.current = new Audio('/reboot.mp3')
-    audioRef.current.loop = true
-    audioRef.current.volume = 0.3
-
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause()
-        audioRef.current = null
-      }
-    }
-  }, [])
 
   const handleQuizComplete = (answers: QuizAnswers) => {
     updateQuizAnswers(answers)
@@ -54,30 +39,24 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
   }
 
   const handlePlayMusic = () => {
-    setUserChoice('play')
-    setIsPlaying(true)
     updateMusicPreference('play')
-    if (audioRef.current) {
-      audioRef.current.play().catch(error => {
-        console.error('音楽の再生に失敗しました:', error)
-      })
-    }
+    
+    // PersistentMusicControlが音楽を管理するため、少し待ってから再生
     setTimeout(() => {
+      playGlobalMusic()
       setShowMusicDialog(false)
       setCompleted()
       onComplete()
-    }, 500)
+    }, 100)
   }
 
   const handleMuteMusic = () => {
-    setUserChoice('mute')
-    setIsPlaying(false)
     updateMusicPreference('mute')
     setTimeout(() => {
       setShowMusicDialog(false)
       setCompleted()
       onComplete()
-    }, 500)
+    }, 100)
   }
 
   // すでに完了している場合は何も表示しない
@@ -133,10 +112,19 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
               {/* コンテンツ部分 */}
               <div className="p-6">
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  このサイトでは、
-                  {data.userName ? `${data.userName}の` : 'あなたの'}
-                  物語により没入していただくため、
-                  オリジナルのテーマ音楽をご用意しました。
+                  {data.quizAnswers.expectation === 'efficiency' || data.quizAnswers.focus === 'skills' ? (
+                    <>
+                      {data.userName ? `${data.userName}の` : 'あなたの'}
+                      実践的な学びの旅を彩る、
+                      集中力を高めるBGMをご用意しました。
+                    </>
+                  ) : (
+                    <>
+                      {data.userName ? `${data.userName}の` : 'あなたの'}
+                      物語により没入していただくため、
+                      オリジナルのテーマ音楽をご用意しました。
+                    </>
+                  )}
                 </p>
 
                 {/* 選択ボタン */}
@@ -176,36 +164,6 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* 音楽コントロールボタン（ダイアログ閉じた後） */}
-      {!showMusicDialog && userChoice === 'play' && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 0.3 }}
-          onClick={() => {
-            if (isPlaying) {
-              audioRef.current?.pause()
-              setIsPlaying(false)
-            } else {
-              audioRef.current?.play()
-              setIsPlaying(true)
-            }
-          }}
-          className="fixed bottom-4 right-4 z-50 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
-        >
-          {isPlaying ? (
-            <svg className="w-6 h-6 text-will-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6 text-will-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          )}
-        </motion.button>
-      )}
     </>
   )
 }

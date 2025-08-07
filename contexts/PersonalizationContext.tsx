@@ -60,19 +60,35 @@ export const PersonalizationProvider: React.FC<{ children: ReactNode }> = ({ chi
   }
 
   const updateUserName = (name: string | null) => {
-    saveData({ ...data, userName: name })
+    setData(prev => {
+      const newData = { ...prev, userName: name }
+      localStorage.setItem('aiRebootPersonalization', JSON.stringify(newData))
+      return newData
+    })
   }
 
   const updateQuizAnswers = (answers: QuizAnswers) => {
-    saveData({ ...data, quizAnswers: answers })
+    setData(prev => {
+      const newData = { ...prev, quizAnswers: answers }
+      localStorage.setItem('aiRebootPersonalization', JSON.stringify(newData))
+      return newData
+    })
   }
 
   const updateMusicPreference = (preference: 'play' | 'mute') => {
-    saveData({ ...data, musicPreference: preference })
+    setData(prev => {
+      const newData = { ...prev, musicPreference: preference }
+      localStorage.setItem('aiRebootPersonalization', JSON.stringify(newData))
+      return newData
+    })
   }
 
   const setCompleted = () => {
-    saveData({ ...data, hasCompleted: true })
+    setData(prev => {
+      const newData = { ...prev, hasCompleted: true }
+      localStorage.setItem('aiRebootPersonalization', JSON.stringify(newData))
+      return newData
+    })
   }
 
   const resetData = () => {

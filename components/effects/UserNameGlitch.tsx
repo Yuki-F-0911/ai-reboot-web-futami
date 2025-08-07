@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useMemo } from 'react'
 import { motion } from 'framer-motion'
 
 interface UserNameGlitchProps {
@@ -55,7 +55,8 @@ export default function UserNameGlitch({ userName, className = '', delay = 0 }: 
   const [glitchChars, setGlitchChars] = useState<string[]>([])
   const [isTransitioning, setIsTransitioning] = useState(false)
   const initialEffectDone = useRef(false)
-  const personVariations = generateVariations(userName)
+  // useMemoで配列の再生成を防ぐ
+  const personVariations = useMemo(() => generateVariations(userName), [userName])
 
   useEffect(() => {
     setIsClient(true)
@@ -112,8 +113,7 @@ export default function UserNameGlitch({ userName, className = '', delay = 0 }: 
         const glitchType = Math.random()
         
         if (glitchType < 0.3) {
-          // 30%: ブレ演出
-          setDisplayText(userName)
+          // 30%: ブレ演出（現在の表示テキストのまま）
           setIsGlitching(true)
           setTimeout(() => {
             setIsGlitching(false)
@@ -131,11 +131,13 @@ export default function UserNameGlitch({ userName, className = '', delay = 0 }: 
               setDisplayFont(personVariations[randomIndex].font)
               setIsGlitching(false)
               
-              // 元に戻す
-              setTimeout(() => {
-                setDisplayText(userName)
-                setDisplayFont('font-sans')
-              }, 150)
+              // 時々元に戻す（50%の確率）
+              if (Math.random() > 0.5) {
+                setTimeout(() => {
+                  setDisplayText(userName)
+                  setDisplayFont('font-sans')
+                }, 150)
+              }
             }, 50)
           }, 100)
         } else {
@@ -187,30 +189,32 @@ export default function UserNameGlitch({ userName, className = '', delay = 0 }: 
               setIsTransitioning(false)
               setIsGlitching(false)
               
-              // 元に戻す
-              setTimeout(() => {
-                setIsTransitioning(true)
-                let returnStep = 0
-                const returnInterval = setInterval(() => {
-                  returnStep++
-                  
-                  if (returnStep < 4) {
-                    const chars = targetText.split('').map((char) => {
-                      if (Math.random() > 0.6) {
-                        return '░▒▓'[Math.floor(Math.random() * 3)]
-                      }
-                      return char
-                    })
-                    setGlitchChars(chars)
-                  } else {
-                    setDisplayText(userName)
-                    setDisplayFont('font-sans')
-                    setGlitchChars([])
-                    setIsTransitioning(false)
-                    clearInterval(returnInterval)
-                  }
-                }, 30)
-              }, 150)
+              // 30%の確率で元に戻す、70%はそのまま
+              if (Math.random() < 0.3) {
+                setTimeout(() => {
+                  setIsTransitioning(true)
+                  let returnStep = 0
+                  const returnInterval = setInterval(() => {
+                    returnStep++
+                    
+                    if (returnStep < 4) {
+                      const chars = targetText.split('').map((char) => {
+                        if (Math.random() > 0.6) {
+                          return '░▒▓'[Math.floor(Math.random() * 3)]
+                        }
+                        return char
+                      })
+                      setGlitchChars(chars)
+                    } else {
+                      setDisplayText(userName)
+                      setDisplayFont('font-sans')
+                      setGlitchChars([])
+                      setIsTransitioning(false)
+                      clearInterval(returnInterval)
+                    }
+                  }, 30)
+                }, 150)
+              }
             }
           }, stepDuration)
         }
