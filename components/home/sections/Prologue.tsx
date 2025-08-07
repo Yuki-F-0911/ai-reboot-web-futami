@@ -166,34 +166,6 @@ export default function Prologue() {
                   あなたの「<span className="text-white/95" style={{ fontWeight: '400' }}>Will</span>」ー本当の意志ーが眠っている。
                 </p>
               </motion.div>
-
-              {/* 読者の気づき - 思考バブル */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0, rotate: -5 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ 
-                  duration: 0.7,
-                  scale: { type: "spring", damping: 18, stiffness: 90 },
-                  delay: 0.95
-                }}
-                viewport={{ once: true }}
-                className="relative mx-auto max-w-md my-12"
-              >
-                <div className="relative bg-white/10 backdrop-blur-md shadow-lg p-5 rounded-3xl border border-white/20"
-                     style={{ borderRadius: '45% 55% 50% 50% / 60% 60% 40% 40%' }}>
-                  <p className="text-center text-white/80 italic text-sm leading-relaxed">
-                    「そうか...あの時感じた『これじゃない』感覚、<br/>
-                    あれは逃げじゃなくて、<br/>
-                    本当の自分からのサインだったのか」
-                  </p>
-                </div>
-                {/* 思考バブルの尻尾 */}
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-                  <div className="w-4 h-4 bg-white/10 backdrop-blur-md rounded-full shadow-md border border-white/20"></div>
-                  <div className="absolute -bottom-3 left-0.5 w-3 h-3 bg-white/8 rounded-full shadow-sm"></div>
-                  <div className="absolute -bottom-5 left-1 w-2 h-2 bg-white/5 rounded-full"></div>
-                </div>
-              </motion.div>
               
               <motion.p
                 className="text-lg md:text-xl text-white/70"

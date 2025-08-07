@@ -139,14 +139,23 @@ export default function ChapterOne() {
               delay: 0.35
             }}
             viewport={{ once: true }}
-            className="relative mx-auto max-w-md my-12"
+            className="relative my-12 flex justify-center"
           >
-            <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg p-6 rounded-3xl"
-                 style={{ borderRadius: '45% 55% 50% 50% / 60% 60% 40% 40%' }}>
-              <p className="text-center text-gray-600 italic text-sm leading-relaxed">
-                「部下のミスをフォローした徹夜も、<br/>
-                誰も気づかなかった業務改善も、<br/>
-                評価面談では一言も話せなかった...」
+            <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg"
+                 style={{ 
+                   borderRadius: '45% 55% 50% 50% / 60% 60% 40% 40%',
+                   padding: '24px 28px'
+                 }}>
+              <p className="text-gray-600 italic text-sm"
+                 style={{ 
+                   writingMode: 'vertical-rl',
+                   textOrientation: 'upright',
+                   fontFamily: '"Noto Sans JP", sans-serif',
+                   letterSpacing: '0.1em',
+                   lineHeight: '1.8',
+                   height: '120px'
+                 }}>
+                それが私のなぜだった
               </p>
             </div>
             {/* 思考バブルの尻尾 */}

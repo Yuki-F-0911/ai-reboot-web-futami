@@ -96,50 +96,78 @@ export default function ChapterThree() {
             </p>
           </motion.div>
 
-          {/* サポート内容 - 吹き出し風カード */}
+          {/* 受講生の声とイラスト */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="space-y-4 py-8"
+            className="space-y-12 py-8"
           >
-            {/* 受講生の声1 */}
+            {/* 受講生の声1 - 40代営業部長 */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.45 }}
               viewport={{ once: true }}
-              className="relative max-w-xs"
+              className="flex items-start gap-6"
             >
-              <div className="bg-emerald-50 p-4 rounded-2xl shadow-md">
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  <span className="font-bold">40代・営業部長：</span><br/>
-                  「『数字を追うのが仕事』だと思ってた。<br/>
-                  でも本当は『チームの成長を見るのが好き』だった。<br/>
-                  15年目にして初めて、自分の本当のWillに気づいた」
-                </p>
+              {/* 人物イラスト指定 */}
+              <div className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                <span className="text-2xl">👔</span>
+                <p className="hidden">[挿絵: 40代営業部長・スーツ姿]</p>
               </div>
-              <div className="absolute -left-2 top-4 w-0 h-0 border-t-[10px] border-t-transparent border-r-[15px] border-r-emerald-50 border-b-[10px] border-b-transparent"></div>
+              
+              <div className="relative">
+                <div className="bg-emerald-50 rounded-2xl shadow-md inline-block"
+                     style={{ padding: '20px 24px' }}>
+                  <p className="text-sm text-gray-700"
+                     style={{ 
+                       writingMode: 'vertical-rl',
+                       textOrientation: 'upright',
+                       fontFamily: '"Noto Sans JP", sans-serif',
+                       letterSpacing: '0.1em',
+                       lineHeight: '1.8',
+                       height: '200px'
+                     }}>
+                    部下の成長の瞬間が、一番嬉しかった
+                  </p>
+                </div>
+                <div className="absolute -left-2 top-6 w-0 h-0 border-t-[10px] border-t-transparent border-r-[15px] border-r-emerald-50 border-b-[10px] border-b-transparent"></div>
+              </div>
             </motion.div>
 
-            {/* 受講生の声2 */}
+            {/* 受講生の声2 - 30代人事担当 */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.55 }}
               viewport={{ once: true }}
-              className="relative max-w-xs ml-auto"
+              className="flex items-start gap-6 flex-row-reverse"
             >
-              <div className="bg-teal-50 p-4 rounded-2xl shadow-md">
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  <span className="font-bold">30代・人事担当：</span><br/>
-                  「みんな表向きは『AI活用してます』って言うけど、<br/>
-                  本音では『何から始めていいか分からない』。<br/>
-                  ここでは、その本音から始められた」
-                </p>
+              {/* 人物イラスト指定 */}
+              <div className="w-16 h-16 bg-gradient-to-br from-teal-100 to-teal-200 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                <span className="text-2xl">👩‍💼</span>
+                <p className="hidden">[挿絵: 30代女性・人事担当]</p>
               </div>
-              <div className="absolute -right-2 top-4 w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-teal-50 border-b-[10px] border-b-transparent"></div>
+              
+              <div className="relative">
+                <div className="bg-teal-50 rounded-2xl shadow-md inline-block"
+                     style={{ padding: '20px 24px' }}>
+                  <p className="text-sm text-gray-700"
+                     style={{ 
+                       writingMode: 'vertical-rl',
+                       textOrientation: 'upright',
+                       fontFamily: '"Noto Sans JP", sans-serif',
+                       letterSpacing: '0.1em',
+                       lineHeight: '1.8',
+                       height: '220px'
+                     }}>
+                    みんな分からないって言えなかった
+                  </p>
+                </div>
+                <div className="absolute -right-2 top-6 w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-teal-50 border-b-[10px] border-b-transparent"></div>
+              </div>
             </motion.div>
           </motion.div>
 

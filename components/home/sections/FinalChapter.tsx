@@ -171,15 +171,23 @@ export default function FinalChapter() {
               delay: 0.65
             }}
             viewport={{ once: true }}
-            className="relative mx-auto max-w-md my-12"
+            className="relative my-12 flex justify-center"
           >
-            <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg p-6 rounded-3xl"
-                 style={{ borderRadius: '55% 45% 45% 55% / 50% 60% 40% 50%' }}>
-              <p className="text-center text-gray-700 italic text-sm leading-relaxed font-medium">
-                「もう十分悩んだ。<br/>
-                完璧になってから始めるんじゃなくて、<br/>
-                始めながら完璧に近づけばいい。<br/>
-                今、動き出そう」
+            <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg"
+                 style={{ 
+                   borderRadius: '55% 45% 45% 55% / 50% 60% 40% 50%',
+                   padding: '24px 28px'
+                 }}>
+              <p className="text-gray-700 italic text-sm font-medium"
+                 style={{ 
+                   writingMode: 'vertical-rl',
+                   textOrientation: 'upright',
+                   fontFamily: '"Noto Sans JP", sans-serif',
+                   letterSpacing: '0.1em',
+                   lineHeight: '1.8',
+                   height: '100px'
+                 }}>
+                今、動き出そう
               </p>
             </div>
             {/* 思考バブルの尻尾 */}

@@ -132,14 +132,20 @@ export default function ChapterTwo() {
               delay: 0.45
             }}
             viewport={{ once: true }}
-            className="relative ml-auto mr-4 max-w-sm my-8"
+            className="relative my-8 flex justify-end mr-4"
           >
-            <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 text-white p-5 rounded-2xl shadow-xl">
-              <p className="text-sm leading-relaxed">
-                <span className="font-bold">💭 気づきの瞬間：</span><br/>
-                「ChatGPTの使い方を覚えるんじゃなくて、<br/>
-                『私が解決したい課題』を言語化することが先だった。<br/>
-                そうしたら、どんなAIツールでも応用できるようになった」
+            <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-2xl shadow-xl inline-block"
+                 style={{ padding: '24px 32px' }}>
+              <p className="text-sm font-medium"
+                 style={{ 
+                   writingMode: 'vertical-rl',
+                   textOrientation: 'upright',
+                   fontFamily: '"Noto Sans JP", sans-serif',
+                   letterSpacing: '0.12em',
+                   lineHeight: '2',
+                   height: '180px'
+                 }}>
+                使い方より、何を実現したいか
               </p>
               {/* 吹き出しの三角形 */}
               <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 rotate-45 w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-600"></div>

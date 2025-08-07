@@ -79,14 +79,23 @@ export default function ChapterFour() {
               delay: 0.25
             }}
             viewport={{ once: true }}
-            className="relative mx-auto max-w-md my-8"
+            className="relative my-8 flex justify-center"
           >
-            <div className="relative bg-gradient-to-br from-rose-50 to-pink-50 backdrop-blur-sm shadow-lg p-5 rounded-3xl"
-                 style={{ borderRadius: '50% 50% 45% 55% / 55% 45% 45% 55%' }}>
-              <p className="text-center text-gray-600 italic text-sm leading-relaxed">
-                「昨日まで『また月曜か...』だったのに、<br/>
-                今朝は『今週はあのアイデア試してみよう』って<br/>
-                自然に思えた。これが変化の始まりか」
+            <div className="relative bg-gradient-to-br from-rose-50 to-pink-50 backdrop-blur-sm shadow-lg"
+                 style={{ 
+                   borderRadius: '50% 50% 45% 55% / 55% 45% 45% 55%',
+                   padding: '24px 28px'
+                 }}>
+              <p className="text-gray-600 italic text-sm"
+                 style={{ 
+                   writingMode: 'vertical-rl',
+                   textOrientation: 'upright',
+                   fontFamily: '"Noto Sans JP", sans-serif',
+                   letterSpacing: '0.1em',
+                   lineHeight: '1.8',
+                   height: '140px'
+                 }}>
+                月曜が楽しみになった
               </p>
             </div>
             {/* 思考バブルの尻尾 */}
