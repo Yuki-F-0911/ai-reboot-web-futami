@@ -128,9 +128,9 @@ export default function ChapterThree() {
                        fontFamily: '"Noto Sans JP", sans-serif',
                        letterSpacing: '0.1em',
                        lineHeight: '1.8',
-                       height: '200px'
+                       height: '120px'
                      }}>
-                    部下の成長の瞬間が、一番嬉しかった
+                    部下の成長が嬉しかった
                   </p>
                 </div>
                 <div className="absolute -left-2 top-6 w-0 h-0 border-t-[10px] border-t-transparent border-r-[15px] border-r-emerald-50 border-b-[10px] border-b-transparent"></div>
@@ -161,9 +161,9 @@ export default function ChapterThree() {
                        fontFamily: '"Noto Sans JP", sans-serif',
                        letterSpacing: '0.1em',
                        lineHeight: '1.8',
-                       height: '220px'
+                       height: '100px'
                      }}>
-                    みんな分からないって言えなかった
+                    本音を言えた
                   </p>
                 </div>
                 <div className="absolute -right-2 top-6 w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-teal-50 border-b-[10px] border-b-transparent"></div>

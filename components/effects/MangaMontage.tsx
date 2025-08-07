@@ -77,7 +77,7 @@ const GlitchPanel: React.FC<GlitchPanelProps> = ({ panel, isActive, isLoading })
       opacity: 0,
     },
     visible: {
-      opacity: isLoading ? 1 : 0.4, // ローディング後は透明度を下げる
+      opacity: isLoading ? 1 : 0.6, // ローディング後は少し濃く（0.4→0.6）
       transition: {
         duration: 0
       }
@@ -209,10 +209,16 @@ const GlitchPanel: React.FC<GlitchPanelProps> = ({ panel, isActive, isLoading })
   )
 }
 
+interface ActivePanel {
+  id: string
+  index: number
+}
+
 export default function MangaMontage() {
-  const [activeIndices, setActiveIndices] = useState<number[]>([])
+  const [activePanels, setActivePanels] = useState<ActivePanel[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [isMounted, setIsMounted] = useState(false)
+  const panelCounterRef = React.useRef(0)
   
   // クライアントサイドでのみマウント
   useEffect(() => {
@@ -229,27 +235,45 @@ export default function MangaMontage() {
   }, [])
   
   useEffect(() => {
+    if (!isMounted) return // マウント前は実行しない
+    
+    const timers: NodeJS.Timeout[] = []
+    
     // グリッチ的なランダムな表示パターン
     const showPanel = () => {
-      const numPanels = isLoading 
-        ? (Math.random() > 0.4 ? 3 : Math.random() > 0.7 ? 2 : 4) // ローディング中は複数枚
-        : (Math.random() > 0.7 ? 1 : 2) // ローディング後は1-2枚
-      const indices: number[] = []
-      
-      for (let i = 0; i < numPanels; i++) {
-        indices.push(Math.floor(Math.random() * mangaPanels.length))
+      if (!isLoading) {
+        // ローディング後は1枚ずつ追加
+        const newIndex = Math.floor(Math.random() * mangaPanels.length)
+        const panelId = `panel-${panelCounterRef.current++}`
+        
+        setActivePanels(prev => [...prev, { id: panelId, index: newIndex }])
+        
+        // 個別に削除
+        const displayTime = 1000 + Math.random() * 1500 // 1-2.5秒後に削除
+        const hideTimer = setTimeout(() => {
+          setActivePanels(prev => prev.filter(p => p.id !== panelId))
+        }, displayTime)
+        timers.push(hideTimer)
+        
+      } else {
+        // ローディング中は複数枚を一度にセット
+        const numPanels = Math.random() > 0.4 ? 3 : Math.random() > 0.7 ? 2 : 4
+        const newPanels: ActivePanel[] = []
+        for (let i = 0; i < numPanels; i++) {
+          newPanels.push({
+            id: `panel-${panelCounterRef.current++}`,
+            index: Math.floor(Math.random() * mangaPanels.length)
+          })
+        }
+        setActivePanels(newPanels)
+        
+        // まとめて削除
+        const displayTime = 30 + Math.random() * 270 // 0.03-0.3秒
+        const hideTimer = setTimeout(() => {
+          setActivePanels([])
+        }, displayTime)
+        timers.push(hideTimer)
       }
-      
-      setActiveIndices(indices)
-      
-      // 表示時間もランダム
-      const displayTime = isLoading 
-        ? 30 + Math.random() * 270  // ローディング中は高速（0.03-0.3秒）
-        : 500 + Math.random() * 1000 // ローディング後はゆっくり（0.5-1.5秒）
-      
-      setTimeout(() => {
-        setActiveIndices([])
-      }, displayTime)
     }
     
     // 不規則なグリッチパターンを作成
@@ -262,39 +286,36 @@ export default function MangaMontage() {
           // 50% - 連続グリッチ
           const burstCount = 5 + Math.floor(Math.random() * 6)
           for (let i = 0; i < burstCount; i++) {
-            setTimeout(showPanel, i * (20 + Math.random() * 50))
+            const timer = setTimeout(showPanel, i * (20 + Math.random() * 50))
+            timers.push(timer)
           }
-          setTimeout(scheduleGlitch, burstCount * 50 + Math.random() * 300)
+          const nextTimer = setTimeout(scheduleGlitch, burstCount * 50 + Math.random() * 300)
+          timers.push(nextTimer)
         } else {
           // 50% - 高速グリッチ
           showPanel()
-          setTimeout(scheduleGlitch, 50 + Math.random() * 150)
+          const nextTimer = setTimeout(scheduleGlitch, 50 + Math.random() * 150)
+          timers.push(nextTimer)
         }
       } else {
-        // ローディング後は穏やかに
-        if (rand < 0.3) {
-          // 30% - 短い連続グリッチ
-          const burstCount = 2 + Math.floor(Math.random() * 2)
-          for (let i = 0; i < burstCount; i++) {
-            setTimeout(showPanel, i * (200 + Math.random() * 300))
-          }
-          setTimeout(scheduleGlitch, burstCount * 500 + Math.random() * 3000)
-        } else if (rand < 0.5) {
-          // 20% - 単発グリッチ
-          showPanel()
-          setTimeout(scheduleGlitch, 2000 + Math.random() * 3000)
-        } else {
-          // 50% - 長い休止期間
-          setTimeout(scheduleGlitch, 3000 + Math.random() * 5000)
-        }
+        // ローディング後は短い間隔で次々と表示
+        const nextDelay = Math.random() * 1500 + 300 // 0.3-1.8秒のランダム間隔
+        showPanel()
+        const nextTimer = setTimeout(scheduleGlitch, nextDelay)
+        timers.push(nextTimer)
       }
     }
     
     // 初回開始
-    setTimeout(scheduleGlitch, 200)
+    const startTimer = setTimeout(scheduleGlitch, 200)
+    timers.push(startTimer)
     
-    return () => {} // クリーンアップは特に必要なし
-  }, [isLoading])
+    // クリーンアップ - すべてのタイマーをクリア
+    return () => {
+      timers.forEach(timer => clearTimeout(timer))
+      setActivePanels([]) // 表示中の画像もクリア
+    }
+  }, [isLoading, isMounted])
   
   // サーバーサイドでは何も表示しない
   if (!isMounted) {
@@ -303,11 +324,11 @@ export default function MangaMontage() {
   
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-25">
-      <AnimatePresence mode="sync">
-        {activeIndices.map((idx, i) => (
+      <AnimatePresence>
+        {activePanels.map((panel) => (
           <GlitchPanel
-            key={`${idx}-${Date.now()}-${i}`}
-            panel={mangaPanels[idx]}
+            key={panel.id}
+            panel={mangaPanels[panel.index]}
             isActive={true}
             isLoading={isLoading}
           />

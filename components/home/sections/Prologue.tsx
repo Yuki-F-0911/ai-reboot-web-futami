@@ -5,10 +5,10 @@ import { motion } from 'framer-motion'
 
 export default function Prologue() {
   return (
-    <section className="relative section-padding px-6 md:px-8 overflow-hidden bg-gray-900">
-      {/* 夜明けのグラデーション - 上部は暗闇、下部は紫 */}
+    <section className="relative section-padding px-6 md:px-8 overflow-hidden bg-black">
+      {/* 序章: 完全な闇からマゼンタ寄りの深い藍色へ */}
       <div className="absolute inset-0 z-15 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-purple-900" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#2A1A3A] to-[#6B3A5C]" />
       </div>
       
       {/* シンプルな星の演出 */}

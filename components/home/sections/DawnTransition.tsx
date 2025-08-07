@@ -1,49 +1,66 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 export default function DawnTransition() {
+  const [particles, setParticles] = useState<Array<{left: number, top: number, duration: number, delay: number}>>([])
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+    // クライアントサイドでのみランダム値を生成
+    const newParticles = [...Array(20)].map(() => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      duration: 3 + Math.random() * 2,
+      delay: Math.random() * 2
+    }))
+    setParticles(newParticles)
+  }, [])
+
   return (
     <section className="relative h-[60vh] overflow-hidden">
-      {/* 紫から白へのシンプルなグラデーション */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900 to-white" />
+      {/* トランジション: マゼンタ寄りの深い藍色から白へ */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#6B3A5C] via-[#8B5A7C] to-white" />
       
       {/* 夜明け前の静寂を表現する微細な光 */}
       <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-indigo-100/10 via-purple-200/5 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-pink-100/10 via-[#8B5A7C]/5 to-transparent" />
       </div>
       
-      {/* 光の粒子 */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 3 }}
-        viewport={{ once: true }}
-      >
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-yellow-200/30 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [-20, 20],
-              opacity: [0.2, 0.8, 0.2],
-              scale: [0.8, 1.2, 0.8],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "easeInOut"
-            }}
-          />
-        ))}
-      </motion.div>
+      {/* 光の粒子 - クライアントサイドでのみ表示 */}
+      {isMounted && (
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 3 }}
+          viewport={{ once: true }}
+        >
+          {particles.map((particle, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-yellow-200/30 rounded-full"
+              style={{
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+              }}
+              animate={{
+                y: [-20, 20],
+                opacity: [0.2, 0.8, 0.2],
+                scale: [0.8, 1.2, 0.8],
+              }}
+              transition={{
+                duration: particle.duration,
+                repeat: Infinity,
+                delay: particle.delay,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+        </motion.div>
+      )}
       
       
       {/* 縦書きの「今がその時だ」 */}

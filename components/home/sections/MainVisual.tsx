@@ -5,10 +5,21 @@ import { motion } from 'framer-motion'
 import GlitchText from '@/components/effects/GlitchText'
 import PersonGlitch from '@/components/effects/PersonGlitch'
 import StoryGlitch from '@/components/effects/StoryGlitch'
+import UserNameGlitch from '@/components/effects/UserNameGlitch'
+import { usePersonalization } from '@/contexts/PersonalizationContext'
 
 export default function MainVisual() {
   const [mounted, setMounted] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  
+  // PersonalizationContextを使用（Providerで囲まれていない場合はデフォルト値）
+  let userName = '君'
+  try {
+    const { data } = usePersonalization()
+    userName = data?.userName || '君'
+  } catch (error) {
+    // Contextがない場合はデフォルト値を使用
+  }
 
   useEffect(() => {
     setMounted(true)
@@ -72,7 +83,10 @@ export default function MainVisual() {
                     transform: `translateX(${mousePosition.x * 0.05}px)`,
                     transition: 'all 0.1s ease-out'
                   }}>
-                    <PersonGlitch delay={0} />
+                    <UserNameGlitch 
+                      userName={userName} 
+                      delay={0}
+                    />
                   </span>
                   <span style={{ fontSize: '0.8em', opacity: 0.8 }}>の</span>
                   <span style={{ 
@@ -202,7 +216,7 @@ export default function MainVisual() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2.5 }}
-        className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
@@ -215,7 +229,6 @@ export default function MainVisual() {
             className="w-1.5 h-4 bg-depth-400 rounded-full mt-2"
           />
         </motion.div>
-        <p className="text-depth-400 text-sm mt-3 text-center tracking-wider uppercase">scroll</p>
       </motion.div>
     </section>
   )

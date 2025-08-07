@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import ScrollProgressIndicator from '@/components/ui/ScrollProgressIndicator'
 import GlitchText from '@/components/effects/GlitchText'
 import QuietParticles from '@/components/effects/QuietParticles'
+import { usePersonalization } from '@/contexts/PersonalizationContext'
 
 // セクションコンポーネント
 const Section = ({ 
@@ -67,6 +68,15 @@ export default function QuietDialogue() {
     target: containerRef,
     offset: ["start start", "end end"]
   })
+  
+  // PersonalizationContextを使用（Providerで囲まれていない場合はデフォルト値）
+  let userName = 'あなた'
+  try {
+    const { data } = usePersonalization()
+    userName = data?.userName || 'あなた'
+  } catch (error) {
+    // Contextがない場合はデフォルト値を使用
+  }
   
   // FVエリア専用のスクロール進行度
   const { scrollYProgress: fvScrollProgress } = useScroll({
@@ -276,7 +286,7 @@ export default function QuietDialogue() {
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                       <GlitchText
-                        text="あなたの未来を"
+                        text={`${userName}の未来を`}
                         className="text-6xl lg:text-8xl font-bold"
                         delay={200}
                         fontMix="mixed"
@@ -307,7 +317,7 @@ export default function QuietDialogue() {
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                       <GlitchText
-                        text="あなたの未来を"
+                        text={`${userName}の未来を`}
                         className="text-4xl md:text-5xl font-bold"
                         delay={200}
                         fontMix="mixed"
@@ -359,7 +369,7 @@ export default function QuietDialogue() {
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                       <GlitchText
-                        text="あなた自身だ。"
+                        text={`${userName}自身だ。`}
                         className="text-6xl lg:text-8xl font-bold"
                         delay={400}
                         fontMix="impact"
@@ -388,7 +398,7 @@ export default function QuietDialogue() {
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                       <GlitchText
-                        text="あなた自身だ。"
+                        text={`${userName}自身だ。`}
                         className="text-4xl md:text-5xl font-bold"
                         delay={400}
                         fontMix="impact"
@@ -934,7 +944,7 @@ export default function QuietDialogue() {
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                       <GlitchText
-                        text="あなたの未来を"
+                        text={`${userName}の未来を`}
                         className="text-5xl lg:text-7xl font-bold"
                         delay={200}
                         fontMix="mixed"
@@ -997,7 +1007,7 @@ export default function QuietDialogue() {
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                       <GlitchText
-                        text="あなた自身だ。"
+                        text={`${userName}自身だ。`}
                         className="text-5xl lg:text-7xl font-bold"
                         delay={400}
                         fontMix="impact"
@@ -1934,7 +1944,7 @@ export default function QuietDialogue() {
               viewport={{ once: true }}
             >
               <GlitchText
-                text="あなたの物語を、"
+                text={`${userName}の物語を、`}
                 className="text-2xl md:text-3xl font-light text-gray-900 inline"
                 delay={500}
                 scrollTrigger={true}

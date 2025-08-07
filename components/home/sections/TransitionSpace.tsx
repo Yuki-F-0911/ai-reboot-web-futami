@@ -7,9 +7,9 @@ import InnerVoiceBubble from './InnerVoiceBubble'
 export default function TransitionSpace() {
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* 透明から序章（gray-900）へのグラデーション背景 */}
+      {/* FVから序章へ: 透明から完全な闇へ */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-950/50 to-gray-900" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black" />
       </div>
       
       {/* オプション：微細なアニメーション要素 */}

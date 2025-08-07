@@ -4,9 +4,12 @@ import React, { useEffect, useState } from 'react'
 import AcademyHomePage from '@/components/home/AcademyHomePage'
 import NoiseGlitch from '@/components/effects/NoiseGlitch'
 import MangaMontage from '@/components/effects/MangaMontage'
+import OnboardingFlow from '@/components/onboarding/OnboardingFlow'
+import { PersonalizationProvider } from '@/contexts/PersonalizationContext'
 
 export default function Home() {
   const [noiseOpacity, setNoiseOpacity] = useState(1)
+  const [contentReady, setContentReady] = useState(false)
   
   useEffect(() => {
     const handleScroll = () => {
@@ -35,16 +38,24 @@ export default function Home() {
   }, [])
   
   return (
-    <>
-      {/* ノイズエフェクト - スクロールに応じてフェードアウト */}
-      <div style={{ opacity: noiseOpacity, transition: 'opacity 0.3s ease-out' }}>
-        <NoiseGlitch intensity={0.8} />
-      </div>
+    <PersonalizationProvider>
+      {/* オンボーディングフロー（質問→名前→音楽） */}
+      <OnboardingFlow onComplete={() => setContentReady(true)} />
       
-      {/* 漫画モンタージュエフェクト - FVエリアのみ */}
-      {noiseOpacity > 0.5 && <MangaMontage />}
-      
-      <AcademyHomePage />
-    </>
+      {/* コンテンツは設定完了後に表示 */}
+      {contentReady && (
+        <>
+          {/* ノイズエフェクト - スクロールに応じてフェードアウト */}
+          <div style={{ opacity: noiseOpacity, transition: 'opacity 0.3s ease-out' }}>
+            <NoiseGlitch intensity={0.8} />
+          </div>
+          
+          {/* 漫画モンタージュエフェクト - FVエリアのみ */}
+          {noiseOpacity > 0.5 && <MangaMontage />}
+          
+          <AcademyHomePage />
+        </>
+      )}
+    </PersonalizationProvider>
   )
 }
