@@ -13,74 +13,39 @@ export default function Prologue() {
         <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-amber-900/10 to-transparent" />
       </div>
       
-      {/* 背景に大きく「序章」 */}
-      <motion.div 
-        className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 3 }}
-        viewport={{ once: true }}
-      >
-        <span 
-          className="text-[12rem] md:text-[20rem] lg:text-[28rem] font-bold select-none"
-          style={{ 
-            fontFamily: '"Noto Serif JP", serif',
-            letterSpacing: '0.3em',
-            color: 'rgba(255, 255, 255, 0.02)',
-            transform: 'translateY(-5%)',
-            fontWeight: '200'
-          }}
+      <div className="relative z-30 max-w-6xl mx-auto">
+        {/* 横書きタイトル - 見出しとして中央配置 */}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          viewport={{ once: true }}
         >
-          序章
-        </span>
-      </motion.div>
-      
-      <div className="relative z-30">
-        {/* モバイル用横書きタイトル */}
-        <div className="md:hidden mb-12">
-          <motion.h2 
-            className="text-xl text-white/70 text-center"
+          <h2 
+            className="text-2xl md:text-3xl lg:text-4xl text-white/80"
+            style={{ 
+              fontFamily: '"Noto Serif JP", serif',
+              fontWeight: '300',
+              letterSpacing: '0.2em'
+            }}
+          >
+            序章
+          </h2>
+          <p 
+            className="mt-4 text-lg md:text-xl text-white/60"
             style={{ 
               fontFamily: '"Noto Serif JP", serif',
               fontWeight: '200',
-              letterSpacing: '0.2em'
+              letterSpacing: '0.15em'
             }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5 }}
-            viewport={{ once: true }}
           >
-            その違和感が、始まりのサイン
-          </motion.h2>
-        </div>
+            その違和感が、はじまりのサイン
+          </p>
+        </motion.div>
         
-        <div className="max-w-6xl mx-auto flex items-start gap-12">
-          {/* 左側：縦書きタイトル */}
-          <motion.div 
-            className="hidden md:block pt-12 flex-shrink-0"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.5 }}
-            viewport={{ once: true }}
-          >
-            <h2 
-              className="text-lg lg:text-xl text-white/60"
-              style={{ 
-                writingMode: 'vertical-rl',
-                textOrientation: 'upright',
-                fontFamily: '"Noto Serif JP", serif',
-                fontWeight: '200',
-                letterSpacing: '0.5em',
-                lineHeight: '2.2',
-                height: '350px'
-              }}
-            >
-              その違和感が、始まりのサイン
-            </h2>
-          </motion.div>
-          
-          {/* 右側：本文 */}
-          <div className="flex-1 max-w-prose mx-auto">
+        {/* 本文 - 中央寄せ */}
+        <div className="max-w-prose mx-auto">
             <div className="space-y-10 text-lg leading-loose text-white/70 text-ja-body">
               <motion.p
                 initial={{ opacity: 0 }}
@@ -149,7 +114,6 @@ export default function Prologue() {
                 </p>
               </motion.div>
             </div>
-          </div>
         </div>
       </div>
     </section>
