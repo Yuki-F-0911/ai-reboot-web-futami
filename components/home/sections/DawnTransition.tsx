@@ -6,10 +6,8 @@ import { motion } from 'framer-motion'
 export default function DawnTransition() {
   return (
     <section className="relative h-[60vh] overflow-hidden">
-      {/* 紫から白への完全不透明なグラデーション */}
-      <div className="absolute inset-0 bg-gray-900" />
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/40 via-purple-800/30 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-800/30 via-purple-600/20 via-purple-400/10 to-white" />
+      {/* 紫から白へのシンプルなグラデーション */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-900 to-white" />
       
       {/* 夜明け前の静寂を表現する微細な光 */}
       <div className="absolute inset-0">

@@ -6,10 +6,29 @@ import { motion } from 'framer-motion'
 export default function Prologue() {
   return (
     <section className="relative section-padding px-6 md:px-8 overflow-hidden bg-gray-900">
-      {/* 夜明けのグラデーション - 上部は暗闇、下部に向かって朝焼け */}
+      {/* 夜明けのグラデーション - 上部は暗闇、下部は紫 */}
       <div className="absolute inset-0 z-15 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-indigo-900/60 to-purple-900/40" />
-        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-purple-800/30 via-purple-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-purple-900" />
+      </div>
+      
+      {/* シンプルな星の演出 */}
+      <div className="absolute inset-0 z-14 pointer-events-none">
+        {/* 小さな星 - 僅かなblur */}
+        <div className="absolute top-[10%] left-[15%] w-1 h-1 bg-white/50 rounded-full animate-pulse blur-[0.5px]" />
+        <div className="absolute top-[20%] left-[35%] w-1 h-1 bg-white/40 rounded-full animate-pulse blur-[0.5px]" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-[15%] left-[55%] w-1 h-1 bg-white/60 rounded-full animate-pulse blur-[0.5px]" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-[25%] left-[75%] w-1 h-1 bg-white/50 rounded-full animate-pulse blur-[0.5px]" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute top-[30%] left-[85%] w-1 h-1 bg-white/40 rounded-full animate-pulse blur-[0.5px]" style={{ animationDelay: '1.5s' }} />
+        
+        <div className="absolute top-[35%] left-[25%] w-1 h-1 bg-white/30 rounded-full animate-pulse blur-[0.5px]" style={{ animationDelay: '2.5s' }} />
+        <div className="absolute top-[40%] left-[45%] w-1 h-1 bg-white/50 rounded-full animate-pulse blur-[0.5px]" />
+        <div className="absolute top-[45%] left-[65%] w-1 h-1 bg-white/40 rounded-full animate-pulse blur-[0.5px]" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-[38%] left-[10%] w-1 h-1 bg-white/30 rounded-full animate-pulse blur-[0.5px]" style={{ animationDelay: '3s' }} />
+        
+        {/* 少し大きめの星 - 少し強めのblur */}
+        <div className="absolute top-[12%] left-[70%] w-1.5 h-1.5 bg-white/70 rounded-full animate-pulse blur-[1px]" />
+        <div className="absolute top-[28%] left-[40%] w-1.5 h-1.5 bg-white/60 rounded-full animate-pulse blur-[1px]" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute top-[50%] left-[80%] w-1.5 h-1.5 bg-white/50 rounded-full animate-pulse blur-[1px]" style={{ animationDelay: '2s' }} />
       </div>
       
       <div className="relative z-30 max-w-2xl mx-auto">
