@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import AcademyHomePage from '@/components/home/AcademyHomePage'
 import NoiseGlitch from '@/components/effects/NoiseGlitch'
+import MangaMontage from '@/components/effects/MangaMontage'
 
 export default function Home() {
   const [noiseOpacity, setNoiseOpacity] = useState(1)
@@ -39,6 +40,10 @@ export default function Home() {
       <div style={{ opacity: noiseOpacity, transition: 'opacity 0.3s ease-out' }}>
         <NoiseGlitch intensity={0.8} />
       </div>
+      
+      {/* 漫画モンタージュエフェクト - FVエリアのみ */}
+      {noiseOpacity > 0.5 && <MangaMontage />}
+      
       <AcademyHomePage />
     </>
   )
