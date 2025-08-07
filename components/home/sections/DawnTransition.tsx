@@ -9,8 +9,8 @@ export default function DawnTransition() {
 
   useEffect(() => {
     setIsMounted(true)
-    // クライアントサイドでのみランダム値を生成
-    const newParticles = [...Array(20)].map(() => ({
+    // クライアントサイドでのみランダム値を生成（パーティクル数を削減）
+    const newParticles = [...Array(10)].map(() => ({
       left: Math.random() * 100,
       top: Math.random() * 100,
       duration: 3 + Math.random() * 2,

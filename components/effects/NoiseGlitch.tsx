@@ -7,7 +7,7 @@ interface NoiseGlitchProps {
   intensity?: number
 }
 
-export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
+const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const frameRef = useRef<number | undefined>(undefined)
   const [isClient, setIsClient] = useState(false)
@@ -317,4 +317,6 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
       
     </>
   )
-}
+})
+
+export default NoiseGlitch

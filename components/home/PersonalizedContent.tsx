@@ -102,11 +102,12 @@ export function PersonalizedCTA() {
 
 // 章の強調表示
 export function useChapterEmphasis() {
-  const { data } = usePersonalization()
-  const { expectation, feeling, focus } = data.quizAnswers
+  try {
+    const { data } = usePersonalization()
+    const { expectation, feeling, focus } = data.quizAnswers
 
-  // どの章を強調するか決定
-  const getEmphasizedChapters = () => {
+    // どの章を強調するか決定
+    const getEmphasizedChapters = () => {
     const emphasized = {
       chapter1: false, // 「なぜ」を見せてください
       chapter2: false, // AIを使いこなす
@@ -136,4 +137,13 @@ export function useChapterEmphasis() {
   }
 
   return getEmphasizedChapters()
+  } catch {
+    // フックが使えない場合はデフォルト値を返す
+    return {
+      chapter1: false,
+      chapter2: false,
+      chapter3: false,
+      chapter4: false,
+    }
+  }
 }

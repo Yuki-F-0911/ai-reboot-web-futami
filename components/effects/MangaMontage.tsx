@@ -31,7 +31,7 @@ interface GlitchPanelProps {
   isLoading: boolean
 }
 
-const GlitchPanel: React.FC<GlitchPanelProps> = ({ panel, isActive, isLoading }) => {
+const GlitchPanel = React.memo<GlitchPanelProps>(({ panel, isActive, isLoading }) => {
   // ランダム値をstateで管理（SSR対応、初期値は画面外）
   const [randomValues, setRandomValues] = useState({
     x: -100,
@@ -202,19 +202,19 @@ const GlitchPanel: React.FC<GlitchPanelProps> = ({ panel, isActive, isLoading })
             filter: 'grayscale(1) contrast(1.5) brightness(0.9)',
             mixBlendMode: 'multiply'
           }}
-          priority
+          loading="lazy"
         />
       </div>
     </motion.div>
   )
-}
+})
 
 interface ActivePanel {
   id: string
   index: number
 }
 
-export default function MangaMontage() {
+const MangaMontage = React.memo(function MangaMontage() {
   const [activePanels, setActivePanels] = useState<ActivePanel[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [isMounted, setIsMounted] = useState(false)
@@ -336,4 +336,6 @@ export default function MangaMontage() {
       </AnimatePresence>
     </div>
   )
-}
+})
+
+export default MangaMontage
