@@ -13,13 +13,8 @@ export default function MainVisual() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   
   // PersonalizationContextを使用（Providerで囲まれていない場合はデフォルト値）
-  let userName = 'あなた'
-  try {
-    const { data } = usePersonalization()
-    userName = data?.userName || 'あなた'
-  } catch (error) {
-    // Contextがない場合はデフォルト値を使用
-  }
+  const personalizationData = usePersonalization()
+  const userName = personalizationData?.data?.userName || 'あなた'
 
   useEffect(() => {
     setMounted(true)

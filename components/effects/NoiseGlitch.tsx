@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
 
 interface NoiseGlitchProps {
   intensity?: number
@@ -14,7 +13,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
   const [isInitialized, setIsInitialized] = useState(false)
   
   // ノイズ生成関数 - 最適化版
-  const generateNoise = (ctx: CanvasRenderingContext2D, width: number, height: number, density: number, time: number) => {
+  const generateNoise = (ctx: CanvasRenderingContext2D, width: number, height: number, density: number) => {
     // 解像度を下げてパフォーマンス改善
     const scale = 4  // パフォーマンス重視（2から4に変更）
     const scaledWidth = Math.ceil(width / scale)
@@ -84,11 +83,11 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
   }
   
   // 走査線エフェクト - スタイリッシュ版
-  const drawScanlines = (ctx: CanvasRenderingContext2D, width: number, height: number, time: number) => {
+  const drawScanlines = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
     // 複数の走査線をグラデーションで描画
     const scanlineCount = 3
     for (let i = 0; i < scanlineCount; i++) {
-      const scanlineY = ((time * (50 + i * 20)) % height)  // スピードを速く
+      const scanlineY = ((Date.now() * 0.01 * (50 + i * 20)) % height)  // スピードを速く
       const alpha = (0.2 - i * 0.05) * intensity
       
       // グラデーション走査線
@@ -109,7 +108,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
     
     // 縦の干渉波（複数でより繊細に）
     for (let i = 0; i < 2; i++) {
-      const interferenceX = ((time * (30 + i * 15)) % width)  // スピードを速く
+      const interferenceX = ((Date.now() * 0.01 * (30 + i * 15)) % width)  // スピードを速く
       const alpha = (0.15 - i * 0.05) * intensity
       ctx.strokeStyle = `rgba(200, 0, 255, ${alpha})`
       ctx.lineWidth = 1
@@ -121,7 +120,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
   }
   
   // デジタルアーティファクト - スタイリッシュ版
-  const drawArtifacts = (ctx: CanvasRenderingContext2D, width: number, height: number, time: number) => {
+  const drawArtifacts = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
     // グリッチブロック（グラデーション付き）
     if (Math.random() > 0.96) {
       const x = Math.random() * width
@@ -192,9 +191,9 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
     
     // 濃いノイズで即座に描画
     const strongDensity = 0.4
-    generateNoise(ctx, canvas.width, canvas.height, strongDensity, 0)
-    drawScanlines(ctx, canvas.width, canvas.height, 0)
-    drawArtifacts(ctx, canvas.width, canvas.height, 0)
+    generateNoise(ctx, canvas.width, canvas.height, strongDensity)
+    drawScanlines(ctx, canvas.width, canvas.height)
+    drawArtifacts(ctx, canvas.width, canvas.height)
   }, [isClient, isInitialized])
   
   useEffect(() => {
@@ -214,7 +213,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
     updateCanvas()
     window.addEventListener('resize', updateCanvas)
     
-    let startTime = Date.now()
+    const startTime = Date.now()
     let lastFrameTime = 0
     const targetFPS = 30  // 30FPSに制限してパフォーマンス改善
     const frameInterval = 1000 / targetFPS
@@ -237,10 +236,10 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
       const noiseDensity = 0.25  // 密度を下げる
       
       // 各レイヤーを描画（アーティファクトは頻度を下げる）
-      generateNoise(ctx, canvas.width, canvas.height, noiseDensity, currentTime)
-      drawScanlines(ctx, canvas.width, canvas.height, currentTime)
+      generateNoise(ctx, canvas.width, canvas.height, noiseDensity)
+      drawScanlines(ctx, canvas.width, canvas.height)
       if (Math.random() > 0.7) {  // 30%の確率でのみアーティファクトを描画
-        drawArtifacts(ctx, canvas.width, canvas.height, currentTime)
+        drawArtifacts(ctx, canvas.width, canvas.height)
       }
       
       frameRef.current = requestAnimationFrame(animate)

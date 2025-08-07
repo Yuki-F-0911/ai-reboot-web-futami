@@ -31,7 +31,7 @@ interface GlitchPanelProps {
   isLoading: boolean
 }
 
-const GlitchPanel = React.memo<GlitchPanelProps>(({ panel, isActive, isLoading }) => {
+const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, isActive, isLoading }) {
   // ランダム値をstateで管理（SSR対応、初期値は画面外）
   const [randomValues, setRandomValues] = useState({
     x: -100,

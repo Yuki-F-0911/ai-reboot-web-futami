@@ -8,13 +8,9 @@ import { usePersonalization } from '@/contexts/PersonalizationContext'
 
 export default function FinalChapter() {
   // PersonalizationContextを使用
-  let userName = 'あなた'
-  try {
-    const { data } = usePersonalization()
-    userName = data?.userName || 'あなた'
-  } catch (error) {
-    // Contextがない場合はデフォルト値を使用
-  }
+  const personalizationData = usePersonalization()
+  const userName = personalizationData?.data?.userName || 'あなた'
+  
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-pink-50 via-purple-50 to-gray-50">
       {/* 控えめな背景効果 */}
