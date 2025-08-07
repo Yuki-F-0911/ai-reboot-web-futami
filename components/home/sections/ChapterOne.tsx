@@ -5,7 +5,7 @@ import React from 'react'
 export default function ChapterOne() {
   return (
     <section className="relative section-padding px-6 md:px-8">
-      {/* 背景 - 完全に白 */}
+      {/* 背景 - 不透明な白 */}
       <div className="absolute inset-0 bg-white z-20 pointer-events-none" />
       
       <div className="relative z-30 max-w-prose mx-auto">

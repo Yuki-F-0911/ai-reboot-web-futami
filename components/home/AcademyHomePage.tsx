@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import MainVisual from './sections/MainVisual'
 import TransitionSpace from './sections/TransitionSpace'
 import Prologue from './sections/Prologue'
+import DawnTransition from './sections/DawnTransition'
 import ChapterOne from './sections/ChapterOne'
 import ChapterTwo from './sections/ChapterTwo'
 import ChapterThree from './sections/ChapterThree'
@@ -30,6 +31,7 @@ export default function AcademyHomePage() {
         <MainVisual />
         <TransitionSpace />
         <Prologue />
+        <DawnTransition />
         <ChapterOne />
         <ChapterTwo />
         <ChapterThree />
