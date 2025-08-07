@@ -120,6 +120,32 @@ export default function ChapterTwo() {
             </div>
           </motion.div>
 
+          {/* AIからのアドバイス - 吹き出し風 */}
+          <motion.div
+            initial={{ opacity: 0, x: 50, rotate: 5 }}
+            whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+            transition={{ 
+              duration: 0.6,
+              type: "spring", 
+              damping: 15, 
+              stiffness: 100,
+              delay: 0.45
+            }}
+            viewport={{ once: true }}
+            className="relative ml-auto mr-4 max-w-sm my-8"
+          >
+            <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 text-white p-5 rounded-2xl shadow-xl">
+              <p className="text-sm leading-relaxed">
+                <span className="font-bold">💭 気づきの瞬間：</span><br/>
+                「ChatGPTの使い方を覚えるんじゃなくて、<br/>
+                『私が解決したい課題』を言語化することが先だった。<br/>
+                そうしたら、どんなAIツールでも応用できるようになった」
+              </p>
+              {/* 吹き出しの三角形 */}
+              <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 rotate-45 w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-600"></div>
+            </div>
+          </motion.div>
+
           {/* 変化の説明 - アイコン付き */}
           <motion.div
             initial={{ opacity: 0 }}

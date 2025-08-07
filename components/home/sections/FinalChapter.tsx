@@ -161,6 +161,35 @@ export default function FinalChapter() {
             </p>
           </motion.div>
 
+          {/* 決意の瞬間 - 思考バブル */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0, rotate: -8 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ 
+              duration: 0.7,
+              scale: { type: "spring", damping: 15, stiffness: 100 },
+              delay: 0.65
+            }}
+            viewport={{ once: true }}
+            className="relative mx-auto max-w-md my-12"
+          >
+            <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg p-6 rounded-3xl"
+                 style={{ borderRadius: '55% 45% 45% 55% / 50% 60% 40% 50%' }}>
+              <p className="text-center text-gray-700 italic text-sm leading-relaxed font-medium">
+                「もう十分悩んだ。<br/>
+                完璧になってから始めるんじゃなくて、<br/>
+                始めながら完璧に近づけばいい。<br/>
+                今、動き出そう」
+              </p>
+            </div>
+            {/* 思考バブルの尻尾 */}
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+              <div className="w-4 h-4 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-full shadow-md"></div>
+              <div className="absolute -bottom-3 left-0.5 w-3 h-3 bg-purple-50/80 rounded-full shadow-sm"></div>
+              <div className="absolute -bottom-5 left-1 w-2 h-2 bg-purple-50/60 rounded-full"></div>
+            </div>
+          </motion.div>
+
           {/* CTA */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}

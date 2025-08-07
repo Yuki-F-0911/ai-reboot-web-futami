@@ -129,6 +129,34 @@ export default function ChapterOne() {
             </div>
           </motion.div>
 
+          {/* 読者の心の声 - 思考バブル */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0, rotate: -10 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ 
+              duration: 0.6,
+              scale: { type: "spring", damping: 15, stiffness: 100 },
+              delay: 0.35
+            }}
+            viewport={{ once: true }}
+            className="relative mx-auto max-w-md my-12"
+          >
+            <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg p-6 rounded-3xl"
+                 style={{ borderRadius: '45% 55% 50% 50% / 60% 60% 40% 40%' }}>
+              <p className="text-center text-gray-600 italic text-sm leading-relaxed">
+                「部下のミスをフォローした徹夜も、<br/>
+                誰も気づかなかった業務改善も、<br/>
+                評価面談では一言も話せなかった...」
+              </p>
+            </div>
+            {/* 思考バブルの尻尾 */}
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+              <div className="w-4 h-4 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-full shadow-md"></div>
+              <div className="absolute -bottom-3 left-0.5 w-3 h-3 bg-purple-50/80 rounded-full shadow-sm"></div>
+              <div className="absolute -bottom-5 left-1 w-2 h-2 bg-purple-50/60 rounded-full"></div>
+            </div>
+          </motion.div>
+
           {/* つまり... - 強調セクション */}
           <motion.div
             initial={{ opacity: 0 }}

@@ -96,17 +96,51 @@ export default function ChapterThree() {
             </p>
           </motion.div>
 
-          {/* サポート内容 - シンプルなリスト */}
+          {/* サポート内容 - 吹き出し風カード */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="space-y-6 py-8"
+            className="space-y-4 py-8"
           >
-            <p className="text-base md:text-lg text-gray-600">・定期的な対話セッション</p>
-            <p className="text-base md:text-lg text-gray-600">・いつでも相談できる環境</p>
-            <p className="text-base md:text-lg text-gray-600">・同じ旅をする仲間たち</p>
+            {/* 受講生の声1 */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              viewport={{ once: true }}
+              className="relative max-w-xs"
+            >
+              <div className="bg-emerald-50 p-4 rounded-2xl shadow-md">
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  <span className="font-bold">40代・営業部長：</span><br/>
+                  「『数字を追うのが仕事』だと思ってた。<br/>
+                  でも本当は『チームの成長を見るのが好き』だった。<br/>
+                  15年目にして初めて、自分の本当のWillに気づいた」
+                </p>
+              </div>
+              <div className="absolute -left-2 top-4 w-0 h-0 border-t-[10px] border-t-transparent border-r-[15px] border-r-emerald-50 border-b-[10px] border-b-transparent"></div>
+            </motion.div>
+
+            {/* 受講生の声2 */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.55 }}
+              viewport={{ once: true }}
+              className="relative max-w-xs ml-auto"
+            >
+              <div className="bg-teal-50 p-4 rounded-2xl shadow-md">
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  <span className="font-bold">30代・人事担当：</span><br/>
+                  「みんな表向きは『AI活用してます』って言うけど、<br/>
+                  本音では『何から始めていいか分からない』。<br/>
+                  ここでは、その本音から始められた」
+                </p>
+              </div>
+              <div className="absolute -right-2 top-4 w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-teal-50 border-b-[10px] border-b-transparent"></div>
+            </motion.div>
           </motion.div>
 
           {/* 最も大切なこと */}
