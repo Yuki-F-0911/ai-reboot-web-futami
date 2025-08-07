@@ -13,10 +13,10 @@ export default function MainVisual() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   
   // PersonalizationContextを使用（Providerで囲まれていない場合はデフォルト値）
-  let userName = '君'
+  let userName = 'あなた'
   try {
     const { data } = usePersonalization()
-    userName = data?.userName || '君'
+    userName = data?.userName || 'あなた'
   } catch (error) {
     // Contextがない場合はデフォルト値を使用
   }
@@ -83,10 +83,11 @@ export default function MainVisual() {
                     transform: `translateX(${mousePosition.x * 0.05}px)`,
                     transition: 'all 0.1s ease-out'
                   }}>
-                    <UserNameGlitch 
-                      userName={userName} 
-                      delay={0}
-                    />
+                    {userName === 'あなた' ? (
+                      <PersonGlitch delay={0} />
+                    ) : (
+                      <UserNameGlitch userName={userName} delay={0} />
+                    )}
                   </span>
                   <span style={{ fontSize: '0.8em', opacity: 0.8 }}>の</span>
                   <span style={{ 

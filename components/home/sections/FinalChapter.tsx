@@ -3,8 +3,18 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { PersonalizedCTA, PersonalizedMessage } from '@/components/home/PersonalizedContent'
+import { usePersonalization } from '@/contexts/PersonalizationContext'
 
 export default function FinalChapter() {
+  // PersonalizationContextを使用
+  let userName = 'あなた'
+  try {
+    const { data } = usePersonalization()
+    userName = data?.userName || 'あなた'
+  } catch (error) {
+    // Contextがない場合はデフォルト値を使用
+  }
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-white via-purple-50/20 to-white">
       {/* 控えめな背景効果 */}
@@ -45,7 +55,7 @@ export default function FinalChapter() {
               letterSpacing: '0.08em',
               lineHeight: '1.6'
             }}>
-              選ぶのは、あなただ
+              選ぶのは、{userName}だ
             </h2>
           </div>
         </motion.div>
@@ -60,18 +70,20 @@ export default function FinalChapter() {
             className="text-center"
           >
             <p className="text-lg md:text-xl text-gray-800 font-medium">
-              ここまで読んでくれた、あなたへ。
+              ここまで読んでくれた、{userName}へ。
             </p>
           </motion.div>
 
-          {/* 気づき */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
+          {/* パーソナライズされたメッセージ */}
+          <PersonalizedMessage>
+            {/* 気づき */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
             <p className="text-base md:text-lg text-gray-600" style={{
               fontFamily: '"Noto Sans JP", sans-serif',
               letterSpacing: '0.08em',
@@ -91,7 +103,8 @@ export default function FinalChapter() {
               つまり、何のために生きて、何のために働いているのか。<br />
               自分の「Will」に正直かどうか。
             </p>
-          </motion.div>
+            </motion.div>
+          </PersonalizedMessage>
 
           {/* 我々について */}
           <motion.div
@@ -210,7 +223,7 @@ export default function FinalChapter() {
               href="/academy#contact"
               className="inline-block border-2 border-gray-800 text-gray-800 px-10 py-5 text-xl font-medium hover:bg-gray-800 hover:text-white transition-all duration-300 hover:shadow-lg tracking-tight rounded-lg"
             >
-              → 今のモヤモヤを聞かせてください（無料説明会）
+              → <PersonalizedCTA />（無料説明会）
             </Link>
           </motion.div>
 

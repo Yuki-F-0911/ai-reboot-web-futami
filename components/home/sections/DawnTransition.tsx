@@ -21,8 +21,8 @@ export default function DawnTransition() {
 
   return (
     <section className="relative h-[60vh] overflow-hidden">
-      {/* トランジション: マゼンタ寄りの深い藍色から白へ */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#6B3A5C] via-[#8B5A7C] to-white" />
+      {/* トランジション: マゼンタ寄りの深い藍色から第1章の背景色へ */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#6B3A5C] to-gray-50" />
       
       {/* 夜明け前の静寂を表現する微細な光 */}
       <div className="absolute inset-0">

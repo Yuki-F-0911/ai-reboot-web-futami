@@ -2,8 +2,12 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useChapterEmphasis } from '@/components/home/PersonalizedContent'
 
 export default function ChapterOne() {
+  const emphasis = useChapterEmphasis()
+  const isEmphasized = emphasis.chapter1
+
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-white to-gray-50">
       {/* 微細な背景パターン */}
@@ -18,6 +22,16 @@ export default function ChapterOne() {
           )`
         }} />
       </div>
+      
+      {/* 強調表示用のハイライト */}
+      {isEmphasized && (
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-will-primary/5 to-will-secondary/5"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        />
+      )}
       
       <div className="relative z-30 max-w-2xl mx-auto">
         {/* 章番号 - 縦書き風 */}

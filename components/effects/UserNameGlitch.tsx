@@ -28,12 +28,19 @@ const generateVariations = (userName: string) => {
   
   // ユーザー名が入力されている場合は、それも含める
   if (userName && userName !== '君' && userName !== 'あなた') {
+    // ユーザー名のバリエーションとデフォルトを混ぜる
     return [
       { text: userName, font: 'font-sans' },
+      { text: '君', font: 'font-sans font-light' },
       { text: userName.toUpperCase(), font: 'font-mono uppercase' },
+      { text: 'YOU', font: 'font-mono uppercase' },
       { text: `${userName}様`, font: 'font-serif' },
+      { text: '汝', font: 'font-serif' },
+      { text: userName, font: 'font-bold' },
+      { text: '私', font: 'font-serif' },
       { text: `${userName}さん`, font: 'font-light' },
-      ...defaultVariations.slice(0, 7) // 一部のデフォルトも混ぜる
+      { text: 'きみ', font: 'font-light' },
+      { text: userName, font: 'font-black' },
     ]
   }
   
@@ -209,7 +216,7 @@ export default function UserNameGlitch({ userName, className = '', delay = 0 }: 
         }
       }
 
-      // 定期的にグリッチ
+      // 定期的にグリッチ（PersonGlitchと同じ頻度）
       const afterglowInterval = setInterval(() => {
         // 40%の確率でグリッチ
         if (Math.random() < 0.40) {
