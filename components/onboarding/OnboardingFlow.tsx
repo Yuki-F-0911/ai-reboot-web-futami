@@ -126,6 +126,10 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
                     </>
                   )}
                 </p>
+                
+                <p className="text-xs text-gray-500 mb-4 text-center">
+                  ※ 音量は50%に設定されています
+                </p>
 
                 {/* 選択ボタン */}
                 <div className="flex gap-3">
