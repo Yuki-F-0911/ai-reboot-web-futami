@@ -1,8 +1,9 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import { createRNG } from './utils/seededRandom'
 
 // 実際の画像パス（16枚）
 const mangaPanels = [
@@ -29,9 +30,10 @@ interface GlitchPanelProps {
   panel: typeof mangaPanels[0]
   isActive: boolean
   isLoading: boolean
+  rng: () => number
 }
 
-const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, isActive, isLoading }) {
+const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, isActive, isLoading, rng }) {
   // ランダム値をstateで管理（SSR対応、初期値は画面外）
   const [randomValues, setRandomValues] = useState({
     x: -100,
@@ -44,29 +46,29 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
     // 中央を避けて配置（画面の四隅や端に配置）
     const positions = [
       // 左上エリア
-      { x: -35 + Math.random() * 15, y: -30 + Math.random() * 15 },
+      { x: -35 + rng() * 15, y: -30 + rng() * 15 },
       // 右上エリア
-      { x: 20 + Math.random() * 15, y: -30 + Math.random() * 15 },
+      { x: 20 + rng() * 15, y: -30 + rng() * 15 },
       // 左下エリア
-      { x: -35 + Math.random() * 15, y: 15 + Math.random() * 15 },
+      { x: -35 + rng() * 15, y: 15 + rng() * 15 },
       // 右下エリア
-      { x: 20 + Math.random() * 15, y: 15 + Math.random() * 15 },
+      { x: 20 + rng() * 15, y: 15 + rng() * 15 },
       // 左端中央
-      { x: -40 + Math.random() * 10, y: -10 + Math.random() * 20 },
+      { x: -40 + rng() * 10, y: -10 + rng() * 20 },
       // 右端中央
-      { x: 30 + Math.random() * 10, y: -10 + Math.random() * 20 },
+      { x: 30 + rng() * 10, y: -10 + rng() * 20 },
       // 上端中央
-      { x: -10 + Math.random() * 20, y: -35 + Math.random() * 10 },
+      { x: -10 + rng() * 20, y: -35 + rng() * 10 },
       // 下端中央
-      { x: -10 + Math.random() * 20, y: 25 + Math.random() * 10 },
+      { x: -10 + rng() * 20, y: 25 + rng() * 10 },
     ]
     
-    const selectedPos = positions[Math.floor(Math.random() * positions.length)]
+    const selectedPos = positions[Math.floor(rng() * positions.length)]
     
     setRandomValues({
       x: selectedPos.x,
       y: selectedPos.y,
-      scale: 0.6 + Math.random() * 0.4 // 0.6 to 1.0
+      scale: 0.6 + rng() * 0.4 // 0.6 to 1.0
     })
     setIsPositioned(true)
   }, [panel.id])
@@ -91,9 +93,9 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
     if (isActive) {
       // 初期のRGB分離を設定
       setRgbOffset({
-        r: (Math.random() - 0.5) * 20,
-        g: (Math.random() - 0.5) * 20,
-        b: (Math.random() - 0.5) * 20
+        r: (rng() - 0.5) * 20,
+        g: (rng() - 0.5) * 20,
+        b: (rng() - 0.5) * 20
       })
       
       // 0.05秒後に収束
@@ -222,6 +224,8 @@ const MangaMontage = React.memo(function MangaMontage() {
   const panelCounterRef = React.useRef(0)
   const isLoadingRef = React.useRef(true) // isLoadingの現在値を保持
   const isActiveRef = React.useRef(true) // isActiveの現在値を保持
+  // Initialize a dedicated RNG instance once
+  const localRNGRef = useRef<() => number>(createRNG(0xA11CE))
   
   // クライアントサイドでのみマウント
   useEffect(() => {
@@ -269,7 +273,7 @@ const MangaMontage = React.memo(function MangaMontage() {
       
       if (!isLoadingRef.current) {
         // ローディング後は1枚ずつ追加（最大5枚まで）
-        const newIndex = Math.floor(Math.random() * mangaPanels.length)
+        const newIndex = Math.floor(localRNGRef.current() * mangaPanels.length)
         const panelId = `panel-${panelCounterRef.current++}`
         
         setActivePanels(prev => {
@@ -282,7 +286,7 @@ const MangaMontage = React.memo(function MangaMontage() {
         })
         
         // 個別に削除（確実に削除）
-        const displayTime = 1500 + Math.random() * 1500 // 1.5-3秒後に削除
+        const displayTime = 1500 + localRNGRef.current() * 1500 // 1.5-3秒後に削除
         const hideTimer = setTimeout(() => {
           setActivePanels(prev => prev.filter(p => p.id !== panelId))
         }, displayTime)
@@ -290,18 +294,20 @@ const MangaMontage = React.memo(function MangaMontage() {
         
       } else {
         // ローディング中は複数枚を一度にセット
-        const numPanels = Math.random() > 0.4 ? 3 : Math.random() > 0.7 ? 2 : 4
+        const r1 = localRNGRef.current()
+        const r2 = localRNGRef.current()
+        const numPanels = r1 > 0.4 ? 3 : r2 > 0.7 ? 2 : 4
         const newPanels: ActivePanel[] = []
         for (let i = 0; i < numPanels; i++) {
           newPanels.push({
             id: `panel-${panelCounterRef.current++}`,
-            index: Math.floor(Math.random() * mangaPanels.length)
+            index: Math.floor(localRNGRef.current() * mangaPanels.length)
           })
         }
         setActivePanels(newPanels)
         
         // まとめて削除
-        const displayTime = 30 + Math.random() * 270 // 0.03-0.3秒
+        const displayTime = 30 + localRNGRef.current() * 270 // 0.03-0.3秒
         const hideTimer = setTimeout(() => {
           setActivePanels([])
         }, displayTime)
@@ -311,28 +317,28 @@ const MangaMontage = React.memo(function MangaMontage() {
     
     // 不規則なグリッチパターンを作成
     const scheduleGlitch = () => {
-      const rand = Math.random()
+      const rand = localRNGRef.current()
       
       if (isLoadingRef.current) {
         // ローディング中は激しいグリッチ
         if (rand < 0.5) {
           // 50% - 連続グリッチ
-          const burstCount = 5 + Math.floor(Math.random() * 6)
+          const burstCount = 5 + Math.floor(localRNGRef.current() * 6)
           for (let i = 0; i < burstCount; i++) {
-            const timer = setTimeout(showPanel, i * (20 + Math.random() * 50))
+            const timer = setTimeout(showPanel, i * (20 + localRNGRef.current() * 50))
             timers.push(timer)
           }
-          const nextTimer = setTimeout(scheduleGlitch, burstCount * 50 + Math.random() * 300)
+          const nextTimer = setTimeout(scheduleGlitch, burstCount * 50 + localRNGRef.current() * 300)
           timers.push(nextTimer)
         } else {
           // 50% - 高速グリッチ
           showPanel()
-          const nextTimer = setTimeout(scheduleGlitch, 50 + Math.random() * 150)
+          const nextTimer = setTimeout(scheduleGlitch, 50 + localRNGRef.current() * 150)
           timers.push(nextTimer)
         }
       } else {
         // ローディング後は適度な間隔で表示
-        const nextDelay = Math.random() * 800 + 200 // 0.2-1.0秒のランダム間隔
+        const nextDelay = localRNGRef.current() * 800 + 200 // 0.2-1.0秒のランダム間隔
         showPanel()
         const nextTimer = setTimeout(scheduleGlitch, nextDelay)
         timers.push(nextTimer)
@@ -365,6 +371,7 @@ const MangaMontage = React.memo(function MangaMontage() {
             panel={mangaPanels[panel.index]}
             isActive={true}
             isLoading={isLoading}
+            rng={localRNGRef.current}
           />
         ))}
       </AnimatePresence>
