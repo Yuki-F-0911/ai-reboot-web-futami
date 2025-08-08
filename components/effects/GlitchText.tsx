@@ -21,7 +21,7 @@ const GlitchChar = ({
   fontSize = 'inherit',
   seed = 0,
   fontMix = 'mixed',
-  intensity = 1
+  intensity = 0.7
 }: { 
   char: string
   index: number
@@ -100,7 +100,7 @@ const GlitchChar = ({
   // アニメーション制御
   useEffect(() => {
     if (!isClient) return
-    const baseDelay = delay + (index * (isImportant ? 120 : 40) * intensity)
+    const baseDelay = delay + (index * (isImportant ? 80 : 30))
     
     // サブリミナル単語を関数内で定義
     const subliminalWords = ['覚醒', '意志', '創造', '変革', '可能性', '未来', '自由', '成長', '挑戦', '革新']
@@ -135,10 +135,10 @@ const GlitchChar = ({
       setTimeout(() => {
         if (noiseInterval) clearInterval(noiseInterval)
         setPhase('glitch')
-      }, 800 * intensity)
+      }, 400)
     }, baseDelay)
     
-    // Phase 2: グリッチ (800-1400ms)
+    // Phase 2: グリッチ (300-600ms に短縮)
     const glitchTimer = setTimeout(() => {
       setPhase('glitch')
       let glitchCount = 0
@@ -160,19 +160,19 @@ const GlitchChar = ({
         }
         glitchCount++
         
-        if (glitchCount > 10) { // 安全のため上限を設定
+        if (glitchCount > 6) { // 上限をさらに下げる
           if (glitchInterval) clearInterval(glitchInterval)
         }
-      }, 80)
+      }, 50) // 間隔をさらに短く
       
       setTimeout(() => {
         if (glitchInterval) clearInterval(glitchInterval)
         setDisplayChar(char) // グリッチ終了時に正しい文字を表示
         setPhase('forming')
-      }, 600 * intensity)
-    }, baseDelay + 800 * intensity)
+      }, 200) // 時間を大幅に短縮
+    }, baseDelay + 400) // 時間を大幅に短縮
     
-    // Phase 3: 形成 (1400-2000ms)
+    // Phase 3: 形成 (600-800ms に短縮)
     const formingTimer = setTimeout(() => {
       setPhase('forming')
       setDisplayChar(char)
@@ -180,14 +180,14 @@ const GlitchChar = ({
       setTimeout(() => {
         setPhase('formed')
         setDisplayChar(char) // 最終的に正しい文字を表示
-      }, 600 * intensity)
-    }, baseDelay + 1400 * intensity)
+      }, 150) // 時間を大幅に短縮
+    }, baseDelay + 600) // 時間を大幅に短縮
     
     // 最終確認タイマー（フェイルセーフ）
     const finalTimer = setTimeout(() => {
       setPhase('formed')
       setDisplayChar(char)
-    }, baseDelay + 2200 * intensity)
+    }, baseDelay + 800) // 時間を大幅に短縮
     
     return () => {
       if (noiseInterval) clearInterval(noiseInterval)
@@ -208,8 +208,8 @@ const GlitchChar = ({
     
     // ランダムなタイミングでグリッチを発生させる
     const scheduleAfterGlitch = () => {
-      // 3〜8秒後にランダムでグリッチ
-      const nextGlitchTime = 3000 + Math.random() * 5000
+      // 8〜15秒後にランダムでグリッチ（頻度を下げる）
+      const nextGlitchTime = 8000 + Math.random() * 7000
       
       afterGlitchTimeout = setTimeout(() => {
         setAfterGlitch(true)
@@ -418,7 +418,7 @@ export default function GlitchText({
   delay = 0,
   scrollTrigger = false,
   fontMix = 'mixed',
-  intensity = 1
+  intensity = 0.7
 }: GlitchTextProps) {
   const [isVisible, setIsVisible] = useState(!scrollTrigger)
   const [isClient, setIsClient] = useState(false)
