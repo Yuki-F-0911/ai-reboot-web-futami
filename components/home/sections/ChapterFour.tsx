@@ -1,9 +1,53 @@
 'use client'
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
+import { usePersonalization } from '@/contexts/PersonalizationContext'
 
 export default function ChapterFour() {
+  const { data } = usePersonalization()
+  const { expectation, feeling, focus } = data.quizAnswers
+  
+  // 心のセリフ（軽いパーソナライズ）
+  const bubbleText = useMemo(() => {
+    let t = '月曜が、少し楽しみになった'
+    if (expectation === 'efficiency' || focus === 'skills') {
+      t = '小さな改善を試すのが楽しみだ'
+    } else if (expectation === 'possibility' || focus === 'mindset') {
+      t = '新しい仮説を試したくなってきた'
+    }
+    if (feeling === 'change') {
+      t = '今日から、少し変わる気がする'
+    } else if (feeling === 'growth') {
+      t = '昨日より一歩、前に進めそうだ'
+    }
+    return t
+  }, [expectation, focus, feeling])
+
+  // 2行想定の高さで自然改行（InnerVoiceBubble と同様の実装方針）
+  const bubbleHeight = 240
+  
+  // ライフセクションのパーソナライズ（家族に限定しない表現）
+  const { familyTitle, familySub } = useMemo(() => {
+    let title = 'そして、大切な時間を、大切にできる。'
+    let sub = '生まれた余白を、自分や大切な人のために。'
+
+    if (expectation === 'efficiency' || focus === 'skills') {
+      title = 'そして、余白が、少しずつ増えていく。'
+      sub = '小さな自動化の積み重ねが、あなたの夜を取り戻す。'
+    } else if (expectation === 'possibility' || focus === 'mindset') {
+      title = 'そして、日常に、新しい楽しみが増える。'
+      sub = '思いついたアイデアを試す短い時間が、日々の習慣になる。'
+    }
+
+    if (feeling === 'change') {
+      sub = '今夜は、いつもより少しだけ、自分のための時間をつくろう。'
+    } else if (feeling === 'growth') {
+      sub = '昨日より一つ、丁寧に過ごせた。'
+    }
+
+    return { familyTitle: title, familySub: sub }
+  }, [expectation, focus, feeling])
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-green-50 via-rose-50 to-pink-50">
       {/* 控えめな背景効果 */}
@@ -51,58 +95,68 @@ export default function ChapterFour() {
         </motion.div>
 
         <div className="space-y-16">
-          {/* 導入 */}
+          {/* 導入 - 左にアンカーするコールアウト */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="relative mx-auto md:mx-0 md:max-w-[80%]"
           >
-            <p className="text-lg md:text-xl text-gray-800 font-medium" style={{
-              fontFamily: '"Noto Serif JP", serif',
-              letterSpacing: '0.1em',
-              lineHeight: '2'
-            }}>
-              個人の「Will」が目覚めるとき、<br />
-              まず、日常の見え方が変わる。
-            </p>
-          </motion.div>
-
-          {/* 変化を実感する瞬間 - 思考バブル */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0, rotate: 10 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ 
-              duration: 0.6,
-              scale: { type: "spring", damping: 15, stiffness: 100 },
-              delay: 0.25
-            }}
-            viewport={{ once: true }}
-            className="relative my-8 flex justify-center"
-          >
-            <div className="relative bg-gradient-to-br from-rose-50 to-pink-50 backdrop-blur-sm shadow-lg"
-                 style={{ 
-                   borderRadius: '50% 50% 45% 55% / 55% 45% 45% 55%',
-                   padding: '24px 28px'
-                 }}>
-              <p className="text-gray-600 italic text-sm"
-                 style={{ 
-                   writingMode: 'vertical-rl',
-                   textOrientation: 'upright',
-                   fontFamily: '"Noto Sans JP", sans-serif',
-                   letterSpacing: '0.1em',
-                   lineHeight: '1.8',
-                   height: '140px'
-                 }}>
-                月曜が楽しみになった
+            <div className="relative pl-6 md:pl-8">
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-gradient-to-b from-rose-300 to-pink-300" />
+              <p className="text-left text-lg md:text-2xl text-gray-800 font-medium" style={{
+                fontFamily: '"Noto Serif JP", serif',
+                letterSpacing: '0.1em',
+                lineHeight: '2'
+              }}>
+                個人の「Will」が目覚めるとき、<br />
+                まず、日常の見え方が変わる。
               </p>
             </div>
-            {/* 思考バブルの尻尾 */}
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-              <div className="w-4 h-4 bg-gradient-to-br from-rose-50 to-pink-50 rounded-full shadow-md"></div>
-              <div className="absolute -bottom-3 left-0.5 w-3 h-3 bg-rose-50/80 rounded-full shadow-sm"></div>
-              <div className="absolute -bottom-5 left-1 w-2 h-2 bg-rose-50/60 rounded-full"></div>
+          </motion.div>
+
+          {/* 変化を実感する瞬間 - 思考バブル（InnerVoiceBubble準拠） */}
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.98, rotate: 2 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+            transition={{ 
+              duration: 0.8,
+              y: { type: 'spring', damping: 18, stiffness: 70 },
+              rotate: { type: 'spring', damping: 20, stiffness: 90 }
+            }}
+            viewport={{ once: true, margin: '-150px' }}
+            className="relative my-16 flex justify-center"
+          >
+            <div className="relative">
+              <div
+                className="relative bg-white/90 backdrop-blur-md shadow-xl"
+                style={{
+                  borderRadius: '50% 50% 45% 55% / 60% 50% 45% 55%',
+                  padding: '36px 40px'
+                }}
+              >
+                <p
+                  className="text-gray-800 text-xl md:text-2xl"
+                  style={{
+                    writingMode: 'vertical-rl',
+                    textOrientation: 'upright',
+                    fontFamily: '"Noto Sans JP", sans-serif',
+                    fontWeight: 400,
+                    letterSpacing: '0.14em',
+                    lineHeight: '2',
+                    height: `${bubbleHeight}px`
+                  }}
+                >
+                  {bubbleText}
+                </p>
+              </div>
+              {/* 尾（小さな円を3つ） */}
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2">
+                <div className="w-4 h-4 bg-white/90 rounded-full shadow-md" />
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-3 h-3 bg-white/85 rounded-full shadow-sm" />
+                <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-2 h-2 bg-white/80 rounded-full" />
+              </div>
             </div>
           </motion.div>
 
@@ -158,7 +212,7 @@ export default function ChapterFour() {
             </motion.div>
           </motion.div>
 
-          {/* 家族との時間 - イラスト挿入指定 */}
+          {/* 家族との時間 - イラスト挿入指定（パーソナライズ） */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -166,13 +220,17 @@ export default function ChapterFour() {
             viewport={{ once: true }}
             className="text-center py-12"
           >
-            {/* イラスト挿入位置のマーカー */}
+            {/* イラスト挿入位置のマーカー（中立的な時間の象徴） */}
             <div className="relative mx-auto w-64 h-48 mb-8 bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-rose-200">
-              <div className="text-center">
-                <span className="text-4xl mb-2 block">🏠</span>
-                <p className="text-xs text-gray-500">
-                  [挿絵: 家族と過ごす温かい時間]<br/>
-                  夕食を囲む家族のシルエット
+              <div className="text-center text-gray-500">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="mx-auto mb-2">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v6" />
+                  <path d="M12 12l4 3" />
+                </svg>
+                <p className="text-xs">
+                  [挿絵: あたたかい時間]<br/>
+                  自分や大切な人と過ごす静かなひととき
                 </p>
               </div>
             </div>
@@ -182,10 +240,10 @@ export default function ChapterFour() {
               letterSpacing: '0.1em',
               lineHeight: '2'
             }}>
-              そして、家族との時間も大切にできる。
+              {familyTitle}
             </p>
             <p className="text-base md:text-lg text-gray-600 mt-2">
-              効率化で生まれた時間を、本当に大切なことに。
+              {familySub}
             </p>
           </motion.div>
 

@@ -1,9 +1,79 @@
 'use client'
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
+import { usePersonalization } from '@/contexts/PersonalizationContext'
+
+// 漫画コマ風キャラクターパネル
+function CharacterPanel({ side, accent, label }: { side: 'left' | 'right'; accent: 'emerald' | 'teal'; label: string }) {
+  const accentColor = accent === 'emerald' ? '#10b981' : '#14b8a6' // emerald-500 / teal-500
+  const frameRotate = side === 'left' ? -2 : 2
+  return (
+    <div
+      className="relative w-28 md:w-36 aspect-[3/4] rounded-md border-2 shadow-lg overflow-hidden bg-white flex-shrink-0"
+      style={{
+        borderColor: accentColor,
+        transform: `rotate(${frameRotate}deg)`
+      }}
+      aria-label={label}
+    >
+      {/* 網点（スクリーントーン） */}
+      <div
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage:
+            `radial-gradient(${accentColor} 0.6px, transparent 0.8px), radial-gradient(${accentColor} 0.6px, transparent 0.8px)`,
+          backgroundPosition: '0 0, 3px 3px',
+          backgroundSize: '6px 6px'
+        }}
+      />
+      {/* ライトグラデーション */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0) 80%)'
+        }}
+      />
+      {/* キャラクターのシルエット（SVG） */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="8" r="4.2" fill="#1f2937" fillOpacity="0.9" />
+          <path d="M4 20c0-3.8 3.6-6.8 8-6.8s8 3 8 6.8" fill="#1f2937" fillOpacity="0.9" />
+        </svg>
+      </div>
+      {/* 内枠ライン */}
+      <div className="absolute inset-1 rounded-sm" style={{ border: '1px solid rgba(17,24,39,0.12)' }} />
+    </div>
+  )
+}
 
 export default function ChapterThree() {
+  const { data } = usePersonalization()
+  const { expectation, feeling, focus } = data.quizAnswers
+
+  // 吹き出しセリフを軽くパーソナライズ
+  const { lineLeft, lineRight } = useMemo(() => {
+    // デフォルト: 気づきの瞬間
+    let left = '本当は、こういうことがやりたかったんだ'
+    let right = '自分の言葉で、やっと言えた'
+
+    if (expectation === 'efficiency' || focus === 'skills') {
+      left = '本当は、仕組みをつくるのが好きだった'
+      right = '改善で人が楽になる——それがずっとやりたかった'
+    } else if (expectation === 'possibility' || focus === 'mindset') {
+      left = '本当は、ゼロから形にするのが好きだった'
+      right = '未知に踏み出すことを、ずっと望んでいた'
+    }
+
+    if (feeling === 'change') {
+      left = 'やっと分かった。これが、私がやりたかったこと'
+    } else if (feeling === 'growth') {
+      right = '昨日より深く、自分の声が聞こえた'
+    }
+
+    return { lineLeft: left, lineRight: right }
+  }, [expectation, feeling, focus])
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-blue-50 via-emerald-50 to-green-50">
       {/* 控えめな背景効果 */}
@@ -50,23 +120,38 @@ export default function ChapterThree() {
         </motion.div>
 
         <div className="space-y-16">
-          {/* メインメッセージ */}
+          {/* メインメッセージ（左アンカーのコールアウト） */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-center space-y-8"
+            className="relative mx-auto md:mx-0 md:max-w-[85%]"
           >
-            <p className="text-lg md:text-xl text-gray-700 font-medium">
-              我々は、教壇に立つ「先生」ではありません。
-            </p>
-            <p className="text-base md:text-lg text-gray-600">
-              答えは、すべて、あなたの中にしかないからです。
-            </p>
-            <p className="text-lg md:text-xl text-gray-800 font-medium mt-12">
-              我々は、あなたの隣に座る「共犯者」です。
-            </p>
+            <div className="relative pl-6 md:pl-8">
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-gradient-to-b from-emerald-300 to-teal-300" />
+              <p className="text-left text-lg md:text-xl text-gray-800 font-medium" style={{
+                fontFamily: '"Noto Serif JP", serif',
+                letterSpacing: '0.08em',
+                lineHeight: '2'
+              }}>
+                我々は、教壇に立つ「先生」ではありません。
+              </p>
+              <p className="mt-3 text-left text-base md:text-lg text-gray-600" style={{
+                fontFamily: '"Noto Sans JP", sans-serif',
+                letterSpacing: '0.06em',
+                lineHeight: '2'
+              }}>
+                答えは、すべて、あなたの中にしかないからです。
+              </p>
+              <p className="mt-6 text-left text-lg md:text-xl text-gray-900 font-medium" style={{
+                fontFamily: '"Noto Serif JP", serif',
+                letterSpacing: '0.08em',
+                lineHeight: '2'
+              }}>
+                我々は、あなたの隣に座る「共犯者」です。
+              </p>
+            </div>
           </motion.div>
 
           {/* 役割の説明 */}
@@ -110,30 +195,30 @@ export default function ChapterThree() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.45 }}
               viewport={{ once: true }}
-              className="flex items-start gap-6"
+              className="flex items-start gap-4 md:gap-6"
             >
-              {/* 人物イラスト指定 */}
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
-                <span className="text-2xl">👔</span>
-                <p className="hidden">[挿絵: 40代営業部長・スーツ姿]</p>
-              </div>
-              
+              {/* 漫画のコマ（キャラクター） */}
+              <CharacterPanel side="left" accent="emerald" label="40代・営業部長のコマ" />
+
+              {/* コマから伸びる吹き出し */}
               <div className="relative">
-                <div className="bg-emerald-50 rounded-2xl shadow-md inline-block"
-                     style={{ padding: '20px 24px' }}>
-                  <p className="text-sm text-gray-700"
-                     style={{ 
-                       writingMode: 'vertical-rl',
-                       textOrientation: 'upright',
-                       fontFamily: '"Noto Sans JP", sans-serif',
-                       letterSpacing: '0.1em',
-                       lineHeight: '1.8',
-                       height: '120px'
-                     }}>
-                    部下の成長が嬉しかった
+                <div className="relative bg-white rounded-2xl shadow-lg inline-block" style={{ padding: '32px 36px' }}>
+                  <p
+                    className="text-lg md:text-xl text-gray-800"
+                    style={{
+                      writingMode: 'vertical-rl',
+                      textOrientation: 'upright',
+                      fontFamily: '"Noto Sans JP", sans-serif',
+                      letterSpacing: '0.14em',
+                      lineHeight: '2.1',
+                      height: '180px'
+                    }}
+                  >
+                    {lineLeft}
                   </p>
+                  {/* シームレスな尾（ダイヤ型） */}
+                  <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rotate-45" />
                 </div>
-                <div className="absolute -left-2 top-6 w-0 h-0 border-t-[10px] border-t-transparent border-r-[15px] border-r-emerald-50 border-b-[10px] border-b-transparent"></div>
               </div>
             </motion.div>
 
@@ -143,30 +228,30 @@ export default function ChapterThree() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.55 }}
               viewport={{ once: true }}
-              className="flex items-start gap-6 flex-row-reverse"
+              className="flex items-start gap-4 md:gap-6 flex-row-reverse"
             >
-              {/* 人物イラスト指定 */}
-              <div className="w-16 h-16 bg-gradient-to-br from-teal-100 to-teal-200 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
-                <span className="text-2xl">👩‍💼</span>
-                <p className="hidden">[挿絵: 30代女性・人事担当]</p>
-              </div>
-              
+              {/* 漫画のコマ（キャラクター） */}
+              <CharacterPanel side="right" accent="teal" label="30代・人事担当のコマ" />
+
+              {/* コマから伸びる吹き出し（右から） */}
               <div className="relative">
-                <div className="bg-teal-50 rounded-2xl shadow-md inline-block"
-                     style={{ padding: '20px 24px' }}>
-                  <p className="text-sm text-gray-700"
-                     style={{ 
-                       writingMode: 'vertical-rl',
-                       textOrientation: 'upright',
-                       fontFamily: '"Noto Sans JP", sans-serif',
-                       letterSpacing: '0.1em',
-                       lineHeight: '1.8',
-                       height: '100px'
-                     }}>
-                    本音を言えた
+                <div className="relative bg-white rounded-2xl shadow-lg inline-block" style={{ padding: '32px 36px' }}>
+                  <p
+                    className="text-lg md:text-xl text-gray-800"
+                    style={{
+                      writingMode: 'vertical-rl',
+                      textOrientation: 'upright',
+                      fontFamily: '"Noto Sans JP", sans-serif',
+                      letterSpacing: '0.14em',
+                      lineHeight: '2.1',
+                      height: '160px'
+                    }}
+                  >
+                    {lineRight}
                   </p>
+                  {/* シームレスな尾（ダイヤ型） */}
+                  <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rotate-45" />
                 </div>
-                <div className="absolute -right-2 top-6 w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-teal-50 border-b-[10px] border-b-transparent"></div>
               </div>
             </motion.div>
           </motion.div>

@@ -113,9 +113,9 @@ export default function ChapterTwo() {
                 letterSpacing: '0.12em',
                 lineHeight: '2'
               }}>
-                だから我々は、「使い方」ではなく、<br />
-                「使いこなし方の発想法」を、<br />
-                あなたの中に育てます。
+                だから私たちは、「使い方」ではなく、<br />
+                「使いこなすための思考OS」を、<br />
+                あなたの内側にインストールします。
               </p>
             </div>
           </motion.div>
@@ -145,7 +145,7 @@ export default function ChapterTwo() {
                    lineHeight: '2',
                    height: '180px'
                  }}>
-                使い方より、何を実現したいか
+                操作ではなく、目的から設計する
               </p>
               {/* 吹き出しの三角形 */}
               <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 rotate-45 w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-600"></div>
@@ -162,32 +162,43 @@ export default function ChapterTwo() {
           >
             <div className="flex items-start gap-6">
               <div className="mt-2 w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-indigo-600 text-xl">🎯</span>
+                {/* ターゲットアイコン（絵文字非使用） */}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-indigo-600" aria-hidden="true">
+                  <circle cx="12" cy="12" r="8" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                </svg>
               </div>
               <div className="space-y-4">
                 <p className="text-lg text-gray-700 font-medium">
                   まず必要なのは、自分の軸を見つけること。
                 </p>
                 <p className="text-base md:text-lg text-gray-600">
-                  「私は本当は何がしたいんだっけ？」<br />
-                  散らばった経験や想いを整理して、<br />
-                  あなたの中にある「Will」を言語化する。
+                  「私は何を成し遂げたいのか」を明確にする。<br />
+                  断片的な経験と想いを編み直し、<br />
+                  内側の「Will（目的）」を言語化する。
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-6">
               <div className="mt-2 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-purple-600 text-xl">🔄</span>
+                {/* 循環矢印アイコン（絵文字非使用） */}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-purple-600" aria-hidden="true">
+                  <path d="M4 12a8 8 0 0 1 13.657-5.657" />
+                  <path d="M18 6v4H14" />
+                  <path d="M20 12a8 8 0 0 1-13.657 5.657" />
+                  <path d="M6 18v-4h4" />
+                </svg>
               </div>
               <div className="space-y-4">
                 <p className="text-lg text-gray-700 font-medium">
                   そうすると、AIとの関係が変わる。
                 </p>
                 <p className="text-base md:text-lg text-gray-600">
-                  「このAIで何ができるか」じゃなくて、<br />
-                  「私のやりたいことに、このAIをどう使うか」<br />
-                  という発想に自然と切り替わる。
+                  「このAIで何ができるか」ではなく、<br />
+                  「自分の目的に、このAIをどう設計して使うか」へと、<br />
+                  思考が自然にシフトする。
                 </p>
               </div>
             </div>
@@ -216,8 +227,8 @@ export default function ChapterTwo() {
               lineHeight: '2'
             }}>
               どんな新しいツールが現れても、<br />
-              「ああ、これは私のやりたいことに、こう使える」と、<br />
-              自然に結びつけられる思考の習慣。
+              「これは自分の目的にこう接続できる」と、<br />
+              即座に結びつけられる思考の習慣。
             </p>
             
             <motion.div
@@ -243,7 +254,7 @@ export default function ChapterTwo() {
               lineHeight: '2'
             }}>
               技術の波に振り回されるのではなく、<br />
-              波を読んで、自分の行きたい方向へ進む。<br />
+              波を読み、自分の針路を選ぶ。<br />
               <span className="font-medium text-indigo-600">それが、本当の「AI活用力」です。</span>
             </p>
           </motion.div>

@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { PersonalizedCTA, PersonalizedMessage } from '@/components/home/PersonalizedContent'
@@ -10,6 +10,13 @@ export default function FinalChapter() {
   // PersonalizationContextを使用
   const personalizationData = usePersonalization()
   const userName = personalizationData?.data?.userName || 'あなた'
+  
+  // 長い名前は省略表示（視覚の収まり改善）
+  const displayName = useMemo(() => {
+    const max = 12
+    if (!userName) return 'あなた'
+    return userName.length > max ? `${userName.slice(0, max)}…` : userName
+  }, [userName])
   
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-pink-50 via-purple-50 to-gray-50">
@@ -57,17 +64,28 @@ export default function FinalChapter() {
         </motion.div>
 
         <div className="space-y-16">
-          {/* 導入 */}
+          {/* 導入（左アンカー・ネームチップで視線集中） */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="relative mx-auto md:mx-0 md:max-w-[85%]"
           >
-            <p className="text-lg md:text-xl text-gray-800 font-medium">
-              ここまで読んでくれた、{userName}へ。
-            </p>
+            <div className="relative pl-6 md:pl-8">
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-gradient-to-b from-purple-300 to-indigo-300" />
+              <p className="text-left text-xl md:text-2xl text-gray-900 font-medium tracking-wide" style={{
+                fontFamily: '"Noto Serif JP", serif',
+                lineHeight: '1.8',
+                letterSpacing: '0.06em'
+              }}>
+                ここまで読んでくれた、
+                <span className="align-middle inline-flex items-center mx-2 px-3 py-1 rounded-full border border-indigo-100/60 bg-gradient-to-r from-indigo-50 to-purple-50 text-gray-900 shadow-sm">
+                  {displayName}
+                </span>
+                へ。
+              </p>
+            </div>
           </motion.div>
 
           {/* パーソナライズされたメッセージ */}
@@ -119,91 +137,99 @@ export default function FinalChapter() {
             </p>
           </motion.div>
 
-          {/* 投資について */}
+          {/* 投資について（左アンカー） */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="relative mx-auto md:mx-0 md:max-w-[85%]"
           >
-            <p className="text-base md:text-lg text-gray-600" style={{
-              fontFamily: '"Noto Sans JP", sans-serif',
-              letterSpacing: '0.08em',
-              lineHeight: '2'
-            }}>
-              でも、本当の投資は、あなた自身との時間。<br />
-              もし、ピンと来たら。<br />
-              まずは、あなたの「なぜ」を、聞かせてください。
-            </p>
+            <div className="relative pl-6 md:pl-8">
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-gradient-to-b from-indigo-300 to-purple-300" />
+              <p className="text-left text-base md:text-lg text-gray-700" style={{
+                fontFamily: '"Noto Sans JP", sans-serif',
+                letterSpacing: '0.08em',
+                lineHeight: '2'
+              }}>
+                でも、本当の投資は、あなた自身との時間。<br />
+                もし、ピンと来たら。<br />
+                まずは、あなたの「なぜ」を、聞かせてください。
+              </p>
+            </div>
           </motion.div>
 
-          {/* リアルな体験 */}
+          {/* リアルな体験（左アンカー） */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="relative mx-auto md:mx-0 md:max-w-[85%]"
           >
-            <p className="text-lg md:text-xl text-gray-800 font-medium text-center">
-              うまい話も、正解も、ここにはありません。
-            </p>
-            <p className="text-base md:text-lg text-gray-600" style={{
-              fontFamily: '"Noto Sans JP", sans-serif',
-              letterSpacing: '0.08em',
-              lineHeight: '2'
-            }}>
-              あるのは、あなたの物語を面白がる、最高の聞き手。<br />
-              そして、毎日AIと新しい可能性を探っている、現役の実践者たち。
-            </p>
-            <p className="text-base md:text-lg text-gray-600" style={{
-              fontFamily: '"Noto Sans JP", sans-serif',
-              letterSpacing: '0.08em',
-              lineHeight: '2'
-            }}>
-              「それ、私も悩んだなぁ」と共感しながら、<br />
-              「こんな使い方もあるよ」と、実例を見せてくれる。
-            </p>
-            <p className="text-lg md:text-xl text-gray-800 font-medium text-center mt-10">
-              理論じゃない、リアルな体験の共有が、ここにあります。
-            </p>
+            <div className="relative pl-6 md:pl-8">
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-gradient-to-b from-indigo-300 to-purple-300" />
+              <p className="text-left text-lg md:text-xl text-gray-900 font-medium">
+                うまい話も、正解も、ここにはありません。
+              </p>
+              <div className="space-y-4 mt-4">
+                <p className="text-left text-base md:text-lg text-gray-600" style={{
+                  fontFamily: '"Noto Sans JP", sans-serif',
+                  letterSpacing: '0.08em',
+                  lineHeight: '2'
+                }}>
+                  あるのは、あなたの物語を面白がる、最高の聞き手。<br />
+                  そして、毎日AIと新しい可能性を探っている、現役の実践者たち。
+                </p>
+                <p className="text-left text-base md:text-lg text-gray-600" style={{
+                  fontFamily: '"Noto Sans JP", sans-serif',
+                  letterSpacing: '0.08em',
+                  lineHeight: '2'
+                }}>
+                  「それ、私も悩んだなぁ」と共感しながら、<br />
+                  「こんな使い方もあるよ」と、実例を見せてくれる。
+                </p>
+                <p className="text-left text-lg md:text-xl text-gray-800 font-medium mt-6">
+                  理論じゃない、リアルな体験の共有が、ここにあります。
+                </p>
+              </div>
+            </div>
           </motion.div>
 
-          {/* 決意の瞬間 - 思考バブル */}
+          {/* 決意の瞬間 - 思考バブル（拡大版） */}
           <motion.div
-            initial={{ opacity: 0, scale: 0, rotate: -8 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, y: 40, scale: 0.98, rotate: -2 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
             transition={{ 
-              duration: 0.7,
-              scale: { type: "spring", damping: 15, stiffness: 100 },
-              delay: 0.65
+              duration: 0.8,
+              y: { type: 'spring', damping: 18, stiffness: 70 },
+              rotate: { type: 'spring', damping: 22, stiffness: 90 }
             }}
-            viewport={{ once: true }}
-            className="relative my-12 flex justify-center"
+            viewport={{ once: true, margin: '-150px' }}
+            className="relative my-16 flex justify-center"
           >
-            <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg"
+            <div className="relative bg-white/90 backdrop-blur-md shadow-xl"
                  style={{ 
-                   borderRadius: '55% 45% 45% 55% / 50% 60% 40% 50%',
-                   padding: '24px 28px'
+                   borderRadius: '50% 50% 45% 55% / 60% 50% 45% 55%',
+                   padding: '36px 40px'
                  }}>
-              <p className="text-gray-700 italic text-sm font-medium"
+              <p className="text-gray-800 text-2xl md:text-3xl"
                  style={{ 
                    writingMode: 'vertical-rl',
                    textOrientation: 'upright',
                    fontFamily: '"Noto Sans JP", sans-serif',
-                   letterSpacing: '0.1em',
-                   lineHeight: '1.8',
-                   height: '100px'
+                   letterSpacing: '0.14em',
+                   lineHeight: '2.1',
+                   whiteSpace: 'nowrap'
                  }}>
                 今、動き出そう
               </p>
             </div>
-            {/* 思考バブルの尻尾 */}
+            {/* 思考バブルの尻尾（白・シームレス） */}
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-              <div className="w-4 h-4 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-full shadow-md"></div>
-              <div className="absolute -bottom-3 left-0.5 w-3 h-3 bg-purple-50/80 rounded-full shadow-sm"></div>
-              <div className="absolute -bottom-5 left-1 w-2 h-2 bg-purple-50/60 rounded-full"></div>
+              <div className="w-4 h-4 bg-white/90 rounded-full shadow-md"></div>
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-3 h-3 bg-white/85 rounded-full shadow-sm"></div>
+              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-2 h-2 bg-white/80 rounded-full"></div>
             </div>
           </motion.div>
 
