@@ -17,72 +17,14 @@ const MangaMontage = dynamic(() => import('@/components/effects/MangaMontage'), 
 })
 
 export default function Home() {
-  const [noiseOpacity, setNoiseOpacity] = useState(1)
-  const [contentReady, setContentReady] = useState(false)
-  const [effectsActive, setEffectsActive] = useState(true)
-  const rafRef = useRef<number | null>(null)
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      if (rafRef.current !== null) return
-      rafRef.current = requestAnimationFrame(() => {
-        rafRef.current = null
-        const scrollY = window.scrollY
-        const windowHeight = window.innerHeight
-        
-        // DawnTransitionのあたり（画面3つ分下）からフェードアウト開始
-        const fadeStartPoint = windowHeight * 3
-        const fadeEndPoint = windowHeight * 3.5
-        
-        if (scrollY < fadeStartPoint) {
-          setNoiseOpacity(0.8)
-          setEffectsActive(true)
-        } else if (scrollY >= fadeStartPoint && scrollY <= fadeEndPoint) {
-          // フェードアウト
-          const fadeProgress = (scrollY - fadeStartPoint) / (fadeEndPoint - fadeStartPoint)
-          const nextOpacity = 0.8 * (1 - fadeProgress)
-          setNoiseOpacity(nextOpacity)
-          setEffectsActive(nextOpacity > 0.2)
-        } else {
-          setNoiseOpacity(0)
-          setEffectsActive(false)
-        }
-      })
-    }
-    
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll() // 初期値を設定
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      if (rafRef.current) cancelAnimationFrame(rafRef.current)
-    }
-  }, [])
-  
+  // ルート / は軽量の案内ページに切り替え
   return (
-    <PersonalizationProvider>
-      {/* オンボーディングフロー（質問→名前→音楽） */}
-      <OnboardingFlow onComplete={() => setContentReady(true)} />
-      
-      {/* 永続的な音楽コントロール */}
-      <PersistentMusicControl />
-      
-      {/* コンテンツは設定完了後に表示 */}
-      {contentReady && (
-        <>
-          {/* ノイズエフェクト - スクロールに応じてフェードアウト */}
-          {effectsActive && (
-            <div style={{ opacity: noiseOpacity, transition: 'opacity 0.3s ease-out' }}>
-              <NoiseGlitch intensity={0.8} active={effectsActive} />
-            </div>
-          )}
-          
-          {/* 漫画モンタージュエフェクト - FVエリアのみ */}
-          {effectsActive && noiseOpacity > 0.5 && <MangaMontage enabled={effectsActive} />}
-          
-          <AcademyHomePage />
-        </>
-      )}
-    </PersonalizationProvider>
+    <main className="min-h-[60vh] flex items-center justify-center px-6">
+      <div className="max-w-2xl text-center">
+        <h1 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-6">AI REBOOT LP は移動しました</h1>
+        <p className="text-gray-600 mb-8">新しいURLはこちらです。</p>
+        <a href="/rebooters" className="inline-block px-6 py-3 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors">/rebooters へ移動</a>
+      </div>
+    </main>
   )
 }
