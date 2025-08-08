@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 import { createRNG } from './utils/seededRandom'
 
@@ -216,11 +216,16 @@ interface ActivePanel {
   index: number
 }
 
-const MangaMontage = React.memo(function MangaMontage() {
+interface MangaMontageProps {
+  enabled?: boolean
+}
+
+const MangaMontage = React.memo(function MangaMontage({ enabled = true }: MangaMontageProps) {
   const [activePanels, setActivePanels] = useState<ActivePanel[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [isMounted, setIsMounted] = useState(false)
   const [isActive, setIsActive] = useState(true) // アクティブ状態を管理
+  const reduceMotion = useReducedMotion()
   const panelCounterRef = React.useRef(0)
   const isLoadingRef = React.useRef(true) // isLoadingの現在値を保持
   const isActiveRef = React.useRef(true) // isActiveの現在値を保持
@@ -243,33 +248,45 @@ const MangaMontage = React.memo(function MangaMontage() {
   }, [isActive])
   
   useEffect(() => {
+    // reduce motion や disabled の場合は即停止
+    if (reduceMotion || !enabled) {
+      setIsActive(false)
+      isActiveRef.current = false
+      setIsLoading(false)
+      isLoadingRef.current = false
+      setActivePanels([])
+      // 予約済みタイマーのクリーンアップ
+      timersRef.current.forEach(timer => clearTimeout(timer))
+      timersRef.current.clear()
+      return
+    }
+
     // 3秒後にローディング完了とみなす
     const loadingTimer = setTimeout(() => {
       setIsLoading(false)
       isLoadingRef.current = false
     }, 3000)
     
-    // 20秒後に完全に停止（フェイルセーフ - ローディング後も十分な時間を確保）
+    // 12秒で停止（以前の20sから短縮）
     const stopTimer = setTimeout(() => {
       setIsActive(false)
       isActiveRef.current = false
-      // すべてのタイマーをクリアしてからパネルをクリア
       timersRef.current.forEach(timer => clearTimeout(timer))
       timersRef.current.clear()
       setActivePanels([])
-    }, 20000)
+    }, 12000)
     
     return () => {
       clearTimeout(loadingTimer)
       clearTimeout(stopTimer)
-      // クリーンアップ時にもすべてのタイマーをクリア
       timersRef.current.forEach(timer => clearTimeout(timer))
       timersRef.current.clear()
     }
-  }, [])
+  }, [reduceMotion, enabled])
   
   useEffect(() => {
     if (!isMounted || !isActive) return // マウント前またはアクティブでない場合は実行しない
+    if (reduceMotion || !enabled) return
     
     const localTimers: NodeJS.Timeout[] = []
     
@@ -377,10 +394,10 @@ const MangaMontage = React.memo(function MangaMontage() {
         setActivePanels([])
       }
     }
-  }, [isLoading, isMounted, isActive])
+  }, [isLoading, isMounted, isActive, reduceMotion, enabled])
   
   // サーバーサイドでは何も表示しない
-  if (!isMounted) {
+  if (!isMounted || reduceMotion || !enabled) {
     return null
   }
   

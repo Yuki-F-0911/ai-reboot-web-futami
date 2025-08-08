@@ -1,16 +1,19 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import { useReducedMotion } from 'framer-motion'
 
 interface NoiseGlitchProps {
   intensity?: number
+  active?: boolean
 }
 
-const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
+const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = true }: NoiseGlitchProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const frameRef = useRef<number | undefined>(undefined)
   const [isClient, setIsClient] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
+  const reduceMotion = useReducedMotion()
   
   // ノイズ生成関数 - 最適化版
   const generateNoise = (ctx: CanvasRenderingContext2D, width: number, height: number, density: number) => {
@@ -181,6 +184,8 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
   // 初期描画専用のuseEffect
   useEffect(() => {
     if (!isClient || !isInitialized) return
+    if (reduceMotion) return // reduce motion では初期描画もスキップ（軽量表示）
+    if (!active) return
     
     const canvas = canvasRef.current
     if (!canvas) return
@@ -199,10 +204,12 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
       drawScanlines(ctx, canvas.width, canvas.height)
       drawArtifacts(ctx, canvas.width, canvas.height)
     })
-  }, [isClient, isInitialized])
+  }, [isClient, isInitialized, active, reduceMotion])
   
   useEffect(() => {
     if (!isClient || !isInitialized) return
+    if (reduceMotion) return // reduce motion ではループしない
+    if (!active) return
     
     const canvas = canvasRef.current
     if (!canvas) return
@@ -216,7 +223,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
     }
     
     updateCanvas()
-    window.addEventListener('resize', updateCanvas)
+    window.addEventListener('resize', updateCanvas, { passive: true })
     
     const startTime = Date.now()
     let lastFrameTime = 0
@@ -250,16 +257,32 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
       frameRef.current = requestAnimationFrame(animate)
     }
     
+    const handleVisibility = () => {
+      if (document.hidden) {
+        if (frameRef.current !== undefined) {
+          cancelAnimationFrame(frameRef.current)
+          frameRef.current = undefined
+        }
+      } else {
+        if (frameRef.current === undefined) {
+          lastFrameTime = 0
+          frameRef.current = requestAnimationFrame(animate)
+        }
+      }
+    }
+    document.addEventListener('visibilitychange', handleVisibility)
+    
     // アニメーション開始
-    animate()
+    frameRef.current = requestAnimationFrame(animate)
     
     return () => {
       window.removeEventListener('resize', updateCanvas)
+      document.removeEventListener('visibilitychange', handleVisibility)
       if (frameRef.current !== undefined) {
         cancelAnimationFrame(frameRef.current)
       }
     }
-  }, [intensity, isClient, isInitialized])
+  }, [intensity, isClient, isInitialized, active, reduceMotion])
   
   // RGB分離エフェクト用のスタイル
   const rgbShiftStyle = {
@@ -278,6 +301,46 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-50" />
       </div>
     )
+  }
+  
+  // 動きを減らす設定の場合は軽量の静的オーバーレイのみ
+  if (reduceMotion) {
+    return (
+      <>
+        <div
+          className="fixed inset-0 pointer-events-none z-10"
+          style={{
+            background: `linear-gradient(
+            45deg,
+            rgba(0, 255, 200, 0.03),
+            rgba(255, 0, 100, 0.03)
+          )`,
+            mixBlendMode: 'overlay',
+            opacity: 0.4
+          }}
+        />
+        <div
+          className="fixed inset-0 pointer-events-none z-10"
+          style={{
+            background: `radial-gradient(
+            ellipse at center,
+            transparent 0%,
+            transparent 40%,
+            rgba(0, 0, 0, 0.1) 60%,
+            rgba(0, 0, 0, 0.2) 80%,
+            rgba(0, 0, 0, 0.3) 95%,
+            rgba(0, 0, 0, 0.4) 100%
+          )`,
+            mixBlendMode: 'multiply'
+          }}
+        />
+      </>
+    )
+  }
+  
+  // アクティブでなければ何も描画しない
+  if (!active) {
+    return null
   }
   
   return (

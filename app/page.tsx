@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import AcademyHomePage from '@/components/home/AcademyHomePage'
 import OnboardingFlow from '@/components/onboarding/OnboardingFlow'
@@ -19,31 +19,44 @@ const MangaMontage = dynamic(() => import('@/components/effects/MangaMontage'), 
 export default function Home() {
   const [noiseOpacity, setNoiseOpacity] = useState(1)
   const [contentReady, setContentReady] = useState(false)
+  const [effectsActive, setEffectsActive] = useState(true)
+  const rafRef = useRef<number | null>(null)
   
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY
-      const windowHeight = window.innerHeight
-      
-      // DawnTransitionのあたり（画面3つ分下）からフェードアウト開始
-      const fadeStartPoint = windowHeight * 3
-      const fadeEndPoint = windowHeight * 3.5
-      
-      if (scrollY < fadeStartPoint) {
-        setNoiseOpacity(0.8)
-      } else if (scrollY >= fadeStartPoint && scrollY <= fadeEndPoint) {
-        // フェードアウト
-        const fadeProgress = (scrollY - fadeStartPoint) / (fadeEndPoint - fadeStartPoint)
-        setNoiseOpacity(0.8 * (1 - fadeProgress))
-      } else {
-        setNoiseOpacity(0)
-      }
+      if (rafRef.current !== null) return
+      rafRef.current = requestAnimationFrame(() => {
+        rafRef.current = null
+        const scrollY = window.scrollY
+        const windowHeight = window.innerHeight
+        
+        // DawnTransitionのあたり（画面3つ分下）からフェードアウト開始
+        const fadeStartPoint = windowHeight * 3
+        const fadeEndPoint = windowHeight * 3.5
+        
+        if (scrollY < fadeStartPoint) {
+          setNoiseOpacity(0.8)
+          setEffectsActive(true)
+        } else if (scrollY >= fadeStartPoint && scrollY <= fadeEndPoint) {
+          // フェードアウト
+          const fadeProgress = (scrollY - fadeStartPoint) / (fadeEndPoint - fadeStartPoint)
+          const nextOpacity = 0.8 * (1 - fadeProgress)
+          setNoiseOpacity(nextOpacity)
+          setEffectsActive(nextOpacity > 0.2)
+        } else {
+          setNoiseOpacity(0)
+          setEffectsActive(false)
+        }
+      })
     }
     
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll() // 初期値を設定
     
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
   }, [])
   
   return (
@@ -58,12 +71,14 @@ export default function Home() {
       {contentReady && (
         <>
           {/* ノイズエフェクト - スクロールに応じてフェードアウト */}
-          <div style={{ opacity: noiseOpacity, transition: 'opacity 0.3s ease-out' }}>
-            <NoiseGlitch intensity={0.8} />
-          </div>
+          {effectsActive && (
+            <div style={{ opacity: noiseOpacity, transition: 'opacity 0.3s ease-out' }}>
+              <NoiseGlitch intensity={0.8} active={effectsActive} />
+            </div>
+          )}
           
           {/* 漫画モンタージュエフェクト - FVエリアのみ */}
-          {noiseOpacity > 0.5 && <MangaMontage />}
+          {effectsActive && noiseOpacity > 0.5 && <MangaMontage enabled={effectsActive} />}
           
           <AcademyHomePage />
         </>
