@@ -21,7 +21,7 @@ const GlitchChar = ({
   fontSize = 'inherit',
   seed = 0,
   fontMix = 'mixed',
-  intensity = 1
+  intensity = 0.7
 }: { 
   char: string
   index: number
@@ -100,7 +100,7 @@ const GlitchChar = ({
   // アニメーション制御
   useEffect(() => {
     if (!isClient) return
-    const baseDelay = delay + (index * (isImportant ? 120 : 40) * intensity)
+    const baseDelay = delay + (index * (isImportant ? 80 : 30))
     
     // サブリミナル単語を関数内で定義
     const subliminalWords = ['覚醒', '意志', '創造', '変革', '可能性', '未来', '自由', '成長', '挑戦', '革新']
@@ -135,10 +135,10 @@ const GlitchChar = ({
       setTimeout(() => {
         if (noiseInterval) clearInterval(noiseInterval)
         setPhase('glitch')
-      }, 800 * intensity)
+      }, 400)
     }, baseDelay)
     
-    // Phase 2: グリッチ (800-1400ms)
+    // Phase 2: グリッチ (300-600ms に短縮)
     const glitchTimer = setTimeout(() => {
       setPhase('glitch')
       let glitchCount = 0
@@ -160,19 +160,19 @@ const GlitchChar = ({
         }
         glitchCount++
         
-        if (glitchCount > 10) { // 安全のため上限を設定
+        if (glitchCount > 6) { // 上限をさらに下げる
           if (glitchInterval) clearInterval(glitchInterval)
         }
-      }, 80)
+      }, 50) // 間隔をさらに短く
       
       setTimeout(() => {
         if (glitchInterval) clearInterval(glitchInterval)
         setDisplayChar(char) // グリッチ終了時に正しい文字を表示
         setPhase('forming')
-      }, 600 * intensity)
-    }, baseDelay + 800 * intensity)
+      }, 200) // 時間を大幅に短縮
+    }, baseDelay + 400) // 時間を大幅に短縮
     
-    // Phase 3: 形成 (1400-2000ms)
+    // Phase 3: 形成 (600-800ms に短縮)
     const formingTimer = setTimeout(() => {
       setPhase('forming')
       setDisplayChar(char)
@@ -180,14 +180,14 @@ const GlitchChar = ({
       setTimeout(() => {
         setPhase('formed')
         setDisplayChar(char) // 最終的に正しい文字を表示
-      }, 600 * intensity)
-    }, baseDelay + 1400 * intensity)
+      }, 150) // 時間を大幅に短縮
+    }, baseDelay + 600) // 時間を大幅に短縮
     
     // 最終確認タイマー（フェイルセーフ）
     const finalTimer = setTimeout(() => {
       setPhase('formed')
       setDisplayChar(char)
-    }, baseDelay + 2200 * intensity)
+    }, baseDelay + 800) // 時間を大幅に短縮
     
     return () => {
       if (noiseInterval) clearInterval(noiseInterval)
@@ -197,19 +197,23 @@ const GlitchChar = ({
       clearTimeout(formingTimer)
       clearTimeout(finalTimer)
     }
-  }, [char, index, delay, isImportant, isClient])
+  }, [char, index, delay, isImportant, isClient, intensity])
   
-  // 余韻グリッチエフェクト（収束後）
+  // 余韻グリッチエフェクト（収束後）- 一時的に無効化
   useEffect(() => {
+    // 余韻グリッチを完全に無効化（安定性のため）
+    return
+    
     if (!isClient || phase !== 'formed') return
     
     let afterGlitchTimeout: NodeJS.Timeout | null = null
     let restoreTimeout: NodeJS.Timeout | null = null
+    let intervalId: NodeJS.Timeout | null = null
     
     // ランダムなタイミングでグリッチを発生させる
     const scheduleAfterGlitch = () => {
-      // 3〜8秒後にランダムでグリッチ
-      const nextGlitchTime = 3000 + Math.random() * 5000
+      // 8〜15秒後にランダムでグリッチ（頻度を下げる）
+      const nextGlitchTime = 8000 + Math.random() * 7000
       
       afterGlitchTimeout = setTimeout(() => {
         setAfterGlitch(true)
@@ -244,12 +248,13 @@ const GlitchChar = ({
           // 明滅効果
           setAfterGlitchType('flicker')
           let flickerCount = 0
-          const flickerInterval = setInterval(() => {
+          intervalId = setInterval(() => {
             setAfterGlitch(flickerCount % 2 === 0)
             flickerCount++
             
             if (flickerCount > 4) {
-              clearInterval(flickerInterval)
+              if (intervalId) clearInterval(intervalId)
+              intervalId = null
               setAfterGlitch(false)
               scheduleAfterGlitch()
             }
@@ -258,7 +263,7 @@ const GlitchChar = ({
           // ガガガ... 連続グリッチ
           setAfterGlitchType('noise')
           let glitchCount = 0
-          const rapidGlitch = setInterval(() => {
+          intervalId = setInterval(() => {
             if (glitchCount % 2 === 0) {
               setDisplayChar(randomChars[Math.floor(Math.random() * randomChars.length)])
             } else {
@@ -267,7 +272,8 @@ const GlitchChar = ({
             glitchCount++
             
             if (glitchCount > 6) {
-              clearInterval(rapidGlitch)
+              if (intervalId) clearInterval(intervalId)
+              intervalId = null
               setDisplayChar(char)
               setAfterGlitch(false)
               scheduleAfterGlitch()
@@ -283,8 +289,12 @@ const GlitchChar = ({
     return () => {
       if (afterGlitchTimeout) clearTimeout(afterGlitchTimeout)
       if (restoreTimeout) clearTimeout(restoreTimeout)
+      if (intervalId) clearInterval(intervalId)
+      // 文字を正しい状態に戻す
+      setDisplayChar(char)
+      setAfterGlitch(false)
     }
-  }, [phase, isClient, char])
+  }, [phase, isClient, char, randomChars])
   
   if (!isClient) {
     return <span style={{ opacity: 0 }}>{char}</span>
@@ -418,33 +428,41 @@ export default function GlitchText({
   delay = 0,
   scrollTrigger = false,
   fontMix = 'mixed',
-  intensity = 1
+  intensity = 0.7
 }: GlitchTextProps) {
   const [isVisible, setIsVisible] = useState(!scrollTrigger)
   const [isClient, setIsClient] = useState(false)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const containerRef = useRef<HTMLSpanElement>(null)
+  
+  // 初回のテキストを保存して固定化
+  const [initialText] = useState(text)
+  const displayText = initialText
   
   // フォントサイズをクラスから抽出
   const getFontSize = () => {
+    // 親要素から継承する場合
+    if (!className || className === '') return 'inherit'
+    
     if (className.includes('text-9xl')) return '6rem'
     if (className.includes('text-8xl')) return '6rem'
     if (className.includes('text-7xl')) return '4.5rem'
     if (className.includes('text-6xl')) return '3.75rem'
     if (className.includes('text-5xl')) return '3rem'
     if (className.includes('text-4xl')) return '2.25rem'
-    return '1rem'
+    return 'inherit'
   }
   
-  // シード値をテキストから生成
+  // シード値をテキストから生成（初回テキストで固定）
   const textSeed = useMemo(() => {
     let hash = 0
-    for (let i = 0; i < text.length; i++) {
-      const char = text.charCodeAt(i)
+    for (let i = 0; i < displayText.length; i++) {
+      const char = displayText.charCodeAt(i)
       hash = ((hash << 5) - hash) + char
       hash = hash & hash
     }
     return Math.abs(hash)
-  }, [text])
+  }, [displayText])
   
   // 重要な単語を判定
   const importantWords = ['AI', '覚醒', '物語', '支配', '主人公', 'あなた']
@@ -454,6 +472,16 @@ export default function GlitchText({
   
   useEffect(() => {
     setIsClient(true)
+    // アクセシビリティ: モーション設定を確認
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches)
+    }
+    
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
   
   // スクロールによるトリガー (シンプルなIntersection Observerを使用)
@@ -482,7 +510,12 @@ export default function GlitchText({
   }, [isClient, scrollTrigger, isVisible])
   
   if (!isClient) {
-    return <span className={className} style={{ opacity: 0 }}>{text}</span>
+    return <span className={className} style={{ opacity: 0 }}>{displayText}</span>
+  }
+  
+  // アクセシビリティ: モーション設定が減らされている場合はシンプルな表示
+  if (prefersReducedMotion) {
+    return <span className={className}>{displayText}</span>
   }
   
   return (
@@ -501,12 +534,12 @@ export default function GlitchText({
       
       {/* テキスト本体 */}
       <span className="relative">
-        {isVisible && text.split('').map((char, index) => (
+        {isVisible && displayText.split('').map((char, index) => (
           <GlitchChar
-            key={index}
+            key={`${index}-${textSeed}`}  // シード値を含めて一意のキーにする
             char={char}
             index={index}
-            isImportant={isImportantChar(char, text)}
+            isImportant={isImportantChar(char, displayText)}
             delay={delay}
             fontSize={getFontSize()}
             seed={textSeed}

@@ -1,32 +1,42 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
 
 interface NoiseGlitchProps {
   intensity?: number
 }
 
-export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
+const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const frameRef = useRef<number | undefined>(undefined)
   const [isClient, setIsClient] = useState(false)
+  const [isInitialized, setIsInitialized] = useState(false)
   
-  // ノイズ生成関数 - スタイリッシュ版
-  const generateNoise = (ctx: CanvasRenderingContext2D, width: number, height: number, density: number, time: number) => {
+  // ノイズ生成関数 - 最適化版
+  const generateNoise = (ctx: CanvasRenderingContext2D, width: number, height: number, density: number) => {
     // 解像度を下げてパフォーマンス改善
-    const scale = 3  // より細かいノイズ
+    const scale = 4  // パフォーマンス重視（2から4に変更）
     const scaledWidth = Math.ceil(width / scale)
     const scaledHeight = Math.ceil(height / scale)
-    const imageData = ctx.createImageData(scaledWidth, scaledHeight)
+    
+    // 一時的なキャンバスを作成
+    const tempCanvas = document.createElement('canvas')
+    tempCanvas.width = scaledWidth
+    tempCanvas.height = scaledHeight
+    const tempCtx = tempCanvas.getContext('2d')
+    if (!tempCtx) return
+    
+    const imageData = tempCtx.createImageData(scaledWidth, scaledHeight)
     const data = imageData.data
     
-    // ブロックノイズサイズ（ランダム化）
-    const blockSize = 2 + Math.floor(Math.random() * 3)
+    // ブロックノイズサイズ（より小さく）
+    const blockSize = 1 + Math.floor(Math.random() * 2)
     
-    for (let y = 0; y < scaledHeight; y += blockSize) {
-      for (let x = 0; x < scaledWidth; x += blockSize) {
-        if (Math.random() < density) {
+    // パフォーマンス最適化: ステップを大きくする
+    const step = 2  // ピクセルをスキップ
+    for (let y = 0; y < scaledHeight; y += blockSize * step) {
+      for (let x = 0; x < scaledWidth; x += blockSize * step) {
+        if (Math.random() < density * 0.8) {  // 密度を少し下げる
           // スタイリッシュなノイズ色（シアン・マゼンタ・白のデジタルパレット）
           const colorType = Math.random()
           let r, g, b
@@ -47,7 +57,7 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
             // 黒（アクセント）
             r = g = b = 0
           }
-          const alpha = (0.08 + Math.random() * 0.15) * intensity
+          const alpha = (0.15 + Math.random() * 0.2) * intensity
           
           for (let by = 0; by < blockSize && y + by < scaledHeight; by++) {
             for (let bx = 0; bx < blockSize && x + bx < scaledWidth; bx++) {
@@ -64,18 +74,20 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
       }
     }
     
-    // 拡大して描画
-    ctx.putImageData(imageData, 0, 0)
+    // 一時キャンバスに描画
+    tempCtx.putImageData(imageData, 0, 0)
+    
+    // メインキャンバスに拡大して描画
     ctx.imageSmoothingEnabled = false
-    ctx.drawImage(ctx.canvas, 0, 0, scaledWidth, scaledHeight, 0, 0, width, height)
+    ctx.drawImage(tempCanvas, 0, 0, scaledWidth, scaledHeight, 0, 0, width, height)
   }
   
   // 走査線エフェクト - スタイリッシュ版
-  const drawScanlines = (ctx: CanvasRenderingContext2D, width: number, height: number, time: number) => {
+  const drawScanlines = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
     // 複数の走査線をグラデーションで描画
     const scanlineCount = 3
     for (let i = 0; i < scanlineCount; i++) {
-      const scanlineY = ((time * (0.2 + i * 0.1)) % height)
+      const scanlineY = ((Date.now() * 0.01 * (50 + i * 20)) % height)  // スピードを速く
       const alpha = (0.2 - i * 0.05) * intensity
       
       // グラデーション走査線
@@ -96,7 +108,7 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
     
     // 縦の干渉波（複数でより繊細に）
     for (let i = 0; i < 2; i++) {
-      const interferenceX = ((time * (0.15 + i * 0.1)) % width)
+      const interferenceX = ((Date.now() * 0.01 * (30 + i * 15)) % width)  // スピードを速く
       const alpha = (0.15 - i * 0.05) * intensity
       ctx.strokeStyle = `rgba(200, 0, 255, ${alpha})`
       ctx.lineWidth = 1
@@ -108,7 +120,7 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
   }
   
   // デジタルアーティファクト - スタイリッシュ版
-  const drawArtifacts = (ctx: CanvasRenderingContext2D, width: number, height: number, time: number) => {
+  const drawArtifacts = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
     // グリッチブロック（グラデーション付き）
     if (Math.random() > 0.96) {
       const x = Math.random() * width
@@ -159,10 +171,38 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
   
   useEffect(() => {
     setIsClient(true)
+    // クライアントサイドであることを確認後、少し遅延して初期化
+    const timer = setTimeout(() => {
+      setIsInitialized(true)
+    }, 100)
+    return () => clearTimeout(timer)
   }, [])
   
+  // 初期描画専用のuseEffect
   useEffect(() => {
-    if (!isClient) return
+    if (!isClient || !isInitialized) return
+    
+    const canvas = canvasRef.current
+    if (!canvas) return
+    
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+    
+    // 少し遅延してキャンバスサイズを設定
+    requestAnimationFrame(() => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+      
+      // 濃いノイズで即座に描画
+      const strongDensity = 0.4
+      generateNoise(ctx, canvas.width, canvas.height, strongDensity)
+      drawScanlines(ctx, canvas.width, canvas.height)
+      drawArtifacts(ctx, canvas.width, canvas.height)
+    })
+  }, [isClient, isInitialized])
+  
+  useEffect(() => {
+    if (!isClient || !isInitialized) return
     
     const canvas = canvasRef.current
     if (!canvas) return
@@ -178,38 +218,48 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
     updateCanvas()
     window.addEventListener('resize', updateCanvas)
     
-    let time = 0
-    let frameCount = 0
-    const animate = () => {
-      time += 1
-      frameCount++
+    const startTime = Date.now()
+    let lastFrameTime = 0
+    const targetFPS = 30  // 30FPSに制限してパフォーマンス改善
+    const frameInterval = 1000 / targetFPS
+    
+    // アニメーションループ
+    const animate = (timestamp: number = 0) => {
+      // FPS制限
+      if (timestamp - lastFrameTime < frameInterval) {
+        frameRef.current = requestAnimationFrame(animate)
+        return
+      }
+      lastFrameTime = timestamp
       
-      // 3フレームに1回だけ更新（パフォーマンス改善）
-      if (frameCount % 3 === 0) {
-        // キャンバスをクリア
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        
-        // ノイズ密度を時間で変化
-        const noiseDensity = 0.08 + Math.sin(time * 0.01) * 0.05
-        
-        // 各レイヤーを描画
-        generateNoise(ctx, canvas.width, canvas.height, noiseDensity, time)
-        drawScanlines(ctx, canvas.width, canvas.height, time)
-        drawArtifacts(ctx, canvas.width, canvas.height, time)
+      const currentTime = (Date.now() - startTime) / 1000
+      
+      // キャンバスをクリア
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      
+      // 固定密度でノイズを描画（時間パラメータでアニメーション）
+      const noiseDensity = 0.25  // 密度を下げる
+      
+      // 各レイヤーを描画（アーティファクトは頻度を下げる）
+      generateNoise(ctx, canvas.width, canvas.height, noiseDensity)
+      drawScanlines(ctx, canvas.width, canvas.height)
+      if (Math.random() > 0.7) {  // 30%の確率でのみアーティファクトを描画
+        drawArtifacts(ctx, canvas.width, canvas.height)
       }
       
       frameRef.current = requestAnimationFrame(animate)
     }
     
+    // アニメーション開始
     animate()
     
     return () => {
       window.removeEventListener('resize', updateCanvas)
-      if (frameRef.current) {
+      if (frameRef.current !== undefined) {
         cancelAnimationFrame(frameRef.current)
       }
     }
-  }, [intensity, isClient])
+  }, [intensity, isClient, isInitialized])
   
   // RGB分離エフェクト用のスタイル
   const rgbShiftStyle = {
@@ -220,8 +270,14 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
     `
   }
   
-  if (!isClient) {
-    return null
+  // 初期化前はダークな背景を表示
+  if (!isClient || !isInitialized) {
+    return (
+      <div className="fixed inset-0 pointer-events-none z-20">
+        <div className="absolute inset-0 bg-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-50" />
+      </div>
+    )
   }
   
   return (
@@ -229,35 +285,48 @@ export default function NoiseGlitch({ intensity = 1 }: NoiseGlitchProps) {
       {/* ノイズキャンバス */}
       <canvas
         ref={canvasRef}
-        className="fixed inset-0 pointer-events-none z-30"
+        className="fixed inset-0 pointer-events-none z-10"
         style={{
-          mixBlendMode: 'screen',
-          opacity: 0.4 + intensity * 0.2
+          mixBlendMode: 'multiply',
+          opacity: 0.7 + intensity * 0.2,
+          width: '100%',
+          height: '100%'
         }}
       />
       
-      {/* グリッチオーバーレイ - 軽量版 */}
-      <motion.div
-        className="fixed inset-0 pointer-events-none z-20"
-        animate={{
-          opacity: [0, 0.15, 0],
-        }}
-        transition={{
-          duration: 0.5,
-          repeat: Infinity,
-          repeatDelay: 3,
-          times: [0, 0.5, 1]
-        }}
+      {/* グリッチオーバーレイ - 静的版 */}
+      <div
+        className="fixed inset-0 pointer-events-none z-10"
         style={{
           background: `linear-gradient(
             45deg,
-            rgba(0, 255, 200, 0.1),
-            rgba(255, 0, 100, 0.1)
+            rgba(0, 255, 200, 0.03),
+            rgba(255, 0, 100, 0.03)
           )`,
-          mixBlendMode: 'screen'
+          mixBlendMode: 'overlay',
+          opacity: 0.6
+        }}
+      />
+      
+      {/* ビネット効果 - 放射状グラデーション */}
+      <div
+        className="fixed inset-0 pointer-events-none z-10"
+        style={{
+          background: `radial-gradient(
+            ellipse at center,
+            transparent 0%,
+            transparent 40%,
+            rgba(0, 0, 0, 0.1) 60%,
+            rgba(0, 0, 0, 0.2) 80%,
+            rgba(0, 0, 0, 0.3) 95%,
+            rgba(0, 0, 0, 0.4) 100%
+          )`,
+          mixBlendMode: 'multiply'
         }}
       />
       
     </>
   )
-}
+})
+
+export default NoiseGlitch

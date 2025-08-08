@@ -14,7 +14,7 @@ export const Header: React.FC = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-gray-900/95 backdrop-blur-md">
+    <header className="fixed top-0 w-full z-[100] bg-gray-900/95 backdrop-blur-md">
       <nav className="container-section py-4">
         <div className="flex items-center justify-between">
           {/* ロゴ */}
