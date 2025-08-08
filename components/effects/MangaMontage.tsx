@@ -220,23 +220,36 @@ const MangaMontage = React.memo(function MangaMontage() {
   const [isMounted, setIsMounted] = useState(false)
   const [isActive, setIsActive] = useState(true) // アクティブ状態を管理
   const panelCounterRef = React.useRef(0)
+  const isLoadingRef = React.useRef(true) // isLoadingの現在値を保持
+  const isActiveRef = React.useRef(true) // isActiveの現在値を保持
   
   // クライアントサイドでのみマウント
   useEffect(() => {
     setIsMounted(true)
   }, [])
   
+  // Refの値を更新
+  useEffect(() => {
+    isLoadingRef.current = isLoading
+  }, [isLoading])
+  
+  useEffect(() => {
+    isActiveRef.current = isActive
+  }, [isActive])
+  
   useEffect(() => {
     // 3秒後にローディング完了とみなす
     const loadingTimer = setTimeout(() => {
       setIsLoading(false)
+      isLoadingRef.current = false
     }, 3000)
     
-    // 10秒後に完全に停止（フェイルセーフ）
+    // 20秒後に完全に停止（フェイルセーフ - ローディング後も十分な時間を確保）
     const stopTimer = setTimeout(() => {
       setIsActive(false)
+      isActiveRef.current = false
       setActivePanels([])
-    }, 10000)
+    }, 20000)
     
     return () => {
       clearTimeout(loadingTimer)
@@ -252,23 +265,24 @@ const MangaMontage = React.memo(function MangaMontage() {
     
     // グリッチ的なランダムな表示パターン
     const showPanel = () => {
-      if (!isActive) return // アクティブでない場合は何もしない
-      if (!isLoading) {
-        // ローディング後は1枚ずつ追加（最大3枚まで）
+      if (!isActiveRef.current) return // アクティブでない場合は何もしない
+      
+      if (!isLoadingRef.current) {
+        // ローディング後は1枚ずつ追加（最大5枚まで）
         const newIndex = Math.floor(Math.random() * mangaPanels.length)
         const panelId = `panel-${panelCounterRef.current++}`
         
         setActivePanels(prev => {
-          // 最大3枚までに制限
+          // 最大5枚までに制限（適度な表示数）
           const updated = [...prev, { id: panelId, index: newIndex }]
-          if (updated.length > 3) {
-            return updated.slice(-3) // 最新の3枚のみ保持
+          if (updated.length > 5) {
+            return updated.slice(-5) // 最新の5枚のみ保持
           }
           return updated
         })
         
         // 個別に削除（確実に削除）
-        const displayTime = 800 + Math.random() * 700 // 0.8-1.5秒後に削除
+        const displayTime = 1500 + Math.random() * 1500 // 1.5-3秒後に削除
         const hideTimer = setTimeout(() => {
           setActivePanels(prev => prev.filter(p => p.id !== panelId))
         }, displayTime)
@@ -299,7 +313,7 @@ const MangaMontage = React.memo(function MangaMontage() {
     const scheduleGlitch = () => {
       const rand = Math.random()
       
-      if (isLoading) {
+      if (isLoadingRef.current) {
         // ローディング中は激しいグリッチ
         if (rand < 0.5) {
           // 50% - 連続グリッチ
@@ -317,8 +331,8 @@ const MangaMontage = React.memo(function MangaMontage() {
           timers.push(nextTimer)
         }
       } else {
-        // ローディング後は短い間隔で次々と表示
-        const nextDelay = Math.random() * 1500 + 300 // 0.3-1.8秒のランダム間隔
+        // ローディング後は適度な間隔で表示
+        const nextDelay = Math.random() * 800 + 200 // 0.2-1.0秒のランダム間隔
         showPanel()
         const nextTimer = setTimeout(scheduleGlitch, nextDelay)
         timers.push(nextTimer)
