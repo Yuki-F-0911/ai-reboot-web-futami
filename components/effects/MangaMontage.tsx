@@ -224,6 +224,7 @@ const MangaMontage = React.memo(function MangaMontage() {
   const panelCounterRef = React.useRef(0)
   const isLoadingRef = React.useRef(true) // isLoadingの現在値を保持
   const isActiveRef = React.useRef(true) // isActiveの現在値を保持
+  const timersRef = React.useRef<Set<NodeJS.Timeout>>(new Set()) // タイマーを管理するSet
   // Initialize a dedicated RNG instance once
   const localRNGRef = useRef<() => number>(createRNG(0xA11CE))
   
@@ -252,20 +253,25 @@ const MangaMontage = React.memo(function MangaMontage() {
     const stopTimer = setTimeout(() => {
       setIsActive(false)
       isActiveRef.current = false
+      // すべてのタイマーをクリアしてからパネルをクリア
+      timersRef.current.forEach(timer => clearTimeout(timer))
+      timersRef.current.clear()
       setActivePanels([])
     }, 20000)
     
     return () => {
       clearTimeout(loadingTimer)
       clearTimeout(stopTimer)
+      // クリーンアップ時にもすべてのタイマーをクリア
+      timersRef.current.forEach(timer => clearTimeout(timer))
+      timersRef.current.clear()
     }
   }, [])
   
   useEffect(() => {
     if (!isMounted || !isActive) return // マウント前またはアクティブでない場合は実行しない
     
-    const timers: NodeJS.Timeout[] = []
-    const intervals: NodeJS.Timeout[] = [] // intervalも管理
+    const localTimers: NodeJS.Timeout[] = []
     
     // グリッチ的なランダムな表示パターン
     const showPanel = () => {
@@ -289,8 +295,10 @@ const MangaMontage = React.memo(function MangaMontage() {
         const displayTime = 1500 + localRNGRef.current() * 1500 // 1.5-3秒後に削除
         const hideTimer = setTimeout(() => {
           setActivePanels(prev => prev.filter(p => p.id !== panelId))
+          timersRef.current.delete(hideTimer) // タイマーをSetから削除
         }, displayTime)
-        timers.push(hideTimer)
+        localTimers.push(hideTimer)
+        timersRef.current.add(hideTimer) // タイマーをSetに追加
         
       } else {
         // ローディング中は複数枚を一度にセット
@@ -310,13 +318,17 @@ const MangaMontage = React.memo(function MangaMontage() {
         const displayTime = 30 + localRNGRef.current() * 270 // 0.03-0.3秒
         const hideTimer = setTimeout(() => {
           setActivePanels([])
+          timersRef.current.delete(hideTimer) // タイマーをSetから削除
         }, displayTime)
-        timers.push(hideTimer)
+        localTimers.push(hideTimer)
+        timersRef.current.add(hideTimer) // タイマーをSetに追加
       }
     }
     
     // 不規則なグリッチパターンを作成
     const scheduleGlitch = () => {
+      if (!isActiveRef.current) return // アクティブでない場合は終了
+      
       const rand = localRNGRef.current()
       
       if (isLoadingRef.current) {
@@ -326,34 +338,44 @@ const MangaMontage = React.memo(function MangaMontage() {
           const burstCount = 5 + Math.floor(localRNGRef.current() * 6)
           for (let i = 0; i < burstCount; i++) {
             const timer = setTimeout(showPanel, i * (20 + localRNGRef.current() * 50))
-            timers.push(timer)
+            localTimers.push(timer)
+            timersRef.current.add(timer)
           }
           const nextTimer = setTimeout(scheduleGlitch, burstCount * 50 + localRNGRef.current() * 300)
-          timers.push(nextTimer)
+          localTimers.push(nextTimer)
+          timersRef.current.add(nextTimer)
         } else {
           // 50% - 高速グリッチ
           showPanel()
           const nextTimer = setTimeout(scheduleGlitch, 50 + localRNGRef.current() * 150)
-          timers.push(nextTimer)
+          localTimers.push(nextTimer)
+          timersRef.current.add(nextTimer)
         }
       } else {
         // ローディング後は適度な間隔で表示
         const nextDelay = localRNGRef.current() * 800 + 200 // 0.2-1.0秒のランダム間隔
         showPanel()
         const nextTimer = setTimeout(scheduleGlitch, nextDelay)
-        timers.push(nextTimer)
+        localTimers.push(nextTimer)
+        timersRef.current.add(nextTimer)
       }
     }
     
     // 初回開始
     const startTimer = setTimeout(scheduleGlitch, 200)
-    timers.push(startTimer)
+    localTimers.push(startTimer)
+    timersRef.current.add(startTimer)
     
-    // クリーンアップ - すべてのタイマーとインターバルをクリア
+    // クリーンアップ - すべてのローカルタイマーをクリア
     return () => {
-      timers.forEach(timer => clearTimeout(timer))
-      intervals.forEach(interval => clearInterval(interval))
-      setActivePanels([]) // 表示中の画像もクリア
+      localTimers.forEach(timer => {
+        clearTimeout(timer)
+        timersRef.current.delete(timer)
+      })
+      // アクティブでなくなったら表示中の画像もクリア
+      if (!isActive) {
+        setActivePanels([])
+      }
     }
   }, [isLoading, isMounted, isActive])
   

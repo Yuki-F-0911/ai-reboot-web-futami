@@ -1,15 +1,51 @@
 'use client'
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { usePersonalization } from '@/contexts/PersonalizationContext'
 
 export default function InnerVoiceBubble() {
   const { scrollYProgress } = useScroll()
+  const { data } = usePersonalization()
+  const { expectation, feeling, focus } = data.quizAnswers
   
   // スクロールに応じた視差効果
   const bubble1Y = useTransform(scrollYProgress, [0, 0.3], [0, -50])
   const bubble2Y = useTransform(scrollYProgress, [0, 0.3], [0, -30])
   
+  // パーソナライズ文言（初回選択肢に“少し寄せる”）
+  const { bubble1Text, bubble2Text, bubble3Text } = useMemo(() => {
+    // デフォルト文言
+    let b1 = 'このままでいいのだろうか'
+    let b2 = '本当はもっと、できるはずなのに'
+    let b3 = '変わりたいけど、一歩が踏み出せない'
+
+    // 期待/フォーカス寄せ
+    const isEfficiency = expectation === 'efficiency' || focus === 'skills'
+    const isPossibility = expectation === 'possibility' || focus === 'mindset'
+
+    if (isEfficiency) {
+      b1 = 'このやり方、もっと良くできる'
+      b2 = '無駄を減らして本質に集中したい'
+      b3 = '小さく試して、確実に前へ'
+    } else if (isPossibility) {
+      b1 = '本当はもっと面白くできる'
+      b2 = 'まだ見ぬ可能性を形にしたい'
+      b3 = '考え方を変えれば景色も変わる'
+    }
+
+    // 感情寄せ（軽く上書き）
+    if (feeling === 'change') {
+      b1 = '今のままじゃ終われない'
+      b3 = '怖さよりワクワクを信じたい'
+    } else if (feeling === 'growth') {
+      b2 = '積み上げれば、きっと届く'
+      b3 = '焦らず、でも止まらず'
+    }
+
+    return { bubble1Text: b1, bubble2Text: b2, bubble3Text: b3 }
+  }, [expectation, feeling, focus])
+
   return (
     <>
       {/* 1つ目の思考バブル - 左寄り配置 */}
@@ -71,7 +107,7 @@ export default function InnerVoiceBubble() {
                   height: '200px'
                 }}
               >
-                このままでいいのだろうか
+                {bubble1Text}
               </p>
             </div>
             
@@ -151,7 +187,7 @@ export default function InnerVoiceBubble() {
                   height: '280px'
                 }}
               >
-                本当はもっと、できるはずなのに
+                {bubble2Text}
               </p>
             </div>
             
@@ -231,7 +267,7 @@ export default function InnerVoiceBubble() {
                   height: '180px'
                 }}
               >
-                変わりたいけど、一歩が踏み出せない
+                {bubble3Text}
               </p>
             </div>
             
