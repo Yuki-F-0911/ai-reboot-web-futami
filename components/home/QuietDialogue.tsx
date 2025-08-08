@@ -69,7 +69,18 @@ export default function QuietDialogue() {
   
   // PersonalizationContextを使用（Providerで囲まれていない場合はデフォルト値）
   const personalizationData = usePersonalization()
-  const userName = personalizationData?.data?.userName || 'あなた'
+  
+  // userNameを初回のみ設定して固定化（再レンダリングを防ぐ）
+  const [fixedUserName, setFixedUserName] = useState<string>('あなた')
+  const [isNameSet, setIsNameSet] = useState(false)
+  
+  useEffect(() => {
+    // 名前が設定されたら一度だけ更新
+    if (!isNameSet && personalizationData?.data?.userName) {
+      setFixedUserName(personalizationData.data.userName)
+      setIsNameSet(true)
+    }
+  }, [personalizationData?.data?.userName, isNameSet])
   
   // FVエリア専用のスクロール進行度
   const { scrollYProgress: fvScrollProgress } = useScroll({
@@ -279,7 +290,7 @@ export default function QuietDialogue() {
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                       <GlitchText
-                        text={`${userName}の未来を`}
+                        text={`${fixedUserName}の未来を`}
                         className="text-6xl lg:text-8xl font-bold"
                         delay={200}
                         fontMix="mixed"
@@ -310,7 +321,7 @@ export default function QuietDialogue() {
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                       <GlitchText
-                        text={`${userName}の未来を`}
+                        text={`${fixedUserName}の未来を`}
                         className="text-4xl md:text-5xl font-bold"
                         delay={200}
                         fontMix="mixed"
@@ -937,7 +948,7 @@ export default function QuietDialogue() {
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                       <GlitchText
-                        text={`${userName}の未来を`}
+                        text={`${fixedUserName}の未来を`}
                         className="text-5xl lg:text-7xl font-bold"
                         delay={200}
                         fontMix="mixed"

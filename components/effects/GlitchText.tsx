@@ -197,7 +197,7 @@ const GlitchChar = ({
       clearTimeout(formingTimer)
       clearTimeout(finalTimer)
     }
-  }, [char, index, delay, isImportant, isClient])
+  }, [char, index, delay, isImportant, isClient, intensity])
   
   // 余韻グリッチエフェクト（収束後）
   useEffect(() => {
@@ -425,6 +425,10 @@ export default function GlitchText({
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const containerRef = useRef<HTMLSpanElement>(null)
   
+  // 初回のテキストを保存して固定化
+  const [initialText] = useState(text)
+  const displayText = initialText
+  
   // フォントサイズをクラスから抽出
   const getFontSize = () => {
     // 親要素から継承する場合
@@ -439,16 +443,16 @@ export default function GlitchText({
     return 'inherit'
   }
   
-  // シード値をテキストから生成
+  // シード値をテキストから生成（初回テキストで固定）
   const textSeed = useMemo(() => {
     let hash = 0
-    for (let i = 0; i < text.length; i++) {
-      const char = text.charCodeAt(i)
+    for (let i = 0; i < displayText.length; i++) {
+      const char = displayText.charCodeAt(i)
       hash = ((hash << 5) - hash) + char
       hash = hash & hash
     }
     return Math.abs(hash)
-  }, [text])
+  }, [displayText])
   
   // 重要な単語を判定
   const importantWords = ['AI', '覚醒', '物語', '支配', '主人公', 'あなた']
@@ -496,12 +500,12 @@ export default function GlitchText({
   }, [isClient, scrollTrigger, isVisible])
   
   if (!isClient) {
-    return <span className={className} style={{ opacity: 0 }}>{text}</span>
+    return <span className={className} style={{ opacity: 0 }}>{displayText}</span>
   }
   
   // アクセシビリティ: モーション設定が減らされている場合はシンプルな表示
   if (prefersReducedMotion) {
-    return <span className={className}>{text}</span>
+    return <span className={className}>{displayText}</span>
   }
   
   return (
@@ -520,12 +524,12 @@ export default function GlitchText({
       
       {/* テキスト本体 */}
       <span className="relative">
-        {isVisible && text.split('').map((char, index) => (
+        {isVisible && displayText.split('').map((char, index) => (
           <GlitchChar
-            key={index}
+            key={`${index}-${textSeed}`}  // シード値を含めて一意のキーにする
             char={char}
             index={index}
-            isImportant={isImportantChar(char, text)}
+            isImportant={isImportantChar(char, displayText)}
             delay={delay}
             fontSize={getFontSize()}
             seed={textSeed}
