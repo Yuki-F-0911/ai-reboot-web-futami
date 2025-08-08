@@ -218,6 +218,7 @@ const MangaMontage = React.memo(function MangaMontage() {
   const [activePanels, setActivePanels] = useState<ActivePanel[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [isMounted, setIsMounted] = useState(false)
+  const [isActive, setIsActive] = useState(true) // アクティブ状態を管理
   const panelCounterRef = React.useRef(0)
   
   // クライアントサイドでのみマウント
@@ -231,25 +232,43 @@ const MangaMontage = React.memo(function MangaMontage() {
       setIsLoading(false)
     }, 3000)
     
-    return () => clearTimeout(loadingTimer)
+    // 10秒後に完全に停止（フェイルセーフ）
+    const stopTimer = setTimeout(() => {
+      setIsActive(false)
+      setActivePanels([])
+    }, 10000)
+    
+    return () => {
+      clearTimeout(loadingTimer)
+      clearTimeout(stopTimer)
+    }
   }, [])
   
   useEffect(() => {
-    if (!isMounted) return // マウント前は実行しない
+    if (!isMounted || !isActive) return // マウント前またはアクティブでない場合は実行しない
     
     const timers: NodeJS.Timeout[] = []
+    const intervals: NodeJS.Timeout[] = [] // intervalも管理
     
     // グリッチ的なランダムな表示パターン
     const showPanel = () => {
+      if (!isActive) return // アクティブでない場合は何もしない
       if (!isLoading) {
-        // ローディング後は1枚ずつ追加
+        // ローディング後は1枚ずつ追加（最大3枚まで）
         const newIndex = Math.floor(Math.random() * mangaPanels.length)
         const panelId = `panel-${panelCounterRef.current++}`
         
-        setActivePanels(prev => [...prev, { id: panelId, index: newIndex }])
+        setActivePanels(prev => {
+          // 最大3枚までに制限
+          const updated = [...prev, { id: panelId, index: newIndex }]
+          if (updated.length > 3) {
+            return updated.slice(-3) // 最新の3枚のみ保持
+          }
+          return updated
+        })
         
-        // 個別に削除
-        const displayTime = 1000 + Math.random() * 1500 // 1-2.5秒後に削除
+        // 個別に削除（確実に削除）
+        const displayTime = 800 + Math.random() * 700 // 0.8-1.5秒後に削除
         const hideTimer = setTimeout(() => {
           setActivePanels(prev => prev.filter(p => p.id !== panelId))
         }, displayTime)
@@ -310,12 +329,13 @@ const MangaMontage = React.memo(function MangaMontage() {
     const startTimer = setTimeout(scheduleGlitch, 200)
     timers.push(startTimer)
     
-    // クリーンアップ - すべてのタイマーをクリア
+    // クリーンアップ - すべてのタイマーとインターバルをクリア
     return () => {
       timers.forEach(timer => clearTimeout(timer))
+      intervals.forEach(interval => clearInterval(interval))
       setActivePanels([]) // 表示中の画像もクリア
     }
-  }, [isLoading, isMounted])
+  }, [isLoading, isMounted, isActive])
   
   // サーバーサイドでは何も表示しない
   if (!isMounted) {

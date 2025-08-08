@@ -199,12 +199,16 @@ const GlitchChar = ({
     }
   }, [char, index, delay, isImportant, isClient, intensity])
   
-  // 余韻グリッチエフェクト（収束後）
+  // 余韻グリッチエフェクト（収束後）- 一時的に無効化
   useEffect(() => {
+    // 余韻グリッチを完全に無効化（安定性のため）
+    return
+    
     if (!isClient || phase !== 'formed') return
     
     let afterGlitchTimeout: NodeJS.Timeout | null = null
     let restoreTimeout: NodeJS.Timeout | null = null
+    let intervalId: NodeJS.Timeout | null = null
     
     // ランダムなタイミングでグリッチを発生させる
     const scheduleAfterGlitch = () => {
@@ -244,12 +248,13 @@ const GlitchChar = ({
           // 明滅効果
           setAfterGlitchType('flicker')
           let flickerCount = 0
-          const flickerInterval = setInterval(() => {
+          intervalId = setInterval(() => {
             setAfterGlitch(flickerCount % 2 === 0)
             flickerCount++
             
             if (flickerCount > 4) {
-              clearInterval(flickerInterval)
+              if (intervalId) clearInterval(intervalId)
+              intervalId = null
               setAfterGlitch(false)
               scheduleAfterGlitch()
             }
@@ -258,7 +263,7 @@ const GlitchChar = ({
           // ガガガ... 連続グリッチ
           setAfterGlitchType('noise')
           let glitchCount = 0
-          const rapidGlitch = setInterval(() => {
+          intervalId = setInterval(() => {
             if (glitchCount % 2 === 0) {
               setDisplayChar(randomChars[Math.floor(Math.random() * randomChars.length)])
             } else {
@@ -267,7 +272,8 @@ const GlitchChar = ({
             glitchCount++
             
             if (glitchCount > 6) {
-              clearInterval(rapidGlitch)
+              if (intervalId) clearInterval(intervalId)
+              intervalId = null
               setDisplayChar(char)
               setAfterGlitch(false)
               scheduleAfterGlitch()
@@ -283,8 +289,12 @@ const GlitchChar = ({
     return () => {
       if (afterGlitchTimeout) clearTimeout(afterGlitchTimeout)
       if (restoreTimeout) clearTimeout(restoreTimeout)
+      if (intervalId) clearInterval(intervalId)
+      // 文字を正しい状態に戻す
+      setDisplayChar(char)
+      setAfterGlitch(false)
     }
-  }, [phase, isClient, char])
+  }, [phase, isClient, char, randomChars])
   
   if (!isClient) {
     return <span style={{ opacity: 0 }}>{char}</span>
