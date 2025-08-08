@@ -233,7 +233,7 @@ export default function FinalChapter() {
             </div>
           </motion.div>
 
-          {/* CTA */}
+          {/* CTA - Googleフォームへ */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -242,10 +242,12 @@ export default function FinalChapter() {
             className="text-center py-16"
           >
             <Link 
-              href="/academy#contact"
+              href={process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || '/academy#application'}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block border-2 border-gray-800 text-gray-800 px-10 py-5 text-xl font-medium hover:bg-gray-800 hover:text-white transition-all duration-300 hover:shadow-lg tracking-tight rounded-lg"
             >
-              → <PersonalizedCTA />（無料説明会）
+              → <PersonalizedCTA />（Googleフォーム）
             </Link>
           </motion.div>
 
