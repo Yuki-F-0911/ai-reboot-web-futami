@@ -171,8 +171,11 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
   
   useEffect(() => {
     setIsClient(true)
-    // クライアントサイドであることを確認後、即座に初期化
-    setIsInitialized(true)
+    // クライアントサイドであることを確認後、少し遅延して初期化
+    const timer = setTimeout(() => {
+      setIsInitialized(true)
+    }, 100)
+    return () => clearTimeout(timer)
   }, [])
   
   // 初期描画専用のuseEffect
@@ -185,15 +188,17 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
     const ctx = canvas.getContext('2d')
     if (!ctx) return
     
-    // 即座にキャンバスサイズを設定して描画
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-    
-    // 濃いノイズで即座に描画
-    const strongDensity = 0.4
-    generateNoise(ctx, canvas.width, canvas.height, strongDensity)
-    drawScanlines(ctx, canvas.width, canvas.height)
-    drawArtifacts(ctx, canvas.width, canvas.height)
+    // 少し遅延してキャンバスサイズを設定
+    requestAnimationFrame(() => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+      
+      // 濃いノイズで即座に描画
+      const strongDensity = 0.4
+      generateNoise(ctx, canvas.width, canvas.height, strongDensity)
+      drawScanlines(ctx, canvas.width, canvas.height)
+      drawArtifacts(ctx, canvas.width, canvas.height)
+    })
   }, [isClient, isInitialized])
   
   useEffect(() => {
@@ -265,8 +270,14 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1 }: NoiseGlit
     `
   }
   
+  // 初期化前はダークな背景を表示
   if (!isClient || !isInitialized) {
-    return null
+    return (
+      <div className="fixed inset-0 pointer-events-none z-20">
+        <div className="absolute inset-0 bg-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-50" />
+      </div>
+    )
   }
   
   return (

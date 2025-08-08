@@ -1,12 +1,20 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 import AcademyHomePage from '@/components/home/AcademyHomePage'
-import NoiseGlitch from '@/components/effects/NoiseGlitch'
-import MangaMontage from '@/components/effects/MangaMontage'
 import OnboardingFlow from '@/components/onboarding/OnboardingFlow'
 import PersistentMusicControl from '@/components/ui/PersistentMusicControl'
 import { PersonalizationProvider } from '@/contexts/PersonalizationContext'
+
+// Canvasコンポーネントをクライアントサイドでのみ読み込み
+const NoiseGlitch = dynamic(() => import('@/components/effects/NoiseGlitch'), { 
+  ssr: false,
+  loading: () => <div className="fixed inset-0 bg-black z-20" />
+})
+const MangaMontage = dynamic(() => import('@/components/effects/MangaMontage'), { 
+  ssr: false 
+})
 
 export default function Home() {
   const [noiseOpacity, setNoiseOpacity] = useState(1)
