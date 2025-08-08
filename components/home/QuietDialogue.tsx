@@ -373,7 +373,7 @@ export default function QuietDialogue() {
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                       <GlitchText
-                        text={`${userName}自身だ。`}
+                        text={`${fixedUserName}自身だ。`}
                         className="text-6xl lg:text-8xl font-bold"
                         delay={400}
                         fontMix="impact"
@@ -402,7 +402,7 @@ export default function QuietDialogue() {
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                       <GlitchText
-                        text={`${userName}自身だ。`}
+                        text={`${fixedUserName}自身だ。`}
                         className="text-4xl md:text-5xl font-bold"
                         delay={400}
                         fontMix="impact"
@@ -1011,7 +1011,7 @@ export default function QuietDialogue() {
                     </div>
                     <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                       <GlitchText
-                        text={`${userName}自身だ。`}
+                        text={`${fixedUserName}自身だ。`}
                         className="text-5xl lg:text-7xl font-bold"
                         delay={400}
                         fontMix="impact"
@@ -1948,7 +1948,7 @@ export default function QuietDialogue() {
               viewport={{ once: true }}
             >
               <GlitchText
-                text={`${userName}の物語を、`}
+                text={`${fixedUserName}の物語を、`}
                 className="text-2xl md:text-3xl font-light text-gray-900 inline"
                 delay={500}
                 scrollTrigger={true}
