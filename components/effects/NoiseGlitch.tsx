@@ -18,7 +18,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
   // ノイズ生成関数 - 最適化版
   const generateNoise = (ctx: CanvasRenderingContext2D, width: number, height: number, density: number) => {
     // 解像度を下げてパフォーマンス改善
-    const scale = 4  // パフォーマンス重視（2から4に変更）
+    const scale = 5  // パフォーマンス最重視（4から5に変更）
     const scaledWidth = Math.ceil(width / scale)
     const scaledHeight = Math.ceil(height / scale)
     
@@ -227,7 +227,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
     
     const startTime = Date.now()
     let lastFrameTime = 0
-    const targetFPS = 30  // 30FPSに制限してパフォーマンス改善
+    const targetFPS = 12  // 12FPSに制限してパフォーマンス大幅改善
     const frameInterval = 1000 / targetFPS
     
     // アニメーションループ
@@ -245,12 +245,12 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       
       // 固定密度でノイズを描画（時間パラメータでアニメーション）
-      const noiseDensity = 0.25  // 密度を下げる
+      const noiseDensity = 0.18  // 密度をさらに下げてパフォーマンス改善
       
       // 各レイヤーを描画（アーティファクトは頻度を下げる）
       generateNoise(ctx, canvas.width, canvas.height, noiseDensity)
       drawScanlines(ctx, canvas.width, canvas.height)
-      if (Math.random() > 0.7) {  // 30%の確率でのみアーティファクトを描画
+      if (Math.random() > 0.85) {  // 15%の確率でのみアーティファクトを描画
         drawArtifacts(ctx, canvas.width, canvas.height)
       }
       
