@@ -1,8 +1,10 @@
 "use client";
 
+import React from "react";
+
 import { motion } from "framer-motion";
 
-export const AcademyProgram = () => {
+export const AcademyProgram = React.memo(function AcademyProgram() {
   return (
     <section id="program" className="py-24 md:py-32 bg-gradient-to-b from-white to-gray-50">
       <div className="container-section">
@@ -203,4 +205,4 @@ export const AcademyProgram = () => {
       </div>
     </section>
   );
-};
+});

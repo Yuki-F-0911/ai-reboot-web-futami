@@ -18,29 +18,23 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
   // ノイズ生成関数 - 最適化版
   const generateNoise = (ctx: CanvasRenderingContext2D, width: number, height: number, density: number) => {
     // 解像度を下げてパフォーマンス改善
-    const scale = 5  // パフォーマンス最重視（4から5に変更）
+    const scale = 8  // より高い値でパフォーマンス向上
     const scaledWidth = Math.ceil(width / scale)
     const scaledHeight = Math.ceil(height / scale)
     
-    // 一時的なキャンバスを作成
-    const tempCanvas = document.createElement('canvas')
-    tempCanvas.width = scaledWidth
-    tempCanvas.height = scaledHeight
-    const tempCtx = tempCanvas.getContext('2d')
-    if (!tempCtx) return
-    
-    const imageData = tempCtx.createImageData(scaledWidth, scaledHeight)
+    // ImageData直接操作でパフォーマンス向上
+    const imageData = ctx.createImageData(width, height)
     const data = imageData.data
     
-    // ブロックノイズサイズ（より小さく）
-    const blockSize = 1 + Math.floor(Math.random() * 2)
+    // ブロックノイズサイズ
+    const blockSize = scale
     
-    // パフォーマンス最適化: ステップを大きくする
-    const step = 2  // ピクセルをスキップ
-    for (let y = 0; y < scaledHeight; y += blockSize * step) {
-      for (let x = 0; x < scaledWidth; x += blockSize * step) {
-        if (Math.random() < density * 0.8) {  // 密度を少し下げる
-          // スタイリッシュなノイズ色（シアン・マゼンタ・白のデジタルパレット）
+    // パフォーマンス最適化: より大きなステップ
+    const step = 3
+    for (let y = 0; y < height; y += blockSize * step) {
+      for (let x = 0; x < width; x += blockSize * step) {
+        if (Math.random() < density * 0.6) {  // 密度を下げる
+          // スタイリッシュなノイズ色
           const colorType = Math.random()
           let r, g, b
           if (colorType < 0.3) {
@@ -57,14 +51,15 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
             // 白
             r = g = b = 255
           } else {
-            // 黒（アクセント）
+            // 黒
             r = g = b = 0
           }
-          const alpha = (0.15 + Math.random() * 0.2) * intensity
+          const alpha = (0.1 + Math.random() * 0.15) * intensity
           
-          for (let by = 0; by < blockSize && y + by < scaledHeight; by++) {
-            for (let bx = 0; bx < blockSize && x + bx < scaledWidth; bx++) {
-              const idx = ((y + by) * scaledWidth + (x + bx)) * 4
+          // ブロック単位で描画
+          for (let by = 0; by < blockSize && y + by < height; by++) {
+            for (let bx = 0; bx < blockSize && x + bx < width; bx++) {
+              const idx = ((y + by) * width + (x + bx)) * 4
               if (idx < data.length - 3) {
                 data[idx] = r
                 data[idx + 1] = g
@@ -77,12 +72,8 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
       }
     }
     
-    // 一時キャンバスに描画
-    tempCtx.putImageData(imageData, 0, 0)
-    
-    // メインキャンバスに拡大して描画
-    ctx.imageSmoothingEnabled = false
-    ctx.drawImage(tempCanvas, 0, 0, scaledWidth, scaledHeight, 0, 0, width, height)
+    // 一度の描画で完了
+    ctx.putImageData(imageData, 0, 0)
   }
   
   // 走査線エフェクト - スタイリッシュ版
@@ -227,7 +218,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
     
     const startTime = Date.now()
     let lastFrameTime = 0
-    const targetFPS = 12  // 12FPSに制限してパフォーマンス大幅改善
+    const targetFPS = 24  // 24FPSでよりスムーズに
     const frameInterval = 1000 / targetFPS
     
     // アニメーションループ

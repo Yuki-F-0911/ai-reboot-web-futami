@@ -2,6 +2,7 @@
 
 import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
+import ChapterPanels from '@/components/home/sections/shared/ChapterPanels'
 import { usePersonalization } from '@/contexts/PersonalizationContext'
 
 export default function ChapterTwo() {
@@ -25,13 +26,14 @@ export default function ChapterTwo() {
     if (feeling === 'change') {
       text = '仮でいいから、書こう。'
     } else if (feeling === 'growth') {
-      text = '目的を一行、書いとこ。'
+      text = '正解はない。まず試す。'
     }
 
     return text
   }, [expectation, focus, feeling])
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-slate-50 via-indigo-50 to-blue-50">
+      <ChapterPanels chapter="ch2" />
       {/* 動的な背景要素 */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

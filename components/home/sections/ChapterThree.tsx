@@ -2,6 +2,7 @@
 
 import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
+import ChapterPanels from '@/components/home/sections/shared/ChapterPanels'
 import { usePersonalization } from '@/contexts/PersonalizationContext'
 
 // 漫画コマ風キャラクターパネル
@@ -76,6 +77,7 @@ export default function ChapterThree() {
   }, [expectation, feeling, focus])
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-blue-50 via-emerald-50 to-green-50">
+      <ChapterPanels chapter="ch3" />
       {/* 控えめな背景効果 */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

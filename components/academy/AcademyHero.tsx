@@ -1,10 +1,11 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
-export const AcademyHero = () => {
+export const AcademyHero = React.memo(function AcademyHero() {
   return (
     <section className="relative min-h-[90vh] flex items-center">
       {/* 繊細な背景 */}
@@ -131,4 +132,4 @@ export const AcademyHero = () => {
       </div>
     </section>
   );
-};
+});

@@ -71,7 +71,7 @@ export default function PersistentMusicControl() {
         console.log('BGMパス:', bgmPath)
         
         audioRef.current = new Audio(bgmPath)
-        audioRef.current.loop = true
+        audioRef.current.loop = false  // ループを無効化
         audioRef.current.volume = 0.5
         globalAudioRef = audioRef.current
         attachAudioListeners()
