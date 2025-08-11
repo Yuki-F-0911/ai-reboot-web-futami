@@ -78,15 +78,15 @@ export function PersonalizedCTA() {
   // 回答パターンに基づいてCTAメッセージを変更
   const getCTAMessage = () => {
     if (expectation === 'efficiency' && focus === 'skills') {
-      return 'AIスキルを今すぐ身につける'
+      return 'やり方よりも、まず目的から'
     } else if (expectation === 'possibility' && focus === 'mindset') {
-      return '新しい自分を発見する'
+      return '本当は何を変えたいのか、言葉に'
     } else if (feeling === 'change') {
-      return '変革への第一歩を踏み出す'
+      return '完璧じゃなくていい、仮で書こう'
     } else if (feeling === 'growth') {
-      return '成長の旅を始める'
+      return '今日は一行だけ、目的を書く'
     }
-    return 'あなたのWillを見つける'
+    return 'ツールより先に、目的を決める'
   }
 
   return (

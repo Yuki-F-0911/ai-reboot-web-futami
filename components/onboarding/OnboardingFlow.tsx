@@ -68,7 +68,14 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
     <>
       <AnimatePresence mode="wait">
         {currentStep === 'quiz' && (
-          <PersonalityQuiz key="quiz" onComplete={handleQuizComplete} />
+          <PersonalityQuiz 
+            key="quiz" 
+            onComplete={handleQuizComplete}
+            onSkipAll={() => {
+              setCompleted()
+              onComplete()
+            }}
+          />
         )}
         
         {currentStep === 'name' && (

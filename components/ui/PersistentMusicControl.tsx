@@ -8,10 +8,33 @@ import { usePersonalization } from '@/contexts/PersonalizationContext'
 let globalAudioRef: HTMLAudioElement | null = null
 
 export default function PersistentMusicControl() {
-  const { data } = usePersonalization()
+  const { data, resetData } = usePersonalization()
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
-  const [showControl, setShowControl] = useState(false)
+  const [showControl, setShowControl] = useState(true)
+  const listenersAttachedRef = useRef(false)
+
+  const attachAudioListeners = () => {
+    const audio = audioRef.current
+    if (!audio || listenersAttachedRef.current) return
+    const handlePlay = () => setIsPlaying(true)
+    const handlePause = () => setIsPlaying(false)
+    const handleEnded = () => setIsPlaying(false)
+    audio.addEventListener('play', handlePlay)
+    audio.addEventListener('pause', handlePause)
+    audio.addEventListener('ended', handleEnded)
+    listenersAttachedRef.current = true
+    // Cleanup on ref change/unmount
+    const cleanup = () => {
+      audio.removeEventListener('play', handlePlay)
+      audio.removeEventListener('pause', handlePause)
+      audio.removeEventListener('ended', handleEnded)
+      listenersAttachedRef.current = false
+    }
+    // Store cleanup function on the element for later use
+    // @ts-expect-error attach cleanup for internal use
+    audio.__cleanupListeners = cleanup
+  }
 
   useEffect(() => {
     console.log('PersistentMusicControl - data:', data)
@@ -26,6 +49,7 @@ export default function PersistentMusicControl() {
       if (audioRef.current && globalAudioRef) {
         console.log('既存の音源を使用')
         setShowControl(true)
+        attachAudioListeners()
         return
       }
       
@@ -35,6 +59,7 @@ export default function PersistentMusicControl() {
         audioRef.current = globalAudioRef
         setIsPlaying(!globalAudioRef.paused)
         setShowControl(true)
+        attachAudioListeners()
       } else if (!audioRef.current) {
         // 新規作成
         console.log('新規音源を作成')
@@ -49,6 +74,7 @@ export default function PersistentMusicControl() {
         audioRef.current.loop = true
         audioRef.current.volume = 0.5
         globalAudioRef = audioRef.current
+        attachAudioListeners()
         
         // 完了済みの場合のみ自動再生
         if (data.hasCompleted) {
@@ -68,7 +94,8 @@ export default function PersistentMusicControl() {
       }
     } else {
       console.log('音楽設定がplayではありません:', data.musicPreference)
-      setShowControl(false)
+      // UIは表示するが音源は初期化しない
+      setShowControl(true)
     }
 
     // クリーンアップ
@@ -77,16 +104,31 @@ export default function PersistentMusicControl() {
     }
   }, [data.musicPreference, data.quizAnswers.expectation, data.quizAnswers.focus, data.hasCompleted])
 
-  // 音楽設定がない場合、または音楽なしを選択した場合は何も表示しない
-  if (!showControl || data.musicPreference !== 'play') {
-    return null
-  }
+  // UIは常に表示（デフォルト停止状態）
 
   return (
     <MusicControl 
       audioRef={audioRef} 
       isPlaying={isPlaying} 
       setIsPlaying={setIsPlaying} 
+      onResetOnboarding={() => {
+        // 既存音源の停止
+        if (audioRef.current) {
+          try { audioRef.current.pause() } catch {}
+          // @ts-expect-error cleanup
+          if (audioRef.current.__cleanupListeners) {
+            // @ts-expect-error cleanup
+            audioRef.current.__cleanupListeners()
+          }
+        }
+        if (globalAudioRef) {
+          try { globalAudioRef.pause() } catch {}
+        }
+        // 状態クリア
+        resetData()
+        // リロードして初回フローへ
+        window.location.reload()
+      }}
     />
   )
 }

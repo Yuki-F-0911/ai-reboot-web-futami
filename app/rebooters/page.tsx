@@ -7,14 +7,34 @@ import OnboardingFlow from '@/components/onboarding/OnboardingFlow'
 import PersistentMusicControl from '@/components/ui/PersistentMusicControl'
 import { PersonalizationProvider } from '@/contexts/PersonalizationContext'
 
-// Canvasコンポーネントをクライアントサイドでのみ読み込み
-const NoiseGlitch = dynamic(() => import('@/components/effects/NoiseGlitch'), { 
+// Canvasコンポーネントをクライアントサイドでのみ読み込み（チャンク失敗時は無効化）
+const loadNoiseGlitch = (): Promise<{ default: React.ComponentType<unknown> }> =>
+  import('@/components/effects/NoiseGlitch')
+    .then((m) => ({ default: (m as { default: React.ComponentType<unknown> }).default }))
+    .catch((e) => {
+      console.warn('NoiseGlitch chunk failed, disabling effect:', e)
+      return { default: () => null }
+    })
+
+const loadMangaMontage = (): Promise<{ default: React.ComponentType<unknown> }> =>
+  import('@/components/effects/MangaMontage')
+    .then((m) => ({ default: (m as { default: React.ComponentType<unknown> }).default }))
+    .catch((e) => {
+      console.warn('MangaMontage chunk failed, disabling effect:', e)
+      return { default: () => null }
+    })
+
+type NoiseGlitchProps = { intensity?: number; active?: boolean }
+type MangaMontageProps = { enabled?: boolean }
+
+const NoiseGlitch = dynamic(loadNoiseGlitch, {
   ssr: false,
   loading: () => <div className="fixed inset-0 bg-black z-20" />
-})
-const MangaMontage = dynamic(() => import('@/components/effects/MangaMontage'), { 
-  ssr: false 
-})
+}) as React.ComponentType<NoiseGlitchProps>
+
+const MangaMontage = dynamic(loadMangaMontage, {
+  ssr: false
+}) as React.ComponentType<MangaMontageProps>
 
 export default function RebootersPage() {
   const [noiseOpacity, setNoiseOpacity] = useState(1)
@@ -60,7 +80,9 @@ export default function RebootersPage() {
   return (
     <PersonalizationProvider>
       {/* オンボーディングフロー（質問→名前→音楽） */}
-      <OnboardingFlow onComplete={() => setContentReady(true)} />
+      {!contentReady && (
+        <OnboardingFlow onComplete={() => setContentReady(true)} />
+      )}
       
       {/* 永続的な音楽コントロール */}
       <PersistentMusicControl />

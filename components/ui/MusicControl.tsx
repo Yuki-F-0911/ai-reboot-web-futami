@@ -7,13 +7,15 @@ interface MusicControlProps {
   audioRef: React.MutableRefObject<HTMLAudioElement | null>
   isPlaying: boolean
   setIsPlaying: (playing: boolean) => void
+  onResetOnboarding?: () => void
 }
 
-export default function MusicControl({ audioRef, isPlaying, setIsPlaying }: MusicControlProps) {
+export default function MusicControl({ audioRef, isPlaying, setIsPlaying, onResetOnboarding }: MusicControlProps) {
   const [volume, setVolume] = useState(50)
   const [showVolumeSlider, setShowVolumeSlider] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const previousVolume = useRef(50)
+  const [settingsOpen, setSettingsOpen] = useState(false)
 
   useEffect(() => {
     if (audioRef.current) {
@@ -60,7 +62,7 @@ export default function MusicControl({ audioRef, isPlaying, setIsPlaying }: Musi
       onMouseEnter={() => setShowVolumeSlider(true)}
       onMouseLeave={() => setShowVolumeSlider(false)}
     >
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 relative">
         {/* 音量スライダー */}
         <AnimatePresence>
           {showVolumeSlider && (
@@ -127,6 +129,40 @@ export default function MusicControl({ audioRef, isPlaying, setIsPlaying }: Musi
             </svg>
           )}
         </button>
+
+        {/* 設定（歯車）ボタン */}
+        <button
+          onClick={() => setSettingsOpen((v) => !v)}
+          className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+        >
+          <svg className="w-6 h-6 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.89 3.31.877 2.42 2.42a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.89 1.543-.877 3.31-2.42 2.42a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.89-3.31-.877-2.42-2.42a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35.64-.155 1.112-.627 1.266-1.266.89-1.543 3.31-.877 2.42-2.42.155-.64.627-1.112 1.266-1.266z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
+
+        {/* 設定メニュー */}
+        <AnimatePresence>
+          {settingsOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 8, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 8, scale: 0.98 }}
+              transition={{ duration: 0.15 }}
+              className="absolute bottom-14 right-0 bg-white/95 backdrop-blur p-3 rounded-xl shadow-xl min-w-[180px]"
+            >
+              <button
+                onClick={() => {
+                  setSettingsOpen(false)
+                  if (onResetOnboarding) onResetOnboarding()
+                }}
+                className="w-full text-left text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg px-3 py-2"
+              >
+                初回設定をやり直す
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <style jsx>{`

@@ -1,9 +1,35 @@
 'use client'
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
+import { usePersonalization } from '@/contexts/PersonalizationContext'
 
 export default function ChapterTwo() {
+  const { data } = usePersonalization()
+  const { expectation, focus, feeling } = data.quizAnswers
+
+  // 吹き出し文言（パーソナライズ）
+  const bubbleText = useMemo(() => {
+    const isEfficiency = expectation === 'efficiency' || focus === 'skills'
+    const isPossibility = expectation === 'possibility' || focus === 'mindset'
+
+    // ベース（優先度: Efficiency > Possibility > Default）
+    let text = 'まず、何を良くしたい？'
+    if (isEfficiency) {
+      text = 'やり方は後で。先にゴール。'
+    } else if (isPossibility) {
+      text = '本当はどうしたい？'
+    }
+
+    // 感情で上書き（初動を促す・等身大）
+    if (feeling === 'change') {
+      text = '仮でいいから、書こう。'
+    } else if (feeling === 'growth') {
+      text = '目的を一行、書いとこ。'
+    }
+
+    return text
+  }, [expectation, focus, feeling])
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-slate-50 via-indigo-50 to-blue-50">
       {/* 動的な背景要素 */}
@@ -145,7 +171,7 @@ export default function ChapterTwo() {
                    lineHeight: '2',
                    height: '180px'
                  }}>
-                操作ではなく、目的から設計する
+                {bubbleText}
               </p>
               {/* 吹き出しの三角形 */}
               <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 rotate-45 w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-600"></div>

@@ -48,9 +48,114 @@ export default function InnerVoiceBubble() {
 
   return (
     <>
+      {/* モバイル専用レイアウト（PC同様に位置ずらし＋順番表示＋尻尾付き） */}
+      <div className="md:hidden absolute inset-0 z-40 px-4">
+        {/* 1: 左上（小） */}
+        <motion.div
+          className="absolute top-[18%] left-[8%]"
+          initial={{ opacity: 0, y: 24, scale: 0.95, rotate: -10 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+          viewport={{ once: true, margin: '-120px' }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.0 }}
+        >
+          <div className="relative">
+            <div className="relative bg-white/90 backdrop-blur-md shadow-lg [--ivs:8ch] rounded-[40%_60%_55%_45%_/_60%_50%_50%_40%] px-5 py-6">
+              <p
+                className="text-gray-800 text-[15px] leading-relaxed"
+                style={{
+                  writingMode: 'vertical-rl',
+                  textOrientation: 'upright',
+                  fontFamily: '"Noto Sans JP", sans-serif',
+                  fontWeight: 400,
+                  letterSpacing: '0.14em',
+                  lineHeight: 1.8,
+                  inlineSize: 'var(--ivs)'
+                }}
+              >
+                {bubble1Text}
+              </p>
+            </div>
+            {/* 尻尾（左下） */}
+            <div className="absolute -bottom-2 left-10">
+              <div className="w-4 h-4 bg-white/90 rounded-full shadow-md" />
+              <div className="absolute -bottom-3 left-1 w-2.5 h-2.5 bg-white/85 rounded-full shadow" />
+              <div className="absolute -bottom-5 left-2 w-1.5 h-1.5 bg-white/80 rounded-full" />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* 2: 右中（中） */}
+        <motion.div
+          className="absolute top-[44%] right-[6%]"
+          initial={{ opacity: 0, y: 28, scale: 0.95, rotate: 12 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+          viewport={{ once: true, margin: '-120px' }}
+          transition={{ duration: 0.65, ease: 'easeOut', delay: 0.15 }}
+        >
+          <div className="relative">
+            <div className="relative bg-white/85 backdrop-blur-md shadow-lg [--ivs:10ch] rounded-[55%_45%_45%_55%_/_50%_60%_40%_50%] px-6 py-7">
+              <p
+                className="text-gray-700 text-[16px] leading-relaxed"
+                style={{
+                  writingMode: 'vertical-rl',
+                  textOrientation: 'upright',
+                  fontFamily: '"Noto Sans JP", sans-serif',
+                  fontWeight: 500,
+                  letterSpacing: '0.18em',
+                  lineHeight: 2,
+                  inlineSize: 'var(--ivs)'
+                }}
+              >
+                {bubble2Text}
+              </p>
+            </div>
+            {/* 尻尾（右下） */}
+            <div className="absolute -bottom-3 right-10">
+              <div className="w-5 h-5 bg-white/85 rounded-full shadow-lg" />
+              <div className="absolute -bottom-3 right-1 w-3 h-3 bg-white/80 rounded-full shadow" />
+              <div className="absolute -bottom-6 right-2 w-2 h-2 bg-white/75 rounded-full" />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* 3: 下段中央（小） */}
+        <motion.div
+          className="absolute top-[74%] left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0, y: 32, scale: 0.95, rotate: -15 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+          viewport={{ once: true, margin: '-120px' }}
+          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.3 }}
+        >
+          <div className="relative">
+            <div className="relative bg-white/80 backdrop-blur-md shadow-md [--ivs:9ch] rounded-[50%_50%_45%_55%_/_55%_45%_45%_55%] px-5 py-6">
+              <p
+                className="text-gray-600 text-[14px] leading-relaxed"
+                style={{
+                  writingMode: 'vertical-rl',
+                  textOrientation: 'upright',
+                  fontFamily: '"Noto Sans JP", sans-serif',
+                  fontWeight: 400,
+                  letterSpacing: '0.12em',
+                  lineHeight: 1.7,
+                  inlineSize: 'var(--ivs)'
+                }}
+              >
+                {bubble3Text}
+              </p>
+            </div>
+            {/* 尻尾（左下） */}
+            <div className="absolute -bottom-2 left-12">
+              <div className="w-4 h-4 bg-white/80 rounded-full shadow-md" />
+              <div className="absolute -bottom-3 left-1 w-2.5 h-2.5 bg-white/75 rounded-full shadow" />
+              <div className="absolute -bottom-5 left-2 w-1.5 h-1.5 bg-white/70 rounded-full" />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
       {/* 1つ目の思考バブル - 左寄り配置 */}
       <motion.div
-        className="absolute top-[18%] left-[10%] sm:left-[15%] md:top-[20%] md:left-[25%] z-40"
+        className="hidden md:block absolute top-[18%] left-[10%] sm:left-[15%] md:top-[20%] md:left-[25%] z-40"
         initial={{ 
           opacity: 0, 
           y: 60, 
@@ -127,7 +232,7 @@ export default function InnerVoiceBubble() {
 
       {/* 2つ目の思考バブル - 右寄り配置、少し下に */}
       <motion.div
-        className="absolute top-[45%] right-[8%] sm:right-[12%] md:right-[20%] z-40"
+        className="hidden md:block absolute top-[45%] right-[8%] sm:right-[12%] md:right-[20%] z-40"
         initial={{ 
           opacity: 0, 
           y: 80, 
@@ -208,7 +313,7 @@ export default function InnerVoiceBubble() {
 
       {/* 3つ目の思考バブル - 下部やや左寄り */}
       <motion.div
-        className="absolute top-[75%] left-[50%] sm:left-[45%] md:left-[35%] transform -translate-x-1/2 z-40"
+        className="hidden md:block absolute top-[75%] left-[50%] sm:left-[45%] md:left-[35%] transform -translate-x-1/2 z-40"
         initial={{ 
           opacity: 0, 
           y: 100, 

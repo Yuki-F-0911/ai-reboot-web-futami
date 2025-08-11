@@ -6,6 +6,7 @@ import { QuizAnswers } from '@/contexts/PersonalizationContext'
 
 interface PersonalityQuizProps {
   onComplete: (answers: QuizAnswers) => void
+  onSkipAll?: () => void
 }
 
 const questions = [
@@ -65,7 +66,7 @@ const questions = [
   }
 ]
 
-export default function PersonalityQuiz({ onComplete }: PersonalityQuizProps) {
+export default function PersonalityQuiz({ onComplete, onSkipAll }: PersonalityQuizProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState<QuizAnswers>({
     expectation: null,
@@ -104,7 +105,30 @@ export default function PersonalityQuiz({ onComplete }: PersonalityQuizProps) {
 
   return (
     <div className="fixed inset-0 z-[100] bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
-      <div className="w-full max-w-4xl px-4">
+      <div className="w-full max-w-4xl px-4 relative">
+        {/* スキップ＆リセットUI（右上の単一メニューに集約） */}
+        <div className="absolute top-4 right-4 z-[120]">
+          <div className="bg-white/90 backdrop-blur rounded-lg shadow flex overflow-hidden">
+            {onSkipAll && (
+              <button
+                onClick={onSkipAll}
+                className="px-3 py-2 text-xs md:text-sm text-gray-700 hover:bg-white border-r border-gray-200"
+              >
+                スキップ
+              </button>
+            )}
+            <button
+              onClick={() => {
+                setCurrentQuestion(0)
+                setAnswers({ expectation: null, feeling: null, focus: null })
+                setSelectedOption(null)
+              }}
+              className="px-3 py-2 text-xs md:text-sm text-gray-700 hover:bg-white"
+            >
+              やり直す
+            </button>
+          </div>
+        </div>
         {/* プログレスドット */}
         <div className="flex justify-center gap-2 mb-12">
           {questions.map((_, index) => (

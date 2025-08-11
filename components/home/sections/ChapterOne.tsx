@@ -1,12 +1,40 @@
 'use client'
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useChapterEmphasis } from '@/components/home/PersonalizedContent'
+import { usePersonalization } from '@/contexts/PersonalizationContext'
 
 export default function ChapterOne() {
   const emphasis = useChapterEmphasis()
   const isEmphasized = emphasis.chapter1
+  const { data } = usePersonalization()
+  const { expectation, feeling, focus } = data.quizAnswers
+  // 読者のWillの具体化（本文の流れに直結）
+  // ねらい: 隠してきた情熱の喚起（短文・ためらい調） + パーソナライズ
+  const { bubbleA, bubbleB } = useMemo(() => {
+    let a = '数字に落ちない執着に、意味はあるのかな。'
+    let b = '誰も評価しなかったこだわり、まだ捨てたくない。'
+
+    const isEfficiency = expectation === 'efficiency' || focus === 'skills'
+    const isPossibility = expectation === 'possibility' || focus === 'mindset'
+
+    if (isEfficiency) {
+      a = '手順はあとで。今は「なぜ」を探る。'
+      b = '粗さが気になる。その理由を言葉に。'
+    } else if (isPossibility) {
+      a = 'うまく説明できない。でも諦められない。'
+      b = '「本当はこうしたい」を言っていい。'
+    }
+
+    if (feeling === 'change') {
+      a = '今のままじゃ終われない。その“なぜ”は？'
+    } else if (feeling === 'growth') {
+      b = '一行でいい。“諦められない理由”。'
+    }
+
+    return { bubbleA: a, bubbleB: b }
+  }, [expectation, feeling, focus])
 
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-gray-50 to-slate-50">
@@ -59,6 +87,8 @@ export default function ChapterOne() {
             </h2>
           </div>
         </motion.div>
+
+        
 
         <div className="space-y-16">
           {/* 導入 - 問いかけ */}
@@ -143,42 +173,74 @@ export default function ChapterOne() {
             </div>
           </motion.div>
 
-          {/* 読者の心の声 - 思考バブル */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0, rotate: -10 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ 
-              duration: 0.6,
-              scale: { type: "spring", damping: 15, stiffness: 100 },
-              delay: 0.35
-            }}
-            viewport={{ once: true }}
-            className="relative my-12 flex justify-center"
-          >
-            <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg"
-                 style={{ 
-                   borderRadius: '45% 55% 50% 50% / 60% 60% 40% 40%',
-                   padding: '24px 28px'
-                 }}>
-              <p className="text-gray-600 italic text-sm"
-                 style={{ 
-                   writingMode: 'vertical-rl',
-                   textOrientation: 'upright',
-                   fontFamily: '"Noto Sans JP", sans-serif',
-                   letterSpacing: '0.1em',
-                   lineHeight: '1.8',
-                   height: '120px'
-                 }}>
-                それが私のなぜだった
-              </p>
-            </div>
-            {/* 思考バブルの尻尾 */}
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-              <div className="w-4 h-4 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-full shadow-md"></div>
-              <div className="absolute -bottom-3 left-0.5 w-3 h-3 bg-purple-50/80 rounded-full shadow-sm"></div>
-              <div className="absolute -bottom-5 left-1 w-2 h-2 bg-purple-50/60 rounded-full"></div>
-            </div>
-          </motion.div>
+          
+
+          {/* 読者の心の声 - 思考バブル（2つ・パーソナライズ） */}
+          <div className="relative my-12 h-[220px] md:my-16 md:h-[300px] lg:h-[320px]">
+            {/* 左：バブルA */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 10, rotate: -8 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
+              transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
+              viewport={{ once: true, margin: '-120px' }}
+              className="absolute top-3 left-2 md:top-2 md:left-16 lg:top-0 lg:left-24"
+            >
+              <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg [--ivs:7ch] md:[--ivs:9ch] lg:[--ivs:11ch] px-4 py-5 md:px-5 md:py-6"
+                   style={{ 
+                    borderRadius: '45% 55% 50% 50% / 60% 60% 40% 40%'
+                   }}>
+                <p className="text-gray-600 italic text-[13px] md:text-sm lg:text-base"
+                   style={{ 
+                     writingMode: 'vertical-rl',
+                     textOrientation: 'upright',
+                     fontFamily: '"Noto Sans JP", sans-serif',
+                     letterSpacing: '0.1em',
+                    lineHeight: '1.9',
+                     inlineSize: 'var(--ivs)'
+                   }}>
+                  {bubbleA}
+                </p>
+              </div>
+              {/* 尻尾（左下） */}
+              <div className="absolute -bottom-2 left-8 md:left-10">
+                <div className="w-3.5 h-3.5 md:w-4 md:h-4 bg-purple-50 rounded-full shadow-md"></div>
+                <div className="absolute -bottom-3 left-1 w-2.5 h-2.5 md:w-3 md:h-3 bg-indigo-50/80 rounded-full shadow-sm"></div>
+                <div className="absolute -bottom-5 left-2 w-1.5 h-1.5 md:w-2 md:h-2 bg-purple-50/60 rounded-full"></div>
+              </div>
+            </motion.div>
+
+            {/* 右：バブルB */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 16, rotate: 10 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
+              transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
+              viewport={{ once: true, margin: '-120px' }}
+              className="absolute top-16 right-2 md:top-20 md:right-16 lg:top-16 lg:right-28"
+            >
+              <div className="relative bg-gradient-to-br from-indigo-50 to-purple-50 backdrop-blur-sm shadow-lg [--ivs:8ch] md:[--ivs:10ch] lg:[--ivs:12ch] px-5 py-6 md:px-6 md:py-7"
+                   style={{ 
+                    borderRadius: '55% 45% 45% 55% / 50% 60% 40% 50%'
+                   }}>
+                <p className="text-gray-700 italic text-[14px] md:text-base lg:text-[17px]"
+                   style={{ 
+                     writingMode: 'vertical-rl',
+                     textOrientation: 'upright',
+                     fontFamily: '"Noto Sans JP", sans-serif',
+                     letterSpacing: '0.12em',
+                    lineHeight: '2.0',
+                     inlineSize: 'var(--ivs)'
+                   }}>
+                  {bubbleB}
+                </p>
+              </div>
+              {/* 尻尾（右下） */}
+              <div className="absolute -bottom-3 right-10 md:right-12">
+                <div className="w-4 h-4 md:w-5 md:h-5 bg-indigo-50 rounded-full shadow-lg"></div>
+                <div className="absolute -bottom-3 right-1 w-2.5 h-2.5 md:w-3 md:h-3 bg-purple-50/80 rounded-full shadow"></div>
+                <div className="absolute -bottom-6 right-2 w-1.5 h-1.5 md:w-2 md:h-2 bg-indigo-50/60 rounded-full"></div>
+              </div>
+            </motion.div>
+          </div>
 
           {/* つまり... - 強調セクション */}
           <motion.div
@@ -265,6 +327,7 @@ export default function ChapterOne() {
             viewport={{ once: true }}
             className="border-t border-gray-200 pt-16"
           >
+            
             <div className="space-y-8">
               <p className="text-base md:text-lg text-gray-600" style={{
                 fontFamily: '"Noto Sans JP", sans-serif',
@@ -298,11 +361,15 @@ export default function ChapterOne() {
               >
                 我々は、そう確信しています。
               </motion.p>
+
+              
             </div>
           </motion.div>
         </div>
       </div>
       
+      
+
       {/* 次章への誘導 - 控えめな矢印 */}
       <motion.div
         className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
