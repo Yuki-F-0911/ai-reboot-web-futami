@@ -68,7 +68,7 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
     setRandomValues({
       x: selectedPos.x,
       y: selectedPos.y,
-      scale: 0.6 + rng() * 0.4 // 0.6 to 1.0
+      scale: 0.5 + rng() * 0.35 // 0.5 to 0.85 (モバイルでさらに小さく)
     })
     setIsPositioned(true)
   }, [panel.id])
@@ -111,7 +111,7 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
   
   return (
     <motion.div
-      className="absolute w-[250px] md:w-[300px] lg:w-[350px] h-auto"
+      className="absolute w-[180px] sm:w-[220px] md:w-[280px] lg:w-[350px] h-auto"
       style={{
         left: `${50 + randomValues.x}%`,
         top: `${50 + randomValues.y}%`,
@@ -300,10 +300,11 @@ const MangaMontage = React.memo(function MangaMontage({ enabled = true }: MangaM
         const panelId = `panel-${panelCounterRef.current++}`
         
         setActivePanels(prev => {
-          // 最大5枚までに制限（適度な表示数）
+          // モバイルでは最大3枚、デスクトップでは5枚に制限
+          const maxPanels = window.innerWidth < 768 ? 3 : 5
           const updated = [...prev, { id: panelId, index: newIndex }]
-          if (updated.length > 5) {
-            return updated.slice(-5) // 最新の5枚のみ保持
+          if (updated.length > maxPanels) {
+            return updated.slice(-maxPanels) // 最新分のみ保持
           }
           return updated
         })
@@ -321,7 +322,9 @@ const MangaMontage = React.memo(function MangaMontage({ enabled = true }: MangaM
         // ローディング中は複数枚を一度にセット
         const r1 = localRNGRef.current()
         const r2 = localRNGRef.current()
-        const numPanels = r1 > 0.4 ? 3 : r2 > 0.7 ? 2 : 4
+        // モバイルでは表示枚数を減らす
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+        const numPanels = isMobile ? (r1 > 0.5 ? 2 : 1) : (r1 > 0.4 ? 3 : r2 > 0.7 ? 2 : 4)
         const newPanels: ActivePanel[] = []
         for (let i = 0; i < numPanels; i++) {
           newPanels.push({

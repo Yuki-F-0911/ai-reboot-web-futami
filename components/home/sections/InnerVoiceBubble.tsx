@@ -50,7 +50,7 @@ export default function InnerVoiceBubble() {
     <>
       {/* 1つ目の思考バブル - 左寄り配置 */}
       <motion.div
-        className="absolute top-[20%] left-[20%] md:left-[25%] z-40"
+        className="absolute top-[18%] left-[10%] sm:left-[15%] md:top-[20%] md:left-[25%] z-40"
         initial={{ 
           opacity: 0, 
           y: 60, 
@@ -89,7 +89,7 @@ export default function InnerVoiceBubble() {
           {/* 思考バブル本体（雲の形） */}
           <div className="relative">
             {/* メインの雲 */}
-            <div className="relative bg-white/90 backdrop-blur-md shadow-xl" 
+            <div className="relative bg-white/90 backdrop-blur-md shadow-xl [--ivs:8ch] sm:[--ivs:10ch] md:[--ivs:12ch]" 
                  style={{ 
                    borderRadius: '45% 55% 50% 50% / 60% 60% 40% 40%',
                    padding: '32px 36px'
@@ -104,7 +104,7 @@ export default function InnerVoiceBubble() {
                   fontWeight: '400',
                   letterSpacing: '0.15em',
                   lineHeight: '1.8',
-                  height: '200px'
+                  inlineSize: 'var(--ivs, 10ch)'
                 }}
               >
                 {bubble1Text}
@@ -127,7 +127,7 @@ export default function InnerVoiceBubble() {
 
       {/* 2つ目の思考バブル - 右寄り配置、少し下に */}
       <motion.div
-        className="absolute top-[45%] right-[15%] md:right-[20%] z-40"
+        className="absolute top-[45%] right-[8%] sm:right-[12%] md:right-[20%] z-40"
         initial={{ 
           opacity: 0, 
           y: 80, 
@@ -169,7 +169,7 @@ export default function InnerVoiceBubble() {
           {/* 思考バブル本体（より大きな雲の形） */}
           <div className="relative">
             {/* メインの雲 - より有機的な形状 */}
-            <div className="relative bg-white/85 backdrop-blur-md shadow-xl" 
+            <div className="relative bg-white/85 backdrop-blur-md shadow-xl [--ivs:9ch] sm:[--ivs:11ch] md:[--ivs:14ch]" 
                  style={{ 
                    borderRadius: '55% 45% 45% 55% / 50% 60% 40% 50%',
                    padding: '40px 44px'
@@ -184,7 +184,7 @@ export default function InnerVoiceBubble() {
                   fontWeight: '500',
                   letterSpacing: '0.2em',
                   lineHeight: '2',
-                  height: '280px'
+                  inlineSize: 'var(--ivs, 12ch)'
                 }}
               >
                 {bubble2Text}
@@ -208,7 +208,7 @@ export default function InnerVoiceBubble() {
 
       {/* 3つ目の思考バブル - 下部やや左寄り */}
       <motion.div
-        className="absolute top-[75%] left-[35%] transform -translate-x-1/2 z-40"
+        className="absolute top-[75%] left-[50%] sm:left-[45%] md:left-[35%] transform -translate-x-1/2 z-40"
         initial={{ 
           opacity: 0, 
           y: 100, 
@@ -249,7 +249,7 @@ export default function InnerVoiceBubble() {
           {/* 思考バブル本体（小さめの雲） */}
           <div className="relative">
             {/* メインの雲 - コンパクトな形状 */}
-            <div className="relative bg-white/80 backdrop-blur-md shadow-lg" 
+            <div className="relative bg-white/80 backdrop-blur-md shadow-lg [--ivs:7ch] sm:[--ivs:9ch] md:[--ivs:10ch]" 
                  style={{ 
                    borderRadius: '50% 50% 45% 55% / 55% 45% 45% 55%',
                    padding: '28px 32px'
@@ -264,7 +264,7 @@ export default function InnerVoiceBubble() {
                   fontWeight: '400',
                   letterSpacing: '0.12em',
                   lineHeight: '1.7',
-                  height: '180px'
+                  inlineSize: 'var(--ivs, 9ch)'
                 }}
               >
                 {bubble3Text}
