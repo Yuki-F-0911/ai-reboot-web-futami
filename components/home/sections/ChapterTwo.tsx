@@ -4,6 +4,8 @@ import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import ChapterPanels from '@/components/home/sections/shared/ChapterPanels'
 import { usePersonalization } from '@/contexts/PersonalizationContext'
+import { MangaPanel } from '@/components/effects/MangaPanel'
+import { chapterPanels } from '@/data/panels'
 
 export default function ChapterTwo() {
   const { data } = usePersonalization()
@@ -31,8 +33,21 @@ export default function ChapterTwo() {
 
     return text
   }, [expectation, focus, feeling])
+  const renderMobilePanels = (afterIndex: number) => (
+    <div className="md:hidden">
+      {chapterPanels.ch2
+        .filter(p => p.insertAfter === afterIndex)
+        .map((p, idx) => (
+          <div key={`ch2-m-${afterIndex}-${idx}`} className="flex justify-center my-6">
+            <MangaPanel {...p} yOffset={0} />
+          </div>
+        ))}
+    </div>
+  )
+
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-slate-50 via-indigo-50 to-blue-50">
+      {/* コマ（モバイル=行間カード / デスクトップ=オーバーレイ） */}
       <ChapterPanels chapter="ch2" />
       {/* 動的な背景要素 */}
       <div className="absolute inset-0 overflow-hidden">
@@ -125,6 +140,7 @@ export default function ChapterTwo() {
               </motion.div>
             </div>
           </motion.div>
+          {renderMobilePanels(0)}
 
           {/* 中核メッセージ - グラデーションカード */}
           <motion.div
@@ -147,6 +163,7 @@ export default function ChapterTwo() {
               </p>
             </div>
           </motion.div>
+          {renderMobilePanels(1)}
 
           {/* AIからのアドバイス - 吹き出し風 */}
           <motion.div
@@ -179,6 +196,7 @@ export default function ChapterTwo() {
               <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 rotate-45 w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-600"></div>
             </div>
           </motion.div>
+          {renderMobilePanels(2)}
 
           {/* 変化の説明 - アイコン付き */}
           <motion.div
@@ -231,6 +249,7 @@ export default function ChapterTwo() {
               </div>
             </div>
           </motion.div>
+          {renderMobilePanels(3)}
 
           {/* ビジョン - 中央寄せ強調 */}
           <motion.div

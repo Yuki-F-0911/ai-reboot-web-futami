@@ -8,9 +8,9 @@ export default function ChapterPanels({ chapter }: { chapter: 'ch1'|'ch2'|'ch3'|
   const panels = chapterPanels[chapter]
   if (!panels?.length) return null
   return (
-    <div className="pointer-events-none absolute inset-0 z-20">
+    <div className="pointer-events-none absolute inset-0 z-20 hidden md:block">
       {panels.map((p, idx) => (
-        <MangaPanel key={`${chapter}-${idx}`} {...p} />
+        <MangaPanel key={`${chapter}-d-${idx}`} {...p} />
       ))}
     </div>
   )

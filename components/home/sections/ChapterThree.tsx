@@ -3,6 +3,8 @@
 import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import ChapterPanels from '@/components/home/sections/shared/ChapterPanels'
+import { MangaPanel } from '@/components/effects/MangaPanel'
+import { chapterPanels } from '@/data/panels'
 import { usePersonalization } from '@/contexts/PersonalizationContext'
 
 // 漫画コマ風キャラクターパネル
@@ -75,8 +77,21 @@ export default function ChapterThree() {
 
     return { lineLeft: left, lineRight: right }
   }, [expectation, feeling, focus])
+  const renderMobilePanels = (afterIndex: number) => (
+    <div className="md:hidden">
+      {chapterPanels.ch3
+        .filter(p => p.insertAfter === afterIndex)
+        .map((p, idx) => (
+          <div key={`ch3-m-${afterIndex}-${idx}`} className="flex justify-center my-6">
+            <MangaPanel {...p} yOffset={0} />
+          </div>
+        ))}
+    </div>
+  )
+
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-blue-50 via-emerald-50 to-green-50">
+      {/* コマ（モバイル=行間カード / デスクトップ=オーバーレイ） */}
       <ChapterPanels chapter="ch3" />
       {/* 控えめな背景効果 */}
       <div className="absolute inset-0 overflow-hidden">
@@ -155,6 +170,7 @@ export default function ChapterThree() {
               </p>
             </div>
           </motion.div>
+          {renderMobilePanels(0)}
 
           {/* 役割の説明 */}
           <motion.div
@@ -182,6 +198,7 @@ export default function ChapterThree() {
               誰よりも興奮して、一緒に形にしていく。
             </p>
           </motion.div>
+          {renderMobilePanels(1)}
 
           {/* 受講生の声とイラスト */}
           <motion.div
@@ -257,6 +274,7 @@ export default function ChapterThree() {
               </div>
             </motion.div>
           </motion.div>
+          {renderMobilePanels(2)}
 
           {/* 最も大切なこと */}
           <motion.div
@@ -275,6 +293,7 @@ export default function ChapterThree() {
               あなた自身との、静かな対話の時間。
             </p>
           </motion.div>
+          {renderMobilePanels(3)}
 
           {/* 締めくくり */}
           <motion.div
@@ -288,6 +307,7 @@ export default function ChapterThree() {
             <p className="text-base md:text-lg text-gray-600">「不安があってもいい」</p>
             <p className="text-base md:text-lg text-gray-600">「みんな、そこから始めました」</p>
           </motion.div>
+          {renderMobilePanels(4)}
         </div>
       </div>
       

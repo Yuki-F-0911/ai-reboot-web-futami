@@ -32,7 +32,7 @@
 - JP: 深夜の机で、主人公がメモに走り書き。「ここだけは直したい」と唇が少し結ばれている。
 - Prompt:
 ```
-a mid-30s product manager woman, ponytail, plain shirt, focused but kind gaze, simple accessories,
+a mid-30s product manager man, short neat hair, plain shirt, focused but kind gaze, simple watch,
 a close-up of the protagonist writing quick notes at a desk at night, lips slightly tightened with resolve, eraser crumbs, smudged pencil marks, paper fibers visible, monochrome manga panel, black and white, halftone screentone, high contrast, clean line art, minimal background, cinematic angle, Japanese seinen manga style --style raw --ar 2:3 --chaos 8 --no color, text, watermark, photorealistic, 3D --seed 11111 --v 6
 ```
 
@@ -45,11 +45,11 @@ protagonist looking at an empty section on a resume page, pen paused, empty spac
 ```
 
 3) ch1-03 — 指先アップ（square / left）
-- JP: 鉛筆やカッターを持つ主人公の指先アップ。紙の繊維が見える。
+- JP: 紙原稿を軽く丸める／マスキングテープを剥がす指先。紙の繊維や折り目が見える。
 - Prompt:
 ```
 a freelance designer in early 30s, bob hair, oversized cardigan, sketchbook in hand, thoughtful eyes,
-a macro close-up of the protagonist's fingertips holding a pencil and a cutter on paper, fine paper fibers, monochrome manga panel, black and white, halftone screentone, high contrast, clean line art, minimal background --style raw --ar 1:1 --chaos 8 --no color, text, watermark, photorealistic, 3D --seed 11113 --v 6
+a macro close-up of the protagonist's fingertips crumpling a paper draft or peeling masking tape, fine paper fibers and creases visible, monochrome manga panel, black and white, halftone screentone, high contrast, clean line art, minimal background --style raw --ar 1:1 --chaos 8 --no color, text, watermark, photorealistic, 3D --seed 11113 --v 6
 ```
 
 4) ch1-04 — 目を閉じて“なぜ”を探る（landscape / center）
@@ -73,19 +73,19 @@ protagonist taking a deep breath before writing a goal on stationery, determined
 ```
 
 2) ch2-02 — 「目的」一行（square / right）
-- JP: 便箋に目的を一行で書く主人公の手元。消しカスや二重線の修正痕。
+- JP: 便箋に書く以外の行為。付箋を3列（カンバン風）に並べる手元。文字は読めない記号。
 - Prompt:
 ```
 a public servant in 30s, neat shirt, ID lanyard, composed and sincere expression,
-a hand writing a single-line goal on stationery, eraser crumbs, crossed-out line corrections, monochrome manga panel, black and white, halftone screentone, high contrast, clean line art, minimal background, cinematic close-up --style raw --ar 1:1 --chaos 8 --no color, text, watermark, photorealistic, 3D --seed 22222 --v 6
+protagonist sorting sticky notes into three columns on a corkboard (kanban-like), moving notes with one hand, no readable text, icons or shapes only, monochrome manga panel, black and white, halftone screentone, high contrast, clean line art, minimal background --style raw --ar 1:1 --chaos 8 --no color, text, watermark, photorealistic, 3D --seed 22222 --v 6
 ```
 
 3) ch2-04 — 小さく試す（landscape / right）
-- JP: ノートに小さな実験プランを書き込み、頷く主人公。軽いスピード線で“まず試す”。
+- JP: スマホで紙プロトを試す／キッチンタイマーで1分計測して操作する。UI文字は描かない。
 - Prompt:
 ```
 a late 20s nurse off-duty, tied hair, relaxed casual clothes, caring expression,
-protagonist writing a small experiment plan in a notebook and nodding, subtle speed lines suggesting first try, monochrome manga panel, black and white, halftone screentone, high contrast, clean line art, minimal background --style raw --ar 3:2 --chaos 8 --no color, text, watermark, photorealistic, 3D --seed 22223 --v 6
+protagonist testing a paper prototype on a smartphone, tapping the screen, a small stopwatch or kitchen timer on the desk, no readable UI text, sense of first trial, monochrome manga panel, black and white, halftone screentone, high contrast, clean line art, minimal background --style raw --ar 3:2 --chaos 8 --no color, text, watermark, photorealistic, 3D --seed 22223 --v 6
 ```
 
 ---

@@ -2,6 +2,8 @@
 
 import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
+import { MangaPanel } from '@/components/effects/MangaPanel'
+import { chapterPanels } from '@/data/panels'
 import ChapterPanels from '@/components/home/sections/shared/ChapterPanels'
 import { useChapterEmphasis } from '@/components/home/PersonalizedContent'
 import { usePersonalization } from '@/contexts/PersonalizationContext'
@@ -37,8 +39,21 @@ export default function ChapterOne() {
     return { bubbleA: a, bubbleB: b }
   }, [expectation, feeling, focus])
 
+  const renderMobilePanels = (afterIndex: number) => (
+    <div className="md:hidden">
+      {chapterPanels.ch1
+        .filter(p => p.insertAfter === afterIndex)
+        .map((p, idx) => (
+          <div key={`ch1-m-${afterIndex}-${idx}`} className="flex justify-center my-6">
+            <MangaPanel {...p} yOffset={0} />
+          </div>
+        ))}
+    </div>
+  )
+
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-gray-50 to-slate-50">
+      {/* コマ（モバイル=行間カード / デスクトップ=オーバーレイ） */}
       <ChapterPanels chapter="ch1" />
       {/* 微細な背景パターン */}
       <div className="absolute inset-0 opacity-[0.02]">
@@ -119,6 +134,7 @@ export default function ChapterOne() {
               それは、あなたの輝かしい成功体験でもありません。
             </p>
           </motion.div>
+          {renderMobilePanels(0)}
 
           {/* 中核メッセージ - カード風 */}
           <motion.div
@@ -174,6 +190,7 @@ export default function ChapterOne() {
               </motion.p>
             </div>
           </motion.div>
+          {renderMobilePanels(1)}
 
           
 
@@ -243,6 +260,7 @@ export default function ChapterOne() {
               </div>
             </motion.div>
           </div>
+          {renderMobilePanels(2)}
 
           {/* つまり... - 強調セクション */}
           <motion.div
@@ -298,6 +316,7 @@ export default function ChapterOne() {
               </motion.p>
             </div>
           </motion.div>
+          {renderMobilePanels(3)}
 
           {/* 核心 - Will */}
           <motion.div
@@ -320,6 +339,7 @@ export default function ChapterOne() {
               あなただけの「<span className="text-purple-600 font-medium">Will</span>」<span className="text-sm">（意志）</span>だから。
             </p>
           </motion.div>
+          {renderMobilePanels(4)}
 
           {/* 締めくくり - 線で区切り */}
           <motion.div

@@ -3,7 +3,10 @@
 import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import ChapterPanels from '@/components/home/sections/shared/ChapterPanels'
+import { MangaPanel } from '@/components/effects/MangaPanel'
+import { chapterPanels } from '@/data/panels'
 import { usePersonalization } from '@/contexts/PersonalizationContext'
+import Image from 'next/image'
 
 export default function ChapterFour() {
   const { data } = usePersonalization()
@@ -49,8 +52,25 @@ export default function ChapterFour() {
 
     return { familyTitle: title, familySub: sub }
   }, [expectation, focus, feeling])
+  const renderMobilePanels = (afterIndex: number) => (
+    <div className="md:hidden">
+      {chapterPanels.ch4
+        .filter(p => p.insertAfter === afterIndex)
+        .map((p, idx) => (
+          <div key={`ch4-m-${afterIndex}-${idx}`} className="flex justify-center my-6">
+            <MangaPanel {...p} yOffset={0} />
+          </div>
+        ))}
+    </div>
+  )
+
+  // 第4章挿絵（ユーザー提供画像）
+  // 画像ファイルは public/images/ch4-illustration.webp に配置してください
+  const illustrationSrc = '/images/ch4-illustration.webp'
+
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-green-50 via-rose-50 to-pink-50">
+      {/* コマ（モバイル=行間カード / デスクトップ=オーバーレイ） */}
       <ChapterPanels chapter="ch4" />
       {/* 控えめな背景効果 */}
       <div className="absolute inset-0 overflow-hidden">
@@ -117,6 +137,7 @@ export default function ChapterFour() {
               </p>
             </div>
           </motion.div>
+          {renderMobilePanels(0)}
 
           {/* 変化を実感する瞬間 - 思考バブル（InnerVoiceBubble準拠） */}
           <motion.div
@@ -161,6 +182,7 @@ export default function ChapterFour() {
               </div>
             </div>
           </motion.div>
+          {renderMobilePanels(1)}
 
           {/* 変化のリスト */}
           <motion.div
@@ -213,8 +235,9 @@ export default function ChapterFour() {
               <p className="text-base md:text-lg text-gray-600 pl-8 mt-2">「こうあるべき」から「こうありたい」へ。</p>
             </motion.div>
           </motion.div>
+          {renderMobilePanels(2)}
 
-          {/* 家族との時間 - イラスト挿入指定（パーソナライズ） */}
+          {/* 家族との時間 - イラスト（ユーザー提供） */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -222,19 +245,15 @@ export default function ChapterFour() {
             viewport={{ once: true }}
             className="text-center py-12"
           >
-            {/* イラスト挿入位置のマーカー（中立的な時間の象徴） */}
-            <div className="relative mx-auto w-64 h-48 mb-8 bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-rose-200">
-              <div className="text-center text-gray-500">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="mx-auto mb-2">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 7v6" />
-                  <path d="M12 12l4 3" />
-                </svg>
-                <p className="text-xs">
-                  [挿絵: あたたかい時間]<br/>
-                  自分や大切な人と過ごす静かなひととき
-                </p>
-              </div>
+            <div className="relative mx-auto w-full max-w-[720px] aspect-[3/2] mb-8 rounded-2xl overflow-hidden border border-rose-100 shadow-sm">
+              <Image
+                src={illustrationSrc}
+                alt="あたたかい時間 — 自分や大切な人と過ごす静かなひととき"
+                fill
+                sizes="(max-width: 768px) 90vw, 720px"
+                className="object-cover"
+                priority={false}
+              />
             </div>
             
             <p className="text-lg md:text-xl text-gray-800 font-medium" style={{
@@ -248,6 +267,7 @@ export default function ChapterFour() {
               {familySub}
             </p>
           </motion.div>
+          {renderMobilePanels(3)}
 
           {/* 締めくくり */}
           <motion.div
