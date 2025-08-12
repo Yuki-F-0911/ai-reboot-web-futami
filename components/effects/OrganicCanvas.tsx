@@ -23,6 +23,11 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
   const animationRef = useRef<number>(0)
   const nodesRef = useRef<Node[]>([])
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  const [isVisible, setIsVisible] = useState(false)
+  const [isScrolling, setIsScrolling] = useState(false)
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined)
+  const observerRef = useRef<IntersectionObserver | null>(null)
+  const frameSkipRef = useRef<number>(0)
 
   // ニューロンのようなノードを生成
   const generateNodes = (width: number, height: number) => {
@@ -61,6 +66,22 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
 
   // アニメーションループ
   const animate = (timestamp?: number) => {
+    // 見えていない時は停止
+    if (!isVisible) {
+      animationRef.current = 0
+      return
+    }
+
+    // スクロール中は描画を間引く
+    if (isScrolling) {
+      frameSkipRef.current++
+      if (frameSkipRef.current < 3) { // 3フレームに1回だけ描画
+        animationRef.current = requestAnimationFrame(animate)
+        return
+      }
+      frameSkipRef.current = 0
+    }
+
     const canvas = canvasRef.current
     if (!canvas) return
     
@@ -173,6 +194,56 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
     }
   }, [])
 
+  // IntersectionObserver のセットアップ
+  useEffect(() => {
+    if (!canvasRef.current) return
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          setIsVisible(entry.isIntersecting)
+        })
+      },
+      {
+        threshold: 0.1 // 10%見えたらアクティブ化
+      }
+    )
+
+    if (canvasRef.current) {
+      observerRef.current.observe(canvasRef.current)
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect()
+      }
+    }
+  }, [])
+
+  // スクロールイベントの検出
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolling(true)
+      
+      // スクロール終了検出
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolling(false)
+      }, 150) // 150ms後にスクロール終了と判定
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
+    }
+  }, [])
+
   // dimensions が変更されたときにノードを再生成
   useEffect(() => {
     if (dimensions.width && dimensions.height) {
@@ -182,7 +253,7 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
 
   // アニメーション開始
   useEffect(() => {
-    if (dimensions.width && dimensions.height && nodesRef.current.length > 0) {
+    if (dimensions.width && dimensions.height && nodesRef.current.length > 0 && isVisible) {
       animate()
     }
     
@@ -191,7 +262,7 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
         cancelAnimationFrame(animationRef.current)
       }
     }
-  }, [dimensions, focusLevel])
+  }, [dimensions, focusLevel, isVisible])
 
   return (
     <motion.canvas

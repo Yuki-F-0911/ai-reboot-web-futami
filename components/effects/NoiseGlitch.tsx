@@ -13,6 +13,10 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
   const frameRef = useRef<number | undefined>(undefined)
   const [isClient, setIsClient] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+  const [isScrolling, setIsScrolling] = useState(false)
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined)
+  const observerRef = useRef<IntersectionObserver | null>(null)
   const reduceMotion = useReducedMotion()
   
   // ノイズ生成関数 - 最適化版
@@ -171,6 +175,58 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
     }, 100)
     return () => clearTimeout(timer)
   }, [])
+
+  // IntersectionObserver のセットアップ
+  useEffect(() => {
+    if (!isClient || !canvasRef.current) return
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          setIsVisible(entry.isIntersecting)
+        })
+      },
+      {
+        threshold: 0.1 // 10%見えたらアクティブ化
+      }
+    )
+
+    if (canvasRef.current) {
+      observerRef.current.observe(canvasRef.current)
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect()
+      }
+    }
+  }, [isClient])
+
+  // スクロールイベントの検出
+  useEffect(() => {
+    if (!isClient) return
+
+    const handleScroll = () => {
+      setIsScrolling(true)
+      
+      // スクロール終了検出
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolling(false)
+      }, 150) // 150ms後にスクロール終了と判定
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
+    }
+  }, [isClient])
   
   // 初期描画専用のuseEffect
   useEffect(() => {
@@ -201,6 +257,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
     if (!isClient || !isInitialized) return
     if (reduceMotion) return // reduce motion ではループしない
     if (!active) return
+    if (!isVisible) return // 見えていない時はアニメーションしない
     
     const canvas = canvasRef.current
     if (!canvas) return
@@ -218,11 +275,28 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
     
     const startTime = Date.now()
     let lastFrameTime = 0
-    const targetFPS = 24  // 24FPSでよりスムーズに
+    let frameSkipCount = 0
+    const targetFPS = isScrolling ? 12 : 24  // スクロール中はFPSを半減
     const frameInterval = 1000 / targetFPS
     
     // アニメーションループ
     const animate = (timestamp: number = 0) => {
+      // 見えていない時は停止
+      if (!isVisible) {
+        frameRef.current = undefined
+        return
+      }
+
+      // スクロール中は描画を間引く
+      if (isScrolling) {
+        frameSkipCount++
+        if (frameSkipCount < 2) { // 2フレームに1回だけ描画
+          frameRef.current = requestAnimationFrame(animate)
+          return
+        }
+        frameSkipCount = 0
+      }
+
       // FPS制限
       if (timestamp - lastFrameTime < frameInterval) {
         frameRef.current = requestAnimationFrame(animate)
@@ -235,13 +309,13 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
       // キャンバスをクリア
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       
-      // 固定密度でノイズを描画（時間パラメータでアニメーション）
-      const noiseDensity = 0.18  // 密度をさらに下げてパフォーマンス改善
+      // スクロール中は密度を下げる
+      const noiseDensity = isScrolling ? 0.1 : 0.18
       
-      // 各レイヤーを描画（アーティファクトは頻度を下げる）
+      // 各レイヤーを描画（スクロール中はアーティファクトをスキップ）
       generateNoise(ctx, canvas.width, canvas.height, noiseDensity)
       drawScanlines(ctx, canvas.width, canvas.height)
-      if (Math.random() > 0.85) {  // 15%の確率でのみアーティファクトを描画
+      if (!isScrolling && Math.random() > 0.85) {  // スクロール中はアーティファクトを描画しない
         drawArtifacts(ctx, canvas.width, canvas.height)
       }
       
@@ -273,7 +347,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
         cancelAnimationFrame(frameRef.current)
       }
     }
-  }, [intensity, isClient, isInitialized, active, reduceMotion])
+  }, [intensity, isClient, isInitialized, active, reduceMotion, isVisible, isScrolling])
   
   // RGB分離エフェクト用のスタイル
   const rgbShiftStyle = {

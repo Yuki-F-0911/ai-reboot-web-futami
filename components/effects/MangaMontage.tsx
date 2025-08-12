@@ -79,7 +79,7 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
       opacity: 0,
     },
     visible: {
-      opacity: isLoading ? 1 : 0.6, // ローディング後は少し濃く（0.4→0.6）
+      opacity: isLoading ? 0.8 : 0.5, // さらに薄くして負荷軽減
       transition: {
         duration: 0
       }
@@ -124,7 +124,7 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
     >
       {/* メイン画像 */}
       <div className="relative w-full h-auto">
-        {/* 赤チャンネル */}
+        {/* RGB分離効果を単一画像で実装 */}
         <div 
           className="absolute inset-0"
           style={{
@@ -139,57 +139,12 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
             height={250}
             className="w-full h-auto object-contain"
             style={{ 
-              filter: 'grayscale(1) contrast(1.5) brightness(0.9)',
+              filter: `grayscale(1) contrast(1.5) brightness(0.9) hue-rotate(${rgbOffset.r * 10}deg)`,
               mixBlendMode: 'screen',
-              opacity: 0.33,
-              color: 'red'
+              opacity: 0.4
             }}
-          />
-        </div>
-        
-        {/* 緑チャンネル */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            transform: `translateX(${rgbOffset.g}px)`,
-            transition: 'transform 0.05s linear'
-          }}
-        >
-          <Image
-            src={panel.src}
-            alt=""
-            width={350}
-            height={250}
-            className="w-full h-auto object-contain"
-            style={{ 
-              filter: 'grayscale(1) contrast(1.5) brightness(0.9)',
-              mixBlendMode: 'screen',
-              opacity: 0.33,
-              color: 'green'
-            }}
-          />
-        </div>
-        
-        {/* 青チャンネル */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            transform: `translateX(${rgbOffset.b}px)`,
-            transition: 'transform 0.05s linear'
-          }}
-        >
-          <Image
-            src={panel.src}
-            alt=""
-            width={350}
-            height={250}
-            className="w-full h-auto object-contain"
-            style={{ 
-              filter: 'grayscale(1) contrast(1.5) brightness(0.9)',
-              mixBlendMode: 'screen',
-              opacity: 0.33,
-              color: 'blue'
-            }}
+            loading="lazy"
+            quality={60}
           />
         </div>
         
@@ -205,6 +160,8 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
             mixBlendMode: 'multiply'
           }}
           loading="lazy"
+          quality={75}
+          priority={false}
         />
       </div>
     </motion.div>
@@ -267,14 +224,14 @@ const MangaMontage = React.memo(function MangaMontage({ enabled = true }: MangaM
       isLoadingRef.current = false
     }, 3000)
     
-    // 12秒で停止（以前の20sから短縮）
+    // 8秒で停止（パフォーマンス改善のためさらに短縮）
     const stopTimer = setTimeout(() => {
       setIsActive(false)
       isActiveRef.current = false
       timersRef.current.forEach(timer => clearTimeout(timer))
       timersRef.current.clear()
       setActivePanels([])
-    }, 12000)
+    }, 8000)
     
     return () => {
       clearTimeout(loadingTimer)
@@ -300,8 +257,8 @@ const MangaMontage = React.memo(function MangaMontage({ enabled = true }: MangaM
         const panelId = `panel-${panelCounterRef.current++}`
         
         setActivePanels(prev => {
-          // モバイルでは最大3枚、デスクトップでは5枚に制限
-          const maxPanels = window.innerWidth < 768 ? 3 : 5
+          // モバイルでは最大2枚、デスクトップでは3枚に制限（パフォーマンス改善）
+          const maxPanels = window.innerWidth < 768 ? 2 : 3
           const updated = [...prev, { id: panelId, index: newIndex }]
           if (updated.length > maxPanels) {
             return updated.slice(-maxPanels) // 最新分のみ保持

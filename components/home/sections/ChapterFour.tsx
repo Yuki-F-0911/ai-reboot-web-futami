@@ -72,22 +72,7 @@ export default function ChapterFour() {
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-green-50 via-rose-50 to-pink-50">
       {/* コマ（モバイル=行間カード / デスクトップ=オーバーレイ） */}
       <ChapterPanels chapter="ch4" />
-      {/* 控えめな背景効果 */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute bottom-1/4 left-1/4 w-96 h-96"
-          animate={{
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <div className="w-full h-full bg-gradient-to-tr from-rose-100/10 via-transparent to-transparent rounded-full blur-3xl" />
-        </motion.div>
-      </div>
+
       
       <div className="relative z-30 max-w-2xl mx-auto">
         {/* 章番号 - 縦書き風 */}

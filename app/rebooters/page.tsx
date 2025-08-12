@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import AcademyHomePage from '@/components/home/AcademyHomePage'
 import OnboardingFlow from '@/components/onboarding/OnboardingFlow'
@@ -79,6 +80,7 @@ export default function RebootersPage() {
   
   return (
     <PersonalizationProvider>
+
       {/* オンボーディングフロー（質問→名前→音楽） */}
       {!contentReady && (
         <OnboardingFlow onComplete={() => setContentReady(true)} />
@@ -101,6 +103,21 @@ export default function RebootersPage() {
           {effectsActive && noiseOpacity > 0.5 && <MangaMontage enabled={effectsActive} />}
           
           <AcademyHomePage />
+          
+          {/* 締めくくり - ノイズエフェクトを表示 */}
+          <div className="relative z-10 py-24 md:py-32 text-center">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <p className="font-bold text-gray-800 mb-4 text-2xl tracking-wider">-AI REBOOT-</p>
+              <p className="text-base md:text-lg text-gray-600">
+                あなたの「Will」が、静かに待っている。
+              </p>
+            </motion.div>
+          </div>
         </>
       )}
     </PersonalizationProvider>

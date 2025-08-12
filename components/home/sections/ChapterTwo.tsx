@@ -49,22 +49,7 @@ export default function ChapterTwo() {
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-slate-50 via-indigo-50 to-blue-50">
       {/* コマ（モバイル=行間カード / デスクトップ=オーバーレイ） */}
       <ChapterPanels chapter="ch2" />
-      {/* 動的な背景要素 */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute -top-1/2 -right-1/2 w-full h-full"
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 120,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        >
-          <div className="w-full h-full bg-gradient-to-br from-indigo-100/20 via-transparent to-purple-100/20 blur-3xl" />
-        </motion.div>
-      </div>
+
       
       <div className="relative z-30 max-w-2xl mx-auto">
         {/* 章番号 - 縦書き風 */}

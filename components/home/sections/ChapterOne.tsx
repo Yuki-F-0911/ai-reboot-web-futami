@@ -326,9 +326,6 @@ export default function ChapterOne() {
             viewport={{ once: true }}
             className="relative py-16 text-center"
           >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-64 h-64 bg-gradient-to-r from-purple-200/20 to-indigo-200/20 rounded-full blur-3xl" />
-            </div>
             <p className="relative text-lg md:text-xl text-gray-800" style={{
               fontFamily: '"Noto Serif JP", serif',
               fontWeight: '400',
