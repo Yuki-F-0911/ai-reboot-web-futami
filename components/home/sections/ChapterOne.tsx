@@ -16,24 +16,24 @@ export default function ChapterOne() {
   // 読者のWillの具体化（本文の流れに直結）
   // ねらい: 隠してきた情熱の喚起（短文・ためらい調） + パーソナライズ
   const { bubbleA, bubbleB } = useMemo(() => {
-    let a = '数字に落ちない執着に、意味はあるのかな。'
-    let b = '誰も評価しなかったこだわり、まだ捨てたくない。'
+    let a = '数字に落ちない執着に、\n意味はあるのかな。'; 
+    let b = '誰も評価しなかったこだわり、\nまだ捨てたくない。'
 
     const isEfficiency = expectation === 'efficiency' || focus === 'skills'
     const isPossibility = expectation === 'possibility' || focus === 'mindset'
 
     if (isEfficiency) {
-      a = '手順はあとで。今は「なぜ」を探る。'
-      b = '粗さが気になる。その理由を言葉に。'
+      a = '手順はあとで。\n今は「なぜ」を探る。'
+      b = '　粗さが気になる。\n　　　その理由を言葉に。'
     } else if (isPossibility) {
-      a = 'うまく説明できない。でも諦められない。'
-      b = '「本当はこうしたい」を言っていい。'
+      a = 'うまく説明できない。\nでも諦められない。'
+      b = '「本当はこうしたい」を\n言っていい。'
     }
 
     if (feeling === 'change') {
-      a = '今のままじゃ終われない。その“なぜ”は？'
+      a = '今のままじゃ終われない。\n　　なぜ、そう思うのか？'
     } else if (feeling === 'growth') {
-      b = '一行でいい。“諦められない理由”。'
+      b = '一行でいい。\n“諦められない理由”。'
     }
 
     return { bubbleA: a, bubbleB: b }
@@ -78,7 +78,7 @@ export default function ChapterOne() {
         />
       )}
       
-      <div className="relative z-30 max-w-2xl mx-auto">
+      <div className="relative z-30 max-w-xl mx-auto">
         {/* 章番号 - 縦書き風 */}
         <motion.div 
           className="flex items-center gap-8 mb-16"
@@ -144,10 +144,10 @@ export default function ChapterOne() {
             viewport={{ once: true }}
             className="relative py-12 px-8 -mx-4 md:-mx-8"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-50 via-indigo-50 to-purple-50 opacity-50" />
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-100 via-indigo-100 to-purple-100 opacity-50" />
             <div className="relative space-y-6">
               <motion.p 
-                className="text-base md:text-lg text-gray-600"
+                className="text-lg md:text-xl text-gray-600"
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -161,7 +161,7 @@ export default function ChapterOne() {
                 履歴書に書けなかった情熱。
               </motion.p>
               <motion.p 
-                className="text-base md:text-lg text-gray-600"
+                className="text-lg md:text-xl text-gray-600"
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
@@ -175,7 +175,7 @@ export default function ChapterOne() {
                 損益計算書に載らなかった執着。
               </motion.p>
               <motion.p 
-                className="text-base md:text-lg text-gray-600"
+                className="text-lg md:text-xl text-gray-600"
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
@@ -195,29 +195,34 @@ export default function ChapterOne() {
           
 
           {/* 読者の心の声 - 思考バブル（2つ・パーソナライズ） */}
-          <div className="relative my-12 h-[220px] md:my-16 md:h-[300px] lg:h-[320px]">
+          <div className="relative my-12 h-[440px] md:my-16 md:h-[440px] lg:h-[440px]">
             {/* 左：バブルA */}
             <motion.div
               initial={{ opacity: 0, scale: 0.92, y: 10, rotate: -8 }}
               whileInView={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
               transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
               viewport={{ once: true, margin: '-120px' }}
-              className="absolute top-3 left-2 md:top-2 md:left-16 lg:top-0 lg:left-24"
+              className="absolute top-52 left-5 md:top-52 md:left-8 lg:top-52 lg:left-0"
             >
-              <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg [--ivs:7ch] md:[--ivs:9ch] lg:[--ivs:11ch] px-4 py-5 md:px-5 md:py-6"
+              <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg [--ivs:14ch] md:[--ivs:14ch] lg:[--ivs:14ch] px-4 py-5 md:px-6 md:py-6 lg:pt-10"
                    style={{ 
                     borderRadius: '45% 55% 50% 50% / 60% 60% 40% 40%'
                    }}>
-                <p className="text-gray-600 italic text-[13px] md:text-sm lg:text-base"
+                <p className="text-gray-600 italic text-base md:text-lg lg:text-xl"
                    style={{ 
                      writingMode: 'vertical-rl',
                      textOrientation: 'upright',
                      fontFamily: '"Noto Sans JP", sans-serif',
                      letterSpacing: '0.1em',
-                    lineHeight: '1.9',
+                     lineHeight: '1.9',
                      inlineSize: 'var(--ivs)'
                    }}>
-                  {bubbleA}
+                  {bubbleA.split('\n').map((line, index) => (
+                    <React.Fragment key={index}>
+                      {index > 0 && <br />}
+                      {line}
+                    </React.Fragment>
+                  ))}
                 </p>
               </div>
               {/* 尻尾（左下） */}
@@ -234,13 +239,13 @@ export default function ChapterOne() {
               whileInView={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
               transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
               viewport={{ once: true, margin: '-120px' }}
-              className="absolute top-16 right-2 md:top-20 md:right-16 lg:top-16 lg:right-28"
+              className="absolute top-0 right-4 md:top-20 md:right-12 lg:top-10 lg:right-0"
             >
-              <div className="relative bg-gradient-to-br from-indigo-50 to-purple-50 backdrop-blur-sm shadow-lg [--ivs:8ch] md:[--ivs:10ch] lg:[--ivs:12ch] px-5 py-6 md:px-6 md:py-7"
+              <div className="relative bg-gradient-to-br from-indigo-50 to-purple-50 backdrop-blur-sm shadow-lg [--ivs:14ch] md:[--ivs:14ch] lg:[--ivs:15ch] px-5 py-6 md:px-6 md:py-7 lg:pt-10 whitespace-nowrap"
                    style={{ 
                     borderRadius: '55% 45% 45% 55% / 50% 60% 40% 50%'
                    }}>
-                <p className="text-gray-700 italic text-[14px] md:text-base lg:text-[17px]"
+                <p className="text-gray-700 italic text-base md:text-lg lg:text-xl"
                    style={{ 
                      writingMode: 'vertical-rl',
                      textOrientation: 'upright',
@@ -249,7 +254,12 @@ export default function ChapterOne() {
                     lineHeight: '2.0',
                      inlineSize: 'var(--ivs)'
                    }}>
-                  {bubbleB}
+                  {bubbleB.split('\n').map((line, index) => (
+                    <React.Fragment key={index}>
+                      {index > 0 && <br />}
+                      {line}
+                    </React.Fragment>
+                  ))}
                 </p>
               </div>
               {/* 尻尾（右下） */}

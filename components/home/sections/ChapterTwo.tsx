@@ -51,7 +51,7 @@ export default function ChapterTwo() {
       <ChapterPanels chapter="ch2" />
 
       
-      <div className="relative z-30 max-w-2xl mx-auto">
+      <div className="relative z-30 max-w-xl mx-auto">
         {/* 章番号 - 縦書き風 */}
         <motion.div 
           className="flex items-center gap-8 mb-16"
@@ -136,7 +136,7 @@ export default function ChapterTwo() {
             className="relative"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur-xl opacity-20" />
-            <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-12 text-center shadow-lg">
+            <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 lg:p-20 text-center shadow-lg">
               <p className="text-lg md:text-xl text-gray-800 font-medium" style={{
                 fontFamily: '"Noto Serif JP", serif',
                 letterSpacing: '0.12em',
@@ -162,9 +162,9 @@ export default function ChapterTwo() {
               delay: 0.45
             }}
             viewport={{ once: true }}
-            className="relative my-8 flex justify-end mr-4"
+            className="relative my-8 flex justify-center mr-4"
           >
-            <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-2xl shadow-xl inline-block"
+            <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-3xl shadow-xl inline-block overflow-hidden"
                  style={{ padding: '24px 32px' }}>
               <p className="text-sm font-medium"
                  style={{ 
@@ -177,8 +177,19 @@ export default function ChapterTwo() {
                  }}>
                 {bubbleText}
               </p>
-              {/* 吹き出しの三角形 */}
-              <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 rotate-45 w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-600"></div>
+              {/* 吹き出しの尻尾 - 内側に背景色で切り欠き（右側に配置、左向き） */}
+              <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
+                {/* 背景色の三角形で内側を切り欠く */}
+                <div 
+                  className="absolute w-0 h-0"
+                  style={{
+                    right: '-1px',
+                    borderStyle: 'solid',
+                    borderWidth: '12px 16px 12px 0',
+                    borderColor: 'transparent #e0e7ff transparent transparent' // indigo-50相当の色
+                  }}
+                />
+              </div>
             </div>
           </motion.div>
           {renderMobilePanels(2)}
@@ -252,14 +263,14 @@ export default function ChapterTwo() {
               className="h-px bg-gradient-to-r from-transparent via-indigo-300 to-transparent mb-12"
             />
             
-            <p className="text-xl md:text-2xl text-gray-800" style={{
+            <p className="text-lg md:text-2xl text-gray-800" style={{
               fontFamily: '"Noto Serif JP", serif',
               fontWeight: '300',
               letterSpacing: '0.15em',
               lineHeight: '2'
             }}>
               どんな新しいツールが現れても、<br />
-              「これは自分の目的にこう接続できる」と、<br />
+              「これは自分の目的にこう使える」と、<br />
               即座に結びつけられる思考の習慣。
             </p>
             

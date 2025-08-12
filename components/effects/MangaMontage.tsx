@@ -137,8 +137,12 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
             alt=""
             width={350}
             height={250}
-            className="w-full h-auto object-contain"
+            className="object-contain"
             style={{ 
+              width: 'auto',
+              height: 'auto',
+              maxWidth: '100%',
+              maxHeight: '100%',
               filter: `grayscale(1) contrast(1.5) brightness(0.9) hue-rotate(${rgbOffset.r * 10}deg)`,
               mixBlendMode: 'screen',
               opacity: 0.4
@@ -154,8 +158,12 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
           alt={panel.alt}
           width={350}
           height={250}
-          className="w-full h-auto object-contain relative z-10"
+          className="object-contain relative z-10"
           style={{ 
+            width: 'auto',
+            height: 'auto',
+            maxWidth: '100%',
+            maxHeight: '100%',
             filter: 'grayscale(1) contrast(1.5) brightness(0.9)',
             mixBlendMode: 'multiply'
           }}

@@ -23,7 +23,7 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
   const animationRef = useRef<number>(0)
   const nodesRef = useRef<Node[]>([])
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true) // 初期値をtrueに変更
   const [isScrolling, setIsScrolling] = useState(false)
   const scrollTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined)
   const observerRef = useRef<IntersectionObserver | null>(null)
@@ -196,24 +196,29 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
 
   // IntersectionObserver のセットアップ
   useEffect(() => {
-    if (!canvasRef.current) return
+    // 少し遅延させてcanvasが確実にレンダリングされた後に設定
+    const timer = setTimeout(() => {
+      if (!canvasRef.current) return
 
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          setIsVisible(entry.isIntersecting)
-        })
-      },
-      {
-        threshold: 0.1 // 10%見えたらアクティブ化
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            setIsVisible(entry.isIntersecting)
+          })
+        },
+        {
+          threshold: 0.01, // 1%見えたらアクティブ化（より敏感に）
+          rootMargin: '50px' // 50px手前から検知開始
+        }
+      )
+
+      if (canvasRef.current) {
+        observerRef.current.observe(canvasRef.current)
       }
-    )
-
-    if (canvasRef.current) {
-      observerRef.current.observe(canvasRef.current)
-    }
+    }, 500) // 500ms遅延
 
     return () => {
+      clearTimeout(timer)
       if (observerRef.current) {
         observerRef.current.disconnect()
       }

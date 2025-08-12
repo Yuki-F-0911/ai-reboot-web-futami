@@ -13,34 +13,34 @@ export default function InnerVoiceBubble() {
   const bubble1Y = useTransform(scrollYProgress, [0, 0.3], [0, -50])
   const bubble2Y = useTransform(scrollYProgress, [0, 0.3], [0, -30])
   
-  // パーソナライズ文言（初回選択肢に“少し寄せる”）
+  // パーソナライズ文言（初回選択肢に"少し寄せる"）
   const { bubble1Text, bubble2Text, bubble3Text } = useMemo(() => {
-    // デフォルト文言
-    let b1 = 'このままでいいのだろうか'
-    let b2 = '本当はもっと、できるはずなのに'
-    let b3 = '変わりたいけど、一歩が踏み出せない'
+    // デフォルト文言（改行とインデント付き）
+    let b1 = ['このままで', '　いいのだろうか']
+    let b2 = ['本当はもっと、', '　　できるはずなのに']  // インデントを増やす
+    let b3 = ['変わりたいけど、', '一歩が踏み出せない']  // インデントなし
 
     // 期待/フォーカス寄せ
     const isEfficiency = expectation === 'efficiency' || focus === 'skills'
     const isPossibility = expectation === 'possibility' || focus === 'mindset'
 
     if (isEfficiency) {
-      b1 = 'このやり方、もっと良くできる'
-      b2 = '無駄を減らして本質に集中したい'
-      b3 = '小さく試して、確実に前へ'
+      b1 = ['このやり方、', '　もっと良くできる']
+      b2 = ['無駄を減らして', '　　本質に集中したい']
+      b3 = ['小さく試して、', '　確実に前へ']
     } else if (isPossibility) {
-      b1 = '本当はもっと面白くできる'
-      b2 = 'まだ見ぬ可能性を形にしたい'
-      b3 = '考え方を変えれば景色も変わる'
+      b1 = ['本当は', '　もっと面白くできる']
+      b2 = ['まだ見ぬ可能性を', '　　形にしたい']
+      b3 = ['考え方を変えれば', '　　景色も変わる']
     }
 
     // 感情寄せ（軽く上書き）
     if (feeling === 'change') {
-      b1 = '今のままじゃ終われない'
-      b3 = '怖さよりワクワクを信じたい'
+      b1 = ['今のままじゃ', '　　終われない']  // インデントを増やす
+      b3 = ['怖さより', 'ワクワクを信じたい']  // インデントなし
     } else if (feeling === 'growth') {
-      b2 = '積み上げれば、きっと届く'
-      b3 = '焦らず、でも止まらず'
+      b2 = ['積み上げれば、', '　きっと届く']
+      b3 = ['焦らず、', '　でも止まらず']
     }
 
     return { bubble1Text: b1, bubble2Text: b2, bubble3Text: b3 }
@@ -59,9 +59,9 @@ export default function InnerVoiceBubble() {
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.0 }}
         >
           <div className="relative">
-            <div className="relative bg-white/90 backdrop-blur-md shadow-lg [--ivs:8ch] rounded-[40%_60%_55%_45%_/_60%_50%_50%_40%] px-5 py-6">
+            <div className="relative bg-white/90 backdrop-blur-md shadow-lg [--ivs:8ch] rounded-[40%_60%_55%_45%_/_60%_50%_50%_40%] px-5 py-5">
               <p
-                className="text-gray-800 text-[15px] leading-relaxed"
+                className="text-gray-800 text-[16px] leading-relaxed"
                 style={{
                   writingMode: 'vertical-rl',
                   textOrientation: 'upright',
@@ -72,7 +72,9 @@ export default function InnerVoiceBubble() {
                   inlineSize: 'var(--ivs)'
                 }}
               >
-                {bubble1Text}
+                {bubble1Text[0]}
+                <br />
+                {bubble1Text[1]}
               </p>
             </div>
             {/* 尻尾（左下） */}
@@ -93,7 +95,7 @@ export default function InnerVoiceBubble() {
           transition={{ duration: 0.65, ease: 'easeOut', delay: 0.15 }}
         >
           <div className="relative">
-            <div className="relative bg-white/85 backdrop-blur-md shadow-lg [--ivs:10ch] rounded-[55%_45%_45%_55%_/_50%_60%_40%_50%] px-6 py-7">
+            <div className="relative bg-white/85 backdrop-blur-md shadow-lg [--ivs:12ch] rounded-[55%_45%_45%_55%_/_50%_60%_40%_50%] px-6 py-7">
               <p
                 className="text-gray-700 text-[16px] leading-relaxed"
                 style={{
@@ -106,7 +108,9 @@ export default function InnerVoiceBubble() {
                   inlineSize: 'var(--ivs)'
                 }}
               >
-                {bubble2Text}
+                {bubble2Text[0]}
+                <br />
+                {bubble2Text[1]}
               </p>
             </div>
             {/* 尻尾（右下） */}
@@ -120,14 +124,14 @@ export default function InnerVoiceBubble() {
 
         {/* 3: 下段中央（小） */}
         <motion.div
-          className="absolute top-[74%] left-1/2 -translate-x-1/2"
+          className="absolute top-[74%] left-1/3 -translate-x-1/2"
           initial={{ opacity: 0, y: 32, scale: 0.95, rotate: -15 }}
           whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
           viewport={{ once: true, margin: '-120px' }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.3 }}
         >
           <div className="relative">
-            <div className="relative bg-white/80 backdrop-blur-md shadow-md [--ivs:9ch] rounded-[50%_50%_45%_55%_/_55%_45%_45%_55%] px-5 py-6">
+            <div className="relative bg-white/80 backdrop-blur-md shadow-md [--ivs:11ch] rounded-[45%_55%_50%_50%_/_60%_60%_40%_40%] px-5 py-6">
               <p
                 className="text-gray-600 text-[14px] leading-relaxed"
                 style={{
@@ -140,7 +144,9 @@ export default function InnerVoiceBubble() {
                   inlineSize: 'var(--ivs)'
                 }}
               >
-                {bubble3Text}
+                {bubble3Text[0]}
+                <br />
+                {bubble3Text[1]}
               </p>
             </div>
             {/* 尻尾（左下） */}
@@ -194,14 +200,14 @@ export default function InnerVoiceBubble() {
           {/* 思考バブル本体（雲の形） */}
           <div className="relative">
             {/* メインの雲 */}
-            <div className="relative bg-white/90 backdrop-blur-md shadow-xl [--ivs:8ch] sm:[--ivs:10ch] md:[--ivs:12ch]" 
+            <div className="relative bg-white/90 backdrop-blur-md shadow-xl [--ivs:7ch] sm:[--ivs:9ch] md:[--ivs:10ch]" 
                  style={{ 
                    borderRadius: '45% 55% 50% 50% / 60% 60% 40% 40%',
-                   padding: '32px 36px'
+                   padding: '28px 32px'
                  }}>
               {/* 縦書きテキスト */}
               <p 
-                className="text-gray-800 text-base md:text-lg leading-relaxed relative z-10"
+                className="text-gray-800 text-lg md:text-xl leading-relaxed relative z-10"
                 style={{ 
                   writingMode: 'vertical-rl',
                   textOrientation: 'upright',
@@ -212,7 +218,9 @@ export default function InnerVoiceBubble() {
                   inlineSize: 'var(--ivs, 10ch)'
                 }}
               >
-                {bubble1Text}
+                {bubble1Text[0]}
+                <br />
+                {bubble1Text[1]}
               </p>
             </div>
             
@@ -274,10 +282,10 @@ export default function InnerVoiceBubble() {
           {/* 思考バブル本体（より大きな雲の形） */}
           <div className="relative">
             {/* メインの雲 - より有機的な形状 */}
-            <div className="relative bg-white/85 backdrop-blur-md shadow-xl [--ivs:9ch] sm:[--ivs:11ch] md:[--ivs:14ch]" 
+            <div className="relative bg-white/85 backdrop-blur-md shadow-xl [--ivs:8ch] sm:[--ivs:10ch] md:[--ivs:12ch]" 
                  style={{ 
                    borderRadius: '55% 45% 45% 55% / 50% 60% 40% 50%',
-                   padding: '40px 44px'
+                   padding: '36px 40px'
                  }}>
               {/* 縦書きテキスト */}
               <p 
@@ -292,7 +300,9 @@ export default function InnerVoiceBubble() {
                   inlineSize: 'var(--ivs, 12ch)'
                 }}
               >
-                {bubble2Text}
+                {bubble2Text[0]}
+                <br />
+                {bubble2Text[1]}
               </p>
             </div>
             
@@ -354,10 +364,10 @@ export default function InnerVoiceBubble() {
           {/* 思考バブル本体（小さめの雲） */}
           <div className="relative">
             {/* メインの雲 - コンパクトな形状 */}
-            <div className="relative bg-white/80 backdrop-blur-md shadow-lg [--ivs:7ch] sm:[--ivs:9ch] md:[--ivs:10ch]" 
+            <div className="relative bg-white/80 backdrop-blur-md shadow-lg [--ivs:8ch] sm:[--ivs:9ch] md:[--ivs:11ch]" 
                  style={{ 
-                   borderRadius: '50% 50% 45% 55% / 55% 45% 45% 55%',
-                   padding: '28px 32px'
+                   borderRadius: '45% 55% 50% 50% / 60% 60% 40% 40%',
+                   padding: '30px 34px'
                  }}>
               {/* 縦書きテキスト */}
               <p 
@@ -372,7 +382,9 @@ export default function InnerVoiceBubble() {
                   inlineSize: 'var(--ivs, 9ch)'
                 }}
               >
-                {bubble3Text}
+                {bubble3Text[0]}
+                <br />
+                {bubble3Text[1]}
               </p>
             </div>
             

@@ -16,20 +16,20 @@ export function PersonalizedMessage({ children }: PersonalizedMessageProps) {
   const getPersonalizedMessage = () => {
     if (expectation === 'efficiency' && focus === 'skills') {
       return (
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg mb-8">
-          <p className="text-lg font-medium text-indigo-900 mb-2">
-            💡 実践的なスキルを重視するあなたへ
+        <div className="bg-gradient-to-r from-purple-50/50 to-indigo-50/50 p-6 rounded-lg mb-8 border border-purple-100/50">
+          <p className="text-lg font-medium text-gray-800 mb-2">
+            実践的なスキルを重視するあなたへ
           </p>
           <p className="text-gray-700">
-            AIツールを使った具体的な業務改善方法を中心に、すぐに使える実践的なスキルを身につけていきます。
+            特定のツールに依存しない本質的な思考法を身につけ、どんな新しいAIが現れても使いこなせる力を養います。
           </p>
         </div>
       )
     } else if (expectation === 'possibility' && focus === 'mindset') {
       return (
-        <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg mb-8">
-          <p className="text-lg font-medium text-purple-900 mb-2">
-            ✨ 新しい可能性を探求するあなたへ
+        <div className="bg-gradient-to-r from-purple-50/50 to-indigo-50/50 p-6 rounded-lg mb-8 border border-purple-100/50">
+          <p className="text-lg font-medium text-gray-800 mb-2">
+            新しい可能性を探求するあなたへ
           </p>
           <p className="text-gray-700">
             AI時代の新しい思考法を身につけ、これまでにない価値創造の方法を一緒に探求していきます。
@@ -38,9 +38,9 @@ export function PersonalizedMessage({ children }: PersonalizedMessageProps) {
       )
     } else if (feeling === 'change') {
       return (
-        <div className="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-lg mb-8">
-          <p className="text-lg font-medium text-orange-900 mb-2">
-            🔥 変化を起こしたいあなたへ
+        <div className="bg-gradient-to-r from-purple-50/50 to-indigo-50/50 p-6 rounded-lg mb-8 border border-purple-100/50">
+          <p className="text-lg font-medium text-gray-800 mb-2">
+            変化を起こしたいあなたへ
           </p>
           <p className="text-gray-700">
             現状を打破するための具体的なアクションプランと、変革を実現するためのAI活用法をお伝えします。
@@ -49,12 +49,12 @@ export function PersonalizedMessage({ children }: PersonalizedMessageProps) {
       )
     } else if (feeling === 'growth') {
       return (
-        <div className="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-lg mb-8">
-          <p className="text-lg font-medium text-green-900 mb-2">
-            🌱 着実に成長したいあなたへ
+        <div className="bg-gradient-to-r from-purple-50/50 to-indigo-50/50 p-6 rounded-lg mb-8 border border-purple-100/50">
+          <p className="text-lg font-medium text-gray-800 mb-2">
+            着実に成長したいあなたへ
           </p>
           <p className="text-gray-700">
-            一歩一歩確実にスキルを積み上げ、長期的な成長を実現するための体系的な学習プログラムを提供します。
+            小さな実験を重ねながら、自分のペースで確実に。AIと共に歩む新しい働き方を、一緒に見つけていきます。
           </p>
         </div>
       )

@@ -95,7 +95,7 @@ export default function ChapterThree() {
       <ChapterPanels chapter="ch3" />
 
       
-      <div className="relative z-30 max-w-2xl mx-auto">
+      <div className="relative z-30 max-w-xl mx-auto">
         {/* 章番号 - 縦書き風 */}
         <motion.div 
           className="flex items-center gap-8 mb-16"
@@ -116,7 +116,7 @@ export default function ChapterThree() {
               letterSpacing: '0.08em',
               lineHeight: '1.6'
             }}>
-              我々は「共犯者」です
+              我々は「伴走者」です
             </h2>
           </div>
         </motion.div>
@@ -151,7 +151,7 @@ export default function ChapterThree() {
                 letterSpacing: '0.08em',
                 lineHeight: '2'
               }}>
-                我々は、あなたの隣に座る「共犯者」です。
+                我々は、あなたの隣に座る「伴走者」です。
               </p>
             </div>
           </motion.div>
@@ -215,13 +215,13 @@ export default function ChapterThree() {
                       fontFamily: '"Noto Sans JP", sans-serif',
                       letterSpacing: '0.14em',
                       lineHeight: '2.1',
-                      height: '180px'
+                      height: '240px'
                     }}
                   >
                     {lineLeft}
                   </p>
                   {/* シームレスな尾（ダイヤ型） */}
-                  <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rotate-45" />
+                  <div className="absolute -left-2 top-1/3 -translate-y-1/2 w-6 h-6 bg-white rotate-45" />
                 </div>
               </div>
             </motion.div>
@@ -248,13 +248,13 @@ export default function ChapterThree() {
                       fontFamily: '"Noto Sans JP", sans-serif',
                       letterSpacing: '0.14em',
                       lineHeight: '2.1',
-                      height: '160px'
+                      height: '240px'
                     }}
                   >
                     {lineRight}
                   </p>
                   {/* シームレスな尾（ダイヤ型） */}
-                  <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rotate-45" />
+                  <div className="absolute -right-2 top-1/3 -translate-y-1/2 w-6 h-6 bg-white rotate-45" />
                 </div>
               </div>
             </motion.div>

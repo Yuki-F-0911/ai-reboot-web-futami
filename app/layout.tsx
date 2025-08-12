@@ -40,7 +40,9 @@ export const metadata: Metadata = {
     locale: "ja_JP",
   },
   icons: {
-    icon: "/images/logo.png",
+    icon: [
+      { url: "/images/logo.png", type: "image/png" }
+    ],
     shortcut: "/images/logo.png",
     apple: "/images/logo.png",
   },

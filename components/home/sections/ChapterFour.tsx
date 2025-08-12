@@ -21,7 +21,7 @@ export default function ChapterFour() {
       t = '新しい仮説を試したくなってきた'
     }
     if (feeling === 'change') {
-      t = '今日から、少し変わる気がする'
+      t = '何かが始まる、そんな気がする'
     } else if (feeling === 'growth') {
       t = '昨日より一歩、前に進めそうだ'
     }
@@ -38,7 +38,7 @@ export default function ChapterFour() {
 
     if (expectation === 'efficiency' || focus === 'skills') {
       title = 'そして、余白が、少しずつ増えていく。'
-      sub = '小さな自動化の積み重ねが、あなたの夜を取り戻す。'
+      sub = '小さな自動化の積み重ねが、あなたの時間を取り戻す。'
     } else if (expectation === 'possibility' || focus === 'mindset') {
       title = 'そして、日常に、新しい楽しみが増える。'
       sub = '思いついたアイデアを試す短い時間が、日々の習慣になる。'
@@ -74,7 +74,7 @@ export default function ChapterFour() {
       <ChapterPanels chapter="ch4" />
 
       
-      <div className="relative z-30 max-w-2xl mx-auto">
+      <div className="relative z-30 max-w-xl mx-auto">
         {/* 章番号 - 縦書き風 */}
         <motion.div 
           className="flex items-center gap-8 mb-16"
@@ -237,7 +237,8 @@ export default function ChapterFour() {
                 fill
                 sizes="(max-width: 768px) 90vw, 720px"
                 className="object-cover"
-                priority={false}
+                loading="lazy"
+                quality={85}
               />
             </div>
             
@@ -276,7 +277,7 @@ export default function ChapterFour() {
               lineHeight: '2'
             }}>
               それが、本当の幸せへの道筋だと、<br />
-              我々は信じています。
+              私たちは信じています。
             </p>
           </motion.div>
         </div>

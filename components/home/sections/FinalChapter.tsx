@@ -20,10 +20,13 @@ export default function FinalChapter() {
   }, [userName])
   
   return (
-    <section className="relative min-h-screen px-6 md:px-8 pt-24 md:pt-32 pb-0 overflow-hidden bg-gradient-to-b from-pink-50 via-purple-50 to-gray-50">
+    <section className="relative min-h-screen px-6 md:px-8 pt-24 md:pt-32 pb-0 overflow-hidden">
 
       
-      <div className="relative z-30 max-w-2xl mx-auto">
+      {/* 上部コンテンツ用背景 */}
+      <div className="absolute inset-0 bg-gradient-to-b from-pink-50 via-purple-50 to-purple-50/50 -z-10" />
+      
+      <div className="relative z-30 max-w-xl mx-auto">
         {/* 章番号 - 縦書き風 */}
         <motion.div 
           className="flex items-center gap-8 mb-16"
@@ -182,41 +185,73 @@ export default function FinalChapter() {
             </div>
           </motion.div>
 
-          {/* CTA（背景画像 + 吹き出し：上を飛び出させ、下を画像に重ねる） */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="relative mt-48 md:mt-56 h-[70vh] md:h-[90vh] min-h-[600px] pb-0"
-          >
-            {/* フルブリード背景（@image-2 を /public/images/final-cta-bg.webp に配置） */}
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-screen h-[calc(100%-12rem)] md:h-[calc(100%-14rem)] min-h-[320px] max-h-[800px] bg-gradient-to-b from-indigo-50 via-purple-50 to-rose-50">
-              <Image
-                src="/images/final-cta-bg.webp"
-                alt="希望へ続く風景の横長イラスト"
-                fill
-                sizes="100vw"
-                className="object-cover"
-                priority
-              />
-              {/* 暗すぎる/明るすぎる場合の保険的オーバーレイ */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/15" />
-              
-              {/* 上部境界のグラデーションマスク */}
-              <div className="absolute inset-x-0 top-0 h-48 md:h-64 bg-gradient-to-b from-pink-50 to-transparent pointer-events-none" />
+          {/* 上部スペーサー */}
+          <div className="h-20 md:h-24" />
 
-              {/* 吹き出し（背景の上端から飛び出し、下を画像へ重ねる） */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-[80%] md:-translate-y-[70%] z-30">
+          {/* CTAセクション全体のコンテナ */}
+          <div className="mt-32 md:mt-40">
+            {/* 吹き出し用のスペーサー */}
+            <div className="h-20 md:h-24" />
+            
+            {/* CTA（背景画像 + 吹き出し） */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              {/* フルブリード背景（モバイル2:3、PC4:3アスペクト比） */}
+              <div className="relative left-1/2 -translate-x-1/2 w-screen bg-gradient-to-b from-indigo-50 via-purple-50 to-rose-50">
+                {/* モバイル用画像（2:3） */}
+                <div className="md:hidden relative w-full aspect-[2/3]">
+                  <Image
+                    src="/images/final-cta-bg-mb.webp"
+                    alt="希望へ続く風景の縦長イラスト"
+                    fill
+                    sizes="100vw"
+                    className="object-cover"
+                    loading="lazy"
+                    quality={85}
+                  />
+                </div>
+                {/* PC用画像（4:3） */}
+                <div className="hidden md:block relative w-full aspect-[4/3] max-w-[1920px] mx-auto">
+                  <Image
+                    src="/images/final-cta-bg.webp"
+                    alt="希望へ続く風景の横長イラスト"
+                    fill
+                    sizes="100vw"
+                    className="object-cover"
+                    loading="lazy"
+                    quality={85}
+                  />
+                </div>
+                {/* 暗すぎる/明るすぎる場合の保険的オーバーレイ */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/15" />
+                
+                {/* 上部境界のグラデーションマスク（セクション背景色から透明へ） */}
+                <div className="absolute inset-x-0 top-0 h-[35%] md:h-[40%] bg-gradient-to-b from-purple-50 to-transparent pointer-events-none" />
+
+                {/* 吹き出し */}
+                <div className="absolute left-1/2 -translate-x-1/2 -top-32 md:-top-40 z-30">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.98, rotate: -2 }}
                   whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                   transition={{ duration: 0.7 }}
                 >
                   <div className="relative bg-white/90 backdrop-blur-md shadow-xl"
-                       style={{ borderRadius: '50% 50% 45% 55% / 60% 50% 45% 55%', padding: '30px 34px' }}>
-                    <p className="text-gray-800 text-2xl md:text-3xl"
-                       style={{ writingMode: 'vertical-rl', textOrientation: 'upright', fontFamily: '"Noto Sans JP", sans-serif', letterSpacing: '0.14em', lineHeight: '2.1', whiteSpace: 'nowrap' }}>
+                       style={{ borderRadius: '50% 50% 45% 55% / 60% 50% 45% 55%', padding: '32px 36px' }}>
+                    <p className="text-gray-800 font-medium"
+                       style={{ 
+                         writingMode: 'vertical-rl', 
+                         textOrientation: 'upright', 
+                         fontFamily: '"Noto Sans JP", sans-serif', 
+                         letterSpacing: '0.14em', 
+                         lineHeight: '2.1', 
+                         whiteSpace: 'nowrap',
+                         fontSize: 'clamp(1.875rem, 5vw, 3rem)' // 30px〜48px の間で可変
+                       }}>
                       今、動き出そう
                     </p>
                   </div>
@@ -228,27 +263,54 @@ export default function FinalChapter() {
                 </motion.div>
               </div>
 
-              {/* CTA内容（画像の上に完全に重ねる） */}
-              <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-10 md:bottom-12 z-20 w-full max-w-[720px] px-4">
-                <div className="pointer-events-auto text-center">
-                  <div className="mb-4 text-gray-50 text-sm drop-shadow">
-                    <PersonalizedCTA />
-                  </div>
-                  <Link
-                    href={process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || '/academy#application'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block border-2 border-white/90 text-white px-10 py-5 text-xl font-medium hover:bg-white/90 hover:text-gray-900 transition-all duration-300 hover:shadow-lg tracking-tight rounded-lg bg-black/30 backdrop-blur-md"
-                  >
-                    無料説明会を申し込む
-                  </Link>
-                </div>
-              </div>
             </div>
 
-            {/* ここでの独立CTAブロックは背景内に移動済み */}
-          </motion.div>
+              {/* ここでの独立CTAブロックは背景内に移動済み */}
+            </motion.div>
+          </div>
 
+          {/* 締めくくりセクション */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mt-32 md:mt-40 text-center pb-24 md:-mx-24"
+          >
+            <p className="text-2xl md:text-3xl text-gray-800 font-medium mb-8" style={{
+              fontFamily: '"Noto Serif JP", serif',
+              letterSpacing: '0.12em',
+              lineHeight: '1.8'
+            }}>
+              あなたの「Will」が、<br className='md:hidden' />静かに待っている。
+            </p>
+            
+            {/* パーソナライズCTA */}
+            <div className="mb-8 text-gray-600 text-base md:text-lg">
+              <PersonalizedCTA />
+            </div>
+            
+            {/* CTAボタン */}
+            <div className="flex flex-col md:flex-row gap-6 justify-center items-center max-w-xl mx-auto">
+              {/* 無料説明会申し込みボタン（プライマリ） */}
+              <Link
+                href={process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || '/academy#application'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full md:w-auto inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-10 py-5 text-lg font-medium rounded-xl hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 tracking-wide"
+              >
+                無料説明会を申し込む
+              </Link>
+              
+              {/* AIリブートアカデミー詳細ボタン（セカンダリ） */}
+              <Link
+                href="/academy"
+                className="w-full md:w-auto inline-block border-2 border-indigo-600 text-indigo-600 px-10 py-5 text-lg font-medium rounded-xl hover:bg-indigo-50 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 tracking-wide"
+              >
+                AIリブートアカデミー詳細
+              </Link>
+            </div>
+          </motion.div>
 
         </div>
       </div>

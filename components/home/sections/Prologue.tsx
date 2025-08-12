@@ -31,7 +31,7 @@ export default function Prologue() {
         <div className="absolute top-[50%] left-[80%] w-1.5 h-1.5 bg-white/50 rounded-full animate-pulse blur-[1px]" style={{ animationDelay: '2s' }} />
       </div>
       
-      <div className="relative z-30 max-w-2xl mx-auto">
+      <div className="relative z-30 max-w-xl mx-auto">
         {/* 横書きタイトル - 控えめに左寄せ */}
         <motion.div 
           className="mb-20"
@@ -163,7 +163,7 @@ export default function Prologue() {
                   }}
                 >
                   その小さな違和感の中にこそ、<br />
-                  あなたの「<span className="text-white/95" style={{ fontWeight: '400' }}>Will</span>」ー本当の意志ーが眠っている。
+                  あなたの「<span className="text-white/95" style={{ fontWeight: '400' }}>Will</span>」−本当の意志−が眠っている。
                 </p>
               </motion.div>
               

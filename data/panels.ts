@@ -30,7 +30,7 @@ export const chapterPanels: Record<'ch1'|'ch2'|'ch3'|'ch4', PanelSpec[]> = {
   ],
   ch3: [
     { src: '/panels/ch3-01.webp', alt: '机を挟んだ二つの影がノートを共有する', aspect: 'landscape', side: 'left', yOffset: '18%', yOffsetMobile: '22%', delayMs: 140, tone: 'light', rotateDeg: -1, opacityMobile: 0.45, insertAfter: 1 },
-    { src: '/panels/ch3-02.webp', alt: '付箋だらけの壁を線で繋ぐ（文字なし）', aspect: 'square', side: 'right', yOffset: '56%', yOffsetMobile: '62%', delayMs: 280, tone: 'medium', rotateDeg: 1, opacityMobile: 0.5, insertAfter: 2 },
+    { src: '/panels/ch3-02.webp', alt: '付箋だらけの壁を線で繋ぐ（文字なし）', aspect: 'square', side: 'right', yOffset: '75%', yOffsetMobile: '62%', delayMs: 280, tone: 'medium', rotateDeg: 1, opacityMobile: 0.5, insertAfter: 2 },
   ],
   ch4: [
     { src: '/panels/ch4-01.webp', alt: 'カレンダーに小さなチェックが積み上がる', aspect: 'square', side: 'left', yOffset: '14%', yOffsetMobile: '18%', delayMs: 100, tone: 'medium', rotateDeg: -2, opacityMobile: 0.45, insertAfter: 1 },
