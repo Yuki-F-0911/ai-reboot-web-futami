@@ -308,6 +308,8 @@
     animation: gradient-shift 3s ease infinite;
   }
   
+  
+  
   /* 有機的なアニメーション */
   .organic-float {
     animation: organic-float 6s ease-in-out infinite;

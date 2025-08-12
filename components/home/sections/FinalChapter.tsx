@@ -250,7 +250,7 @@ export default function FinalChapter() {
                          letterSpacing: '0.14em', 
                          lineHeight: '2.1', 
                          whiteSpace: 'nowrap',
-                         fontSize: 'clamp(1.875rem, 5vw, 3rem)' // 30px〜48px の間で可変
+                         fontSize: 'clamp(1.875rem, 5vw, 3rem)' 
                        }}>
                       今、動き出そう
                     </p>
