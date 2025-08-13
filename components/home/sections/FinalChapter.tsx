@@ -297,7 +297,7 @@ export default function FinalChapter() {
                     {/* 吹き出し本体（白地） */}
                     <div
                       className="relative bg-white backdrop-blur-md shadow-xl"
-                      style={{ borderRadius: '50% 50% 45% 55% / 60% 50% 45% 55%', padding: '48px 56px' }}
+                      style={{ borderRadius: '50% / 50%', padding: '48px 56px' }}
                     >
                       {/* 輪郭ダッシュ（SVG）: 接線方向ダッシュを円で生成→縦のみスケール */}
                       <div className="absolute inset-3 md:inset-4 pointer-events-none z-0">
@@ -307,16 +307,24 @@ export default function FinalChapter() {
                               const t = (i / 300) * Math.PI * 2
                               const radius = 194
                               const dashLength = 0.8
-                              const strokeWidth = 22
+                              const baseStrokeWidth = 22
                               const tx = -Math.sin(t)
                               const ty = Math.cos(t)
                               const px = Math.cos(t) * radius
                               const py = Math.sin(t) * radius
+                              // 外向きに半分はみ出し＋自然なばらつき（緩やか）
+                              const nx = Math.cos(t)
+                              const ny = Math.sin(t)
+                              const widthMod = 0.8 + 0.4 * (0.5 + 0.5 * Math.sin(i * 1.77))
+                              const strokeWidth = baseStrokeWidth * widthMod
+                              const radialOffset = strokeWidth * 0.55
+                              const cxn = px + nx * radialOffset
+                              const cyn = py + ny * radialOffset
                               const halfDash = dashLength / 2
-                              const x1 = px - tx * halfDash
-                              const y1 = py - ty * halfDash
-                              const x2 = px + tx * halfDash
-                              const y2 = py + ty * halfDash
+                              const x1 = cxn - tx * halfDash
+                              const y1 = cyn - ty * halfDash
+                              const x2 = cxn + tx * halfDash
+                              const y2 = cyn + ty * halfDash
                               return (
                                 <line
                                   key={i}
@@ -349,11 +357,6 @@ export default function FinalChapter() {
                         今、動き出そう
                       </p>
                     </div>
-                  </div>
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2">
-                    <div className="w-4 h-4 bg-white rounded-full shadow-md" />
-                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full shadow-sm" />
-                    <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rounded-full" />
                   </div>
                 </motion.div>
               </div>
