@@ -15,7 +15,7 @@ export default function HeaderSettings({ audioRef, isPlaying, setIsPlaying, onRe
   const [isMuted, setIsMuted] = useState(false)
   const previousVolume = useRef(50)
   const [settingsOpen, setSettingsOpen] = useState(false)
-  const [musicPanelOpen, setMusicPanelOpen] = useState(false)
+  const [volumeSliderOpen, setVolumeSliderOpen] = useState(false)
   
   useEffect(() => {
     console.log('HeaderSettings がマウントされました')
@@ -59,33 +59,116 @@ export default function HeaderSettings({ audioRef, isPlaying, setIsPlaying, onRe
 
   return (
     <div className="fixed md:top-24 md:right-4 top-4 right-16 z-[9999] flex items-center gap-2 md:gap-3">
-      {/* BGM コントロール */}
-      <motion.button
-        onClick={() => setMusicPanelOpen(!musicPanelOpen)}
-        className="relative p-2.5 md:p-3 bg-gradient-to-br from-white/95 to-white/85 backdrop-blur-lg text-gray-800 rounded-xl md:rounded-2xl shadow-[0_2px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.12)] transition-all border border-white/50"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        aria-label="BGM設定"
-      >
-        {isPlaying ? (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-[22px] md:h-[22px]">
-            <rect x="6" y="4" width="4" height="16" rx="1" />
-            <rect x="14" y="4" width="4" height="16" rx="1" />
-          </svg>
-        ) : (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-[22px] md:h-[22px]">
-            <polygon points="5 3 19 12 5 21 5 3" />
-          </svg>
-        )}
-        {/* 再生中インジケーター */}
-        {isPlaying && (
-          <motion.div
-            className="absolute -top-0.5 -right-0.5 md:-top-1 md:-right-1 w-2 h-2 md:w-2.5 md:h-2.5 bg-green-500 rounded-full"
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-        )}
-      </motion.button>
+      {/* BGM コントロール - クリックで直接再生/停止 */}
+      <div className="relative">
+        <motion.button
+          onClick={handlePlayPause}
+          onContextMenu={(e) => {
+            e.preventDefault()
+            setVolumeSliderOpen(!volumeSliderOpen)
+          }}
+          onWheel={(e) => {
+            e.preventDefault()
+            const delta = e.deltaY > 0 ? -5 : 5
+            const newVolume = Math.max(0, Math.min(100, volume + delta))
+            handleVolumeChange(newVolume)
+          }}
+          className="relative p-2.5 md:p-3 bg-gradient-to-br from-white/95 to-white/85 backdrop-blur-lg text-gray-800 rounded-xl md:rounded-2xl shadow-[0_2px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.12)] transition-all border border-white/50"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label={isPlaying ? 'BGM停止' : 'BGM再生'}
+          title="クリック: 再生/停止 | 右クリック: 音量調整 | ホイール: 音量調整"
+        >
+          {isPlaying ? (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-[22px] md:h-[22px]">
+              <rect x="6" y="4" width="4" height="16" rx="1" />
+              <rect x="14" y="4" width="4" height="16" rx="1" />
+            </svg>
+          ) : (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-[22px] md:h-[22px]">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+          )}
+          {/* 再生中インジケーター */}
+          {isPlaying && (
+            <motion.div
+              className="absolute -top-0.5 -right-0.5 md:-top-1 md:-right-1 w-2 h-2 md:w-2.5 md:h-2.5 bg-green-500 rounded-full"
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+          )}
+          
+          {/* 音量インジケーター（視覚的に） */}
+          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 flex gap-0.5">
+            {[0, 25, 50, 75].map((threshold) => (
+              <div
+                key={threshold}
+                className={`w-1 h-1 rounded-full transition-colors ${
+                  volume > threshold ? 'bg-gray-600' : 'bg-gray-300'
+                }`}
+              />
+            ))}
+          </div>
+        </motion.button>
+        
+        {/* 音量スライダー（右クリックまたは長押しで表示） */}
+        <AnimatePresence>
+          {volumeSliderOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-full mt-2 right-0 bg-gradient-to-br from-white/98 to-white/95 backdrop-blur-xl rounded-2xl p-4 shadow-[0_8px_40px_rgba(0,0,0,0.12)] border border-white/50"
+            >
+              <div className="space-y-3 w-48">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-800 text-xs font-semibold">音量</span>
+                  <button
+                    onClick={() => setVolumeSliderOpen(false)}
+                    className="text-gray-500 hover:text-gray-700 transition-colors"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </button>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handleMuteToggle}
+                    className="text-gray-600 hover:text-gray-800 transition-colors p-1"
+                    aria-label={isMuted ? 'ミュート解除' : 'ミュート'}
+                  >
+                    {isMuted || volume === 0 ? (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                        <line x1="23" y1="9" x2="17" y2="15" />
+                        <line x1="17" y1="9" x2="23" y2="15" />
+                      </svg>
+                    ) : (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+                      </svg>
+                    )}
+                  </button>
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={volume}
+                    onChange={(e) => handleVolumeChange(Number(e.target.value))}
+                    className="flex-1 h-1.5 bg-gray-200 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-will-primary [&::-webkit-slider-thumb]:to-will-secondary [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:shadow-sm"
+                    aria-label="音量"
+                  />
+                  <span className="text-gray-600 text-xs w-10 text-right font-medium">{volume}%</span>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* 設定ボタン */}
       <motion.button
@@ -107,74 +190,6 @@ export default function HeaderSettings({ audioRef, isPlaying, setIsPlaying, onRe
           <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
         </motion.svg>
       </motion.button>
-
-      {/* BGM パネル */}
-      <AnimatePresence>
-        {musicPanelOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full mt-3 right-0 bg-gradient-to-br from-white/98 to-white/95 backdrop-blur-xl rounded-2xl p-5 shadow-[0_8px_40px_rgba(0,0,0,0.12)] w-72 border border-white/50"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-gray-800 text-sm font-semibold">BGM コントロール</span>
-                <button
-                  onClick={handlePlayPause}
-                  className="p-2.5 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all"
-                  aria-label={isPlaying ? '一時停止' : '再生'}
-                >
-                  {isPlaying ? (
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-700">
-                      <rect x="6" y="4" width="4" height="16" rx="1" />
-                      <rect x="14" y="4" width="4" height="16" rx="1" />
-                    </svg>
-                  ) : (
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-700">
-                      <polygon points="5 3 19 12 5 21 5 3" />
-                    </svg>
-                  )}
-                </button>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={handleMuteToggle}
-                    className="text-gray-600 hover:text-gray-800 transition-colors p-1"
-                    aria-label={isMuted ? 'ミュート解除' : 'ミュート'}
-                  >
-                    {isMuted || volume === 0 ? (
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                        <line x1="23" y1="9" x2="17" y2="15" />
-                        <line x1="17" y1="9" x2="23" y2="15" />
-                      </svg>
-                    ) : (
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
-                      </svg>
-                    )}
-                  </button>
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={volume}
-                    onChange={(e) => handleVolumeChange(Number(e.target.value))}
-                    className="flex-1 h-1.5 bg-gray-200 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-gradient-to-r [&::-webkit-slider-thumb]:from-will-primary [&::-webkit-slider-thumb]:to-will-secondary [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:shadow-sm"
-                    aria-label="音量"
-                  />
-                  <span className="text-gray-600 text-xs w-10 text-right font-medium">{volume}%</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* 設定パネル */}
       <AnimatePresence>
