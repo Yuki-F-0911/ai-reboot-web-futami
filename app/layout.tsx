@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   title: "AI REBOOT - AIリブート | ウィルフォワード",
   description: "AIの力で個人と企業の可能性を解き放ち、ウェルビーイングな未来を創造する。経済産業省リスキリング支援事業採択プログラム。",
   keywords: "AI, リスキリング, 生成AI, ChatGPT, AI教育, AIコンサルティング, ウィルフォワード",
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
     title: "AI REBOOT - AIリブート",
     description: "AIの力で個人と企業の可能性を解き放ち、ウェルビーイングな未来を創造する",
@@ -52,13 +55,6 @@ export const metadata: Metadata = {
     title: "AI REBOOT - AIリブート",
     description: "AIの力で個人と企業の可能性を解き放ち、ウェルビーイングな未来を創造する",
     images: ["/ogp-image.jpg"],
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.png", type: "image/png" }
-    ],
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
   },
 };
 
