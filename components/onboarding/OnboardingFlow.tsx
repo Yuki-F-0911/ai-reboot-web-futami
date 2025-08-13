@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import PersonalityQuiz from './PersonalityQuiz'
 import NameInput from './NameInput'
 import { usePersonalization, QuizAnswers } from '@/contexts/PersonalizationContext'
-import { playGlobalMusic } from '@/components/ui/PersistentMusicControl'
 
 interface OnboardingFlowProps {
   onComplete: () => void
@@ -42,9 +41,9 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
   const handlePlayMusic = () => {
     updateMusicPreference('play')
     
-    // PersistentMusicControlが音楽を管理するため、少し待ってから再生
+    // 設定を更新してから完了処理
+    // PersistentSettingsControlが音楽の再生を自動的に処理します
     setTimeout(() => {
-      playGlobalMusic()
       setShowMusicDialog(false)
       setCompleted()
       onComplete()

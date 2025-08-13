@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState, useRef } from 'react'
-import SettingsControl from './SettingsControl'
+import HeaderSettings from './HeaderSettings'
 import { usePersonalization } from '@/contexts/PersonalizationContext'
 
 // グローバルなオーディオ参照を保持
@@ -13,6 +13,7 @@ export default function PersistentSettingsControl() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [showControl, setShowControl] = useState(true)
   const listenersAttachedRef = useRef(false)
+  const previousHasCompleted = useRef(data.hasCompleted)
 
   const attachAudioListeners = () => {
     const audio = audioRef.current
@@ -40,6 +41,7 @@ export default function PersistentSettingsControl() {
     console.log('PersistentSettingsControl - data:', data)
     console.log('musicPreference:', data.musicPreference)
     console.log('hasCompleted:', data.hasCompleted)
+    console.log('previousHasCompleted:', previousHasCompleted.current)
     
     // 既存のグローバル音源がある場合は再利用
     if (globalAudioRef && !audioRef.current) {
@@ -86,18 +88,23 @@ export default function PersistentSettingsControl() {
         globalAudioRef = audioRef.current
         attachAudioListeners()
         
-        // 完了済みの場合のみ自動再生
-        if (data.hasCompleted) {
-          console.log('自動再生を試みます')
-          audioRef.current.play().then(() => {
-            console.log('自動再生成功')
-            setIsPlaying(true)
-          }).catch(error => {
-            console.log('自動再生が制限されています:', error)
-            setIsPlaying(false)
-          })
+        // 既に完了済みの場合のみここで自動再生（リロード時など）
+        // 初回オンボーディング完了時は別のuseEffectで処理
+        if (data.hasCompleted && data.musicPreference === 'play') {
+          console.log('既存ユーザーの自動再生を試みます')
+          setTimeout(() => {
+            if (audioRef.current) {
+              audioRef.current.play().then(() => {
+                console.log('既存ユーザーの自動再生成功')
+                setIsPlaying(true)
+              }).catch(error => {
+                console.log('既存ユーザーの自動再生失敗:', error)
+                setIsPlaying(false)
+              })
+            }
+          }, 100)
         } else {
-          console.log('初回なので自動再生しません')
+          console.log('音源作成時は自動再生しません (hasCompleted:', data.hasCompleted, ')')
           setIsPlaying(false)
         }
         setShowControl(true)
@@ -136,7 +143,52 @@ export default function PersistentSettingsControl() {
       }
       setShowControl(true)
     }
+    
+    // previousHasCompletedを更新
+    previousHasCompleted.current = data.hasCompleted
   }, [data])
+
+  // hasCompletedの変化を監視して自動再生
+  useEffect(() => {
+    console.log('hasCompleted変化を検知:', data.hasCompleted, 'musicPreference:', data.musicPreference, 'audioRef.current:', audioRef.current)
+    
+    // 初回オンボーディングが完了した時（false→true）に音楽を自動再生
+    if (data.hasCompleted && data.musicPreference === 'play') {
+      console.log('オンボーディング完了検知、音楽を再生します')
+      
+      // 音源がまだない場合は作成
+      if (!audioRef.current) {
+        console.log('音源がないので作成します')
+        const bgmPath = (data.quizAnswers.expectation === 'efficiency' || data.quizAnswers.focus === 'skills')
+          ? '/reboot_1.mp3'
+          : '/reboot.mp3'
+        
+        audioRef.current = new Audio(bgmPath)
+        audioRef.current.loop = false
+        audioRef.current.volume = 0.5
+        globalAudioRef = audioRef.current
+        attachAudioListeners()
+      }
+      
+      // ユーザーインタラクション後なので少し遅延して再生
+      const timer = setTimeout(() => {
+        if (audioRef.current && audioRef.current.paused) {
+          console.log('音楽再生を実行します')
+          audioRef.current.play().then(() => {
+            console.log('初回完了後の自動再生成功')
+            setIsPlaying(true)
+          }).catch(error => {
+            console.log('初回完了後の自動再生失敗:', error)
+            setIsPlaying(false)
+          })
+        } else {
+          console.log('音楽は既に再生中またはaudioRefがnull')
+        }
+      }, 500)
+      
+      return () => clearTimeout(timer)
+    }
+  }, [data.hasCompleted, data.musicPreference, data.quizAnswers.expectation, data.quizAnswers.focus])
 
   useEffect(() => {
     // Cleanup function for audio
@@ -172,7 +224,7 @@ export default function PersistentSettingsControl() {
   if (!showControl) return null
 
   return (
-    <SettingsControl
+    <HeaderSettings
       audioRef={audioRef}
       isPlaying={isPlaying}
       setIsPlaying={setIsPlaying}

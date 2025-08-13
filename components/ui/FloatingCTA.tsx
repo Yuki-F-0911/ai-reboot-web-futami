@@ -76,7 +76,7 @@ export default function FloatingCTA() {
             stiffness: 260,
             damping: 20
           }}
-          className="fixed bottom-4 right-4 sm:right-20 md:bottom-4 md:right-24 z-40 flex items-center gap-2 pr-5"
+          className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 md:bottom-8 md:right-12 z-40 flex items-center gap-2"
         >
           {/* CTAボタンコンテナ（パルスエフェクト用） */}
           <div className="relative">
