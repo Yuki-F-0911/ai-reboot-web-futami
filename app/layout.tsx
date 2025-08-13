@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     images: [
       {
-        url: "/ogp-image.jpg",
+        url: "/ogp-image.png",
         width: 1200,
         height: 630,
         alt: "AI REBOOT - あなたの物語を、AIは待っている",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI REBOOT - AIリブート",
     description: "AIの力で個人と企業の可能性を解き放ち、ウェルビーイングな未来を創造する",
-    images: ["/ogp-image.jpg"],
+    images: ["/ogp-image.png"],
   },
 };
 
