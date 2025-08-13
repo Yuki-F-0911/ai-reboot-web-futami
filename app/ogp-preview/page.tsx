@@ -179,9 +179,31 @@ export default function OGPPreview() {
 
         {/* OGP画像コンテナ */}
         <div 
-          className="relative overflow-hidden shadow-2xl ring-1 ring-white/10 rounded-lg"
+          className="relative overflow-hidden shadow-2xl ring-1 ring-white/10"
           style={{ width: '1200px', height: '630px' }}
         >
+          {/* クラフト感のあるタイポ用フィルタ定義（インクにじみ/わずかなゆらぎ） */}
+          <svg className="absolute w-0 h-0" aria-hidden>
+            <defs>
+              <filter id="ink-bleed" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="7" result="noise" />
+                <feColorMatrix type="saturate" values="0" in="noise" result="mono" />
+                <feComponentTransfer in="mono" result="soft-noise">
+                  <feFuncA type="table" tableValues="0 0.06 0.12 0.18 0.22" />
+                </feComponentTransfer>
+                <feDisplacementMap in="SourceGraphic" in2="soft-noise" scale="2.2" xChannelSelector="R" yChannelSelector="G" />
+              </filter>
+              <filter id="letterpress" x="-10%" y="-10%" width="120%" height="120%">
+                <feOffset dx="0" dy="1" in="SourceAlpha" result="off" />
+                <feGaussianBlur in="off" stdDeviation="0.6" result="blur" />
+                <feComposite in="blur" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="innerShadow" />
+                <feMerge>
+                  <feMergeNode in="innerShadow" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+          </svg>
           {/* 背景レイヤー（バリアント） */}
           {bgByVariant}
 
@@ -194,34 +216,58 @@ export default function OGPPreview() {
           {/* Vignette */}
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_60%,transparent_40%,rgba(0,0,0,0.6)_100%)]" />
 
+          {/* テキスト用スクラム（埋もれ防止の中心グラデ） */}
+          <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+            <div
+              style={{
+                width: '78%',
+                height: '60%',
+                background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.36) 0%, rgba(0,0,0,0.22) 45%, rgba(0,0,0,0) 70%)',
+                filter: 'blur(0.45px)'
+              }}
+            />
+          </div>
+
           {/* 中央コンテンツ */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative z-10 text-center">
+            <div className="relative z-10 text-center" style={{ filter: 'url(#ink-bleed) url(#letterpress)' }}>
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2 }}
               >
                 <h1
-                  className="text-[88px] md:text-[96px] font-black leading-tight tracking-[-0.02em] text-white/95 drop-shadow-[0_6px_24px_rgba(0,0,0,0.35)]"
-                  style={{ fontFamily: '"Noto Sans JP", sans-serif' }}
+                  className="text-[88px] md:text-[96px] leading-tight tracking-[0.06em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
+                  style={{ fontFamily: '"Noto Serif JP", serif', textRendering: 'optimizeLegibility' }}
                 >
                   あなたの物語を
                 </h1>
-                <motion.h1
-                  className="text-[118px] md:text-[126px] font-black leading-none tracking-[-0.03em] bg-clip-text text-transparent"
+                <h1
+                  className="text-[118px] md:text-[126px] font-black leading-none tracking-[-0.01em] bg-clip-text text-transparent"
                   style={{
-                    backgroundImage: 'linear-gradient(90deg, #ffffff 0%, #9747FF 50%, #FF4B8B 100%)',
-                    backgroundSize: '200% 100%'
+                    backgroundImage: 'linear-gradient(90deg, var(--color-will-secondary), var(--color-will-primary))',
+                    WebkitTextStroke: '0.5px rgba(0,0,0,0.25)',
+                    fontFamily: '"Zen Kaku Gothic New", "Noto Sans JP", system-ui, -apple-system, sans-serif'
                   }}
-                  animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
                 >
-                  AIは待っている
-                </motion.h1>
-                <p className="mt-6 text-white/80 text-[28px] tracking-[0.2em]">
-                  さあ、人生を<ruby className="text-white font-semibold"><span className="px-1">再起動</span><rt className="text-sm font-normal opacity-80">リブート</rt></ruby>しよう
-                </p>
+                  <span style={{ fontSize: '1.28em', letterSpacing: '-0.04em' }}>AI</span>
+                  <span style={{ fontSize: '0.86em', marginLeft: '0.08em', letterSpacing: '0.02em' }}>は待っている</span>
+                </h1>
+                <div className="mt-6 flex justify-center">
+                  <span
+                    className="inline-block px-6 py-3 rounded-md text-white/95 text-[26px] tracking-[0.08em] ring-1 ring-white/15 shadow-[0_2px_10px_rgba(0,0,0,0.25)]"
+                    style={{
+                      background: 'linear-gradient(180deg, rgba(0,0,0,0.42), rgba(0,0,0,0.32))',
+                      backdropFilter: 'blur(2px)',
+                      WebkitBackdropFilter: 'blur(2px)',
+                      mixBlendMode: 'normal'
+                    }}
+                  >
+                    さあ、人生を<ruby className="text-white font-semibold"><span className="px-1">再起動</span><rt className="text-sm font-normal opacity-85">リブート</rt></ruby>しよう
+                  </span>
+                </div>
+                {/* 細い装飾ラインでクラフト感を補強 */}
+                <div className="mx-auto mt-5 w-[56%] h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
               </motion.div>
             </div>
           </div>

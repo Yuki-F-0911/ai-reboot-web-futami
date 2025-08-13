@@ -38,13 +38,27 @@ export const metadata: Metadata = {
     description: "AIの力で個人と企業の可能性を解き放ち、ウェルビーイングな未来を創造する",
     type: "website",
     locale: "ja_JP",
+    images: [
+      {
+        url: "/ogp-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AI REBOOT - あなたの物語を、AIは待っている",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI REBOOT - AIリブート",
+    description: "AIの力で個人と企業の可能性を解き放ち、ウェルビーイングな未来を創造する",
+    images: ["/ogp-image.jpg"],
   },
   icons: {
     icon: [
-      { url: "/images/logo.png", type: "image/png" }
+      { url: "/favicon.png", type: "image/png" }
     ],
-    shortcut: "/images/logo.png",
-    apple: "/images/logo.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
