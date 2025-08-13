@@ -7,6 +7,59 @@ import { PersonalizedCTA, PersonalizedMessage } from '@/components/home/Personal
 import { usePersonalization } from '@/contexts/PersonalizationContext'
 import Image from 'next/image'
 
+// 吹き出し輪郭を「接線方向の短い矩形（均一）」で構成（中心方向に見えにくい）
+function BurstOutline({ count = 120, dash = 6, thickness = 2, offset = 1 }: { count?: number; dash?: number; thickness?: number; offset?: number }) {
+  const cx = 50
+  const cy = 50
+  // 楕円は使わず、歪みを避けるため円で生成
+  const rx = 40
+  const ry = 40
+  const indices = Array.from({ length: count }, (_, i) => i)
+  return (
+    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden>
+      {indices.map((i) => {
+        const t = (i / count) * Math.PI * 2
+        const px = cx + rx * Math.cos(t)
+        const py = cy + ry * Math.sin(t)
+        // 外向き法線（位置のわずかな外側オフセットに使用）
+        let nx = (px - cx) / (rx * rx)
+        let ny = (py - cy) / (ry * ry)
+        const nLen = Math.hypot(nx, ny) || 1
+        nx /= nLen
+        ny /= nLen
+        // 接線ベクトル（矩形の長辺方向）
+        const tx = -rx * Math.sin(t)
+        const ty =  ry * Math.cos(t)
+        const tLen = Math.hypot(tx, ty) || 1
+        const ux = tx / tLen
+        const uy = ty / tLen
+        // 矩形中心を輪郭のわずか外側へ
+        const cxr = px + nx * offset
+        const cyr = py + ny * offset
+        const w = dash
+        const h = thickness
+        const x = cxr - w / 2
+        const y = cyr - h / 2
+        const rotate = (Math.atan2(uy, ux) * 180) / Math.PI
+        return (
+          <rect
+            key={i}
+            x={x}
+            y={y}
+            width={w}
+            height={h}
+            rx={h / 2}
+            ry={h / 2}
+            fill="currentColor"
+            className="text-black/90"
+            transform={`rotate(${rotate} ${cxr} ${cyr})`}
+          />
+        )
+      })}
+    </svg>
+  )
+}
+
 export default function FinalChapter() {
   // PersonalizationContextを使用
   const personalizationData = usePersonalization()
@@ -240,25 +293,67 @@ export default function FinalChapter() {
                   whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                   transition={{ duration: 0.7 }}
                 >
-                  <div className="relative bg-white/90 backdrop-blur-md shadow-xl"
-                       style={{ borderRadius: '50% 50% 45% 55% / 60% 50% 45% 55%', padding: '32px 36px' }}>
-                    <p className="text-gray-800 font-medium"
-                       style={{ 
-                         writingMode: 'vertical-rl', 
-                         textOrientation: 'upright', 
-                         fontFamily: '"Noto Sans JP", sans-serif', 
-                         letterSpacing: '0.14em', 
-                         lineHeight: '2.1', 
-                         whiteSpace: 'nowrap',
-                         fontSize: 'clamp(1.875rem, 5vw, 3rem)' 
-                       }}>
-                      今、動き出そう
-                    </p>
+                  <div className="relative" style={{ padding: '2px' }}>
+                    {/* 吹き出し本体（白地） */}
+                    <div
+                      className="relative bg-white backdrop-blur-md shadow-xl"
+                      style={{ borderRadius: '50% 50% 45% 55% / 60% 50% 45% 55%', padding: '48px 56px' }}
+                    >
+                      {/* 輪郭ダッシュ（SVG）: 接線方向ダッシュを円で生成→縦のみスケール */}
+                      <div className="absolute inset-3 md:inset-4 pointer-events-none z-0">
+                        <svg className="w-full h-full" viewBox="0 0 600 600" preserveAspectRatio="none" aria-hidden style={{ overflow: 'visible' }}>
+                          <g transform="translate(300 300) scale(1.72 1.62)" shape-rendering="crispEdges">
+                            {Array.from({ length: 300 }, (_, i) => {
+                              const t = (i / 300) * Math.PI * 2
+                              const radius = 194
+                              const dashLength = 0.8
+                              const strokeWidth = 22
+                              const tx = -Math.sin(t)
+                              const ty = Math.cos(t)
+                              const px = Math.cos(t) * radius
+                              const py = Math.sin(t) * radius
+                              const halfDash = dashLength / 2
+                              const x1 = px - tx * halfDash
+                              const y1 = py - ty * halfDash
+                              const x2 = px + tx * halfDash
+                              const y2 = py + ty * halfDash
+                              return (
+                                <line
+                                  key={i}
+                                  x1={x1}
+                                  y1={y1}
+                                  x2={x2}
+                                  y2={y2}
+                                  stroke="#000"
+                                  strokeWidth={strokeWidth}
+                                  strokeLinecap="butt"
+                                  vectorEffect="non-scaling-stroke"
+                                />
+                              )
+                            })}
+                          </g>
+                        </svg>
+                      </div>
+                      <p
+                        className="relative z-10 text-gray-800 font-medium"
+                        style={{
+                          writingMode: 'vertical-rl',
+                          textOrientation: 'upright',
+                          fontFamily: '"Noto Sans JP", sans-serif',
+                          letterSpacing: '0.14em',
+                          lineHeight: '2.1',
+                          whiteSpace: 'nowrap',
+                          fontSize: 'clamp(1.75rem, 4.5vw, 2.75rem)'
+                        }}
+                      >
+                        今、動き出そう
+                      </p>
+                    </div>
                   </div>
                   <div className="absolute -bottom-2 left-1/2 -translate-x-1/2">
-                    <div className="w-4 h-4 bg-white/90 rounded-full shadow-md" />
-                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-3 h-3 bg-white/85 rounded-full shadow-sm" />
-                    <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-2 h-2 bg-white/80 rounded-full" />
+                    <div className="w-4 h-4 bg-white rounded-full shadow-md" />
+                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full shadow-sm" />
+                    <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rounded-full" />
                   </div>
                 </motion.div>
               </div>
@@ -291,7 +386,7 @@ export default function FinalChapter() {
             </div>
             
             {/* CTAボタン */}
-            <div className="flex flex-col md:flex-row gap-6 justify-center items-center max-w-xl mx-auto">
+            <div className="flex flex-col md:flex-row gap-6 justify-center items-center mx-auto">
               {/* 無料説明会申し込みボタン（プライマリ） */}
               <Link
                 href={process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || '/academy#application'}

@@ -1,0 +1,153 @@
+prompt:
+  purpose: "WebページのCTA吹き出し用の『Webtoon風バースト輪郭』画像を生成し、テキストの背後に重ねて使用する"
+  main: >
+    A clean, high-contrast burst speech-bubble outline composed of short, evenly spaced
+    tangential dashes arranged around a circular path. The dashes run parallel to the local tangent
+    of the circle (i.e., perpendicular to the radius), never pointing toward the center. The outline
+    forms an oval impression through spacing and placement, but each dash remains tangent-aligned
+    to a circle and does not distort into an ellipse. The interior is fully empty. Provide both
+    transparent background (preferred) and solid white background variants.
+
+  visual_elements:
+    composition:
+      layout: "Perfectly centered circular dash ring within canvas; generous padding"
+      focal_point: "The ring of dashes itself; uniform thickness and spacing"
+      perspective: "Orthographic top-down, no depth or 3D"
+      depth: "None; pure 2D graphic"
+      framing: "Centered with equal margins on all sides"
+      visual_flow: "Radial repetition creates a calm, even rhythm"
+
+    main_subject:
+      description: "Circular ring made of short, tangential, rounded-end dashes"
+      components:
+        - "Short rounded rectangles (dashes) aligned along circle’s tangent"
+        - "Uniform dash length and thickness"
+        - "Even angular spacing (e.g., 96–132 dashes)"
+      properties:
+        color: "Pure black (#000000)"
+        texture: "Flat, no gradient"
+        material: "Vector-like clean edges"
+        form: "Circle implied by dashes; no continuous stroke"
+        scale: "Ring diameter ≈ 80% of canvas minor side"
+      position: "Centered"
+      importance: "Primary"
+
+    foreground:
+      elements: []
+      overall_effect: "None"
+
+    midground:
+      elements: []
+      overall_effect: "None"
+
+    background:
+      elements: []
+      atmosphere: "Neutral"
+      depth_cues: "None"
+
+    decorative_elements: []
+
+    dynamic_elements: []
+
+  lighting:
+    main_light:
+      type: "None"
+      direction: "N/A"
+      intensity: "N/A"
+      color: "N/A"
+      quality: "N/A"
+    secondary_lights: []
+    shadows:
+      intensity: "None"
+      color: "N/A"
+      quality: "N/A"
+      pattern: "N/A"
+    highlights:
+      areas: "None"
+      intensity: "None"
+      purpose: "None"
+    ambient_light:
+      description: "Flat"
+      effect: "None"
+    special_effects: []
+
+  color:
+    scheme: "Monochrome"
+    palette:
+      dominant_colors: ["#000000"]
+      accent_colors: []
+      neutral_colors: ["#FFFFFF"]
+    harmony: "High contrast"
+    contrast: "Maximum"
+    temperature: "Neutral"
+    saturation: "0 for background white, 100% black for dashes"
+    color_distribution: "Only ring uses black; background is transparent or white"
+    symbolic_use: "Manga/webtoon style emphasis"
+
+  textures:
+    primary_textures: []
+    surface_qualities:
+      - type: "Matte"
+        application: "Dashes"
+    material_properties: []
+    texture_interactions:
+      description: "None"
+      effect: "Crisp vector look"
+
+  style:
+    art_style: "Minimal, vector-graphic, webtoon speech bubble outline"
+    genre: "UI asset"
+    inspiration: "Manga/webtoon burst bubbles"
+    mood: "Emphatic yet clean"
+    time_period: "Contemporary"
+    stylization_level: "Abstract vector"
+    characteristic_techniques: "Uniform rounded dashes on a circular path"
+
+  technical:
+    size: "1024x1024"
+    aspect_ratio: "1:1"
+    quality_modifiers:
+      - "ultra sharp"
+      - "clean edges"
+      - "vector look"
+      - "high contrast"
+    depth_of_field:
+      type: "None"
+      focus_area: "N/A"
+    rendering_specifics:
+      - "Export transparent PNG and solid white background PNG"
+      - "No drop shadows, no glow, no gradients"
+      - "Dash endpoints rounded (caps)"
+      - "Dash thickness ≈ 1.6–2.2% of canvas size"
+      - "Dash length ≈ 4–6% of canvas circumference / 360 per dash"
+      - "Dash count ≈ 120 (acceptable range 96–132)"
+      - "Maintain tangent alignment; never radially oriented"
+      - "Do not convert circle to ellipse; keep dashes generated from a true circle"
+
+  negative:
+    visual_elements:
+      - "Radial spikes or sunburst pointing to the center"
+      - "Continuous stroke ellipse or circle"
+      - "Gradients, textures, rough edges"
+      - "3D bevels, shadows, glows"
+    styles:
+      - "Hand-drawn wobble"
+      - "Comic halftone"
+    technical_issues:
+      - "Aliasing or jagged edges"
+      - "Compression artifacts"
+      - "Non-transparent background when transparency requested"
+    compositional_flaws:
+      - "Off-center ring"
+      - "Uneven spacing or inconsistent dash length/thickness"
+
+  cropping_instruction: "Provide also 1536x1024 and 1024x1536 variants with the ring centered; keep ring diameter at ~80% of the minor side for each size."
+
+explanation:
+  notes: >
+    This asset is used as a speech-bubble outline. We’ll place vertical Japanese
+    text inside on the website. Keep the ring clean and consistent so it scales
+    well. Provide both transparent background and solid white variants.
+  key_visual_elements: "Rounded dashes aligned to the tangent of a circle, never radial."
+  intended_impression: "Webtoon emphasis but minimal and modern."
+  intended_use: "Overlay behind CTA copy on the rebooters page."

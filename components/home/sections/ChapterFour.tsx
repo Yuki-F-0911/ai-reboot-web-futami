@@ -12,24 +12,7 @@ export default function ChapterFour() {
   const { data } = usePersonalization()
   const { expectation, feeling, focus } = data.quizAnswers
   
-  // 心のセリフ（軽いパーソナライズ）
-  const bubbleText = useMemo(() => {
-    let t = '月曜が、少し楽しみになった'
-    if (expectation === 'efficiency' || focus === 'skills') {
-      t = '小さな改善を試すのが楽しみだ'
-    } else if (expectation === 'possibility' || focus === 'mindset') {
-      t = '新しい仮説を試したくなってきた'
-    }
-    if (feeling === 'change') {
-      t = '何かが始まる、そんな気がする'
-    } else if (feeling === 'growth') {
-      t = '昨日より一歩、前に進めそうだ'
-    }
-    return t
-  }, [expectation, focus, feeling])
-
-  // 2行想定の高さで自然改行（InnerVoiceBubble と同様の実装方針）
-  const bubbleHeight = 240
+  // （思考バブルは非表示に変更）
   
   // ライフセクションのパーソナライズ（家族に限定しない表現）
   const { familyTitle, familySub } = useMemo(() => {
@@ -124,49 +107,7 @@ export default function ChapterFour() {
           </motion.div>
           {renderMobilePanels(0)}
 
-          {/* 変化を実感する瞬間 - 思考バブル（InnerVoiceBubble準拠） */}
-          <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.98, rotate: 2 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
-            transition={{ 
-              duration: 0.8,
-              y: { type: 'spring', damping: 18, stiffness: 70 },
-              rotate: { type: 'spring', damping: 20, stiffness: 90 }
-            }}
-            viewport={{ once: true, margin: '-150px' }}
-            className="relative my-16 flex justify-center"
-          >
-            <div className="relative">
-              <div
-                className="relative bg-white/90 backdrop-blur-md shadow-xl"
-                style={{
-                  borderRadius: '50% 50% 45% 55% / 60% 50% 45% 55%',
-                  padding: '36px 40px'
-                }}
-              >
-                <p
-                  className="text-gray-800 text-xl md:text-2xl"
-                  style={{
-                    writingMode: 'vertical-rl',
-                    textOrientation: 'upright',
-                    fontFamily: '"Noto Sans JP", sans-serif',
-                    fontWeight: 400,
-                    letterSpacing: '0.14em',
-                    lineHeight: '2',
-                    height: `${bubbleHeight}px`
-                  }}
-                >
-                  {bubbleText}
-                </p>
-              </div>
-              {/* 尾（小さな円を3つ） */}
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2">
-                <div className="w-4 h-4 bg-white/90 rounded-full shadow-md" />
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-3 h-3 bg-white/85 rounded-full shadow-sm" />
-                <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-2 h-2 bg-white/80 rounded-full" />
-              </div>
-            </div>
-          </motion.div>
+          {/* 思考バブルは削除 */}
           {renderMobilePanels(1)}
 
           {/* 変化のリスト */}
