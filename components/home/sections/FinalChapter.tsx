@@ -296,18 +296,18 @@ export default function FinalChapter() {
                   <div className="relative" style={{ padding: '2px' }}>
                     {/* 吹き出し本体（白地） */}
                     <div
-                      className="relative bg-white backdrop-blur-md shadow-xl"
+                      className="relative bg-white/50 backdrop-blur-md shadow-xl"
                       style={{ borderRadius: '50% / 50%', padding: '48px 56px' }}
                     >
                       {/* 輪郭ダッシュ（SVG）: 接線方向ダッシュを円で生成→縦のみスケール */}
                       <div className="absolute inset-3 md:inset-4 pointer-events-none z-0">
                         <svg className="w-full h-full" viewBox="0 0 600 600" preserveAspectRatio="none" aria-hidden style={{ overflow: 'visible' }}>
-                          <g transform="translate(300 300) scale(1.72 1.62)" shape-rendering="crispEdges">
-                            {Array.from({ length: 300 }, (_, i) => {
-                              const t = (i / 300) * Math.PI * 2
+                          <g transform="translate(300 300) scale(1.72 1.56)" shape-rendering="crispEdges">
+                            {Array.from({ length: 600 }, (_, i) => {
+                              const t = (i / 301) * Math.PI * 2
                               const radius = 194
-                              const dashLength = 0.8
-                              const baseStrokeWidth = 22
+                              const dashLength = 0.7
+                              const baseStrokeWidth = 20
                               const tx = -Math.sin(t)
                               const ty = Math.cos(t)
                               const px = Math.cos(t) * radius
@@ -315,7 +315,7 @@ export default function FinalChapter() {
                               // 外向きに半分はみ出し＋自然なばらつき（緩やか）
                               const nx = Math.cos(t)
                               const ny = Math.sin(t)
-                              const widthMod = 0.8 + 0.4 * (0.5 + 0.5 * Math.sin(i * 1.77))
+                              const widthMod = 0.8 + 0.6 * (0.5 + 0.5 * Math.sin(i * 1.77))
                               const strokeWidth = baseStrokeWidth * widthMod
                               const radialOffset = strokeWidth * 0.55
                               const cxn = px + nx * radialOffset
