@@ -1,12 +1,13 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, Suspense } from 'react'
 import dynamic from 'next/dynamic'
 import AcademyHomePage from '@/components/home/AcademyHomePage'
 import OnboardingFlow from '@/components/onboarding/OnboardingFlow'
 import PersistentSettingsControl from '@/components/ui/PersistentSettingsControl'
 import FloatingCTA from '@/components/ui/FloatingCTA'
-import { PersonalizationProvider } from '@/contexts/PersonalizationContext'
+import { PersonalizationProvider, usePersonalization } from '@/contexts/PersonalizationContext'
+import { useUrlParams } from '@/hooks/useUrlParams'
 
 // Canvasコンポーネントをクライアントサイドでのみ読み込み（チャンク失敗時は無効化）
 const loadNoiseGlitch = (): Promise<{ default: React.ComponentType<unknown> }> =>
@@ -37,11 +38,20 @@ const MangaMontage = dynamic(loadMangaMontage, {
   ssr: false
 }) as React.ComponentType<MangaMontageProps>
 
-export default function RebootersPage() {
+function RebootersContent() {
   const [noiseOpacity, setNoiseOpacity] = useState(1)
   const [contentReady, setContentReady] = useState(false)
   const [effectsActive, setEffectsActive] = useState(true)
   const rafRef = useRef<number | null>(null)
+  const { data } = usePersonalization()
+  const { isSkipped } = useUrlParams()
+  
+  // URLパラメータまたは既存データがある場合は、オンボーディングをスキップ
+  useEffect(() => {
+    if (isSkipped || data.hasCompleted) {
+      setContentReady(true)
+    }
+  }, [isSkipped, data.hasCompleted])
   
   useEffect(() => {
     const handleScroll = () => {
@@ -110,4 +120,18 @@ export default function RebootersPage() {
       )}
     </PersonalizationProvider>
   )
+}
+
+function RebootersPageContent() {
+  return (
+    <PersonalizationProvider>
+      <Suspense fallback={<div />}>
+        <RebootersContent />
+      </Suspense>
+    </PersonalizationProvider>
+  )
+}
+
+export default function RebootersPage() {
+  return <RebootersPageContent />
 }

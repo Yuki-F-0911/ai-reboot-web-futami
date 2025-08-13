@@ -93,9 +93,11 @@ export default function ChapterTwo() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="relative flex items-start gap-4"
               >
-                <div className="absolute -left-[33px] top-2 w-2 h-2 bg-indigo-400 rounded-full" />
+                <div className="mt-2 flex-shrink-0">
+                  <div className="w-2.5 h-2.5 bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-full shadow-sm ring-2 ring-indigo-100" />
+                </div>
                 <p className="text-base md:text-lg text-gray-600">今日覚えたAIツールが、明日には別のものに置き換わる。</p>
               </motion.div>
               
@@ -104,9 +106,11 @@ export default function ChapterTwo() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="relative flex items-start gap-4"
               >
-                <div className="absolute -left-[33px] top-2 w-2 h-2 bg-indigo-400 rounded-full" />
+                <div className="mt-2 flex-shrink-0">
+                  <div className="w-2.5 h-2.5 bg-gradient-to-br from-purple-400 to-purple-500 rounded-full shadow-sm ring-2 ring-purple-100" />
+                </div>
                 <p className="text-base md:text-lg text-gray-600">毎朝のニュースで、また新しいサービスが生まれている。</p>
               </motion.div>
               
@@ -115,9 +119,11 @@ export default function ChapterTwo() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="relative flex items-start gap-4"
               >
-                <div className="absolute -left-[33px] top-2 w-2 h-2 bg-indigo-400 rounded-full" />
+                <div className="mt-2 flex-shrink-0">
+                  <div className="w-2.5 h-2.5 bg-gradient-to-br from-pink-400 to-pink-500 rounded-full shadow-sm ring-2 ring-pink-100" />
+                </div>
                 <p className="text-base md:text-lg text-gray-600">
                   ChatGPTの使い方だけ覚えても、<br />
                   来週にはもっとすごいツールが出てくるかもしれない。

@@ -71,7 +71,7 @@ export default function PersistentSettingsControl() {
         console.log('BGMパス:', bgmPath)
         
         audioRef.current = new Audio(bgmPath)
-        audioRef.current.loop = false  // ループを無効化
+        audioRef.current.loop = true  // ループを有効化
         audioRef.current.volume = 0.5
         globalAudioRef = audioRef.current
         attachAudioListeners()
@@ -92,9 +92,25 @@ export default function PersistentSettingsControl() {
         }
         setShowControl(true)
       }
+    } else if (data.musicPreference === 'mute') {
+      console.log('音楽設定がmuteです')
+      // muteの場合も音源を作成するが再生しない
+      const bgmPath = (data.quizAnswers.expectation === 'efficiency' || data.quizAnswers.focus === 'skills')
+        ? '/reboot_1.mp3'
+        : '/reboot.mp3'
+      
+      if (!audioRef.current) {
+        audioRef.current = new Audio(bgmPath)
+        audioRef.current.loop = true
+        audioRef.current.volume = 0.5
+        globalAudioRef = audioRef.current
+        attachAudioListeners()
+        // muteなので再生しない
+        setIsPlaying(false)
+      }
+      setShowControl(true)
     } else {
-      console.log('音楽設定がplayではありません:', data.musicPreference)
-      // UIは表示するが音源は初期化しない
+      console.log('音楽設定が未設定です')
       setShowControl(true)
     }
   }, [data])
@@ -120,6 +136,8 @@ export default function PersistentSettingsControl() {
     }
     // データリセット
     resetData()
+    // ページをリロードして初期状態に戻す
+    window.location.reload()
   }
 
   if (!showControl) return null
