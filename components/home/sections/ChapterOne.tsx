@@ -26,14 +26,14 @@ export default function ChapterOne() {
       a = '手順はあとで。\n今は「なぜ」を探る。'
       b = '　粗さが気になる。\n　　　その理由を言葉に。'
     } else if (isPossibility) {
-      a = 'うまく説明できない。\nでも諦められない。'
+      a = ' 　うまく説明できない。\n　　　でも諦められない。'
       b = '「本当はこうしたい」を\n言っていい。'
     }
 
     if (feeling === 'change') {
       a = '今のままじゃ終われない。\n　　なぜ、そう思うのか？'
     } else if (feeling === 'growth') {
-      b = '一行でいい。\n“諦められない理由”。'
+      b = '　たった一言でいい。\n　　「手放せない理由」を。'
     }
 
     return { bubbleA: a, bubbleB: b }
@@ -343,7 +343,11 @@ export default function ChapterOne() {
               lineHeight: '2.2'
             }}>
               その答えこそが、AIが逆立ちしても作れない、<br />
-              あなただけの「<span className="text-purple-600 font-medium">Will</span>」<span className="text-sm">（意志）</span>だから。
+              あなただけの「
+              <span className="text-purple-600 font-medium">
+                <ruby>Will<rt class="text-xs text-gray-500 align-top" style={{ fontSize: '0.7em', marginLeft: '2px' }}>意志</rt></ruby>
+              </span>
+              」だから。
             </p>
           </motion.div>
           {renderMobilePanels(4)}

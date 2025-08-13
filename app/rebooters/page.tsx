@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import AcademyHomePage from '@/components/home/AcademyHomePage'
 import OnboardingFlow from '@/components/onboarding/OnboardingFlow'
 import PersistentMusicControl from '@/components/ui/PersistentMusicControl'
+import FloatingCTA from '@/components/ui/FloatingCTA'
 import { PersonalizationProvider } from '@/contexts/PersonalizationContext'
 
 // Canvasコンポーネントをクライアントサイドでのみ読み込み（チャンク失敗時は無効化）
@@ -87,6 +88,9 @@ export default function RebootersPage() {
       
       {/* 永続的な音楽コントロール */}
       <PersistentMusicControl />
+      
+      {/* フローティングCTAボタン */}
+      <FloatingCTA />
       
       {/* コンテンツは設定完了後に表示 */}
       {contentReady && (

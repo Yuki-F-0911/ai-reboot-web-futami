@@ -307,7 +307,7 @@ export default function FinalChapter() {
                               const t = (i / 301) * Math.PI * 2
                               const radius = 194
                               const dashLength = 0.7
-                              const baseStrokeWidth = 20
+                              const baseStrokeWidth = 16
                               const tx = -Math.sin(t)
                               const ty = Math.cos(t)
                               const px = Math.cos(t) * radius
@@ -332,7 +332,7 @@ export default function FinalChapter() {
                                   y1={y1}
                                   x2={x2}
                                   y2={y2}
-                                  stroke="#000"
+                                  stroke="#333"
                                   strokeWidth={strokeWidth}
                                   strokeLinecap="butt"
                                   vectorEffect="non-scaling-stroke"
