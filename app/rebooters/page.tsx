@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import AcademyHomePage from '@/components/home/AcademyHomePage'
 import OnboardingFlow from '@/components/onboarding/OnboardingFlow'
-import PersistentMusicControl from '@/components/ui/PersistentMusicControl'
+import PersistentSettingsControl from '@/components/ui/PersistentSettingsControl'
 import FloatingCTA from '@/components/ui/FloatingCTA'
 import { PersonalizationProvider } from '@/contexts/PersonalizationContext'
 
@@ -86,8 +86,8 @@ export default function RebootersPage() {
         <OnboardingFlow onComplete={() => setContentReady(true)} />
       )}
       
-      {/* 永続的な音楽コントロール */}
-      <PersistentMusicControl />
+      {/* 永続的な設定コントロール（BGM含む） */}
+      <PersistentSettingsControl />
       
       {/* フローティングCTAボタン */}
       <FloatingCTA />

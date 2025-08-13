@@ -302,7 +302,7 @@ export default function FinalChapter() {
                       {/* 輪郭ダッシュ（SVG）: 接線方向ダッシュを円で生成→縦のみスケール */}
                       <div className="absolute inset-3 md:inset-4 pointer-events-none z-0">
                         <svg className="w-full h-full" viewBox="0 0 600 600" preserveAspectRatio="none" aria-hidden style={{ overflow: 'visible' }}>
-                          <g transform="translate(300 300) scale(1.72 1.56)" shape-rendering="crispEdges">
+                          <g transform="translate(300 300) scale(1.72 1.56)" shapeRendering="crispEdges">
                             {Array.from({ length: 600 }, (_, i) => {
                               const t = (i / 301) * Math.PI * 2
                               const radius = 194

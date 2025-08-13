@@ -76,31 +76,49 @@ export default function FloatingCTA() {
             stiffness: 260,
             damping: 20
           }}
-          className="fixed bottom-24 right-4 md:bottom-20 md:right-6 z-40 flex items-center gap-2"
+          className="fixed bottom-4 right-4 sm:right-20 md:bottom-4 md:right-24 z-40 flex items-center gap-2 pr-5"
         >
-          {/* CTAボタン */}
-          <Link
-            href={activeCTA.href}
-            className="group relative overflow-hidden"
-          >
+          {/* CTAボタンコンテナ（パルスエフェクト用） */}
+          <div className="relative">
+            {/* パルスエフェクト */}
             <motion.div
-              className="relative bg-gradient-to-r from-will-primary to-will-secondary text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-3 hover:shadow-xl transition-shadow"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="absolute inset-0 rounded-full pointer-events-none"
+              animate={{
+                boxShadow: [
+                  '0 0 0 0 rgba(151, 71, 255, 0.4)',
+                  '0 0 0 20px rgba(151, 71, 255, 0)',
+                ],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeOut',
+              }}
+            />
+            
+            {/* CTAボタン本体 */}
+            <Link
+              href={activeCTA.href}
+              className="group relative block"
             >
+              <motion.div
+                className="relative bg-gradient-to-r from-will-primary to-will-secondary text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-lg flex items-center gap-2 sm:gap-3 hover:shadow-xl transition-shadow"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
               {/* 背景のアニメーション */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-will-secondary to-will-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               />
               
               {/* テキスト */}
-              <span className="relative font-bold text-sm md:text-base whitespace-nowrap">
+              <span className="relative font-bold text-xs sm:text-sm md:text-base whitespace-nowrap">
                 {activeCTA.text}
               </span>
               
               {/* 矢印アイコン */}
               <motion.svg
-                className="relative w-5 h-5"
+                className="relative w-4 h-4 sm:w-5 sm:h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -119,23 +137,9 @@ export default function FloatingCTA() {
                 />
               </motion.svg>
 
-              {/* パルスエフェクト */}
-              <motion.div
-                className="absolute inset-0 rounded-full"
-                animate={{
-                  boxShadow: [
-                    '0 0 0 0 rgba(151, 71, 255, 0.4)',
-                    '0 0 0 20px rgba(151, 71, 255, 0)',
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: 'easeOut',
-                }}
-              />
-            </motion.div>
-          </Link>
+              </motion.div>
+            </Link>
+          </div>
 
           {/* 閉じるボタン */}
           <button

@@ -345,7 +345,7 @@ export default function ChapterOne() {
               その答えこそが、AIが逆立ちしても作れない、<br />
               あなただけの「
               <span className="text-purple-600 font-medium">
-                <ruby>Will<rt class="text-xs text-gray-500 align-top" style={{ fontSize: '0.7em', marginLeft: '2px' }}>意志</rt></ruby>
+                <ruby>Will<rt className="text-xs text-gray-500 align-top" style={{ fontSize: '0.7em', marginLeft: '2px' }}>意志</rt></ruby>
               </span>
               」だから。
             </p>
