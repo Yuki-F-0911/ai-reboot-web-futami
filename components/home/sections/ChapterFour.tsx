@@ -4,6 +4,7 @@ import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import ChapterPanels from '@/components/home/sections/shared/ChapterPanels'
 import { MangaPanel } from '@/components/effects/MangaPanel'
+import { MangaPanelVideo } from '@/components/effects/MangaPanelVideo'
 import { chapterPanels } from '@/data/panels'
 import { usePersonalization } from '@/contexts/PersonalizationContext'
 import Image from 'next/image'
@@ -35,17 +36,48 @@ export default function ChapterFour() {
 
     return { familyTitle: title, familySub: sub }
   }, [expectation, focus, feeling])
-  const renderMobilePanels = (afterIndex: number) => (
-    <div className="md:hidden">
-      {chapterPanels.ch4
-        .filter(p => p.insertAfter === afterIndex)
-        .map((p, idx) => (
-          <div key={`ch4-m-${afterIndex}-${idx}`} className="flex justify-center my-6">
-            <MangaPanel {...p} yOffset={0} />
-          </div>
-        ))}
-    </div>
-  )
+  const renderMobilePanels = (afterIndex: number) => {
+    // 動画マッピング
+    const videoMap: Record<string, string> = {
+      '/panels/ch4-03.webp': '/panels/ch4-03.mp4',
+    }
+    
+    return (
+      <div className="md:hidden">
+        {chapterPanels.ch4
+          .filter(p => p.insertAfter === afterIndex)
+          .map((p, idx) => {
+            // 動画がある場合は動画パネルを表示
+            const videoSrc = p.src && videoMap[p.src]
+            if (videoSrc) {
+              const sizeClass = 
+                p.aspect === 'portrait' ? 'w-[72%] max-w-[260px] aspect-[2/3]' :
+                p.aspect === 'landscape' ? 'w-[92%] max-w-[360px] aspect-[3/2]' :
+                'w-[80%] max-w-[300px] aspect-square'
+              
+              return (
+                <div key={`ch4-m-${afterIndex}-${idx}`} className="flex justify-center my-6">
+                  <div className={sizeClass}>
+                    <MangaPanelVideo 
+                      src={videoSrc}
+                      poster={p.src}
+                      className="w-full h-full"
+                      threshold={0.5}
+                    />
+                  </div>
+                </div>
+              )
+            }
+            // その他のパネルは通常表示
+            return (
+              <div key={`ch4-m-${afterIndex}-${idx}`} className="flex justify-center my-6">
+                <MangaPanel {...p} yOffset={0} />
+              </div>
+            )
+          })}
+      </div>
+    )
+  }
 
   // 第4章挿絵（ユーザー提供画像）
   // 画像ファイルは public/images/ch4-illustration.webp に配置してください

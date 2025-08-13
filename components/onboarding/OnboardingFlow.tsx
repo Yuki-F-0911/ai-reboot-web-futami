@@ -33,7 +33,8 @@ export default function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
   }
 
   const handleNameComplete = (name: string | null) => {
-    updateUserName(name)
+    // nullの場合は「あなた」をデフォルトとして設定
+    updateUserName(name || 'あなた')
     setCurrentStep('music')
     setShowMusicDialog(true)
   }

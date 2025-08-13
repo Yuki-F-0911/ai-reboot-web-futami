@@ -3,6 +3,7 @@
 import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { MangaPanel } from '@/components/effects/MangaPanel'
+import { MangaPanelVideo } from '@/components/effects/MangaPanelVideo'
 import { chapterPanels } from '@/data/panels'
 import ChapterPanels from '@/components/home/sections/shared/ChapterPanels'
 import { useChapterEmphasis } from '@/components/home/PersonalizedContent'
@@ -39,17 +40,49 @@ export default function ChapterOne() {
     return { bubbleA: a, bubbleB: b }
   }, [expectation, feeling, focus])
 
-  const renderMobilePanels = (afterIndex: number) => (
-    <div className="md:hidden">
-      {chapterPanels.ch1
-        .filter(p => p.insertAfter === afterIndex)
-        .map((p, idx) => (
-          <div key={`ch1-m-${afterIndex}-${idx}`} className="flex justify-center my-6">
-            <MangaPanel {...p} yOffset={0} />
-          </div>
-        ))}
-    </div>
-  )
+  const renderMobilePanels = (afterIndex: number) => {
+    // 動画マッピング（webpファイル名 -> 動画ファイル名）
+    const videoMap: Record<string, string> = {
+      '/panels/ch1-01.webp': '/panels/ch1-01.mp4',
+      '/panels/ch1-04.webp': '/panels/ch1-04.mp4',
+    }
+    
+    return (
+      <div className="md:hidden">
+        {chapterPanels.ch1
+          .filter(p => p.insertAfter === afterIndex)
+          .map((p, idx) => {
+            // 動画がある場合は動画パネルを表示
+            const videoSrc = p.src && videoMap[p.src]
+            if (videoSrc) {
+              const sizeClass = 
+                p.aspect === 'portrait' ? 'w-[72%] max-w-[260px] aspect-[2/3]' :
+                p.aspect === 'landscape' ? 'w-[92%] max-w-[360px] aspect-[3/2]' :
+                'w-[80%] max-w-[300px] aspect-square'
+              
+              return (
+                <div key={`ch1-m-${afterIndex}-${idx}`} className="flex justify-center my-6">
+                  <div className={sizeClass}>
+                    <MangaPanelVideo 
+                      src={videoSrc}
+                      poster={p.src}
+                      className="w-full h-full"
+                      threshold={0.5}
+                    />
+                  </div>
+                </div>
+              )
+            }
+            // その他のパネルは通常表示
+            return (
+              <div key={`ch1-m-${afterIndex}-${idx}`} className="flex justify-center my-6">
+                <MangaPanel {...p} yOffset={0} />
+              </div>
+            )
+          })}
+      </div>
+    )
+  }
 
   return (
     <section className="relative min-h-screen px-6 md:px-8 py-24 md:py-32 overflow-hidden bg-gradient-to-b from-gray-50 to-slate-50">

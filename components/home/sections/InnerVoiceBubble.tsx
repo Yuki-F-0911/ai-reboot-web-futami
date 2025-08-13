@@ -29,7 +29,7 @@ export default function InnerVoiceBubble() {
       b2 = ['無駄を減らして', '　　本質に集中したい']
       b3 = ['小さく試して、', '　確実に前へ']
     } else if (isPossibility) {
-      b1 = ['本当は', '　もっと面白くできる']
+      b1 = ['本当はもっと', '面白くできるはず']
       b2 = ['まだ見ぬ可能性を', '　　形にしたい']
       b3 = ['考え方を変えれば', '　　景色も変わる']
     }
@@ -39,8 +39,8 @@ export default function InnerVoiceBubble() {
       b1 = ['今のままじゃ', '　　終われない']  // インデントを増やす
       b3 = ['怖さより', 'ワクワクを信じたい']  // インデントなし
     } else if (feeling === 'growth') {
-      b2 = ['積み上げれば、', '　きっと届く']
-      b3 = ['焦らず、', '　でも止まらず']
+      b2 = ['　積み上げれば、', '　　　　きっと届く']
+      b3 = ['　焦らず、', '　　　でも止まらず']
     }
 
     return { bubble1Text: b1, bubble2Text: b2, bubble3Text: b3 }

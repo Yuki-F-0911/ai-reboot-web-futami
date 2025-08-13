@@ -8,6 +8,7 @@ import PersistentSettingsControl from '@/components/ui/PersistentSettingsControl
 import FloatingCTA from '@/components/ui/FloatingCTA'
 import { PersonalizationProvider, usePersonalization } from '@/contexts/PersonalizationContext'
 import { useUrlParams } from '@/hooks/useUrlParams'
+import '@/utils/clearStorage' // デバッグ用ユーティリティをロード
 
 // Canvasコンポーネントをクライアントサイドでのみ読み込み（チャンク失敗時は無効化）
 const loadNoiseGlitch = (): Promise<{ default: React.ComponentType<unknown> }> =>
@@ -46,9 +47,15 @@ function RebootersContent() {
   const { data } = usePersonalization()
   const { isSkipped } = useUrlParams()
   
-  // URLパラメータまたは既存データがある場合は、オンボーディングをスキップ
+  // URLパラメータがある場合は即座にスキップ、そうでなければ既存データを確認
   useEffect(() => {
-    if (isSkipped || data.hasCompleted) {
+    // URLパラメータがある場合は優先
+    if (isSkipped) {
+      console.log('URLパラメータによりオンボーディングをスキップ')
+      setContentReady(true)
+    } else if (data.hasCompleted) {
+      // URLパラメータがなく、既存データがある場合
+      console.log('既存データによりオンボーディングをスキップ')
       setContentReady(true)
     }
   }, [isSkipped, data.hasCompleted])

@@ -41,6 +41,16 @@ export default function PersistentSettingsControl() {
     console.log('musicPreference:', data.musicPreference)
     console.log('hasCompleted:', data.hasCompleted)
     
+    // 既存のグローバル音源がある場合は再利用
+    if (globalAudioRef && !audioRef.current) {
+      console.log('既存のグローバル音源を再利用')
+      audioRef.current = globalAudioRef
+      setIsPlaying(!globalAudioRef.paused)
+      attachAudioListeners()
+      setShowControl(true)
+      return
+    }
+    
     // 音楽を再生する設定の場合
     if (data.musicPreference === 'play') {
       console.log('音楽コントロールを初期化します')
@@ -71,7 +81,7 @@ export default function PersistentSettingsControl() {
         console.log('BGMパス:', bgmPath)
         
         audioRef.current = new Audio(bgmPath)
-        audioRef.current.loop = true  // ループを有効化
+        audioRef.current.loop = false  // ループを無効化（1回再生で停止）
         audioRef.current.volume = 0.5
         globalAudioRef = audioRef.current
         attachAudioListeners()
@@ -101,7 +111,7 @@ export default function PersistentSettingsControl() {
       
       if (!audioRef.current) {
         audioRef.current = new Audio(bgmPath)
-        audioRef.current.loop = true
+        audioRef.current.loop = false  // ループを無効化（1回再生で停止）
         audioRef.current.volume = 0.5
         globalAudioRef = audioRef.current
         attachAudioListeners()
@@ -110,7 +120,20 @@ export default function PersistentSettingsControl() {
       }
       setShowControl(true)
     } else {
-      console.log('音楽設定が未設定です')
+      console.log('音楽設定が未設定です。デフォルトで音源を準備します')
+      // 音楽設定が未設定でも音源を作成（デフォルト設定）
+      const bgmPath = '/reboot_1.mp3' // デフォルトBGM（集中力を高めるバージョン）
+      
+      if (!audioRef.current) {
+        console.log('デフォルト音源を作成')
+        audioRef.current = new Audio(bgmPath)
+        audioRef.current.loop = false  // ループを無効化（1回再生で停止）
+        audioRef.current.volume = 0.5
+        globalAudioRef = audioRef.current
+        attachAudioListeners()
+        // 未設定なので自動再生はしない
+        setIsPlaying(false)
+      }
       setShowControl(true)
     }
   }, [data])
@@ -136,8 +159,14 @@ export default function PersistentSettingsControl() {
     }
     // データリセット
     resetData()
-    // ページをリロードして初期状態に戻す
-    window.location.reload()
+    // URLパラメータを削除してリロード
+    setTimeout(() => {
+      // 現在のURLからパラメータを削除
+      const url = new URL(window.location.href)
+      url.search = '' // すべてのパラメータを削除
+      // パラメータなしのURLに遷移（リロード）
+      window.location.href = url.toString()
+    }, 100)
   }
 
   if (!showControl) return null
