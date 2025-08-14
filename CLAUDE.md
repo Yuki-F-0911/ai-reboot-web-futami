@@ -194,6 +194,44 @@ docs/                   # ドキュメント (整理済み)
 
 ---
 
+## 2025-01-14 作業ログ
+
+### 実施内容
+
+1. **ヘッダー・フッターのロゴリンク修正**
+   - `components/layout/Header.tsx`: ロゴリンクを `/academy` から `/` に変更
+   - `components/layout/Footer.tsx`: 同様にトップページへのリンクに修正
+   - 技術的判断: トップページが完成したため、正しいルーティングに更新
+
+2. **MicroCMSマークダウン対応実装**
+   - `lib/microcms.ts`: `md-content` フィールドを型定義に追加
+   - `components/news/NewsDetail.tsx`: マークダウンレンダリング機能を実装
+   - marked ライブラリのインストール（v15.0.6）
+   - 技術的判断: md-contentがある場合は優先使用、なければ通常のHTMLコンテンツをフォールバック
+
+3. **マークダウンスタイリング強化**
+   - Tailwind CSS prose クラスを詳細にカスタマイズ
+   - 見出し、リスト、引用、コードブロック、テーブルなど全要素に対応
+   - GitHub Flavored Markdown（GFM）を有効化
+
+### 次回への申し送り
+
+- **パフォーマンス最適化**
+  - マークダウンのサーバーサイドレンダリング検討
+  - 大量のニュース記事がある場合のページネーション最適化
+
+- **コンテンツ管理改善**
+  - MicroCMSでのプレビュー機能実装
+  - 画像アップロード機能の追加
+
+### 参考情報
+
+- markedライブラリ: https://marked.js.org/
+- MicroCMS APIフィールド名の制限により `md-content` と命名（ハイフン使用）
+- Tailwind Typography plugin のproseクラスをカスタマイズ
+
+---
+
 ## 2025-01-04 作業ログ
 
 ### 実施内容

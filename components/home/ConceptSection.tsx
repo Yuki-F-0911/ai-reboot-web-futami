@@ -33,11 +33,11 @@ export default function ConceptSection() {
 
   return (
     <section ref={ref} className="py-24 bg-gradient-to-b from-white via-gray-50/50 to-white">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-8">
         {/* セクションヘッダー */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -56,7 +56,7 @@ export default function ConceptSection() {
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="group"
             >
@@ -85,7 +85,7 @@ export default function ConceptSection() {
         {/* 引用メッセージ */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
           className="mt-20 text-center"
         >

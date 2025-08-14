@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
 const messages = [
-  "あなたの物語を、AIは待っている",
-  "AIと共に歩む、新しい自分へ",
-  "物語の主人公は、あなた自身"
+  { desktop: "あなたの物語を、AIは待っている", mobile: ["あなたの物語を", "AIは待っている"] },
+  { desktop: "AIと共に歩む、新しい自分へ", mobile: ["AIと共に歩む", "新しい自分へ"] },
+  { desktop: "物語の主人公は、あなた自身", mobile: ["物語の主人公は", "あなた自身"] }
 ]
 
 export default function HeroSection() {
@@ -60,7 +60,7 @@ export default function HeroSection() {
       </div>
 
       {/* メインコンテンツ */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 text-center">
         {/* メインメッセージ */}
         <div className="min-h-[200px] flex items-center justify-center mb-8">
           <AnimatePresence mode="wait">
@@ -72,8 +72,19 @@ export default function HeroSection() {
               transition={{ duration: 1, ease: "easeOut" }}
               className="text-4xl md:text-6xl lg:text-7xl font-light leading-tight"
             >
-              <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
-                {messages[currentMessage]}
+              {/* デスクトップ表示 */}
+              <span className="hidden md:inline-block bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
+                {messages[currentMessage].desktop}
+              </span>
+              
+              {/* モバイル表示（改行あり） */}
+              <span className="md:hidden bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
+                {messages[currentMessage].mobile.map((line, index) => (
+                  <React.Fragment key={index}>
+                    {line}
+                    {index < messages[currentMessage].mobile.length - 1 && <br />}
+                  </React.Fragment>
+                ))}
               </span>
             </motion.h1>
           </AnimatePresence>
@@ -88,7 +99,11 @@ export default function HeroSection() {
               transition={{ duration: 1, ease: "easeOut" }}
               className="text-lg md:text-xl text-gray-600 mb-12 font-light"
             >
-              Will（意志）から始まる、本当のAI活用
+              <span className="hidden md:inline">Will（意志）から始まる、本当のAI活用</span>
+              <span className="md:hidden">
+                Will（意志）から始まる<br />
+                本当のAI活用
+              </span>
             </motion.p>
           )}
         </AnimatePresence>

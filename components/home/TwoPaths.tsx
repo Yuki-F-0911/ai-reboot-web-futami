@@ -42,11 +42,11 @@ export default function TwoPaths() {
 
   return (
     <section ref={ref} className="py-24 bg-gradient-to-b from-white via-gray-50 to-white">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-8">
         {/* セクションタイトル（控えめに） */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -64,7 +64,7 @@ export default function TwoPaths() {
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
               <Link href={path.href}>

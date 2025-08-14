@@ -13,11 +13,11 @@ export default function FinalCTA() {
 
   return (
     <section ref={ref} className="py-32 bg-gradient-to-b from-white via-gray-50 to-white">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+      <div className="max-w-5xl mx-auto px-8 text-center">
         {/* メインメッセージ */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-3xl md:text-4xl font-light text-gray-900 mb-12"
         >
@@ -27,7 +27,7 @@ export default function FinalCTA() {
         {/* CTAボタン */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
@@ -57,7 +57,7 @@ export default function FinalCTA() {
         {/* 補足メッセージ（控えめに） */}
         <motion.p
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 0.6 } : {}}
+          animate={{ opacity: 0.6 }}
           transition={{ duration: 1, delay: 0.4 }}
           className="mt-8 text-sm text-gray-500"
         >

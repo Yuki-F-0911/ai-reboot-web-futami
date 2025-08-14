@@ -33,6 +33,7 @@ export interface News {
   title: string
   category: NewsCategory
   content: string
+  'md-content'?: string  // マークダウンコンテンツフィールド
   description?: string
   thumbnail?: {
     url: string

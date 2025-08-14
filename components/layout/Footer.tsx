@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* ブランド情報 */}
           <div className="col-span-1">
-            <Link href="/academy" className="relative group flex items-center gap-3 mb-4">
+            <Link href="/" className="relative group flex items-center gap-3 mb-4">
               {/* シンボルマーク */}
               <div className="relative w-10 h-10">
                 <Image

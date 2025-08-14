@@ -37,7 +37,7 @@ export default function WillExploration() {
 
   return (
     <section ref={containerRef} className="relative py-24 bg-white">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <div className="max-w-6xl mx-auto px-8 text-center">
         {/* 3つの質問 */}
         <div className="space-y-24">
             {questions.map((question, index) => (
