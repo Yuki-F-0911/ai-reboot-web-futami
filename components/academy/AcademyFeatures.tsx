@@ -28,8 +28,8 @@ export const AcademyFeatures = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-20%" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center text-depth-900 mb-16">
             プログラムの特徴
@@ -41,16 +41,16 @@ export const AcademyFeatures = () => {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                viewport={{ once: true, margin: "-20%" }}
               >
                 <h3 className="text-xl font-semibold text-depth-900 mb-3 relative inline-block">
                   {feature.title}
                   <motion.span 
                     initial={{ width: 0 }}
                     whileInView={{ width: "3rem" }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.05 + 0.15 }}
+                    viewport={{ once: true, margin: "-20%" }}
                     className="absolute -bottom-1 left-0 h-0.5 bg-will-primary" 
                   />
                 </h3>

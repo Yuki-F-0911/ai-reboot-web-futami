@@ -86,8 +86,8 @@ export const AcademyStory = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, margin: "-20%" }}
             className="mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-center text-depth-900 mb-2">
@@ -103,8 +103,8 @@ export const AcademyStory = () => {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              viewport={{ once: true, margin: "-20%" }}
               className="mb-16 last:mb-0"
             >
               <h3 className="text-2xl font-bold text-depth-900 mb-6 relative">

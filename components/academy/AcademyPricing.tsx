@@ -40,8 +40,8 @@ export const AcademyPricing = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-20%" }}
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
@@ -57,8 +57,8 @@ export const AcademyPricing = () => {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-20%" }}
                 className={`relative ${card.highlight ? 'md:scale-105' : ''}`}
               >
                 {card.highlight && (
@@ -102,8 +102,8 @@ export const AcademyPricing = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            viewport={{ once: true, margin: "-20%" }}
             className="flex flex-col items-center"
           >
             {/* 経済産業省リスキリング補助金ロゴ */}

@@ -1,9 +1,22 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import { useRef, useEffect, useState } from "react";
 
 export const AcademyCTA = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-10%" });
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+  
+  useEffect(() => {
+    // ハッシュが#ctaの場合、またはビューに入った場合はアニメーションを開始
+    if (typeof window !== 'undefined' && window.location.hash === '#cta') {
+      setShouldAnimate(true);
+    } else if (isInView) {
+      setShouldAnimate(true);
+    }
+  }, [isInView]);
   return (
     <section className="section-spacing bg-gradient-to-br from-will-primary to-will-secondary relative overflow-hidden">
       {/* 装飾的な背景要素 */}
@@ -12,12 +25,11 @@ export const AcademyCTA = () => {
         <div className="absolute bottom-[-50%] right-[-25%] w-[150%] h-[150%] bg-white/5 rounded-full" />
       </div>
       
-      <div className="container-section relative z-10">
+      <div className="container-section relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.5 }}
           className="text-center max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -57,9 +69,8 @@ export const AcademyCTA = () => {
           {/* 補助金情報 */}
           <motion.div
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
+            animate={shouldAnimate ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-12"
           >
             <p className="text-white/80 mb-2">

@@ -11,8 +11,8 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-20%" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center text-depth-900 mb-16">
             プログラムの流れ
@@ -27,8 +27,8 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true, margin: "-20%" }}
                 className="relative flex items-start gap-6 md:gap-8"
               >
                 {/* タイムラインのポイント */}
@@ -52,8 +52,8 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
               <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true, margin: "-20%" }}
                 className="relative py-2"
               >
                 <div className="absolute left-0 md:left-8 -translate-x-1/2 bg-white px-2 py-1">
@@ -65,8 +65,8 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true, margin: "-20%" }}
                 className="relative flex items-start gap-6 md:gap-8"
               >
                 {/* 100日間の継続線 */}
@@ -83,8 +83,8 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
                       <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.15 }}
+                        viewport={{ once: true, margin: "-20%" }}
                         className="bg-white/70 rounded-lg p-5"
                       >
                         <h4 className="font-semibold text-depth-800 mb-2">📅 毎週のオンラインセッション</h4>
@@ -94,8 +94,8 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
                       <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        viewport={{ once: true, margin: "-20%" }}
                         className="bg-white/70 rounded-lg p-5"
                       >
                         <h4 className="font-semibold text-depth-800 mb-2">💬 個別メンタリング</h4>
@@ -105,8 +105,8 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
                       <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.5 }}
-                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.25 }}
+                        viewport={{ once: true, margin: "-20%" }}
                         className="bg-white/70 rounded-lg p-5"
                       >
                         <h4 className="font-semibold text-depth-800 mb-2">🎯 キャリアコンサルティング</h4>
@@ -116,8 +116,8 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
                       <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
-                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        viewport={{ once: true, margin: "-20%" }}
                         className="bg-white/70 rounded-lg p-5"
                       >
                         <h4 className="font-semibold text-depth-800 mb-2">🚀 実践プロジェクト</h4>
@@ -138,8 +138,8 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
                               key={i}
                               initial={{ opacity: 0, scale: 0 }}
                               whileInView={{ opacity: 1, scale: 1 }}
-                              transition={{ duration: 0.2, delay: 0.7 + i * 0.05 }}
-                              viewport={{ once: true }}
+                              transition={{ duration: 0.2, delay: 0.35 + i * 0.05 }}
+                              viewport={{ once: true, margin: "-20%" }}
                               className="w-1 h-8 bg-will-primary/30 rounded-full"
                             />
                           ))}
@@ -157,8 +157,8 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true, margin: "-20%" }}
                 className="relative flex items-start gap-6 md:gap-8"
               >
                 {/* タイムラインのポイント */}
@@ -185,8 +185,8 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true, margin: "-20%" }}
                 className="relative flex items-start gap-6 md:gap-8"
               >
                 {/* タイムラインのポイント */}

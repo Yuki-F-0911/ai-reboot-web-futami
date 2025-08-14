@@ -17,8 +17,8 @@ export const AcademyTarget = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-20%" }}
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
@@ -35,8 +35,8 @@ export const AcademyTarget = () => {
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  viewport={{ once: true, margin: "-20%" }}
                   className="flex items-start gap-4"
                 >
                   <div className="flex-shrink-0 w-6 h-6 bg-will-primary rounded-full flex items-center justify-center mt-1">

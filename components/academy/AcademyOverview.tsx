@@ -9,8 +9,8 @@ export const AcademyOverview = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-20%" }}
           className="max-w-3xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center text-depth-900 mb-16">

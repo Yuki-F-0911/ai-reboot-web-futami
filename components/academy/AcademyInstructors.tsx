@@ -40,8 +40,8 @@ export const AcademyInstructors = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-20%" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
             <span className="bg-will-gradient bg-clip-text text-transparent">
@@ -55,8 +55,8 @@ export const AcademyInstructors = () => {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                viewport={{ once: true, margin: "-20%" }}
                 className="bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300"
               >
                 <div className={`h-2 bg-gradient-to-r ${instructor.gradient}`} />
@@ -88,8 +88,8 @@ export const AcademyInstructors = () => {
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            viewport={{ once: true, margin: "-20%" }}
             className="text-center text-lg text-depth-700"
           >
             他、生成AI活用に関して専門性をもった講師・メンターがサポートします

@@ -1,21 +1,35 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import { useRef, useEffect, useState } from "react";
 
 export const ApplicationForm = () => {
   // Google フォームのURLを環境変数から取得
   const GOOGLE_FORM_URL = process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || "#";
+  
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-10%" });
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+  
+  useEffect(() => {
+    // ハッシュが関連する場合、またはビューに入った場合はアニメーションを開始
+    if (typeof window !== 'undefined' && 
+        (window.location.hash === '#application' || window.location.hash === '#cta')) {
+      setShouldAnimate(true);
+    } else if (isInView) {
+      setShouldAnimate(true);
+    }
+  }, [isInView]);
 
   return (
     <section id="application" className="section-spacing bg-gradient-to-b from-white to-will-lighter">
       <div className="container-section">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto" ref={ref}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.5 }}
             className="text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
