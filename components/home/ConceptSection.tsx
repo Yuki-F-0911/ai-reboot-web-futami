@@ -29,7 +29,7 @@ const concepts = [
 
 export default function ConceptSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  useInView(ref, { once: true, amount: 0.3 })  // Trigger animations
 
   return (
     <section ref={ref} className="py-24 bg-gradient-to-b from-white via-gray-50/50 to-white">
@@ -90,13 +90,13 @@ export default function ConceptSection() {
           className="mt-20 text-center"
         >
           <blockquote className="relative">
-            <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-6xl text-gray-100 font-serif">"</div>
+            <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-6xl text-gray-100 font-serif">&ldquo;</div>
             <p className="text-xl md:text-2xl font-light text-gray-700 italic max-w-4xl mx-auto leading-relaxed">
               AIが「どのように」や「何を」を代替していく中で、<br className="hidden md:block" />
               人間にとって究極の差別化要因は<br className="md:hidden" />
               <span className="text-will-primary font-medium">「なぜやるのか」という深いWill</span>になる
             </p>
-            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-6xl text-gray-100 font-serif rotate-180">"</div>
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-6xl text-gray-100 font-serif rotate-180">&rdquo;</div>
           </blockquote>
         </motion.div>
       </div>

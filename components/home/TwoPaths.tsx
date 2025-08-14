@@ -9,7 +9,7 @@ import { User, Building2, ArrowRight } from 'lucide-react'
 
 export default function TwoPaths() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  useInView(ref, { once: true, amount: 0.3 })  // Trigger animations
 
   const paths = [
     {

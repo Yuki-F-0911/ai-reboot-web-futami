@@ -9,7 +9,7 @@ import { MessageCircle, FileText } from 'lucide-react'
 
 export default function FinalCTA() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.5 })
+  useInView(ref, { once: true, amount: 0.5 })  // Trigger animations
 
   return (
     <section ref={ref} className="py-32 bg-gradient-to-b from-white via-gray-50 to-white">

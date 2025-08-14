@@ -3,7 +3,7 @@
 import React, { useMemo } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Calendar, Tag, ArrowLeft, ArrowRight, Share2 } from 'lucide-react'
+import { Calendar, ArrowLeft, ArrowRight, Share2 } from 'lucide-react'
 import { News } from '@/lib/microcms'
 import { format } from '@/utils/date'
 import { marked } from 'marked'
