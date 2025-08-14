@@ -59,17 +59,26 @@ export default function InnerVoiceBubble() {
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.0 }}
         >
           <div className="relative">
-            <div className="relative bg-white/90 backdrop-blur-md shadow-lg [--ivs:8ch] rounded-[40%_60%_55%_45%_/_60%_50%_50%_40%] px-5 py-5">
+            <div className="relative bg-white/90 backdrop-blur-md shadow-lg rounded-[40%_60%_55%_45%_/_60%_50%_50%_40%] overflow-visible"
+                 style={{
+                   minHeight: '140px',
+                   minWidth: '80px',
+                   padding: '20px 16px'
+                 }}>
               <p
-                className="text-gray-800 text-[16px] leading-relaxed"
+                className="text-gray-800 text-[16px] leading-relaxed block"
                 style={{
                   writingMode: 'vertical-rl',
+                  WebkitWritingMode: 'vertical-rl',
                   textOrientation: 'upright',
+                  WebkitTextOrientation: 'upright',
                   fontFamily: '"Noto Sans JP", sans-serif',
                   fontWeight: 400,
                   letterSpacing: '0.14em',
                   lineHeight: 1.8,
-                  inlineSize: 'var(--ivs)'
+                  height: 'auto',
+                  width: 'auto',
+                  display: 'block'
                 }}
               >
                 {bubble1Text[0]}
@@ -95,17 +104,26 @@ export default function InnerVoiceBubble() {
           transition={{ duration: 0.65, ease: 'easeOut', delay: 0.15 }}
         >
           <div className="relative">
-            <div className="relative bg-white/85 backdrop-blur-md shadow-lg [--ivs:12ch] rounded-[55%_45%_45%_55%_/_50%_60%_40%_50%] px-6 py-7">
+            <div className="relative bg-white/85 backdrop-blur-md shadow-lg rounded-[55%_45%_45%_55%_/_50%_60%_40%_50%] overflow-visible"
+                 style={{
+                   minHeight: '180px',
+                   minWidth: '90px',
+                   padding: '28px 20px'
+                 }}>
               <p
-                className="text-gray-700 text-[16px] leading-relaxed"
+                className="text-gray-700 text-[16px] leading-relaxed block"
                 style={{
                   writingMode: 'vertical-rl',
+                  WebkitWritingMode: 'vertical-rl',
                   textOrientation: 'upright',
+                  WebkitTextOrientation: 'upright',
                   fontFamily: '"Noto Sans JP", sans-serif',
                   fontWeight: 500,
                   letterSpacing: '0.18em',
                   lineHeight: 2,
-                  inlineSize: 'var(--ivs)'
+                  height: 'auto',
+                  width: 'auto',
+                  display: 'block'
                 }}
               >
                 {bubble2Text[0]}
@@ -131,17 +149,26 @@ export default function InnerVoiceBubble() {
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.3 }}
         >
           <div className="relative">
-            <div className="relative bg-white/80 backdrop-blur-md shadow-md [--ivs:11ch] rounded-[45%_55%_50%_50%_/_60%_60%_40%_40%] px-5 py-6">
+            <div className="relative bg-white/80 backdrop-blur-md shadow-md rounded-[45%_55%_50%_50%_/_60%_60%_40%_40%] overflow-visible"
+                 style={{
+                   minHeight: '160px',
+                   minWidth: '85px',
+                   padding: '24px 18px'
+                 }}>
               <p
-                className="text-gray-600 text-[14px] leading-relaxed"
+                className="text-gray-600 text-[14px] leading-relaxed block"
                 style={{
                   writingMode: 'vertical-rl',
+                  WebkitWritingMode: 'vertical-rl',
                   textOrientation: 'upright',
+                  WebkitTextOrientation: 'upright',
                   fontFamily: '"Noto Sans JP", sans-serif',
                   fontWeight: 400,
                   letterSpacing: '0.12em',
                   lineHeight: 1.7,
-                  inlineSize: 'var(--ivs)'
+                  height: 'auto',
+                  width: 'auto',
+                  display: 'block'
                 }}
               >
                 {bubble3Text[0]}

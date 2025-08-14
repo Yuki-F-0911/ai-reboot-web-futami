@@ -97,18 +97,6 @@ export default function HeaderSettings({ audioRef, isPlaying, setIsPlaying, onRe
               transition={{ duration: 2, repeat: Infinity }}
             />
           )}
-          
-          {/* 音量インジケーター（視覚的に） */}
-          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 flex gap-0.5">
-            {[0, 25, 50, 75].map((threshold) => (
-              <div
-                key={threshold}
-                className={`w-1 h-1 rounded-full transition-colors ${
-                  volume > threshold ? 'bg-gray-600' : 'bg-gray-300'
-                }`}
-              />
-            ))}
-          </div>
         </motion.button>
         
         {/* 音量スライダー（右クリックまたは長押しで表示） */}

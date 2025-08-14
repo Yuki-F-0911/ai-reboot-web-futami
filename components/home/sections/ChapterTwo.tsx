@@ -200,34 +200,25 @@ export default function ChapterTwo() {
               delay: 0.45
             }}
             viewport={{ once: true }}
-            className="relative my-8 flex justify-center mr-4"
+            className="relative my-8 flex justify-center"
           >
-            <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-3xl shadow-xl inline-block overflow-hidden"
+            <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-3xl shadow-xl inline-flex items-center justify-center"
                  style={{ padding: '24px 32px' }}>
               <p className="text-sm font-medium"
                  style={{ 
                    writingMode: 'vertical-rl',
+                   WebkitWritingMode: 'vertical-rl',
                    textOrientation: 'upright',
+                   WebkitTextOrientation: 'upright',
                    fontFamily: '"Noto Sans JP", sans-serif',
                    letterSpacing: '0.12em',
                    lineHeight: '2',
-                   height: '180px'
+                   height: '180px',
+                   display: 'block',
+                   margin: '0 auto'
                  }}>
                 {bubbleText}
               </p>
-              {/* 吹き出しの尻尾 - 内側に背景色で切り欠き（右側に配置、左向き） */}
-              <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-                {/* 背景色の三角形で内側を切り欠く */}
-                <div 
-                  className="absolute w-0 h-0"
-                  style={{
-                    right: '-1px',
-                    borderStyle: 'solid',
-                    borderWidth: '12px 16px 12px 0',
-                    borderColor: 'transparent #e0e7ff transparent transparent' // indigo-50相当の色
-                  }}
-                />
-              </div>
             </div>
           </motion.div>
           {renderMobilePanels(2)}

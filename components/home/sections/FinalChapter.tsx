@@ -296,7 +296,7 @@ export default function FinalChapter() {
                   <div className="relative" style={{ padding: '2px' }}>
                     {/* 吹き出し本体（白地） */}
                     <div
-                      className="relative bg-white/50 backdrop-blur-md shadow-xl"
+                      className="relative bg-white/50 backdrop-blur-md shadow-xl flex items-center justify-center"
                       style={{ borderRadius: '50% / 50%', padding: '48px 56px' }}
                     >
                       {/* 輪郭ダッシュ（SVG）: 接線方向ダッシュを円で生成→縦のみスケール */}
@@ -343,15 +343,19 @@ export default function FinalChapter() {
                         </svg>
                       </div>
                       <p
-                        className="relative z-10 text-gray-800 font-medium"
+                        className="relative z-10 text-gray-800 font-medium block"
                         style={{
                           writingMode: 'vertical-rl',
+                          WebkitWritingMode: 'vertical-rl',
                           textOrientation: 'upright',
+                          WebkitTextOrientation: 'upright',
                           fontFamily: '"Noto Sans JP", sans-serif',
                           letterSpacing: '0.14em',
                           lineHeight: '2.1',
                           whiteSpace: 'nowrap',
-                          fontSize: 'clamp(1.75rem, 4.5vw, 2.75rem)'
+                          fontSize: 'clamp(1.75rem, 4.5vw, 2.75rem)',
+                          display: 'block',
+                          margin: '0 auto'
                         }}
                       >
                         今、動き出そう

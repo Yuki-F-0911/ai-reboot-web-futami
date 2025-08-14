@@ -63,12 +63,26 @@ export function MangaPanelVideo({
 
   // ビューポートに入ったら再生
   useEffect(() => {
-    if (isInView && !hasPlayed && isLoaded && videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.error('動画の自動再生に失敗:', error)
-      })
+    if (isInView && !hasPlayed && videoRef.current) {
+      // モバイルの場合は少し遅延を入れる
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+      const delay = isMobile ? 500 : 0
+      
+      setTimeout(() => {
+        if (videoRef.current && !hasPlayed) {
+          // 動画を読み込んでから再生
+          videoRef.current.load()
+          videoRef.current.play().catch(error => {
+            console.error('動画の自動再生に失敗:', error)
+            // フォールバック: ユーザーインタラクション後に再生
+            if (videoRef.current) {
+              videoRef.current.setAttribute('controls', 'true')
+            }
+          })
+        }
+      }, delay)
     }
-  }, [isInView, hasPlayed, isLoaded, src])
+  }, [isInView, hasPlayed, src])
 
   return (
     <motion.div
@@ -88,11 +102,14 @@ export function MangaPanelVideo({
         poster={poster}
         muted // 自動再生のためミュート必須
         playsInline // モバイルでインライン再生
-        preload="auto" // 事前読み込み
+        preload="metadata" // モバイルでの読み込みを改善
+        autoPlay={false} // 手動制御のため自動再生は無効
+        webkit-playsinline="true" // iOS Safari対応
         className="w-full h-full object-cover"
         style={{ 
           filter: hasPlayed ? 'none' : 'brightness(0.95)',
-          transition: 'filter 0.3s ease'
+          transition: 'filter 0.3s ease',
+          WebkitTransform: 'translateZ(0)' // ハードウェアアクセラレーション
         }}
       />
       

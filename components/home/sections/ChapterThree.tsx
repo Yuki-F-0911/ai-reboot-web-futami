@@ -231,23 +231,33 @@ export default function ChapterThree() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.45 }}
               viewport={{ once: true }}
-              className="flex items-start gap-4 md:gap-6"
+              className="flex items-start gap-3 md:gap-6"
             >
               {/* 漫画のコマ（キャラクター） */}
               <CharacterPanel side="left" accent="emerald" label="40代・営業部長のコマ" />
 
               {/* コマから伸びる吹き出し */}
-              <div className="relative">
-                <div className="relative bg-white rounded-2xl shadow-lg inline-block" style={{ padding: '32px 36px' }}>
+              <div className="relative flex-1 md:flex-initial">
+                <div className="relative bg-white rounded-2xl shadow-lg inline-flex items-center justify-center overflow-visible"
+                     style={{
+                       minHeight: '220px',
+                       minWidth: '110px',
+                       padding: '24px 20px'
+                     }}>
                   <p
-                    className="text-lg md:text-xl text-gray-800"
+                    className="text-base md:text-lg lg:text-xl text-gray-800 block"
                     style={{
                       writingMode: 'vertical-rl',
+                      WebkitWritingMode: 'vertical-rl',
                       textOrientation: 'upright',
+                      WebkitTextOrientation: 'upright',
                       fontFamily: '"Noto Sans JP", sans-serif',
                       letterSpacing: '0.14em',
                       lineHeight: '2.1',
-                      height: '240px'
+                      height: '180px',
+                      maxHeight: '200px',
+                      display: 'block',
+                      margin: '0 auto'
                     }}
                   >
                     {lineLeft}
@@ -264,23 +274,33 @@ export default function ChapterThree() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.55 }}
               viewport={{ once: true }}
-              className="flex items-start gap-4 md:gap-6 flex-row-reverse"
+              className="flex items-start gap-3 md:gap-6 flex-row-reverse"
             >
               {/* 漫画のコマ（キャラクター） */}
               <CharacterPanel side="right" accent="teal" label="30代・人事担当のコマ" />
 
               {/* コマから伸びる吹き出し（右から） */}
-              <div className="relative">
-                <div className="relative bg-white rounded-2xl shadow-lg inline-block" style={{ padding: '32px 36px' }}>
+              <div className="relative flex-1 md:flex-initial">
+                <div className="relative bg-white rounded-2xl shadow-lg inline-flex items-center justify-center overflow-visible"
+                     style={{
+                       minHeight: '220px',
+                       minWidth: '110px',
+                       padding: '24px 20px'
+                     }}>
                   <p
-                    className="text-lg md:text-xl text-gray-800"
+                    className="text-base md:text-lg lg:text-xl text-gray-800 block"
                     style={{
                       writingMode: 'vertical-rl',
+                      WebkitWritingMode: 'vertical-rl',
                       textOrientation: 'upright',
+                      WebkitTextOrientation: 'upright',
                       fontFamily: '"Noto Sans JP", sans-serif',
                       letterSpacing: '0.14em',
                       lineHeight: '2.1',
-                      height: '240px'
+                      height: '180px',
+                      maxHeight: '200px',
+                      display: 'block',
+                      margin: '0 auto'
                     }}
                   >
                     {lineRight}

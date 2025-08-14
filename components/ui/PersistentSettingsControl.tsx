@@ -191,14 +191,35 @@ export default function PersistentSettingsControl() {
   }, [data.hasCompleted, data.musicPreference, data.quizAnswers.expectation, data.quizAnswers.focus])
 
   useEffect(() => {
+    // ページ遷移を検知してBGMを停止
+    const handleRouteChange = () => {
+      console.log('ページ遷移を検知、BGMを停止します')
+      if (audioRef.current && !audioRef.current.paused) {
+        audioRef.current.pause()
+        setIsPlaying(false)
+      }
+    }
+
+    // popstateイベント（ブラウザの戻る/進む）を監視
+    window.addEventListener('popstate', handleRouteChange)
+    
     // Cleanup function for audio
     return () => {
+      window.removeEventListener('popstate', handleRouteChange)
+      
+      // コンポーネントがアンマウントされる時（ページ遷移時）にBGMを停止
       if (audioRef.current) {
+        if (!audioRef.current.paused) {
+          console.log('コンポーネントアンマウント時にBGMを停止')
+          audioRef.current.pause()
+        }
         // @ts-expect-error cleanup function attached earlier
         if (audioRef.current.__cleanupListeners) {
           // @ts-expect-error cleanup function attached earlier
           audioRef.current.__cleanupListeners()
         }
+        // グローバル参照もクリア
+        globalAudioRef = null
       }
     }
   }, [])

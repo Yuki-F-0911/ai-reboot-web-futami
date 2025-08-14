@@ -17,8 +17,8 @@ export default function ChapterOne() {
   // 読者のWillの具体化（本文の流れに直結）
   // ねらい: 隠してきた情熱の喚起（短文・ためらい調） + パーソナライズ
   const { bubbleA, bubbleB } = useMemo(() => {
-    let a = '数字に落ちない執着に、\n意味はあるのかな。'; 
-    let b = '誰も評価しなかったこだわり、\nまだ捨てたくない。'
+    let a = '　数字に落ちない執着に\n　　　　意味はあるのかな。'; 
+    let b = '　誰も評価しなかったこだわり\n　　　　　　　　まだ捨てたくない。'
 
     const isEfficiency = expectation === 'efficiency' || focus === 'skills'
     const isPossibility = expectation === 'possibility' || focus === 'mindset'
@@ -237,18 +237,25 @@ export default function ChapterOne() {
               viewport={{ once: true, margin: '-120px' }}
               className="absolute top-52 left-5 md:top-52 md:left-8 lg:top-52 lg:left-0"
             >
-              <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg [--ivs:14ch] md:[--ivs:14ch] lg:[--ivs:14ch] px-4 py-5 md:px-6 md:py-6 lg:pt-10"
+              <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 backdrop-blur-sm shadow-lg overflow-visible"
                    style={{ 
-                    borderRadius: '45% 55% 50% 50% / 60% 60% 40% 40%'
+                    borderRadius: '45% 55% 50% 50% / 60% 60% 40% 40%',
+                    minHeight: '180px',
+                    minWidth: '90px',
+                    padding: '20px 16px'
                    }}>
-                <p className="text-gray-600 italic text-base md:text-lg lg:text-xl"
+                <p className="text-gray-600 italic text-base md:text-lg lg:text-xl block"
                    style={{ 
                      writingMode: 'vertical-rl',
+                     WebkitWritingMode: 'vertical-rl',
                      textOrientation: 'upright',
+                     WebkitTextOrientation: 'upright',
                      fontFamily: '"Noto Sans JP", sans-serif',
                      letterSpacing: '0.1em',
                      lineHeight: '1.9',
-                     inlineSize: 'var(--ivs)'
+                     height: 'auto',
+                     width: 'auto',
+                     display: 'block'
                    }}>
                   {bubbleA.split('\n').map((line, index) => (
                     <React.Fragment key={index}>
@@ -274,18 +281,25 @@ export default function ChapterOne() {
               viewport={{ once: true, margin: '-120px' }}
               className="absolute top-0 right-4 md:top-20 md:right-12 lg:top-10 lg:right-0"
             >
-              <div className="relative bg-gradient-to-br from-indigo-50 to-purple-50 backdrop-blur-sm shadow-lg [--ivs:14ch] md:[--ivs:14ch] lg:[--ivs:15ch] px-5 py-6 md:px-6 md:py-7 lg:pt-10 whitespace-nowrap"
+              <div className="relative bg-gradient-to-br from-indigo-50 to-purple-50 backdrop-blur-sm shadow-lg overflow-visible whitespace-nowrap"
                    style={{ 
-                    borderRadius: '55% 45% 45% 55% / 50% 60% 40% 50%'
+                    borderRadius: '55% 45% 45% 55% / 50% 60% 40% 50%',
+                    minHeight: '180px',
+                    minWidth: '90px',
+                    padding: '24px 20px'
                    }}>
-                <p className="text-gray-700 italic text-base md:text-lg lg:text-xl"
+                <p className="text-gray-700 italic text-base md:text-lg lg:text-xl block"
                    style={{ 
                      writingMode: 'vertical-rl',
+                     WebkitWritingMode: 'vertical-rl',
                      textOrientation: 'upright',
+                     WebkitTextOrientation: 'upright',
                      fontFamily: '"Noto Sans JP", sans-serif',
                      letterSpacing: '0.12em',
-                    lineHeight: '2.0',
-                     inlineSize: 'var(--ivs)'
+                     lineHeight: '2.0',
+                     height: 'auto',
+                     width: 'auto',
+                     display: 'block'
                    }}>
                   {bubbleB.split('\n').map((line, index) => (
                     <React.Fragment key={index}>
