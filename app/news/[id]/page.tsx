@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getNewsDetail, getNewsList } from '@/lib/microcms'
+import { getNewsDetail, getNewsList, News } from '@/lib/microcms'
 import NewsDetail from '@/components/news/NewsDetail'
 
 interface PageProps {
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export async function generateStaticParams() {
   const { contents } = await getNewsList(100, 0)
   
-  return contents.map((news: any) => ({
+  return contents.map((news: News) => ({
     id: news.id,
   }))
 }
