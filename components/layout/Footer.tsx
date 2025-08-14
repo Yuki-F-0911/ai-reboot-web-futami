@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
       { label: 'お知らせ', href: '#news' },
     ],
     support: [
-      { label: 'お問い合わせ', href: '#contact' },
+      { label: 'お問い合わせ', href: '/contact' },
       { label: 'プライバシーポリシー', href: '#privacy' },
     ],
   };
