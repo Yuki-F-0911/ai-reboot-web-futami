@@ -8,36 +8,24 @@ import PersistentSettingsControl from '@/components/ui/PersistentSettingsControl
 import FloatingCTA from '@/components/ui/FloatingCTA'
 import { PersonalizationProvider, usePersonalization } from '@/contexts/PersonalizationContext'
 import { useUrlParams } from '@/hooks/useUrlParams'
-import '@/utils/clearStorage' // デバッグ用ユーティリティをロード
+import '@/utils/clearStorage'
+import metadata from './metadata'
 
-// Canvasコンポーネントをクライアントサイドでのみ読み込み（チャンク失敗時は無効化）
+export { metadata }
+
+// Canvasロード
 const loadNoiseGlitch = (): Promise<{ default: React.ComponentType<unknown> }> =>
   import('@/components/effects/NoiseGlitch')
     .then((m) => ({ default: (m as { default: React.ComponentType<unknown> }).default }))
-    .catch((e) => {
-      console.warn('NoiseGlitch chunk failed, disabling effect:', e)
-      return { default: () => null }
-    })
+    .catch((e) => { console.warn('NoiseGlitch chunk failed:', e); return { default: () => null } })
 
 const loadMangaMontage = (): Promise<{ default: React.ComponentType<unknown> }> =>
   import('@/components/effects/MangaMontage')
     .then((m) => ({ default: (m as { default: React.ComponentType<unknown> }).default }))
-    .catch((e) => {
-      console.warn('MangaMontage chunk failed, disabling effect:', e)
-      return { default: () => null }
-    })
+    .catch((e) => { console.warn('MangaMontage chunk failed:', e); return { default: () => null } })
 
-type NoiseGlitchProps = { intensity?: number; active?: boolean }
-type MangaMontageProps = { enabled?: boolean }
-
-const NoiseGlitch = dynamic(loadNoiseGlitch, {
-  ssr: false,
-  loading: () => <div className="fixed inset-0 bg-black z-20" />
-}) as React.ComponentType<NoiseGlitchProps>
-
-const MangaMontage = dynamic(loadMangaMontage, {
-  ssr: false
-}) as React.ComponentType<MangaMontageProps>
+const NoiseGlitch = dynamic(loadNoiseGlitch, { ssr: false, loading: () => <div className="fixed inset-0 bg-black z-20" /> }) as React.ComponentType<{ intensity?: number; active?: boolean }>
+const MangaMontage = dynamic(loadMangaMontage, { ssr: false }) as React.ComponentType<{ enabled?: boolean }>
 
 function RebootersContent() {
   const [noiseOpacity, setNoiseOpacity] = useState(1)
@@ -46,82 +34,36 @@ function RebootersContent() {
   const rafRef = useRef<number | null>(null)
   const { data } = usePersonalization()
   const { isSkipped } = useUrlParams()
-  
-  // URLパラメータがある場合は即座にスキップ、そうでなければ既存データを確認
-  useEffect(() => {
-    // URLパラメータがある場合は優先
-    if (isSkipped) {
-      console.log('URLパラメータによりオンボーディングをスキップ')
-      setContentReady(true)
-    } else if (data.hasCompleted) {
-      // URLパラメータがなく、既存データがある場合
-      console.log('既存データによりオンボーディングをスキップ')
-      setContentReady(true)
-    }
-  }, [isSkipped, data.hasCompleted])
-  
+
+  useEffect(() => { if (isSkipped || data.hasCompleted) setContentReady(true) }, [isSkipped, data.hasCompleted])
+
   useEffect(() => {
     const handleScroll = () => {
       if (rafRef.current !== null) return
       rafRef.current = requestAnimationFrame(() => {
         rafRef.current = null
-        const scrollY = window.scrollY
-        const windowHeight = window.innerHeight
-        
-        const fadeStartPoint = windowHeight * 3
-        const fadeEndPoint = windowHeight * 3.5
-        
-        if (scrollY < fadeStartPoint) {
-          setNoiseOpacity(0.8)
-          setEffectsActive(true)
-        } else if (scrollY >= fadeStartPoint && scrollY <= fadeEndPoint) {
-          const fadeProgress = (scrollY - fadeStartPoint) / (fadeEndPoint - fadeStartPoint)
-          const nextOpacity = 0.8 * (1 - fadeProgress)
-          setNoiseOpacity(nextOpacity)
-          setEffectsActive(nextOpacity > 0.2)
-        } else {
-          setNoiseOpacity(0)
-          setEffectsActive(false)
-        }
+        const y = window.scrollY, h = window.innerHeight
+        const a = h * 3, b = h * 3.5
+        if (y < a) { setNoiseOpacity(0.8); setEffectsActive(true) }
+        else if (y <= b) {
+          const p = (y - a) / (b - a), op = 0.8 * (1 - p)
+          setNoiseOpacity(op); setEffectsActive(op > 0.2)
+        } else { setNoiseOpacity(0); setEffectsActive(false) }
       })
     }
-    
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      if (rafRef.current) cancelAnimationFrame(rafRef.current)
-    }
+    window.addEventListener('scroll', handleScroll, { passive: true }); handleScroll()
+    return () => { window.removeEventListener('scroll', handleScroll); if (rafRef.current) cancelAnimationFrame(rafRef.current) }
   }, [])
-  
+
   return (
     <PersonalizationProvider>
-
-      {/* オンボーディングフロー（質問→名前→音楽） */}
-      {!contentReady && (
-        <OnboardingFlow onComplete={() => setContentReady(true)} />
-      )}
-      
-      {/* 永続的な設定コントロール（BGM含む） */}
+      {!contentReady && <OnboardingFlow onComplete={() => setContentReady(true)} />}
       <PersistentSettingsControl />
-      
-      {/* フローティングCTAボタン */}
       <FloatingCTA />
-      
-      {/* コンテンツは設定完了後に表示 */}
       {contentReady && (
         <>
-          {/* ノイズエフェクト - スクロールに応じてフェードアウト */}
-          {effectsActive && (
-            <div style={{ opacity: noiseOpacity, transition: 'opacity 0.3s ease-out' }}>
-              <NoiseGlitch intensity={0.8} active={effectsActive} />
-            </div>
-          )}
-          
-          {/* 漫画モンタージュエフェクト - FVエリアのみ */}
+          {effectsActive && (<div style={{ opacity: noiseOpacity, transition: 'opacity 0.3s ease-out' }}><NoiseGlitch intensity={0.8} active={effectsActive} /></div>)}
           {effectsActive && noiseOpacity > 0.5 && <MangaMontage enabled={effectsActive} />}
-          
           <AcademyHomePage />
         </>
       )}
@@ -129,16 +71,8 @@ function RebootersContent() {
   )
 }
 
-function RebootersPageContent() {
-  return (
-    <PersonalizationProvider>
-      <Suspense fallback={<div />}>
-        <RebootersContent />
-      </Suspense>
-    </PersonalizationProvider>
-  )
-}
-
-export default function RebootersPage() {
-  return <RebootersPageContent />
-}
+export default function RebootersPage() { return (
+  <PersonalizationProvider>
+    <Suspense fallback={<div />}> <RebootersContent /> </Suspense>
+  </PersonalizationProvider>
+)}
