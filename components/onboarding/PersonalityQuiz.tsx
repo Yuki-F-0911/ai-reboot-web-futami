@@ -3,6 +3,14 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { QuizAnswers } from '@/contexts/PersonalizationContext'
+import { 
+  Rocket, 
+  Sparkles, 
+  Flame, 
+  Sprout, 
+  Wrench, 
+  Lightbulb 
+} from 'lucide-react'
 
 interface PersonalityQuizProps {
   onComplete: (answers: QuizAnswers) => void
@@ -16,13 +24,13 @@ const questions = [
     options: [
       {
         value: 'efficiency',
-        icon: '🚀',
+        icon: Rocket,
         label: '今の仕事を効率化したい',
         description: 'AIツールを使って業務を改善'
       },
       {
         value: 'possibility',
-        icon: '✨',
+        icon: Sparkles,
         label: '新しい可能性を探りたい',
         description: '未知の領域にチャレンジ'
       }
@@ -34,13 +42,13 @@ const questions = [
     options: [
       {
         value: 'change',
-        icon: '🔥',
+        icon: Flame,
         label: '変化を起こしたい',
         description: '現状を打破する行動を'
       },
       {
         value: 'growth',
-        icon: '🌱',
+        icon: Sprout,
         label: 'じっくり成長したい',
         description: '着実にスキルアップ'
       }
@@ -52,13 +60,13 @@ const questions = [
     options: [
       {
         value: 'skills',
-        icon: '🛠️',
+        icon: Wrench,
         label: '実践的なスキル',
         description: 'すぐに使える技術'
       },
       {
         value: 'mindset',
-        icon: '💡',
+        icon: Lightbulb,
         label: '新しい考え方',
         description: 'AI時代の思考法'
       }
@@ -171,7 +179,9 @@ export default function PersonalityQuiz({ onComplete, onSkipAll }: PersonalityQu
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <div className="text-5xl mb-4">{option.icon}</div>
+                  <div className="flex justify-center mb-4">
+                    <option.icon className="w-12 h-12 text-will-primary" />
+                  </div>
                   <h3 className="text-xl font-bold text-gray-800 mb-2">
                     {option.label}
                   </h3>

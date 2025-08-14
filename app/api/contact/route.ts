@@ -3,6 +3,9 @@ import { NextRequest, NextResponse } from 'next/server';
 // メール送信先
 const RECIPIENT_EMAIL = 'info@ai-reboot.io';
 
+// Slack Webhook URL（環境変数から取得）
+const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
+
 interface ContactFormData {
   contactType: 'individual' | 'corporate';
   // 共通項目
@@ -19,6 +22,179 @@ interface ContactFormData {
   employeeCount?: string;
   contactPerson?: string;
   companyPhone?: string;
+}
+
+// Slack通知を送信する関数
+async function sendSlackNotification(data: ContactFormData) {
+  if (!SLACK_WEBHOOK_URL) {
+    console.warn('Slack Webhook URLが設定されていません');
+    return;
+  }
+
+  try {
+    // Slackメッセージの構築
+    const blocks = [
+      {
+        type: 'header',
+        text: {
+          type: 'plain_text',
+          text: '🔔 新しいお問い合わせが届きました',
+          emoji: true
+        }
+      },
+      {
+        type: 'section',
+        fields: [
+          {
+            type: 'mrkdwn',
+            text: `*種別:*\n${data.contactType === 'individual' ? '👤 個人' : '🏢 法人'}`
+          },
+          {
+            type: 'mrkdwn',
+            text: `*件名:*\n${data.subject}`
+          }
+        ]
+      },
+      {
+        type: 'divider'
+      }
+    ];
+
+    // 個人/法人別の情報を追加
+    if (data.contactType === 'individual') {
+      blocks.push({
+        type: 'section',
+        fields: [
+          {
+            type: 'mrkdwn',
+            text: `*お名前:*\n${data.name}`
+          },
+          {
+            type: 'mrkdwn',
+            text: `*メールアドレス:*\n${data.email}`
+          }
+        ]
+      });
+      if (data.phone) {
+        blocks.push({
+          type: 'section',
+          fields: [
+            {
+              type: 'mrkdwn',
+              text: `*電話番号:*\n${data.phone}`
+            }
+          ]
+        });
+      }
+    } else {
+      const corporateFields = [
+        {
+          type: 'mrkdwn',
+          text: `*会社名:*\n${data.companyName}`
+        },
+        {
+          type: 'mrkdwn',
+          text: `*ご担当者名:*\n${data.contactPerson}`
+        }
+      ];
+      blocks.push({
+        type: 'section',
+        fields: corporateFields
+      });
+
+      const additionalFields = [];
+      if (data.department) {
+        additionalFields.push({
+          type: 'mrkdwn',
+          text: `*部署:*\n${data.department}`
+        });
+      }
+      if (data.position) {
+        additionalFields.push({
+          type: 'mrkdwn',
+          text: `*役職:*\n${data.position}`
+        });
+      }
+      if (additionalFields.length > 0) {
+        blocks.push({
+          type: 'section',
+          fields: additionalFields
+        });
+      }
+
+      const contactFields = [
+        {
+          type: 'mrkdwn',
+          text: `*メールアドレス:*\n${data.email}`
+        }
+      ];
+      if (data.companyPhone) {
+        contactFields.push({
+          type: 'mrkdwn',
+          text: `*電話番号:*\n${data.companyPhone}`
+        });
+      }
+      blocks.push({
+        type: 'section',
+        fields: contactFields
+      });
+
+      if (data.employeeCount) {
+        blocks.push({
+          type: 'section',
+          fields: [
+            {
+              type: 'mrkdwn',
+              text: `*従業員数:*\n${data.employeeCount}`
+            }
+          ]
+        });
+      }
+    }
+
+    // お問い合わせ内容を追加
+    blocks.push(
+      {
+        type: 'divider'
+      },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `*お問い合わせ内容:*\n\`\`\`\n${data.message}\n\`\`\``
+        }
+      },
+      {
+        type: 'context',
+        elements: [
+          {
+            type: 'mrkdwn',
+            text: `受信日時: ${new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })}`
+          }
+        ]
+      }
+    );
+
+    // Slackに送信
+    const response = await fetch(SLACK_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        blocks,
+        text: `新しいお問い合わせ: ${data.subject}` // フォールバックテキスト
+      }),
+    });
+
+    if (!response.ok) {
+      console.error('Slack通知の送信に失敗しました:', response.statusText);
+    } else {
+      console.log('Slack通知を送信しました');
+    }
+  } catch (error) {
+    console.error('Slack通知エラー:', error);
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -90,6 +266,11 @@ export async function POST(request: NextRequest) {
       console.log(emailBody);
       console.log('=====================================');
     }
+
+    // Slack通知を送信（非同期で実行、エラーが発生してもレスポンスには影響しない）
+    sendSlackNotification(data).catch(error => {
+      console.error('Slack通知の送信でエラーが発生しました:', error);
+    });
 
     // TODO: 実際のメール送信実装
     // 例: SendGridを使用する場合
