@@ -49,7 +49,7 @@ export default async function NewsDetailPage({ params }: PageProps) {
   // 関連記事を取得（同じカテゴリーの記事）
   const { contents: relatedNews } = await getNewsList(4, 0)
   const filteredRelated = relatedNews
-    .filter(item => item.id !== id && item.category === news.category)
+    .filter((item: News) => item.id !== id && item.category === news.category)
     .slice(0, 3)
 
   return <NewsDetail news={news} relatedNews={filteredRelated} />
