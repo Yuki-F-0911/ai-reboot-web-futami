@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
+import { AlertTriangle } from "lucide-react";
 
 export const AcademySchedule = () => {
   const ref = useRef(null);
@@ -126,9 +127,12 @@ export const AcademySchedule = () => {
                 </div>
 
                 <div className="mt-4 p-3 bg-white/60 rounded-lg">
-                  <p className="text-xs text-depth-700 text-center">
-                    ⚠️ リスキリング補助金の予算には限りがあります。<br />
-                    お早めのお申し込みをお勧めします。
+                  <p className="text-xs text-depth-700 text-center flex items-center justify-center gap-1">
+                    <AlertTriangle className="w-4 h-4 text-orange-500 flex-shrink-0" />
+                    <span>
+                      リスキリング補助金の予算には限りがあります。<br />
+                      お早めのお申し込みをお勧めします。
+                    </span>
                   </p>
                 </div>
               </div>

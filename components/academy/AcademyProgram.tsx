@@ -3,6 +3,7 @@
 import React from "react";
 
 import { motion } from "framer-motion";
+import { Calendar, MessageCircle, Target, Rocket } from "lucide-react";
 
 export const AcademyProgram = React.memo(function AcademyProgram() {
   return (
@@ -87,7 +88,10 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
                         viewport={{ once: true, margin: "-20%" }}
                         className="bg-white/70 rounded-lg p-5"
                       >
-                        <h4 className="font-semibold text-depth-800 mb-2">📅 毎週のオンラインセッション</h4>
+                        <h4 className="font-semibold text-depth-800 mb-2 flex items-center gap-2">
+                          <Calendar className="w-5 h-5 text-will-primary" />
+                          毎週のオンラインセッション
+                        </h4>
                         <p className="text-sm text-depth-600">最新のAI活用事例と実践的なワークショップ</p>
                       </motion.div>
                       
@@ -98,7 +102,10 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
                         viewport={{ once: true, margin: "-20%" }}
                         className="bg-white/70 rounded-lg p-5"
                       >
-                        <h4 className="font-semibold text-depth-800 mb-2">💬 個別メンタリング</h4>
+                        <h4 className="font-semibold text-depth-800 mb-2 flex items-center gap-2">
+                          <MessageCircle className="w-5 h-5 text-will-primary" />
+                          個別メンタリング
+                        </h4>
                         <p className="text-sm text-depth-600">一人ひとりの課題に寄り添うフィードバック</p>
                       </motion.div>
                       
@@ -109,7 +116,10 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
                         viewport={{ once: true, margin: "-20%" }}
                         className="bg-white/70 rounded-lg p-5"
                       >
-                        <h4 className="font-semibold text-depth-800 mb-2">🎯 キャリアコンサルティング</h4>
+                        <h4 className="font-semibold text-depth-800 mb-2 flex items-center gap-2">
+                          <Target className="w-5 h-5 text-will-primary" />
+                          キャリアコンサルティング
+                        </h4>
                         <p className="text-sm text-depth-600">月1回の自己理解とキャリア設計支援</p>
                       </motion.div>
                       
@@ -120,7 +130,10 @@ export const AcademyProgram = React.memo(function AcademyProgram() {
                         viewport={{ once: true, margin: "-20%" }}
                         className="bg-white/70 rounded-lg p-5"
                       >
-                        <h4 className="font-semibold text-depth-800 mb-2">🚀 実践プロジェクト</h4>
+                        <h4 className="font-semibold text-depth-800 mb-2 flex items-center gap-2">
+                          <Rocket className="w-5 h-5 text-will-primary" />
+                          実践プロジェクト
+                        </h4>
                         <p className="text-sm text-depth-600">実際の課題解決に挑戦する実践的な学び</p>
                       </motion.div>
                     </div>
