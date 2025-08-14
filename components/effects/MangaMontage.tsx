@@ -5,24 +5,24 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 import { createRNG } from './utils/seededRandom'
 
-// 実際の画像パス（16枚）
+// 実際の画像パス（16枚）- 縮小版を使用
 const mangaPanels = [
-  { id: 1, src: '/fv-manga/manga_1.webp', alt: '深夜のオフィスで企画書を書く人' },
-  { id: 2, src: '/fv-manga/manga_2.webp', alt: 'プレゼンで情熱的に語る女性' },
-  { id: 3, src: '/fv-manga/manga_3.webp', alt: 'チームメンバーと議論する瞬間' },
-  { id: 4, src: '/fv-manga/manga_4.webp', alt: 'コードを書くエンジニアの横顔' },
-  { id: 5, src: '/fv-manga/manga_5.webp', alt: 'アイデアがひらめく瞬間' },
-  { id: 6, src: '/fv-manga/manga_6.webp', alt: '資料を見つめて考え込む人' },
-  { id: 7, src: '/fv-manga/manga_7.webp', alt: '窓の外を見つめる後ろ姿' },
-  { id: 8, src: '/fv-manga/manga_8.webp', alt: '手を握りしめる決意の瞬間' },
-  { id: 9, src: '/fv-manga/manga_9.webp', alt: '早朝のジョギング、自己投資の瞬間' },
-  { id: 10, src: '/fv-manga/manga_10.webp', alt: 'スマホで学習動画を見る瞬間' },
-  { id: 11, src: '/fv-manga/manga_11.webp', alt: 'ホワイトボードに戦略を描く' },
-  { id: 12, src: '/fv-manga/manga_12.webp', alt: '同僚と成功を喜ぶハイタッチ' },
-  { id: 13, src: '/fv-manga/manga_13.webp', alt: '鏡の前で自分と向き合う' },
-  { id: 14, src: '/fv-manga/manga_14.webp', alt: 'カフェでノートPCに向かう週末起業家' },
-  { id: 15, src: '/fv-manga/manga_15.webp', alt: '子供に勉強を教える親の姿' },
-  { id: 16, src: '/fv-manga/manga_16.webp', alt: 'オンライン会議で発言する勇気' },
+  { id: 1, src: '/fv-manga/manga_1_s.webp', alt: '深夜のオフィスで企画書を書く人' },
+  { id: 2, src: '/fv-manga/manga_2_s.webp', alt: 'プレゼンで情熱的に語る女性' },
+  { id: 3, src: '/fv-manga/manga_3_s.webp', alt: 'チームメンバーと議論する瞬間' },
+  { id: 4, src: '/fv-manga/manga_4_s.webp', alt: 'コードを書くエンジニアの横顔' },
+  { id: 5, src: '/fv-manga/manga_5_s.webp', alt: 'アイデアがひらめく瞬間' },
+  { id: 6, src: '/fv-manga/manga_6_s.webp', alt: '資料を見つめて考え込む人' },
+  { id: 7, src: '/fv-manga/manga_7_s.webp', alt: '窓の外を見つめる後ろ姿' },
+  { id: 8, src: '/fv-manga/manga_8_s.webp', alt: '手を握りしめる決意の瞬間' },
+  { id: 9, src: '/fv-manga/manga_9_s.webp', alt: '早朝のジョギング、自己投資の瞬間' },
+  { id: 10, src: '/fv-manga/manga_10_s.webp', alt: 'スマホで学習動画を見る瞬間' },
+  { id: 11, src: '/fv-manga/manga_11_s.webp', alt: 'ホワイトボードに戦略を描く' },
+  { id: 12, src: '/fv-manga/manga_12_s.webp', alt: '同僚と成功を喜ぶハイタッチ' },
+  { id: 13, src: '/fv-manga/manga_13_s.webp', alt: '鏡の前で自分と向き合う' },
+  { id: 14, src: '/fv-manga/manga_14_s.webp', alt: 'カフェでノートPCに向かう週末起業家' },
+  { id: 15, src: '/fv-manga/manga_15_s.webp', alt: '子供に勉強を教える親の姿' },
+  { id: 16, src: '/fv-manga/manga_16_s.webp', alt: 'オンライン会議で発言する勇気' },
 ]
 
 
@@ -65,10 +65,13 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
     
     const selectedPos = positions[Math.floor(rng() * positions.length)]
     
+    // モバイルかどうかを判定
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+    
     setRandomValues({
       x: selectedPos.x,
       y: selectedPos.y,
-      scale: 0.5 + rng() * 0.35 // 0.5 to 0.85 (モバイルでさらに小さく)
+      scale: isMobile ? (0.6 + rng() * 0.3) : (1.2 + rng() * 0.6) // モバイル: 0.6-0.9, PC: 1.2-1.8
     })
     setIsPositioned(true)
   }, [panel.id])
@@ -111,7 +114,7 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
   
   return (
     <motion.div
-      className="absolute w-[180px] sm:w-[220px] md:w-[280px] lg:w-[350px] h-auto"
+      className="absolute w-[250px] sm:w-[300px] md:w-[600px] lg:w-[800px] h-auto"
       style={{
         left: `${50 + randomValues.x}%`,
         top: `${50 + randomValues.y}%`,
@@ -135,8 +138,8 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
           <Image
             src={panel.src}
             alt=""
-            width={350}
-            height={250}
+            width={800}
+            height={600}
             className="object-contain"
             style={{ 
               width: 'auto',
@@ -156,8 +159,8 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
         <Image
           src={panel.src}
           alt={panel.alt}
-          width={350}
-          height={250}
+          width={800}
+          height={600}
           className="object-contain relative z-10"
           style={{ 
             width: 'auto',
