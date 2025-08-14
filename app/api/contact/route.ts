@@ -33,7 +33,7 @@ async function sendSlackNotification(data: ContactFormData) {
 
   try {
     // Slackメッセージの構築
-    const blocks = [
+    const blocks: Array<Record<string, unknown>> = [
       {
         type: 'header',
         text: {
