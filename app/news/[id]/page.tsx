@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export async function generateStaticParams() {
   const { contents } = await getNewsList(100, 0)
   
-  return contents.map((news) => ({
+  return contents.map((news: any) => ({
     id: news.id,
   }))
 }
