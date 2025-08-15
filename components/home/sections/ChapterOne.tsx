@@ -149,15 +149,6 @@ export default function ChapterOne() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <p className="text-lg text-gray-600" style={{
-              fontFamily: '"Noto Sans JP", sans-serif',
-              letterSpacing: '0.08em',
-              lineHeight: '2'
-            }}>
-              仮に、AIに何かを教えるとしたら。<br />
-              それは、教科書に載ってる正解じゃないですよね。
-            </p>
-            
             <p className="text-lg text-gray-700 font-medium" style={{
               fontFamily: '"Noto Sans JP", sans-serif',
               letterSpacing: '0.08em',
@@ -205,7 +196,7 @@ export default function ChapterOne() {
                   lineHeight: '2.2'
                 }}
               >
-                損益計算書に載らなかった執着。
+                損益計算書に載らなかったこだわり。
               </motion.p>
               <motion.p 
                 className="text-lg md:text-xl text-gray-600"
@@ -219,7 +210,7 @@ export default function ChapterOne() {
                   lineHeight: '2.2'
                 }}
               >
-                誰も評価しなかった、あなただけの「なぜ」。
+                誰にも言えなかった、心動かす衝動。
               </motion.p>
             </div>
           </motion.div>
