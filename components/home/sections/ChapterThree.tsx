@@ -176,7 +176,7 @@ export default function ChapterThree() {
                 letterSpacing: '0.06em',
                 lineHeight: '2'
               }}>
-                答えは、すべて、あなたの中にしかないからです。
+                答えは、すべて、あなたの中にあります。
               </p>
               <p className="mt-6 text-left text-lg md:text-xl text-gray-900 font-medium" style={{
                 fontFamily: '"Noto Serif JP", serif',

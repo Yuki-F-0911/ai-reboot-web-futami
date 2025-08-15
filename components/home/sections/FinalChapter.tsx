@@ -194,7 +194,6 @@ export default function FinalChapter() {
                 letterSpacing: '0.08em',
                 lineHeight: '2'
               }}>
-                でも、本当の投資は、あなた自身との時間。<br />
                 もし、ピンと来たら。<br />
                 まずは、あなたの「なぜ」を、聞かせてください。
               </p>
@@ -384,7 +383,7 @@ export default function FinalChapter() {
               letterSpacing: '0.12em',
               lineHeight: '1.8'
             }}>
-              あなたの「Will」が、<br className='md:hidden' />静かに待っている。
+              あなたの「Will」が、<br className='md:hidden' />あなたを待っている。
             </p>
             
             {/* パーソナライズCTA */}

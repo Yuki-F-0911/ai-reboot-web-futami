@@ -132,7 +132,7 @@ export default function ChapterFour() {
                 letterSpacing: '0.1em',
                 lineHeight: '2'
               }}>
-                個人の「Will」が目覚めるとき、<br />
+                あなたの「Will」が目覚めるとき、<br />
                 まず、日常の見え方が変わる。
               </p>
             </div>
