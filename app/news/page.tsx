@@ -1,4 +1,4 @@
-import { getNewsList } from '@/lib/microcms'
+import { getNewsArticles } from '@/lib/microcms-helper'
 import NewsListClient from '@/components/news/NewsListClient'
 import { Metadata } from 'next'
 
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 export const revalidate = 60
 
 export default async function NewsListPage() {
-  // サーバーサイドでニュース一覧を取得
-  const { contents, totalCount } = await getNewsList(12, 0)
+  // サーバーサイドでお知らせ記事のみ取得（ブログカテゴリーは除外）
+  const { contents, totalCount } = await getNewsArticles(12, 0)
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">

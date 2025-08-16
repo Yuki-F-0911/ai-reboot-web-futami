@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
     
     // カテゴリーでフィルタリング
     const filteredContents = category 
-      ? contents.filter((item: any) => item.category === category)
+      ? contents.filter((item) => item.category === category)
       : contents
 
     return NextResponse.json({

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getNewsDetail, getNewsList, News } from '@/lib/microcms'
+import { getNewsDetail, News } from '@/lib/microcms'
+import { getBlogArticles, isBlogCategory } from '@/lib/microcms-helper'
 import BlogArticle from '@/components/blog/BlogArticle'
 
 interface PageProps {
@@ -57,8 +58,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 // 静的パスの生成
 export async function generateStaticParams() {
-  const { contents } = await getNewsList(100, 0)
+  const { contents } = await getBlogArticles(100, 0)
   
+  // ブログカテゴリーの記事のみ
   return contents.map((article: News) => ({
     id: article.id,
   }))
@@ -75,8 +77,13 @@ export default async function BlogArticlePage({ params }: PageProps) {
     notFound()
   }
 
-  // 関連記事を取得
-  const { contents: allArticles } = await getNewsList(20, 0)
+  // ブログカテゴリーの記事でない場合は404
+  if (!isBlogCategory(article.category as string)) {
+    notFound()
+  }
+
+  // 関連記事を取得（ブログ記事のみ）
+  const { contents: allArticles } = await getBlogArticles(20, 0)
   
   // 同じカテゴリーの記事を優先
   const relatedArticles = allArticles

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getNewsDetail, getNewsList, News } from '@/lib/microcms'
+import { getNewsDetail, News } from '@/lib/microcms'
+import { getNewsArticles, isNewsCategory } from '@/lib/microcms-helper'
 import NewsDetail from '@/components/news/NewsDetail'
 
 interface PageProps {
@@ -31,8 +32,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 // 静的パスの生成（ビルド時に事前生成）
 export async function generateStaticParams() {
-  const { contents } = await getNewsList(100, 0)
+  const { contents } = await getNewsArticles(100, 0)
   
+  // お知らせカテゴリーの記事のみ
   return contents.map((news: News) => ({
     id: news.id,
   }))
@@ -49,8 +51,13 @@ export default async function NewsDetailPage({ params }: PageProps) {
     notFound()
   }
 
-  // 関連記事を取得（同じカテゴリーの記事）
-  const { contents: relatedNews } = await getNewsList(4, 0)
+  // お知らせカテゴリーの記事でない場合は404
+  if (!isNewsCategory(news.category as string)) {
+    notFound()
+  }
+
+  // 関連記事を取得（お知らせ記事のみ）
+  const { contents: relatedNews } = await getNewsArticles(4, 0)
   const filteredRelated = relatedNews
     .filter((item: News) => item.id !== id && item.category === news.category)
     .slice(0, 3)

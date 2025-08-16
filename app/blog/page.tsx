@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { getNewsList } from '@/lib/microcms'
+import { getBlogArticles } from '@/lib/microcms-helper'
 import BlogListClient from '@/components/blog/BlogListClient'
 
 export const metadata: Metadata = {
@@ -30,14 +30,22 @@ export const metadata: Metadata = {
 export const revalidate = 60
 
 export default async function BlogPage() {
-  // ブログ記事を取得（カテゴリーでフィルタリング）
-  const { contents, totalCount } = await getNewsList(12, 0)
+  // ブログ記事のみを取得（お知らせカテゴリーは除外）
+  const { contents } = await getBlogArticles(50, 0)
   
-  // カテゴリー別に記事を分類
-  const featuredArticles = contents.filter(item => item.category === 'featured').slice(0, 3)
-  const aiTrends = contents.filter(item => item.category === 'ai-trends').slice(0, 6)
-  const caseStudies = contents.filter(item => item.category === 'case-study').slice(0, 4)
-  const tutorials = contents.filter(item => item.category === 'tutorial').slice(0, 4)
+  // カテゴリー別に記事を分類（日本語カテゴリー名で判定）
+  const featuredArticles = contents.filter(item => 
+    item.category === '注目記事' || item.category === 'featured'
+  ).slice(0, 3)
+  const aiTrends = contents.filter(item => 
+    item.category === 'AIトレンド' || item.category === 'ai-trends'
+  ).slice(0, 6)
+  const caseStudies = contents.filter(item => 
+    item.category === '活用事例' || item.category === 'case-study'
+  ).slice(0, 4)
+  const tutorials = contents.filter(item => 
+    item.category === 'チュートリアル' || item.category === 'tutorial'
+  ).slice(0, 4)
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/50 to-white">
@@ -85,6 +93,58 @@ export default async function BlogPage() {
           </div>
         </div>
       </section>
+
+      {/* 記事がない場合のメッセージ */}
+      {contents.length === 0 && (
+        <section className="py-16 px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8 text-center">
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                まだブログ記事がありません
+              </h2>
+              <p className="text-gray-600 mb-6">
+                MicroCMSでブログカテゴリーの記事を作成してください。
+              </p>
+              <div className="text-left max-w-md mx-auto">
+                <p className="text-sm text-gray-600 mb-2">ブログカテゴリー：</p>
+                <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                  <li>注目記事</li>
+                  <li>AIトレンド</li>
+                  <li>活用事例</li>
+                  <li>チュートリアル</li>
+                  <li>プロンプト集</li>
+                  <li>ツール紹介</li>
+                </ul>
+              </div>
+              <div className="mt-6">
+                <Link href="/blog/temp" className="text-will-primary hover:underline">
+                  → テストページで全記事を確認
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* すべての記事を表示（カテゴリー分けできない場合） */}
+      {contents.length > 0 && featuredArticles.length === 0 && aiTrends.length === 0 && 
+       caseStudies.length === 0 && tutorials.length === 0 && (
+        <section className="py-16 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-3xl font-light text-gray-900">
+                最新記事
+              </h2>
+              <div className="h-px flex-1 bg-gradient-to-r from-gray-200 to-transparent ml-8" />
+            </div>
+            
+            <BlogListClient 
+              initialArticles={contents}
+              showLoadMore={contents.length >= 12}
+            />
+          </div>
+        </section>
+      )}
 
       {/* 注目記事 */}
       {featuredArticles.length > 0 && (

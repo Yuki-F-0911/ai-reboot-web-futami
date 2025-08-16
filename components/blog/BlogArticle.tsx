@@ -352,15 +352,28 @@ export default function BlogArticle({
 }
 
 function getCategoryLabel(category: string): string {
+  // 日本語カテゴリーはそのまま返す
+  const japaneseCategories = [
+    '注目記事', 'AIトレンド', '活用事例', 'チュートリアル', 
+    'プロンプト集', 'ツール紹介', 'ニュース', 'イベント', 
+    'メディア掲載', 'お知らせ'
+  ]
+  if (japaneseCategories.includes(category)) {
+    return category
+  }
+  
+  // 英語カテゴリーは日本語に変換
   const labels: Record<string, string> = {
+    'featured': '注目記事',
     'ai-trends': 'AIトレンド',
     'case-study': '活用事例',
     'tutorial': 'チュートリアル',
-    'prompts': 'プロンプト',
-    'tools': 'ツール',
-    'featured': '注目',
+    'prompts': 'プロンプト集',
+    'tools': 'ツール紹介',
     'news': 'ニュース',
     'event': 'イベント',
+    'media': 'メディア掲載',
+    'notice': 'お知らせ',
   }
   return labels[category] || category
 }

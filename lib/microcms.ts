@@ -21,8 +21,20 @@ function getClient() {
 
 export const client = getClient()
 
-// お知らせの型定義
-export type NewsCategory = '新着' | 'イベント' | 'メディア' | 'お知らせ'
+// カテゴリーの型定義（英語で統一）
+export type Category = 
+  // ブログカテゴリー
+  | 'featured'
+  | 'ai-trends'
+  | 'case-study'
+  | 'tutorial'
+  | 'prompts'
+  | 'tools'
+  // お知らせカテゴリー
+  | 'news'
+  | 'event'
+  | 'media'
+  | 'notice'
 
 export interface News {
   id: string
@@ -31,7 +43,7 @@ export interface News {
   publishedAt: string
   revisedAt: string
   title: string
-  category: NewsCategory
+  category: Category
   content: string
   'md-content'?: string  // マークダウンコンテンツフィールド
   description?: string
@@ -40,6 +52,7 @@ export interface News {
     height: number
     width: number
   }
+  tags?: string[]  // タグフィールド追加
 }
 
 // お知らせ一覧を取得
