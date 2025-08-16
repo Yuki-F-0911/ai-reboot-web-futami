@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description: 'AI REBOOTの最新情報、イベント情報、メディア掲載情報をお届けします。',
 }
 
+// ISR設定: 60秒ごとに再検証
+export const revalidate = 60
+
 export default async function NewsListPage() {
   // サーバーサイドでニュース一覧を取得
   const { contents, totalCount } = await getNewsList(12, 0)

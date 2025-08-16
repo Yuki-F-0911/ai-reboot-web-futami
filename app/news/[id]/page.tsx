@@ -38,6 +38,9 @@ export async function generateStaticParams() {
   }))
 }
 
+// ISR設定: 60秒ごとに再検証
+export const revalidate = 60
+
 export default async function NewsDetailPage({ params }: PageProps) {
   const { id } = await params
   const news = await getNewsDetail(id)

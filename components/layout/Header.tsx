@@ -10,6 +10,8 @@ export const Header: React.FC = () => {
   const navItems = [
     { label: '個人向けリスキリング', href: '/academy' },
     { label: '法人向け研修', href: '/corporate' },
+    { label: 'ブログ', href: '/blog' },
+    { label: 'お知らせ', href: '/news' },
     { label: 'お問い合わせ', href: '/contact' },
   ];
 
