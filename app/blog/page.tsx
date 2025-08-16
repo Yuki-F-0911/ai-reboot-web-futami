@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { getBlogArticles } from '@/lib/microcms-helper'
 import BlogListClient from '@/components/blog/BlogListClient'
+import { categoryMatches, categoryMatchesAny } from '@/lib/category-helper'
 
 export const metadata: Metadata = {
   title: 'AIリブートジャーナル | AI活用の最前線から',
@@ -33,18 +34,18 @@ export default async function BlogPage() {
   // ブログ記事のみを取得（お知らせカテゴリーは除外）
   const { contents } = await getBlogArticles(50, 0)
   
-  // カテゴリー別に記事を分類（日本語カテゴリー名で判定）
+  // カテゴリー別に記事を分類（配列対応）
   const featuredArticles = contents.filter(item => 
-    item.category === '注目記事' || item.category === 'featured'
+    categoryMatchesAny(item.category, ['注目記事', 'featured'])
   ).slice(0, 3)
   const aiTrends = contents.filter(item => 
-    item.category === 'AIトレンド' || item.category === 'ai-trends'
+    categoryMatchesAny(item.category, ['AIトレンド', 'ai-trends'])
   ).slice(0, 6)
   const caseStudies = contents.filter(item => 
-    item.category === '活用事例' || item.category === 'case-study'
+    categoryMatchesAny(item.category, ['活用事例', 'case-study'])
   ).slice(0, 4)
   const tutorials = contents.filter(item => 
-    item.category === 'チュートリアル' || item.category === 'tutorial'
+    categoryMatchesAny(item.category, ['チュートリアル', 'tutorial'])
   ).slice(0, 4)
 
   return (
@@ -71,11 +72,12 @@ export default async function BlogPage() {
           {/* カテゴリーナビゲーション */}
           <div className="flex flex-wrap justify-center gap-3 mt-8">
             {[
-              { label: 'AIトレンド', href: '#ai-trends', color: 'bg-blue-500' },
-              { label: '活用事例', href: '#case-studies', color: 'bg-green-500' },
-              { label: 'チュートリアル', href: '#tutorials', color: 'bg-purple-500' },
-              { label: 'プロンプト集', href: '#prompts', color: 'bg-orange-500' },
-              { label: 'ツール紹介', href: '#tools', color: 'bg-pink-500' },
+              { label: '注目記事', href: '/blog/category/featured', color: 'bg-yellow-500' },
+              { label: 'AIトレンド', href: '/blog/category/ai-trends', color: 'bg-blue-500' },
+              { label: '活用事例', href: '/blog/category/case-study', color: 'bg-green-500' },
+              { label: 'チュートリアル', href: '/blog/category/tutorial', color: 'bg-purple-500' },
+              { label: 'プロンプト集', href: '/blog/category/prompts', color: 'bg-orange-500' },
+              { label: 'ツール紹介', href: '/blog/category/tools', color: 'bg-pink-500' },
             ].map((category) => (
               <Link
                 key={category.label}

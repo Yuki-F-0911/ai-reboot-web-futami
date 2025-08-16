@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { News } from '@/lib/microcms'
+import { normalizeCategory } from '@/lib/category-helper'
 
 interface BlogListClientProps {
   initialArticles: News[]
@@ -61,7 +62,7 @@ export default function BlogListClient({
                 <div className="flex items-center gap-2 mb-3">
                   {article.category && (
                     <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">
-                      {getCategoryLabel(article.category)}
+                      {getCategoryLabel(normalizeCategory(article.category))}
                     </span>
                   )}
                   <time className="text-xs text-gray-500">

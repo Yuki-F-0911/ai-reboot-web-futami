@@ -6,6 +6,7 @@ import {
   getCategoryColorClass as getColor,
   categoryJaToEn
 } from './category-mapping'
+import { normalizeCategory } from './category-helper'
 
 // 後方互換性のためのエクスポート（英語カテゴリー）
 export const BLOG_CATEGORIES = [
@@ -27,24 +28,30 @@ export const NEWS_CATEGORIES = [
 export type BlogCategory = typeof BLOG_CATEGORIES[number]
 export type NewsCategory = typeof NEWS_CATEGORIES[number]
 
-// カテゴリー判定（日本語・英語両対応）
-export function isBlogCategory(category: string): boolean {
+// カテゴリー判定（日本語・英語両対応、配列対応）
+export function isBlogCategory(category: string | string[]): boolean {
+  const normalizedCategory = normalizeCategory(category)
+  if (!normalizedCategory) return false
+  
   // 日本語カテゴリーの場合
-  if (isBlogCategoryJa(category)) {
+  if (isBlogCategoryJa(normalizedCategory)) {
     return true
   }
   // 英語カテゴリーの場合（後方互換性）
-  const categoryEn = categoryJaToEn(category)
+  const categoryEn = categoryJaToEn(normalizedCategory)
   return BLOG_CATEGORIES.includes(categoryEn as BlogCategory)
 }
 
-export function isNewsCategory(category: string): boolean {
+export function isNewsCategory(category: string | string[]): boolean {
+  const normalizedCategory = normalizeCategory(category)
+  if (!normalizedCategory) return false
+  
   // 日本語カテゴリーの場合
-  if (isNewsCategoryJa(category)) {
+  if (isNewsCategoryJa(normalizedCategory)) {
     return true
   }
   // 英語カテゴリーの場合（後方互換性）
-  const categoryEn = categoryJaToEn(category)
+  const categoryEn = categoryJaToEn(normalizedCategory)
   return NEWS_CATEGORIES.includes(categoryEn as NewsCategory)
 }
 
@@ -54,7 +61,7 @@ export async function getBlogArticles(limit = 12, offset = 0) {
   
   // ブログカテゴリーの記事のみフィルタリング
   const blogArticles = contents.filter(item => 
-    isBlogCategory(item.category as string)
+    isBlogCategory(item.category)
   ).slice(0, limit)
   
   return {
@@ -71,7 +78,7 @@ export async function getNewsArticles(limit = 12, offset = 0) {
   
   // お知らせカテゴリーの記事のみフィルタリング
   const newsArticles = contents.filter(item => 
-    isNewsCategory(item.category as string)
+    isNewsCategory(item.category)
   ).slice(0, limit)
   
   return {

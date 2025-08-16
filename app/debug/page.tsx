@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 
 export default function DebugPage() {
-  const [data, setData] = useState<Record<string, any> | null>(null)
+  const [data, setData] = useState<Record<string, unknown> | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -77,7 +77,7 @@ export default function DebugPage() {
                 </tr>
               </thead>
               <tbody>
-                {data?.categoryAnalysis?.map((item: Record<string, any>) => (
+                {data?.categoryAnalysis?.map((item: Record<string, unknown>) => (
                   <tr key={item.id} className="border-b">
                     <td className="p-2 font-mono text-xs">{item.id}</td>
                     <td className="p-2">{item.title}</td>
