@@ -71,25 +71,15 @@ export const CorporateHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex justify-center"
           >
-            <Link href="#contact">
+            <Link href="/contact">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-4 bg-harmony text-white font-bold rounded-2xl shadow-elevated hover:shadow-floating transition-all duration-300 min-w-[200px]"
               >
                 お問い合わせ
-              </motion.button>
-            </Link>
-            
-            <Link href="#download">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-white text-harmony font-bold rounded-2xl border-2 border-harmony shadow-soft hover:shadow-elevated transition-all duration-300 min-w-[200px]"
-              >
-                資料ダウンロード
               </motion.button>
             </Link>
           </motion.div>
