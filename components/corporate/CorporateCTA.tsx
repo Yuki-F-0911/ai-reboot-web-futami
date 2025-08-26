@@ -50,7 +50,7 @@ export const CorporateCTA = () => {
           </p>
           
           {/* CTAカード */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="max-w-lg mx-auto">
             {/* お問い合わせ */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -70,43 +70,13 @@ export const CorporateCTA = () => {
                 貴社の状況をヒアリングし、<br />
                 最適なプランをご提案します
               </p>
-              <Link href="#contact-form">
+              <Link href="/contact">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="w-full bg-harmony text-white font-bold px-6 py-4 rounded-2xl shadow-glow hover:shadow-glow-hover transition-all duration-300"
                 >
                   無料相談を申し込む
-                </motion.button>
-              </Link>
-            </motion.div>
-            
-            {/* 資料ダウンロード */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-white rounded-3xl p-8 shadow-elevated hover:shadow-floating transition-all duration-300"
-            >
-              <div className="flex justify-center mb-4">
-                <svg className="w-12 h-12 text-will-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-depth-800">
-                詳細資料をダウンロード
-              </h3>
-              <p className="text-depth-700 mb-6">
-                プログラムの詳細と<br />
-                導入事例をまとめた資料
-              </p>
-              <Link href="#download-form">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-white text-harmony font-bold px-6 py-4 rounded-2xl border-2 border-harmony shadow-soft hover:shadow-elevated transition-all duration-300"
-                >
-                  資料をダウンロード
                 </motion.button>
               </Link>
             </motion.div>
