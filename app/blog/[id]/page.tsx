@@ -11,14 +11,15 @@ interface PageProps {
 // メタデータ生成（SEO最適化）
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params
-  const article = await getNewsDetail(id)
+  const result = await getNewsDetail(id)
   
-  if (!article) {
+  if (!result || !('id' in result)) {
     return {
       title: '記事が見つかりません | AIリブートジャーナル',
     }
   }
 
+  const article = result as News
   const publishedTime = article.publishedAt
   const modifiedTime = article.updatedAt || article.publishedAt
 
@@ -71,11 +72,13 @@ export const revalidate = 60
 
 export default async function BlogArticlePage({ params }: PageProps) {
   const { id } = await params
-  const article = await getNewsDetail(id)
+  const result = await getNewsDetail(id)
 
-  if (!article) {
+  if (!result || !('id' in result)) {
     notFound()
   }
+
+  const article = result as News
 
   // ブログカテゴリーの記事でない場合は404
   if (!isBlogCategory(article.category as string)) {

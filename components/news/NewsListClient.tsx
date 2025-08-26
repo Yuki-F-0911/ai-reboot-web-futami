@@ -83,9 +83,9 @@ export default function NewsListClient({ initialNews, totalCount }: NewsListClie
                     <div className="flex items-center gap-3 mb-3">
                       <span className={`
                         px-2.5 py-1 text-xs font-medium rounded-full
-                        ${categoryColors[item.category] || 'bg-gray-100 text-gray-700'}
+                        ${categoryColors[typeof item.category === 'string' ? item.category : item.category[0]] || 'bg-gray-100 text-gray-700'}
                       `}>
-                        {item.category}
+                        {typeof item.category === 'string' ? item.category : item.category[0]}
                       </span>
                       <div className="flex items-center text-gray-500 text-sm">
                         <Calendar className="w-3.5 h-3.5 mr-1" />

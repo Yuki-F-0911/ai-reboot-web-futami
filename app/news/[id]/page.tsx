@@ -11,13 +11,15 @@ interface PageProps {
 // メタデータ生成
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params
-  const news = await getNewsDetail(id)
+  const result = await getNewsDetail(id)
   
-  if (!news) {
+  if (!result || !('id' in result)) {
     return {
       title: 'お知らせが見つかりません | AI REBOOT',
     }
   }
+
+  const news = result as News
 
   return {
     title: `${news.title} | AI REBOOT`,
@@ -45,11 +47,13 @@ export const revalidate = 60
 
 export default async function NewsDetailPage({ params }: PageProps) {
   const { id } = await params
-  const news = await getNewsDetail(id)
+  const result = await getNewsDetail(id)
 
-  if (!news) {
+  if (!result || !('id' in result)) {
     notFound()
   }
+
+  const news = result as News
 
   // お知らせカテゴリーの記事でない場合は404
   if (!isNewsCategory(news.category as string)) {

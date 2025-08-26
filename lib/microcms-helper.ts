@@ -1,4 +1,4 @@
-import { getNewsList } from './microcms'
+import { getNewsList, News } from './microcms'
 import { 
   isBlogCategoryJa, 
   isNewsCategoryJa,
@@ -57,10 +57,22 @@ export function isNewsCategory(category: string | string[]): boolean {
 
 // ブログ記事のみを取得
 export async function getBlogArticles(limit = 12, offset = 0) {
-  const { contents, totalCount } = await getNewsList(limit * 2, offset) // 多めに取得
+  const result = await getNewsList(limit * 2, offset) // 多めに取得
+  
+  // リスト形式のレスポンスかチェック
+  if (!('contents' in result)) {
+    return {
+      contents: [],
+      totalCount: 0,
+      offset,
+      limit
+    }
+  }
+  
+  const { contents, totalCount } = result
   
   // ブログカテゴリーの記事のみフィルタリング
-  const blogArticles = contents.filter(item => 
+  const blogArticles = contents.filter((item: News) => 
     isBlogCategory(item.category)
   ).slice(0, limit)
   
@@ -74,10 +86,22 @@ export async function getBlogArticles(limit = 12, offset = 0) {
 
 // お知らせ記事のみを取得
 export async function getNewsArticles(limit = 12, offset = 0) {
-  const { contents, totalCount } = await getNewsList(limit * 2, offset) // 多めに取得
+  const result = await getNewsList(limit * 2, offset) // 多めに取得
+  
+  // リスト形式のレスポンスかチェック
+  if (!('contents' in result)) {
+    return {
+      contents: [],
+      totalCount: 0,
+      offset,
+      limit
+    }
+  }
+  
+  const { contents, totalCount } = result
   
   // お知らせカテゴリーの記事のみフィルタリング
-  const newsArticles = contents.filter(item => 
+  const newsArticles = contents.filter((item: News) => 
     isNewsCategory(item.category)
   ).slice(0, limit)
   

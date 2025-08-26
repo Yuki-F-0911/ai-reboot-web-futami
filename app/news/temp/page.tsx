@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { getNewsList } from '@/lib/microcms'
+import { getNewsList, News } from '@/lib/microcms'
 import { isBlogCategory, isNewsCategory, getCategoryLabel } from '@/lib/microcms-helper'
 
 export const metadata: Metadata = {
@@ -9,7 +9,14 @@ export const metadata: Metadata = {
 
 export default async function NewsTempPage() {
   // すべての記事を取得
-  const { contents, totalCount } = await getNewsList(100, 0)
+  const result = await getNewsList(100, 0)
+  
+  // リスト形式のレスポンスかチェック
+  if (!('contents' in result)) {
+    return <div>エラー: 記事の取得に失敗しました</div>
+  }
+  
+  const { contents, totalCount } = result
   
   // カテゴリー別に分析
   const categoryCounts: Record<string, number> = {}
@@ -80,11 +87,11 @@ export default async function NewsTempPage() {
             <p className="text-red-500">ブログカテゴリーの記事がありません</p>
           ) : (
             <div className="space-y-2">
-              {blogArticles.slice(0, 5).map((article) => (
+              {blogArticles.slice(0, 5).map((article: News) => (
                 <div key={article.id} className="p-3 bg-blue-50 rounded">
                   <p className="font-medium">{article.title}</p>
                   <p className="text-sm text-gray-600">
-                    カテゴリー: {article.category} ({getCategoryLabel(article.category)})
+                    カテゴリー: {article.category} ({getCategoryLabel(typeof article.category === 'string' ? article.category : article.category[0])})
                   </p>
                 </div>
               ))}
@@ -102,11 +109,11 @@ export default async function NewsTempPage() {
             <p className="text-red-500">お知らせカテゴリーの記事がありません</p>
           ) : (
             <div className="space-y-2">
-              {newsArticles.slice(0, 5).map((article) => (
+              {newsArticles.slice(0, 5).map((article: News) => (
                 <div key={article.id} className="p-3 bg-green-50 rounded">
                   <p className="font-medium">{article.title}</p>
                   <p className="text-sm text-gray-600">
-                    カテゴリー: {article.category} ({getCategoryLabel(article.category)})
+                    カテゴリー: {article.category} ({getCategoryLabel(typeof article.category === 'string' ? article.category : article.category[0])})
                   </p>
                 </div>
               ))}

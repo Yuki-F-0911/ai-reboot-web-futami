@@ -1,11 +1,21 @@
 import { NextResponse } from 'next/server'
-import { getNewsList } from '@/lib/microcms'
+import { getNewsList, News } from '@/lib/microcms'
 import { getBlogArticles, getNewsArticles, isBlogCategory, isNewsCategory } from '@/lib/microcms-helper'
 
 export async function GET() {
   try {
     // 全記事を取得
-    const allArticles = await getNewsList(100, 0)
+    const allArticlesResult = await getNewsList(100, 0)
+    
+    // リスト形式のレスポンスかチェック
+    if (!('contents' in allArticlesResult)) {
+      return NextResponse.json(
+        { error: 'Invalid response from API' },
+        { status: 500 }
+      )
+    }
+    
+    const allArticles = allArticlesResult
     
     // ブログ記事のみ取得
     const blogArticles = await getBlogArticles(50, 0)
@@ -14,7 +24,7 @@ export async function GET() {
     const newsArticles = await getNewsArticles(50, 0)
     
     // カテゴリー分析
-    const categoryAnalysis = allArticles.contents.map(item => ({
+    const categoryAnalysis = allArticles.contents.map((item: News) => ({
       id: item.id,
       title: item.title,
       category: item.category,
@@ -24,7 +34,7 @@ export async function GET() {
     
     // カテゴリー別の集計
     const categoryCounts: Record<string, number> = {}
-    allArticles.contents.forEach(item => {
+    allArticles.contents.forEach((item: News) => {
       const cat = item.category as string
       categoryCounts[cat] = (categoryCounts[cat] || 0) + 1
     })
@@ -49,7 +59,7 @@ export async function GET() {
         items: newsArticles.contents.slice(0, 3), // 最初の3件のみ表示
       },
       categoryAnalysis: categoryAnalysis.slice(0, 10), // 最初の10件のみ表示
-    }, null, 2)
+    })
   } catch (error) {
     console.error('Debug API Error:', error)
     return NextResponse.json(

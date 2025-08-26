@@ -2,8 +2,38 @@
 
 import { useState, useEffect } from 'react'
 
+interface CategoryAnalysisItem {
+  id: string
+  title: string
+  category: string
+  isBlog: boolean
+  isNews: boolean
+}
+
+interface DebugData {
+  summary?: {
+    totalArticles?: number
+    blogArticlesFound?: number
+    newsArticlesFound?: number
+    categoryCounts?: Record<string, number>
+  }
+  allArticles?: {
+    count?: number
+    items?: unknown[]
+  }
+  blogArticles?: {
+    count?: number
+    items?: unknown[]
+  }
+  newsArticles?: {
+    count?: number
+    items?: unknown[]
+  }
+  categoryAnalysis?: CategoryAnalysisItem[]
+}
+
 export default function DebugPage() {
-  const [data, setData] = useState<Record<string, unknown> | null>(null)
+  const [data, setData] = useState<DebugData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -77,7 +107,7 @@ export default function DebugPage() {
                 </tr>
               </thead>
               <tbody>
-                {data?.categoryAnalysis?.map((item: Record<string, unknown>) => (
+                {data?.categoryAnalysis?.map((item) => (
                   <tr key={item.id} className="border-b">
                     <td className="p-2 font-mono text-xs">{item.id}</td>
                     <td className="p-2">{item.title}</td>

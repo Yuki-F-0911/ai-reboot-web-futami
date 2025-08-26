@@ -5,6 +5,7 @@ import { BLOG_CATEGORY_MAP } from '@/lib/category-mapping'
 import BlogListClient from '@/components/blog/BlogListClient'
 import Link from 'next/link'
 import { categoryMatchesAny } from '@/lib/category-helper'
+import { News } from '@/lib/microcms'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -80,7 +81,7 @@ export default async function CategoryPage({ params }: PageProps) {
   )?.[0] || slug
   
   // カテゴリーでフィルタリング（配列対応）
-  const categoryArticles = contents.filter(item => 
+  const categoryArticles = contents.filter((item: News) => 
     categoryMatchesAny(item.category, [categoryJa, slug])
   )
   

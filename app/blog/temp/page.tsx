@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { getNewsList } from '@/lib/microcms'
+import { getNewsList, News } from '@/lib/microcms'
 
 export const metadata: Metadata = {
   title: 'ブログ（テスト） | AI REBOOT',
@@ -9,7 +9,14 @@ export const metadata: Metadata = {
 
 export default async function BlogTempPage() {
   // すべての記事を取得（フィルタリングなし）
-  const { contents, totalCount } = await getNewsList(50, 0)
+  const result = await getNewsList(50, 0)
+  
+  // リスト形式のレスポンスかチェック
+  if (!('contents' in result)) {
+    return <div>エラー: 記事の取得に失敗しました</div>
+  }
+  
+  const { contents, totalCount } = result
   
   return (
     <div className="min-h-screen bg-white pt-24 px-4">
@@ -27,7 +34,7 @@ export default async function BlogTempPage() {
           </div>
         ) : (
           <div className="space-y-6">
-            {contents.map((article) => (
+            {contents.map((article: News) => (
               <div key={article.id} className="border p-4 rounded">
                 <div className="flex items-start justify-between mb-2">
                   <h2 className="text-xl font-semibold">{article.title}</h2>

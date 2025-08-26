@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { getBlogArticles } from '@/lib/microcms-helper'
 import BlogListClient from '@/components/blog/BlogListClient'
 import { categoryMatches, categoryMatchesAny } from '@/lib/category-helper'
+import { News } from '@/lib/microcms'
 
 export const metadata: Metadata = {
   title: 'AIリブートジャーナル | AI活用の最前線から',
@@ -35,16 +36,16 @@ export default async function BlogPage() {
   const { contents } = await getBlogArticles(50, 0)
   
   // カテゴリー別に記事を分類（配列対応）
-  const featuredArticles = contents.filter(item => 
+  const featuredArticles = contents.filter((item: News) => 
     categoryMatchesAny(item.category, ['注目記事', 'featured'])
   ).slice(0, 3)
-  const aiTrends = contents.filter(item => 
+  const aiTrends = contents.filter((item: News) => 
     categoryMatchesAny(item.category, ['AIトレンド', 'ai-trends'])
   ).slice(0, 6)
-  const caseStudies = contents.filter(item => 
+  const caseStudies = contents.filter((item: News) => 
     categoryMatchesAny(item.category, ['活用事例', 'case-study'])
   ).slice(0, 4)
-  const tutorials = contents.filter(item => 
+  const tutorials = contents.filter((item: News) => 
     categoryMatchesAny(item.category, ['チュートリアル', 'tutorial'])
   ).slice(0, 4)
 
@@ -160,7 +161,7 @@ export default async function BlogPage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {featuredArticles.map((article) => (
+              {featuredArticles.map((article: News) => (
                 <Link
                   key={article.id}
                   href={`/blog/${article.id}`}

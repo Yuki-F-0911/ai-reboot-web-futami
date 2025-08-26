@@ -34,23 +34,8 @@ export interface News {
   tags?: string[]  // タグフィールド追加
 }
 
-// MicroCMSクライアントの型定義
-interface MicroCMSClient {
-  get: (params: {
-    endpoint: string
-    contentId?: string
-    queries?: Record<string, unknown>
-  }) => Promise<{
-    contents: News[]
-    totalCount: number
-    offset: number
-    limit: number
-  } | News>
-  getListDetail?: (params: unknown) => Promise<unknown>
-}
-
 // サーバーサイドでのみクライアントを作成
-function getClient(): MicroCMSClient {
+function getClient() {
   const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN
   const apiKey = process.env.MICROCMS_API_KEY
 

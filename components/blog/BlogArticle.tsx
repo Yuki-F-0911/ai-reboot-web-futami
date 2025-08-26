@@ -33,10 +33,11 @@ export default function BlogArticle({
         const headings: { id: string; text: string; level: number }[] = []
         const renderer = new marked.Renderer()
         
-        renderer.heading = (text, level) => {
+        renderer.heading = ({ tokens, depth }) => {
+          const text = tokens.map(token => token.raw).join('')
           const id = text.toLowerCase().replace(/[^\w]+/g, '-')
-          headings.push({ id, text, level })
-          return `<h${level} id="${id}">${text}</h${level}>`
+          headings.push({ id, text, level: depth })
+          return `<h${depth} id="${id}">${text}</h${depth}>`
         }
         
         marked.use({ renderer })
@@ -101,7 +102,7 @@ export default function BlogArticle({
             <div className="flex items-center gap-3 mb-4">
               {article.category && (
                 <span className="px-3 py-1 bg-will-primary/10 text-will-primary text-sm font-medium rounded-full">
-                  {getCategoryLabel(article.category)}
+                  {getCategoryLabel(typeof article.category === 'string' ? article.category : article.category[0])}
                 </span>
               )}
               <time className="text-gray-500 text-sm">

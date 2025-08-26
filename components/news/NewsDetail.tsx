@@ -111,9 +111,9 @@ export default function NewsDetail({ news, relatedNews }: NewsDetailProps) {
           <div className="flex items-center gap-4 mb-6">
             <span className={`
               px-4 py-2 text-sm font-medium rounded-full shadow-sm
-              bg-gradient-to-r ${categoryColors[news.category] || 'from-depth-100 to-depth-200 text-depth-700'}
+              bg-gradient-to-r ${categoryColors[typeof news.category === 'string' ? news.category : news.category[0]] || 'from-depth-100 to-depth-200 text-depth-700'}
             `}>
-              {news.category}
+              {typeof news.category === 'string' ? news.category : news.category[0]}
             </span>
             <div className="flex items-center text-depth-500">
               <Calendar className="w-4 h-4 mr-1.5" />
@@ -202,9 +202,9 @@ export default function NewsDetail({ news, relatedNews }: NewsDetailProps) {
                       <div className="flex items-center gap-3 mb-3">
                         <span className={`
                           px-3 py-1 text-xs font-medium rounded-full shadow-sm
-                          bg-gradient-to-r ${categoryColors[item.category] || 'from-depth-100 to-depth-200 text-depth-600'}
+                          bg-gradient-to-r ${categoryColors[typeof item.category === 'string' ? item.category : item.category[0]] || 'from-depth-100 to-depth-200 text-depth-600'}
                         `}>
-                          {item.category}
+                          {typeof item.category === 'string' ? item.category : item.category[0]}
                         </span>
                         <time className="text-sm text-depth-400 font-light">
                           {format(item.publishedAt)}

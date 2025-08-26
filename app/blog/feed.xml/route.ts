@@ -1,8 +1,15 @@
 import { NextResponse } from 'next/server'
-import { getNewsList } from '@/lib/microcms'
+import { getNewsList, News } from '@/lib/microcms'
 
 export async function GET() {
-  const { contents: articles } = await getNewsList(50, 0)
+  const result = await getNewsList(50, 0)
+  
+  // リスト形式のレスポンスかチェック
+  if (!('contents' in result)) {
+    return new NextResponse('Error generating feed', { status: 500 })
+  }
+  
+  const { contents: articles } = result
   
   const baseUrl = 'https://ai-reboot.com'
   const feedUrl = `${baseUrl}/blog/feed.xml`
@@ -27,7 +34,7 @@ export async function GET() {
       <title>AIリブートジャーナル</title>
       <link>${baseUrl}/blog</link>
     </image>
-    ${articles.map(article => `
+    ${articles.map((article: News) => `
     <item>
       <title><![CDATA[${article.title}]]></title>
       <description><![CDATA[${article.description || article.title}]]></description>
@@ -35,7 +42,7 @@ export async function GET() {
       <guid isPermaLink="true">${baseUrl}/blog/${article.id}</guid>
       <pubDate>${new Date(article.publishedAt).toUTCString()}</pubDate>
       <author>contact@ai-reboot.com (AI REBOOT編集部)</author>
-      ${article.category ? `<category>${getCategoryLabel(article.category)}</category>` : ''}
+      ${article.category ? `<category>${getCategoryLabel(typeof article.category === 'string' ? article.category : article.category[0])}</category>` : ''}
       ${article.thumbnail ? `<enclosure url="${article.thumbnail.url}" type="image/jpeg" length="0"/>` : ''}
       ${article.tags ? article.tags.map(tag => `<category>${tag}</category>`).join('') : ''}
       <content:encoded><![CDATA[

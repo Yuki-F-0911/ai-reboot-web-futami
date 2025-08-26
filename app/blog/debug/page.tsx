@@ -1,17 +1,24 @@
 import { getBlogArticles } from '@/lib/microcms-helper'
-import { getNewsList } from '@/lib/microcms'
+import { getNewsList, News } from '@/lib/microcms'
 
 export default async function BlogDebugPage() {
   // すべての記事を取得
-  const allArticles = await getNewsList(100, 0)
+  const allArticlesResult = await getNewsList(100, 0)
+  
+  // リスト形式のレスポンスかチェック
+  if (!('contents' in allArticlesResult)) {
+    return <div>エラー: 記事の取得に失敗しました</div>
+  }
+  
+  const allArticles = allArticlesResult
   // ブログ記事のみ取得
   const blogArticles = await getBlogArticles(100, 0)
   
   // カテゴリー別に分類
   const categoryCounts: Record<string, number> = {}
-  const categoryArticles: Record<string, any[]> = {}
+  const categoryArticles: Record<string, Array<{ id: string; title: string; publishedAt: string }>> = {}
   
-  allArticles.contents.forEach((article: any) => {
+  allArticles.contents.forEach((article: News) => {
     const category = article.category as string
     categoryCounts[category] = (categoryCounts[category] || 0) + 1
     
@@ -26,13 +33,13 @@ export default async function BlogDebugPage() {
   })
   
   // AIトレンド記事のフィルタリングテスト
-  const aiTrendsTest1 = allArticles.contents.filter((item: any) => 
+  const aiTrendsTest1 = allArticles.contents.filter((item: News) => 
     item.category === 'AIトレンド'
   )
-  const aiTrendsTest2 = allArticles.contents.filter((item: any) => 
+  const aiTrendsTest2 = allArticles.contents.filter((item: News) => 
     item.category === 'ai-trends'
   )
-  const aiTrendsTest3 = blogArticles.contents.filter((item: any) => 
+  const aiTrendsTest3 = blogArticles.contents.filter((item: News) => 
     item.category === 'AIトレンド' || item.category === 'ai-trends'
   )
   
@@ -54,7 +61,7 @@ export default async function BlogDebugPage() {
           <div className="space-y-2">
             {Object.entries(categoryCounts).map(([category, count]) => (
               <div key={category} className="flex justify-between p-2 bg-white rounded">
-                <span className="font-mono">"{category}"</span>
+                <span className="font-mono">&quot;{category}&quot;</span>
                 <span>{count}件</span>
               </div>
             ))}
@@ -65,8 +72,8 @@ export default async function BlogDebugPage() {
         <div className="mb-8 p-4 bg-yellow-50 rounded">
           <h2 className="text-xl font-semibold mb-4">AIトレンド記事のフィルタリングテスト</h2>
           <div className="space-y-2 text-sm">
-            <p>category === 'AIトレンド': {aiTrendsTest1.length}件</p>
-            <p>category === 'ai-trends': {aiTrendsTest2.length}件</p>
+            <p>category === &apos;AIトレンド&apos;: {aiTrendsTest1.length}件</p>
+            <p>category === &apos;ai-trends&apos;: {aiTrendsTest2.length}件</p>
             <p>blogArticles内で両方チェック: {aiTrendsTest3.length}件</p>
           </div>
           
@@ -74,7 +81,7 @@ export default async function BlogDebugPage() {
             <div className="mt-4">
               <h3 className="font-semibold mb-2">「AIトレンド」カテゴリーの記事:</h3>
               <div className="space-y-1 text-sm">
-                {aiTrendsTest1.map((article: any) => (
+                {aiTrendsTest1.map((article: News) => (
                   <div key={article.id} className="p-2 bg-white rounded">
                     {article.title}
                   </div>
@@ -90,10 +97,10 @@ export default async function BlogDebugPage() {
           {Object.entries(categoryArticles).map(([category, articles]) => (
             <div key={category} className="mb-6">
               <h3 className="font-semibold mb-2 bg-white p-2 rounded">
-                カテゴリー: "{category}" ({articles.length}件)
+                カテゴリー: &quot;{category}&quot; ({articles.length}件)
               </h3>
               <div className="space-y-1 text-sm pl-4">
-                {articles.slice(0, 3).map((article: any) => (
+                {articles.slice(0, 3).map((article) => (
                   <div key={article.id} className="flex justify-between">
                     <span className="truncate flex-1">{article.title}</span>
                     <span className="text-gray-500 ml-2">
@@ -119,7 +126,7 @@ const aiTrends = contents.filter(item =>
 ).slice(0, 6)
 
 // 結果:
-AIトレンド記事: ${blogArticles.contents.filter((item: any) => 
+AIトレンド記事: ${blogArticles.contents.filter((item: News) => 
   item.category === 'AIトレンド' || item.category === 'ai-trends'
 ).length}件`}
           </pre>
@@ -129,7 +136,7 @@ AIトレンド記事: ${blogArticles.contents.filter((item: any) =>
         <div className="mb-8 p-4 bg-red-50 rounded">
           <h2 className="text-xl font-semibold mb-4">記事の生データ（最初の3件）</h2>
           <pre className="text-xs bg-white p-4 rounded overflow-x-auto">
-            {JSON.stringify(allArticles.contents.slice(0, 3).map((article: any) => ({
+            {JSON.stringify(allArticles.contents.slice(0, 3).map((article: News) => ({
               id: article.id,
               title: article.title,
               category: article.category,
