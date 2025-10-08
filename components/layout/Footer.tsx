@@ -93,24 +93,8 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* 経済産業省リスキリング支援事業 */}
-        <div className="mt-8 pt-8 border-t border-ai-medium-gray">
-          <div className="flex flex-col items-center space-y-4">
-            <Image
-              src="/images/keisan-reskiling-logo-darkbg.webp"
-              alt="経済産業省 リスキリング通じたキャリアアップ支援事業"
-              width={240}
-              height={70}
-              className="h-14 md:h-16 w-auto opacity-90 hover:opacity-100 transition-opacity"
-            />
-            <p className="text-center text-ai-light-gray text-sm">
-              経済産業省リスキリング支援事業 採択プログラム
-            </p>
-          </div>
-        </div>
-
         {/* コピーライト */}
-        <div className="mt-4 text-center">
+        <div className="mt-8 pt-8 border-t border-ai-medium-gray text-center">
           <p className="text-ai-light-gray text-sm">
             © {currentYear} 株式会社ウィルフォワード. All rights reserved.
           </p>
