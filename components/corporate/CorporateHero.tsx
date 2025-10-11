@@ -33,11 +33,11 @@ export const CorporateHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
-            <span className="block text-depth-800">生成AI活用力研修</span>
+            <span className="block text-depth-800">組織のOSを再起動する、</span>
             <span className="block bg-harmony-gradient bg-clip-text text-transparent">
-              「AIリブート」
+              AIリブート研修
             </span>
           </motion.h1>
           
@@ -48,8 +48,8 @@ export const CorporateHero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-depth-700 mb-8 leading-relaxed"
           >
-            座学＋実践＋伴走型開発支援の三段構成で<br />
-            企業と個人をAIによってアップデート
+            「自ら学び、自ら突破する生成AI活用力」を身につけ、<br />
+            組織全体がAI時代を生き抜く力を獲得する。
           </motion.p>
           
           {/* 強調メッセージ */}
@@ -59,10 +59,12 @@ export const CorporateHero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="max-w-3xl mx-auto mb-10"
           >
-            <p className="text-lg md:text-xl text-depth-700 font-bold bg-harmony-lighter p-6 rounded-2xl">
-              AIの急速な進化は既存の常識を大きく変え、<br />
-              企業がAIを活用せずに成長を続けることは<br />
-              困難な時代です。
+            <p className="text-lg md:text-xl text-depth-700 font-bold bg-harmony-lighter p-6 rounded-2xl leading-relaxed">
+              単なるツールの使い方を教える研修ではありません。<br />
+              <span className="text-harmony">できるかできないかではなく、『できる』を前提にどうすべきかを考えるパラダイムシフト</span>—<br />
+              技術の進歩や環境の変化に無理なく対応する変化適応力と、<br />
+              生成AIがすべきことか、人間がすべきことかを考える新時代サービス設計力を、<br />
+              組織と個人が身につける実践型プログラムです。
             </p>
           </motion.div>
           
@@ -79,17 +81,7 @@ export const CorporateHero = () => {
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-4 bg-harmony text-white font-bold rounded-2xl shadow-elevated hover:shadow-floating transition-all duration-300 min-w-[200px]"
               >
-                お問い合わせ
-              </motion.button>
-            </Link>
-            
-            <Link href="#download">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-white text-harmony font-bold rounded-2xl border-2 border-harmony shadow-soft hover:shadow-elevated transition-all duration-300 min-w-[200px]"
-              >
-                資料ダウンロード
+                無料相談を申し込む
               </motion.button>
             </Link>
           </motion.div>

@@ -2,14 +2,17 @@ import { Metadata } from "next";
 import ScrollProgressIndicator from "@/components/ui/ScrollProgressIndicator";
 import { CorporateHero } from "@/components/corporate/CorporateHero";
 import { CorporateProblem } from "@/components/corporate/CorporateProblem";
+import { CorporateFeatures } from "@/components/corporate/CorporateFeatures";
 import { CorporateProgram } from "@/components/corporate/CorporateProgram";
-import { CorporateSchedule } from "@/components/corporate/CorporateSchedule";
+import { CorporateCase } from "@/components/corporate/CorporateCase";
+import { CorporatePricing } from "@/components/corporate/CorporatePricing";
 import { CorporateInstructors } from "@/components/corporate/CorporateInstructors";
+import { CorporateReasons } from "@/components/corporate/CorporateReasons";
 import { CorporateCTA } from "@/components/corporate/CorporateCTA";
 
 export const metadata: Metadata = {
   title: "AIリブート研修（法人向け） | AI REBOOT - ウィルフォワード",
-  description: "座学＋実践＋伴走型OJTの三段構成。生成AIの活用環境を整え、個人・チームレベルで業務に組み込み、メンターが開発・実装まで徹底伴走します。",
+  description: "組織のOSを再起動する、AIリブート研修。「自ら学び、自ら突破する生成AI活用力」を身につけ、組織全体がAI時代を生き抜く力を獲得する実践型プログラム。",
 };
 
 export default function CorporatePage() {
@@ -18,9 +21,12 @@ export default function CorporatePage() {
       <ScrollProgressIndicator />
       <CorporateHero />
       <CorporateProblem />
+      <CorporateFeatures />
       <CorporateProgram />
-      <CorporateSchedule />
+      <CorporateCase />
+      <CorporatePricing />
       <CorporateInstructors />
+      <CorporateReasons />
       <CorporateCTA />
     </div>
   );

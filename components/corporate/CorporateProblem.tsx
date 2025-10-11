@@ -11,29 +11,44 @@ export const CorporateProblem = () => {
     {
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v1m-.75 3h.008v.008h-.008V18.5zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
         </svg>
       ),
-      title: "AI導入の迷い",
-      description: "AIを活用せずに成長を続けることは困難な時代。でも何から始めればいいか分からない。"
+      title: "壁1: 言語の壁",
+      subtitle: "「専門用語が分からず、導入に踏み切れない」",
+      points: [
+        "API、RAG、プロンプトエンジニアリング...",
+        "横文字だらけで何から始めればいいか分からない",
+        "社内に詳しい人材がいない"
+      ]
     },
     {
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
         </svg>
       ),
-      title: "成長の停滞",
-      description: "従来のやり方では限界を感じている。新しい価値創造の方法を模索している。"
+      title: "壁2: 未経験の壁",
+      subtitle: "「ツールを触ったことがなく、怖い」",
+      points: [
+        "ChatGPTは知っているが、業務でどう使えばいいか分からない",
+        "間違った使い方をして、情報漏洩しないか不安",
+        "一部の社員だけが使い、組織に浸透しない"
+      ]
     },
     {
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
         </svg>
       ),
-      title: "人材の課題",
-      description: "AI時代に対応できる人材の採用も育成も難しい。組織全体の変革が必要。"
+      title: "壁3: 習慣の壁",
+      subtitle: "「今までのやり方を変えられない」",
+      points: [
+        "AIを使うより、自分でやった方が早いと感じてしまう",
+        "研修を受けても、実務で継続して使えない",
+        "結局、元の仕事のやり方に戻ってしまう"
+      ]
     }
   ];
   
@@ -47,16 +62,15 @@ export const CorporateProblem = () => {
           className="text-center max-w-4xl mx-auto mb-16"
         >
           <h2 className="text-h1 md:text-5xl font-bold mb-8 text-depth-800">
-            企業が直面するAI時代の課題
+            なぜ、多くの企業のAI導入は失敗するのか？
           </h2>
           <p className="text-xl text-depth-700 leading-relaxed">
-            AIの急速な進化は既存の常識を大きく変え、<br />
-            企業がAIを活用せずに成長を続けることは困難な時代です。
+            組織が直面する3つの壁
           </p>
         </motion.div>
         
         {/* 課題カード */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
           {challenges.map((challenge, index) => (
             <motion.div
               key={index}
@@ -69,12 +83,36 @@ export const CorporateProblem = () => {
               <h3 className="text-xl font-bold mb-3 text-depth-800">
                 {challenge.title}
               </h3>
-              <p className="text-depth-700 leading-relaxed">
-                {challenge.description}
+              <p className="text-lg font-bold text-harmony mb-4">
+                {challenge.subtitle}
               </p>
+              <ul className="space-y-2 text-depth-700">
+                {challenge.points.map((point, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-harmony mt-1">•</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
+        
+        {/* 締めメッセージ */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <div className="bg-gradient-to-r from-harmony-lighter via-will-lighter to-harmony-lighter p-8 rounded-3xl">
+            <p className="text-xl font-bold text-depth-800 leading-relaxed">
+              <span className="text-harmony">この3つの壁を突破しなければ、AI導入は絵に描いた餅で終わります。</span><br />
+              AIリブート研修は、この壁を一つずつ丁寧に突破し、<br />
+              <span className="text-will-primary">組織全体がAIネイティブになる</span>ための実践プログラムです。
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

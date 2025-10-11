@@ -38,79 +38,109 @@ export const CorporateCTA = () => {
           className="text-center max-w-4xl mx-auto"
         >
           <h2 className="text-h1 md:text-5xl lg:text-6xl font-bold mb-8 text-depth-800">
-            AI変革を始めましょう
+            組織のOSを再起動する、その第一歩を今日から
           </h2>
           
-          <p className="text-xl md:text-2xl text-depth-700 mb-12 leading-relaxed">
-            貴社の課題を、ぜひ私たちにお聞かせください。<br /><br />
-            AI時代の波を乗りこなし、貴社がさらなる高みへと飛躍するための<br />
-            最適なAI活用の道筋を、経験豊富な専門家チームが、<br />
-            貴社と共に徹底的に見つけ出し、実現に向けて伴走いたします。<br /><br />
-            未来を共に創りましょう。
-          </p>
-          
-          {/* CTAカード */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            {/* お問い合わせ */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white rounded-3xl p-8 shadow-elevated hover:shadow-floating transition-all duration-300"
-            >
-              <div className="flex justify-center mb-4">
-                <svg className="w-12 h-12 text-harmony" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-depth-800">
-                まずは無料相談から
-              </h3>
-              <p className="text-depth-700 mb-6">
-                貴社の状況をヒアリングし、<br />
-                最適なプランをご提案します
-              </p>
-              <Link href="#contact-form">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-harmony text-white font-bold px-6 py-4 rounded-2xl shadow-glow hover:shadow-glow-hover transition-all duration-300"
-                >
-                  無料相談を申し込む
-                </motion.button>
-              </Link>
-            </motion.div>
-            
-            {/* 資料ダウンロード */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-white rounded-3xl p-8 shadow-elevated hover:shadow-floating transition-all duration-300"
-            >
-              <div className="flex justify-center mb-4">
-                <svg className="w-12 h-12 text-will-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-depth-800">
-                詳細資料をダウンロード
-              </h3>
-              <p className="text-depth-700 mb-6">
-                プログラムの詳細と<br />
-                導入事例をまとめた資料
-              </p>
-              <Link href="#download-form">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-white text-harmony font-bold px-6 py-4 rounded-2xl border-2 border-harmony shadow-soft hover:shadow-elevated transition-all duration-300"
-                >
-                  資料をダウンロード
-                </motion.button>
-              </Link>
-            </motion.div>
+          <div className="mb-12">
+            <p className="text-xl md:text-2xl text-depth-700 mb-8 leading-relaxed">
+              AI導入を「いつかやる」と先延ばしにしている間に、<br />
+              競合は着実に生産性を高め、市場での優位性を確立しています。
+            </p>
+            <p className="text-2xl font-bold text-depth-800 leading-relaxed">
+              <span className="text-harmony">今、動き出すか。このまま見送るか。</span><br />
+              その選択が、3年後の組織の競争力を大きく左右します。
+            </p>
           </div>
+          
+          {/* まずは無料相談から */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold mb-8 text-depth-800">まずは無料相談から</h3>
+            
+            {/* こんな方におすすめ */}
+            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-elevated mb-8">
+              <h4 className="text-xl font-bold mb-6 text-harmony">こんな方におすすめです</h4>
+              <div className="grid md:grid-cols-2 gap-4">
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-harmony mt-1">•</span>
+                    <span className="text-depth-700">AIを導入したいが、何から始めればいいか分からない</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-harmony mt-1">•</span>
+                    <span className="text-depth-700">社内でAI活用を定着させる方法が知りたい</span>
+                  </li>
+                </ul>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-will-primary mt-1">•</span>
+                    <span className="text-depth-700">助成金を活用して研修費用を抑えたい</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-will-primary mt-1">•</span>
+                    <span className="text-depth-700">ウィルトラスト様のような成果を自社でも実現したい</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            {/* 無料相談の内容 */}
+            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-elevated mb-8">
+              <h4 className="text-xl font-bold mb-6 text-will-primary">無料相談では、こんなことをお話しします（30〜45分）</h4>
+              <div className="grid md:grid-cols-2 gap-6">
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-harmony mt-1">•</span>
+                    <span className="text-depth-700">貴社の現状ヒアリングと課題整理</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-harmony mt-1">•</span>
+                    <span className="text-depth-700">具体的な活用イメージのご提案</span>
+                  </li>
+                </ul>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-will-primary mt-1">•</span>
+                    <span className="text-depth-700">最適な研修プログラムの設計</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-will-primary mt-1">•</span>
+                    <span className="text-depth-700">助成金活用による実質料金のご案内</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          {/* CTAボタン */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-md mx-auto"
+          >
+            <Link href="#contact-form">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-harmony text-white font-bold px-8 py-6 rounded-2xl shadow-glow hover:shadow-glow-hover transition-all duration-300 text-xl"
+              >
+                無料相談を申し込む
+              </motion.button>
+            </Link>
+          </motion.div>
+          
+          {/* 締めメッセージ */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-12 text-center"
+          >
+            <p className="text-xl text-depth-700 leading-relaxed">
+              <span className="font-bold text-depth-800">組織のOSを再起動し、AI時代の競争力を手に入れる。</span><br />
+              その第一歩は、まず相談することから始まります。
+            </p>
+          </motion.div>
           
         </motion.div>
       </div>
