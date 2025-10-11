@@ -214,8 +214,8 @@ export const CorporateProgram = () => {
           >
             <div className="bg-white rounded-3xl p-10 shadow-elevated border-2 border-wisdom">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-wisdom flex items-center justify-center">
-                  <span className="text-xl font-bold text-white">Option</span>
+                <div className="px-4 py-2 rounded-xl bg-wisdom flex items-center justify-center">
+                  <span className="text-lg font-bold text-white whitespace-nowrap">Option</span>
                 </div>
                 <h3 className="text-3xl font-bold text-depth-800">
                   フォロー研修
