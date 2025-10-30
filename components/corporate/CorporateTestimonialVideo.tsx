@@ -1,0 +1,55 @@
+"use client";
+
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
+export const CorporateTestimonialVideo = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  return (
+    <section ref={ref} className="py-20 md:py-32 bg-gradient-to-b from-white to-depth-100">
+      <div className="container-section">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-4xl mx-auto mb-16"
+        >
+          <h2 className="text-h1 md:text-5xl font-bold mb-8 text-depth-800">
+            お客様の声
+          </h2>
+          <p className="text-xl text-depth-700 leading-relaxed">
+            研修を通じて得られた気づきと変化について語っていただきました。
+          </p>
+        </motion.div>
+        
+        {/* 動画埋め込み */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="max-w-5xl mx-auto"
+        >
+          <div className="bg-white rounded-3xl p-8 shadow-elevated">
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold mb-2 text-depth-800">ウィルトラスト社 礒崎様より</h3>
+            </div>
+            
+            {/* YouTube埋め込み */}
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-2xl"
+                src="https://www.youtube.com/embed/1AcgnjtTlCY"
+                title="お客様の声 - ウィルトラスト社 礒崎様"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+

@@ -35,9 +35,9 @@ export const CorporateHero = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
-            <span className="block text-depth-800">組織のOSを再起動する、</span>
             <span className="block bg-harmony-gradient bg-clip-text text-transparent">
-              AIリブート研修
+              AIツールの使い方を教えない<br />
+              AI活用力強化プログラム
             </span>
           </motion.h1>
           

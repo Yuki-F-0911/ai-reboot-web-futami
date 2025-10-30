@@ -32,25 +32,10 @@ export const CorporatePricing = () => {
           className="max-w-5xl mx-auto mb-16"
         >
           <div className="bg-white rounded-3xl p-10 shadow-elevated">
-            <h3 className="text-2xl font-bold mb-8 text-depth-800 text-center">料金のご案内</h3>
-            
-            <div className="space-y-6">
-              <div className="bg-gradient-to-r from-harmony-lighter to-white p-6 rounded-2xl">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <h4 className="text-xl font-bold text-depth-800 mb-2">
-                      ベーシック研修・アドバンス研修（各2日間・12時間）
-                    </h4>
-                    <p className="text-depth-600">実践型AI活用研修プログラム</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm text-depth-600">税抜</p>
-                    <p className="text-3xl font-bold text-harmony">140万円</p>
-                    <p className="text-sm text-depth-600 mt-1">税込 154万円</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <p className="text-lg text-depth-700 leading-relaxed text-center mb-8">
+              研修費用の詳細は、貴社の課題やご希望の内容に応じて柔軟にご提案いたします。<br />
+              <span className="font-bold text-harmony">人材開発支援助成金（リスキリング）を活用することで、実質負担を大幅に軽減</span>できます。
+            </p>
           </div>
         </motion.div>
         
@@ -64,41 +49,82 @@ export const CorporatePricing = () => {
           <div className="bg-gradient-to-br from-will-lighter via-white to-harmony-lighter p-10 rounded-3xl shadow-elevated">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-depth-800 mb-4">
-                人材開発支援助成金（リスキリング）で、実質負担が約37万円に
+                助成金活用例
               </h3>
               <p className="text-lg text-depth-700">
-                人材開発支援助成金を活用した場合の例（10名参加の場合）
+                実際にどの程度の実質負担額になるのか、具体的な計算例をご紹介します。
               </p>
             </div>
             
-            {/* 計算表 */}
+            {/* 例1 */}
             <div className="bg-white rounded-2xl p-8 mb-8 shadow-soft">
+              <h4 className="text-xl font-bold text-depth-800 mb-6">
+                【例1】AIリブート研修（3日間・18時間）
+              </h4>
+              <div className="mb-4">
+                <p className="text-depth-700"><span className="font-bold">参加者数:</span> 10名</p>
+                <p className="text-depth-700"><span className="font-bold">研修費用（税抜）:</span> 210万円</p>
+              </div>
               <table className="w-full">
+                <thead>
+                  <tr className="border-b-2 border-depth-200">
+                    <th className="py-3 text-left text-depth-800">項目</th>
+                    <th className="py-3 text-right text-depth-800">金額</th>
+                  </tr>
+                </thead>
                 <tbody className="divide-y divide-depth-200">
                   <tr>
-                    <td className="py-4 text-depth-700">研修費用（税込）</td>
-                    <td className="py-4 text-right text-xl font-bold text-depth-800">154万円</td>
-                  </tr>
-                  <tr>
-                    <td className="py-4 text-depth-700">
-                      <span className="font-bold text-harmony">経費助成</span>（75%）
+                    <td className="py-4 text-depth-700">助成額</td>
+                    <td className="py-4 text-right text-depth-700">
+                      <div><span className="font-bold text-harmony">157.5万円</span>（経費助成75%）</div>
+                      <div className="mt-2">＋</div>
+                      <div className="mt-2"><span className="font-bold text-will-primary">18万円</span>（賃金助成：1,000円×10名×18時間）</div>
                     </td>
-                    <td className="py-4 text-right text-xl font-bold text-harmony">▲105万円</td>
-                  </tr>
-                  <tr>
-                    <td className="py-4 text-depth-700">
-                      <span className="font-bold text-will-primary">賃金助成</span>（研修時間分）
-                    </td>
-                    <td className="py-4 text-right text-xl font-bold text-will-primary">▲12万円</td>
                   </tr>
                   <tr className="bg-harmony-lighter">
                     <td className="py-4 font-bold text-depth-800 text-lg">実質負担額</td>
-                    <td className="py-4 text-right text-2xl font-bold text-harmony">約37万円</td>
+                    <td className="py-4 text-right text-2xl font-bold text-harmony">34.5万円 ＋ 総額に対する消費税</td>
                   </tr>
                 </tbody>
               </table>
               <p className="text-center mt-6 text-lg font-bold text-depth-800">
-                実質負担率：約24%
+                実質負担率：約17%
+              </p>
+            </div>
+            
+            {/* 例2 */}
+            <div className="bg-white rounded-2xl p-8 mb-8 shadow-soft">
+              <h4 className="text-xl font-bold text-depth-800 mb-6">
+                【例2】AIリブート研修＋フォロー研修（4日間・24時間 ＋ 1時間×12回）
+              </h4>
+              <div className="mb-4">
+                <p className="text-depth-700"><span className="font-bold">参加者数:</span> 10名</p>
+                <p className="text-depth-700"><span className="font-bold">研修費用（税抜）:</span> 420万円</p>
+              </div>
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b-2 border-depth-200">
+                    <th className="py-3 text-left text-depth-800">項目</th>
+                    <th className="py-3 text-right text-depth-800">金額</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-depth-200">
+                  <tr>
+                    <td className="py-4 text-depth-700">助成額</td>
+                    <td className="py-4 text-right text-depth-700">
+                      <div><span className="font-bold text-harmony">315万円</span>（経費助成75%）</div>
+                      <div className="mt-2">＋</div>
+                      <div className="mt-2"><span className="font-bold text-will-primary">36万円</span>（賃金助成：1,000円×10名×36時間）</div>
+                    </td>
+                  </tr>
+                  <tr className="bg-harmony-lighter">
+                    <td className="py-4 font-bold text-depth-800 text-lg">実質負担額</td>
+                    <td className="py-4 text-right text-2xl font-bold text-harmony">69万円 ＋ 総額に対する消費税</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p className="text-center mt-6 text-lg font-bold text-depth-800">
+                実質負担率：約17%
               </p>
             </div>
             
@@ -135,15 +161,14 @@ export const CorporatePricing = () => {
               </div>
             </div>
             
-            {/* 注意書き */}
+            {/* 締めメッセージ */}
             <div className="bg-harmony/10 rounded-2xl p-6 text-center">
-              <p className="text-depth-800 leading-relaxed">
-                助成金の活用により料金が変動する可能性がありますので、<br />
-                <span className="font-bold text-harmony">まずは無料相談で、貴社の状況に合わせた最適なプランと料金をご提案させてください。</span>
+              <p className="text-lg text-depth-800 leading-relaxed">
+                助成金を活用することで、組織全体のAI活用力を強化する研修を、<br />
+                <span className="font-bold text-harmony">実質2割以下の負担で実施</span>することが可能です。
               </p>
-              <p className="text-depth-700 mt-4">
-                詳しい料金や助成金の活用方法については、無料相談にてご案内いたします。<br />
-                お気軽にお問い合わせください。
+              <p className="text-xl font-bold text-depth-800 mt-6">
+                まずは無料相談で、貴社の状況に合わせた最適なプランと料金をご提案させてください。
               </p>
             </div>
           </div>
