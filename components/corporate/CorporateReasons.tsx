@@ -56,7 +56,7 @@ export const CorporateReasons = () => {
   ];
   
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-gradient-to-b from-depth-100 to-white">
+    <section ref={ref} className="py-12 md:py-20 bg-gradient-to-b from-depth-100 to-white">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

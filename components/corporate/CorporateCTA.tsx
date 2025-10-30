@@ -9,7 +9,7 @@ export const CorporateCTA = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-gradient-to-br from-harmony-lighter via-white to-will-lighter relative overflow-hidden">
+    <section ref={ref} className="py-12 md:py-20 bg-gradient-to-br from-harmony-lighter via-white to-will-lighter relative overflow-hidden">
       {/* 背景装飾 */}
       <div className="absolute inset-0 opacity-20">
         <motion.div

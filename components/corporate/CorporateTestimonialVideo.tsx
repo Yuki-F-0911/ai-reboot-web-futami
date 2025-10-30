@@ -8,7 +8,7 @@ export const CorporateTestimonialVideo = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-gradient-to-b from-white to-depth-100">
+    <section ref={ref} className="py-12 md:py-20 bg-gradient-to-b from-white to-depth-100">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,10 +16,10 @@ export const CorporateTestimonialVideo = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto mb-16"
         >
-          <h2 className="text-h1 md:text-5xl font-bold mb-8 text-depth-800">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-depth-800 leading-[1.3] tracking-tight mb-6">
             お客様の声
           </h2>
-          <p className="text-xl text-depth-700 leading-relaxed">
+          <p className="text-base md:text-lg text-depth-700 leading-[1.8]">
             研修を通じて得られた気づきと変化について語っていただきました。
           </p>
         </motion.div>
@@ -31,9 +31,9 @@ export const CorporateTestimonialVideo = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="bg-white rounded-3xl p-8 shadow-elevated">
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold mb-2 text-depth-800">ウィルトラスト社 礒崎様より</h3>
+          <div className="bg-white rounded-3xl p-8 md:p-10 shadow-elevated border border-depth-100">
+            <div className="mb-8">
+              <h3 className="text-xl md:text-2xl font-bold text-depth-800 leading-[1.4]">ウィルトラスト社 礒崎様より</h3>
             </div>
             
             {/* YouTube埋め込み */}

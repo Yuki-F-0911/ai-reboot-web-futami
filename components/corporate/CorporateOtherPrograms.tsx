@@ -37,7 +37,7 @@ export const CorporateOtherPrograms = () => {
   ];
   
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-white">
+    <section ref={ref} className="py-12 md:py-20 bg-white">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,37 +57,63 @@ export const CorporateOtherPrograms = () => {
         </motion.div>
         
         {/* プログラム一覧 */}
-        <div className="max-w-6xl mx-auto space-y-8 mb-12">
-          {programs.map((program, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-              className="bg-gradient-to-br from-depth-100 to-white rounded-3xl p-8 shadow-soft hover:shadow-elevated transition-all duration-300"
-            >
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-xl bg-harmony flex items-center justify-center">
-                    <span className="text-white text-xl font-bold">{program.number}</span>
+        <div className="max-w-7xl mx-auto mb-12">
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-depth-800 text-center">プログラムラインナップ</h3>
+          
+          {/* 最初の3つ：横3列 */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            {programs.slice(0, 3).map((program, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
+                className="bg-white rounded-3xl p-6 shadow-elevated border border-depth-100 hover:shadow-floating transition-all duration-300 flex flex-col"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-harmony flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-lg font-bold">{program.number}</span>
                   </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-4 text-depth-800">
+                  <h4 className="text-lg md:text-xl font-bold text-depth-800 leading-[1.3]">
                     {program.title}
-                  </h3>
-                  <p className="text-depth-700 leading-relaxed">
-                    {program.description}
-                  </p>
-                  {program.note && (
-                    <p className="mt-4 text-harmony font-bold">
-                      ※ {program.note}
-                    </p>
-                  )}
+                  </h4>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+                <p className="text-sm md:text-base text-depth-700 leading-[1.7] flex-1">
+                  {program.description}
+                </p>
+                {program.note && (
+                  <p className="mt-4 text-sm text-harmony font-bold">
+                    ※ {program.note}
+                  </p>
+                )}
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* 残りの2つ：横2列 */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {programs.slice(3).map((program, index) => (
+              <motion.div
+                key={index + 3}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
+                className="bg-white rounded-3xl p-6 shadow-elevated border border-depth-100 hover:shadow-floating transition-all duration-300 flex flex-col"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-harmony flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-lg font-bold">{program.number}</span>
+                  </div>
+                  <h4 className="text-lg md:text-xl font-bold text-depth-800 leading-[1.3]">
+                    {program.title}
+                  </h4>
+                </div>
+                <p className="text-sm md:text-base text-depth-700 leading-[1.7] flex-1">
+                  {program.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
         
         {/* 注記 */}

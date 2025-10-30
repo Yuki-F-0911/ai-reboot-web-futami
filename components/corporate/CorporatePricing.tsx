@@ -8,7 +8,7 @@ export const CorporatePricing = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-white">
+    <section ref={ref} className="py-12 md:py-20 bg-white">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,10 +16,10 @@ export const CorporatePricing = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto mb-16"
         >
-          <h2 className="text-h1 md:text-5xl font-bold mb-8 text-depth-800">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-depth-800 leading-[1.3] tracking-tight mb-6">
             料金について
           </h2>
-          <p className="text-xl text-depth-700 leading-relaxed">
+          <p className="text-xl md:text-2xl font-semibold text-harmony leading-[1.6]">
             助成金活用で、実質負担を大幅に軽減
           </p>
         </motion.div>
@@ -31,10 +31,12 @@ export const CorporatePricing = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-5xl mx-auto mb-16"
         >
-          <div className="bg-white rounded-3xl p-10 shadow-elevated">
-            <p className="text-lg text-depth-700 leading-relaxed text-center mb-8">
-              研修費用の詳細は、貴社の課題やご希望の内容に応じて柔軟にご提案いたします。<br />
-              <span className="font-bold text-harmony">人材開発支援助成金（リスキリング）を活用することで、実質負担を大幅に軽減</span>できます。
+          <div className="bg-white rounded-3xl p-10 shadow-elevated border border-depth-100">
+            <p className="text-base md:text-lg text-depth-700 leading-[1.8] text-center">
+              研修費用の詳細は、貴社の課題やご希望の内容に応じて柔軟にご提案いたします。
+            </p>
+            <p className="text-base md:text-lg text-depth-800 leading-[1.8] text-center mt-4 font-semibold">
+              <span className="text-harmony font-bold">人材開発支援助成金（リスキリング）を活用することで、実質負担を大幅に軽減</span>できます。
             </p>
           </div>
         </motion.div>
@@ -46,86 +48,113 @@ export const CorporatePricing = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="max-w-6xl mx-auto"
         >
-          <div className="bg-gradient-to-br from-will-lighter via-white to-harmony-lighter p-10 rounded-3xl shadow-elevated">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-depth-800 mb-4">
+          <div className="bg-gradient-to-br from-will-lighter via-white to-harmony-lighter p-10 md:p-12 rounded-3xl shadow-elevated border border-harmony/10">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl md:text-3xl font-bold text-depth-800 mb-6 leading-[1.4]">
                 助成金活用例
               </h3>
-              <p className="text-lg text-depth-700">
+              <p className="text-base md:text-lg text-depth-700 leading-[1.8]">
                 実際にどの程度の実質負担額になるのか、具体的な計算例をご紹介します。
               </p>
             </div>
             
-            {/* 例1 */}
-            <div className="bg-white rounded-2xl p-8 mb-8 shadow-soft">
-              <h4 className="text-xl font-bold text-depth-800 mb-6">
-                【例1】AIリブート研修（3日間・18時間）
-              </h4>
-              <div className="mb-4">
-                <p className="text-depth-700"><span className="font-bold">参加者数:</span> 10名</p>
-                <p className="text-depth-700"><span className="font-bold">研修費用（税抜）:</span> 210万円</p>
+            {/* 例1と例2を横並び */}
+            <div className="grid lg:grid-cols-2 gap-6 mb-8">
+              {/* 例1 */}
+              <div className="bg-white rounded-3xl p-6 md:p-8 shadow-elevated border border-depth-100">
+                <div className="text-center mb-6">
+                  <h4 className="text-lg md:text-xl font-bold text-depth-800 mb-2 leading-[1.4]">
+                    【例1】3日間・18時間
+                  </h4>
+                  <p className="text-sm text-depth-600">参加者数: 10名</p>
+                </div>
+                
+                {/* ビジュアル表示 */}
+                <div className="space-y-4">
+                  {/* 研修費用 */}
+                  <div className="text-center p-4 bg-depth-50 rounded-2xl">
+                    <p className="text-xs md:text-sm text-depth-600 mb-1">研修費用（税抜）</p>
+                    <p className="text-2xl md:text-3xl font-bold text-depth-800">210万円</p>
+                  </div>
+                  
+                  {/* 矢印 */}
+                  <div className="flex justify-center">
+                    <svg className="w-6 h-6 text-harmony" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  </div>
+                  
+                  {/* 助成金 */}
+                  <div className="space-y-2">
+                    <div className="p-3 bg-harmony/10 rounded-xl text-center">
+                      <p className="text-xs text-depth-600 mb-1">経費助成（75%）</p>
+                      <p className="text-xl font-bold text-harmony">▲157.5万円</p>
+                    </div>
+                    <div className="p-3 bg-will-primary/10 rounded-xl text-center">
+                      <p className="text-xs text-depth-600 mb-1">賃金助成</p>
+                      <p className="text-xl font-bold text-will-primary">▲18万円</p>
+                    </div>
+                  </div>
+                  
+                  {/* 実質負担 */}
+                  <div className="text-center p-5 bg-gradient-to-r from-harmony-lighter to-will-lighter rounded-2xl border-2 border-harmony">
+                    <p className="text-xs text-depth-600 mb-2">実質負担額</p>
+                    <p className="text-3xl md:text-4xl font-black text-harmony mb-2">34.5万円</p>
+                    <p className="text-xs text-depth-600 mb-3">＋消費税</p>
+                    <div className="inline-block px-4 py-2 bg-harmony text-white rounded-full">
+                      <p className="text-base md:text-lg font-bold">約17%</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b-2 border-depth-200">
-                    <th className="py-3 text-left text-depth-800">項目</th>
-                    <th className="py-3 text-right text-depth-800">金額</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-depth-200">
-                  <tr>
-                    <td className="py-4 text-depth-700">助成額</td>
-                    <td className="py-4 text-right text-depth-700">
-                      <div><span className="font-bold text-harmony">157.5万円</span>（経費助成75%）</div>
-                      <div className="mt-2">＋</div>
-                      <div className="mt-2"><span className="font-bold text-will-primary">18万円</span>（賃金助成：1,000円×10名×18時間）</div>
-                    </td>
-                  </tr>
-                  <tr className="bg-harmony-lighter">
-                    <td className="py-4 font-bold text-depth-800 text-lg">実質負担額</td>
-                    <td className="py-4 text-right text-2xl font-bold text-harmony">34.5万円 ＋ 総額に対する消費税</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p className="text-center mt-6 text-lg font-bold text-depth-800">
-                実質負担率：約17%
-              </p>
-            </div>
-            
-            {/* 例2 */}
-            <div className="bg-white rounded-2xl p-8 mb-8 shadow-soft">
-              <h4 className="text-xl font-bold text-depth-800 mb-6">
-                【例2】AIリブート研修＋フォロー研修（4日間・24時間 ＋ 1時間×12回）
-              </h4>
-              <div className="mb-4">
-                <p className="text-depth-700"><span className="font-bold">参加者数:</span> 10名</p>
-                <p className="text-depth-700"><span className="font-bold">研修費用（税抜）:</span> 420万円</p>
+              
+              {/* 例2 */}
+              <div className="bg-white rounded-3xl p-6 md:p-8 shadow-elevated border border-depth-100">
+                <div className="text-center mb-6">
+                  <h4 className="text-lg md:text-xl font-bold text-depth-800 mb-2 leading-[1.4]">
+                    【例2】研修＋フォロー
+                  </h4>
+                  <p className="text-sm text-depth-600">4日間・24h ＋ 1h×12回 / 10名</p>
+                </div>
+                
+                {/* ビジュアル表示 */}
+                <div className="space-y-4">
+                  {/* 研修費用 */}
+                  <div className="text-center p-4 bg-depth-50 rounded-2xl">
+                    <p className="text-xs md:text-sm text-depth-600 mb-1">研修費用（税抜）</p>
+                    <p className="text-2xl md:text-3xl font-bold text-depth-800">420万円</p>
+                  </div>
+                  
+                  {/* 矢印 */}
+                  <div className="flex justify-center">
+                    <svg className="w-6 h-6 text-harmony" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  </div>
+                  
+                  {/* 助成金 */}
+                  <div className="space-y-2">
+                    <div className="p-3 bg-harmony/10 rounded-xl text-center">
+                      <p className="text-xs text-depth-600 mb-1">経費助成（75%）</p>
+                      <p className="text-xl font-bold text-harmony">▲315万円</p>
+                    </div>
+                    <div className="p-3 bg-will-primary/10 rounded-xl text-center">
+                      <p className="text-xs text-depth-600 mb-1">賃金助成</p>
+                      <p className="text-xl font-bold text-will-primary">▲36万円</p>
+                    </div>
+                  </div>
+                  
+                  {/* 実質負担 */}
+                  <div className="text-center p-5 bg-gradient-to-r from-harmony-lighter to-will-lighter rounded-2xl border-2 border-harmony">
+                    <p className="text-xs text-depth-600 mb-2">実質負担額</p>
+                    <p className="text-3xl md:text-4xl font-black text-harmony mb-2">69万円</p>
+                    <p className="text-xs text-depth-600 mb-3">＋消費税</p>
+                    <div className="inline-block px-4 py-2 bg-harmony text-white rounded-full">
+                      <p className="text-base md:text-lg font-bold">約17%</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b-2 border-depth-200">
-                    <th className="py-3 text-left text-depth-800">項目</th>
-                    <th className="py-3 text-right text-depth-800">金額</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-depth-200">
-                  <tr>
-                    <td className="py-4 text-depth-700">助成額</td>
-                    <td className="py-4 text-right text-depth-700">
-                      <div><span className="font-bold text-harmony">315万円</span>（経費助成75%）</div>
-                      <div className="mt-2">＋</div>
-                      <div className="mt-2"><span className="font-bold text-will-primary">36万円</span>（賃金助成：1,000円×10名×36時間）</div>
-                    </td>
-                  </tr>
-                  <tr className="bg-harmony-lighter">
-                    <td className="py-4 font-bold text-depth-800 text-lg">実質負担額</td>
-                    <td className="py-4 text-right text-2xl font-bold text-harmony">69万円 ＋ 総額に対する消費税</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p className="text-center mt-6 text-lg font-bold text-depth-800">
-                実質負担率：約17%
-              </p>
             </div>
             
             {/* 助成金メリット */}

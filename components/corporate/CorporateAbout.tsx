@@ -79,7 +79,7 @@ export const CorporateAbout = () => {
   ];
   
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-white">
+    <section ref={ref} className="py-12 md:py-20 bg-white">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -87,10 +87,10 @@ export const CorporateAbout = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto mb-16"
         >
-          <h2 className="text-h1 md:text-5xl font-bold mb-8 text-depth-800">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-depth-800 leading-[1.3] tracking-tight mb-6">
             AIリブート研修について
           </h2>
-          <p className="text-2xl font-bold text-harmony mb-6">
+          <p className="text-xl md:text-2xl font-semibold text-harmony leading-[1.6]">
             貴社の課題に合わせた実践型プログラム
           </p>
         </motion.div>
@@ -102,10 +102,10 @@ export const CorporateAbout = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-6xl mx-auto mb-16"
         >
-          <div className="bg-gradient-to-br from-harmony-lighter to-will-lighter rounded-3xl p-10 shadow-elevated">
-            <h3 className="text-2xl font-bold mb-6 text-depth-800">研修概要</h3>
-            <p className="text-lg text-depth-700 mb-6 leading-relaxed">
-              <strong>AIリブート研修</strong>は、組織全体がAI時代に適応し、自走できる力を養成する実践型プログラムです。
+          <div className="bg-gradient-to-br from-harmony-lighter to-will-lighter rounded-3xl p-10 shadow-elevated border border-harmony/10">
+            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-depth-800 leading-[1.4]">研修概要</h3>
+            <p className="text-base md:text-lg text-depth-700 mb-8 leading-[1.8] font-medium">
+              <strong className="text-harmony">AIリブート研修</strong>は、組織全体がAI時代に適応し、自走できる力を養成する実践型プログラムです。
             </p>
             
             <div className="grid md:grid-cols-2 gap-6">
@@ -136,10 +136,11 @@ export const CorporateAbout = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="max-w-6xl mx-auto"
         >
-          <h3 className="text-2xl font-bold mb-8 text-depth-800 text-center">主な研修内容</h3>
-          <p className="text-center text-depth-700 mb-12 text-lg">
-            研修では、以下のようなテーマを扱います<br />
-            <span className="text-harmony font-bold">（貴社の課題に応じてカスタマイズ可能）</span>
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-depth-800 text-center leading-[1.4]">主な研修内容</h3>
+          <p className="text-center text-depth-700 mb-12 text-base md:text-lg leading-[1.8]">
+            研修では、以下のようなテーマを扱います
+            <br className="hidden md:block" />
+            <span className="text-harmony font-semibold">（貴社の課題に応じてカスタマイズ可能）</span>
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -149,21 +150,21 @@ export const CorporateAbout = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.4 + index * 0.05 }}
-                className="bg-white rounded-3xl p-8 shadow-elevated hover:shadow-floating transition-all duration-300"
+                className="bg-white rounded-3xl p-8 shadow-soft hover:shadow-elevated transition-all duration-300 border border-depth-100"
               >
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-harmony flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold">{index + 1}</span>
+                    <span className="text-white font-bold text-lg">{index + 1}</span>
                   </div>
-                  <h4 className="text-xl font-bold text-depth-800">
+                  <h4 className="text-lg md:text-xl font-bold text-depth-800 leading-[1.4]">
                     {section.title}
                   </h4>
                 </div>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {section.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-harmony mt-1 flex-shrink-0">•</span>
-                      <span className="text-depth-700">{item}</span>
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="text-harmony mt-1 flex-shrink-0 text-sm">●</span>
+                      <span className="text-depth-700 text-sm md:text-base leading-[1.7]">{item}</span>
                     </li>
                   ))}
                 </ul>
