@@ -17,243 +17,263 @@ export const CorporateProgram = () => {
           className="text-center max-w-4xl mx-auto mb-16"
         >
           <h2 className="text-h1 md:text-5xl font-bold mb-8 text-depth-800">
-            プログラムの内容と特徴
+            実践を重視した2段階プログラム
           </h2>
-          <div className="bg-gradient-to-r from-harmony-lighter to-will-lighter p-8 rounded-3xl mb-4">
-            <p className="text-2xl font-bold text-depth-800 mb-4">
-              座学＋実践＋伴走型開発支援の三段構成
+          <div className="bg-gradient-to-r from-harmony-lighter to-will-lighter p-8 rounded-3xl">
+            <p className="text-xl text-depth-700 leading-relaxed">
+              ベーシック研修で基礎力を固め、アドバンス研修で実装力を高める。<br />
+              さらにフォロー研修で確実に定着させる、段階的な学習プログラムです。
             </p>
-            <p className="text-xl text-depth-700">
-              生成AIの活用環境を整え、個人・チームレベルで業務に組み込み、<br />
-              メンターが開発・実装まで徹底伴走します
-            </p>
-          </div>
-          <p className="text-lg text-depth-600 italic">
-            ※以下の時間数は一例です。企業の課題や状況に応じてカスタマイズ可能です。
-          </p>
-        </motion.div>
-        
-        {/* 3つのプログラム概要 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20"
-        >
-          <div className="bg-white rounded-3xl p-8 shadow-elevated text-center">
-            <h3 className="text-xl font-bold mb-4 text-harmony">
-              1. 初回集中研修<br />
-              <span className="text-sm font-normal">（例：12時間）</span>
-            </h3>
-            <p className="text-depth-700 mb-4">
-              AIの活用方法や編集スキルの習得を目的とした対面での集中研修
-            </p>
-            <ul className="text-left space-y-2 text-depth-700">
-              <li className="flex items-start gap-2">
-                <span className="text-harmony mt-1">•</span>
-                <span>生成AI活用で実現できること</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-harmony mt-1">•</span>
-                <span>個人・チーム作業環境の構築</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-harmony mt-1">•</span>
-                <span>実践的な活用演習</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div className="bg-white rounded-3xl p-8 shadow-elevated text-center">
-            <h3 className="text-xl font-bold mb-4 text-will-primary">
-              2. オンライン講座学習<br />
-              <span className="text-sm font-normal">（例：10時間超）</span>
-            </h3>
-            <p className="text-depth-700 mb-4">
-              受講者が各自で学習を進める形式
-            </p>
-            <ul className="text-left space-y-2 text-depth-700">
-              <li className="flex items-start gap-2">
-                <span className="text-will-primary mt-1">•</span>
-                <span>生成AIの仕組みと倫理</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-will-primary mt-1">•</span>
-                <span>実践演習（データ分析、資料作成、画像・動画生成等）</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-will-primary mt-1">•</span>
-                <span>各講義ごとの学習評価テスト</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div className="bg-white rounded-3xl p-8 shadow-elevated text-center">
-            <h3 className="text-xl font-bold mb-4 text-wisdom">
-              3. 伴走型開発支援<br />
-              <span className="text-sm font-normal">（例：10時間/人）</span>
-            </h3>
-            <p className="text-depth-700 mb-4">
-              専属メンターが現場での実践を徹底サポート
-            </p>
-            <ul className="text-left space-y-2 text-depth-700">
-              <li className="flex items-start gap-2">
-                <span className="text-wisdom mt-1">•</span>
-                <span>初回研修後の実践をサポート</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-wisdom mt-1">•</span>
-                <span>業務への実装支援</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-wisdom mt-1">•</span>
-                <span>課題解決の伴走</span>
-              </li>
-            </ul>
           </div>
         </motion.div>
         
-        {/* 初回集中研修の詳細 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-5xl mx-auto mb-16"
-        >
-          <div className="bg-white rounded-3xl p-10 shadow-elevated">
-            <h3 className="text-2xl font-bold mb-8 text-depth-800 text-center">
-              初回集中研修の詳細
-            </h3>
-            <p className="text-center text-depth-700 mb-8">
-              AIの活用方法や編集スキルの習得を目的とした対面での集中研修。
-            </p>
-            
-            <div className="grid md:grid-cols-2 gap-10">
-              {/* DAY1 */}
-              <div className="bg-gradient-to-br from-harmony-lighter to-white p-8 rounded-2xl">
-                <h4 className="text-xl font-bold mb-4 text-harmony">
-                  DAY1：個人作業環境の構築
-                </h4>
-                <ul className="space-y-3 text-depth-700">
-                  <li className="flex items-start gap-3">
-                    <span className="text-harmony mt-1">•</span>
-                    <span>生成AI活用で実現できること</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-harmony mt-1">•</span>
-                    <span>生成AIが変える未来</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-harmony mt-1">•</span>
-                    <span>生成AI活用事例</span>
-                  </li>
-                  <li className="pl-6 text-sm text-depth-600">
-                    - データ分析／資料作成／画像生成／動画生成／音楽生成／チャットボット開発 等
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-harmony mt-1">•</span>
-                    <span>個人作業環境（AI搭載IDEおよびLLMチャットツール等）の構築</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-harmony mt-1">•</span>
-                    <span>生成AI活用実践（実際に個別の業務にAIを活用する）</span>
-                  </li>
-                </ul>
+        {/* プログラム一覧 */}
+        <div className="space-y-16 max-w-6xl mx-auto mt-16">
+          {/* ベーシック研修 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="bg-white rounded-3xl p-10 shadow-elevated">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-harmony flex items-center justify-center">
+                  <span className="text-2xl font-bold text-white">1</span>
+                </div>
+                <h3 className="text-3xl font-bold text-depth-800">
+                  ベーシック研修
+                </h3>
               </div>
               
-              {/* DAY2 */}
-              <div className="bg-gradient-to-br from-will-lighter to-white p-8 rounded-2xl">
-                <h4 className="text-xl font-bold mb-4 text-will-primary">
-                  DAY2：チーム作業環境の構築
-                </h4>
-                <ul className="space-y-3 text-depth-700">
-                  <li className="flex items-start gap-3">
-                    <span className="text-will-primary mt-1">•</span>
-                    <span>チームでAI活用にレバレッジをかける</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-will-primary mt-1">•</span>
-                    <span>チームで共有できる生成AIリポジトリの構築</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-will-primary mt-1">•</span>
-                    <span>ナレッジ共有や情報管理の仕組みを実装</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-will-primary mt-1">•</span>
-                    <span>チーム全体でAIを活用した共同作業を体験</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="mt-8 p-6 bg-depth-100 rounded-2xl">
-              <p className="text-depth-700 text-center font-bold">
-                研修のポイント<br />
-                実際の業務環境で即座に活用できる<br />
-                実践的なスキルを身につけます
+              <p className="text-xl text-harmony font-bold mb-4">
+                AIパラダイムシフト＆生成AI活用力向上（2日間）
               </p>
-              <p className="text-sm text-depth-600 mt-4 text-center">
-                ※日程や時間配分は、貴社のご要望に応じて調整いたします
-              </p>
-            </div>
-          </div>
-        </motion.div>
-        
-        {/* オンライン講座学習の詳細 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-5xl mx-auto"
-        >
-          <div className="bg-white rounded-3xl p-10 shadow-elevated">
-            <h3 className="text-2xl font-bold mb-8 text-depth-800 text-center">
-              オンライン講座学習
-            </h3>
-            <p className="text-center text-depth-700 mb-8">
-              受講者が各自で学習を進める形式（各自自身の業務と関連性の高い内容の講座を選択）
-            </p>
-            
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div>
-                <h4 className="font-bold mb-4 text-harmony text-lg">基礎編</h4>
-                <ol className="space-y-2 text-depth-700">
-                  <li>1. 生成AIの仕組み</li>
-                  <li>2. 生成AI関連言語の理解</li>
-                  <li>3. AI活用の倫理</li>
-                  <li>4. 生成AIパスポート対策</li>
-                </ol>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h4 className="font-bold text-depth-800 mb-3">概要</h4>
+                  <ul className="space-y-2 text-depth-700">
+                    <li><span className="font-bold">期間:</span> 2日間（12時間）</li>
+                    <li><span className="font-bold">対象:</span> 10〜30名程度</li>
+                    <li><span className="font-bold">形式:</span> 集合研修（対面推奨）</li>
+                    <li><span className="font-bold">目的:</span> 個人が業務でAIを使いこなせる基礎力を習得</li>
+                  </ul>
+                </div>
                 
-                <h4 className="font-bold mb-4 text-harmony text-lg mt-8">実践編（前半）</h4>
-                <ol className="space-y-2 text-depth-700" start={5}>
-                  <li>5. 生成AI活用実習（データ分析）</li>
-                  <li>6. 生成AI活用実習（ダッシュボード生成）</li>
-                  <li>7. 生成AI活用実習（資料作成）</li>
-                </ol>
+                <div>
+                  <h4 className="font-bold text-depth-800 mb-3">主な内容</h4>
+                  <ul className="space-y-2 text-depth-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-harmony mt-1">•</span>
+                      <span>AIパラダイムシフトの理解（思考のOSを書き換える）</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-harmony mt-1">•</span>
+                      <span>組織が直面する3つの壁の突破（言語・未経験・習慣の壁）</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-harmony mt-1">•</span>
+                      <span>各種AIツールの実践的な体験と活用</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-harmony mt-1">•</span>
+                      <span>個人のAI作業環境構築</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-harmony mt-1">•</span>
+                      <span>業務での活用アイデア創出</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
               
-              <div>
-                <h4 className="font-bold mb-4 text-will-primary text-lg">実践編（後半）</h4>
-                <ol className="space-y-2 text-depth-700" start={8}>
-                  <li>8. 生成AI活用実習（画像生成）</li>
-                  <li>9. 生成AI活用実習（動画生成）</li>
-                  <li>10. 生成AI活用実習（音楽生成）</li>
-                  <li>11. 自動化・API連携</li>
-                </ol>
-                
-                <div className="bg-gradient-to-r from-harmony-lighter to-will-lighter p-6 rounded-2xl mt-8">
-                  <p className="text-depth-800 font-bold">
-                    学習のポイント<br />
-                    • 各講義ごとに学習評価テストを実施<br />
-                    • 業務に即した内容を選択可能<br />
-                    • 実践的なスキルの習得に重点
-                  </p>
+              <div className="bg-gradient-to-r from-harmony-lighter to-will-lighter p-6 rounded-2xl">
+                <h4 className="font-bold text-depth-800 mb-3">研修の成果物</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <ul className="space-y-2 text-depth-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-harmony mt-1">•</span>
+                      <span>個人のAI作業環境（設定済み）</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-harmony mt-1">•</span>
+                      <span>プロンプトテンプレート集</span>
+                    </li>
+                  </ul>
+                  <ul className="space-y-2 text-depth-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-harmony mt-1">•</span>
+                      <span>業務別活用アイデアリスト</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-harmony mt-1">•</span>
+                      <span>AI活用ガイドライン</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+          
+          {/* アドバンス研修 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="bg-white rounded-3xl p-10 shadow-elevated">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-will-primary flex items-center justify-center">
+                  <span className="text-2xl font-bold text-white">2</span>
+                </div>
+                <h3 className="text-3xl font-bold text-depth-800">
+                  アドバンス研修
+                </h3>
+              </div>
+              
+              <p className="text-xl text-will-primary font-bold mb-4">
+                チーム活用＆AIエージェント開発（2日間）
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h4 className="font-bold text-depth-800 mb-3">概要</h4>
+                  <ul className="space-y-2 text-depth-700">
+                    <li><span className="font-bold">期間:</span> 2日間（12時間）</li>
+                    <li><span className="font-bold">対象:</span> 10〜30名程度</li>
+                    <li><span className="font-bold">形式:</span> 集合研修（対面推奨）</li>
+                    <li><span className="font-bold">目的:</span> チーム全体でAI活用環境を構築し、AIエージェント開発まで実装</li>
+                    <li><span className="font-bold">前提:</span> AI基礎知識があることが望ましい（ベーシック研修受講者推奨）</li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="font-bold text-depth-800 mb-3">主な内容</h4>
+                  <ul className="space-y-2 text-depth-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-will-primary mt-1">•</span>
+                      <span>チーム共通リポジトリの構築（プロンプトライブラリ・ナレッジベース）</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-will-primary mt-1">•</span>
+                      <span>業務フロー分析とAIエージェント化の設計</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-will-primary mt-1">•</span>
+                      <span>AIエージェントのプロトタイピング実践</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-will-primary mt-1">•</span>
+                      <span>社内AI活用推進体制の設計</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-will-primary mt-1">•</span>
+                      <span>内製化・展開計画の策定</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-r from-will-lighter to-harmony-lighter p-6 rounded-2xl">
+                <h4 className="font-bold text-depth-800 mb-3">研修の成果物</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <ul className="space-y-2 text-depth-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-will-primary mt-1">•</span>
+                      <span>チーム共通のAIリポジトリ（構築済み）</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-will-primary mt-1">•</span>
+                      <span>AIエージェントのプロトタイプ</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-will-primary mt-1">•</span>
+                      <span>業務フロー改善提案書</span>
+                    </li>
+                  </ul>
+                  <ul className="space-y-2 text-depth-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-will-primary mt-1">•</span>
+                      <span>社内AI活用推進ガイドライン</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-will-primary mt-1">•</span>
+                      <span>内製化・展開計画書</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* フォロー研修（オプション） */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <div className="bg-white rounded-3xl p-10 shadow-elevated border-2 border-wisdom">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="px-4 py-2 rounded-xl bg-wisdom flex items-center justify-center">
+                  <span className="text-lg font-bold text-white whitespace-nowrap">Option</span>
+                </div>
+                <h3 className="text-3xl font-bold text-depth-800">
+                  フォロー研修
+                </h3>
+              </div>
+              
+              <p className="text-xl text-wisdom font-bold mb-4">
+                継続的な学習プログラム
+              </p>
+              
+              <p className="text-depth-700 mb-8 leading-relaxed">
+                研修後、現場での定着を確実にし、変化し続けるAI環境に適応するための継続的な学習プログラム
+              </p>
+              
+              <div className="bg-harmony-lighter p-6 rounded-2xl mb-6">
+                <p className="text-depth-800 font-bold">
+                  現在のAI活用力や企業の目指すところに応じて、回数や形態を柔軟に設計します
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="font-bold text-depth-800 mb-3">概要</h4>
+                  <ul className="space-y-2 text-depth-700">
+                    <li><span className="font-bold">期間・形態:</span> 週1回×10〜12回（各60分）のオンライン形式など、貴社の状況に合わせてカスタマイズ可能</li>
+                    <li><span className="font-bold">対象:</span> 研修受講者（全員または選抜メンバー）</li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="font-bold text-depth-800 mb-3">主な内容</h4>
+                  <ul className="space-y-2 text-depth-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-wisdom mt-1">•</span>
+                      <span>実践での課題解決とスキル定着支援</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-wisdom mt-1">•</span>
+                      <span>チーム活用の最適化とナレッジ共有の促進</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-wisdom mt-1">•</span>
+                      <span>AIエージェントの改善と横展開</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-wisdom mt-1">•</span>
+                      <span>社内推進体制の強化</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-wisdom mt-1">•</span>
+                      <span>最新AI技術のキャッチアップ</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
