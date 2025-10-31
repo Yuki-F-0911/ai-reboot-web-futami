@@ -64,7 +64,7 @@ export const CorporatePricing = () => {
               <div className="bg-white rounded-3xl p-6 md:p-8 shadow-elevated border border-depth-100">
                 <div className="text-center mb-6">
                   <h4 className="text-lg md:text-xl font-bold text-depth-800 mb-2 leading-[1.4]">
-                    【例1】3日間・18時間
+                    【例1】AIリブート研修（3日間・18時間）
                   </h4>
                   <p className="text-sm text-depth-600">参加者数: 10名</p>
                 </div>
@@ -112,9 +112,9 @@ export const CorporatePricing = () => {
               <div className="bg-white rounded-3xl p-6 md:p-8 shadow-elevated border border-depth-100">
                 <div className="text-center mb-6">
                   <h4 className="text-lg md:text-xl font-bold text-depth-800 mb-2 leading-[1.4]">
-                    【例2】研修＋フォロー
+                    【例2】AIリブート研修＋フォロー研修
                   </h4>
-                  <p className="text-sm text-depth-600">4日間・24h ＋ 1h×12回 / 10名</p>
+                  <p className="text-sm text-depth-600">4日間・24時間 ＋ 1時間×12回 / 参加者数: 10名</p>
                 </div>
                 
                 {/* ビジュアル表示 */}
