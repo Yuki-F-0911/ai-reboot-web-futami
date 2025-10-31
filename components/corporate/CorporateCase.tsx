@@ -63,13 +63,13 @@ export const CorporateCase = () => {
           </div>
         </motion.div>
         
-        {/* 参加者の声 */}
+        {/* 実施後の感想 */}
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-xl md:text-2xl font-bold mb-6 text-depth-800 text-center leading-[1.4]">参加者の声</h3>
+          <h3 className="text-xl md:text-2xl font-bold mb-6 text-depth-800 text-center leading-[1.4]">実施後の感想</h3>
           
           <div className="mb-6">
             <p className="text-sm md:text-base text-depth-700 leading-[1.7] text-center">
-              礒崎様より、研修を通じて得られた気づきと変化について語っていただきました。
+              代表取締役礒崎様より、得られた気づきと変化について語っていただきました。
             </p>
           </div>
           
@@ -87,7 +87,7 @@ export const CorporateCase = () => {
                   <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                     <iframe
                       className="absolute top-0 left-0 w-full h-full rounded-2xl"
-                      src="https://www.youtube.com/embed/1AcgnjtTlCY"
+                      src="https://www.youtube.com/embed/AcJrcmt1bp8"
                       title="お客様の声 - ウィルトラスト社 礒崎様"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
@@ -104,19 +104,21 @@ export const CorporateCase = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <div className="bg-white rounded-3xl p-5 md:p-6 shadow-elevated border border-depth-100">
-                <h4 className="text-base md:text-lg font-bold mb-3 text-depth-800 leading-[1.4]">
-                  ウィルトラスト社 礒崎様（引用・要約）
-                </h4>
-                <div className="space-y-3">
-                  <p className="text-sm md:text-base text-depth-700 leading-[1.8]">
-                    「最初は“AI研修＝ツールの使い方”だと思ってました。でも違いました。日常から少し離れて、会社の未来をとことん考える時間になった。<span className="font-semibold text-harmony">『Will（どうありたいか）に徹底してこだわろう』</span>というメッセージが腹に落ちました。」
-                  </p>
-                  <p className="text-sm md:text-base text-depth-700 leading-[1.8]">
-                    「みんなの強みとAIが噛み合った瞬間、<span className="font-semibold text-will-primary">チームで勝てる</span>って本気で思えた。学びを個人で完結させず、共同学習で成長スピードが上がるのを実感しました。正直、頼もしさで胸が熱くなりました。」
-                  </p>
-                  <p className="text-sm md:text-base text-depth-700 leading-[1.8]">
-                    「世の中のAI研修はツールの使い方が中心。でもウィルフォワードの研修はもっと上位概念。Willやビジョンから始まる。単なる研修じゃなくて、<span className="font-semibold text-wisdom">会社の未来への出発点</span>。<span className="font-semibold">もう一度、本気で会社を大きくしたい</span>企業にこそ勧めたいです。」
-                  </p>
+                <div className="space-y-4">
+                  <blockquote className="border-l-4 border-harmony pl-4 italic text-sm md:text-base text-depth-700 leading-[1.8]">
+                    <p className="mb-4">
+                      AI研修については、実は私はこれまで多くの企業から営業を受けてきました。しかし、そこで聞いたほぼすべての企業で言われるのは、「AIツールの使い方をスタッフに学んでもらうことが、何よりも大事です」ということでした。
+                    </p>
+                    <p className="mb-4">
+                      それに対し、ウィルフォワード社の研修は、焦点がまったく異なりました。そこ（ツールの使い方）ではなく、もっと上位の概念、つまり<span className="font-semibold text-harmony">「そのツールを使って、自分たちはどうしていくのか」</span>という点を重視しています。
+                    </p>
+                    <p className="mb-4">
+                      単なるツールの使い方以上に、<span className="font-semibold text-will-primary">「自分たちの思い（Will）は何か」「将来どうなっていきたいのか」</span>というビジョンを、研修と同時に深く考えさせてくれるきっかけとなる、そんな4日間だったと感じています。
+                    </p>
+                    <p>
+                      この研修は、単に「AIツールを導入しよう」と考えている企業ではなく、<span className="font-semibold text-wisdom">「もう一度、自分たちの組織を大きくしていきたい」</span>と本気で考えている、そんな情熱のある会社や経営者にこそ強くお勧めします。
+                    </p>
+                  </blockquote>
                 </div>
               </div>
             </motion.div>

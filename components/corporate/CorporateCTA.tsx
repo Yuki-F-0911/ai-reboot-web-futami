@@ -59,55 +59,43 @@ export const CorporateCTA = () => {
             {/* こんな方におすすめ */}
             <div className="bg-white rounded-3xl p-8 md:p-10 shadow-elevated mb-8">
               <h4 className="text-xl font-bold mb-6 text-harmony">こんな方におすすめです</h4>
-              <div className="grid md:grid-cols-2 gap-4">
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <span className="text-harmony mt-1">•</span>
-                    <span className="text-depth-700">AIを導入したいが、何から始めればいいか分からない</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-harmony mt-1">•</span>
-                    <span className="text-depth-700">社内でAI活用を定着させる方法が知りたい</span>
-                  </li>
-                </ul>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <span className="text-will-primary mt-1">•</span>
-                    <span className="text-depth-700">助成金を活用して研修費用を抑えたい</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-will-primary mt-1">•</span>
-                    <span className="text-depth-700">ウィルトラスト様のような成果を自社でも実現したい</span>
-                  </li>
-                </ul>
-              </div>
+              <ul className="space-y-3 max-w-2xl mx-auto">
+                <li className="flex items-start gap-3">
+                  <span className="text-harmony mt-1">•</span>
+                  <span className="text-depth-700">AIを導入したいが、何から始めればいいか分からない</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-harmony mt-1">•</span>
+                  <span className="text-depth-700">社内でAI活用を定着させる方法が知りたい</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-will-primary mt-1">•</span>
+                  <span className="text-depth-700">助成金を活用して研修費用を抑えたい</span>
+                </li>
+              </ul>
             </div>
             
             {/* 無料相談の内容 */}
             <div className="bg-white rounded-3xl p-8 md:p-10 shadow-elevated mb-8">
-              <h4 className="text-xl font-bold mb-6 text-will-primary">無料相談では、こんなことをお話しします（30〜45分）</h4>
-              <div className="grid md:grid-cols-2 gap-6">
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <span className="text-harmony mt-1">•</span>
-                    <span className="text-depth-700">貴社の現状ヒアリングと課題整理</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-harmony mt-1">•</span>
-                    <span className="text-depth-700">具体的な活用イメージのご提案</span>
-                  </li>
-                </ul>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <span className="text-will-primary mt-1">•</span>
-                    <span className="text-depth-700">最適な研修プログラムの設計</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-will-primary mt-1">•</span>
-                    <span className="text-depth-700">助成金活用による実質料金のご案内</span>
-                  </li>
-                </ul>
-              </div>
+              <h4 className="text-xl font-bold mb-6 text-will-primary">無料相談では、こんなことをお話しします</h4>
+              <ul className="space-y-3 max-w-2xl mx-auto">
+                <li className="flex items-start gap-3">
+                  <span className="text-harmony mt-1">•</span>
+                  <span className="text-depth-700">貴社の現状ヒアリングと課題整理</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-harmony mt-1">•</span>
+                  <span className="text-depth-700">具体的な活用イメージのご提案</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-will-primary mt-1">•</span>
+                  <span className="text-depth-700">最適な研修プログラムの設計</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-will-primary mt-1">•</span>
+                  <span className="text-depth-700">助成金活用による実質料金のご案内</span>
+                </li>
+              </ul>
             </div>
           </div>
           

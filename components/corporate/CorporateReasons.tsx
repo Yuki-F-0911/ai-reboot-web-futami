@@ -111,25 +111,6 @@ export const CorporateReasons = () => {
             </motion.div>
           ))}
         </div>
-        
-        {/* 締めメッセージ */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <div className="bg-gradient-to-r from-harmony-lighter via-will-lighter to-harmony-lighter p-10 rounded-3xl">
-            <p className="text-2xl font-bold text-depth-800 leading-relaxed mb-4">
-              AI導入を「いつかやる」と先延ばしにしている間に、<br />
-              競合は着実に生産性を高め、市場での優位性を確立しています。
-            </p>
-            <p className="text-xl text-depth-700">
-              <span className="font-bold text-harmony">今、動き出すか。このまま見送るか。</span><br />
-              その選択が、3年後の組織の競争力を大きく左右します。
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

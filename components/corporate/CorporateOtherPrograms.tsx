@@ -21,8 +21,7 @@ export const CorporateOtherPrograms = () => {
     {
       number: "3",
       title: "AI活用型新規事業開発研修",
-      description: "生成AIの可能性を最大限に活かした新規事業の企画・検証を実践するプログラム。市場分析、アイデア創出、プロトタイピング、事業計画策定まで、AIを活用しながら新規事業開発の一連のプロセスを体験します。",
-      note: "貴社の事業領域や目標に応じたセミオーダーメイド型のプログラムです"
+      description: "生成AIの可能性を最大限に活かした新規事業の企画・検証を実践するプログラム。市場分析、アイデア創出、プロトタイピング、事業計画策定まで、AIを活用しながら新規事業開発の一連のプロセスを体験します。"
     },
     {
       number: "4",
@@ -57,18 +56,18 @@ export const CorporateOtherPrograms = () => {
         </motion.div>
         
         {/* プログラム一覧 */}
-        <div className="max-w-7xl mx-auto mb-12">
+        <div className="max-w-4xl mx-auto mb-12">
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-depth-800 text-center">プログラムラインナップ</h3>
           
-          {/* 最初の3つ：横3列 */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            {programs.slice(0, 3).map((program, index) => (
+          {/* 縦並び */}
+          <div className="space-y-6">
+            {programs.map((program, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-                className="bg-white rounded-3xl p-6 shadow-elevated border border-depth-100 hover:shadow-floating transition-all duration-300 flex flex-col"
+                className="bg-white rounded-3xl p-6 shadow-elevated border border-depth-100 hover:shadow-floating transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-xl bg-harmony flex items-center justify-center flex-shrink-0">
@@ -78,37 +77,7 @@ export const CorporateOtherPrograms = () => {
                     {program.title}
                   </h4>
                 </div>
-                <p className="text-sm md:text-base text-depth-700 leading-[1.7] flex-1">
-                  {program.description}
-                </p>
-                {program.note && (
-                  <p className="mt-4 text-sm text-harmony font-bold">
-                    ※ {program.note}
-                  </p>
-                )}
-              </motion.div>
-            ))}
-          </div>
-          
-          {/* 残りの2つ：横2列 */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {programs.slice(3).map((program, index) => (
-              <motion.div
-                key={index + 3}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
-                className="bg-white rounded-3xl p-6 shadow-elevated border border-depth-100 hover:shadow-floating transition-all duration-300 flex flex-col"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-harmony flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-lg font-bold">{program.number}</span>
-                  </div>
-                  <h4 className="text-lg md:text-xl font-bold text-depth-800 leading-[1.3]">
-                    {program.title}
-                  </h4>
-                </div>
-                <p className="text-sm md:text-base text-depth-700 leading-[1.7] flex-1">
+                <p className="text-sm md:text-base text-depth-700 leading-[1.7]">
                   {program.description}
                 </p>
               </motion.div>

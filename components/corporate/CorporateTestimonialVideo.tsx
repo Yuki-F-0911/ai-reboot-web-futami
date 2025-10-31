@@ -37,15 +37,15 @@ export const CorporateTestimonialVideo = () => {
             </div>
             
             {/* YouTube埋め込み */}
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute top-0 left-0 w-full h-full rounded-2xl"
-                src="https://www.youtube.com/embed/1AcgnjtTlCY"
-                title="お客様の声 - ウィルトラスト社 礒崎様"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
+                  <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                    <iframe
+                      className="absolute top-0 left-0 w-full h-full rounded-2xl"
+                      src="https://www.youtube.com/embed/AcJrcmt1bp8"
+                      title="お客様の声 - ウィルトラスト社 礒崎様"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
           </div>
         </motion.div>
       </div>
