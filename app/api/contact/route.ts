@@ -31,6 +31,8 @@ async function sendSlackNotification(data: ContactFormData) {
     return;
   }
 
+  console.log('[Slack通知] 送信開始 - contactType:', data.contactType);
+
   try {
     // Slackメッセージの構築
     const blocks: Array<Record<string, unknown>> = [
@@ -67,7 +69,7 @@ async function sendSlackNotification(data: ContactFormData) {
         fields: [
           {
             type: 'mrkdwn',
-            text: `*お名前:*\n${data.name}`
+            text: `*お名前:*\n${data.name || '未入力'}`
           },
           {
             type: 'mrkdwn',
@@ -176,6 +178,7 @@ async function sendSlackNotification(data: ContactFormData) {
     );
 
     // Slackに送信
+    console.log('[Slack通知] リクエスト送信中...');
     const response = await fetch(SLACK_WEBHOOK_URL, {
       method: 'POST',
       headers: {
@@ -188,9 +191,10 @@ async function sendSlackNotification(data: ContactFormData) {
     });
 
     if (!response.ok) {
-      console.error('Slack通知の送信に失敗しました:', response.statusText);
+      const errorText = await response.text();
+      console.error('Slack通知の送信に失敗しました:', response.status, response.statusText, errorText);
     } else {
-      console.log('Slack通知を送信しました');
+      console.log('[Slack通知] 送信成功 - contactType:', data.contactType);
     }
   } catch (error) {
     console.error('Slack通知エラー:', error);
