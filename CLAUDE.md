@@ -194,6 +194,32 @@ docs/                   # ドキュメント (整理済み)
 
 ---
 
+## 2025-01-15 作業ログ
+
+### 実施内容
+
+1. **corporatefix2ブランチのdevブランチへのマージ**
+   - `corporatefix2` ブランチを `dev` ブランチにマージ
+   - 変更内容: CorporateAbout, CorporateCTA, CorporateHero, CorporateInstructors コンポーネントの更新
+   - 技術的判断: Fast-forwardマージで統合完了
+
+2. **Vercelデプロイ対応**
+   - `dev` ブランチ用のプレビューデプロイを作成するため、Git authorを現在のユーザーに統一
+   - Vercelの権限チェック問題を回避するための対応
+
+### 次回への申し送り
+
+- **Vercel設定の確認**
+  - Vercelダッシュボードで `dev` ブランチを Preview Branches に追加
+  - 今後の自動デプロイを有効化
+
+### 参考情報
+
+- Vercel CLI: `vercel --target preview` でプレビューデプロイ作成可能
+- Git author問題: 他の人が作成したブランチをマージする場合、authorが異なるため権限チェックでエラーになる場合あり
+
+---
+
 ## 2025-01-14 作業ログ
 
 ### 実施内容
