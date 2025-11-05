@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const CorporateHero = () => {
   return (
-    <section className="relative min-h-[60vh] flex items-center pt-16 pb-8 overflow-hidden bg-gradient-to-br from-harmony-lighter via-white to-will-lighter">
+    <section className="relative min-h-[70vh] flex items-center pt-16 pb-8 overflow-hidden bg-gradient-to-br from-harmony-lighter via-white to-will-lighter">
       {/* 背景の抽象的な形状 */}
       <div className="absolute inset-0">
         <motion.div
@@ -55,28 +55,6 @@ export const CorporateHero = () => {
             <br className="hidden md:block" />
             組織全体がAI時代を生き抜く力を獲得する。
           </motion.p>
-          
-          {/* 強調メッセージ */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="max-w-4xl mx-auto mb-12"
-          >
-            <div className="bg-white/80 backdrop-blur-sm p-8 md:p-10 rounded-3xl shadow-elevated border border-harmony/10">
-              <p className="text-base md:text-lg text-depth-700 leading-[1.9] font-normal">
-                単なるツールの使い方を教える研修ではありません。
-              </p>
-              <p className="text-base md:text-lg text-depth-800 leading-[1.9] font-semibold mt-4">
-                <span className="text-harmony">できるかできないかではなく、『できる』を前提にどうすべきかを考えるパラダイムシフト</span>
-              </p>
-              <p className="text-base md:text-lg text-depth-700 leading-[1.9] font-normal mt-4">
-                技術の進歩や環境の変化に無理なく対応する変化適応力と、
-                生成AIがすべきことか、人間がすべきことかを考える新時代サービス設計力を、
-                組織と個人が身につける実践型プログラムです。
-              </p>
-            </div>
-          </motion.div>
           
           {/* CTA ボタン */}
           <motion.div

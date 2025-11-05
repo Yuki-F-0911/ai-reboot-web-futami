@@ -189,40 +189,6 @@ export const CorporateInstructors = () => {
             </motion.div>
           )}
         </AnimatePresence>
-        
-        {/* その他専門メンター */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="max-w-6xl mx-auto mt-16"
-        >
-          <div className="bg-gradient-to-r from-harmony-lighter to-will-lighter rounded-3xl p-8">
-            <h3 className="text-xl font-bold mb-6 text-depth-800 text-center">その他専門メンター</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              <ul className="space-y-2 text-depth-700">
-                <li className="flex items-start gap-2">
-                  <span className="text-harmony mt-1">•</span>
-                  <span>生成AIパスポート有資格者</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-harmony mt-1">•</span>
-                  <span>各業界のAI活用スペシャリスト</span>
-                </li>
-              </ul>
-              <ul className="space-y-2 text-depth-700">
-                <li className="flex items-start gap-2">
-                  <span className="text-will-primary mt-1">•</span>
-                  <span>データサイエンティスト</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-will-primary mt-1">•</span>
-                  <span>エンジニア・デザイナー</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

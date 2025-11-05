@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Target, Users, Clock, Presentation } from "lucide-react";
 
 export const CorporateAbout = () => {
   const ref = useRef(null);
@@ -109,21 +110,49 @@ export const CorporateAbout = () => {
             </p>
             
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-2xl">
-                <h4 className="font-bold text-harmony mb-3">研修時間</h4>
-                <p className="text-depth-700">10時間以上（貴社の状況に合わせて設計）</p>
+              <div className="bg-white p-8 rounded-2xl shadow-soft hover:shadow-elevated transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-harmony to-harmony/80 flex items-center justify-center">
+                    <Target className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-xl font-bold text-harmony mb-3">目的</h4>
+                    <p className="text-lg text-depth-700 leading-relaxed">個人のAI活用力向上から、チーム全体での環境構築・内製化まで</p>
+                  </div>
+                </div>
               </div>
-              <div className="bg-white p-6 rounded-2xl">
-                <h4 className="font-bold text-harmony mb-3">対象</h4>
-                <p className="text-depth-700">10〜30名程度</p>
+              <div className="bg-white p-8 rounded-2xl shadow-soft hover:shadow-elevated transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-will-primary to-will-primary/80 flex items-center justify-center">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-xl font-bold text-will-primary mb-3">対象</h4>
+                    <p className="text-lg text-depth-700 leading-relaxed">10〜30名程度</p>
+                  </div>
+                </div>
               </div>
-              <div className="bg-white p-6 rounded-2xl">
-                <h4 className="font-bold text-harmony mb-3">形式</h4>
-                <p className="text-depth-700">集合研修（対面推奨、オンラインも可）</p>
+              <div className="bg-white p-8 rounded-2xl shadow-soft hover:shadow-elevated transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-wisdom to-wisdom/80 flex items-center justify-center">
+                    <Clock className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-xl font-bold text-wisdom mb-3">研修時間</h4>
+                    <p className="text-lg text-depth-700 leading-relaxed">10時間以上（貴社の状況に合わせて設計）</p>
+                  </div>
+                </div>
               </div>
-              <div className="bg-white p-6 rounded-2xl">
-                <h4 className="font-bold text-harmony mb-3">目的</h4>
-                <p className="text-depth-700">個人のAI活用力向上から、チーム全体での環境構築・内製化まで</p>
+              <div className="bg-white p-8 rounded-2xl shadow-soft hover:shadow-elevated transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-harmony to-will-primary flex items-center justify-center">
+                    <Presentation className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-xl font-bold text-harmony mb-3">形式</h4>
+                    <p className="text-lg text-depth-700 leading-relaxed">集合研修（対面推奨、オンラインも可）</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

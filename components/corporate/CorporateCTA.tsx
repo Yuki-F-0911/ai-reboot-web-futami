@@ -38,7 +38,9 @@ export const CorporateCTA = () => {
           className="text-center max-w-4xl mx-auto"
         >
           <h2 className="text-h1 md:text-5xl lg:text-6xl font-bold mb-8 text-depth-800">
-            組織のOSを再起動する、その第一歩を今日から
+            組織のOSを再起動する
+            <br />
+            その第一歩を今日から
           </h2>
           
           <div className="mb-12">
