@@ -99,10 +99,10 @@ export const CorporatePricing = () => {
                   {/* 実質負担 */}
                   <div className="text-center p-5 bg-gradient-to-r from-harmony-lighter to-will-lighter rounded-2xl border-2 border-harmony">
                     <p className="text-xs text-depth-600 mb-2">実質負担額</p>
-                    <p className="text-3xl md:text-4xl font-black text-harmony mb-2">34.5万円</p>
-                    <p className="text-xs text-depth-600 mb-3">＋消費税</p>
-                    <div className="inline-block px-4 py-2 bg-harmony text-white rounded-full">
-                      <p className="text-base md:text-lg font-bold">約17%</p>
+                    <p className="text-3xl md:text-4xl font-black text-harmony mb-2">55.5万円</p>
+                    <p className="text-xs text-depth-600 mb-1">（内消費税 21万円）</p>
+                    <div className="inline-block px-4 py-2 bg-harmony text-white rounded-full mt-2">
+                      <p className="text-base md:text-lg font-bold">約26%</p>
                     </div>
                   </div>
                 </div>
@@ -114,7 +114,7 @@ export const CorporatePricing = () => {
                   <h4 className="text-lg md:text-xl font-bold text-depth-800 mb-2 leading-[1.4]">
                     【例2】AIリブート研修＋フォロー研修
                   </h4>
-                  <p className="text-sm text-depth-600">4日間・24時間 ＋ 1時間×12回 / 参加者数: 10名</p>
+                  <p className="text-sm text-depth-600">4日間・24時間 ＋ 1時間×12回 / 参加者数: 15名</p>
                 </div>
                 
                 {/* ビジュアル表示 */}
@@ -140,17 +140,17 @@ export const CorporatePricing = () => {
                     </div>
                     <div className="p-3 bg-will-primary/10 rounded-xl text-center">
                       <p className="text-xs text-depth-600 mb-1">賃金助成</p>
-                      <p className="text-xl font-bold text-will-primary">▲36万円</p>
+                      <p className="text-xl font-bold text-will-primary">▲54万円</p>
                     </div>
                   </div>
                   
                   {/* 実質負担 */}
                   <div className="text-center p-5 bg-gradient-to-r from-harmony-lighter to-will-lighter rounded-2xl border-2 border-harmony">
                     <p className="text-xs text-depth-600 mb-2">実質負担額</p>
-                    <p className="text-3xl md:text-4xl font-black text-harmony mb-2">69万円</p>
-                    <p className="text-xs text-depth-600 mb-3">＋消費税</p>
-                    <div className="inline-block px-4 py-2 bg-harmony text-white rounded-full">
-                      <p className="text-base md:text-lg font-bold">約17%</p>
+                    <p className="text-3xl md:text-4xl font-black text-harmony mb-2">93万円</p>
+                    <p className="text-xs text-depth-600 mb-1">（内消費税 42万円）</p>
+                    <div className="inline-block px-4 py-2 bg-harmony text-white rounded-full mt-2">
+                      <p className="text-base md:text-lg font-bold">約22%</p>
                     </div>
                   </div>
                 </div>
@@ -158,7 +158,7 @@ export const CorporatePricing = () => {
             </div>
             
             {/* 助成金メリット */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto">
               <div className="bg-white p-6 rounded-2xl text-center">
                 <div className="text-harmony mb-2">
                   <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -177,16 +177,6 @@ export const CorporatePricing = () => {
                 </div>
                 <h4 className="font-bold text-depth-800 mb-2">賃金助成</h4>
                 <p className="text-depth-700 text-sm">研修時間中の賃金も助成対象</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-2xl text-center">
-                <div className="text-wisdom mb-2">
-                  <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h4 className="font-bold text-depth-800 mb-2">申請サポート</h4>
-                <p className="text-depth-700 text-sm">手続きも丁寧に支援いたします</p>
               </div>
             </div>
             
