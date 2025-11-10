@@ -113,7 +113,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
       ctx.lineTo(interferenceX, height)
       ctx.stroke()
     }
-  }
+  }, [intensity])
   
   // デジタルアーティファクト - スタイリッシュ版
   const drawArtifacts = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {
@@ -163,7 +163,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
         ctx.shadowBlur = 0
       }
     }
-  }
+  }, [intensity])
   
   useEffect(() => {
     setIsClient(true)
