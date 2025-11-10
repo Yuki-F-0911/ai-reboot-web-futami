@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
+import { useScroll } from 'framer-motion'
 
 type LightState = 'chaos' | 'converging' | 'path_forming' | 'clear_path' | 'focusing' | 'star_pulsing' | 'star_present'
 
@@ -27,7 +27,7 @@ export default function LightJourney({ state, intensity = 1 }: LightJourneyProps
   const animationRef = useRef<number>(0)
   const particlesRef = useRef<Particle[]>([])
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
-  const { scrollYProgress } = useScroll()
+  // scrollYProgressは未使用のため削除
 
   // パーティクル数と設定を状態に応じて変更
   const getParticleConfig = (state: LightState) => {
@@ -108,7 +108,7 @@ export default function LightJourney({ state, intensity = 1 }: LightJourneyProps
   }
 
   // パーティクルの初期化
-  const initParticles = () => {
+  const initParticles = useCallback(() => {
     const config = getParticleConfig(state)
     const particles: Particle[] = []
     
@@ -125,7 +125,7 @@ export default function LightJourney({ state, intensity = 1 }: LightJourneyProps
     }
     
     particlesRef.current = particles
-  }
+  }, [state, dimensions.width, dimensions.height])
 
   // ターゲット位置の計算
   const getTargetPosition = (particle: Particle, shape: string | null): { x: number, y: number } | null => {
@@ -157,7 +157,7 @@ export default function LightJourney({ state, intensity = 1 }: LightJourneyProps
   }
 
   // アニメーションループ
-  const animate = () => {
+  const animate = useCallback(() => {
     const canvas = canvasRef.current
     if (!canvas) return
     
@@ -245,7 +245,7 @@ export default function LightJourney({ state, intensity = 1 }: LightJourneyProps
     })
     
     animationRef.current = requestAnimationFrame(animate)
-  }
+  }, [state, intensity, dimensions.width, dimensions.height])
 
   // 初期化とリサイズ処理
   useEffect(() => {
@@ -274,14 +274,14 @@ export default function LightJourney({ state, intensity = 1 }: LightJourneyProps
       canvasRef.current.height = dimensions.height
       initParticles()
     }
-  }, [dimensions])
+  }, [dimensions, initParticles])
 
   // 状態が変わったらパーティクルを再初期化
   useEffect(() => {
     if (dimensions.width && dimensions.height) {
       initParticles()
     }
-  }, [state])
+  }, [state, dimensions.width, dimensions.height, initParticles])
 
   // アニメーション開始
   useEffect(() => {
@@ -294,7 +294,7 @@ export default function LightJourney({ state, intensity = 1 }: LightJourneyProps
         cancelAnimationFrame(animationRef.current)
       }
     }
-  }, [state, intensity, dimensions])
+  }, [state, intensity, dimensions.width, dimensions.height, animate])
 
   return (
     <canvas

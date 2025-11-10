@@ -502,9 +502,11 @@ export default function GlitchText({
     
     observer.observe(containerRef.current)
     
+    const currentContainer = containerRef.current
+    
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current)
+      if (currentContainer) {
+        observer.unobserve(currentContainer)
       }
     }
   }, [isClient, scrollTrigger, isVisible])

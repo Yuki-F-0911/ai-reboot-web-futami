@@ -27,7 +27,6 @@ const ctaConfigs: CTAConfig[] = [
 ]
 
 export default function FloatingCTA() {
-  const [scrollProgress, setScrollProgress] = useState(0)
   const [activeCTA, setActiveCTA] = useState<CTAConfig | null>(null)
   const [hideTemporarily, setHideTemporarily] = useState(false)
 
@@ -36,7 +35,6 @@ export default function FloatingCTA() {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
       const scrollTop = window.scrollY
       const progress = scrollTop / scrollHeight
-      setScrollProgress(progress)
 
       // アクティブなCTAを決定
       let newActiveCTA: CTAConfig | null = null

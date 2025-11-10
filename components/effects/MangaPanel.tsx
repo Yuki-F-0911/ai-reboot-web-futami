@@ -54,7 +54,7 @@ function flowSizeClasses(aspect: PanelAspect): string {
   }
 }
 
-export function MangaPanel({ src, alt, aspect, side, yOffset, yOffsetMobile, delayMs = 0, tone = 'medium', rotateDeg = 0, opacity = 0.7, opacityMobile = 0.5, }: PanelSpec & { mode?: 'flow' | 'absolute' }) {
+export function MangaPanel({ src, alt, aspect, side, yOffset, delayMs = 0, tone = 'medium', rotateDeg = 0, opacity = 0.7, }: PanelSpec & { mode?: 'flow' | 'absolute' }) {
   const ref = useRef<HTMLDivElement | null>(null)
   const inView = useInView(ref, { once: true, margin: '-120px' })
   const [isDesktop, setIsDesktop] = useState(true)

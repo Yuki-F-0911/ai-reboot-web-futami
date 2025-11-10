@@ -51,11 +51,13 @@ export function MangaPanelVideo({
       videoRef.current.addEventListener('ended', handleEnded)
       videoRef.current.addEventListener('error', handleError)
 
+      const currentVideo = videoRef.current
+
       return () => {
-        if (videoRef.current) {
-          videoRef.current.removeEventListener('loadeddata', handleLoadedData)
-          videoRef.current.removeEventListener('ended', handleEnded)
-          videoRef.current.removeEventListener('error', handleError)
+        if (currentVideo) {
+          currentVideo.removeEventListener('loadeddata', handleLoadedData)
+          currentVideo.removeEventListener('ended', handleEnded)
+          currentVideo.removeEventListener('error', handleError)
         }
       }
     }

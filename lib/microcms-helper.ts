@@ -69,7 +69,7 @@ export async function getBlogArticles(limit = 12, offset = 0) {
     }
   }
   
-  const { contents, totalCount } = result
+  const { contents } = result
   
   // ブログカテゴリーの記事のみフィルタリング
   const blogArticles = contents.filter((item: News) => 
@@ -98,7 +98,7 @@ export async function getNewsArticles(limit = 12, offset = 0) {
     }
   }
   
-  const { contents, totalCount } = result
+  const { contents } = result
   
   // お知らせカテゴリーの記事のみフィルタリング
   const newsArticles = contents.filter((item: News) => 

@@ -34,7 +34,7 @@ export default function MusicDialog({ onSettingComplete }: MusicDialogProps) {
         audioRef.current = null
       }
     }
-  }, [])
+  }, [onSettingComplete])
 
   const handlePlayMusic = () => {
     setUserChoice('play')

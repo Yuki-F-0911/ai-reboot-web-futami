@@ -43,7 +43,7 @@ export default function HeroSection() {
       clearTimeout(timer3)
       clearTimeout(timer4)
     }
-  }, [])
+  }, [currentMessage])
 
   const scrollToNext = () => {
     window.scrollTo({

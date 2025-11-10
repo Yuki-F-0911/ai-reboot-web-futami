@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { News } from '@/lib/microcms'
 import { normalizeCategory } from '@/lib/category-helper'
 
@@ -51,9 +52,11 @@ export default function BlogListClient({
             <article className="h-full bg-white rounded-xl overflow-hidden shadow-subtle hover:shadow-soft transition-all duration-300 hover:-translate-y-0.5">
               {article.thumbnail && (
                 <div className="aspect-[16/10] overflow-hidden bg-gray-100">
-                  <img
+                  <Image
                     src={article.thumbnail.url}
                     alt={article.title}
+                    width={800}
+                    height={500}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>

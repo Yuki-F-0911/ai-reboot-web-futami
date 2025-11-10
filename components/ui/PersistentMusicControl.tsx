@@ -11,7 +11,6 @@ export default function PersistentMusicControl() {
   const { data, resetData } = usePersonalization()
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
-  const [showControl, setShowControl] = useState(true)
   const listenersAttachedRef = useRef(false)
 
   const attachAudioListeners = () => {
@@ -48,7 +47,6 @@ export default function PersistentMusicControl() {
       // 既に音源がある場合は再利用
       if (audioRef.current && globalAudioRef) {
         console.log('既存の音源を使用')
-        setShowControl(true)
         attachAudioListeners()
         return
       }
@@ -58,7 +56,6 @@ export default function PersistentMusicControl() {
         console.log('グローバル音源を復元')
         audioRef.current = globalAudioRef
         setIsPlaying(!globalAudioRef.paused)
-        setShowControl(true)
         attachAudioListeners()
       } else if (!audioRef.current) {
         // 新規作成
@@ -90,19 +87,17 @@ export default function PersistentMusicControl() {
           console.log('初回なので自動再生しません')
           setIsPlaying(false)
         }
-        setShowControl(true)
       }
     } else {
       console.log('音楽設定がplayではありません:', data.musicPreference)
       // UIは表示するが音源は初期化しない
-      setShowControl(true)
     }
 
     // クリーンアップ
     return () => {
       // コンポーネントのアンマウント時はオーディオを停止しない（グローバルで管理）
     }
-  }, [data.musicPreference, data.quizAnswers.expectation, data.quizAnswers.focus, data.hasCompleted])
+  }, [data.musicPreference, data.quizAnswers.expectation, data.quizAnswers.focus, data.hasCompleted, data])
 
   // UIは常に表示（デフォルト停止状態）
 

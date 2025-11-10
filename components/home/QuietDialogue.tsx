@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import ScrollProgressIndicator from '@/components/ui/ScrollProgressIndicator'
 import GlitchText from '@/components/effects/GlitchText'
@@ -253,9 +254,11 @@ export default function QuietDialogue() {
             }}
             transition={{ duration: 2 }}
           >
-            <img 
+            <Image 
               src="/images/fv_bg_image01.png" 
               alt="" 
+              width={1920}
+              height={1080}
               className="w-full h-full object-cover"
               style={{
                 filter: 'blur(20px)',

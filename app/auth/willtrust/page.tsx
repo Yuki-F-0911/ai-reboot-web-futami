@@ -31,7 +31,7 @@ export default function WilltrustAuthPage() {
       } else {
         setError(data.error || 'パスワードが正しくありません')
       }
-    } catch (error) {
+    } catch {
       setError('認証処理中にエラーが発生しました')
     } finally {
       setIsLoading(false)

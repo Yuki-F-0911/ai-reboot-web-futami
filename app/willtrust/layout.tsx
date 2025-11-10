@@ -11,11 +11,9 @@ export default function WilltrustLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
-      <head>
-        <link rel="stylesheet" href="/willtrust/styles.css" />
-      </head>
-      <body>{children}</body>
-    </html>
+    <>
+      <link rel="stylesheet" href="/willtrust/styles.css" />
+      {children}
+    </>
   )
 }

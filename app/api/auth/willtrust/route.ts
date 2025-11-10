@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
         { status: 401 }
       )
     }
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: '認証処理中にエラーが発生しました' },
       { status: 500 }
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
 }
 
 // ログアウト用
-export async function DELETE(request: NextRequest) {
+export async function DELETE() {
   const response = NextResponse.json({ success: true })
   response.cookies.delete('willtrust-auth')
   return response

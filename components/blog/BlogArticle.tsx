@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { News } from '@/lib/microcms'
 import { marked } from 'marked'
@@ -130,9 +131,11 @@ export default function BlogArticle({
           {/* サムネイル画像 */}
           {article.thumbnail && (
             <div className="mt-8 -mx-4 md:mx-0">
-              <img
+              <Image
                 src={article.thumbnail.url}
                 alt={article.title}
+                width={1200}
+                height={675}
                 className="w-full rounded-lg shadow-soft"
               />
             </div>
@@ -325,9 +328,11 @@ export default function BlogArticle({
                   <article className="bg-white rounded-xl overflow-hidden shadow-subtle hover:shadow-soft transition-all duration-300">
                     {item.thumbnail && (
                       <div className="aspect-[16/10] overflow-hidden bg-gray-100">
-                        <img
+                        <Image
                           src={item.thumbnail.url}
                           alt={item.title}
+                          width={800}
+                          height={500}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>

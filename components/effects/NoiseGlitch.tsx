@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import { useReducedMotion } from 'framer-motion'
 
 interface NoiseGlitchProps {
@@ -20,11 +20,9 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
   const reduceMotion = useReducedMotion()
   
   // ノイズ生成関数 - 最適化版
-  const generateNoise = (ctx: CanvasRenderingContext2D, width: number, height: number, density: number) => {
+  const generateNoise = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number, density: number) => {
     // 解像度を下げてパフォーマンス改善
     const scale = 8  // より高い値でパフォーマンス向上
-    const scaledWidth = Math.ceil(width / scale)
-    const scaledHeight = Math.ceil(height / scale)
     
     // ImageData直接操作でパフォーマンス向上
     const imageData = ctx.createImageData(width, height)
@@ -78,10 +76,10 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
     
     // 一度の描画で完了
     ctx.putImageData(imageData, 0, 0)
-  }
+  }, [intensity])
   
   // 走査線エフェクト - スタイリッシュ版
-  const drawScanlines = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
+  const drawScanlines = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {
     // 複数の走査線をグラデーションで描画
     const scanlineCount = 3
     for (let i = 0; i < scanlineCount; i++) {
@@ -118,7 +116,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
   }
   
   // デジタルアーティファクト - スタイリッシュ版
-  const drawArtifacts = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
+  const drawArtifacts = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {
     // グリッチブロック（グラデーション付き）
     if (Math.random() > 0.96) {
       const x = Math.random() * width
@@ -311,8 +309,6 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
       }
       lastFrameTime = timestamp
       
-      const currentTime = (Date.now() - startTime) / 1000
-      
       // キャンバスをクリア
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       
@@ -354,16 +350,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
         cancelAnimationFrame(frameRef.current)
       }
     }
-  }, [intensity, isClient, isInitialized, active, reduceMotion, isVisible, isScrolling])
-  
-  // RGB分離エフェクト用のスタイル
-  const rgbShiftStyle = {
-    textShadow: `
-      ${2 * intensity}px 0 0 rgba(255, 0, 0, 0.5),
-      ${-2 * intensity}px 0 0 rgba(0, 255, 255, 0.5),
-      0 ${2 * intensity}px 0 rgba(255, 0, 255, 0.3)
-    `
-  }
+  }, [intensity, isClient, isInitialized, active, reduceMotion, isVisible, isScrolling, generateNoise, drawScanlines, drawArtifacts])
   
   // 初期化前はダークな背景を表示
   if (!isClient || !isInitialized) {

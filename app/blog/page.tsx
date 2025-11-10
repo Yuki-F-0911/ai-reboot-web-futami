@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { getBlogArticles } from '@/lib/microcms-helper'
 import BlogListClient from '@/components/blog/BlogListClient'
-import { categoryMatches, categoryMatchesAny } from '@/lib/category-helper'
+import { categoryMatchesAny } from '@/lib/category-helper'
 import { News } from '@/lib/microcms'
 
 export const metadata: Metadata = {
@@ -170,9 +171,11 @@ export default async function BlogPage() {
                   <article className="bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1">
                     {article.thumbnail && (
                       <div className="aspect-[16/9] overflow-hidden bg-gray-100">
-                        <img
+                        <Image
                           src={article.thumbnail.url}
                           alt={article.title}
+                          width={800}
+                          height={450}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
