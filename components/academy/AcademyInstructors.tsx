@@ -30,7 +30,6 @@ export const AcademyInstructors = () => {
       name: "坂本 拓磨",
       title: "AIプロダクト/クリエイティブリード",
       subtitle: "株式会社ウィルフォワード AIスペシャリスト",
-      qualification: "一般社団法人生成AI活用普及協会「生成AIパスポート」保有",
       description: "AIアーキテクトとしてRAGやエージェント設計を実務導入し、UI/UXからブランド開発まで統合的に手がける生成AIのプロフェッショナル。NotionやDify、Supabase、Next.jsを組み合わせ、組織のナレッジ運用から顧客体験設計までをシステムとデザインの両面から支援する。生成AIを「もう一つの脳」と捉え、音楽・映像・インタラクティブ作品といったクリエイティブ表現へも展開。受講生一人ひとりのプロジェクトに入り込みながら、技術選定・プロンプト設計・ワークフロー構築を伴走し、自走できるAI活用力を育てる。",
       gradient: "from-wisdom to-harmony",
       image: "/images/sakamoto.jpg"
@@ -39,7 +38,6 @@ export const AcademyInstructors = () => {
       name: "青木 玲仁",
       title: "キャリア支援ディレクター",
       subtitle: "株式会社ウィルフォワード ビジネスマネージャー／AIキャリアデザイナー",
-      qualification: "一般社団法人生成AI活用普及協会「生成AIパスポート」保有",
       description: "10年以上にわたり採用・教育・人材育成に携わり、企業規模を問わずキャリア設計と現場定着を支援してきたキャリア支援の専門家。生成AIを活用した研修プログラムや映像コンテンツ制作を手がけ、学習デザインから運用までを一気通貫で伴走する。受講生の内発的動機を引き出し、実務で成果へつなげるためのキャリア再設計を、AIリテラシーと人材開発の視点で支える。",
       gradient: "from-harmony to-will-secondary",
       image: "/images/aoki.jpg"
@@ -47,8 +45,7 @@ export const AcademyInstructors = () => {
     {
       name: "久米田 克",
       title: "キャリアリブート伴走コーチ",
-      subtitle: "大手企業休職中／AIリブートアカデミー事業責任者",
-      qualification: "国家資格キャリアコンサルタント／一般社団法人生成AI活用普及協会「生成AIパスポート」保有",
+      subtitle: "AIリブートアカデミー事業責任者",
       description: "自らも大手企業を休職し、新たなキャリアを描くために挑戦中のキャリア支援の実践者。AIリブートアカデミー事業責任者として受講生の声を誰よりも近くで拾い、プログラム改善に反映している。国家資格キャリアコンサルタントとしての対話力と、AIプロジェクト運営の経験を活かし、自己理解と行動変容を引き出しながら、実務で使えるAI活用の型を共に築いていく伴走者。",
       gradient: "from-will-secondary to-wisdom",
       image: "/images/kumeda.jpg"
@@ -70,7 +67,7 @@ export const AcademyInstructors = () => {
             </span>
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-10 mb-12">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-10 items-start">
             {instructors.map((instructor, index) => {
               const isExpanded = expandedIndex === index;
               const descriptionId = `instructor-description-${index}`;
@@ -86,58 +83,62 @@ export const AcademyInstructors = () => {
                   onClick={() =>
                     setExpandedIndex((current) => (current === index ? null : index))
                   }
-                  className="group w-full text-left bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-will-primary/60"
+                  className="group w-full text-left bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-will-primary/60 flex flex-col"
                   aria-expanded={isExpanded}
                   aria-controls={descriptionId}
                 >
-                  <div className={`h-2 bg-gradient-to-r ${instructor.gradient}`} />
-                  <div className="p-6 md:p-8">
-                    {instructor.image && (
-                      <div className="flex justify-center mb-6">
-                        <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden shadow-md ring-2 ring-white/50 group-hover:ring-will-primary/40 transition-all duration-300">
-                          <Image
-                            src={instructor.image}
-                            alt={`${instructor.name}の写真`}
-                            fill
-                            sizes="128px"
-                            className="object-cover"
-                          />
+                  <div className={`h-2 bg-gradient-to-r ${instructor.gradient} flex-shrink-0`} />
+                  <div className="p-6 md:p-8 flex-1 flex flex-col">
+                    <div className="flex-shrink-0">
+                      {instructor.image && (
+                        <div className="flex justify-center mb-6">
+                          <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden shadow-md ring-2 ring-white/50 group-hover:ring-will-primary/40 transition-all duration-300">
+                            <Image
+                              src={instructor.image}
+                              alt={`${instructor.name}の写真`}
+                              fill
+                              sizes="128px"
+                              className="object-cover"
+                            />
+                          </div>
                         </div>
+                      )}
+                      <h3 className="text-2xl font-bold text-depth-900 mb-2 text-center md:text-left">
+                        {instructor.name}
+                      </h3>
+                      <p className="text-lg font-semibold text-will-primary mb-1 text-center md:text-left">
+                        {instructor.title}
+                      </p>
+                      {instructor.subtitle && (
+                        <p className="text-depth-700 mb-2 text-center md:text-left">
+                          {instructor.subtitle}
+                        </p>
+                      )}
+                      {instructor.qualification && (
+                        <p className="text-sm text-wisdom font-medium mb-3 text-center md:text-left">
+                          {instructor.qualification}
+                        </p>
+                      )}
+                    </div>
+                    <div className="flex-1 flex flex-col">
+                      <div className="flex-1">
+                        <AnimatePresence initial={false}>
+                          <motion.p
+                            key={isExpanded ? "expanded" : "collapsed"}
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25, ease: "easeInOut" }}
+                            id={descriptionId}
+                            className={`text-depth-700 text-center md:text-left leading-relaxed ${
+                              isExpanded ? "" : "line-clamp-4"
+                            }`}
+                          >
+                            {instructor.description}
+                          </motion.p>
+                        </AnimatePresence>
                       </div>
-                    )}
-                    <h3 className="text-2xl font-bold text-depth-900 mb-2 text-center md:text-left">
-                      {instructor.name}
-                    </h3>
-                    <p className="text-lg font-semibold text-will-primary mb-1 text-center md:text-left">
-                      {instructor.title}
-                    </p>
-                    {instructor.subtitle && (
-                      <p className="text-depth-700 mb-2 text-center md:text-left">
-                        {instructor.subtitle}
-                      </p>
-                    )}
-                    {instructor.qualification && (
-                      <p className="text-sm text-wisdom font-medium mb-3 text-center md:text-left">
-                        {instructor.qualification}
-                      </p>
-                    )}
-                    <div className="relative">
-                      <AnimatePresence initial={false}>
-                        <motion.p
-                          key={isExpanded ? "expanded" : "collapsed"}
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.25, ease: "easeInOut" }}
-                          id={descriptionId}
-                          className={`text-depth-700 text-center md:text-left leading-relaxed ${
-                            isExpanded ? "" : "line-clamp-4"
-                          }`}
-                        >
-                          {instructor.description}
-                        </motion.p>
-                      </AnimatePresence>
-                      <div className="mt-5 flex items-center justify-center md:justify-start gap-2 text-sm font-semibold text-will-primary">
+                      <div className="mt-5 flex items-center justify-center md:justify-start gap-2 text-sm font-semibold text-will-primary flex-shrink-0">
                         <span>{isExpanded ? "閉じる" : "全文を見る"}</span>
                         <svg
                           className={`w-4 h-4 transition-transform duration-300 ${
@@ -161,16 +162,6 @@ export const AcademyInstructors = () => {
               );
             })}
           </div>
-          
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            viewport={{ once: true, margin: "-20%" }}
-            className="text-center text-lg text-depth-700"
-          >
-            他、生成AI活用に関して専門性をもった講師・メンターがサポートします
-          </motion.p>
         </motion.div>
       </div>
     </section>
