@@ -50,6 +50,11 @@ const config: Config = {
         'ai-dark-gray': '#1F2937',
         'ai-medium-gray': '#6B7280',
         'ai-light-gray': '#F3F4F6',
+        'navy': {
+          '900': '#0a192f',
+          '800': '#112240',
+          '700': '#233554',
+        },
       },
       backgroundImage: {
         // Willのグラデーション - 意思から創造、そして実現へ

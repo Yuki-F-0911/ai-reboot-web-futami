@@ -3,9 +3,18 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import AcademyHeader from '@/components/academyLanding/layout/Header';
+import { isAcademyPath } from '@/lib/academyRouting';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const useAcademyHeader = isAcademyPath(pathname);
+
+  if (useAcademyHeader) {
+    return <AcademyHeader />;
+  }
 
   const navItems = [
     { label: '個人向けリスキリング', href: '/academy' },

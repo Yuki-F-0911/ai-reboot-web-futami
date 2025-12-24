@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header, Footer } from "@/components/layout";
+import MainWrapper from "@/components/layout/MainWrapper";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Noto_Sans_JP, Noto_Serif_JP, JetBrains_Mono, Anton } from 'next/font/google';
 
@@ -70,9 +71,7 @@ export default function RootLayout({
       <body className={`antialiased ${notoSansJP.variable} ${notoSerifJP.variable} ${jetBrainsMono.variable} ${anton.variable}`} suppressHydrationWarning>
         <GoogleAnalytics />
         <Header />
-        <main className="min-h-screen pt-16 overflow-x-hidden">
-          {children}
-        </main>
+        <MainWrapper>{children}</MainWrapper>
         <Footer />
       </body>
     </html>

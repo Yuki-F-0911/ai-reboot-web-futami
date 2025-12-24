@@ -3,13 +3,22 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import AcademyFooter from '@/components/academyLanding/layout/Footer';
+import { isAcademyPath } from '@/lib/academyRouting';
 
 export const Footer: React.FC = () => {
   const [currentYear, setCurrentYear] = useState(2025);
+  const pathname = usePathname();
+  const useAcademyFooter = isAcademyPath(pathname);
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
   }, []);
+
+  if (useAcademyFooter) {
+    return <AcademyFooter />;
+  }
 
   const footerLinks = {
     services: [
