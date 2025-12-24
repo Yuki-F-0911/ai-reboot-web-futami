@@ -63,7 +63,9 @@ export function WebtoonMangaSection({ images }: WebtoonMangaSectionProps) {
         {/* 表紙（最初の画像） */}
         {images[0] && (
           <motion.div
-            ref={(el) => (panelRefs.current[0] = el)}
+            ref={(el) => {
+              panelRefs.current[0] = el
+            }}
             className="mb-8"
             initial={{ opacity: 0, y: 20, scale: 0.96 }}
             animate={{
@@ -118,7 +120,9 @@ export function WebtoonMangaSection({ images }: WebtoonMangaSectionProps) {
           return (
             <div key={image.order} className="mb-12">
               <motion.div
-                ref={(el) => (panelRefs.current[actualIndex] = el)}
+                ref={(el) => {
+                  panelRefs.current[actualIndex] = el
+                }}
                 className="relative w-full"
                 initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 animate={{
@@ -150,4 +154,3 @@ export function WebtoonMangaSection({ images }: WebtoonMangaSectionProps) {
     </section>
   )
 }
-
