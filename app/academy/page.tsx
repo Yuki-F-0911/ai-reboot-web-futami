@@ -195,13 +195,7 @@ export default function AcademyPage() {
             <br />
             100日間で、AI時代に活躍する人材へ。
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/briefing"
-              className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 rounded-full transition-all duration-300 shadow-lg shadow-orange-500/30"
-            >
-              無料説明会に参加
-            </Link>
+          <div className="flex items-center justify-center">
             <a
               href="https://line.me/"
               target="_blank"
