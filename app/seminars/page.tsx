@@ -25,45 +25,30 @@ const SeminarsPage = () => {
         <div className="pt-24 pb-20 bg-slate-50 min-h-screen">
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-navy-900 !text-navy-900 mb-4">セミナー・イベント</h1>
-                    <p className="text-xl text-slate-600 mb-6">AIリブートアカデミーへの第一歩となるセミナーを開催しています</p>
+                    <p className="text-orange-500 font-bold text-sm tracking-wider mb-2">
+                        SEMINARS & EVENTS
+                    </p>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-slate-900 mb-4">セミナー・イベント</h1>
+                    <p className="text-xl text-slate-600 mb-6">AI時代のキャリアや最新トレンドについて気軽に学べるイベントを開催しています</p>
                     <p className="text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                        単にツールを学ぶのではなく、AIを武器にして自分の「Will（実現したい生き方）」を叶えるためのキャリア形成を重視しています。
+                        アカデミーへの入会を検討していなくても大丈夫。「ちょっと話を聞いてみたい」「AIについて知りたい」という方も大歓迎です。
                     </p>
                 </div>
 
-                {/* ターゲット層の説明 */}
-                <div className="max-w-3xl mx-auto mb-12 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-2xl p-6 border border-indigo-100">
-                    <h2 className="text-lg font-bold text-navy-900 mb-3">🎯 こんな方におすすめ</h2>
-                    <ul className="text-slate-600 space-y-2 text-sm">
-                        <li className="flex items-start gap-2">
-                            <span className="text-indigo-500 mt-1">✓</span>
-                            <span>20代〜30代で「このままでいいのかな」とキャリアに悩んでいる方</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                            <span className="text-indigo-500 mt-1">✓</span>
-                            <span>AI時代に向けて現状を変えたい、スキルアップしたい方</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                            <span className="text-indigo-500 mt-1">✓</span>
-                            <span>転職を考えている、またはキャリアの選択肢を広げたい方</span>
-                        </li>
-                    </ul>
-                    <p className="text-xs text-slate-400 mt-4">
-                        ※ 公務員・個人事業主の方もお気軽にご参加いただけます
-                    </p>
-                </div>
 
                 <div className="max-w-4xl mx-auto grid gap-8">
                     {seminars.map((seminar, i) => (
-                        <div key={i} className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-md transition-all">
-                            <div className="flex flex-col md:flex-row gap-8 items-start">
+                        <div key={i} className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+                            {/* Background Decoration */}
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-50 to-transparent rounded-bl-full opacity-50" />
+
+                            <div className="flex flex-col md:flex-row gap-8 items-start relative z-10">
                                 <div className="md:w-3/4 space-y-4">
                                     <div className="flex items-center gap-3 flex-wrap">
-                                        <span className="inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1 rounded-full">
+                                        <span className="inline-block bg-gradient-to-r from-orange-100 to-amber-100 text-orange-700 text-xs font-semibold px-3 py-1 rounded-full border border-orange-200">
                                             {seminar.tag}
                                         </span>
-                                        <h3 className="text-2xl font-bold text-navy-900">{seminar.title}</h3>
+                                        <h3 className="text-2xl font-bold text-slate-900">{seminar.title}</h3>
                                     </div>
                                     <div className="flex flex-wrap gap-4 text-sm font-medium text-slate-500">
                                         <span className="flex items-center gap-1">📅 {seminar.date}</span>
@@ -75,9 +60,12 @@ const SeminarsPage = () => {
                                     </p>
                                 </div>
                                 <div className="md:w-1/4 w-full flex items-center justify-end">
-                                    <Button href="/briefing" variant="outline" className="w-full text-center">
+                                    <a
+                                        href="/briefing"
+                                        className="w-full px-6 py-3 text-center text-white font-bold bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 rounded-full transition-all duration-300 shadow-md shadow-orange-200 hover:shadow-lg hover:shadow-orange-300"
+                                    >
                                         詳細・申込
-                                    </Button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
