@@ -24,7 +24,7 @@ const HeroSection = () => {
     return (
         <section className="relative w-full min-h-screen overflow-hidden bg-slate-50">
             {/* Mobile: Image at top */}
-            <div className="lg:hidden relative w-full h-[40vh] overflow-hidden">
+            <div className="lg:hidden relative w-full h-[35vh] min-h-[280px] overflow-hidden">
                 {heroImages.map((src, index) => (
                     <div
                         key={src}
@@ -73,7 +73,7 @@ const HeroSection = () => {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 pt-6 lg:pt-28 pb-12 lg:pb-16 lg:min-h-screen flex items-center">
+            <div className="relative z-10 container mx-auto px-5 md:px-6 lg:px-8 pt-4 lg:pt-28 pb-10 lg:pb-16 lg:min-h-screen flex items-center">
                 <div className="w-full lg:max-w-2xl text-center lg:text-left">
                     {/* Main Tagline - 最も目立つ訴求コピー */}
                     <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-4 leading-tight">

@@ -47,10 +47,10 @@ export default function AcademyPage() {
       <SubsidyBanner />
 
       {/* Program Flow Section */}
-      <section id="flow" className="py-20 md:py-28 bg-slate-50">
+      <section id="flow" className="py-12 md:py-28 bg-slate-50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-16">
             <p className="text-orange-500 font-bold text-sm tracking-wider mb-2">
               FLOW
             </p>
@@ -118,7 +118,7 @@ export default function AcademyPage() {
             </div>
 
             {/* Mobile Steps Grid */}
-            <div className="md:hidden grid grid-cols-1 gap-12">
+            <div className="md:hidden grid grid-cols-1 gap-8">
               {steps.map((step, index) => (
                 <div key={step.id} className="relative">
                   {/* Mobile Arrow Connector */}
@@ -138,13 +138,13 @@ export default function AcademyPage() {
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-50 to-transparent rounded-bl-full opacity-50" />
 
                     {/* Illustration */}
-                    <div className="relative w-full h-40 mb-6 flex items-center justify-center">
+                    <div className="relative w-full h-28 mb-4 flex items-center justify-center">
                       <Image
                         src={step.illustration}
                         alt={step.title}
                         width={200}
                         height={160}
-                        className="object-contain group-hover:scale-105 transition-transform duration-300"
+                        className="object-contain group-hover:scale-105 transition-transform duration-300 max-h-24"
                       />
                     </div>
 
@@ -179,7 +179,7 @@ export default function AcademyPage() {
       <PricingSection />
 
       {/* CTA Section */}
-      <section className="py-20 md:py-28 bg-slate-900 text-white text-center relative overflow-hidden">
+      <section className="py-12 md:py-28 bg-slate-900 text-white text-center relative overflow-hidden">
         {/* Background Decoration */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500 rounded-full blur-3xl" />
@@ -190,8 +190,9 @@ export default function AcademyPage() {
           <h2 className="text-3xl md:text-5xl font-black mb-6">
             人生を、リブートする。
           </h2>
-          <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto">
-            <span className="whitespace-nowrap">生成AI活用 × マーケティング × コミュニケーション × キャリアデザイン</span>
+          <p className="text-base md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <span className="hidden sm:inline">生成AI活用 × マーケティング × コミュニケーション × キャリアデザイン</span>
+            <span className="sm:hidden">生成AI活用 × マーケティング<br />× コミュニケーション × キャリアデザイン</span>
             <br />
             100日間で、AI時代に活躍する人材へ。
           </p>

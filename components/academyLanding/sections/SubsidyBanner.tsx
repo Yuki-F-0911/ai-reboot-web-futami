@@ -16,20 +16,20 @@ const SubsidyBanner = () => {
             </div>
 
             {/* Main Banner Content */}
-            <div className="py-16 relative z-10">
+            <div className="py-10 md:py-16 relative z-10">
                 <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
                         {/* Left Content */}
                         <div className="space-y-4 text-center lg:text-left">
                             {/* ロゴに白背景を追加 */}
-                            <div className="mb-4">
-                                <div className="bg-white rounded-lg px-4 py-2 inline-block">
+                            <div className="mb-3 md:mb-4">
+                                <div className="bg-white rounded-lg px-3 py-1.5 md:px-4 md:py-2 inline-block">
                                     <Image
                                         src="/images/keisan-reskiling-logo.webp"
                                         alt="経済産業省リスキリング補助金"
                                         width={200}
                                         height={70}
-                                        className="h-14 w-auto object-contain"
+                                        className="h-10 md:h-14 w-auto object-contain"
                                     />
                                 </div>
                             </div>
