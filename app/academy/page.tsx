@@ -190,8 +190,8 @@ export default function AcademyPage() {
           <h2 className="text-3xl md:text-5xl font-black mb-6">
             人生を、リブートする。
           </h2>
-          <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-            生成AI活用 × マーケティング × コミュニケーション × キャリアデザイン
+          <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto">
+            <span className="whitespace-nowrap">生成AI活用 × マーケティング × コミュニケーション × キャリアデザイン</span>
             <br />
             100日間で、AI時代に活躍する人材へ。
           </p>

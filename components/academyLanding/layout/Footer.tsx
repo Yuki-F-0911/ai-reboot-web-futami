@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
     const footerLinks = {
@@ -20,7 +21,13 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Logo & Vision */}
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-black tracking-tight">AI REBOOT ACADEMY</h2>
+                        <Image
+                            src="/images/logo-katakana.svg"
+                            alt="AIリブートアカデミー"
+                            width={300}
+                            height={40}
+                            className="h-8 w-auto brightness-0 invert"
+                        />
                         <p className="text-slate-400 text-sm leading-relaxed">
                             生成AI時代の新しい自分へ。<br />
                             100日間で、AIと共創する力を身につける。<br />
@@ -31,7 +38,7 @@ const Footer = () => {
 
                     {/* Menu Links */}
                     <div>
-                        <h3 className="font-bold text-lg mb-6 text-cyan-400">メニュー</h3>
+                        <h3 className="font-bold text-lg mb-6 text-slate-300">メニュー</h3>
                         <ul className="space-y-4">
                             {footerLinks.main.map((link) => (
                                 <li key={link.name}>
@@ -56,7 +63,7 @@ const Footer = () => {
 
                     {/* Legal Links */}
                     <div>
-                        <h3 className="font-bold text-lg mb-6 text-cyan-400">法的情報</h3>
+                        <h3 className="font-bold text-lg mb-6 text-slate-300">法的情報</h3>
                         <ul className="space-y-4">
                             {footerLinks.legal.map((link) => (
                                 <li key={link.name}>

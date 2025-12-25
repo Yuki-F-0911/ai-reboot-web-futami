@@ -18,10 +18,7 @@ const Header = () => {
 
     const navLinks = [
         { name: "メッセージ", href: "/message" },
-        { name: "無料説明会", href: "/briefing" },
         { name: "セミナー", href: "/seminars" },
-        { name: "イベント", href: "/events" },
-        { name: "受講生の声", href: "/voices" },
     ];
 
     return (
@@ -33,11 +30,20 @@ const Header = () => {
         >
             <div className="container px-4 mx-auto md:px-6 lg:px-8">
                 <div className="flex items-center justify-between">
-                    <Link href="/" className="flex items-center gap-2 group">
+                    <Link href="/academy" className="flex items-center gap-0 group">
                         <div className="relative h-10 w-40">
                             <Image
                                 src="/images/logo.png"
-                                alt="AI REBOOT ACADEMY"
+                                alt="AI REBOOT"
+                                fill
+                                className="object-contain object-left"
+                                priority
+                            />
+                        </div>
+                        <div className="relative h-6 w-48 hidden sm:block">
+                            <Image
+                                src="/images/logo-katakana.svg"
+                                alt="AIリブートアカデミー"
                                 fill
                                 className="object-contain object-left"
                                 priority

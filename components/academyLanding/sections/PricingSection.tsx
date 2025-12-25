@@ -35,7 +35,7 @@ const PricingSection = () => {
                         {/* Price */}
                         <div className="text-center mb-8">
                             <div className="flex items-end justify-center gap-1">
-                                <span className="text-5xl sm:text-5xl md:text-6xl font-black text-orange-500">
+                                <span className="text-4xl sm:text-4xl md:text-5xl font-bold text-orange-500">
                                     330,000
                                 </span>
                                 <span className="text-xl sm:text-xl font-bold text-slate-700 mb-2">円</span>
@@ -91,7 +91,7 @@ const PricingSection = () => {
                         <div className="text-center mb-8">
                             <p className="text-slate-400 line-through text-lg mb-1">330,000円</p>
                             <div className="flex items-end justify-center gap-1">
-                                <span className="text-5xl sm:text-5xl md:text-6xl font-black text-orange-500">
+                                <span className="text-4xl sm:text-4xl md:text-5xl font-bold text-orange-500">
                                     180,000
                                 </span>
                                 <span className="text-xl sm:text-xl font-bold text-slate-700 mb-2">円〜</span>

@@ -8,7 +8,7 @@ const SkillLevelSection = () => {
             level: "STEP 1",
             title: "AI基礎力",
             subtitle: "AIを自分事と捉え、変革に向けて行動できるレベル",
-            color: "from-orange-300 to-orange-400",
+            color: "from-orange-400 to-orange-500",
             program: {
                 title: "AI時代のマインドセット形成",
                 description: "生成AIの基礎知識を習得し、AIを恐れず活用する姿勢を身につけます。100日間の挑戦のスタートラインです。"
@@ -108,10 +108,10 @@ const SkillLevelSection = () => {
                                                         </svg>
                                                     </div>
 
-                                                    {/* Right: Program Info */}
-                                                    <div className="md:w-1/2 bg-white/20 backdrop-blur-sm rounded-xl p-4 sm:p-4">
+                                                    {/* Right: Program Info - 入れ子解消、罫線スタイル */}
+                                                    <div className="md:w-1/2 border-l-4 border-white/40 pl-4">
                                                         <h4 className="font-bold text-lg sm:text-lg">{item.program.title}</h4>
-                                                        <p className="text-white/90 text-sm sm:text-sm mt-2 leading-relaxed">{item.program.description}</p>
+                                                        <p className="text-white/95 text-sm sm:text-sm mt-2 leading-relaxed">{item.program.description}</p>
                                                     </div>
                                                 </div>
                                             </div>
