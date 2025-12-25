@@ -1,9 +1,7 @@
 const academyStandaloneRoutes = new Set([
   "/briefing",
   "/events",
-  "/seminars",
   "/voices",
-  "/message",
   "/program",
 ]);
 

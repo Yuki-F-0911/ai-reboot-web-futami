@@ -51,7 +51,7 @@ const ConceptSection = () => {
                         飛躍する自分になるために、人生をリブートする場所です。
                     </p>
                     <Link
-                        href="/message"
+                        href="/academy/message"
                         className="inline-flex items-center gap-2 mt-6 text-orange-500 hover:text-orange-600 font-semibold transition-colors group"
                     >
                         <span>私たちのメッセージを読む</span>

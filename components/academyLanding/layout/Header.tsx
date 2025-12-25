@@ -17,8 +17,8 @@ const Header = () => {
     }, []);
 
     const navLinks = [
-        { name: "メッセージ", href: "/message" },
-        { name: "セミナー", href: "/seminars" },
+        { name: "メッセージ", href: "/academy/message" },
+        { name: "セミナー", href: "/academy/seminars" },
     ];
 
     return (
