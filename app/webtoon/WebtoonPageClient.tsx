@@ -324,7 +324,7 @@ export default function WebtoonPageClient() {
 
           <div className="wt-cta-buttons">
             <a
-              href="https://line.me/"
+              href="https://bexn9pao.autosns.app/line"
               target="_blank"
               rel="noopener noreferrer"
               className="wt-cta-button line"

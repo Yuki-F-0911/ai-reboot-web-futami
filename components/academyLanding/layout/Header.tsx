@@ -64,7 +64,7 @@ const Header = () => {
                             </Link>
                         ))}
                         <a
-                            href="https://line.me/"
+                            href="https://bexn9pao.autosns.app/line"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-sm font-bold text-white bg-[#06C755] hover:bg-[#05b54d] rounded-full transition-all duration-300 shadow-md shadow-green-500/20 hover:shadow-lg hover:shadow-green-500/30"
@@ -111,7 +111,7 @@ const Header = () => {
                             </Link>
                         ))}
                         <a
-                            href="https://line.me/"
+                            href="https://bexn9pao.autosns.app/line"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="mt-4 px-8 py-4 text-lg font-bold text-white bg-[#06C755] hover:bg-[#05b54d] rounded-full text-center transition-all duration-300 shadow-lg shadow-green-500/30 flex items-center justify-center gap-2"

@@ -108,7 +108,7 @@ const HeroSection = () => {
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row items-center lg:items-start gap-3 mb-10">
                         <a
-                            href="https://line.me/"
+                            href="https://bexn9pao.autosns.app/line"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-bold text-white bg-[#06C755] hover:bg-[#05b54d] rounded-full transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/40 hover:-translate-y-0.5"

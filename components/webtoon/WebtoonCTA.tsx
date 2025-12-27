@@ -53,7 +53,7 @@ export function WebtoonCTA() {
           className="flex flex-col sm:flex-row justify-center items-center gap-3 mb-10"
         >
           <a
-            href="https://line.me/"
+            href="https://bexn9pao.autosns.app/line"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white bg-[#06C755] hover:bg-[#05b54d] rounded-full transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-xl transform hover:scale-105"
