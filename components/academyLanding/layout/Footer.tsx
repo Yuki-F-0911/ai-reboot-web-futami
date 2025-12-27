@@ -3,15 +3,13 @@ import Image from "next/image";
 
 const Footer = () => {
     const footerLinks = {
-        main: [
-            { name: "お知らせ", href: "/news" },
-            { name: "お問い合わせ", href: "/contact" },
-            { name: "会社情報", href: "https://willforward.co.jp/", external: true },
-            { name: "法人のお客さま", href: "https://willforward.co.jp/business", external: true },
+        services: [
+            { name: "AIリブートアカデミー", href: "/academy" },
+            { name: "生成AI活用力研修「AIリブート」", href: "/corporate" },
         ],
-        legal: [
-            { name: "プライバシーポリシー", href: "/privacy" },
-            { name: "特定商取引法に基づく表記", href: "/law" },
+        support: [
+            { name: "お問い合わせ", href: "/contact" },
+            { name: "プライバシーポリシー", href: "#privacy" },
         ]
     };
 
@@ -37,35 +35,25 @@ const Footer = () => {
                     </div>
 
                     {/* Menu Links */}
+                    {/* サービス */}
                     <div>
-                        <h3 className="font-bold text-lg mb-6 text-slate-300">メニュー</h3>
+                        <h3 className="font-bold text-lg mb-6 text-slate-300">サービス</h3>
                         <ul className="space-y-4">
-                            {footerLinks.main.map((link) => (
+                            {footerLinks.services.map((link) => (
                                 <li key={link.name}>
-                                    {link.external ? (
-                                        <a
-                                            href={link.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-slate-400 hover:text-white transition-colors text-sm"
-                                        >
-                                            {link.name}
-                                        </a>
-                                    ) : (
-                                        <Link href={link.href} className="text-slate-400 hover:text-white transition-colors text-sm">
-                                            {link.name}
-                                        </Link>
-                                    )}
+                                    <Link href={link.href} className="text-slate-400 hover:text-white transition-colors text-sm">
+                                        {link.name}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Legal Links */}
+                    {/* サポート */}
                     <div>
-                        <h3 className="font-bold text-lg mb-6 text-slate-300">法的情報</h3>
+                        <h3 className="font-bold text-lg mb-6 text-slate-300">サポート</h3>
                         <ul className="space-y-4">
-                            {footerLinks.legal.map((link) => (
+                            {footerLinks.support.map((link) => (
                                 <li key={link.name}>
                                     <Link href={link.href} className="text-slate-400 hover:text-white transition-colors text-sm">
                                         {link.name}
