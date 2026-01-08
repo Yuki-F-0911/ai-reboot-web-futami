@@ -16,19 +16,22 @@ const SubsidyBanner = () => {
             </div>
 
             {/* Main Banner Content */}
-            <div className="py-16 relative z-10">
+            <div className="py-10 md:py-16 relative z-10">
                 <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
                         {/* Left Content */}
                         <div className="space-y-4 text-center lg:text-left">
-                            <div className="mb-4">
-                                <Image
-                                    src="/images/keisan-reskiling-logo-darkbg.webp"
-                                    alt="経済産業省リスキリング補助金"
-                                    width={200}
-                                    height={70}
-                                    className="h-14 w-auto object-contain mx-auto lg:mx-0"
-                                />
+                            {/* ロゴに白背景を追加 */}
+                            <div className="mb-3 md:mb-4">
+                                <div className="bg-white rounded-lg px-3 py-1.5 md:px-4 md:py-2 inline-block">
+                                    <Image
+                                        src="/images/keisan-reskiling-logo.webp"
+                                        alt="経済産業省リスキリング補助金"
+                                        width={200}
+                                        height={70}
+                                        className="h-10 md:h-14 w-auto object-contain"
+                                    />
+                                </div>
                             </div>
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black">
                                 リスキリング補助金<br className="sm:hidden" />対象講座
@@ -37,7 +40,7 @@ const SubsidyBanner = () => {
                                 <span className="hidden sm:inline">経済産業省「リスキリングを通じたキャリアアップ支援事業」対象</span>
                                 <span className="sm:hidden">経済産業省<br />「リスキリングを通じた<br />キャリアアップ支援事業」対象</span>
                             </p>
-                            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mt-4">
+                            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mt-4">
                                 <button
                                     onClick={() => setIsExpanded(!isExpanded)}
                                     className="bg-white text-orange-600 px-6 py-3 rounded-full font-bold hover:bg-orange-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
@@ -52,14 +55,15 @@ const SubsidyBanner = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                     </svg>
                                 </button>
+                                {/* ボタンからテキストリンクに変更 */}
                                 <a
                                     href="https://careerup.reskilling.go.jp/worker/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+                                    className="text-white/90 text-sm underline underline-offset-4 hover:text-white transition-colors flex items-center gap-1"
                                 >
-                                    公式サイトへ
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    公式サイトはこちら
+                                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                     </svg>
                                 </a>
@@ -79,8 +83,8 @@ const SubsidyBanner = () => {
                                 {/* Discounted Price */}
                                 <div className="text-center">
                                     <p className="text-sm text-slate-600 mb-1">実質</p>
-                                    <p className="text-5xl sm:text-5xl font-black text-orange-500">
-                                        120,000<span className="text-xl sm:text-xl">円〜</span>
+                                    <p className="text-4xl sm:text-4xl font-bold text-orange-500">
+                                        120,000<span className="text-lg sm:text-lg font-bold">円〜</span>
                                     </p>
                                 </div>
 
@@ -124,24 +128,24 @@ const SubsidyBanner = () => {
                                 </p>
                             </div>
 
-                            {/* 3 Support Steps */}
+                            {/* 3 Support Steps - オレンジ系に統一 */}
                             <div>
                                 <h4 className="text-lg font-bold text-slate-800 mb-4">3つのサポート</h4>
                                 <div className="grid md:grid-cols-3 gap-4">
-                                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200">
-                                        <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mb-3">1</div>
-                                        <h5 className="font-bold text-blue-800 mb-2">キャリア相談</h5>
-                                        <p className="text-sm text-blue-700">専門家とキャリアの棚卸し・ゴール設定</p>
+                                    <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-4 rounded-xl border border-orange-200">
+                                        <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold mb-3">1</div>
+                                        <h5 className="font-bold text-orange-800 mb-2">キャリア相談</h5>
+                                        <p className="text-sm text-orange-700/80">専門家とキャリアの棚卸し・ゴール設定</p>
                                     </div>
-                                    <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl border border-green-200">
-                                        <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mb-3">2</div>
-                                        <h5 className="font-bold text-green-800 mb-2">リスキリング</h5>
-                                        <p className="text-sm text-green-700">AI活用スキルなど新しいスキルを習得</p>
+                                    <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-4 rounded-xl border border-orange-200">
+                                        <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white font-bold mb-3">2</div>
+                                        <h5 className="font-bold text-orange-800 mb-2">リスキリング</h5>
+                                        <p className="text-sm text-orange-700/80">AI活用スキルなど新しいスキルを習得</p>
                                     </div>
-                                    <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-xl border border-purple-200">
-                                        <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mb-3">3</div>
-                                        <h5 className="font-bold text-purple-800 mb-2">転職支援</h5>
-                                        <p className="text-sm text-purple-700">転職に向けた伴走支援・転職先紹介</p>
+                                    <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-4 rounded-xl border border-amber-200">
+                                        <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold mb-3">3</div>
+                                        <h5 className="font-bold text-amber-800 mb-2">転職支援</h5>
+                                        <p className="text-sm text-amber-700/80">転職に向けた伴走支援・転職先紹介</p>
                                     </div>
                                 </div>
                             </div>
@@ -167,8 +171,8 @@ const SubsidyBanner = () => {
                                     </div>
                                     <div className="border-t-2 border-orange-300 my-2"></div>
                                     <div className="text-center">
-                                        <p className="text-2xl sm:text-2xl font-black text-orange-600">
-                                            受講費用の最大<span className="text-4xl sm:text-4xl">70</span>%が補助！
+                                        <p className="text-xl sm:text-2xl font-bold text-orange-600">
+                                            受講費用の最大<span className="text-3xl sm:text-4xl">70</span>%が補助！
                                         </p>
                                         <p className="text-sm text-slate-500 mt-1">
                                             ※当講座の場合：330,000円 → 実質約120,000円〜
@@ -196,22 +200,22 @@ const SubsidyBanner = () => {
                                 </ul>
                             </div>
 
-                            {/* CTA */}
-                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                            {/* CTA - テキストリンクと閉じるボタン */}
+                            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200">
                                 <a
                                     href="https://careerup.reskilling.go.jp/worker/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex-1 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-center px-6 py-4 rounded-xl font-bold hover:from-orange-600 hover:to-amber-600 transition-all shadow-lg flex items-center justify-center gap-2"
+                                    className="text-orange-600 font-medium underline underline-offset-4 hover:text-orange-700 transition-colors flex items-center gap-1"
                                 >
                                     経産省公式サイトで詳細を確認
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                     </svg>
                                 </a>
                                 <button
                                     onClick={() => setIsExpanded(false)}
-                                    className="flex-1 bg-slate-100 text-slate-700 px-6 py-4 rounded-xl font-bold hover:bg-slate-200 transition-all"
+                                    className="text-slate-500 hover:text-slate-700 text-sm transition-colors"
                                 >
                                     閉じる
                                 </button>

@@ -25,7 +25,7 @@ const targetAudience = [
 
 const TargetAudienceSection = () => {
     return (
-        <section className="py-20 md:py-28 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+        <section className="py-12 md:py-28 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-orange-100/40 rounded-full blur-3xl" />
@@ -34,7 +34,7 @@ const TargetAudienceSection = () => {
 
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-5xl relative z-10">
                 {/* Section Header */}
-                <div className="text-center mb-12 md:mb-16">
+                <div className="text-center mb-8 md:mb-16">
                     <p className="text-orange-500 font-bold text-sm tracking-wider mb-2">
                         TARGET
                     </p>
@@ -47,19 +47,20 @@ const TargetAudienceSection = () => {
                     </p>
                 </div>
 
-                {/* Target Audience Cards */}
-                <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 p-8 md:p-12">
-                    <div className="space-y-6">
+                {/* Target Audience Items - カードなし、罫線区切り */}
+                <div className="max-w-3xl mx-auto">
+                    <div className="space-y-0">
                         {targetAudience.map((item, index) => (
                             <div
                                 key={index}
-                                className={`flex items-center gap-4 md:gap-6 p-4 md:p-5 rounded-2xl transition-all duration-300 hover:bg-orange-50/50 group ${item.isImportant
-                                    ? "bg-gradient-to-r from-orange-50 to-amber-50 border-2 border-orange-200"
-                                    : "bg-slate-50/50"
+                                className={`flex items-center gap-4 md:gap-6 py-5 transition-all duration-300 ${index < targetAudience.length - 1 && !item.isImportant ? "border-b border-slate-200" : ""
+                                    } ${item.isImportant
+                                        ? "bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl -mx-4 px-4 mt-4 border border-orange-200"
+                                        : ""
                                     }`}
                             >
                                 {/* Checkmark Icon */}
-                                <div className={`flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 ${item.isImportant
+                                <div className={`flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-110 ${item.isImportant
                                     ? "bg-gradient-to-br from-orange-500 to-amber-500 shadow-orange-300/50"
                                     : "bg-gradient-to-br from-orange-400 to-orange-500 shadow-orange-200/50"
                                     }`}>

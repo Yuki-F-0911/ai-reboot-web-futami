@@ -34,10 +34,10 @@ const ConceptSection = () => {
     ];
 
     return (
-        <section className="py-20 md:py-28 bg-white">
+        <section className="py-12 md:py-28 bg-white">
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
                 {/* Section Header */}
-                <div className="max-w-4xl mx-auto text-center mb-16 space-y-4">
+                <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16 space-y-3 md:space-y-4">
                     <p className="text-orange-500 font-bold text-sm tracking-wider">
                         CONCEPT
                     </p>
@@ -51,7 +51,7 @@ const ConceptSection = () => {
                         飛躍する自分になるために、人生をリブートする場所です。
                     </p>
                     <Link
-                        href="/message"
+                        href="/academy/message"
                         className="inline-flex items-center gap-2 mt-6 text-orange-500 hover:text-orange-600 font-semibold transition-colors group"
                     >
                         <span>私たちのメッセージを読む</span>
@@ -72,11 +72,11 @@ const ConceptSection = () => {
                 </div>
 
                 {/* Four Pillars */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-12 md:mb-20">
                     {pillars.map((pillar) => (
                         <div
                             key={pillar.id}
-                            className="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                            className="bg-white p-4 md:p-8 rounded-xl md:rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
                         >
                             {/* Background Decoration */}
                             <div className="absolute -right-8 -top-8 w-24 h-24 bg-gradient-to-br from-orange-100 to-transparent rounded-full opacity-60" />
@@ -84,25 +84,25 @@ const ConceptSection = () => {
 
                             <div className="relative z-10">
                                 {/* Illustration */}
-                                <div className="w-full h-36 mb-6 flex items-center justify-center">
+                                <div className="w-full h-20 md:h-36 mb-3 md:mb-6 flex items-center justify-center">
                                     <Image
                                         src={pillar.illustration}
                                         alt={pillar.title}
                                         width={160}
                                         height={140}
-                                        className="object-contain group-hover:scale-110 transition-transform duration-300 mix-blend-multiply"
+                                        className="object-contain group-hover:scale-110 transition-transform duration-300 mix-blend-multiply w-16 h-16 md:w-auto md:h-auto"
                                     />
                                 </div>
 
                                 {/* Number Badge */}
-                                <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 text-white font-bold text-sm mb-4 shadow-lg shadow-orange-200">
+                                <div className="inline-flex items-center justify-center w-7 h-7 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 text-white font-bold text-xs md:text-sm mb-2 md:mb-4 shadow-lg shadow-orange-200">
                                     {pillar.id}
                                 </div>
 
-                                <h3 className="text-xl sm:text-xl md:text-2xl font-bold text-slate-900 mb-3">
+                                <h3 className="text-sm md:text-xl lg:text-2xl font-bold text-slate-900 mb-1 md:mb-3">
                                     {pillar.title}
                                 </h3>
-                                <p className="text-base sm:text-base text-slate-600 leading-relaxed">
+                                <p className="text-xs md:text-base text-slate-600 leading-relaxed hidden md:block">
                                     {pillar.description}
                                 </p>
                             </div>

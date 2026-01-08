@@ -39,13 +39,13 @@ const instructors = [
 
 const InstructorsSection = () => {
     return (
-        <section className="py-20 md:py-28 bg-white relative overflow-hidden">
+        <section className="py-12 md:py-28 bg-white relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2" />
 
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative z-10">
                 {/* Section Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 md:mb-16">
                     <p className="text-orange-500 font-bold text-sm tracking-wider mb-2">
                         MENTORS
                     </p>
@@ -58,14 +58,14 @@ const InstructorsSection = () => {
                 </div>
 
                 {/* Instructors Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                     {instructors.map((instructor, index) => (
                         <div
                             key={index}
                             className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 flex flex-col md:flex-row group hover:shadow-xl transition-all duration-300"
                         >
                             {/* Image Column */}
-                            <div className="relative w-full md:w-2/5 aspect-square md:aspect-auto shrink-0">
+                            <div className="relative w-full md:w-2/5 aspect-[4/3] md:aspect-auto shrink-0">
                                 <Image
                                     src={instructor.image}
                                     alt={instructor.name}
@@ -81,7 +81,7 @@ const InstructorsSection = () => {
                             </div>
 
                             {/* Content Column */}
-                            <div className="p-6 md:p-8 flex flex-col justify-center">
+                            <div className="p-4 md:p-8 flex flex-col justify-center">
                                 {/* Desktop Name */}
                                 <div className="hidden md:block mb-4">
                                     <h3 className="text-2xl font-bold text-slate-900">

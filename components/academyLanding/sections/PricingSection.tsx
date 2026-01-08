@@ -2,14 +2,14 @@
 
 const PricingSection = () => {
     return (
-        <section id="pricing" className="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
+        <section id="pricing" className="py-12 md:py-28 bg-slate-50 relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute top-0 left-0 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 -translate-x-1/2" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50 translate-y-1/2 translate-x-1/2" />
 
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl relative z-10">
                 {/* Section Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 md:mb-16">
                     <p className="text-orange-500 font-bold text-sm tracking-wider mb-2">
                         PRICING
                     </p>
@@ -22,9 +22,9 @@ const PricingSection = () => {
                 </div>
 
                 {/* Pricing Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
                     {/* Regular Price Card */}
-                    <div className="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative">
+                    <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative">
                         <div className="text-center mb-8">
                             <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
                                 一般受講料
@@ -35,7 +35,7 @@ const PricingSection = () => {
                         {/* Price */}
                         <div className="text-center mb-8">
                             <div className="flex items-end justify-center gap-1">
-                                <span className="text-5xl sm:text-5xl md:text-6xl font-black text-orange-500">
+                                <span className="text-4xl sm:text-4xl md:text-5xl font-bold text-orange-500">
                                     330,000
                                 </span>
                                 <span className="text-xl sm:text-xl font-bold text-slate-700 mb-2">円</span>
@@ -72,7 +72,7 @@ const PricingSection = () => {
                     </div>
 
                     {/* Subsidy Price Card */}
-                    <div className="bg-white rounded-3xl p-8 md:p-10 border-2 border-orange-400 shadow-lg hover:shadow-2xl transition-all duration-300 relative">
+                    <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 border-2 border-orange-400 shadow-lg hover:shadow-2xl transition-all duration-300 relative">
                         {/* Recommended Badge */}
                         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                             <span className="bg-gradient-to-r from-orange-500 to-orange-400 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg">
@@ -91,7 +91,7 @@ const PricingSection = () => {
                         <div className="text-center mb-8">
                             <p className="text-slate-400 line-through text-lg mb-1">330,000円</p>
                             <div className="flex items-end justify-center gap-1">
-                                <span className="text-5xl sm:text-5xl md:text-6xl font-black text-orange-500">
+                                <span className="text-4xl sm:text-4xl md:text-5xl font-bold text-orange-500">
                                     180,000
                                 </span>
                                 <span className="text-xl sm:text-xl font-bold text-slate-700 mb-2">円〜</span>

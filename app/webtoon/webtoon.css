@@ -469,6 +469,18 @@
     box-shadow: 0 8px 30px rgba(6, 199, 85, 0.4);
 }
 
+.wt-cta-button.secondary {
+    background: transparent;
+    color: var(--wt-color-primary);
+    border: 2px solid rgba(245, 158, 11, 0.5);
+}
+
+.wt-cta-button.secondary:hover {
+    border-color: var(--wt-color-primary);
+    background: rgba(245, 158, 11, 0.1);
+    transform: translateY(-2px);
+}
+
 .wt-cta-note {
     font-size: 0.875rem;
     color: var(--wt-color-text-muted);

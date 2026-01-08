@@ -8,7 +8,7 @@ const SkillLevelSection = () => {
             level: "STEP 1",
             title: "AI基礎力",
             subtitle: "AIを自分事と捉え、変革に向けて行動できるレベル",
-            color: "from-orange-300 to-orange-400",
+            color: "from-orange-400 to-orange-500",
             program: {
                 title: "AI時代のマインドセット形成",
                 description: "生成AIの基礎知識を習得し、AIを恐れず活用する姿勢を身につけます。100日間の挑戦のスタートラインです。"
@@ -37,10 +37,10 @@ const SkillLevelSection = () => {
     ];
 
     return (
-        <section className="py-20 md:py-28 bg-white overflow-hidden">
+        <section className="py-12 md:py-28 bg-white overflow-hidden">
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
                 {/* Section Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 md:mb-16">
                     <p className="text-orange-500 font-bold text-sm tracking-wider mb-2">
                         GROWTH STEPS
                     </p>
@@ -55,8 +55,8 @@ const SkillLevelSection = () => {
 
                 {/* Pyramid Diagram */}
                 <div className="flex flex-col lg:flex-row items-center gap-12">
-                    {/* Left: Illustration */}
-                    <div className="lg:w-1/3 flex justify-center">
+                    {/* Left: Illustration - Hidden on small mobile */}
+                    <div className="hidden sm:flex lg:w-1/3 justify-center">
                         <div className="relative">
                             <Image
                                 src="/images/skill-pyramid-illustration.png"
@@ -79,7 +79,7 @@ const SkillLevelSection = () => {
                             <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-300 via-orange-500 to-orange-600 rounded-full" />
 
                             {/* Levels */}
-                            <div className="space-y-6">
+                            <div className="space-y-4 md:space-y-6">
                                 {levels.map((item, index) => (
                                     <div
                                         key={item.level}
@@ -88,7 +88,7 @@ const SkillLevelSection = () => {
                                         {/* Connection Dot */}
                                         <div className={`hidden lg:block absolute left-0 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br ${item.color} shadow-lg`} />
 
-                                        <div className={`bg-gradient-to-r ${item.color} rounded-2xl p-6 text-white shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden`}>
+                                        <div className={`bg-gradient-to-r ${item.color} rounded-xl md:rounded-2xl p-4 md:p-6 text-white shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden`}>
                                             {/* Background Pattern */}
                                             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full transform translate-x-16 -translate-y-16" />
 
@@ -109,9 +109,9 @@ const SkillLevelSection = () => {
                                                     </div>
 
                                                     {/* Right: Program Info */}
-                                                    <div className="md:w-1/2 bg-white/20 backdrop-blur-sm rounded-xl p-4 sm:p-4">
+                                                    <div className="md:w-1/2 border-l-2 md:border-l-4 border-white/40 pl-3 md:pl-4 mt-3 md:mt-0">
                                                         <h4 className="font-bold text-lg sm:text-lg">{item.program.title}</h4>
-                                                        <p className="text-white/90 text-sm sm:text-sm mt-2 leading-relaxed">{item.program.description}</p>
+                                                        <p className="text-white/95 text-sm sm:text-sm mt-2 leading-relaxed">{item.program.description}</p>
                                                     </div>
                                                 </div>
                                             </div>
