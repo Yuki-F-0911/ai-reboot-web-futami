@@ -50,8 +50,8 @@ export default function LegalPage() {
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 pb-4 border-b border-gray-100">
                                 <dt className="font-semibold text-gray-700">所在地</dt>
                                 <dd className="md:col-span-2 text-gray-600">
-                                    〒150-0001<br />
-                                    東京都渋谷区神宮前6-23-4 桑野ビル2階
+                                    〒248-0016<br />
+                                    神奈川県鎌倉市長谷2-2-10
                                 </dd>
                             </div>
 
