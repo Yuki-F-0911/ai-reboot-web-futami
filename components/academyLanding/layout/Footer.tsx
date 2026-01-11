@@ -8,8 +8,11 @@ const Footer = () => {
             { name: "生成AI活用力研修「AIリブート」", href: "/corporate" },
         ],
         support: [
+            { name: "運営会社", href: "/company" },
+            { name: "利用規約", href: "/terms" },
+            { name: "プライバシーポリシー", href: "/privacy" },
+            { name: "特定商取引法に基づく表記", href: "/legal" },
             { name: "お問い合わせ", href: "/contact" },
-            { name: "プライバシーポリシー", href: "#privacy" },
         ]
     };
 

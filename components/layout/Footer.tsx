@@ -25,14 +25,12 @@ export const Footer: React.FC = () => {
       { label: 'AIリブートアカデミー', href: '/academy' },
       { label: '生成AI活用力研修「AIリブート」', href: '/corporate' },
     ],
-    company: [
-      { label: '会社概要', href: '#company' },
-      { label: 'ミッション', href: '#mission' },
-      { label: 'お知らせ', href: '#news' },
-    ],
     support: [
+      { label: '運営会社', href: '/company' },
+      { label: '利用規約', href: '/terms' },
+      { label: 'プライバシーポリシー', href: '/privacy' },
+      { label: '特定商取引法に基づく表記', href: '/legal' },
       { label: 'お問い合わせ', href: '/contact' },
-      { label: 'プライバシーポリシー', href: '#privacy' },
     ],
   };
 
