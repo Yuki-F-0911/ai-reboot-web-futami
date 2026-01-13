@@ -1,25 +1,53 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+
+const heroImages = [
+  "/images/hero-corporate-1.png",
+  "/images/hero-corporate-2.png",
+  "/images/hero-corporate-3.png",
+];
 
 export const CorporateHero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // 5秒ごとに切り替え
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center bg-slate-50 overflow-hidden">
-      {/* Mobile: Image at top */}
+      {/* Mobile: Image at top with slideshow */}
       <div className="lg:hidden absolute top-0 left-0 w-full h-[40vh] z-0">
-        <Image
-          src="/images/hero-slide-v2-1.png"
-          alt="AI研修の様子"
-          fill
-          className="object-cover object-top"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-slate-50/50 to-slate-50" />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={heroImages[currentImageIndex]}
+              alt="AI研修の様子"
+              fill
+              className="object-cover object-top"
+              priority
+            />
+          </motion.div>
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-slate-50/50 to-slate-50 z-10" />
       </div>
 
-      {/* Desktop: Right Side Image with Diagonal Cut */}
+      {/* Desktop: Right Side Image with Diagonal Cut and slideshow */}
       <div className="hidden lg:block absolute top-0 right-0 w-[50%] h-full z-0">
         <div
           className="absolute inset-0 z-10"
@@ -27,16 +55,42 @@ export const CorporateHero = () => {
             clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)"
           }}
         >
-          <Image
-            src="/images/hero-slide-v2-1.png"
-            alt="AI研修の様子"
-            fill
-            className="object-cover object-center"
-            priority
-          />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImageIndex}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2 }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={heroImages[currentImageIndex]}
+                alt="AI研修の様子"
+                fill
+                className="object-cover object-center"
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
           {/* Overlay for brand tint */}
-          <div className="absolute inset-0 bg-gradient-to-r from-will-primary/20 to-harmony/20 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-50/50 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-will-primary/20 to-harmony/20 mix-blend-multiply z-20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-50/50 via-transparent to-transparent z-20" />
+        </div>
+
+        {/* Slide indicators */}
+        <div className="absolute bottom-8 right-8 z-30 flex gap-2">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex
+                  ? "bg-white w-6"
+                  : "bg-white/50 hover:bg-white/80"
+                }`}
+              aria-label={`スライド ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
 
