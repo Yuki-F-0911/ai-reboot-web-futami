@@ -12,30 +12,35 @@ const targets = [
 
 const TargetSection = () => {
     return (
-        <section className="py-20 md:py-28 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 relative overflow-hidden">
-            {/* Background Elements */}
-            <div className="absolute inset-0">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-3xl" />
+        <section className="py-12 md:py-24 bg-gradient-to-br from-orange-50 via-white to-slate-50 relative overflow-hidden">
+            {/* Decorative pattern */}
+            <div className="absolute inset-0 opacity-30">
+                <div className="absolute top-0 left-0 w-full h-full"
+                    style={{
+                        backgroundImage: `radial-gradient(circle at 20% 50%, rgba(251, 146, 60, 0.1) 0%, transparent 50%),
+                                         radial-gradient(circle at 80% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%)`
+                    }}
+                />
             </div>
 
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-12"
+                    className="text-center mb-8 md:mb-12"
                 >
-                    <p className="text-green-400 font-bold text-sm tracking-wider mb-4">
+                    <p className="text-orange-500 font-bold text-sm tracking-wider mb-3 sm:mb-4">
                         TARGET
                     </p>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white leading-tight">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
                         こんな方におすすめ
                     </h2>
                 </motion.div>
 
-                <div className="space-y-4">
+                <div className="space-y-2 sm:space-y-3">
                     {targets.map((target, index) => (
                         <motion.div
                             key={index}
@@ -43,14 +48,14 @@ const TargetSection = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.1 * index }}
-                            className="flex items-center gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-green-500/30 transition-all duration-300"
+                            className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl bg-white/80 backdrop-blur-sm border border-slate-100 hover:border-orange-200 transition-all duration-300 shadow-sm hover:shadow-lg"
                         >
-                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                                <svg className="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center shadow-lg shadow-orange-200">
+                                <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                 </svg>
                             </div>
-                            <p className="text-white text-base md:text-lg font-medium">
+                            <p className="text-slate-700 text-sm sm:text-base md:text-lg leading-relaxed">
                                 {target}
                             </p>
                         </motion.div>
@@ -63,16 +68,16 @@ const TargetSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.5 }}
-                    className="text-center mt-12"
+                    className="text-center mt-8 sm:mt-12"
                 >
-                    <p className="text-slate-400 text-lg mb-6">
+                    <p className="text-slate-600 text-sm sm:text-base md:text-lg mb-4 sm:mb-6">
                         一つでも当てはまる方は、ぜひご参加ください。
                     </p>
                     <a
                         href="#register"
-                        className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-bold text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 rounded-full transition-all duration-300 shadow-lg shadow-green-500/20"
+                        className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-bold text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 rounded-full transition-all duration-300 shadow-lg shadow-orange-500/20 hover:shadow-xl"
                     >
-                        無料で申し込む
+                        申し込む
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>

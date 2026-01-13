@@ -12,24 +12,18 @@ const problems = [
 
 const ProblemSection = () => {
     return (
-        <section className="py-20 md:py-28 bg-slate-900 relative overflow-hidden">
-            {/* Background Elements */}
-            <div className="absolute inset-0">
-                <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
-                <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl" />
-            </div>
-
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <section className="py-12 md:py-24 bg-white relative overflow-hidden">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     {/* Left: Image */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="relative"
+                        className="relative order-2 lg:order-1"
                     >
-                        <div className="relative aspect-square max-w-md mx-auto">
+                        <div className="relative aspect-square max-w-xs sm:max-w-sm md:max-w-md mx-auto">
                             <Image
                                 src="/images/seminar/career-breakthrough.png"
                                 alt="キャリアの閉塞感からの脱出"
@@ -40,65 +34,48 @@ const ProblemSection = () => {
                     </motion.div>
 
                     {/* Right: Content */}
-                    <div>
+                    <div className="order-1 lg:order-2">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <p className="text-orange-400 font-bold text-sm tracking-wider mb-4">
+                            <p className="text-orange-500 font-bold text-sm tracking-wider mb-3 sm:mb-4">
                                 PROBLEM
                             </p>
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
-                                AIを学んで終わり、
-                                <br />
-                                にしていませんか？
+                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
+                                AIを学んで終わり、にしていませんか？
                             </h2>
                         </motion.div>
 
-                        <motion.div
+                        <motion.ul
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="space-y-4 mb-8"
+                            className="space-y-2 sm:space-y-3 mb-6 sm:mb-8"
                         >
                             {problems.map((problem, index) => (
-                                <div
-                                    key={index}
-                                    className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10"
-                                >
-                                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center mt-0.5">
-                                        <svg className="w-4 h-4 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                        </svg>
-                                    </span>
-                                    <p className="text-slate-300 text-base md:text-lg">
-                                        {problem}
-                                    </p>
-                                </div>
+                                <li key={index} className="flex items-start gap-2 sm:gap-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+                                    <span className="text-slate-400 mt-0.5">•</span>
+                                    {problem}
+                                </li>
                             ))}
-                        </motion.div>
+                        </motion.ul>
 
-                        <motion.div
+                        <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="p-6 rounded-2xl bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-500/20"
+                            className="text-sm sm:text-base text-slate-600 leading-relaxed"
                         >
-                            <p className="text-white font-bold text-lg mb-2">
-                                不都合な真実
-                            </p>
-                            <p className="text-slate-300 leading-relaxed">
-                                生成AIの使い方はすぐに古くなります。
-                                <br />
-                                <span className="text-orange-300 font-bold">
-                                    ただツールを使えるだけでは、これからの時代、武器にはなりません。
-                                </span>
-                            </p>
-                        </motion.div>
+                            生成AIの使い方はすぐに古くなります。
+                            <span className="text-red-600 font-bold">
+                                ただツールを使えるだけでは、これからの時代、武器にはなりません。
+                            </span>
+                        </motion.p>
                     </div>
                 </div>
             </div>
