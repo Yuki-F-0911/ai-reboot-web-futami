@@ -12,6 +12,11 @@ export const Header: React.FC = () => {
   const pathname = usePathname();
   const useAcademyHeader = isAcademyPath(pathname);
 
+  // セミナーLPページではヘッダーを非表示
+  if (pathname?.startsWith('/seminars/')) {
+    return null;
+  }
+
   if (useAcademyHeader) {
     return <AcademyHeader />;
   }

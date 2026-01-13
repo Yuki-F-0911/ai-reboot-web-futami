@@ -11,7 +11,10 @@ type MainWrapperProps = {
 const MainWrapper: React.FC<MainWrapperProps> = ({ children }) => {
   const pathname = usePathname();
   const useAcademySpacing = isAcademyPath(pathname);
-  const mainClassName = useAcademySpacing
+  const isSeminarLP = pathname?.startsWith('/seminars/');
+
+  // セミナーLPとアカデミーページはヘッダー分のpaddingを入れない
+  const mainClassName = (useAcademySpacing || isSeminarLP)
     ? "min-h-screen overflow-x-hidden"
     : "min-h-screen pt-16 overflow-x-hidden";
 
