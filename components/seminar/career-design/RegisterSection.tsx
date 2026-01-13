@@ -62,20 +62,10 @@ const RegisterSection = () => {
                         ))}
                     </div>
 
-                    {/* Archive Notice */}
-                    <div className="p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 mb-6 sm:mb-8">
-                        <div className="flex items-start gap-2 sm:gap-3">
-                            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <div>
-                                <p className="text-white font-bold text-sm sm:text-base mb-1">アーカイブ配信について</p>
-                                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                                    当日ご都合が合わない方には、後日アーカイブ動画を配布可能です。フォームより「アーカイブ希望」を選択してください。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    {/* Archive Notice - Simple note style */}
+                    <p className="text-slate-400 text-xs sm:text-sm text-center mb-6 sm:mb-8">
+                        ※当日ご都合が合わない方には、アーカイブ配信をご用意しています
+                    </p>
 
                     {/* CTA Button */}
                     <div className="text-center">

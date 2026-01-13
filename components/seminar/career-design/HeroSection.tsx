@@ -45,7 +45,7 @@ const HeroSection = () => {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-slate-900 mb-4 sm:mb-6 leading-[1.1]"
                     >
-                        生成AI時代のキャリア設計論
+                        生成AI時代の<br className="sm:hidden" />キャリア設計論
                     </motion.h1>
 
                     {/* Subtitle */}
@@ -55,7 +55,7 @@ const HeroSection = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg sm:text-xl md:text-2xl text-orange-500 mb-4 font-bold"
                     >
-                        ツールに依存しない「本質的な強み」の作り方
+                        ツールに依存しない<br className="sm:hidden" />「本質的な強み」の作り方
                     </motion.p>
 
                     {/* Sub Description */}
@@ -65,7 +65,7 @@ const HeroSection = () => {
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed mb-6 sm:mb-8"
                     >
-                        人事・採用のプロ×AI実践者が教える「キャリア下剋上」のロードマップ
+                        人事・採用のプロ×AI実践者が教える<br className="sm:hidden" />「キャリア下剋上」のロードマップ
                     </motion.p>
 
                     {/* Event Info - Simple Text */}
@@ -102,22 +102,6 @@ const HeroSection = () => {
                     </motion.div>
                 </div>
             </div>
-
-            {/* Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 1 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2"
-            >
-                <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="w-6 h-10 rounded-full border-2 border-slate-400 flex items-start justify-center p-2"
-                >
-                    <div className="w-1 h-2 bg-slate-500 rounded-full" />
-                </motion.div>
-            </motion.div>
         </section>
     );
 };
