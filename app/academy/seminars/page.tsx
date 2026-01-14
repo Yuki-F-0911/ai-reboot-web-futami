@@ -4,12 +4,22 @@ import Button from "@/components/academyLanding/ui/Button";
 const SeminarsPage = () => {
     const seminars = [
         {
+            title: "生成AI時代のキャリア設計論",
+            date: "2026年1月18日（日）",
+            time: "20:00-21:00",
+            place: "オンライン（Zoom）",
+            desc: "人事・採用のプロ×AI実践者が教える「キャリア下剋上」のロードマップ。ツールに依存しない「本質的な強み」の作り方をお伝えします。AIを学んで終わりにしない、思考OSのアップデートがテーマです。",
+            tag: "NEW",
+            link: "/seminars/career-design"
+        },
+        {
             title: "2025年AIトレンドを振り返り、2026年の展望を読む",
             date: "2025年12月30日（火）",
             time: "19:00-21:00",
             place: "オンライン",
             desc: "「AIのある暮らし」とのコラボ企画。本アカデミー主宰成瀬、「AIのある暮らし」岩本かずさんに加え、デザイナーやWebマーケター、異業種のAI活用者などゲストを招き、座談会・パネルディスカッション形式で実施。年末の忘年会的な雰囲気で、各登壇者が今年使ったツールや2025年の振り返りを語ります。",
-            tag: "コラボ企画"
+            tag: "コラボ企画",
+            ended: true
         },
         {
             title: "AI時代のキャリアハックセミナー",
@@ -17,7 +27,8 @@ const SeminarsPage = () => {
             time: "16:00-17:00",
             place: "オンライン",
             desc: "AIを武器にして自分の「Will（実現したい生き方）」を叶えるためのキャリア形成について、本アカデミー主宰 成瀬拓也がお伝えします。単にツールを学ぶのではなく、AIと共に成長するキャリア戦略を一緒に考えましょう。",
-            tag: "本アカデミー主宰成瀬拓也"
+            tag: "本アカデミー主宰成瀬拓也",
+            ended: true
         }
     ];
 
@@ -60,12 +71,18 @@ const SeminarsPage = () => {
                                     </p>
                                 </div>
                                 <div className="md:w-1/4 w-full flex items-center justify-end">
-                                    <a
-                                        href="/briefing"
-                                        className="w-full px-6 py-3 text-center text-white font-bold bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 rounded-full transition-all duration-300 shadow-md shadow-orange-200 hover:shadow-lg hover:shadow-orange-300"
-                                    >
-                                        詳細・申込
-                                    </a>
+                                    {seminar.ended ? (
+                                        <span className="w-full px-6 py-3 text-center text-slate-400 font-bold bg-slate-100 rounded-full border border-slate-200">
+                                            受付終了
+                                        </span>
+                                    ) : (
+                                        <a
+                                            href={seminar.link || "/briefing"}
+                                            className="w-full px-6 py-3 text-center text-white font-bold bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 rounded-full transition-all duration-300 shadow-md shadow-orange-200 hover:shadow-lg hover:shadow-orange-300"
+                                        >
+                                            詳細・申込
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </div>
