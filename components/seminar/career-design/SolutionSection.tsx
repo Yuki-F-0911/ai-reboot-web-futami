@@ -43,10 +43,10 @@ const SolutionSection = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <p className="text-orange-500 font-bold text-sm tracking-wider mb-3 sm:mb-4">
+                        <p className="text-orange-500 font-bold text-base tracking-wider mb-3 sm:mb-4">
                             SOLUTION
                         </p>
-                        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-4 sm:mb-6">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4 sm:mb-6">
                             必要なのは、AIを使いこなすための「思考OS」のアップデート
                         </h2>
                     </motion.div>
@@ -73,7 +73,7 @@ const SolutionSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto"
+                        className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto"
                     >
                         本セミナーではツールの操作説明はしません。しかし、参加後にはAIを使いこなす土台が完成します。
                     </motion.p>
@@ -86,7 +86,7 @@ const SolutionSection = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 text-center mb-6 sm:mb-8">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 text-center mb-6 sm:mb-8">
                         <span className="text-orange-500">CURRICULUM</span>
                         {"　"}セミナー内容
                     </h3>
@@ -100,10 +100,10 @@ const SolutionSection = () => {
                                 transition={{ duration: 0.4, delay: 0.05 * index }}
                                 className="group p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl bg-white/80 backdrop-blur-sm border border-slate-200 hover:border-orange-200 transition-all duration-300 hover:shadow-xl hover:shadow-orange-100/50"
                             >
-                                <div className="text-orange-500/60 text-xs font-bold tracking-wider mb-2 sm:mb-3">
+                                <div className="text-orange-500/60 text-sm font-bold tracking-wider mb-2 sm:mb-3">
                                     {String(index + 1).padStart(2, '0')}
                                 </div>
-                                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
+                                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
                                     {item}
                                 </p>
                             </motion.div>

@@ -27,13 +27,13 @@ const RegisterSection = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-8 md:mb-12"
                 >
-                    <p className="text-orange-400 font-bold text-sm tracking-wider mb-3 sm:mb-4">
+                    <p className="text-orange-400 font-bold text-base tracking-wider mb-3 sm:mb-4">
                         REGISTER
                     </p>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-3 sm:mb-4">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-3 sm:mb-4">
                         開催概要・お申し込み
                     </h2>
-                    <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+                    <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
                         お申し込みいただいた方に視聴URLをお送りします
                     </p>
                 </motion.div>
@@ -52,10 +52,10 @@ const RegisterSection = () => {
                                 key={index}
                                 className="flex items-center justify-between py-2 sm:py-3 border-b border-white/10 last:border-b-0"
                             >
-                                <span className="text-slate-400 text-xs sm:text-sm">
+                                <span className="text-slate-400 text-sm sm:text-base">
                                     {detail.label}
                                 </span>
-                                <span className="text-white text-sm sm:text-base font-medium">
+                                <span className="text-white text-base sm:text-lg font-medium">
                                     {detail.value}
                                 </span>
                             </div>
@@ -63,26 +63,26 @@ const RegisterSection = () => {
                     </div>
 
                     {/* Archive Notice - Simple note style */}
-                    <p className="text-slate-400 text-xs sm:text-sm text-center mb-6 sm:mb-8">
+                    <p className="text-slate-400 text-sm sm:text-base text-center mb-6 sm:mb-8">
                         ※当日ご都合が合わない方には、アーカイブ配信をご用意しています
                     </p>
 
                     {/* CTA Button */}
                     <div className="text-center">
                         <motion.a
-                            href="https://forms.gle/YOUR_GOOGLE_FORM_ID"
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSf8nTvEXBRIJSzcb_4SbMrwPi5NKx9_ihR6kzjYeCu1ngKrdA/viewform?usp=dialog"
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="inline-flex items-center justify-center gap-2 sm:gap-3 px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg md:text-xl font-bold text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 rounded-full transition-all duration-300 shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50"
+                            className="inline-flex items-center justify-center gap-2 sm:gap-3 px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl md:text-2xl font-bold text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 rounded-full transition-all duration-300 shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50"
                         >
                             <span>無料でセミナーに参加する</span>
                             <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
                         </motion.a>
-                        <p className="text-slate-500 text-xs sm:text-sm mt-3 sm:mt-4">
+                        <p className="text-slate-500 text-sm sm:text-base mt-3 sm:mt-4">
                             ※お申し込み後、視聴URLをメールでお送りします
                         </p>
                     </div>
@@ -96,7 +96,7 @@ const RegisterSection = () => {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="text-center"
                 >
-                    <p className="text-slate-500 text-xs sm:text-sm">
+                    <p className="text-slate-500 text-sm sm:text-base">
                         ※無理な勧誘は一切ございません。安心してお申し込みください。
                     </p>
                 </motion.div>

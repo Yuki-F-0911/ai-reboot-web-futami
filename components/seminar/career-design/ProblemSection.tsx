@@ -41,10 +41,10 @@ const ProblemSection = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <p className="text-orange-500 font-bold text-sm tracking-wider mb-3 sm:mb-4">
+                            <p className="text-orange-500 font-bold text-base tracking-wider mb-3 sm:mb-4">
                                 PROBLEM
                             </p>
-                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
                                 AIを学んで終わり、にしていませんか？
                             </h2>
                         </motion.div>
@@ -57,7 +57,7 @@ const ProblemSection = () => {
                             className="space-y-2 sm:space-y-3 mb-6 sm:mb-8"
                         >
                             {problems.map((problem, index) => (
-                                <li key={index} className="flex items-start gap-2 sm:gap-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+                                <li key={index} className="flex items-start gap-2 sm:gap-3 text-slate-600 text-base sm:text-lg leading-relaxed">
                                     <span className="text-slate-400 mt-0.5">•</span>
                                     {problem}
                                 </li>
@@ -69,7 +69,7 @@ const ProblemSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-sm sm:text-base text-slate-600 leading-relaxed"
+                            className="text-base sm:text-lg text-slate-600 leading-relaxed"
                         >
                             生成AIの使い方はすぐに古くなります。
                             <span className="text-red-600 font-bold">

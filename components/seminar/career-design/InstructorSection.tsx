@@ -29,10 +29,10 @@ const InstructorSection = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-8 md:mb-12"
                 >
-                    <p className="text-orange-500 font-bold text-sm tracking-wider mb-3 sm:mb-4">
+                    <p className="text-orange-500 font-bold text-base tracking-wider mb-3 sm:mb-4">
                         INSTRUCTOR
                     </p>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
                         講師紹介
                     </h2>
                 </motion.div>
@@ -64,35 +64,35 @@ const InstructorSection = () => {
                         <div className="md:col-span-3 p-4 sm:p-6 md:p-8 lg:p-10">
                             {/* Role Badge */}
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 mb-3 sm:mb-4">
-                                <span className="text-orange-600 text-xs sm:text-sm font-medium">代表講師・PM</span>
+                                <span className="text-orange-600 text-sm sm:text-base font-medium">代表講師・PM</span>
                             </div>
 
                             {/* Name */}
-                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-1 sm:mb-2">
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-1 sm:mb-2">
                                 成瀬 拓也
                             </h3>
-                            <p className="text-orange-500 font-bold text-xs sm:text-sm tracking-wide mb-4 sm:mb-6">
+                            <p className="text-orange-500 font-bold text-sm sm:text-base tracking-wide mb-4 sm:mb-6">
                                 Takuya Naruse
                             </p>
 
                             {/* Titles */}
                             <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
-                                <span className="px-2 sm:px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs">
+                                <span className="px-2 sm:px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-sm">
                                     株式会社ウィルフォワード 代表取締役
                                 </span>
-                                <span className="px-2 sm:px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs">
+                                <span className="px-2 sm:px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-sm">
                                     筑波大学 非常勤講師
                                 </span>
                             </div>
 
                             {/* Profile */}
-                            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
+                            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
                                 経営者・教育者としての経験を活かし、AIを活用したキャリア支援の最前線で活動。経済産業省認定リスキリング講座「AIリブートアカデミー」を主宰。
                             </p>
 
                             {/* Achievements */}
                             <div>
-                                <h4 className="text-slate-900 font-bold text-sm sm:text-base mb-3 sm:mb-4 flex items-center gap-2">
+                                <h4 className="text-slate-900 font-bold text-base sm:text-lg mb-3 sm:mb-4 flex items-center gap-2">
                                     <svg className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                     </svg>
@@ -104,7 +104,7 @@ const InstructorSection = () => {
                                             <svg className="w-3 h-3 sm:w-4 sm:h-4 text-orange-500 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                             </svg>
-                                            <span className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                            <span className="text-slate-600 text-sm sm:text-base leading-relaxed">
                                                 {achievement}
                                             </span>
                                         </li>

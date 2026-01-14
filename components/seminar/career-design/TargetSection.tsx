@@ -32,10 +32,10 @@ const TargetSection = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-8 md:mb-12"
                 >
-                    <p className="text-orange-500 font-bold text-sm tracking-wider mb-3 sm:mb-4">
+                    <p className="text-orange-500 font-bold text-base tracking-wider mb-3 sm:mb-4">
                         TARGET
                     </p>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
                         こんな方におすすめ
                     </h2>
                 </motion.div>
@@ -55,7 +55,7 @@ const TargetSection = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                 </svg>
                             </div>
-                            <p className="text-slate-700 text-sm sm:text-base md:text-lg leading-relaxed">
+                            <p className="text-slate-700 text-base sm:text-lg md:text-xl leading-relaxed">
                                 {target}
                             </p>
                         </motion.div>
@@ -70,12 +70,12 @@ const TargetSection = () => {
                     transition={{ duration: 0.6, delay: 0.5 }}
                     className="text-center mt-8 sm:mt-12"
                 >
-                    <p className="text-slate-600 text-sm sm:text-base md:text-lg mb-4 sm:mb-6">
+                    <p className="text-slate-600 text-base sm:text-lg md:text-xl mb-4 sm:mb-6">
                         一つでも当てはまる方は、ぜひご参加ください。
                     </p>
                     <a
                         href="#register"
-                        className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-bold text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 rounded-full transition-all duration-300 shadow-lg shadow-orange-500/20 hover:shadow-xl"
+                        className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 rounded-full transition-all duration-300 shadow-lg shadow-orange-500/20 hover:shadow-xl"
                     >
                         申し込む
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
