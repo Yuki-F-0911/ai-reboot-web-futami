@@ -64,10 +64,10 @@ export function WebtoonCTA() {
             まずはLINEで相談
           </a>
           <Link
-            href="/academy"
+            href="/seminars/career-design"
             className="inline-flex items-center justify-center px-6 py-4 text-base font-bold text-amber-600 bg-transparent border-2 border-amber-500/50 hover:border-amber-400 hover:bg-amber-500/10 rounded-full transition-all duration-300"
           >
-            またはアカデミー詳細を見る
+            まずは無料セミナーに参加
           </Link>
         </motion.div>
 

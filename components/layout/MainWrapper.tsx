@@ -12,9 +12,10 @@ const MainWrapper: React.FC<MainWrapperProps> = ({ children }) => {
   const pathname = usePathname();
   const useAcademySpacing = isAcademyPath(pathname);
   const isSeminarLP = pathname?.startsWith('/seminars/');
+  const isWebtoon = pathname === '/webtoon';
 
-  // セミナーLPとアカデミーページはヘッダー分のpaddingを入れない
-  const mainClassName = (useAcademySpacing || isSeminarLP)
+  // セミナーLP、アカデミーページ、webtoonはヘッダー分のpaddingを入れない
+  const mainClassName = (useAcademySpacing || isSeminarLP || isWebtoon)
     ? "min-h-screen overflow-x-hidden"
     : "min-h-screen pt-16 overflow-x-hidden";
 

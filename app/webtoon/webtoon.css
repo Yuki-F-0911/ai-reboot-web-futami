@@ -123,7 +123,6 @@
 .wt-manga-section {
     background: #0a0a0a;
     padding: 0;
-    padding-top: 60px;
     position: relative;
 }
 
@@ -612,7 +611,6 @@
 
     .wt-manga-section {
         padding: 0;
-        padding-top: 50px;
     }
 
     .wt-manga-container {
