@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "/images/seminar/career-hero-bg.png",
+                url: "/images/seminar/ogp-career-design.png",
                 width: 1200,
                 height: 630,
                 alt: "生成AI時代のキャリア設計論",
