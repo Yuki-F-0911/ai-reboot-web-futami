@@ -416,7 +416,7 @@ export default function WebtoonPageClient() {
                 <span className="wt-value-number">03</span>
                 <div className="wt-value-content">
                   <strong>AI時代の「走り方」</strong>
-                  <p>AIを敵ではなく"チームメイト"にする考え方</p>
+                  <p>AIを敵ではなく&quot;チームメイト&quot;にする考え方</p>
                 </div>
               </div>
             </div>
