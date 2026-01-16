@@ -569,10 +569,10 @@ export default function WebtoonPageClient() {
         {currentTeaser && (
           <>
             <p className="wt-sticky-teaser">{currentTeaser.teaser}</p>
-            <a
-              href={REGISTER_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => {
+                mainCtaRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+              }}
               className="wt-sticky-button"
               style={{
                 boxShadow: `0 4px ${15 + glowIntensity * 35}px rgba(245, 158, 11, ${0.4 + glowIntensity * 0.5}), 0 0 ${glowIntensity * 60}px rgba(255, 200, 50, ${glowIntensity * 0.8}), 0 0 ${glowIntensity * 100}px rgba(255, 220, 100, ${glowIntensity * 0.4})`,
@@ -582,9 +582,9 @@ export default function WebtoonPageClient() {
             >
               <span>{currentTeaser.text}</span>
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
-            </a>
+            </button>
           </>
         )}
       </div>
