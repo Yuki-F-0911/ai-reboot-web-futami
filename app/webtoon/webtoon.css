@@ -69,7 +69,7 @@
 }
 
 .wt-logo-text {
-    font-size: 1.25rem;
+    font-size: 1.875rem;
     font-weight: 900;
     background: linear-gradient(135deg, var(--wt-color-primary) 0%, var(--wt-color-primary-dark) 100%);
     -webkit-background-clip: text;
@@ -84,7 +84,7 @@
 }
 
 .wt-nav-link {
-    font-size: 0.9rem;
+    font-size: 1.35rem;
     font-weight: 500;
     color: var(--wt-color-text-secondary);
     transition: color var(--wt-transition-fast);
@@ -387,7 +387,7 @@
 }
 
 .wt-cta-title {
-    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-size: clamp(2.6rem, 7.5vw, 3.75rem);
     font-weight: 900;
     line-height: 1.4;
     margin-bottom: 1rem;
@@ -398,7 +398,7 @@
 }
 
 .wt-cta-description {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: var(--wt-color-text-secondary);
     margin-bottom: 2rem;
     line-height: 1.8;
@@ -439,7 +439,7 @@
     gap: 0.5rem;
     padding: 1rem 2rem;
     border-radius: 100px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 700;
     transition: all var(--wt-transition-normal);
     min-width: 200px;
@@ -686,12 +686,12 @@
     }
 
     .wt-cta-title {
-        font-size: clamp(1.5rem, 5vw, 2rem);
+        font-size: clamp(2.25rem, 7.5vw, 3rem);
         padding: 0 0.5rem;
     }
 
     .wt-cta-description {
-        font-size: 0.9rem;
+        font-size: 1.35rem;
         padding: 0 0.5rem;
     }
 
@@ -715,7 +715,7 @@
         width: 100%;
         max-width: 100%;
         padding: 0.875rem 1.5rem;
-        font-size: 0.95rem;
+        font-size: 1.425rem;
         min-width: auto;
     }
 
@@ -871,7 +871,7 @@
     align-items: center;
     gap: 0.375rem;
     color: var(--wt-color-text-secondary);
-    font-size: 0.9rem;
+    font-size: 1.35rem;
     font-weight: 500;
     transition: all var(--wt-transition-fast);
     text-decoration: underline;
@@ -1102,7 +1102,7 @@
 }
 
 .wt-postcredit-title {
-    font-size: clamp(1.5rem, 5vw, 2.25rem);
+    font-size: clamp(2.25rem, 7.5vw, 3.375rem);
     font-weight: 900;
     line-height: 1.5;
     margin-bottom: 1.5rem;
@@ -1145,7 +1145,7 @@
 }
 
 .wt-diagnosis-title {
-    font-size: 1.25rem;
+    font-size: 1.875rem;
     font-weight: 700;
     text-align: center;
     margin-bottom: 1.5rem;
@@ -1207,7 +1207,7 @@
 
 .wt-diagnosis-result {
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 1.8;
     color: var(--wt-color-text-secondary);
     padding-top: 1rem;
@@ -1236,7 +1236,7 @@
 }
 
 .wt-value-title {
-    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-size: clamp(2.25rem, 7.5vw, 3rem);
     font-weight: 900;
     margin-bottom: 0.75rem;
 }
@@ -1249,7 +1249,7 @@
 }
 
 .wt-value-subtitle {
-    font-size: 0.9rem;
+    font-size: 1.35rem;
     color: var(--wt-color-text-secondary);
     margin-bottom: 1.5rem;
 }
@@ -1281,14 +1281,14 @@
 }
 
 .wt-value-content strong {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: var(--wt-color-text);
     display: block;
     margin-bottom: 0.25rem;
 }
 
 .wt-value-content p {
-    font-size: 0.875rem;
+    font-size: 1.3rem;
     color: var(--wt-color-text-secondary);
     line-height: 1.5;
     margin: 0;
@@ -1305,7 +1305,7 @@
 }
 
 .wt-trust-title {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
     color: rgba(255, 255, 255, 0.9);
@@ -1356,7 +1356,7 @@
 }
 
 .wt-event-title {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
     margin-bottom: 1.25rem;
@@ -1389,7 +1389,7 @@
 }
 
 .wt-event-value {
-    font-size: 0.95rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: var(--wt-color-text);
     text-align: right;
@@ -1427,7 +1427,7 @@
 }
 
 .wt-cta-assurance p {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     color: var(--wt-color-text-muted);
     margin: 0;
 }
@@ -1435,7 +1435,7 @@
 .wt-cta-detail-link {
     display: inline-block;
     margin-top: 1rem;
-    font-size: 0.875rem;
+    font-size: 1.3rem;
     color: var(--wt-color-text-secondary);
     text-decoration: none;
     transition: all var(--wt-transition-fast);
@@ -1452,7 +1452,7 @@
 }
 
 .wt-faq-title {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
     margin-bottom: 1.25rem;
@@ -1472,14 +1472,14 @@
 }
 
 .wt-faq-q {
-    font-size: 0.95rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--wt-color-text);
     margin: 0 0 0.75rem 0;
 }
 
 .wt-faq-a {
-    font-size: 0.875rem;
+    font-size: 1.3rem;
     color: var(--wt-color-text-secondary);
     line-height: 1.7;
     margin: 0;
@@ -1595,7 +1595,7 @@
 
 @media (max-width: 480px) {
     .wt-postcredit-title {
-        font-size: 1.25rem;
+        font-size: 1.875rem;
     }
 
     .wt-diagnosis-title {
