@@ -57,6 +57,7 @@ export default function WebtoonPageClient() {
   const [showStickyFooter, setShowStickyFooter] = useState(false)
   const [currentTeaser, setCurrentTeaser] = useState<{ teaser: string; text: string } | null>(null)
   const [glowIntensity, setGlowIntensity] = useState(0) // 0〜1の輝き強度
+  const [isBelowMainCta, setIsBelowMainCta] = useState(false) // メインCTAより下にいるかどうか
   const mainCtaRef = useRef<HTMLDivElement>(null)
 
   // スクロールプログレスと固定フッターの表示を更新
@@ -83,12 +84,16 @@ export default function WebtoonPageClient() {
     const intensity = Math.min(1, Math.max(0, (scrollPercent - glowStart) / (glowEnd - glowStart)))
     setGlowIntensity(intensity)
 
-    // 固定フッターの表示制御（15%以上スクロールで表示、メインCTAボタンが見えたら非表示）
+    // 固定フッターの表示制御
     const mainCta = mainCtaRef.current
     const shouldShow = scrollPercent >= 15 && activeTeaser !== null
     if (mainCta) {
       const ctaRect = mainCta.getBoundingClientRect()
       const ctaVisible = ctaRect.top < window.innerHeight && ctaRect.bottom > 0
+      // メインCTAより下にいるかどうかを判定
+      const belowCta = ctaRect.bottom < 0
+      setIsBelowMainCta(belowCta)
+      // メインCTAが見えているときは非表示、見えていないときは表示
       setShowStickyFooter(shouldShow && !ctaVisible)
     } else {
       setShowStickyFooter(shouldShow)
@@ -581,8 +586,10 @@ export default function WebtoonPageClient() {
                 }
                 scrollToMainCta()
                 // 画像ロードでページ高さが変わった場合に備えて再調整
-                setTimeout(scrollToMainCta, 600)
-                setTimeout(scrollToMainCta, 1200)
+                if (!isBelowMainCta) {
+                  setTimeout(scrollToMainCta, 600)
+                  setTimeout(scrollToMainCta, 1200)
+                }
               }}
               className="wt-sticky-button"
               style={{
@@ -591,9 +598,13 @@ export default function WebtoonPageClient() {
                 transform: glowIntensity > 0.7 ? `scale(${1 + (glowIntensity - 0.7) * 0.05})` : undefined,
               }}
             >
-              <span>{currentTeaser.text}</span>
+              <span>{isBelowMainCta ? 'セミナーに申し込む' : currentTeaser.text}</span>
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                {isBelowMainCta ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                )}
               </svg>
             </button>
           </>
