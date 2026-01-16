@@ -571,17 +571,18 @@ export default function WebtoonPageClient() {
             <p className="wt-sticky-teaser">{currentTeaser.teaser}</p>
             <button
               onClick={() => {
-                // ページの一番下（CTAセクションがある場所）へスクロール
-                // 画像の遅延ロードに関係なく確実に到達するため、document全体の高さを使用
-                const scrollToBottom = () => {
-                  const docHeight = document.documentElement.scrollHeight
-                  // CTAボタンが画面の下部（75%位置）に来るよう調整
-                  const targetY = docHeight - window.innerHeight * 0.15
+                const scrollToMainCta = () => {
+                  if (!mainCtaRef.current) return
+                  const rect = mainCtaRef.current.getBoundingClientRect()
+                  const scrollTop = window.scrollY
+                  // CTAボタンが画面の下から25%（上から75%）の位置に来るよう調整
+                  const targetY = scrollTop + rect.top - (window.innerHeight * 0.75)
                   window.scrollTo({ top: targetY, behavior: 'smooth' })
                 }
-                scrollToBottom()
+                scrollToMainCta()
                 // 画像ロードでページ高さが変わった場合に備えて再調整
-                setTimeout(scrollToBottom, 600)
+                setTimeout(scrollToMainCta, 600)
+                setTimeout(scrollToMainCta, 1200)
               }}
               className="wt-sticky-button"
               style={{
