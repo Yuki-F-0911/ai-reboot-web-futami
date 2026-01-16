@@ -575,8 +575,8 @@ export default function WebtoonPageClient() {
                 // 画像の遅延ロードに関係なく確実に到達するため、document全体の高さを使用
                 const scrollToBottom = () => {
                   const docHeight = document.documentElement.scrollHeight
-                  // CTAボタンが画面の75%位置に来るよう、少しオフセットを入れる
-                  const targetY = docHeight - window.innerHeight * 0.4
+                  // CTAボタンが画面の下部（75%位置）に来るよう調整
+                  const targetY = docHeight - window.innerHeight * 0.15
                   window.scrollTo({ top: targetY, behavior: 'smooth' })
                 }
                 scrollToBottom()
