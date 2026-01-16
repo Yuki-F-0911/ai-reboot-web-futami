@@ -859,3 +859,641 @@
         letter-spacing: 0.03em;
     }
 }
+
+/* ===== Sub CTA Link ===== */
+.wt-sub-cta {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.wt-sub-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--wt-color-text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--wt-transition-fast);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.wt-sub-cta-link:hover {
+    color: var(--wt-color-primary);
+}
+
+.wt-sub-cta-link svg {
+    transition: transform var(--wt-transition-fast);
+}
+
+.wt-sub-cta-link:hover svg {
+    transform: translateX(3px);
+}
+
+/* ===== Sticky Footer CTA ===== */
+.wt-sticky-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid var(--wt-color-border);
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.wt-sticky-footer.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.wt-sticky-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, var(--wt-color-primary) 0%, var(--wt-color-primary-dark) 100%);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 100px;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+    transition: all var(--wt-transition-normal);
+}
+
+.wt-sticky-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+}
+
+@media (max-width: 768px) {
+    .wt-sticky-footer {
+        padding: 0.625rem 0.75rem;
+        padding-bottom: calc(0.625rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .wt-sticky-button {
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .wt-sticky-footer {
+        padding: 0.5rem;
+        padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .wt-sticky-button {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.9rem;
+        gap: 0.375rem;
+    }
+}
+
+/* ===== Post-Credit Section ===== */
+.wt-postcredit {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--wt-color-border);
+}
+
+.wt-postcredit-lead {
+    font-size: 0.875rem;
+    color: var(--wt-color-text-muted);
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+}
+
+.wt-postcredit-title {
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+    font-weight: 900;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    color: var(--wt-color-text);
+}
+
+.wt-postcredit-title .highlight {
+    color: var(--wt-color-primary);
+    display: inline;
+}
+
+.wt-postcredit-text {
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--wt-color-text-secondary);
+}
+
+.wt-postcredit-text strong {
+    color: var(--wt-color-text);
+    font-weight: 700;
+}
+
+/* ===== Self-Diagnosis Section ===== */
+.wt-diagnosis {
+    background: white;
+    border: 1px solid var(--wt-color-border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.wt-diagnosis-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--wt-color-primary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.wt-diagnosis-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--wt-color-text);
+}
+
+.wt-diagnosis-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.wt-diagnosis-option {
+    background: var(--wt-color-bg-secondary);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    transition: all var(--wt-transition-fast);
+}
+
+.wt-diagnosis-option:hover {
+    background: var(--wt-color-bg-tertiary);
+    transform: translateX(4px);
+}
+
+.wt-diagnosis-choice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.wt-diagnosis-letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--wt-color-primary);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.wt-diagnosis-choice>span:last-child {
+    font-size: 0.95rem;
+    color: var(--wt-color-text);
+    line-height: 1.5;
+}
+
+.wt-diagnosis-comment {
+    font-size: 0.85rem;
+    color: var(--wt-color-primary-dark);
+    padding-left: calc(24px + 0.75rem);
+    font-weight: 500;
+}
+
+.wt-diagnosis-result {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--wt-color-text-secondary);
+    padding-top: 1rem;
+    border-top: 1px dashed var(--wt-color-border);
+}
+
+.wt-diagnosis-result strong {
+    color: var(--wt-color-text);
+    display: block;
+    margin-top: 0.25rem;
+}
+
+/* ===== Value Proposition Section ===== */
+.wt-value {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.wt-value-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--wt-color-primary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.wt-value-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: 900;
+    margin-bottom: 0.75rem;
+}
+
+.wt-value-title .highlight-gold {
+    background: linear-gradient(135deg, var(--wt-color-primary) 0%, var(--wt-color-primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.wt-value-subtitle {
+    font-size: 0.9rem;
+    color: var(--wt-color-text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.wt-value-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.wt-value-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: white;
+    border: 1px solid var(--wt-color-border);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.wt-value-number {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--wt-color-primary);
+    opacity: 0.5;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.wt-value-content strong {
+    font-size: 1rem;
+    color: var(--wt-color-text);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.wt-value-content p {
+    font-size: 0.875rem;
+    color: var(--wt-color-text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ===== Trust Building Section ===== */
+.wt-trust {
+    background: var(--wt-color-text);
+    color: white;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.wt-trust-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.wt-trust-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.wt-trust-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.wt-trust-x {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+.wt-trust-message {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wt-trust-message strong {
+    color: var(--wt-color-primary-light);
+}
+
+/* ===== Event Details Section ===== */
+.wt-event {
+    background: white;
+    border: 1px solid var(--wt-color-border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.wt-event-title {
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    color: var(--wt-color-text);
+}
+
+.wt-event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.wt-event-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--wt-color-border);
+}
+
+.wt-event-row:last-child {
+    border-bottom: none;
+}
+
+.wt-event-label {
+    font-size: 0.875rem;
+    color: var(--wt-color-text-secondary);
+    flex-shrink: 0;
+}
+
+.wt-event-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--wt-color-text);
+    text-align: right;
+}
+
+.wt-event-value.highlight {
+    color: var(--wt-color-primary);
+}
+
+.wt-event-note {
+    font-size: 0.85rem;
+    color: var(--wt-color-text-secondary);
+    text-align: center;
+    margin: 0;
+}
+
+.wt-event-note strong {
+    color: var(--wt-color-primary);
+}
+
+/* ===== Main CTA Block ===== */
+.wt-main-cta {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.wt-cta-button.large {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+    min-width: 280px;
+}
+
+.wt-cta-assurance {
+    margin-top: 1rem;
+}
+
+.wt-cta-assurance p {
+    font-size: 0.8rem;
+    color: var(--wt-color-text-muted);
+    margin: 0;
+}
+
+.wt-cta-detail-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--wt-color-text-secondary);
+    text-decoration: none;
+    transition: all var(--wt-transition-fast);
+}
+
+.wt-cta-detail-link:hover {
+    color: var(--wt-color-primary);
+    text-decoration: underline;
+}
+
+/* ===== FAQ Section ===== */
+.wt-faq {
+    margin-bottom: 2rem;
+}
+
+.wt-faq-title {
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    color: var(--wt-color-text);
+}
+
+.wt-faq-item {
+    background: white;
+    border: 1px solid var(--wt-color-border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.wt-faq-item:last-child {
+    margin-bottom: 0;
+}
+
+.wt-faq-q {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--wt-color-text);
+    margin: 0 0 0.75rem 0;
+}
+
+.wt-faq-a {
+    font-size: 0.875rem;
+    color: var(--wt-color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ===== Mobile Adjustments for New Sections ===== */
+@media (max-width: 768px) {
+    .wt-postcredit {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .wt-postcredit-text {
+        font-size: 0.9rem;
+        line-height: 1.9;
+    }
+
+    .wt-diagnosis {
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .wt-diagnosis-title {
+        font-size: 1.1rem;
+    }
+
+    .wt-diagnosis-option {
+        padding: 0.875rem 1rem;
+    }
+
+    .wt-diagnosis-choice>span:last-child {
+        font-size: 0.875rem;
+    }
+
+    .wt-diagnosis-comment {
+        font-size: 0.8rem;
+        padding-left: calc(24px + 0.5rem);
+    }
+
+    .wt-value {
+        margin-bottom: 2rem;
+    }
+
+    .wt-value-point {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+
+    .wt-value-number {
+        font-size: 1.25rem;
+    }
+
+    .wt-value-content strong {
+        font-size: 0.95rem;
+    }
+
+    .wt-trust {
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .wt-trust-list li {
+        font-size: 0.875rem;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .wt-trust-x {
+        flex-shrink: 0;
+    }
+
+    .wt-trust-message {
+        font-size: 0.85rem;
+    }
+
+    .wt-event {
+        padding: 1.5rem 1rem;
+    }
+
+    .wt-event-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .wt-event-value {
+        text-align: left;
+    }
+
+    .wt-cta-button.large {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        min-width: auto;
+    }
+
+    .wt-faq-item {
+        padding: 1rem;
+    }
+
+    .wt-faq-q {
+        font-size: 0.9rem;
+    }
+
+    .wt-faq-a {
+        font-size: 0.825rem;
+    }
+
+    .wt-sub-cta-link {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .wt-postcredit-title {
+        font-size: 1.25rem;
+    }
+
+    .wt-diagnosis-title {
+        font-size: 1rem;
+    }
+
+    .wt-value-title {
+        font-size: 1.25rem;
+    }
+
+    .wt-diagnosis-letter {
+        width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+    }
+
+    .wt-diagnosis-choice>span:last-child {
+        font-size: 0.825rem;
+    }
+
+    .wt-diagnosis-comment {
+        padding-left: calc(20px + 0.5rem);
+        font-size: 0.75rem;
+    }
+}

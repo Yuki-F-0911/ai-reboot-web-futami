@@ -1,9 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef, useCallback, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import './webtoon.css'
+
+// 申し込みフォームURL
+const REGISTER_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSf8nTvEXBRIJSzcb_4SbMrwPi5NKx9_ihR6kzjYeCu1ngKrdA/viewform?usp=dialog'
 
 // 漫画の画像データ
 const mangaPanels = [
@@ -40,14 +43,26 @@ const mangaPanels = [
 
 export default function WebtoonPageClient() {
   const scrollProgressRef = useRef<HTMLDivElement>(null)
+  const [showStickyFooter, setShowStickyFooter] = useState(false)
+  const mainCtaRef = useRef<HTMLDivElement>(null)
 
-  // スクロールプログレスを更新
+  // スクロールプログレスと固定フッターの表示を更新
   const updateScrollProgress = useCallback(() => {
     if (!scrollProgressRef.current) return
     const scrollTop = window.scrollY
     const docHeight = document.documentElement.scrollHeight - window.innerHeight
     const scrollPercent = (scrollTop / docHeight) * 100
     scrollProgressRef.current.style.width = scrollPercent + '%'
+
+    // 固定フッターの表示制御（200px以上スクロールしたら表示、メインCTAボタンが見えたら非表示）
+    const mainCta = mainCtaRef.current
+    if (mainCta) {
+      const ctaRect = mainCta.getBoundingClientRect()
+      const ctaVisible = ctaRect.top < window.innerHeight && ctaRect.bottom > 0
+      setShowStickyFooter(scrollTop > 200 && !ctaVisible)
+    } else {
+      setShowStickyFooter(scrollTop > 200)
+    }
   }, [])
 
   useEffect(() => {
@@ -312,38 +327,227 @@ export default function WebtoonPageClient() {
       {/* CTA Section */}
       <section id="cta" className="wt-cta-section">
         <div className="wt-cta-container">
-          <div className="wt-cta-badge">現在募集中</div>
-          <h2 className="wt-cta-title">
-            あなたのキャリアを、<br />
-            <span className="highlight">OSから再起動</span>する。
-          </h2>
-          <p className="wt-cta-description">
-            AI時代を生き抜くための「思考」と「技術」を手に入れる。<br />
-            詳細ページでプログラム内容をご覧ください。
-          </p>
 
-          <div className="wt-cta-buttons">
-            <Link href="/seminars/career-design" className="wt-cta-button primary">
-              <span>1/18(日)開催の無料セミナーに参加</span>
-            </Link>
-            <a
-              href="https://bexn9pao.autosns.app/line"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="wt-cta-button line"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
-              </svg>
-              <span>LINEで相談</span>
-            </a>
+          {/* ===== ポストクレジット導入 ===== */}
+          <div className="wt-postcredit">
+            <p className="wt-postcredit-lead">— 第1話 完 —</p>
+            <h2 className="wt-postcredit-title">
+              今治の物語は、<br />
+              <span className="highlight">あなたの物語でもある。</span>
+            </h2>
+            <p className="wt-postcredit-text">
+              AIに怯える日々から、AIと共に走り出す日々へ。<br />
+              彼が踏み出した「最初の一歩」——<br />
+              <strong>次は、あなたの番です。</strong>
+            </p>
           </div>
 
-          <p className="wt-cta-note">※ 無理な勧誘は一切ございません。安心してお申し込みください。</p>
+          {/* ===== 30秒セルフ診断 ===== */}
+          <div className="wt-diagnosis">
+            <p className="wt-diagnosis-label">30秒セルフ診断</p>
+            <h3 className="wt-diagnosis-title">今、どの言葉が一番響きましたか？</h3>
 
+            <div className="wt-diagnosis-options">
+              <div className="wt-diagnosis-option">
+                <div className="wt-diagnosis-choice">
+                  <span className="wt-diagnosis-letter">A</span>
+                  <span>「AIに仕事を奪われるかも…」という今治の焦り</span>
+                </div>
+                <p className="wt-diagnosis-comment">→ その焦りは、変化への準備が整っている証拠です</p>
+              </div>
+
+              <div className="wt-diagnosis-option">
+                <div className="wt-diagnosis-choice">
+                  <span className="wt-diagnosis-letter">B</span>
+                  <span>「代わりのきく毎日」という言葉へのモヤモヤ</span>
+                </div>
+                <p className="wt-diagnosis-comment">→ 違和感に気づけるあなたは、すでに一歩先にいます</p>
+              </div>
+
+              <div className="wt-diagnosis-option">
+                <div className="wt-diagnosis-choice">
+                  <span className="wt-diagnosis-letter">C</span>
+                  <span>池上先輩のような「AIを味方につける」生き方への憧れ</span>
+                </div>
+                <p className="wt-diagnosis-comment">→ 憧れを行動に変える方法、お伝えします</p>
+              </div>
+
+              <div className="wt-diagnosis-option">
+                <div className="wt-diagnosis-choice">
+                  <span className="wt-diagnosis-letter">D</span>
+                  <span>「100日で変われる」という希望</span>
+                </div>
+                <p className="wt-diagnosis-comment">→ 100日後の自分、一緒に設計しませんか？</p>
+              </div>
+            </div>
+
+            <p className="wt-diagnosis-result">
+              どれを選んでも、答えは同じ。<br />
+              <strong>あなたには「次の一歩」を踏み出す準備ができています。</strong>
+            </p>
+          </div>
+
+          {/* ===== セミナーの価値提示 ===== */}
+          <div className="wt-value">
+            <p className="wt-value-label">無料オンラインセミナー</p>
+            <h3 className="wt-value-title">
+              <span className="highlight-gold">生成AI時代のキャリア設計論</span>
+            </h3>
+            <p className="wt-value-subtitle">1時間で得られること</p>
+
+            <div className="wt-value-points">
+              <div className="wt-value-point">
+                <span className="wt-value-number">01</span>
+                <div className="wt-value-content">
+                  <strong>「思考OS」のアップデート法</strong>
+                  <p>ツールに依存しない、本質的な強みの作り方</p>
+                </div>
+              </div>
+
+              <div className="wt-value-point">
+                <span className="wt-value-number">02</span>
+                <div className="wt-value-content">
+                  <strong>100日で変わるロードマップ</strong>
+                  <p>今治が辿った道を、あなた用にカスタマイズ</p>
+                </div>
+              </div>
+
+              <div className="wt-value-point">
+                <span className="wt-value-number">03</span>
+                <div className="wt-value-content">
+                  <strong>AI時代の「走り方」</strong>
+                  <p>AIを敵ではなく"チームメイト"にする考え方</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ===== やらないこと宣言 ===== */}
+          <div className="wt-trust">
+            <h4 className="wt-trust-title">このセミナーで「やらないこと」</h4>
+            <ul className="wt-trust-list">
+              <li>
+                <span className="wt-trust-x">✕</span>
+                <span>AIツールの操作説明会ではありません</span>
+              </li>
+              <li>
+                <span className="wt-trust-x">✕</span>
+                <span>高額プログラムへの売り込みはしません</span>
+              </li>
+              <li>
+                <span className="wt-trust-x">✕</span>
+                <span>「すぐ稼げる」系の話もしません</span>
+              </li>
+            </ul>
+            <p className="wt-trust-message">
+              私たちがお伝えするのは、<br />
+              AI時代を自分らしく生き抜くための<strong>「土台」</strong>の作り方です。
+            </p>
+          </div>
+
+          {/* ===== 開催概要 ===== */}
+          <div className="wt-event">
+            <h4 className="wt-event-title">開催概要</h4>
+            <div className="wt-event-details">
+              <div className="wt-event-row">
+                <span className="wt-event-label">日時</span>
+                <span className="wt-event-value">1月18日（日）20:00〜21:00</span>
+              </div>
+              <div className="wt-event-row">
+                <span className="wt-event-label">形式</span>
+                <span className="wt-event-value">オンライン（Zoom）</span>
+              </div>
+              <div className="wt-event-row">
+                <span className="wt-event-label">参加費</span>
+                <span className="wt-event-value highlight">完全無料</span>
+              </div>
+              <div className="wt-event-row">
+                <span className="wt-event-label">視聴URL</span>
+                <span className="wt-event-value">お申込み後にメールでお届け</span>
+              </div>
+            </div>
+            <p className="wt-event-note">
+              ※ 当日ご都合が合わない方も、<strong>アーカイブ配信</strong>でご視聴いただけます
+            </p>
+          </div>
+
+          {/* ===== 申込みCTAブロック ===== */}
+          <div ref={mainCtaRef} className="wt-main-cta">
+            <a
+              href={REGISTER_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="wt-cta-button primary large"
+            >
+              <span>最初の一歩を踏み出す（無料）</span>
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <div className="wt-cta-assurance">
+              <p>✓ 完全無料 ✓ 勧誘なし ✓ 視聴URLは後日メールでお届け</p>
+            </div>
+            <Link href="/seminars/career-design" className="wt-cta-detail-link">
+              セミナー詳細・講師プロフィールはこちら →
+            </Link>
+          </div>
+
+          {/* ===== FAQ ===== */}
+          <div className="wt-faq">
+            <h4 className="wt-faq-title">よくあるご質問</h4>
+
+            <div className="wt-faq-item">
+              <p className="wt-faq-q">Q. 参加後、何か売り込まれませんか？</p>
+              <p className="wt-faq-a">
+                A. いいえ。セミナー内での勧誘は一切ありません。<br />
+                ご興味があれば後日ご案内をお送りしますが、強引なセールスはいたしません。
+              </p>
+            </div>
+
+            <div className="wt-faq-item">
+              <p className="wt-faq-q">Q. 当日参加できない場合は？</p>
+              <p className="wt-faq-a">
+                A. アーカイブ動画をお届けします。<br />
+                お申込みいただければ、後日メールで視聴リンクをお送りします。
+              </p>
+            </div>
+
+            <div className="wt-faq-item">
+              <p className="wt-faq-q">Q. 参加後の流れを教えてください</p>
+              <p className="wt-faq-a">
+                A. セミナー視聴 → ご興味があれば詳しい資料をお送り → ご自身のペースでご検討ください。<br />
+                無理なお声がけはいたしません。
+              </p>
+            </div>
+          </div>
+
+          {/* ===== セミナー詳細リンク ===== */}
+          <div className="wt-sub-cta">
+            <Link href="/seminars/career-design" className="wt-sub-cta-link">
+              <span>セミナー詳細・講師プロフィールを見る</span>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
 
         </div>
       </section>
+
+      {/* Sticky Footer CTA */}
+      <div className={`wt-sticky-footer ${showStickyFooter ? 'visible' : ''}`}>
+        <a
+          href={REGISTER_FORM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="wt-sticky-button"
+        >
+          <span>無料セミナーに申し込む</span>
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
     </div>
   )
 }
