@@ -477,7 +477,7 @@ export default function WebtoonPageClient() {
 
           {/* ===== 開催概要 ===== */}
           <div className="wt-event">
-            <h4 className="wt-event-title">開催概要</h4>
+            <h4 className="wt-event-title">AI時代のキャリア設計セミナー開催概要</h4>
             <div className="wt-event-details">
               <div className="wt-event-row">
                 <span className="wt-event-label">日時</span>
@@ -571,7 +571,13 @@ export default function WebtoonPageClient() {
             <p className="wt-sticky-teaser">{currentTeaser.teaser}</p>
             <button
               onClick={() => {
-                mainCtaRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                if (mainCtaRef.current) {
+                  const rect = mainCtaRef.current.getBoundingClientRect()
+                  const scrollTop = window.scrollY
+                  // ボタンが画面の75%位置（下側）に来るように調整
+                  const targetY = scrollTop + rect.top - (window.innerHeight * 0.75) + (rect.height / 2)
+                  window.scrollTo({ top: targetY, behavior: 'smooth' })
+                }
               }}
               className="wt-sticky-button"
               style={{
@@ -588,6 +594,6 @@ export default function WebtoonPageClient() {
           </>
         )}
       </div>
-    </div>
+    </div >
   )
 }
