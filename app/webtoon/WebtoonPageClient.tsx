@@ -41,9 +41,22 @@ const mangaPanels = [
   { src: '/webtoon/koma/28.png', alt: 'コマ28', dramatic: true },
 ]
 
+// ストーリーフェーズごとの煽り文句（週刊連載風）
+const storyTeasers = [
+  { threshold: 0, text: null }, // 最初は非表示
+  { threshold: 15, teaser: 'あの頃の輝きを取り戻したい方は、、、', text: '人生をリブートする' },
+  { threshold: 30, teaser: '10年後、あなたはどこにいる——？', text: '人生をリブートする' },
+  { threshold: 45, teaser: '運命の出会いは、動いた者だけに訪れる——', text: '人生をリブートする' },
+  { threshold: 60, teaser: '最初の一歩を踏み出す勇気、あなたにはあるか——', text: '人生をリブートする' },
+  { threshold: 75, teaser: '100日後、止まっていた時間が動き出す——', text: '人生をリブートする' },
+  { threshold: 90, teaser: '次は、あなたの番だ——', text: '人生をリブートする' },
+]
+
 export default function WebtoonPageClient() {
   const scrollProgressRef = useRef<HTMLDivElement>(null)
   const [showStickyFooter, setShowStickyFooter] = useState(false)
+  const [currentTeaser, setCurrentTeaser] = useState<{ teaser: string; text: string } | null>(null)
+  const [glowIntensity, setGlowIntensity] = useState(0) // 0〜1の輝き強度
   const mainCtaRef = useRef<HTMLDivElement>(null)
 
   // スクロールプログレスと固定フッターの表示を更新
@@ -54,14 +67,31 @@ export default function WebtoonPageClient() {
     const scrollPercent = (scrollTop / docHeight) * 100
     scrollProgressRef.current.style.width = scrollPercent + '%'
 
-    // 固定フッターの表示制御（200px以上スクロールしたら表示、メインCTAボタンが見えたら非表示）
+    // 現在のストーリーフェーズに応じた煽り文句を決定
+    let activeTeaser: { teaser: string; text: string } | null = null
+    for (let i = storyTeasers.length - 1; i >= 0; i--) {
+      if (scrollPercent >= storyTeasers[i].threshold && storyTeasers[i].text) {
+        activeTeaser = { teaser: storyTeasers[i].teaser!, text: storyTeasers[i].text! }
+        break
+      }
+    }
+    setCurrentTeaser(activeTeaser)
+
+    // 輝き強度を計算（15%〜90%の間で0〜1に変化）
+    const glowStart = 15
+    const glowEnd = 90
+    const intensity = Math.min(1, Math.max(0, (scrollPercent - glowStart) / (glowEnd - glowStart)))
+    setGlowIntensity(intensity)
+
+    // 固定フッターの表示制御（15%以上スクロールで表示、メインCTAボタンが見えたら非表示）
     const mainCta = mainCtaRef.current
+    const shouldShow = scrollPercent >= 15 && activeTeaser !== null
     if (mainCta) {
       const ctaRect = mainCta.getBoundingClientRect()
       const ctaVisible = ctaRect.top < window.innerHeight && ctaRect.bottom > 0
-      setShowStickyFooter(scrollTop > 200 && !ctaVisible)
+      setShowStickyFooter(shouldShow && !ctaVisible)
     } else {
-      setShowStickyFooter(scrollTop > 200)
+      setShowStickyFooter(shouldShow)
     }
   }, [])
 
@@ -535,18 +565,28 @@ export default function WebtoonPageClient() {
       </section>
 
       {/* Sticky Footer CTA */}
-      <div className={`wt-sticky-footer ${showStickyFooter ? 'visible' : ''}`}>
-        <a
-          href={REGISTER_FORM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="wt-sticky-button"
-        >
-          <span>無料セミナーに申し込む</span>
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
-        </a>
+      <div className={`wt-sticky-footer ${showStickyFooter ? 'visible' : ''} ${glowIntensity >= 1 ? 'sparkling' : ''}`}>
+        {currentTeaser && (
+          <>
+            <p className="wt-sticky-teaser">{currentTeaser.teaser}</p>
+            <a
+              href={REGISTER_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="wt-sticky-button"
+              style={{
+                boxShadow: `0 4px ${15 + glowIntensity * 35}px rgba(245, 158, 11, ${0.4 + glowIntensity * 0.5}), 0 0 ${glowIntensity * 60}px rgba(255, 200, 50, ${glowIntensity * 0.8}), 0 0 ${glowIntensity * 100}px rgba(255, 220, 100, ${glowIntensity * 0.4})`,
+                textShadow: glowIntensity > 0.2 ? `0 0 ${glowIntensity * 20}px rgba(255, 255, 255, ${glowIntensity}), 0 0 ${glowIntensity * 40}px rgba(255, 230, 150, ${glowIntensity * 0.6})` : 'none',
+                transform: glowIntensity > 0.7 ? `scale(${1 + (glowIntensity - 0.7) * 0.05})` : undefined,
+              }}
+            >
+              <span>{currentTeaser.text}</span>
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </>
+        )}
       </div>
     </div>
   )
