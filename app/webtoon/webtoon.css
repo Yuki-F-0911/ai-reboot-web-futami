@@ -1410,6 +1410,35 @@
     color: var(--wt-color-primary);
 }
 
+/* ===== Register Form Embed Section ===== */
+.wt-register-form {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.wt-register-form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--wt-color-text);
+    padding-top: 1rem;
+}
+
+.wt-register-form-container {
+    background: white;
+    border: 1px solid var(--wt-color-border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--wt-color-shadow);
+}
+
+.wt-register-form-container iframe {
+    display: block;
+    border: none;
+    width: 100%;
+    min-height: 800px;
+}
+
 /* ===== Main CTA Block ===== */
 .wt-main-cta {
     text-align: center;
@@ -1606,6 +1635,20 @@
 
     .wt-sub-cta-link {
         font-size: 0.85rem;
+    }
+
+    .wt-register-form-title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        padding-top: 0.5rem;
+    }
+
+    .wt-register-form-container {
+        border-radius: 12px;
+    }
+
+    .wt-register-form-container iframe {
+        min-height: 900px;
     }
 }
 

@@ -5,9 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import './webtoon.css'
 
-// 申し込みフォームURL
-const REGISTER_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSf8nTvEXBRIJSzcb_4SbMrwPi5NKx9_ihR6kzjYeCu1ngKrdA/viewform?usp=dialog'
-
 // 漫画の画像データ
 const mangaPanels = [
   { src: '/webtoon/koma/hyoushi.png', alt: '表紙', dramatic: true },
@@ -57,8 +54,7 @@ export default function WebtoonPageClient() {
   const [showStickyFooter, setShowStickyFooter] = useState(false)
   const [currentTeaser, setCurrentTeaser] = useState<{ teaser: string; text: string } | null>(null)
   const [glowIntensity, setGlowIntensity] = useState(0) // 0〜1の輝き強度
-  const [isBelowMainCta, setIsBelowMainCta] = useState(false) // メインCTAより下にいるかどうか
-  const mainCtaRef = useRef<HTMLDivElement>(null)
+  const [isBelowForm, setIsBelowForm] = useState(false) // フォームより下にいるかどうか
 
   // スクロールプログレスと固定フッターの表示を更新
   const updateScrollProgress = useCallback(() => {
@@ -85,16 +81,16 @@ export default function WebtoonPageClient() {
     setGlowIntensity(intensity)
 
     // 固定フッターの表示制御
-    const mainCta = mainCtaRef.current
+    const formSection = document.getElementById('register-form')
     const shouldShow = scrollPercent >= 15 && activeTeaser !== null
-    if (mainCta) {
-      const ctaRect = mainCta.getBoundingClientRect()
-      const ctaVisible = ctaRect.top < window.innerHeight && ctaRect.bottom > 0
-      // メインCTAより下にいるかどうかを判定
-      const belowCta = ctaRect.bottom < 0
-      setIsBelowMainCta(belowCta)
-      // メインCTAが見えているときは非表示、見えていないときは表示
-      setShowStickyFooter(shouldShow && !ctaVisible)
+    if (formSection) {
+      const formRect = formSection.getBoundingClientRect()
+      const formVisible = formRect.top < window.innerHeight && formRect.bottom > 0
+      // フォームより下にいるかどうかを判定
+      const belowForm = formRect.bottom < 0
+      setIsBelowForm(belowForm)
+      // フォームが見えているときは非表示、見えていないときは表示
+      setShowStickyFooter(shouldShow && !formVisible)
     } else {
       setShowStickyFooter(shouldShow)
     }
@@ -481,7 +477,7 @@ export default function WebtoonPageClient() {
           </div>
 
           {/* ===== 開催概要 ===== */}
-          <div className="wt-event">
+          <div id="event-section" className="wt-event">
             <h4 className="wt-event-title">AI時代のキャリア設計セミナー開催概要</h4>
             <div className="wt-event-details">
               <div className="wt-event-row">
@@ -506,25 +502,22 @@ export default function WebtoonPageClient() {
             </p>
           </div>
 
-          {/* ===== 申込みCTAブロック ===== */}
-          <div ref={mainCtaRef} className="wt-main-cta">
-            <a
-              href={REGISTER_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="wt-cta-button primary large"
-            >
-              <span>最初の一歩を踏み出す（無料）</span>
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-            <div className="wt-cta-assurance">
-              <p>✓ 完全無料 ✓ 勧誘なし ✓ 視聴URLは後日メールでお届け</p>
+          {/* ===== 申込みフォーム埋め込み ===== */}
+          <div id="register-form" className="wt-register-form">
+            <h4 className="wt-register-form-title">セミナーに申し込む</h4>
+            <div className="wt-register-form-container">
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSf8nTvEXBRIJSzcb_4SbMrwPi5NKx9_ihR6kzjYeCu1ngKrdA/viewform?embedded=true"
+                width="100%"
+                height="800"
+                frameBorder="0"
+                marginHeight={0}
+                marginWidth={0}
+                title="セミナー申込みフォーム"
+              >
+                読み込んでいます…
+              </iframe>
             </div>
-            <Link href="/seminars/career-design" className="wt-cta-detail-link">
-              セミナー詳細・講師プロフィールはこちら →
-            </Link>
           </div>
 
           {/* ===== FAQ ===== */}
@@ -548,10 +541,10 @@ export default function WebtoonPageClient() {
             </div>
 
             <div className="wt-faq-item">
-              <p className="wt-faq-q">Q. 参加後の流れを教えてください</p>
+              <p className="wt-faq-q">Q. 参加後、キャリアの相談はできますか？</p>
               <p className="wt-faq-a">
-                A. セミナー視聴 → ご興味があれば詳しい資料をお送り → ご自身のペースでご検討ください。<br />
-                無理なお声がけはいたしません。
+                A. はい。ご希望の方には、<strong>国家資格キャリアコンサルタントによる無料面談</strong>をご案内しております。<br />
+                セミナー視聴後、お気軽にお申し付けください。
               </p>
             </div>
           </div>
@@ -579,14 +572,12 @@ export default function WebtoonPageClient() {
                 // 溜めエフェクト：まず下に移動
                 window.scrollBy({ top: 3000, behavior: 'smooth' })
 
-                // 500ms後にCTAへジャンプ
+                // 500ms後にフォームへジャンプ
                 setTimeout(() => {
-                  if (!mainCtaRef.current) return
-                  const rect = mainCtaRef.current.getBoundingClientRect()
-                  const scrollTop = window.scrollY
-                  // CTAボタンが画面の下から25%（上から75%）の位置に来るよう調整
-                  const targetY = scrollTop + rect.top - (window.innerHeight * 0.75)
-                  window.scrollTo({ top: targetY, behavior: 'instant' })
+                  const formSection = document.getElementById('register-form')
+                  if (formSection) {
+                    formSection.scrollIntoView({ behavior: 'instant', block: 'start' })
+                  }
                 }, 500)
               }}
               className="wt-sticky-button"
@@ -596,9 +587,9 @@ export default function WebtoonPageClient() {
                 transform: glowIntensity > 0.7 ? `scale(${1 + (glowIntensity - 0.7) * 0.05})` : undefined,
               }}
             >
-              <span>{isBelowMainCta ? 'セミナーに申し込む' : currentTeaser.text}</span>
+              <span>{isBelowForm ? 'セミナーに申し込む' : currentTeaser.text}</span>
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isBelowMainCta ? (
+                {isBelowForm ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
                 ) : (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
