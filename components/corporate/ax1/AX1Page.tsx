@@ -47,17 +47,11 @@ export default function AX1Page() {
                     東京開催
                 </div>
                 <div className={styles.heroSub}>
-                    中小・ベンチャー企業
-                    <br />
-                    経営者・幹部（CXO）限定
-                    <br />
-                    戦略ブリーフィング
+                    中小・ベンチャー経営者・幹部（CXO）限定 戦略ブリーフィング
                 </div>
                 <h1 className={styles.heroTitle}>AX-1</h1>
                 <div className={styles.heroTagline}>
-                    <span className={styles.accent}>DX</span>の時代は終わった。
-                    <br />
-                    次は、<span className={styles.accent}>AX</span>だ。
+                    <span className={styles.accent}>DX</span>の時代は終わった。次は、<span className={styles.accent}>AX</span>だ。
                 </div>
             </header>
 
