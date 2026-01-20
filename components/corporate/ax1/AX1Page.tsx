@@ -306,7 +306,7 @@ export default function AX1Page() {
                         <br />
                         あなたの会社がAI時代を生き抜くための、最も安い「投資」です。
                         <br />
-                        席が埋まる前に、決断してください。
+                        席が埋まる前に、ご決断ください。
                     </p>
                 </section>
             </main>
