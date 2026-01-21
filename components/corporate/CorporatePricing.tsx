@@ -6,7 +6,7 @@ import { useRef } from "react";
 export const CorporatePricing = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+
   return (
     <section ref={ref} className="py-12 md:py-20 bg-white">
       <div className="container-section">
@@ -23,7 +23,7 @@ export const CorporatePricing = () => {
             助成金活用で、実質負担を大幅に軽減
           </p>
         </motion.div>
-        
+
         {/* 料金案内 */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -40,7 +40,7 @@ export const CorporatePricing = () => {
             </p>
           </div>
         </motion.div>
-        
+
         {/* 助成金活用 */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export const CorporatePricing = () => {
                 実際にどの程度の実質負担額になるのか、具体的な計算例をご紹介します。
               </p>
             </div>
-            
+
             {/* 例1と例2を横並び */}
             <div className="grid lg:grid-cols-2 gap-6 mb-8">
               {/* 例1 */}
@@ -68,7 +68,7 @@ export const CorporatePricing = () => {
                   </h4>
                   <p className="text-sm text-depth-600">参加者数: 10名</p>
                 </div>
-                
+
                 {/* ビジュアル表示 */}
                 <div className="space-y-4">
                   {/* 研修費用 */}
@@ -76,14 +76,14 @@ export const CorporatePricing = () => {
                     <p className="text-xs md:text-sm text-depth-600 mb-1">研修費用（税抜）</p>
                     <p className="text-2xl md:text-3xl font-bold text-depth-800">210万円</p>
                   </div>
-                  
+
                   {/* 矢印 */}
                   <div className="flex justify-center">
                     <svg className="w-6 h-6 text-harmony" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                     </svg>
                   </div>
-                  
+
                   {/* 助成金 */}
                   <div className="space-y-2">
                     <div className="p-3 bg-harmony/10 rounded-xl text-center">
@@ -95,7 +95,7 @@ export const CorporatePricing = () => {
                       <p className="text-xl font-bold text-will-primary">▲18万円</p>
                     </div>
                   </div>
-                  
+
                   {/* 実質負担 */}
                   <div className="text-center p-5 bg-gradient-to-r from-harmony-lighter to-will-lighter rounded-2xl border-2 border-harmony">
                     <p className="text-xs text-depth-600 mb-2">実質負担額</p>
@@ -107,7 +107,7 @@ export const CorporatePricing = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* 例2 */}
               <div className="bg-white rounded-3xl p-6 md:p-8 shadow-elevated border border-depth-100">
                 <div className="text-center mb-6">
@@ -116,7 +116,7 @@ export const CorporatePricing = () => {
                   </h4>
                   <p className="text-sm text-depth-600">4日間・24時間 ＋ 1時間×12回 / 参加者数: 15名</p>
                 </div>
-                
+
                 {/* ビジュアル表示 */}
                 <div className="space-y-4">
                   {/* 研修費用 */}
@@ -124,14 +124,14 @@ export const CorporatePricing = () => {
                     <p className="text-xs md:text-sm text-depth-600 mb-1">研修費用（税抜）</p>
                     <p className="text-2xl md:text-3xl font-bold text-depth-800">420万円</p>
                   </div>
-                  
+
                   {/* 矢印 */}
                   <div className="flex justify-center">
                     <svg className="w-6 h-6 text-harmony" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                     </svg>
                   </div>
-                  
+
                   {/* 助成金 */}
                   <div className="space-y-2">
                     <div className="p-3 bg-harmony/10 rounded-xl text-center">
@@ -143,7 +143,7 @@ export const CorporatePricing = () => {
                       <p className="text-xl font-bold text-will-primary">▲54万円</p>
                     </div>
                   </div>
-                  
+
                   {/* 実質負担 */}
                   <div className="text-center p-5 bg-gradient-to-r from-harmony-lighter to-will-lighter rounded-2xl border-2 border-harmony">
                     <p className="text-xs text-depth-600 mb-2">実質負担額</p>
@@ -156,7 +156,7 @@ export const CorporatePricing = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* 助成金メリット */}
             <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto">
               <div className="bg-white p-6 rounded-2xl text-center">
@@ -168,7 +168,7 @@ export const CorporatePricing = () => {
                 <h4 className="font-bold text-depth-800 mb-2">経費助成</h4>
                 <p className="text-depth-700 text-sm">訓練経費の最大75%を助成</p>
               </div>
-              
+
               <div className="bg-white p-6 rounded-2xl text-center">
                 <div className="text-will-primary mb-2">
                   <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -179,7 +179,7 @@ export const CorporatePricing = () => {
                 <p className="text-depth-700 text-sm">研修時間中の賃金も助成対象</p>
               </div>
             </div>
-            
+
             {/* 締めメッセージ */}
             <div className="bg-harmony/10 rounded-2xl p-6 text-center">
               <p className="text-lg text-depth-800 leading-relaxed">

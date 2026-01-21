@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import ScrollProgressIndicator from "@/components/ui/ScrollProgressIndicator";
 import { CorporateHero } from "@/components/corporate/CorporateHero";
-import { CorporateTestimonialVideo } from "@/components/corporate/CorporateTestimonialVideo";
 import { CorporateProblem } from "@/components/corporate/CorporateProblem";
 import { CorporateAbout } from "@/components/corporate/CorporateAbout";
 import { CorporateFollowUp } from "@/components/corporate/CorporateFollowUp";
@@ -22,7 +21,6 @@ export default function CorporatePage() {
     <div className="bg-white">
       <ScrollProgressIndicator />
       <CorporateHero />
-      <CorporateTestimonialVideo />
       <CorporateProblem />
       <CorporateAbout />
       <CorporateFollowUp />

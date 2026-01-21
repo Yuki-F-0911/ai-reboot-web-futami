@@ -19,7 +19,7 @@ export const CorporateInstructors = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [selected, setSelected] = useState<Instructor | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const instructors: Instructor[] = [
     {
       name: "成瀬 拓也（なるせ たくや）",
@@ -66,7 +66,7 @@ export const CorporateInstructors = () => {
       image: "/images/aoki.jpg"
     }
   ];
-  
+
   return (
     <section ref={ref} className="py-12 md:py-20 bg-gradient-to-b from-depth-100 to-white">
       <div className="container-section">
@@ -83,7 +83,7 @@ export const CorporateInstructors = () => {
             実務経験豊富な、現役AIコンサルタントが支援
           </p>
         </motion.div>
-        
+
         {/* カード（3列） */}
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-6">
@@ -115,7 +115,7 @@ export const CorporateInstructors = () => {
                   </div>
                   <div className="mt-5 inline-flex items-center gap-2 text-harmony font-bold">
                     <span>詳しく見る</span>
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
                   </div>
                 </div>
               </motion.button>
@@ -156,7 +156,7 @@ export const CorporateInstructors = () => {
                   onClick={() => setIsOpen(false)}
                   aria-label="閉じる"
                 >
-                  <svg className="w-5 h-5 text-depth-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                  <svg className="w-5 h-5 text-depth-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18" /><path d="M6 6l12 12" /></svg>
                 </button>
 
                 <div className="flex flex-col md:flex-row gap-6">

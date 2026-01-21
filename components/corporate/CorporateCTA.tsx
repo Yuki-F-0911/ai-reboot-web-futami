@@ -7,7 +7,7 @@ import Link from "next/link";
 export const CorporateCTA = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+
   return (
     <section ref={ref} className="py-12 md:py-20 bg-gradient-to-br from-harmony-lighter via-white to-will-lighter relative overflow-hidden">
       {/* 背景装飾 */}
@@ -29,7 +29,7 @@ export const CorporateCTA = () => {
           transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
         />
       </div>
-      
+
       <div className="container-section relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,7 @@ export const CorporateCTA = () => {
             <br />
             その第一歩を今日から
           </h2>
-          
+
           <div className="mb-12">
             <p className="text-xl md:text-2xl text-depth-700 mb-8 leading-relaxed">
               AI導入を「いつかやる」と先延ばしにしている間に、<br />
@@ -53,11 +53,11 @@ export const CorporateCTA = () => {
               その選択が、3年後の組織の競争力を大きく左右します。
             </p>
           </div>
-          
+
           {/* まずは無料相談から */}
           <div className="mb-12">
             <h3 className="text-3xl font-bold mb-8 text-depth-800">まずは無料相談から</h3>
-            
+
             {/* こんな方におすすめ */}
             <div className="bg-white rounded-3xl p-8 md:p-10 shadow-elevated mb-8">
               <h4 className="text-xl font-bold mb-6 text-harmony">こんな方におすすめです</h4>
@@ -76,7 +76,7 @@ export const CorporateCTA = () => {
                 </li>
               </ul>
             </div>
-            
+
             {/* 無料相談の内容 */}
             <div className="bg-white rounded-3xl p-8 md:p-10 shadow-elevated mb-8">
               <h4 className="text-xl font-bold mb-6 text-will-primary">無料相談では、こんなことをお話しします</h4>
@@ -100,7 +100,7 @@ export const CorporateCTA = () => {
               </ul>
             </div>
           </div>
-          
+
           {/* CTAボタン */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -118,7 +118,7 @@ export const CorporateCTA = () => {
               </motion.button>
             </Link>
           </motion.div>
-          
+
           {/* 締めメッセージ */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -131,7 +131,7 @@ export const CorporateCTA = () => {
               その第一歩は、まず相談することから始まります。
             </p>
           </motion.div>
-          
+
         </motion.div>
       </div>
     </section>

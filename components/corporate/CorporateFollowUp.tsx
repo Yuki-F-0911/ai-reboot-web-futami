@@ -6,7 +6,7 @@ import { useRef } from "react";
 export const CorporateFollowUp = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+
   return (
     <section ref={ref} className="py-12 md:py-20 bg-gradient-to-b from-depth-100 to-white">
       <div className="container-section">
@@ -20,7 +20,7 @@ export const CorporateFollowUp = () => {
             フォロー研修（オプション）
           </h2>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -31,7 +31,7 @@ export const CorporateFollowUp = () => {
             <p className="text-xl text-depth-700 mb-8 leading-relaxed">
               研修後、現場での定着を確実にし、変化し続けるAI環境に適応するための継続的な学習プログラムです。
             </p>
-            
+
             <div className="bg-gradient-to-r from-harmony-lighter to-will-lighter p-8 rounded-2xl mb-8">
               <p className="text-lg font-bold text-depth-800 text-center">
                 <span className="text-harmony">貴社の状況に合わせて、回数や形態を柔軟にカスタマイズ可能</span><br />

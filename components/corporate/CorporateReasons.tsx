@@ -6,7 +6,7 @@ import { useRef } from "react";
 export const CorporateReasons = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+
   const reasons = [
     {
       number: "1",
@@ -54,7 +54,7 @@ export const CorporateReasons = () => {
       color: "wisdom"
     }
   ];
-  
+
   return (
     <section ref={ref} className="py-12 md:py-20 bg-gradient-to-b from-depth-100 to-white">
       <div className="container-section">
@@ -71,7 +71,7 @@ export const CorporateReasons = () => {
             <span className="font-bold text-harmony">AI導入の遅れは、競争力の低下に直結します</span>
           </p>
         </motion.div>
-        
+
         {/* 理由カード */}
         <div className="space-y-8 max-w-6xl mx-auto mb-16">
           {reasons.map((reason, index) => (
@@ -92,7 +92,7 @@ export const CorporateReasons = () => {
                     <span className={`text-2xl font-bold text-${reason.color}`}>理由{reason.number}</span>
                   </div>
                 </div>
-                
+
                 {/* コンテンツ */}
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold mb-6 text-depth-800">

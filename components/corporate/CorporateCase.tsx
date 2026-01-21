@@ -6,7 +6,7 @@ import { useRef } from "react";
 export const CorporateCase = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+
   return (
     <section ref={ref} className="py-12 md:py-20 bg-white">
       <div className="container-section">
@@ -23,7 +23,7 @@ export const CorporateCase = () => {
             ゴルフ練習場運営企業が、AIリブート研修で実現したこと
           </p>
         </motion.div>
-        
+
         {/* 企業概要と導入内容を横並び */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ export const CorporateCase = () => {
                 </p>
               </div>
             </div>
-            
+
             {/* 導入内容 */}
             <div className="bg-white rounded-3xl p-6 md:p-8 shadow-elevated border border-depth-100">
               <h3 className="text-xl md:text-2xl font-bold mb-6 text-depth-800 leading-[1.4]">導入内容</h3>
@@ -62,17 +62,17 @@ export const CorporateCase = () => {
             </div>
           </div>
         </motion.div>
-        
+
         {/* 実施後の感想 */}
         <div className="max-w-7xl mx-auto">
           <h3 className="text-xl md:text-2xl font-bold mb-6 text-depth-800 text-center leading-[1.4]">実施後の感想</h3>
-          
+
           <div className="mb-6">
             <p className="text-sm md:text-base text-depth-700 leading-[1.7] text-center">
               代表取締役礒崎様より、得られた気づきと変化について語っていただきました。
             </p>
           </div>
-          
+
           {/* 動画と文章を横並び */}
           <div className="grid lg:grid-cols-2 gap-6 items-start">
             {/* 左：動画 */}
@@ -96,7 +96,7 @@ export const CorporateCase = () => {
                 </div>
               </motion.div>
             </div>
-            
+
             {/* 右：テキストの声 */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}

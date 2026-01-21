@@ -6,7 +6,7 @@ import { useRef } from "react";
 export const CorporateOtherPrograms = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+
   const programs = [
     {
       number: "1",
@@ -34,7 +34,7 @@ export const CorporateOtherPrograms = () => {
       description: "提案資料作成、顧客分析、商談準備、フォローアップなど、営業活動の各場面でAIを活用し、営業パーソンがより付加価値の高い活動に時間を使えるようにするプログラム。データドリブンな営業戦略の立案から、AIを活用した顧客インサイトの発見まで実践します。"
     }
   ];
-  
+
   return (
     <section ref={ref} className="py-12 md:py-20 bg-white">
       <div className="container-section">
@@ -54,11 +54,11 @@ export const CorporateOtherPrograms = () => {
             貴社の業種や具体的な課題に応じて、特化型の研修プログラムもご提案可能です。
           </p>
         </motion.div>
-        
+
         {/* プログラム一覧 */}
         <div className="max-w-4xl mx-auto mb-12">
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-depth-800 text-center">プログラムラインナップ</h3>
-          
+
           {/* 縦並び */}
           <div className="space-y-6">
             {programs.map((program, index) => (
@@ -84,7 +84,7 @@ export const CorporateOtherPrograms = () => {
             ))}
           </div>
         </div>
-        
+
         {/* 注記 */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
