@@ -186,10 +186,7 @@ export default function AX1Page() {
                 {/* Schedule Section */}
                 <section className={styles.schedule}>
                     <div className={styles.container}>
-                        <h2
-                            className={styles.sectionTitle}
-                            style={{ color: "var(--c-ink)", borderColor: "var(--c-ink)" }}
-                        >
+                        <h2 className={styles.sectionTitle}>
                             無関心から、
                             <br />
                             当事者へ変える1日。
