@@ -68,7 +68,7 @@ export const CorporateInstructors = () => {
   ];
 
   return (
-    <section ref={ref} className="py-12 md:py-20 bg-gradient-to-b from-depth-100 to-white">
+    <section ref={ref} className="py-16 md:py-24 bg-gradient-to-b from-depth-100 to-white">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -94,11 +94,11 @@ export const CorporateInstructors = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-                className="text-left bg-white rounded-3xl p-6 shadow-elevated hover:shadow-floating hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-harmony/50"
+                className="text-left bg-white rounded-lg p-6 shadow-elevated hover:shadow-floating hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-harmony/50"
                 onClick={() => { setSelected(instructor); setIsOpen(true); }}
               >
                 <div className="flex flex-col items-center">
-                  <div className="w-28 h-28 relative overflow-hidden rounded-2xl mb-4">
+                  <div className="w-28 h-28 relative overflow-hidden rounded-lg mb-4">
                     <Image
                       src={instructor.image}
                       alt={instructor.name}
@@ -109,7 +109,7 @@ export const CorporateInstructors = () => {
                   </div>
                   <h4 className="text-base font-bold text-harmony mb-1">{instructor.title}</h4>
                   <p className="text-lg font-bold text-depth-800 mb-2">{instructor.name}</p>
-                  <p className="text-sm text-depth-600 line-clamp-2 text-center min-h-[3.5rem]">{instructor.subtitle}</p>
+                  <p className="text-sm text-depth-700 line-clamp-2 text-center min-h-[3.5rem]">{instructor.subtitle}</p>
                   <div className="mt-4 w-full">
                     <p className="text-sm text-depth-700 line-clamp-3">{instructor.description}</p>
                   </div>
@@ -148,7 +148,7 @@ export const CorporateInstructors = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.2 }}
-                className="relative bg-white rounded-3xl shadow-elevated border border-depth-100 max-w-3xl w-[92%] p-6 md:p-8 overflow-y-auto max-h-[85vh]"
+                className="relative bg-white rounded-lg shadow-elevated border border-depth-100 max-w-3xl w-[92%] p-6 md:p-8 overflow-y-auto max-h-[85vh]"
               >
                 <button
                   type="button"
@@ -161,7 +161,7 @@ export const CorporateInstructors = () => {
 
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-28 h-28 md:w-32 md:h-32 relative overflow-hidden rounded-2xl">
+                    <div className="w-28 h-28 md:w-32 md:h-32 relative overflow-hidden rounded-lg">
                       <Image src={selected.image} alt={selected.name} width={128} height={128} className="object-cover w-full h-full" />
                     </div>
                   </div>
@@ -171,7 +171,7 @@ export const CorporateInstructors = () => {
                     <p className="text-depth-600 font-medium mb-4">{selected.subtitle}</p>
                     <p className="text-depth-700 leading-relaxed mb-6">{selected.description}</p>
                     {selected.achievements && (
-                      <div className="bg-gradient-to-r from-depth-50 to-white p-6 rounded-2xl">
+                      <div className="bg-gradient-to-r from-depth-50 to-white p-6 rounded-lg">
                         <h5 className="font-bold text-depth-800 mb-3">主な実績</h5>
                         <ul className="space-y-2">
                           {selected.achievements.map((achievement, i) => (

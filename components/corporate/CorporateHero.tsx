@@ -152,9 +152,8 @@ export const CorporateHero = () => {
           >
             <Link href="#contact">
               <motion.button
-                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-harmony to-harmony-dark text-white text-lg font-bold rounded-full shadow-lg hover:shadow-harmony/50 transition-all duration-300 w-full sm:w-auto min-w-[240px] flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-harmony text-white text-lg font-bold rounded-full shadow-lg transition-all duration-300 w-full sm:w-auto min-w-[240px] flex items-center justify-center gap-2"
               >
                 無料相談を申し込む
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

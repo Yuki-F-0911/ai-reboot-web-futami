@@ -1,13 +1,12 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Brain, Zap, Users, ChevronDown, Target, Clock, Presentation, UserCheck } from "lucide-react";
+import { useRef } from "react";
+import { Brain, Zap, Users, Target, Clock, Presentation, UserCheck } from "lucide-react";
 
 export const CorporateAbout = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [expandedSection, setExpandedSection] = useState<number | null>(null);
 
   // 3つのコアメッセージに集約
   const coreMessages = [
@@ -59,68 +58,49 @@ export const CorporateAbout = () => {
           className="text-center max-w-4xl mx-auto mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-depth-800 leading-[1.3] tracking-tight mb-6">
-            研修で得られる
+            AIリブート研修で得られる
             <span className="text-harmony">3つの力</span>
           </h2>
-          <p className="text-lg md:text-xl text-depth-600 leading-[1.8]">
+          <p className="text-lg md:text-xl text-depth-700 leading-[1.8]">
             単なるスキル研修ではなく、組織が自走できる基盤を構築します
           </p>
         </motion.div>
 
-        {/* 3つのコアメッセージ */}
-        <div className="max-w-5xl mx-auto mb-20">
-          <div className="grid md:grid-cols-3 gap-6">
+        {/* 3つのコアメッセージ - Clean Grid */}
+        <div className="max-w-6xl mx-auto mb-20">
+          <div className="grid md:grid-cols-3 gap-12 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-depth-200">
             {coreMessages.map((message, index) => {
               const Icon = message.icon;
-              const isExpanded = expandedSection === index;
               return (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-                  className="group"
+                  className={`pt-12 md:pt-0 md:px-8 first:pt-0 first:pl-0 last:pr-0`}
                 >
-                  <div
-                    className={`bg-gradient-to-br from-${message.color}/5 to-white rounded-3xl p-8 shadow-soft hover:shadow-elevated transition-all duration-300 border border-${message.color}/10 h-full flex flex-col`}
-                  >
-                    <div className={`w-16 h-16 rounded-2xl bg-${message.color} flex items-center justify-center mb-6`}>
-                      <Icon className="w-8 h-8 text-white" />
+                  <div className="flex flex-col items-center md:items-start h-full">
+                    <div className={`w-14 h-14 rounded-xl bg-${message.color}/10 flex items-center justify-center mb-6`}>
+                      <Icon className={`w-7 h-7 text-${message.color}`} />
                     </div>
-                    <p className={`text-sm font-medium text-${message.color} mb-2`}>{message.subtitle}</p>
-                    <h3 className="text-xl md:text-2xl font-bold text-depth-800 mb-4 leading-tight">
+                    <p className={`text-sm font-bold text-${message.color} mb-2 uppercase tracking-wider`}>{message.subtitle}</p>
+                    <h3 className="text-2xl font-bold text-depth-800 mb-4 leading-tight">
                       {message.title}
                     </h3>
-                    <p className="text-depth-600 leading-relaxed mb-6 flex-grow">
+                    <p className="text-depth-600 leading-relaxed mb-6">
                       {message.description}
                     </p>
 
-                    <button
-                      type="button"
-                      onClick={() => setExpandedSection(isExpanded ? null : index)}
-                      className={`flex items-center gap-2 text-sm font-semibold text-${message.color} hover:opacity-80 transition-opacity`}
-                    >
-                      <span>{isExpanded ? "閉じる" : "詳しく見る"}</span>
-                      <ChevronDown className={`w-4 h-4 transition-transform ${isExpanded ? "rotate-180" : ""}`} />
-                    </button>
-
-                    {isExpanded && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="mt-4 pt-4 border-t border-depth-200"
-                      >
-                        <ul className="space-y-2">
-                          {message.details.map((detail, i) => (
-                            <li key={i} className="flex items-start gap-2 text-sm text-depth-700">
-                              <span className={`text-${message.color} mt-0.5`}>•</span>
-                              {detail}
-                            </li>
-                          ))}
-                        </ul>
-                      </motion.div>
-                    )}
+                    <div className="mt-auto w-full">
+                      <ul className="space-y-3 text-left bg-depth-50 p-5 rounded-lg">
+                        {message.details.map((detail, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-depth-700">
+                            <span className={`text-${message.color} mt-0.5 font-bold`}>•</span>
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </motion.div>
               );
@@ -135,14 +115,14 @@ export const CorporateAbout = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-gradient-to-br from-depth-50 to-white rounded-3xl p-8 md:p-10 border border-depth-100">
-            <h3 className="text-xl md:text-2xl font-bold mb-8 text-depth-800 text-center">研修概要</h3>
+          <div className="bg-gradient-to-br from-depth-50 to-white rounded-lg p-8 md:p-10 border border-depth-100">
+            <h3 className="text-xl md:text-2xl font-bold mb-8 text-depth-800 text-center">AIリブート研修概要</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="w-12 h-12 mx-auto rounded-xl bg-harmony/10 flex items-center justify-center mb-3">
                   <Target className="w-6 h-6 text-harmony" />
                 </div>
-                <p className="text-sm text-depth-500 mb-1">目的</p>
+                <p className="text-sm text-depth-700 mb-1">目的</p>
                 <p className="text-sm md:text-base font-semibold text-depth-800">AI活用力向上から内製化まで</p>
               </div>
               <div className="text-center">

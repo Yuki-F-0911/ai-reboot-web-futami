@@ -36,7 +36,7 @@ export const CorporateOtherPrograms = () => {
   ];
 
   return (
-    <section ref={ref} className="py-12 md:py-20 bg-white">
+    <section ref={ref} className="py-16 md:py-24 bg-white">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,28 +56,26 @@ export const CorporateOtherPrograms = () => {
         </motion.div>
 
         {/* プログラム一覧 */}
-        <div className="max-w-4xl mx-auto mb-12">
+        <div className="max-w-5xl mx-auto mb-12">
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-depth-800 text-center">プログラムラインナップ</h3>
 
-          {/* 縦並び */}
-          <div className="space-y-6">
+          {/* 2列グリッド */}
+          <div className="grid md:grid-cols-2 gap-6">
             {programs.map((program, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-                className="bg-white rounded-3xl p-6 shadow-elevated border border-depth-100 hover:shadow-floating transition-all duration-300"
+                className="bg-depth-50 p-6 border-l-4 border-harmony"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-harmony flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-lg font-bold">{program.number}</span>
-                  </div>
-                  <h4 className="text-lg md:text-xl font-bold text-depth-800 leading-[1.3]">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-harmony font-bold text-lg">{program.number}.</span>
+                  <h4 className="text-lg font-bold text-depth-800 leading-[1.3]">
                     {program.title}
                   </h4>
                 </div>
-                <p className="text-sm md:text-base text-depth-700 leading-[1.7]">
+                <p className="text-sm text-depth-700 leading-[1.7]">
                   {program.description}
                 </p>
               </motion.div>
@@ -92,7 +90,7 @@ export const CorporateOtherPrograms = () => {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <div className="bg-gradient-to-r from-harmony-lighter to-will-lighter p-8 rounded-3xl">
+          <div className="bg-gradient-to-r from-harmony-lighter to-will-lighter p-8 rounded-lg">
             <p className="text-xl font-bold text-depth-800">
               ※ これらのプログラムの詳細は、無料相談にてご提案いたします。
             </p>

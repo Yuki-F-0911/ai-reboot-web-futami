@@ -6,7 +6,7 @@ import { useRef } from "react";
 export const CorporateFeatures = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+
   const features = [
     {
       number: "1",
@@ -62,9 +62,9 @@ export const CorporateFeatures = () => {
       color: "harmony"
     }
   ];
-  
+
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-gradient-to-b from-white via-depth-100 to-white">
+    <section ref={ref} className="py-16 md:py-24 bg-gradient-to-b from-white via-depth-100 to-white">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,58 +79,59 @@ export const CorporateFeatures = () => {
             自走できる組織を作る、4つの設計原則
           </p>
         </motion.div>
-        
-        {/* 特徴カード */}
-        <div className="space-y-12 max-w-6xl mx-auto">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-              className="bg-white rounded-3xl p-8 md:p-12 shadow-elevated hover:shadow-floating transition-all duration-300"
-            >
-              <div className="flex flex-col md:flex-row gap-8">
-                {/* 番号 */}
-                <div className="flex-shrink-0">
-                  <div className={`w-16 h-16 rounded-2xl bg-${feature.color} flex items-center justify-center`}>
-                    <span className="text-3xl font-bold text-white">{feature.number}</span>
+
+        {/* 特徴リスト - B2B Clean Style */}
+        <div className="max-w-6xl mx-auto">
+          <div className="space-y-16">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
+                className="grid md:grid-cols-12 gap-8 md:gap-12 pb-16 border-b border-depth-200 last:border-0 last:pb-0"
+              >
+                {/* 左側: 番号とタイトル */}
+                <div className="md:col-span-4">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className={`text-6xl font-black text-${feature.color}/20`}>0{feature.number}</span>
+                    <div className={`h-px flex-1 bg-${feature.color}/30`}></div>
                   </div>
-                </div>
-                
-                {/* コンテンツ */}
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-3 text-depth-800">
-                    特徴{feature.number}: {feature.title}
+                  <h3 className="text-2xl md:text-3xl font-bold text-depth-800 leading-tight mb-4">
+                    {feature.title}
                   </h3>
                   <p className={`text-lg font-bold text-${feature.color} mb-4`}>
                     {feature.subtitle}
                   </p>
-                  <p className="text-depth-700 leading-relaxed mb-6">
+                </div>
+
+                {/* 右側: 詳細とテーマ */}
+                <div className="md:col-span-8">
+                  <p className="text-depth-700 leading-relaxed mb-8 text-lg">
                     {feature.description}
                   </p>
-                  
-                  {/* テーマリスト */}
-                  <div className="bg-gradient-to-br from-depth-50 to-white p-6 rounded-2xl">
-                    <h4 className="font-bold text-depth-800 mb-4">
-                      {index === 0 && "研修で扱うテーマ:"}
-                      {index === 1 && "プログラム構成:"}
-                      {index === 2 && "想定ユースケース例:"}
-                      {index === 3 && "研修で構築するもの:"}
+
+                  {/* テーマリスト - シンプルなリスト形式 */}
+                  <div className="bg-depth-50/50 rounded-lg p-6 border-l-4 border-depth-300">
+                    <h4 className="font-bold text-depth-800 mb-4 text-sm uppercase tracking-wider text-depth-500">
+                      {index === 0 && "Key Themes"}
+                      {index === 1 && "Program Structure"}
+                      {index === 2 && "Use Cases"}
+                      {index === 3 && "Deliverables"}
                     </h4>
-                    <ul className="space-y-2">
+                    <ul className="grid md:grid-cols-2 gap-x-8 gap-y-3">
                       {feature.themes.map((theme, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <span className={`text-${feature.color} mt-1`}>•</span>
+                        <li key={i} className="flex items-start gap-3 text-sm md:text-base">
+                          <span className={`text-${feature.color} mt-1.5 flex-shrink-0`}>■</span>
                           <span className="text-depth-700">{theme}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

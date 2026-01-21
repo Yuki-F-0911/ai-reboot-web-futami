@@ -8,7 +8,7 @@ export const CorporateTestimonialVideo = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   
   return (
-    <section ref={ref} className="py-12 md:py-20 bg-gradient-to-b from-white to-depth-100">
+    <section ref={ref} className="py-16 md:py-24 bg-gradient-to-b from-white to-depth-100">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,7 @@ export const CorporateTestimonialVideo = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="bg-white rounded-3xl p-8 md:p-10 shadow-elevated border border-depth-100">
+          <div className="bg-white rounded-lg p-8 md:p-10 shadow-elevated border border-depth-100">
             <div className="mb-8">
               <h3 className="text-xl md:text-2xl font-bold text-depth-800 leading-[1.4]">ウィルトラスト社 礒崎様より</h3>
             </div>
@@ -39,7 +39,7 @@ export const CorporateTestimonialVideo = () => {
             {/* YouTube埋め込み */}
                   <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                     <iframe
-                      className="absolute top-0 left-0 w-full h-full rounded-2xl"
+                      className="absolute top-0 left-0 w-full h-full rounded-lg"
                       src="https://www.youtube.com/embed/AcJrcmt1bp8"
                       title="お客様の声 - ウィルトラスト社 礒崎様"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

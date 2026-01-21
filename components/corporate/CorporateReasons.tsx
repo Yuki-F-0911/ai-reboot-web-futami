@@ -56,7 +56,7 @@ export const CorporateReasons = () => {
   ];
 
   return (
-    <section ref={ref} className="py-12 md:py-20 bg-gradient-to-b from-depth-100 to-white">
+    <section ref={ref} className="py-16 md:py-24 bg-gradient-to-b from-depth-100 to-white">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,44 +72,47 @@ export const CorporateReasons = () => {
           </p>
         </motion.div>
 
-        {/* 理由カード */}
-        <div className="space-y-8 max-w-6xl mx-auto mb-16">
-          {reasons.map((reason, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-              className="bg-white rounded-3xl p-8 md:p-10 shadow-elevated hover:shadow-floating transition-all duration-300"
-            >
-              <div className="flex flex-col md:flex-row gap-6 items-start">
-                {/* アイコンと番号 */}
-                <div className="flex-shrink-0">
-                  <div className={`w-16 h-16 rounded-2xl bg-${reason.color} flex items-center justify-center mb-4`}>
-                    <span className="text-white">{reason.icon}</span>
+        {/* 理由リスト - B2B Clean List Style */}
+        <div className="max-w-6xl mx-auto mb-16">
+          <div className="grid gap-0">
+            {reasons.map((reason, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                className={`py-10 border-b border-depth-200 ${index === 0 ? 'border-t' : ''}`}
+              >
+                <div className="flex flex-col md:flex-row gap-8 md:items-start">
+                  {/* アイコンと番号 */}
+                  <div className="flex-shrink-0 flex md:flex-col items-center md:items-start gap-4 md:w-48">
+                    <div className={`w-14 h-14 rounded-lg bg-${reason.color}/10 flex items-center justify-center`}>
+                      <span className={`text-${reason.color}`}>{reason.icon}</span>
+                    </div>
+                    <div>
+                      <span className={`text-sm font-bold text-${reason.color} tracking-wider uppercase`}>Reason</span>
+                      <span className={`text-3xl font-bold text-${reason.color} ml-2`}>0{reason.number}</span>
+                    </div>
                   </div>
-                  <div className="text-center">
-                    <span className={`text-2xl font-bold text-${reason.color}`}>理由{reason.number}</span>
-                  </div>
-                </div>
 
-                {/* コンテンツ */}
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-6 text-depth-800">
-                    {reason.title}
-                  </h3>
-                  <ul className="space-y-3">
-                    {reason.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className={`text-${reason.color} mt-1 flex-shrink-0`}>•</span>
-                        <span className="text-depth-700 leading-relaxed">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* コンテンツ */}
+                  <div className="flex-1">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-6 text-depth-800 leading-tight">
+                      {reason.title}
+                    </h3>
+                    <ul className="space-y-4">
+                      {reason.points.map((point, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span className={`w-1.5 h-1.5 rounded-full bg-${reason.color} mt-2.5 flex-shrink-0`} />
+                          <span className="text-lg text-depth-700 leading-relaxed">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

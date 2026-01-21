@@ -9,9 +9,9 @@ export const CorporateCTA = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-12 md:py-20 bg-gradient-to-br from-harmony-lighter via-white to-will-lighter relative overflow-hidden">
+    <section ref={ref} className="py-16 md:py-24 bg-gradient-to-br from-harmony-lighter via-white to-will-lighter relative overflow-hidden">
       {/* 背景装飾 */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-10">
         <motion.div
           className="absolute top-[-50%] left-[-20%] w-[100%] h-[100%] bg-harmony rounded-full blur-3xl"
           animate={{
@@ -58,46 +58,55 @@ export const CorporateCTA = () => {
           <div className="mb-12">
             <h3 className="text-3xl font-bold mb-8 text-depth-800">まずは無料相談から</h3>
 
-            {/* こんな方におすすめ */}
-            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-elevated mb-8">
-              <h4 className="text-xl font-bold mb-6 text-harmony">こんな方におすすめです</h4>
-              <ul className="space-y-3 max-w-2xl mx-auto">
-                <li className="flex items-start gap-3">
-                  <span className="text-harmony mt-1">•</span>
-                  <span className="text-depth-700">AIを導入したいが、何から始めればいいか分からない</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-harmony mt-1">•</span>
-                  <span className="text-depth-700">社内でAI活用を定着させる方法が知りたい</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-will-primary mt-1">•</span>
-                  <span className="text-depth-700">助成金を活用して研修費用を抑えたい</span>
-                </li>
-              </ul>
-            </div>
+            {/* 無料相談の内容 - Clean Style */}
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 text-left mb-12 border-t border-b border-depth-200 py-12">
+              {/* こんな方におすすめ */}
+              <div>
+                <h4 className="text-xl font-bold mb-6 text-harmony flex items-center gap-2">
+                  <span className="w-1.5 h-6 bg-harmony rounded-full"></span>
+                  こんな方におすすめです
+                </h4>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <span className="text-harmony mt-1 font-bold">✓</span>
+                    <span className="text-depth-700">AIを導入したいが、何から始めればいいか分からない</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-harmony mt-1 font-bold">✓</span>
+                    <span className="text-depth-700">社内でAI活用を定着させる方法が知りたい</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-harmony mt-1 font-bold">✓</span>
+                    <span className="text-depth-700">助成金を活用して研修費用を抑えたい</span>
+                  </li>
+                </ul>
+              </div>
 
-            {/* 無料相談の内容 */}
-            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-elevated mb-8">
-              <h4 className="text-xl font-bold mb-6 text-will-primary">無料相談では、こんなことをお話しします</h4>
-              <ul className="space-y-3 max-w-2xl mx-auto">
-                <li className="flex items-start gap-3">
-                  <span className="text-harmony mt-1">•</span>
-                  <span className="text-depth-700">貴社の現状ヒアリングと課題整理</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-harmony mt-1">•</span>
-                  <span className="text-depth-700">具体的な活用イメージのご提案</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-will-primary mt-1">•</span>
-                  <span className="text-depth-700">最適な研修プログラムの設計</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-will-primary mt-1">•</span>
-                  <span className="text-depth-700">助成金活用による実質料金のご案内</span>
-                </li>
-              </ul>
+              {/* 無料相談の内容 */}
+              <div>
+                <h4 className="text-xl font-bold mb-6 text-will-primary flex items-center gap-2">
+                  <span className="w-1.5 h-6 bg-will-primary rounded-full"></span>
+                  無料相談では、こんなことをお話しします
+                </h4>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <span className="text-will-primary mt-1 font-bold">●</span>
+                    <span className="text-depth-700">貴社の現状ヒアリングと課題整理</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-will-primary mt-1 font-bold">●</span>
+                    <span className="text-depth-700">具体的な活用イメージのご提案</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-will-primary mt-1 font-bold">●</span>
+                    <span className="text-depth-700">最適な研修プログラムの設計</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-will-primary mt-1 font-bold">●</span>
+                    <span className="text-depth-700">助成金活用による実質料金のご案内</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -112,7 +121,7 @@ export const CorporateCTA = () => {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-harmony text-white font-bold px-8 py-6 rounded-2xl shadow-glow hover:shadow-glow-hover transition-all duration-300 text-xl"
+                className="w-full bg-harmony text-white font-bold px-8 py-6 rounded-lg shadow-glow hover:shadow-glow-hover transition-all duration-300 text-xl"
               >
                 無料相談を申し込む
               </motion.button>
