@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
 
@@ -10,13 +10,11 @@ interface Instructor {
   subtitle: string;
   description: string;
   achievements?: string[];
-  color: string;
   image: string;
 }
 
 export const CorporateInstructors = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [selected, setSelected] = useState<Instructor | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,7 +31,6 @@ export const CorporateInstructors = () => {
         "筑波大学非常勤講師として、AI時代のキャリア戦略を教授",
         "マスターズアスリートとしてフルマラソン2時間34分の記録保持者、世界大会出場"
       ],
-      color: "harmony",
       image: "/images/naruse.jpg"
     },
     {
@@ -48,7 +45,6 @@ export const CorporateInstructors = () => {
         "「Lively Talk」「Back Aging」など新規事業のブランド設計・AI実装をリード",
         "トレイルランナーとして活動、身体的挑戦を通じた創造的思考の実践"
       ],
-      color: "will-primary",
       image: "/images/sakamoto.jpg"
     },
     {
@@ -62,63 +58,53 @@ export const CorporateInstructors = () => {
         "生成AIを活用した仕事体感プログラム・教育研修コンテンツの企画〜編集を多数実施",
         "キャリア支援とAIリテラシーを融合した研修プログラムの開発・監修"
       ],
-      color: "wisdom",
       image: "/images/aoki.jpg"
     }
   ];
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-gradient-to-b from-depth-100 to-white">
-      <div className="container-section">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto mb-16"
-        >
-          <h2 className="text-h1 md:text-5xl font-bold mb-8 text-depth-800">
+    <section ref={ref} className="py-12 md:py-20 bg-white">
+      <div className="container-section px-5 sm:px-6">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3 text-depth-800">
             講師・支援体制
           </h2>
-          <p className="text-xl text-depth-700">
+          <p className="text-sm md:text-base text-depth-600">
             実務経験豊富な、現役AIコンサルタントが支援
           </p>
-        </motion.div>
+        </div>
 
         {/* カード（3列） */}
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
             {instructors.map((instructor, index) => (
-              <motion.button
+              <button
                 type="button"
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-                className="text-left bg-white rounded-lg p-6 shadow-elevated hover:shadow-floating hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-harmony/50"
+                className="text-left bg-depth-50 rounded-lg p-4 md:p-5 hover:bg-depth-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-harmony/50"
                 onClick={() => { setSelected(instructor); setIsOpen(true); }}
               >
-                <div className="flex flex-col items-center">
-                  <div className="w-28 h-28 relative overflow-hidden rounded-lg mb-4">
+                <div className="flex sm:flex-col items-center sm:items-center gap-4 sm:gap-0">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 relative overflow-hidden rounded-full flex-shrink-0 sm:mb-3">
                     <Image
                       src={instructor.image}
                       alt={instructor.name}
-                      width={112}
-                      height={112}
+                      width={80}
+                      height={80}
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  <h4 className="text-base font-bold text-harmony mb-1">{instructor.title}</h4>
-                  <p className="text-lg font-bold text-depth-800 mb-2">{instructor.name}</p>
-                  <p className="text-sm text-depth-700 line-clamp-2 text-center min-h-[3.5rem]">{instructor.subtitle}</p>
-                  <div className="mt-4 w-full">
-                    <p className="text-sm text-depth-700 line-clamp-3">{instructor.description}</p>
-                  </div>
-                  <div className="mt-5 inline-flex items-center gap-2 text-harmony font-bold">
-                    <span>詳しく見る</span>
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
+                  <div className="flex-1 sm:text-center">
+                    <h4 className="text-xs font-medium text-harmony mb-0.5 sm:mb-1">{instructor.title}</h4>
+                    <p className="text-sm font-bold text-depth-800 mb-0.5 sm:mb-1">{instructor.name}</p>
+                    <p className="text-xs text-depth-500 line-clamp-2 sm:text-center">{instructor.subtitle}</p>
+                    <div className="mt-2 sm:mt-3 inline-flex items-center gap-1 text-harmony text-xs font-medium">
+                      <span>詳しく見る</span>
+                      <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
+                    </div>
                   </div>
                 </div>
-              </motion.button>
+              </button>
             ))}
           </div>
         </div>
@@ -131,14 +117,14 @@ export const CorporateInstructors = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center"
+              className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
             >
               {/* 背景 */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute inset-0 bg-black/50"
+                className="absolute inset-0 bg-black/40"
                 onClick={() => setIsOpen(false)}
               />
 
@@ -148,7 +134,7 @@ export const CorporateInstructors = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.2 }}
-                className="relative bg-white rounded-lg shadow-elevated border border-depth-100 max-w-3xl w-[92%] p-6 md:p-8 overflow-y-auto max-h-[85vh]"
+                className="relative bg-white rounded-t-2xl sm:rounded-lg border border-depth-100 max-w-2xl w-full p-5 sm:p-6 overflow-y-auto max-h-[90vh] sm:max-h-[85vh]"
               >
                 <button
                   type="button"
@@ -156,28 +142,28 @@ export const CorporateInstructors = () => {
                   onClick={() => setIsOpen(false)}
                   aria-label="閉じる"
                 >
-                  <svg className="w-5 h-5 text-depth-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18" /><path d="M6 6l12 12" /></svg>
+                  <svg className="w-5 h-5 sm:w-4 sm:h-4 text-depth-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18" /><path d="M6 6l12 12" /></svg>
                 </button>
 
-                <div className="flex flex-col md:flex-row gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-28 h-28 md:w-32 md:h-32 relative overflow-hidden rounded-lg">
-                      <Image src={selected.image} alt={selected.name} width={128} height={128} className="object-cover w-full h-full" />
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
+                  <div className="flex-shrink-0 flex justify-center sm:justify-start">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 relative overflow-hidden rounded-lg">
+                      <Image src={selected.image} alt={selected.name} width={96} height={96} className="object-cover w-full h-full" />
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-harmony font-bold text-base md:text-lg mb-1">{selected.title}</h4>
-                    <h3 className="text-2xl md:text-3xl font-bold text-depth-800 mb-2">{selected.name}</h3>
-                    <p className="text-depth-600 font-medium mb-4">{selected.subtitle}</p>
-                    <p className="text-depth-700 leading-relaxed mb-6">{selected.description}</p>
+                  <div className="flex-1 text-center sm:text-left">
+                    <h4 className="text-harmony font-medium text-sm mb-1">{selected.title}</h4>
+                    <h3 className="text-lg sm:text-xl font-bold text-depth-800 mb-1">{selected.name}</h3>
+                    <p className="text-depth-500 text-xs sm:text-sm mb-3 sm:mb-4">{selected.subtitle}</p>
+                    <p className="text-sm text-depth-600 leading-relaxed mb-4 sm:mb-5 text-left">{selected.description}</p>
                     {selected.achievements && (
-                      <div className="bg-gradient-to-r from-depth-50 to-white p-6 rounded-lg">
-                        <h5 className="font-bold text-depth-800 mb-3">主な実績</h5>
-                        <ul className="space-y-2">
+                      <div className="bg-depth-50 p-3 sm:p-4 rounded-lg text-left">
+                        <h5 className="font-medium text-depth-800 text-sm mb-2">主な実績</h5>
+                        <ul className="space-y-1.5">
                           {selected.achievements.map((achievement, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <span className={`text-${selected.color} mt-1`}>•</span>
-                              <span className="text-depth-700">{achievement}</span>
+                            <li key={i} className="flex items-start gap-2 text-xs sm:text-sm">
+                              <span className="text-harmony mt-0.5 flex-shrink-0">•</span>
+                              <span className="text-depth-600">{achievement}</span>
                             </li>
                           ))}
                         </ul>

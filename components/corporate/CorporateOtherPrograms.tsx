@@ -1,101 +1,78 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 export const CorporateOtherPrograms = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const programs = [
     {
       number: "1",
       title: "AI活用力強化研修",
-      description: "全社員のAIリテラシーを高め、日常業務での生成AI活用を定着させる基礎プログラム。ChatGPT、Claude、Geminiなどの主要ツールの実践的な使い方から、プロンプトエンジニアリングの基礎、業務別活用事例まで、即座に現場で使えるスキルを習得します。"
+      description: "全社員のAIリテラシーを高め、日常業務での生成AI活用を定着させる基礎プログラム。"
     },
     {
       number: "2",
       title: "組織変革DX研修",
-      description: "AI活用を一時的な取り組みで終わらせず、組織のDNAとして定着させるためのプログラム。AIパラダイムシフトの理解から、社内推進体制の構築、ガイドライン策定、部門チャンピオンの育成まで、組織全体の変革をリードする力を養成します。"
+      description: "AI活用を組織のDNAとして定着させ、社内推進体制の構築を支援するプログラム。"
     },
     {
       number: "3",
       title: "AI活用型新規事業開発研修",
-      description: "生成AIの可能性を最大限に活かした新規事業の企画・検証を実践するプログラム。市場分析、アイデア創出、プロトタイピング、事業計画策定まで、AIを活用しながら新規事業開発の一連のプロセスを体験します。"
+      description: "生成AIの可能性を活かした新規事業の企画・検証を実践するプログラム。"
     },
     {
       number: "4",
       title: "採用DX研修",
-      description: "採用活動の各プロセス（求人票作成、スカウト文面、面接設計、オンボーディング資料など）にAIを活用し、採用効率と採用品質を同時に向上させるプログラム。魅力的な採用コンテンツの作成から、候補者体験の設計まで、採用DXを実現します。"
+      description: "採用活動の各プロセスにAIを活用し、採用効率と品質を向上させるプログラム。"
     },
     {
       number: "5",
       title: "営業DX研修",
-      description: "提案資料作成、顧客分析、商談準備、フォローアップなど、営業活動の各場面でAIを活用し、営業パーソンがより付加価値の高い活動に時間を使えるようにするプログラム。データドリブンな営業戦略の立案から、AIを活用した顧客インサイトの発見まで実践します。"
+      description: "営業活動の各場面でAIを活用し、生産性を向上させるプログラム。"
     }
   ];
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-white">
-      <div className="container-section">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto mb-16"
-        >
-          <h2 className="text-h1 md:text-5xl font-bold mb-8 text-depth-800">
+    <section ref={ref} className="py-10 md:py-16 bg-depth-50">
+      <div className="container-section px-5 sm:px-6">
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-10">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-depth-800">
             その他のプログラム
           </h2>
-          <p className="text-2xl text-harmony font-bold mb-4">
-            貴社の課題に特化したカスタマイズプログラム
-          </p>
-          <p className="text-lg text-depth-700 leading-relaxed">
+          <p className="text-xs md:text-sm text-depth-600">
             貴社の業種や具体的な課題に応じて、特化型の研修プログラムもご提案可能です。
           </p>
-        </motion.div>
+        </div>
 
-        {/* プログラム一覧 */}
-        <div className="max-w-5xl mx-auto mb-12">
-          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-depth-800 text-center">プログラムラインナップ</h3>
-
-          {/* 2列グリッド */}
-          <div className="grid md:grid-cols-2 gap-6">
+        {/* プログラム一覧 - コンパクトに */}
+        <div className="max-w-3xl mx-auto mb-6 md:mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
             {programs.map((program, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-                className="bg-depth-50 p-6 border-l-4 border-harmony"
+                className="bg-white p-3.5 md:p-4 rounded-lg border border-depth-100"
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-harmony font-bold text-lg">{program.number}.</span>
-                  <h4 className="text-lg font-bold text-depth-800 leading-[1.3]">
+                <div className="flex items-start gap-2 mb-1">
+                  <span className="text-harmony font-semibold text-xs md:text-sm flex-shrink-0">{program.number}.</span>
+                  <h4 className="text-xs md:text-sm font-bold text-depth-800">
                     {program.title}
                   </h4>
                 </div>
-                <p className="text-sm text-depth-700 leading-[1.7]">
+                <p className="text-[11px] md:text-xs text-depth-500 leading-relaxed pl-4 md:pl-5">
                   {program.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* 注記 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <div className="bg-gradient-to-r from-harmony-lighter to-will-lighter p-8 rounded-lg">
-            <p className="text-xl font-bold text-depth-800">
-              ※ これらのプログラムの詳細は、無料相談にてご提案いたします。
-            </p>
-          </div>
-        </motion.div>
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xs md:text-sm text-depth-500">
+            ※ これらのプログラムの詳細は、無料相談にてご提案いたします。
+          </p>
+        </div>
       </div>
     </section>
   );

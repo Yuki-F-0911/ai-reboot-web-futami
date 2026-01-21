@@ -1,109 +1,71 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 
 export const CorporateCTA = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-gradient-to-br from-harmony-lighter via-white to-will-lighter relative overflow-hidden">
-      {/* 背景装飾 */}
-      <div className="absolute inset-0 opacity-10">
-        <motion.div
-          className="absolute top-[-50%] left-[-20%] w-[100%] h-[100%] bg-harmony rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        />
-        <motion.div
-          className="absolute bottom-[-50%] right-[-20%] w-[80%] h-[80%] bg-will-gradient rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [360, 180, 0],
-          }}
-          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-        />
-      </div>
-
-      <div className="container-section relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto"
-        >
-          <h2 className="text-h1 md:text-5xl lg:text-6xl font-bold mb-8 text-depth-800">
-            組織のOSを再起動する
-            <br />
-            その第一歩を今日から
+    <section ref={ref} className="py-14 md:py-24 bg-depth-50">
+      <div className="container-section px-5 sm:px-6">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-depth-800 leading-tight">
+            組織のOSを再起動する、その第一歩を今日から
           </h2>
 
-          <div className="mb-12">
-            <p className="text-xl md:text-2xl text-depth-700 mb-8 leading-relaxed">
-              AI導入を「いつかやる」と先延ばしにしている間に、<br />
-              競合は着実に生産性を高め、市場での優位性を確立しています。
-            </p>
-            <p className="text-2xl font-bold text-depth-800 leading-relaxed">
-              <span className="text-harmony">今、動き出すか。このまま見送るか。</span><br />
-              その選択が、3年後の組織の競争力を大きく左右します。
-            </p>
-          </div>
+          <p className="text-sm md:text-base text-depth-600 mb-8 md:mb-10 leading-relaxed">
+            AI導入を「いつかやる」と先延ばしにしている間に、競合は着実に生産性を高めています。
+          </p>
 
           {/* まずは無料相談から */}
-          <div className="mb-12">
-            <h3 className="text-3xl font-bold mb-8 text-depth-800">まずは無料相談から</h3>
+          <div className="mb-8 md:mb-10">
+            <h3 className="text-lg md:text-xl font-bold mb-5 md:mb-6 text-depth-800">まずは無料相談から</h3>
 
-            {/* 無料相談の内容 - Clean Style */}
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 text-left mb-12 border-t border-b border-depth-200 py-12">
+            {/* 無料相談の内容 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 text-left mb-8 md:mb-10 max-w-2xl mx-auto">
               {/* こんな方におすすめ */}
-              <div>
-                <h4 className="text-xl font-bold mb-6 text-harmony flex items-center gap-2">
-                  <span className="w-1.5 h-6 bg-harmony rounded-full"></span>
-                  こんな方におすすめです
+              <div className="bg-white rounded-lg p-4 md:p-5 border border-depth-100">
+                <h4 className="text-sm font-bold mb-3 md:mb-4 text-depth-800">
+                  こんな方におすすめ
                 </h4>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <span className="text-harmony mt-1 font-bold">✓</span>
-                    <span className="text-depth-700">AIを導入したいが、何から始めればいいか分からない</span>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-sm text-depth-600">
+                    <span className="text-harmony mt-0.5 flex-shrink-0">✓</span>
+                    <span>AIを導入したいが、何から始めればいいか分からない</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-harmony mt-1 font-bold">✓</span>
-                    <span className="text-depth-700">社内でAI活用を定着させる方法が知りたい</span>
+                  <li className="flex items-start gap-2 text-sm text-depth-600">
+                    <span className="text-harmony mt-0.5 flex-shrink-0">✓</span>
+                    <span>社内でAI活用を定着させる方法が知りたい</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-harmony mt-1 font-bold">✓</span>
-                    <span className="text-depth-700">助成金を活用して研修費用を抑えたい</span>
+                  <li className="flex items-start gap-2 text-sm text-depth-600">
+                    <span className="text-harmony mt-0.5 flex-shrink-0">✓</span>
+                    <span>助成金を活用して研修費用を抑えたい</span>
                   </li>
                 </ul>
               </div>
 
               {/* 無料相談の内容 */}
-              <div>
-                <h4 className="text-xl font-bold mb-6 text-will-primary flex items-center gap-2">
-                  <span className="w-1.5 h-6 bg-will-primary rounded-full"></span>
-                  無料相談では、こんなことをお話しします
+              <div className="bg-white rounded-lg p-4 md:p-5 border border-depth-100">
+                <h4 className="text-sm font-bold mb-3 md:mb-4 text-depth-800">
+                  無料相談でお話しすること
                 </h4>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <span className="text-will-primary mt-1 font-bold">●</span>
-                    <span className="text-depth-700">貴社の現状ヒアリングと課題整理</span>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-sm text-depth-600">
+                    <span className="text-harmony mt-0.5 flex-shrink-0">•</span>
+                    <span>貴社の現状ヒアリングと課題整理</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-will-primary mt-1 font-bold">●</span>
-                    <span className="text-depth-700">具体的な活用イメージのご提案</span>
+                  <li className="flex items-start gap-2 text-sm text-depth-600">
+                    <span className="text-harmony mt-0.5 flex-shrink-0">•</span>
+                    <span>具体的な活用イメージのご提案</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-will-primary mt-1 font-bold">●</span>
-                    <span className="text-depth-700">最適な研修プログラムの設計</span>
+                  <li className="flex items-start gap-2 text-sm text-depth-600">
+                    <span className="text-harmony mt-0.5 flex-shrink-0">•</span>
+                    <span>最適な研修プログラムの設計</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-will-primary mt-1 font-bold">●</span>
-                    <span className="text-depth-700">助成金活用による実質料金のご案内</span>
+                  <li className="flex items-start gap-2 text-sm text-depth-600">
+                    <span className="text-harmony mt-0.5 flex-shrink-0">•</span>
+                    <span>助成金活用による実質料金のご案内</span>
                   </li>
                 </ul>
               </div>
@@ -111,37 +73,19 @@ export const CorporateCTA = () => {
           </div>
 
           {/* CTAボタン */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-md mx-auto"
-          >
+          <div className="max-w-sm mx-auto">
             <Link href="#contact-form">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-harmony text-white font-bold px-8 py-6 rounded-lg shadow-glow hover:shadow-glow-hover transition-all duration-300 text-xl"
-              >
+              <button className="w-full bg-harmony hover:bg-harmony-dark text-white font-bold px-6 md:px-8 py-3.5 md:py-4 rounded-lg transition-colors duration-200 text-base md:text-lg">
                 無料相談を申し込む
-              </motion.button>
+              </button>
             </Link>
-          </motion.div>
+          </div>
 
           {/* 締めメッセージ */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-12 text-center"
-          >
-            <p className="text-xl text-depth-700 leading-relaxed">
-              <span className="font-bold text-depth-800">組織のOSを再起動し、AI時代の競争力を手に入れる。</span><br />
-              その第一歩は、まず相談することから始まります。
-            </p>
-          </motion.div>
-
-        </motion.div>
+          <p className="mt-6 md:mt-8 text-xs md:text-sm text-depth-500">
+            組織のOSを再起動し、AI時代の競争力を手に入れる。その第一歩は、まず相談することから。
+          </p>
+        </div>
       </div>
     </section>
   );

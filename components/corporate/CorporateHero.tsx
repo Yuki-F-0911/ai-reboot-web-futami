@@ -25,7 +25,7 @@ export const CorporateHero = () => {
   return (
     <section className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center bg-slate-50 overflow-hidden">
       {/* Mobile: Image at top with slideshow */}
-      <div className="lg:hidden absolute top-0 left-0 w-full h-[40vh] z-0">
+      <div className="lg:hidden absolute top-0 left-0 w-full h-[45vh] sm:h-[50vh] z-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentImageIndex}
@@ -39,12 +39,26 @@ export const CorporateHero = () => {
               src={heroImages[currentImageIndex]}
               alt="AI研修の様子"
               fill
-              className="object-cover object-top"
+              className="object-cover object-[center_30%]"
               priority
             />
           </motion.div>
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-slate-50/50 to-slate-50 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/20 via-slate-50/40 to-slate-50 z-10" />
+        {/* Mobile slide indicators */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex
+                  ? "bg-white w-6 shadow-md"
+                  : "bg-white/60 hover:bg-white/80"
+                }`}
+              aria-label={`スライド ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Desktop: Right Side Image with Diagonal Cut and slideshow */}
@@ -100,7 +114,7 @@ export const CorporateHero = () => {
         <div className="absolute top-[10%] right-[40%] w-[30%] h-[30%] bg-harmony/5 rounded-full blur-[100px]" />
       </div>
 
-      <div className="relative z-10 pt-[35vh] lg:pt-0 w-full px-4 sm:px-6 lg:px-0 lg:pl-16 xl:pl-24">
+      <div className="relative z-10 pt-[42vh] sm:pt-[47vh] lg:pt-0 w-full px-4 sm:px-6 lg:px-0 lg:pl-16 xl:pl-24">
         <div className="w-full lg:max-w-[55%] xl:max-w-[50%]">
           {/* ロゴ・タイトル */}
           <motion.div
