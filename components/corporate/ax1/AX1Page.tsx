@@ -56,6 +56,65 @@ export default function AX1Page() {
             </header>
 
             <main>
+                {/* What is AX-1 Section */}
+                <section className={styles.whatIsAx}>
+                    {/* Big Typography Statement */}
+                    <div className={styles.axStatement}>
+                        <div className={`${styles.axEquation} ${styles.fadeUp}`}>
+                            <div className={styles.eqRow}>
+                                <span className={styles.eqTerm}>AX</span>
+                                <span className={styles.eqEquals}>=</span>
+                                <span className={styles.eqMeaning}>
+                                    <span className={styles.eqMain}>AI Transformation</span>
+                                    <span className={styles.eqSub}>DXの次。AIを前提としたビジネスモデルへの変革</span>
+                                </span>
+                            </div>
+                            <div className={styles.eqRow}>
+                                <span className={styles.eqTerm}>1</span>
+                                <span className={styles.eqEquals}>=</span>
+                                <span className={styles.eqMeaning}>
+                                    <span className={styles.eqMain}>One Day + First Step</span>
+                                    <span className={styles.eqSub}>1日完結。そしてAX変革への最初の一歩</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Why Now - Horizontal Facts */}
+                    <div className={styles.whyNow}>
+                        <div className={styles.container}>
+                            <h3 className={`${styles.whyNowTitle} ${styles.fadeUp}`}>
+                                なぜ、<span className={styles.accent}>今</span>なのか？
+                            </h3>
+                            
+                            <div className={styles.factStrip}>
+                                <div className={`${styles.factItem} ${styles.fadeUp}`}>
+                                    <span className={styles.factNum}>4倍</span>
+                                    <span className={styles.factText}>AI活用企業の生産性成長率</span>
+                                </div>
+                                <div className={`${styles.factItem} ${styles.fadeUp}`}>
+                                    <span className={styles.factNum}>2%</span>
+                                    <span className={styles.factText}>全社AI統合できている日本企業</span>
+                                </div>
+                                <div className={`${styles.factItem} ${styles.fadeUp}`}>
+                                    <span className={styles.factNum}>56%</span>
+                                    <span className={styles.factText}>AI投資の効果を得られていない</span>
+                                </div>
+                                <div className={`${styles.factItem} ${styles.fadeUp}`}>
+                                    <span className={styles.factNum}>3.5倍</span>
+                                    <span className={styles.factText}>戦略を持つ企業の成功率</span>
+                                </div>
+                            </div>
+
+                            <p className={`${styles.whyNowMessage} ${styles.fadeUp}`}>
+                                戦略なきAI投資は、<strong>56%が失敗</strong>する。
+                                <br />
+                                AX-1は、その「戦略」を1日で手に入れる場です。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Problem Section */}
                 <section className={styles.problem}>
                     <div className={styles.container}>
@@ -174,10 +233,64 @@ export default function AX1Page() {
                                 <span className={styles.tag}>継続性</span>
                                 <h3>経営者コミュニティ & 個別戦略相談</h3>
                                 <p>
-                                    Slackコミュニティへの1年間無料参加権（3.6万円相当）。
+                                    完全招待制・経営者限定Slackコミュニティへの1年間参加権。
                                     <br />
                                     さらに、後日「AI研修」や「人材紹介」を含めた組織導入の個別コンサルティング（60分）を優先案内。
                                 </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Speakers Section */}
+                <section className={`${styles.speakers} ${styles.container}`}>
+                    <h2 className={`${styles.sectionTitle} ${styles.fadeUp}`}>
+                        登壇者
+                    </h2>
+
+                    <div className={styles.speakerGrid}>
+                        <div className={`${styles.speakerCard} ${styles.fadeUp}`}>
+                            <div className={styles.speakerImage}>
+                                <img src="/images/naruse.jpg" alt="成瀬 拓也" />
+                            </div>
+                            <div className={styles.speakerInfo}>
+                                <h3 className={styles.speakerName}>成瀬 拓也</h3>
+                                <p className={styles.speakerRole}>
+                                    AIリブートアカデミー主宰 / ビジネスプロデューサー
+                                </p>
+                                <p className={styles.speakerCompany}>
+                                    株式会社ウィルフォワード 代表取締役<br />
+                                    株式会社Lively 共同創業者CSO<br />
+                                    筑波大学 非常勤講師
+                                </p>
+                                <p className={styles.speakerBio}>
+                                    経営者として複数の事業を創出しながら、経済産業省認定リスキリング講座「AIリブートアカデミー」を主宰。ホラクラシー経営やティール組織など次世代の組織開発を実践し、「AI時代のキャリア戦略」を発信。
+                                </p>
+                                <div className={styles.speakerSocial}>
+                                    <span className={styles.socialBadge}>X 13,000 followers</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={`${styles.speakerCard} ${styles.fadeUp}`}>
+                            <div className={`${styles.speakerImage} ${styles.speakerPlaceholder}`}>
+                                <span>岩本</span>
+                            </div>
+                            <div className={styles.speakerInfo}>
+                                <h3 className={styles.speakerName}>岩本 和也</h3>
+                                <p className={styles.speakerRole}>
+                                    「AIのある暮らし」主宰 / 映像クリエイター
+                                </p>
+                                <p className={styles.speakerCompany}>
+                                    AI×動画マーケティング総合研究所 主宰<br />
+                                    学校法人 杉野学園 ドレスメーカー学院 特別講師
+                                </p>
+                                <p className={styles.speakerBio}>
+                                    「しごとや暮らしに役立つ生成AI」をテーマに情報発信。毎週「週刊 AIのニュース」を発行、月1回「AIの勉強会」を開催。AI×動画マーケティングの実践者として、クリエイティブ分野でのAI活用を牽引。
+                                </p>
+                                <div className={styles.speakerSocial}>
+                                    <span className={styles.socialBadge}>note 1,400 followers</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -275,7 +388,7 @@ export default function AX1Page() {
                         <p className={styles.priceLabel}>参加費（税込）</p>
                         <span className={styles.priceTag}>¥50,000</span>
                         <p className={styles.priceNote}>
-                            ※Slackコミュニティ1年分（¥36,000相当）
+                            ※完全招待制・経営者限定Slackコミュニティ1年間参加権
                             <br />
                             ※助成金申請ガイド、書籍データ込み
                         </p>
