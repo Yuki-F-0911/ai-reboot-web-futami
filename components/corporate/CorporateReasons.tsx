@@ -55,9 +55,9 @@ export const CorporateReasons = () => {
           </div>
         </div>
 
-        {/* 理由リスト - シンプル */}
-        <div className="max-w-4xl mx-auto">
-          <div className="grid gap-4 md:gap-5">
+        {/* 理由リスト - 中央配置 */}
+        <div className="flex justify-center">
+          <div className="grid gap-4 md:gap-5 w-full max-w-3xl">
             {reasons.map((reason, index) => (
               <div
                 key={index}
