@@ -1,4 +1,5 @@
 import { createClient } from 'microcms-js-sdk'
+import { staticNews, getStaticNewsById, isStaticNews, mergeWithStaticNews } from '@/data/static-news'
 
 // カテゴリーの型定義（英語で統一）
 export type Category = 
@@ -68,19 +69,26 @@ function getClient() {
 
 export const client = getClient()
 
-// お知らせ一覧を取得
+// お知らせ一覧を取得（静的ニュースを含む）
 export const getNewsList = async (limit = 10, offset = 0) => {
   try {
     // 環境変数チェック
     const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN
     const apiKey = process.env.MICROCMS_API_KEY
     
+    // microCMSが設定されていない場合は静的ニュースのみ返す
     if (!serviceDomain || !apiKey) {
-      console.warn('MicroCMS環境変数が設定されていません', {
-        serviceDomain: serviceDomain ? '設定済み' : '未設定',
-        apiKey: apiKey ? '設定済み' : '未設定'
-      })
-      return { contents: [], totalCount: 0, offset: 0, limit: 10 }
+      console.warn('MicroCMS環境変数が設定されていません。静的ニュースのみ使用します。')
+      const sortedStatic = [...staticNews].sort((a, b) => 
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+      )
+      const paginatedStatic = sortedStatic.slice(offset, offset + limit)
+      return { 
+        contents: paginatedStatic, 
+        totalCount: staticNews.length, 
+        offset, 
+        limit 
+      }
     }
     
     console.log('Fetching news from microCMS:', {
@@ -93,21 +101,45 @@ export const getNewsList = async (limit = 10, offset = 0) => {
     
     // clientがダミークライアントの場合の処理
     if (!client.get || typeof client.get !== 'function') {
-      console.warn('MicroCMS client is not properly initialized')
-      return { contents: [], totalCount: 0, offset: 0, limit: 10 }
+      console.warn('MicroCMS client is not properly initialized。静的ニュースのみ使用します。')
+      const sortedStatic = [...staticNews].sort((a, b) => 
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+      )
+      const paginatedStatic = sortedStatic.slice(offset, offset + limit)
+      return { 
+        contents: paginatedStatic, 
+        totalCount: staticNews.length, 
+        offset, 
+        limit 
+      }
     }
     
     const data = await client.get({
       endpoint: 'news',
       queries: {
-        limit,
-        offset,
+        limit: limit + staticNews.length, // 静的ニュース分を考慮して多めに取得
+        offset: 0, // マージ後にページネーション
         orders: '-publishedAt',
       },
     })
     
-    console.log('microCMS response:', data)
-    return data
+    // 静的ニュースとマージ
+    const mergedContents = mergeWithStaticNews(data.contents || [])
+    const paginatedContents = mergedContents.slice(offset, offset + limit)
+    
+    console.log('microCMS response (merged with static):', {
+      microCmsCount: data.contents?.length || 0,
+      staticCount: staticNews.length,
+      totalMerged: mergedContents.length,
+      returned: paginatedContents.length
+    })
+    
+    return {
+      contents: paginatedContents,
+      totalCount: mergedContents.length,
+      offset,
+      limit
+    }
   } catch (error) {
     console.error('Failed to fetch news list:', error)
     console.error('Error details:', {
@@ -116,14 +148,35 @@ export const getNewsList = async (limit = 10, offset = 0) => {
       error: error
     })
     
-    // エラー時もアプリケーションが動作するようにデフォルト値を返す
-    return { contents: [], totalCount: 0, offset: 0, limit: 10 }
+    // エラー時は静的ニュースのみ返す
+    console.log('Falling back to static news only')
+    const sortedStatic = [...staticNews].sort((a, b) => 
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    )
+    const paginatedStatic = sortedStatic.slice(offset, offset + limit)
+    return { 
+      contents: paginatedStatic, 
+      totalCount: staticNews.length, 
+      offset, 
+      limit 
+    }
   }
 }
 
-// お知らせ詳細を取得
+// お知らせ詳細を取得（静的ニュース対応）
 export const getNewsDetail = async (contentId: string) => {
   try {
+    // 静的ニュースの場合は直接返す
+    if (isStaticNews(contentId)) {
+      const staticArticle = getStaticNewsById(contentId)
+      if (staticArticle) {
+        console.log('Returning static news:', contentId)
+        return staticArticle
+      }
+      console.warn('Static news not found:', contentId)
+      return null
+    }
+    
     // 環境変数チェック
     const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN
     const apiKey = process.env.MICROCMS_API_KEY

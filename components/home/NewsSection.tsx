@@ -17,32 +17,15 @@ interface NewsItem {
 
 const categoryColors: { [key: string]: string } = {
   '新着': 'bg-blue-100 text-blue-700',
+  'ニュース': 'bg-blue-100 text-blue-700',
   'イベント': 'bg-green-100 text-green-700',
   'メディア': 'bg-purple-100 text-purple-700',
+  'メディア掲載': 'bg-purple-100 text-purple-700',
   'お知らせ': 'bg-gray-100 text-gray-700'
 }
 
-// 仮のデータ（microCMSが設定されるまで使用）
-const fallbackNews: NewsItem[] = [
-  {
-    id: '1',
-    publishedAt: '2025-01-14',
-    category: '新着',
-    title: '経済産業省リスキリング補助金の採択が決定しました'
-  },
-  {
-    id: '2',
-    publishedAt: '2025-01-10',
-    category: 'イベント',
-    title: '無料説明会を開催します（1/25 オンライン）'
-  },
-  {
-    id: '3',
-    publishedAt: '2025-01-05',
-    category: 'メディア',
-    title: '日経新聞「AI人材育成の最前線」に掲載されました'
-  }
-]
+// 注: フォールバックニュースは data/static-news.ts で管理されています
+// microCMSが設定されていない場合、API経由で静的ニュースが返されます
 
 export default function NewsSection() {
   const ref = useRef(null)
@@ -57,19 +40,19 @@ export default function NewsSection() {
 
   useEffect(() => {
     // クライアントサイドでニュースを取得
+    // APIは静的ニュースとmicroCMSニュースをマージして返す
     fetch('/api/news?limit=3')
       .then(res => res.json())
       .then(data => {
         if (data.contents && data.contents.length > 0) {
           setNewsItems(data.contents)
         } else {
-          // microCMSからデータが取得できない場合は仮データを使用
-          setNewsItems(fallbackNews)
+          setNewsItems([])
         }
       })
       .catch(error => {
         console.error('Failed to fetch news:', error)
-        setNewsItems(fallbackNews)
+        setNewsItems([])
       })
       .finally(() => {
         setLoading(false)
