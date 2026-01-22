@@ -1,10 +1,19 @@
 "use client";
 
-import { useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import styles from "./AX1Page.module.css";
 
 export default function AX1Page() {
+    const [expandedSpeakers, setExpandedSpeakers] = useState<Record<string, boolean>>({});
+
+    const toggleSpeaker = (id: string) => {
+        setExpandedSpeakers((prev) => ({
+            ...prev,
+            [id]: !prev[id],
+        }));
+    };
+
     useEffect(() => {
         // Intersection Observer for fade-up animations
         const observerOptions = {
@@ -249,7 +258,10 @@ export default function AX1Page() {
                     </h2>
 
                     <div className={styles.speakerGrid}>
-                        <div className={`${styles.speakerCard} ${styles.fadeUp}`}>
+                        <div
+                            className={`${styles.speakerCard} ${styles.fadeUp} ${styles.clickable}`}
+                            onClick={() => toggleSpeaker("naruse")}
+                        >
                             <div className={styles.speakerImage}>
                                 <img src="/images/naruse.jpg" alt="成瀬 拓也" />
                             </div>
@@ -258,39 +270,96 @@ export default function AX1Page() {
                                 <p className={styles.speakerRole}>
                                     AIリブートアカデミー主宰 / ビジネスプロデューサー
                                 </p>
-                                <p className={styles.speakerCompany}>
-                                    株式会社ウィルフォワード 代表取締役<br />
-                                    株式会社Lively 共同創業者CSO<br />
-                                    筑波大学 非常勤講師
-                                </p>
-                                <p className={styles.speakerBio}>
-                                    経営者として複数の事業を創出しながら、経済産業省認定リスキリング講座「AIリブートアカデミー」を主宰。ホラクラシー経営やティール組織など次世代の組織開発を実践し、「AI時代のキャリア戦略」を発信。
-                                </p>
-                                <div className={styles.speakerSocial}>
-                                    <span className={styles.socialBadge}>X 13,000 followers</span>
-                                </div>
+                                <AnimatePresence initial={false}>
+                                    {expandedSpeakers["naruse"] ? (
+                                        <motion.div
+                                            key="expanded-naruse"
+                                            initial={{ opacity: 0, height: 0 }}
+                                            animate={{ opacity: 1, height: "auto" }}
+                                            exit={{ opacity: 0, height: 0 }}
+                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                        >
+                                            <p className={styles.speakerCompany}>
+                                                株式会社ウィルフォワード 代表取締役<br />
+                                                株式会社Lively 共同創業者CSO<br />
+                                                筑波大学 非常勤講師
+                                            </p>
+                                            <p className={styles.speakerBio}>
+                                                経営者として複数の事業を創出しながら、経済産業省認定リスキリング講座「AIリブートアカデミー」を主宰。ホラクラシー経営やティール組織など次世代の組織開発を実践し、「AI時代のキャリア戦略」を発信。
+                                            </p>
+                                            <div className={styles.speakerSocial}>
+                                                <span className={styles.socialBadge}>X 13,000 followers</span>
+                                            </div>
+                                        </motion.div>
+                                    ) : (
+                                        <motion.div
+                                            key="collapsed-naruse"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <p className={`${styles.speakerBio} ${styles.bioCollapsed}`}>
+                                                経営者として複数の事業を創出しながら、経済産業省認定リスキリング講座「AIリブートアカデミー」を主宰...
+                                            </p>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                                <span className={styles.expandHint}>
+                                    {expandedSpeakers["naruse"] ? "閉じる" : "詳しく見る"}
+                                </span>
                             </div>
                         </div>
 
-                        <div className={`${styles.speakerCard} ${styles.fadeUp}`}>
-                            <div className={`${styles.speakerImage} ${styles.speakerPlaceholder}`}>
-                                <span>岩本</span>
+                        <div
+                            className={`${styles.speakerCard} ${styles.fadeUp} ${styles.clickable}`}
+                            onClick={() => toggleSpeaker("iwamoto")}
+                        >
+                            <div className={styles.speakerImage}>
+                                <img src="/images/iwamoto.jpg" alt="岩本 和也" />
                             </div>
                             <div className={styles.speakerInfo}>
                                 <h3 className={styles.speakerName}>岩本 和也</h3>
                                 <p className={styles.speakerRole}>
                                     「AIのある暮らし」主宰 / 映像クリエイター
                                 </p>
-                                <p className={styles.speakerCompany}>
-                                    AI×動画マーケティング総合研究所 主宰<br />
-                                    学校法人 杉野学園 ドレスメーカー学院 特別講師
-                                </p>
-                                <p className={styles.speakerBio}>
-                                    「しごとや暮らしに役立つ生成AI」をテーマに情報発信。毎週「週刊 AIのニュース」を発行、月1回「AIの勉強会」を開催。AI×動画マーケティングの実践者として、クリエイティブ分野でのAI活用を牽引。
-                                </p>
-                                <div className={styles.speakerSocial}>
-                                    <span className={styles.socialBadge}>note 1,400 followers</span>
-                                </div>
+                                <AnimatePresence initial={false}>
+                                    {expandedSpeakers["iwamoto"] ? (
+                                        <motion.div
+                                            key="expanded-iwamoto"
+                                            initial={{ opacity: 0, height: 0 }}
+                                            animate={{ opacity: 1, height: "auto" }}
+                                            exit={{ opacity: 0, height: 0 }}
+                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                        >
+                                            <p className={styles.speakerCompany}>
+                                                AI×動画マーケティング総合研究所 主宰<br />
+                                                学校法人 杉野学園 ドレスメーカー学院 特別講師
+                                            </p>
+                                            <p className={styles.speakerBio}>
+                                                「しごとや暮らしに役立つ生成AI」をテーマに情報発信。毎週「週刊 AIのニュース」を発行、月1回「AIの勉強会」を開催。AI×動画マーケティングの実践者として、クリエイティブ分野でのAI活用を牽引。
+                                            </p>
+                                            <div className={styles.speakerSocial}>
+                                                <span className={styles.socialBadge}>note 1,400 followers</span>
+                                            </div>
+                                        </motion.div>
+                                    ) : (
+                                        <motion.div
+                                            key="collapsed-iwamoto"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <p className={`${styles.speakerBio} ${styles.bioCollapsed}`}>
+                                                「しごとや暮らしに役立つ生成AI」をテーマに情報発信。毎週「週刊 AIのニュース」を発行...
+                                            </p>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                                <span className={styles.expandHint}>
+                                    {expandedSpeakers["iwamoto"] ? "閉じる" : "詳しく見る"}
+                                </span>
                             </div>
                         </div>
                     </div>

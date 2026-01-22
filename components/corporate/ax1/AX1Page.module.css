@@ -557,6 +557,33 @@
     border-radius: 4px;
 }
 
+/* Speaker Card Expandable */
+.clickable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.bioCollapsed {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.expandHint {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--c-accent);
+    margin-top: 0.5rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.clickable:hover .expandHint {
+    color: var(--c-accent-light);
+}
+
 /* === SCHEDULE === */
 .schedule {
     background: var(--c-bg-subtle);
