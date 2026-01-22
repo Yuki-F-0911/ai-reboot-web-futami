@@ -65,13 +65,24 @@ export const CorporateInstructors = () => {
   return (
     <section ref={ref} className="py-12 md:py-20 bg-white">
       <div className="container-section px-5 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3 text-depth-800">
-            講師・支援体制
-          </h2>
-          <p className="text-sm md:text-base text-depth-600">
-            実務経験豊富な、現役AIコンサルタントが支援
-          </p>
+        <div className="max-w-3xl mx-auto mb-8 md:mb-12">
+          <div className="flex flex-col md:flex-row md:items-start md:gap-6">
+            {/* ラベル部分 */}
+            <div className="flex items-center gap-2 mb-3 md:mb-0 md:flex-col md:items-center md:pt-1">
+              <div className="w-8 h-px md:w-px md:h-6 bg-harmony/40"></div>
+              <span className="text-harmony font-semibold text-xs tracking-wider whitespace-nowrap">TEAM</span>
+              <div className="hidden md:block w-px h-6 bg-harmony/40"></div>
+            </div>
+            {/* コンテンツ部分 */}
+            <div className="text-center md:text-left flex-1">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3 text-depth-800">
+                講師・支援体制
+              </h2>
+              <p className="text-sm md:text-base text-depth-600">
+                実務経験豊富な、現役AIコンサルタントが支援
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* カード（3列） */}

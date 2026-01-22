@@ -36,13 +36,24 @@ export const CorporateOtherPrograms = () => {
   return (
     <section ref={ref} className="py-10 md:py-16 bg-depth-50">
       <div className="container-section px-5 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-10">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-depth-800">
-            その他のプログラム
-          </h2>
-          <p className="text-xs md:text-sm text-depth-600">
-            貴社の業種や具体的な課題に応じて、特化型の研修プログラムもご提案可能です。
-          </p>
+        <div className="max-w-3xl mx-auto mb-6 md:mb-10">
+          <div className="flex flex-col md:flex-row md:items-start md:gap-6">
+            {/* ラベル部分 */}
+            <div className="flex items-center gap-2 mb-3 md:mb-0 md:flex-col md:items-center md:pt-1">
+              <div className="w-8 h-px md:w-px md:h-6 bg-harmony/40"></div>
+              <span className="text-harmony font-semibold text-xs tracking-wider whitespace-nowrap">OTHER</span>
+              <div className="hidden md:block w-px h-6 bg-harmony/40"></div>
+            </div>
+            {/* コンテンツ部分 */}
+            <div className="text-center md:text-left flex-1">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3 text-depth-800">
+                その他のプログラム
+              </h2>
+              <p className="text-sm md:text-base text-depth-600">
+                貴社の業種や具体的な課題に応じて、特化型の研修プログラムもご提案可能です。
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* プログラム一覧 - コンパクトに */}
@@ -54,12 +65,12 @@ export const CorporateOtherPrograms = () => {
                 className="bg-white p-3.5 md:p-4 rounded-lg border border-depth-100"
               >
                 <div className="flex items-start gap-2 mb-1">
-                  <span className="text-harmony font-semibold text-xs md:text-sm flex-shrink-0">{program.number}.</span>
-                  <h4 className="text-xs md:text-sm font-bold text-depth-800">
+                  <span className="text-harmony font-semibold text-sm md:text-base flex-shrink-0">{program.number}.</span>
+                  <h4 className="text-sm md:text-base font-bold text-depth-800">
                     {program.title}
                   </h4>
                 </div>
-                <p className="text-[11px] md:text-xs text-depth-500 leading-relaxed pl-4 md:pl-5">
+                <p className="text-xs md:text-sm text-depth-500 leading-relaxed pl-4 md:pl-5">
                   {program.description}
                 </p>
               </div>
@@ -69,7 +80,7 @@ export const CorporateOtherPrograms = () => {
 
         {/* 注記 */}
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-xs md:text-sm text-depth-500">
+          <p className="text-sm md:text-base text-depth-500">
             ※ これらのプログラムの詳細は、無料相談にてご提案いたします。
           </p>
         </div>

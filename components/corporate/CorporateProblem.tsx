@@ -10,13 +10,24 @@ export const CorporateProblem = () => {
   return (
     <section ref={ref} className="py-16 md:py-28 bg-depth-50">
       <div className="container-section px-5 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-depth-800 leading-[1.3] tracking-tight mb-4 md:mb-6">
-            なぜ、多くの企業のAI導入は失敗するのか？
-          </h2>
-          <p className="text-base md:text-lg text-depth-600">
-            単なるツール導入だけでは、組織は変わりません
-          </p>
+        <div className="max-w-3xl mx-auto mb-10 md:mb-16">
+          <div className="flex flex-col md:flex-row md:items-start md:gap-6">
+            {/* ラベル部分 */}
+            <div className="flex items-center gap-2 mb-3 md:mb-0 md:flex-col md:items-center md:pt-1">
+              <div className="w-8 h-px md:w-px md:h-6 bg-harmony/40"></div>
+              <span className="text-harmony font-semibold text-xs tracking-wider whitespace-nowrap">CHALLENGE</span>
+              <div className="hidden md:block w-px h-6 bg-harmony/40"></div>
+            </div>
+            {/* コンテンツ部分 */}
+            <div className="text-center md:text-left flex-1">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-depth-800 leading-[1.3] tracking-tight mb-4 md:mb-5">
+                なぜ、多くの企業のAI導入は失敗するのか？
+              </h2>
+              <p className="text-base md:text-lg text-depth-600">
+                単なるツール導入だけでは、組織は変わりません
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* 3つの壁 - シンプルなグリッド */}

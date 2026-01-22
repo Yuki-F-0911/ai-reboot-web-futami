@@ -16,31 +16,31 @@ export const CorporateFollowUp = () => {
   return (
     <section ref={ref} className="py-10 md:py-16 bg-depth-50">
       <div className="container-section px-5 sm:px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-10 items-start md:items-center">
-            {/* 左側：タイトルと説明 */}
-            <div className="md:col-span-7">
-              <span className="inline-block py-1 px-2 bg-harmony/10 text-harmony font-semibold text-xs mb-2 md:mb-3">OPTION</span>
+        <div className="max-w-3xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-start md:gap-6">
+            {/* ラベル部分 */}
+            <div className="flex items-center gap-2 mb-3 md:mb-0 md:flex-col md:items-center md:pt-1">
+              <div className="w-8 h-px md:w-px md:h-6 bg-harmony/40"></div>
+              <span className="text-harmony font-semibold text-xs tracking-wider whitespace-nowrap">OPTION</span>
+              <div className="hidden md:block w-px h-6 bg-harmony/40"></div>
+            </div>
+            {/* コンテンツ部分 */}
+            <div className="text-center md:text-left flex-1">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-depth-800">
                 フォロー研修
               </h2>
-              <p className="text-sm md:text-base text-depth-600 leading-relaxed mb-3 md:mb-4">
+              <p className="text-sm md:text-base text-depth-600 leading-relaxed mb-4 md:mb-5">
                 研修後、現場での定着を確実にし、変化し続けるAI環境に適応するための継続的な学習プログラムです。
               </p>
-              <p className="text-xs md:text-sm text-depth-500 border-l-2 border-harmony pl-3">
-                貴社の状況に合わせて、回数や形態を柔軟にカスタマイズ可能
-              </p>
-            </div>
-
-            {/* 右側：特徴アイコン */}
-            <div className="md:col-span-5">
-              <div className="grid grid-cols-2 gap-2 md:gap-3 bg-white md:bg-transparent rounded-lg p-3 md:p-0">
+              
+              {/* 特徴 */}
+              <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">
                 {features.map((feature, index) => {
                   const Icon = feature.icon;
                   return (
-                    <div key={index} className="flex items-center gap-2 py-1.5 md:py-2">
+                    <div key={index} className="flex items-center gap-1.5 text-depth-600">
                       <Icon className="w-4 h-4 text-harmony flex-shrink-0" />
-                      <span className="text-xs md:text-sm text-depth-600">{feature.label}</span>
+                      <span className="text-xs md:text-sm">{feature.label}</span>
                     </div>
                   );
                 })}

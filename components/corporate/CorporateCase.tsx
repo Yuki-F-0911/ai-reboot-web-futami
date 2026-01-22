@@ -8,14 +8,24 @@ export const CorporateCase = () => {
   return (
     <section ref={ref} className="py-14 md:py-24 bg-white">
       <div className="container-section px-5 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
-          <span className="inline-block py-1 px-2 bg-harmony/10 text-harmony font-semibold text-xs mb-2 md:mb-3">CASE STUDY</span>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-depth-800 leading-[1.3] tracking-tight mb-3 md:mb-4">
-            導入実績：ウィルトラスト様
-          </h2>
-          <p className="text-base md:text-lg text-depth-600">
-            ゴルフ練習場運営企業が、AIリブート研修で実現したこと
-          </p>
+        <div className="max-w-3xl mx-auto mb-8 md:mb-12">
+          <div className="flex flex-col md:flex-row md:items-start md:gap-6">
+            {/* ラベル部分 */}
+            <div className="flex items-center gap-2 mb-3 md:mb-0 md:flex-col md:items-center md:pt-1">
+              <div className="w-8 h-px md:w-px md:h-6 bg-harmony/40"></div>
+              <span className="text-harmony font-semibold text-xs tracking-wider whitespace-nowrap">CASE STUDY</span>
+              <div className="hidden md:block w-px h-6 bg-harmony/40"></div>
+            </div>
+            {/* コンテンツ部分 */}
+            <div className="text-center md:text-left flex-1">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-depth-800 leading-[1.3] tracking-tight mb-3 md:mb-4">
+                導入実績：ウィルトラスト様
+              </h2>
+              <p className="text-base md:text-lg text-depth-600">
+                ゴルフ練習場運営企業が、AIリブート研修で実現したこと
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* 企業概要と導入内容 */}
@@ -23,7 +33,7 @@ export const CorporateCase = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {/* 企業概要 */}
             <div className="border-l-2 border-harmony pl-4 py-2 sm:py-0">
-              <h3 className="text-xs font-semibold text-depth-500 uppercase tracking-wider mb-1">企業概要</h3>
+              <h3 className="text-xs md:text-sm font-semibold text-depth-500 uppercase tracking-wider mb-1">企業概要</h3>
               <p className="text-sm text-depth-700">
                 <span className="font-medium">業種:</span> ゴルフ練習場運営・コンサルティング
               </p>
@@ -31,7 +41,7 @@ export const CorporateCase = () => {
 
             {/* 導入内容 */}
             <div className="border-l-2 border-harmony pl-4 py-2 sm:py-0">
-              <h3 className="text-xs font-semibold text-depth-500 uppercase tracking-wider mb-1">導入内容</h3>
+              <h3 className="text-xs md:text-sm font-semibold text-depth-500 uppercase tracking-wider mb-1">導入内容</h3>
               <ul className="space-y-0.5 text-sm text-depth-700">
                 <li><span className="font-medium">研修:</span> 4日間（24時間）＋フォロー研修（1時間×12回）</li>
                 <li><span className="font-medium">参加者数:</span> 10名</li>
@@ -43,7 +53,7 @@ export const CorporateCase = () => {
         {/* 実施後の感想 */}
         <div className="max-w-5xl mx-auto">
           <h3 className="text-base md:text-lg font-bold mb-1 text-depth-800 text-center">実施後の感想</h3>
-          <p className="text-xs text-depth-500 mb-5 md:mb-6 text-center">
+          <p className="text-xs md:text-sm text-depth-500 mb-5 md:mb-6 text-center">
             代表取締役礒崎様より
           </p>
 

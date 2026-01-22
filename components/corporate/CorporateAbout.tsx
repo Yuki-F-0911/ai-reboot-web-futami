@@ -46,13 +46,24 @@ export const CorporateAbout = () => {
   return (
     <section ref={ref} className="py-14 md:py-24 bg-white">
       <div className="container-section px-5 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-depth-800 leading-[1.3] tracking-tight mb-4 md:mb-5">
-            AIリブート研修で得られる<span className="text-harmony">3つの力</span>
-          </h2>
-          <p className="text-base md:text-lg text-depth-600">
-            単なるスキル研修ではなく、組織が自走できる基盤を構築します
-          </p>
+        <div className="max-w-3xl mx-auto mb-10 md:mb-14">
+          <div className="flex flex-col md:flex-row md:items-start md:gap-6">
+            {/* ラベル部分 */}
+            <div className="flex items-center gap-2 mb-3 md:mb-0 md:flex-col md:items-center md:pt-1">
+              <div className="w-8 h-px md:w-px md:h-6 bg-harmony/40"></div>
+              <span className="text-harmony font-semibold text-xs tracking-wider whitespace-nowrap">PROGRAM</span>
+              <div className="hidden md:block w-px h-6 bg-harmony/40"></div>
+            </div>
+            {/* コンテンツ部分 */}
+            <div className="text-center md:text-left flex-1">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-depth-800 leading-[1.3] tracking-tight mb-4 md:mb-5">
+                AIリブート研修で得られる<span className="text-harmony">3つの力</span>
+              </h2>
+              <p className="text-base md:text-lg text-depth-600">
+                単なるスキル研修ではなく、組織が自走できる基盤を構築します
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* 3つのコアメッセージ - シンプルなカード */}
@@ -98,28 +109,28 @@ export const CorporateAbout = () => {
                 <div className="w-9 h-9 md:w-10 md:h-10 mx-auto rounded-lg bg-white flex items-center justify-center mb-2 border border-depth-100 md:border">
                   <Target className="w-4 h-4 md:w-5 md:h-5 text-harmony" />
                 </div>
-                <p className="text-[10px] md:text-xs text-depth-500 mb-0.5 md:mb-1">目的</p>
+                <p className="text-xs md:text-sm text-depth-500 mb-0.5 md:mb-1">目的</p>
                 <p className="text-xs md:text-sm font-medium text-depth-800 leading-tight">AI活用力向上から内製化まで</p>
               </div>
               <div className="text-center bg-white rounded-lg p-3 md:p-0 md:bg-transparent">
                 <div className="w-9 h-9 md:w-10 md:h-10 mx-auto rounded-lg bg-white flex items-center justify-center mb-2 border border-depth-100 md:border">
                   <UserCheck className="w-4 h-4 md:w-5 md:h-5 text-harmony" />
                 </div>
-                <p className="text-[10px] md:text-xs text-depth-500 mb-0.5 md:mb-1">対象人数</p>
+                <p className="text-xs md:text-sm text-depth-500 mb-0.5 md:mb-1">対象人数</p>
                 <p className="text-xs md:text-sm font-medium text-depth-800 leading-tight">10〜30名程度</p>
               </div>
               <div className="text-center bg-white rounded-lg p-3 md:p-0 md:bg-transparent">
                 <div className="w-9 h-9 md:w-10 md:h-10 mx-auto rounded-lg bg-white flex items-center justify-center mb-2 border border-depth-100 md:border">
                   <Clock className="w-4 h-4 md:w-5 md:h-5 text-harmony" />
                 </div>
-                <p className="text-[10px] md:text-xs text-depth-500 mb-0.5 md:mb-1">研修時間</p>
+                <p className="text-xs md:text-sm text-depth-500 mb-0.5 md:mb-1">研修時間</p>
                 <p className="text-xs md:text-sm font-medium text-depth-800 leading-tight">10時間以上</p>
               </div>
               <div className="text-center bg-white rounded-lg p-3 md:p-0 md:bg-transparent">
                 <div className="w-9 h-9 md:w-10 md:h-10 mx-auto rounded-lg bg-white flex items-center justify-center mb-2 border border-depth-100 md:border">
                   <Presentation className="w-4 h-4 md:w-5 md:h-5 text-harmony" />
                 </div>
-                <p className="text-[10px] md:text-xs text-depth-500 mb-0.5 md:mb-1">形式</p>
+                <p className="text-xs md:text-sm text-depth-500 mb-0.5 md:mb-1">形式</p>
                 <p className="text-xs md:text-sm font-medium text-depth-800 leading-tight">集合研修</p>
               </div>
             </div>
