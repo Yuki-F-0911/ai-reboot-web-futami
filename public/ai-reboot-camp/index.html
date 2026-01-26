@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI REBOOT CAMP | 人生を再起動する旅へ</title>
+    
+    <!-- Google Fonts: 雰囲気を決定づけるフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --accent-gray: #f4f4f4;
+            --border-color: #e0e0e0;
+            --font-mincho: 'Shippori Mincho', serif;
+            --font-gothic: 'Zen Kaku Gothic New', sans-serif;
+            --easing: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-gothic);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 2.2; /* 余白を意識して広めに */
+            letter-spacing: 0.08em;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden; /* 横スクロール防止 */
+        }
+
+        /* --- Utilities --- */
+        .mincho { font-family: var(--font-mincho); }
+        
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            letter-spacing: 0.25em;
+            line-height: 1.8;
+        }
+
+        /* テキストの強調（蛍光ペン風） */
+        strong {
+            background: linear-gradient(transparent 60%, #ffecd1 60%);
+            font-weight: 600;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+        
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0%;
+            height: 1px;
+            background: currentColor;
+            transition: width 0.3s var(--easing);
+        }
+
+        a:hover { opacity: 0.7; }
+        a:hover::after { width: 100%; }
+
+        /* --- Loading Overlay --- */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        
+        #loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loading-text {
+            font-family: var(--font-mincho);
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+
+        /* --- Header --- */
+        .header {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 100;
+            mix-blend-mode: difference; /* 背景が白でも黒でも見えるように */
+            color: #fff; /* mix-blend-mode用 */
+        }
+
+        .logo {
+            font-family: var(--font-gothic);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* --- Layout & Sections --- */
+        main {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .section {
+            padding: 120px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle at center, #fff 0%, #fafafa 100%);
+        }
+
+        /* ノイズテクスチャ（和紙のような質感） */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: row-reverse; /* 縦書きレイアウトのため右から左へ */
+            gap: 60px;
+            height: auto;
+            z-index: 1;
+            padding-top: 80px; /* 上部に余白を追加 */
+        }
+
+        .hero-title {
+            font-family: var(--font-mincho);
+            font-size: clamp(2.2rem, 4.5vw, 4rem); /* 文字数が増えたので少し調整 */
+            font-weight: 500;
+            line-height: 2.0; /* 行間を広げて読みやすく */
+            margin: 0;
+            max-height: 80vh;
+        }
+
+        .hero-sub {
+            font-size: 0.9rem;
+            color: #666;
+            height: 100%;
+            display: flex;
+            align-items: flex-end; /* 下揃え */
+            padding-bottom: 10px;
+        }
+
+        .hero-date {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            text-align: right;
+            font-size: 0.75rem;
+            font-family: var(--font-gothic);
+            letter-spacing: 0.1em;
+            line-height: 1.8;
+            z-index: 1;
+        }
+
+        /* --- Intro --- */
+        .intro {
+            text-align: center;
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+
+        .text-lead {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 60px;
+            line-height: 2;
+        }
+
+        .text-body {
+            font-size: 0.95rem;
+            color: #444;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Section Titles (Vertical Layout) --- */
+        .section-title {
+            position: absolute;
+            left: -20px;
+            top: 120px;
+            font-family: var(--font-mincho);
+            font-size: 1rem;
+            color: #aaa;
+            letter-spacing: 0.3em;
+        }
+
+        /* --- Access --- */
+        .access { text-align: center; }
+
+        .location-name {
+            font-family: var(--font-mincho);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .address, .station {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .map-link {
+            margin-top: 40px;
+        }
+        
+        .map-link a {
+            border: 1px solid #111;
+            padding: 12px 40px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .map-link a:hover {
+            background: #111;
+            color: #fff;
+        }
+        
+        .map-link a::after { display: none; } /* ボタン風リンクの下線削除 */
+
+        .access-note {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* --- Schedule (Timeline) --- */
+        .timeline {
+            border-left: 1px solid #e0e0e0;
+            padding-left: 50px;
+            margin-left: 20px; /* スマートフォンでの見切れ防止 */
+            position: relative;
+        }
+
+        .timeline-item {
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -55px; /* Line width(1) + padding(50) + half dot(4) */
+            top: 12px;
+            width: 9px;
+            height: 9px;
+            background: #fff;
+            border: 1px solid #111;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        /* ハイライト（温泉など） */
+        .timeline-item.highlight::before {
+            background: #111;
+        }
+
+        /* 日付の区切り（DAY2など） */
+        .timeline-item.new-day {
+            margin-top: 60px;
+            padding-top: 60px;
+            border-top: 1px dashed #ccc;
+        }
+
+        .time {
+            display: block;
+            font-family: var(--font-gothic);
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .label {
+            display: block;
+            font-family: var(--font-mincho);
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .desc {
+            display: block;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* --- Mission (Cards) --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--accent-gray);
+            padding: 50px 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.5s var(--easing);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .card-text {
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .card-note {
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .alert-box {
+            background: #fff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid #eee;
+        }
+
+        .alert-icon {
+            font-family: var(--font-mincho);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* --- Packing --- */
+        .packing-list {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 60px 0;
+        }
+
+        .list-group {
+            width: 45%;
+        }
+
+        .list-group h5 {
+            font-family: var(--font-mincho);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+        }
+
+        .list-group ul {
+            list-style: none;
+        }
+
+        .list-group li {
+            margin-bottom: 15px;
+            padding-left: 1.2em;
+            position: relative;
+        }
+
+        .list-group li::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+        }
+
+        .strike {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+
+        .small-note {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 20px;
+            display: block;
+        }
+
+        /* --- Message Section (New) --- */
+        .message-last {
+            text-align: center;
+            padding: 120px 20px;
+            background-color: #fafafa; /* 少し背景色を変えて特別感を出す */
+        }
+        
+        .mincho-title {
+            font-family: var(--font-mincho);
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            margin-bottom: 50px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .signature {
+            margin-top: 80px;
+            font-family: var(--font-mincho);
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            font-size: 1rem;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 120px 20px 60px;
+            background: #111;
+            color: #fff;
+            position: relative;
+        }
+
+        .footer-message {
+            font-family: var(--font-mincho);
+            font-size: 1.8rem;
+            margin-bottom: 60px;
+            opacity: 0.9;
+        }
+
+        .emergency {
+            margin-bottom: 80px;
+        }
+        
+        .emergency p {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .tel-link {
+            font-size: 1.5rem;
+            font-family: var(--font-mincho);
+            letter-spacing: 0.1em;
+        }
+        .tel-link:hover { color: #fff; opacity: 1; }
+
+        .copyright {
+            font-size: 0.7rem;
+            color: #555;
+            letter-spacing: 0.1em;
+        }
+
+        /* --- Animation Classes --- */
+        .js-fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s var(--easing), transform 1.2s var(--easing);
+        }
+
+        .js-fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 順番に表示させるための遅延クラス */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .section { padding: 80px 20px; }
+            
+            /* スマホでの縦書き調整 */
+            .hero-content {
+                gap: 20px;
+            }
+            .hero-title {
+                font-size: 2.5rem; 
+                line-height: 1.5;
+            }
+            
+            /* セクションタイトルを上部に水平配置 */
+            .section-title {
+                position: relative;
+                top: 0;
+                left: 0;
+                writing-mode: horizontal-tb;
+                text-align: center;
+                margin-bottom: 40px;
+                display: block;
+                width: 100%;
+            }
+
+            .grid-container { grid-template-columns: 1fr; }
+            
+            .packing-list {
+                flex-direction: column;
+                gap: 50px;
+            }
+            .list-group { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading">
+        <span class="vertical-text loading-text">再起動中...</span>
+    </div>
+
+    <header class="header">
+        <h1 class="logo">AI Reboot Academy</h1>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content js-fade-in">
+                <p class="hero-sub vertical-text">AI REBOOT CAMP DAY 1-2</p>
+                <h2 class="hero-title vertical-text">
+                    時代を嘆くか。<br>
+                    味方につけるか。<br>
+                    人生を再起動する<br>
+                    熱狂の幕開け。
+                </h2>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="section intro js-fade-in">
+            <div class="container">
+                <p class="text-lead mincho">
+                    <strong>生成AIを学ぶ場所ではない。<br>
+                    人生のOSを書き換える場所へようこそ。</strong>
+                </p>
+                <p class="text-body">
+                    待っていても、未来は迎えに来ない。<br>
+                    だから、私たちは集まります。<br><br>
+                    既存の自分を一度リセットし、<br>
+                    AIという最強の相棒と、<br>
+                    本気で走れる仲間を手に入れるために。<br><br>
+                    この合宿は、あなたが「変化する側の人間」へ生まれ変わる<br>
+                    <strong>100日間の旅の出発点</strong>です。
+                </p>
+            </div>
+        </section>
+
+        <!-- Logistics / Access -->
+        <section class="section access js-fade-in">
+            <div class="section-title vertical-text">場所</div>
+            <div class="container">
+                <h3 class="location-name">川崎生涯研修センター</h3>
+                <p class="address">神奈川県川崎市幸区塚越4-314-1</p>
+                <p class="station">JR南武線「矢向駅」より徒歩6分</p>
+                
+                <div class="map-link">
+                    <!-- 実際のリンク先に変更してください -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=川崎生涯研修センター" target="_blank">Google Maps →</a>
+                </div>
+                
+                <div class="access-note">
+                    <p>※12:45 受付開始 / 13:00 開始厳守</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule -->
+        <section class="section schedule js-fade-in">
+            <div class="section-title vertical-text">行程</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="time">Day1 13:00</span>
+                    <span class="label">Reboot Start</span>
+                    <span class="desc">オリエンテーション・研修開始</span>
+                </div>
+                <div class="timeline-item highlight">
+                    <span class="time">18:00</span>
+                    <span class="label">Chill & Onsen</span>
+                    <span class="desc">夕食・温泉「志楽の湯」・自由時間</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">21:00</span>
+                    <span class="label">Connect</span>
+                    <span class="desc">交流タイム・自由時間</span>
+                </div>
+                <div class="timeline-item new-day">
+                    <span class="time">Day2 09:00</span>
+                    <span class="label">Focus</span>
+                    <span class="desc">研修再開・ワークショップ</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">12:00</span>
+                    <span class="label">Lunch</span>
+                    <span class="desc">昼食</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">13:00</span>
+                    <span class="label">Final Sprint</span>
+                    <span class="desc">午後の研修・総まとめ</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">17:00</span>
+                    <span class="label">Goal</span>
+                    <span class="desc">終了・100日間の旅の始まり</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission (Food & Onsen) -->
+        <section class="section mission js-fade-in">
+            <div class="section-title vertical-text">重要</div>
+            <div class="grid-container">
+                <!-- Food Card -->
+                <div class="card">
+                    <div>
+                        <h4 class="card-title mincho">食事は<br>各自でご用意を</h4>
+                        <p class="card-text">
+                            <strong>3食分（1日目夕・2日目朝・昼）</strong>を<br>
+                            各自ご用意ください。
+                        </p>
+                    </div>
+                    <div class="card-note">
+                        <p>近くにスーパー「Life」(9:00-22:00)、ローソンがあります。現地調達して食堂でワイワイ食べましょう。</p>
+                    </div>
+                </div>
+
+                <!-- Onsen Card -->
+                <div class="card">
+                    <div>
+                        <h4 class="card-title mincho">思考の澱を流す<br>志楽の湯</h4>
+                        <p class="card-text">
+                            研修センター併設の「縄文天然温泉」に入浴可能です。<br>
+                            都会にいながら、深い森の湯治場のような静けさを。
+                        </p>
+                    </div>
+                    <div class="alert-box">
+                        <span class="alert-icon">!</span>
+                        <p style="font-size:0.9rem; margin:0;">ロッカーは100円返却式です。<br><strong>「100円玉」</strong>をお忘れなく。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packing List -->
+        <section class="section packing js-fade-in">
+            <div class="section-title vertical-text">装備</div>
+            <div class="packing-list">
+                <div class="list-group">
+                    <h5>MUST HAVE</h5>
+                    <ul>
+                        <li>ノートPC（必須）</li>
+                        <li>PC充電器（必須）</li>
+                        <li>100円玉（温泉用）</li>
+                        <li>ワクワクする心</li>
+                    </ul>
+                </div>
+                <div class="list-group">
+                    <h5>NO NEED</h5>
+                    <ul>
+                        <li class="strike">バスタオル</li>
+                        <li class="strike">浴用タオル</li>
+                        <li class="strike">浴衣</li>
+                    </ul>
+                    <span class="small-note">※お部屋に完備されていますので、荷物は軽く。</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Section: 熱い結び (New) -->
+        <section class="section message-last js-fade-in">
+            <div class="container">
+                <h3 class="mincho-title">100日後、<br>新しい自分に出会う。</h3>
+                <p class="text-body">
+                    「自分にできるだろうか？」<br>
+                    そんな不安は、会場に置いていってください。<br>
+                    あなたには、実践者のメンターと、最高の仲間がついています。
+                </p>
+                <p class="text-body">
+                    必要なのは、PCと充電器。<br>
+                    そして<strong>「変わりたい」という強い意志</strong>だけ。
+                </p>
+                <p class="text-body">
+                    あなたの「やりたい」を、<br>
+                    私たちは全力で肯定し、AIと共に形にします。<br>
+                    さあ、リブートのスイッチを押しましょう。
+                </p>
+                <div class="signature">
+                    <p>AI REBOOT ACADEMY 主宰</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer js-fade-in">
+            <p class="footer-message mincho">会場でお待ちしています。</p>
+            <div class="emergency">
+                <p>緊急連絡先：久米田</p>
+                <a href="tel:08018205174" class="tel-link">080-1820-5174</a>
+            </div>
+            <p class="copyright">© AI REBOOT ACADEMY</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Loading Screen Animation
+            const loading = document.getElementById('loading');
+            if(loading) {
+                setTimeout(() => {
+                    loading.classList.add('hidden');
+                }, 1200); // 1.2秒後にフェードアウト
+            }
+
+            // Intersection Observer for Fade-in animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -10% 0px', // 画面の下10%くらいに来たら発火
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // 一度発火したら監視解除
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.js-fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
+
