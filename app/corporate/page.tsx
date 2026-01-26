@@ -10,6 +10,7 @@ import { CorporatePricing } from "@/components/corporate/CorporatePricing";
 import { CorporateInstructors } from "@/components/corporate/CorporateInstructors";
 import { CorporateReasons } from "@/components/corporate/CorporateReasons";
 import { CorporateCTA } from "@/components/corporate/CorporateCTA";
+import { CorporateContactSection } from "@/components/corporate/CorporateContactSection";
 
 export const metadata: Metadata = {
   title: "AIリブート研修（法人向け） | AI REBOOT - ウィルフォワード",
@@ -30,6 +31,7 @@ export default function CorporatePage() {
       <CorporateInstructors />
       <CorporateReasons />
       <CorporateCTA />
+      <CorporateContactSection />
     </div>
   );
 }

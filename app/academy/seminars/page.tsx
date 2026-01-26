@@ -10,7 +10,8 @@ const SeminarsPage = () => {
             place: "オンライン（Zoom）",
             desc: "人事・採用のプロ×AI実践者が教える「キャリア下剋上」のロードマップ。ツールに依存しない「本質的な強み」の作り方をお伝えします。AIを学んで終わりにしない、思考OSのアップデートがテーマです。",
             tag: "NEW",
-            link: "/seminars/career-design"
+            link: "/seminars/career-design",
+            ended: true
         },
         {
             title: "2025年AIトレンドを振り返り、2026年の展望を読む",

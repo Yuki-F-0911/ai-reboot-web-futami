@@ -74,7 +74,7 @@ export const CorporateCTA = () => {
 
           {/* CTAボタン */}
           <div className="max-w-sm mx-auto">
-            <Link href="#contact-form">
+            <Link href="#contact">
               <button className="w-full bg-harmony hover:bg-harmony-dark text-white font-bold px-6 md:px-8 py-3.5 md:py-4 rounded-lg transition-colors duration-200 text-base md:text-lg">
                 無料相談を申し込む
               </button>

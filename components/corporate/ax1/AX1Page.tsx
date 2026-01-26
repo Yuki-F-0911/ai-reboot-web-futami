@@ -55,40 +55,19 @@ export default function AX1Page() {
                     <br />
                     東京開催
                 </div>
-                <div className={styles.heroSub}>
-                    中小・ベンチャー経営者・幹部（CXO）限定 戦略ブリーフィング
-                </div>
-                <h1 className={styles.heroTitle}>AX-1</h1>
-                <div className={styles.heroTagline}>
-                    <span className={styles.accent}>DX</span>の時代は終わった。次は、<span className={styles.accent}>AX</span>だ。
-                </div>
+                <h1 className={styles.heroTitle}>
+                    中小・ベンチャー経営者・幹部（CXO）限定
+                    <br />
+                    <span className={styles.heroTitleMain}>AI戦略ブリーフィング</span>
+                </h1>
+                <p className={styles.heroSub}>
+                    1日で「AI前提」のビジネスモデルへ書き換える
+                </p>
             </header>
 
             <main>
-                {/* What is AX-1 Section */}
+                {/* Why Now Section */}
                 <section className={styles.whatIsAx}>
-                    {/* Big Typography Statement */}
-                    <div className={styles.axStatement}>
-                        <div className={`${styles.axEquation} ${styles.fadeUp}`}>
-                            <div className={styles.eqRow}>
-                                <span className={styles.eqTerm}>AX</span>
-                                <span className={styles.eqEquals}>=</span>
-                                <span className={styles.eqMeaning}>
-                                    <span className={styles.eqMain}>AI Transformation</span>
-                                    <span className={styles.eqSub}>DXの次。AIを前提としたビジネスモデルへの変革</span>
-                                </span>
-                            </div>
-                            <div className={styles.eqRow}>
-                                <span className={styles.eqTerm}>1</span>
-                                <span className={styles.eqEquals}>=</span>
-                                <span className={styles.eqMeaning}>
-                                    <span className={styles.eqMain}>One Day + First Step</span>
-                                    <span className={styles.eqSub}>1日完結。そしてAX変革への最初の一歩</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
                     {/* Why Now - Horizontal Facts */}
                     <div className={styles.whyNow}>
                         <div className={styles.container}>
@@ -118,7 +97,7 @@ export default function AX1Page() {
                             <p className={`${styles.whyNowMessage} ${styles.fadeUp}`}>
                                 戦略なきAI投資は、<strong>56%が失敗</strong>する。
                                 <br />
-                                AX-1は、その「戦略」を1日で手に入れる場です。
+                                このセミナーは、その「戦略」を1日で手に入れる場です。
                             </p>
                         </div>
                     </div>
@@ -168,10 +147,8 @@ export default function AX1Page() {
                 {/* Solution Section */}
                 <section className={`${styles.solution} ${styles.container}`}>
                     <div className={styles.solutionContent}>
-                        <p className={styles.solutionSub}>DX（デジタル化）の次は、</p>
                         <h2 className={`${styles.bigStatement} ${styles.fadeUp}`}>
-                            <span className={styles.mark}>AX（AIトランスフォーメーション）</span>
-                            だ。
+                            <span className={styles.mark}>このセミナーでできること</span>
                         </h2>
                         <p className={`${styles.fadeUp} ${styles.solutionDesc}`}>
                             たった1日で、御社のビジネスモデルを「AI前提」に書き換える。

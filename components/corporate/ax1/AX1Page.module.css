@@ -92,12 +92,21 @@
 
 .heroTitle {
     font-family: var(--font-serif);
-    font-size: clamp(4rem, 12vw, 10rem);
-    line-height: 1;
-    font-weight: 800;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    line-height: 1.6;
+    font-weight: 600;
     margin: 0;
     position: relative;
     z-index: 3;
+    color: var(--c-sub);
+    text-align: center;
+}
+
+.heroTitleMain {
+    display: block;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-top: 1rem;
     color: var(--c-ink);
     letter-spacing: -0.02em;
     background: linear-gradient(135deg, var(--c-ink) 0%, var(--c-accent) 100%);
@@ -117,16 +126,13 @@
 }
 
 .heroSub {
-    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-    font-weight: 700;
-    background: var(--c-ink);
-    color: #fff;
-    padding: 0.6em 1.2em;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 500;
+    color: var(--c-ink);
     z-index: 3;
-    box-shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-    border-radius: 4px;
+    line-height: 1.8;
+    margin-top: 1.5rem;
+    text-align: center;
 }
 
 .heroTagline {
@@ -787,7 +793,12 @@
     }
 
     .heroTitle {
-        font-size: clamp(3rem, 18vw, 6rem);
+        font-size: clamp(0.85rem, 3vw, 1rem);
+    }
+
+    .heroTitleMain {
+        font-size: clamp(1.6rem, 7vw, 2.5rem);
+        margin-top: 0.8rem;
     }
 
     .hero {
@@ -797,13 +808,7 @@
     }
 
     .heroSub {
-        font-size: 0.75rem;
-        padding: 0.5em 0.8em;
-        margin-bottom: 1rem;
-    }
-
-    .heroTagline {
-        font-size: clamp(1rem, 4vw, 1.3rem);
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
         margin-top: 1rem;
     }
 
