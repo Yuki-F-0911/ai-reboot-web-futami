@@ -61,7 +61,7 @@ export default function AX1Page() {
                     <span className={styles.heroTitleMain}>AI戦略ブリーフィング</span>
                 </h1>
                 <p className={styles.heroSub}>
-                    1日で「AI前提」のビジネスモデルへ書き換える
+                    1日で「AIを武器にした組織」へ書き換える
                 </p>
             </header>
 
@@ -151,7 +151,7 @@ export default function AX1Page() {
                             <span className={styles.mark}>このセミナーでできること</span>
                         </h2>
                         <p className={`${styles.fadeUp} ${styles.solutionDesc}`}>
-                            たった1日で、御社のビジネスモデルを「AI前提」に書き換える。
+                            たった1日で、御社を「AIを武器にした組織」へ書き換える。
                             <br />
                             プログラミング不要のツール実装から、
                             <br />
