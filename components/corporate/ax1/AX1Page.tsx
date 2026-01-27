@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import styles from "./AX1Page.module.css";
 
 import { AX1Hero } from "./AX1Hero";
+import { AX1EntryForm } from "./AX1EntryForm";
 
 export default function AX1Page() {
     const [expandedSpeakers, setExpandedSpeakers] = useState<Record<string, boolean>>({});
@@ -481,14 +482,10 @@ export default function AX1Page() {
 
                     <br />
 
-                    <motion.a
-                        href="#"
-                        className={`${styles.radicalBtn} ${styles.fadeUp}`}
-                        whileHover={{ scale: 0.98 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <span>戦略ブリーフィングにエントリーする</span>
-                    </motion.a>
+                    {/* Entry Form */}
+                    <div className={styles.fadeUp}>
+                        <AX1EntryForm />
+                    </div>
 
                     <p className={styles.ctaFooterText}>
                         経営判断に必要な知識と、すぐに活用できるツールを
