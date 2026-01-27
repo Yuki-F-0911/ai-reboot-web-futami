@@ -96,3 +96,14 @@ impact_level: "low"
 |---|-----|-----|----|---|
 | 1.0 | 2025-08-08 | さかもと | 初版作成 | - |
 ```
+
+## カスタムスキル（デザイン関連）
+
+デザイン作業時は以下のスキルを参照してください。`.codex/skills/` に配置されています。
+
+| スキル | パス | 用途 |
+|--------|------|------|
+| **Radical Design** | `.codex/skills/radical-design/SKILL.md` | 常軌を逸した「Anti-Average」なWebデザイン。侘び寂び・間・余韻など日本的美学のデジタル翻訳 |
+| **Typography** | `.codex/skills/typography/SKILL.md` | CSS タイポグラフィのベストプラクティス。日本語・英語両対応 |
+| **Hero Design** | `.codex/skills/hero-design/SKILL.md` | 戦略的なヒーローセクション設計。認知心理学、2026年トレンド、LCP最適化 |
+

@@ -154,6 +154,16 @@ docs/                   # ドキュメント (整理済み)
 - `../prompts/design-agent.md` - デザイン作成プロンプト
 - `prompts/image-prompt-engineer.md` - 画像生成プロンプト作成プロンプト
 
+## カスタムスキル（デザイン関連）
+
+デザイン作業時は以下のスキルを参照してください。`.claude/skills/` に配置されており、Claude Codeが自動的に利用可能です。
+
+| スキル | パス | 用途 |
+|--------|------|------|
+| **Radical Design** | `.claude/skills/radical-design/SKILL.md` | 常軌を逸した「Anti-Average」なWebデザイン。侘び寂び・間・余韻など日本的美学のデジタル翻訳 |
+| **Typography** | `.claude/skills/typography/SKILL.md` | CSS タイポグラフィのベストプラクティス。日本語・英語両対応 |
+| **Hero Design** | `.claude/skills/hero-design/SKILL.md` | 戦略的なヒーローセクション設計。認知心理学、2026年トレンド、LCP最適化 |
+
 ---
 
 ## 📝 AIの作業ログ - コンテキストを失わない開発

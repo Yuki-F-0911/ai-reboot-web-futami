@@ -1,0 +1,30 @@
+{
+  "session_id": "session-1769521840",
+  "parent_session_id": null,
+  "state": "initialized",
+  "started_at": "2026-01-27T13:50:40Z",
+  "updated_at": "2026-01-27T13:50:40Z",
+  "event_seq": 1,
+  "last_event_id": "event-000001",
+  "state_version": 1,
+  "cwd": "/Users/mocchalera/Biz/ai-reboot-web",
+  "project_name": "ai-reboot-web",
+  "resumed_at": "2026-01-27T13:50:40Z",
+  "git": {
+    "branch": "dev",
+    "uncommitted_changes": 6,
+    "last_commit": "ed8f289"
+  },
+  "plans": {
+    "exists": false,
+    "last_modified": 0,
+    "wip_tasks": 0,
+    "todo_tasks": 0,
+    "pending_tasks": 0,
+    "completed_tasks": 0
+  },
+  "orchestration": {
+    "max_state_retries": 3,
+    "retry_backoff_seconds": 10
+  }
+}

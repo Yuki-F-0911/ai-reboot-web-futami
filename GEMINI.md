@@ -139,3 +139,14 @@ docs/                   # ドキュメント (整理済み)
 
 ### その他の重要文書
 - `README.md` - 基本的なセットアップ手順
+
+## カスタムスキル（デザイン関連）
+
+デザイン作業時は `.gemini/skills/` 配下のスキルを参照してください。
+
+| スキル | パス | 用途 |
+|--------|------|------|
+| **Radical Design** | `.gemini/skills/radical-design/SKILL.md` | Anti-Averageなデザイン、日本的美学のデジタル翻訳 |
+| **Typography** | `.gemini/skills/typography/SKILL.md` | 日本語・英語両対応のタイポグラフィ |
+| **Hero Design** | `.gemini/skills/hero-design/SKILL.md` | ヒーローセクション設計、LCP最適化 |
+
