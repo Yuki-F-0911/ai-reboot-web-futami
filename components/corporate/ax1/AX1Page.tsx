@@ -225,7 +225,7 @@ export default function AX1Page() {
                                 <span className={styles.tag}>即効性</span>
                                 <h3>Google Gems (カスタムAI)</h3>
                                 <p>
-                                    プログラミング不要。Co-Pilot程度の知識でOK。
+                                    プログラミング不要。
                                     <br />
                                     「SNS投稿」「日報分析」など、自社専用のAIボットをその場で作成し、持ち帰っていただきます。
                                 </p>
