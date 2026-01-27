@@ -18,6 +18,12 @@
     line-height: 1.8;
     overflow-x: hidden;
     position: relative;
+    font-kerning: none;
+    /* 日本語本文はベタ組み */
+    text-spacing-trim: trim-start;
+    text-autospace: normal;
+    line-break: strict;
+    overflow-wrap: anywhere;
 }
 
 /* === SUBTLE TEXTURE === */
@@ -100,6 +106,9 @@
     z-index: 3;
     color: var(--c-sub);
     text-align: center;
+    font-feature-settings: "palt";
+    font-kerning: normal;
+    letter-spacing: 0.05em;
 }
 
 .heroTitleMain {
@@ -133,6 +142,8 @@
     line-height: 1.8;
     margin-top: 1.5rem;
     text-align: center;
+    font-feature-settings: "palt";
+    font-kerning: normal;
 }
 
 .heroTagline {
@@ -144,6 +155,10 @@
     margin-top: 1.5rem;
     text-align: center;
     line-height: 1.6;
+    font-feature-settings: "palt";
+    font-kerning: normal;
+    letter-spacing: 0.05em;
+    word-break: auto-phrase;
 }
 
 .dateStamp {
@@ -248,6 +263,10 @@
     text-align: center;
     margin-bottom: 3rem;
     color: var(--c-ink);
+    font-feature-settings: "palt";
+    font-kerning: normal;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
 }
 
 .factStrip {
@@ -277,15 +296,19 @@
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     color: var(--c-accent);
-    line-height: 1;
+    line-height: 1.1;
     margin-bottom: 0.8rem;
+    font-feature-settings: "palt";
+    font-kerning: normal;
+    letter-spacing: 0.02em;
 }
 
 .factText {
     display: block;
     font-size: clamp(0.75rem, 1.2vw, 0.9rem);
     color: var(--c-sub);
-    line-height: 1.5;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
 }
 
 .whyNowMessage {
@@ -295,10 +318,132 @@
     line-height: 2;
     max-width: 600px;
     margin: 0 auto;
+    display: none;
+    /* Hide original class usage if any remains, strictly replacing usage in TSX */
 }
 
-.whyNowMessage strong {
+/* === LEAD SECTION === */
+.leadContainer {
+    text-align: center;
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.leadProblem {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: var(--c-ink);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    font-feature-settings: "palt";
+    font-kerning: normal;
+    letter-spacing: 0.04em;
+    text-wrap: balance;
+    word-break: auto-phrase;
+    overflow-wrap: anywhere;
+}
+
+.leadNumber {
+    font-family: "Inter", var(--font-sans);
+    font-size: 1.3em;
     color: var(--c-accent);
+    font-weight: 800;
+    line-height: 1;
+    margin: 0 0.15em;
+    letter-spacing: -0.02em;
+    vertical-align: baseline;
+    position: relative;
+    top: 0.02em;
+}
+
+.leadNegative {
+    background: linear-gradient(transparent 65%, rgba(37, 99, 235, 0.15) 65%);
+    padding: 0 0.1em;
+    border-radius: 2px;
+}
+
+.leadNote {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.6em;
+    color: var(--c-sub);
+    font-weight: 500;
+    line-height: 1.5;
+    vertical-align: 0.2em;
+    margin: 0 0.1em;
+    letter-spacing: 0.02em;
+}
+
+.leadRef {
+    font-family: var(--font-sans);
+    font-size: 0.4em;
+    color: var(--c-sub);
+    vertical-align: super;
+    margin-left: 0.1em;
+    opacity: 0.8;
+}
+
+.leadSolution {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--c-ink);
+    line-height: 1.8;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    text-wrap: balance;
+    font-feature-settings: "palt";
+    font-kerning: normal;
+    letter-spacing: 0.04em;
+}
+
+.leadSolution::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--c-border);
+    margin: 0 auto 2rem auto;
+}
+
+.leadAccent {
+    color: var(--c-accent);
+    background: linear-gradient(transparent 75%, rgba(37, 99, 235, 0.15) 75%);
+    padding: 0 0.2em;
+    font-weight: 800;
+}
+
+/* Helper for br */
+.brSp {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .brSp {
+        display: block;
+    }
+
+    .leadProblem {
+        text-align: left;
+        font-size: 1.4rem;
+        line-height: 1.6;
+        padding: 0 1rem;
+    }
+
+    .leadSolution {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        padding: 0 1rem;
+        display: block;
+        text-align: center;
+    }
+
+    .leadNote {
+        display: block;
+        margin-top: 0.2em;
+        font-size: 0.7em;
+    }
 }
 
 /* === PROBLEM SECTION === */
@@ -315,7 +460,11 @@
     border-bottom: 1px solid currentColor;
     padding-bottom: 2rem;
     display: inline-block;
-    line-height: 1.4;
+    line-height: 1.3;
+    font-feature-settings: "palt";
+    font-kerning: normal;
+    letter-spacing: 0.05em;
+    word-break: auto-phrase;
 }
 
 .problemIntro {
@@ -381,8 +530,8 @@
     font-size: clamp(1.5rem, 3vw, 2.8rem);
     font-weight: 900;
     line-height: 1.5;
-    text-align: justify;
-    text-align-last: left;
+    text-align: center;
+    /* text-align-last: left; */
 }
 
 .mark {
@@ -445,12 +594,17 @@
     margin: 0 0 1rem 0;
     font-family: var(--font-serif);
     color: var(--c-ink);
+    font-feature-settings: "palt";
+    font-kerning: normal;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
 }
 
 .cardContent p {
     font-size: 1rem;
     color: var(--c-sub);
     line-height: 1.8;
+    text-align: justify;
 }
 
 .tag {
@@ -525,6 +679,9 @@
     font-weight: 700;
     color: var(--c-ink);
     margin-bottom: 0.5rem;
+    font-feature-settings: "palt";
+    font-kerning: normal;
+    letter-spacing: 0.05em;
 }
 
 .speakerRole {
@@ -546,6 +703,7 @@
     color: var(--c-ink);
     line-height: 1.8;
     margin-bottom: 1rem;
+    text-align: justify;
 }
 
 .speakerSocial {
@@ -634,6 +792,8 @@
     margin-bottom: 0.8rem;
     display: block;
     color: var(--c-accent);
+    font-feature-settings: "palt";
+    letter-spacing: 0.02em;
 }
 
 /* === CTA === */
@@ -657,6 +817,8 @@
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(37, 99, 235, 0.25);
+    font-feature-settings: "palt";
+    letter-spacing: 0.05em;
 }
 
 .radicalBtn:hover {
@@ -720,6 +882,9 @@
 .warningBox h3 {
     margin-top: 0;
     color: var(--c-ink);
+    font-feature-settings: "palt";
+    font-kerning: normal;
+    letter-spacing: 0.05em;
 }
 
 .eventDetails {
@@ -751,6 +916,8 @@
     display: block;
     margin: 0.8rem 0;
     color: var(--c-ink);
+    font-feature-settings: "palt";
+    letter-spacing: 0.02em;
 }
 
 .priceNote {
@@ -904,8 +1071,8 @@
 
 /* === ANIMATIONS === */
 .fadeUp {
-    opacity: 0;
-    transform: translateY(30px);
+    /* opacity: 0; */
+    /* transform: translateY(30px); */
     transition: opacity 0.8s cubic-bezier(0.2, 1, 0.3, 1),
         transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
 }

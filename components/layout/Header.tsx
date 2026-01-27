@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
   const useAcademyHeader = isAcademyPath(pathname);
 
   // セミナーLPページとwebtoonページではヘッダーを非表示
-  if (pathname?.startsWith('/seminars/') || pathname === '/webtoon') {
+  if (pathname?.startsWith('/seminars/') || pathname === '/webtoon' || pathname?.startsWith('/corporate/ax1')) {
     return null;
   }
 

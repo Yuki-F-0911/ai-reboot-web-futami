@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./AX1Page.module.css";
 
+import { AX1Hero } from "./AX1Hero";
+
 export default function AX1Page() {
     const [expandedSpeakers, setExpandedSpeakers] = useState<Record<string, boolean>>({});
 
@@ -13,6 +15,21 @@ export default function AX1Page() {
             [id]: !prev[id],
         }));
     };
+
+    const [showStickyNav, setShowStickyNav] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Show after scrolling down 400px
+            if (window.scrollY > 400) {
+                setShowStickyNav(true);
+            } else {
+                setShowStickyNav(false);
+            }
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     useEffect(() => {
         // Intersection Observer for fade-up animations
@@ -40,30 +57,24 @@ export default function AX1Page() {
     return (
         <div className={styles.page}>
             {/* Sticky Navigation */}
-            <div className={styles.stickyNav}>
-                <a href="#cta" className={styles.stickyBtn}>
-                    エントリー（審査制）
-                </a>
-            </div>
+            <AnimatePresence>
+                {showStickyNav && (
+                    <motion.div
+                        className={styles.stickyNav}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 20 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <a href="#cta" className={styles.stickyBtn}>
+                            エントリー（審査制）
+                        </a>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {/* Hero Section */}
-            <header className={styles.hero}>
-                <div className={styles.dateStamp}>
-                    2026
-                    <br />
-                    02.18 (火)
-                    <br />
-                    東京開催
-                </div>
-                <h1 className={styles.heroTitle}>
-                    中小・ベンチャー経営者・幹部（CXO）限定
-                    <br />
-                    <span className={styles.heroTitleMain}>AI戦略ブリーフィング</span>
-                </h1>
-                <p className={styles.heroSub}>
-                    1日で「AIを武器にした組織」へ書き換える
-                </p>
-            </header>
+            <AX1Hero />
 
             <main>
                 {/* Why Now Section */}
@@ -74,31 +85,52 @@ export default function AX1Page() {
                             <h3 className={`${styles.whyNowTitle} ${styles.fadeUp}`}>
                                 なぜ、<span className={styles.accent}>今</span>なのか？
                             </h3>
-                            
+
                             <div className={styles.factStrip}>
                                 <div className={`${styles.factItem} ${styles.fadeUp}`}>
-                                    <span className={styles.factNum}>4倍</span>
-                                    <span className={styles.factText}>AI活用企業の生産性成長率</span>
+                                    <span className={styles.factNum}>約4倍</span>
+                                    <span className={styles.factText}>
+                                        AI導入の影響が大きい“業界”の生産性成長率
+                                        <span style={{ display: "block", fontSize: "0.85em", opacity: 0.7, marginTop: "0.2em" }}>（PwC分析）[1]</span>
+                                    </span>
                                 </div>
                                 <div className={`${styles.factItem} ${styles.fadeUp}`}>
                                     <span className={styles.factNum}>2%</span>
-                                    <span className={styles.factText}>全社AI統合できている日本企業</span>
+                                    <span className={styles.factText}>
+                                        日本で“期待を大きく上回る成果”を報告した企業
+                                        <span style={{ display: "block", fontSize: "0.85em", opacity: 0.7, marginTop: "0.2em" }}>（PwC調査）[2]</span>
+                                    </span>
                                 </div>
                                 <div className={`${styles.factItem} ${styles.fadeUp}`}>
                                     <span className={styles.factNum}>56%</span>
-                                    <span className={styles.factText}>AI投資の効果を得られていない</span>
+                                    <span className={styles.factText}>
+                                        AI投資で“売上増・コスト減”のどちらも得られていない
+                                        <span style={{ display: "block", fontSize: "0.85em", opacity: 0.7, marginTop: "0.2em" }}>（CEO調査）[3]</span>
+                                    </span>
                                 </div>
                                 <div className={`${styles.factItem} ${styles.fadeUp}`}>
                                     <span className={styles.factNum}>3.5倍</span>
-                                    <span className={styles.factText}>戦略を持つ企業の成功率</span>
+                                    <span className={styles.factText}>
+                                        可視化された戦略を持つ組織がROIを得る確率
+                                        <span style={{ display: "block", fontSize: "0.85em", opacity: 0.7, marginTop: "0.2em" }}>（Thomson Reuters調査）[4]</span>
+                                    </span>
                                 </div>
                             </div>
 
-                            <p className={`${styles.whyNowMessage} ${styles.fadeUp}`}>
-                                戦略なきAI投資は、<strong>56%が失敗</strong>する。
-                                <br />
-                                このセミナーは、その「戦略」を1日で手に入れる場です。
-                            </p>
+                            <div className={styles.leadContainer}>
+                                <p className={`${styles.leadProblem} ${styles.fadeUp}`}>
+                                    戦略なき<wbr />AI投資は、
+                                    <span className={styles.leadNumber}>56%</span>が<wbr />
+                                    <span className={styles.leadNegative}>成果</span>
+                                    <span className={styles.leadNote}>（売上増・コスト減）</span>を<wbr />
+                                    <span className={styles.leadNegative}>得られない</span>
+                                    <sup className={styles.leadRef}>[3]</sup>。
+                                </p>
+                                <p className={`${styles.leadSolution} ${styles.fadeUp}`}>
+                                    このセミナーは、<wbr />その「戦略」を<br className={styles.brSp} />
+                                    <span className={styles.leadAccent}>1日で手に入れる場</span>です。
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -175,7 +207,7 @@ export default function AX1Page() {
 
                     <div className={styles.cardGrid}>
                         <div className={`${styles.card} ${styles.fadeUp}`}>
-                            <div className={styles.cardNum}>01</div>
+                            <div className={styles.cardNum}>1</div>
                             <div className={styles.cardContent}>
                                 <span className={styles.tag}>可視化</span>
                                 <h3>自社の現在地レポート & 言語化</h3>
@@ -188,7 +220,7 @@ export default function AX1Page() {
                         </div>
 
                         <div className={`${styles.card} ${styles.fadeUp}`}>
-                            <div className={styles.cardNum}>02</div>
+                            <div className={styles.cardNum}>2</div>
                             <div className={styles.cardContent}>
                                 <span className={styles.tag}>即効性</span>
                                 <h3>Google Gems (カスタムAI)</h3>
@@ -201,12 +233,19 @@ export default function AX1Page() {
                         </div>
 
                         <div className={`${styles.card} ${styles.fadeUp}`}>
-                            <div className={styles.cardNum}>03</div>
+                            <div className={styles.cardNum}>3</div>
                             <div className={styles.cardContent}>
                                 <span className={styles.tag}>資金戦略</span>
-                                <h3>助成金活用ガイド（最大75%補助）</h3>
+                                <h3>
+                                    人材開発支援助成金
+                                    <div style={{ fontSize: "0.75em", fontWeight: "normal", marginTop: "0.5rem", lineHeight: "1.4" }}>
+                                        要件により経費助成率 最大75%（中小企業等）<sup style={{ fontSize: "0.6em" }}>[5]</sup>
+                                    </div>
+                                </h3>
                                 <p>
                                     本セミナー後の人材育成・AI研修にかかる費用を大幅に圧縮。
+                                    <br />
+                                    <span style={{ fontSize: "0.85em", opacity: 0.8 }}>※コース／企業規模／要件で助成率は変動</span>
                                     <br />
                                     「コスト」を理由に変革を諦めないための、具体的な資金調達プランを提示します。
                                 </p>
@@ -214,7 +253,7 @@ export default function AX1Page() {
                         </div>
 
                         <div className={`${styles.card} ${styles.fadeUp}`}>
-                            <div className={styles.cardNum}>04</div>
+                            <div className={styles.cardNum}>4</div>
                             <div className={styles.cardContent}>
                                 <span className={styles.tag}>継続性</span>
                                 <h3>経営者コミュニティ & 個別戦略相談</h3>
@@ -459,12 +498,47 @@ export default function AX1Page() {
                         席が埋まる前に、ご決断ください。
                     </p>
                 </section>
+                {/* Data Sources Section */}
+                <section className={styles.container} style={{ padding: "3rem 20px", borderTop: "1px solid var(--c-border)", fontSize: "0.8rem", color: "var(--c-sub)" }}>
+                    <h4 style={{ marginBottom: "1rem", fontSize: "0.9rem", color: "var(--c-ink)" }}>データ出典</h4>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                        <div>
+                            [1] PwC「2025年グローバル AIジョブバロメーター」<br />
+                            <a href="https://www.pwc.com/jp/ja/knowledge/thoughtleadership/ai-jobs-barometer.html" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: "inherit" }}>
+                                https://www.pwc.com/jp/ja/knowledge/thoughtleadership/ai-jobs-barometer.html
+                            </a>
+                        </div>
+                        <div>
+                            [2] PwC Japan「生成AIに関する実態調査 2025春（5カ国比較）」<br />
+                            <a href="https://www.pwc.com/jp/ja/knowledge/thoughtleadership/2025/assets/pdf/generative-ai-survey2025.pdf" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: "inherit" }}>
+                                https://www.pwc.com/jp/ja/knowledge/thoughtleadership/2025/assets/pdf/generative-ai-survey2025.pdf
+                            </a>
+                        </div>
+                        <div>
+                            [3] PwC「29th Global CEO Survey（2026）」<br />
+                            <a href="https://www.pwc.com/gx/en/ceo-survey/2026/pwc-ceo-survey-2026.pdf" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: "inherit" }}>
+                                https://www.pwc.com/gx/en/ceo-survey/2026/pwc-ceo-survey-2026.pdf
+                            </a>
+                        </div>
+                        <div>
+                            [4] Thomson Reuters「Future of Professionals Report 2025」<br />
+                            <span style={{ opacity: 0.8 }}>※調査は主にプロフェッショナル領域の文脈</span><br />
+                            <a href="https://www.thomsonreuters.com/content/dam/ewp-m/documents/thomsonreuters/en/pdf/reports/future-of-professionals-report-2025.pdf" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: "inherit" }}>
+                                https://www.thomsonreuters.com/content/dam/ewp-m/documents/thomsonreuters/en/pdf/reports/future-of-professionals-report-2025.pdf
+                            </a>
+                        </div>
+                        <div>
+                            [5] 厚労省「人材開発支援助成金」資料<br />
+                            <a href="https://www.mhlw.go.jp/content/11800000/001514280.pdf" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: "inherit" }}>
+                                https://www.mhlw.go.jp/content/11800000/001514280.pdf
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
             </main>
 
-            {/* Footer */}
-            <footer className={styles.footer}>
-                <p>&copy; AX-1 Seminar Executive Committee. All rights reserved.</p>
-            </footer>
+
         </div>
     );
 }
