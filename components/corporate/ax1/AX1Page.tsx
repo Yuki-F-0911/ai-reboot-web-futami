@@ -145,14 +145,14 @@ export default function AX1Page() {
                         </h2>
 
                         <p className={`${styles.fadeUp} ${styles.problemIntro}`}>
-                            これは「便利ツールの紹介会」ではない。
+                            単なる「便利ツールの紹介会」ではありません。
                             <br />
                             採用、マーケティング、そして
                             <span className={styles.underlineAccent}>
-                                経営の意思決定そのものを再構築する
+                                経営の意思決定そのものを見直す
                             </span>
                             <br />
-                            ビジネスモデル変革の戦略会議だ。
+                            ビジネスモデル変革のための戦略を考える場です。
                         </p>
 
                         <div className={styles.problemList}>
@@ -162,7 +162,7 @@ export default function AX1Page() {
                             </div>
                             <div className={`${styles.problemItem} ${styles.fadeUp}`}>
                                 <strong>意思決定の遅れ</strong>
-                                競合他社は「AI前提」で事業を組み立てている。周回遅れの事実に気づいているか？
+                                競合他社は「AI前提」で事業を組み立てています。この変化に対応した戦略が求められています。
                             </div>
                             <div className={`${styles.problemItem} ${styles.fadeUp}`}>
                                 <strong>言語化の壁</strong>
@@ -170,7 +170,7 @@ export default function AX1Page() {
                             </div>
                             <div className={`${styles.problemItem} ${styles.fadeUp}`}>
                                 <strong>人材の枯渇</strong>
-                                右腕となる人材がいない。「やる人がいない」と嘆く前に、仕組みを変える必要がある。
+                                右腕となる人材がいない。人材確保と並行して、仕組みで解決することも有効な選択肢です。
                             </div>
                         </div>
                     </div>
@@ -183,7 +183,7 @@ export default function AX1Page() {
                             <span className={styles.mark}>このセミナーでできること</span>
                         </h2>
                         <p className={`${styles.fadeUp} ${styles.solutionDesc}`}>
-                            たった1日で、御社を「AIを武器にした組織」へ書き換える。
+                            1日で、御社を「AIを武器にした組織」へと変革するきっかけをつくります。
                             <br />
                             プログラミング不要のツール実装から、
                             <br />
@@ -446,10 +446,10 @@ export default function AX1Page() {
                         <h3>参加条件・注意事項</h3>
                         <p>
                             <strong>【審査制】</strong>{" "}
-                            本気で組織を変えたい経営者・決裁者のみを対象とします。
+                            経営者・決裁者の方を対象としています。審査の上、ご参加いただけます。
                             <br />
                             <strong>【営業禁止】</strong>{" "}
-                            保険、不動産、投資等の勧誘目的での参加は固くお断りします。
+                            保険、不動産、投資等の勧誘目的での参加はご遠慮ください。
                             <br />
                             <strong>【スキル】</strong>{" "}
                             プログラミング知識は不要です。PCをご持参ください。
@@ -491,11 +491,11 @@ export default function AX1Page() {
                     </motion.a>
 
                     <p className={styles.ctaFooterText}>
-                        この5万円はコストではありません。
+                        経営判断に必要な知識と、すぐに活用できるツールを
                         <br />
-                        あなたの会社がAI時代を生き抜くための、最も安い「投資」です。
+                        1日で持ち帰れるプログラムです。
                         <br />
-                        席が埋まる前に、ご決断ください。
+                        ご参加をお待ちしております。
                     </p>
                 </section>
                 {/* Data Sources Section */}
