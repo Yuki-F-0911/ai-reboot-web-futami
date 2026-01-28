@@ -49,3 +49,10 @@ aireboor1209
 .claude/logs/
 .claude/memory/
 .claude/sessions/
+
+# Shared Skills
+.gemini/skills/
+
+# Videos
+my-video/
+
