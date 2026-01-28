@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "./AX1MessagePage.module.css";
+import { AX1EntryForm } from "./AX1EntryForm";
 
 export default function AX1MessagePage() {
     const [isNavScrolled, setIsNavScrolled] = useState(false);
@@ -771,10 +772,7 @@ export default function AX1MessagePage() {
                     </div>
 
                     <div className={`${styles.revealTrigger} ${styles.delay300}`}>
-                        <a href="#" className={styles.entryBtn}>
-                            セミナーにエントリーする
-                        </a>
-                        <p className={styles.entryNote}>※ 審査制のため、エントリー後に参加可否をご連絡いたします</p>
+                        <AX1EntryForm />
                     </div>
                 </div>
             </section>
