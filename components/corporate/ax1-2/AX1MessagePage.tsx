@@ -81,7 +81,7 @@ export default function AX1MessagePage() {
                         </a>
                     </div>
 
-                    <button className={styles.mobileMenuBtn} onClick={() => setIsMobileMenuOpen(true)}>
+                    <button className={styles.navMobileMenuBtn} onClick={() => setIsMobileMenuOpen(true)}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" style={{ width: 24, height: 24 }}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
@@ -400,7 +400,7 @@ export default function AX1MessagePage() {
             {/* Section 5: Benefits (Assets) */}
             <section id="benefits" className={`${styles.sectionMa} ${styles.benefitsSection}`}>
                 <div className={styles.benefitsContainer}>
-                    <h2 className={`${styles.benefitsTitle} ${styles.revealTrigger}`}>参加後に残る、6つの資産</h2>
+                    <h2 className={`${styles.benefitsTitle} ${styles.revealTrigger}`}>参加後に残る、4つの資産</h2>
                     <p className={`${styles.benefitsDesc} ${styles.revealTrigger}`}>
                         セミナーで学んで終わり、ではありません。<br />持ち帰って使えるものをお渡しします。
                     </p>
@@ -413,8 +413,8 @@ export default function AX1MessagePage() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                     </svg>
                                 ),
-                                title: "可視化レポート",
-                                desc: "「AI活用200選チェック」と音声診断により、組織の現状を数値化したレポートをお渡しします。",
+                                title: "自社の現在地レポート & 言語化",
+                                desc: "「AI活用200選チェック」と音声診断で、組織の遅れを数値化。さらに、経営者の脳内を「アクティブリスニング」の手法で言語化し、AIへの指示（プロンプト）精度を劇的に高めます。",
                             },
                             {
                                 icon: (
@@ -422,8 +422,8 @@ export default function AX1MessagePage() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
                                 ),
-                                title: "カスタムAI",
-                                desc: "セミナー内で作成する自社専用AIボット（Google Gems）。プログラミング不要で、すぐに業務で活用できます。",
+                                title: "Google Gems（カスタムAI）",
+                                desc: "プログラミング不要。「SNS投稿」「日報分析」など、自社専用のAIボットをその場で作成し、持ち帰っていただきます。",
                             },
                             {
                                 icon: (
@@ -431,8 +431,8 @@ export default function AX1MessagePage() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 ),
-                                title: "資金調達プラン",
-                                desc: "人材開発支援助成金を活用した、具体的な投資回収プランを提示します。",
+                                title: "人材開発支援助成金",
+                                desc: "本セミナー後の人材育成・AI研修にかかる費用を大幅に圧縮。「コスト」を理由に変革を諦めないための、具体的な資金調達プランを提示します。",
                             },
                             {
                                 icon: (
@@ -440,26 +440,8 @@ export default function AX1MessagePage() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                     </svg>
                                 ),
-                                title: "コミュニティ参加権",
-                                desc: "経営者限定Slackコミュニティへの1年間の参加権をお付けします。",
-                            },
-                            {
-                                icon: (
-                                    <svg style={{ width: 32, height: 32 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                                    </svg>
-                                ),
-                                title: "個別コンサルティング",
-                                desc: "後日60分の個別戦略相談を優先的にご案内いたします。",
-                            },
-                            {
-                                icon: (
-                                    <svg style={{ width: 32, height: 32 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                    </svg>
-                                ),
-                                title: "各種資料",
-                                desc: "助成金申請ガイド、書籍データなど、実務で使える資料一式をお渡しします。",
+                                title: "経営者コミュニティ & 個別戦略相談",
+                                desc: "完全招待制・経営者限定Slackコミュニティへの1年間参加権。さらに、後日「AI研修」や「人材紹介」を含めた組織導入の個別コンサルティング（60分）を優先案内。",
                             },
                         ].map((benefit, index) => (
                             <div key={index} className={styles.benefitCard}>
