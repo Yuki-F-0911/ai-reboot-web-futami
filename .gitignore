@@ -43,3 +43,9 @@ next-env.d.ts
 # Serena (AI coding assistant)
 .serena/
 aireboor1209
+
+# Claude Code (session-specific)
+.claude/state/
+.claude/logs/
+.claude/memory/
+.claude/sessions/
