@@ -64,9 +64,6 @@ export default function AX1SpecialPage() {
                         <a href="#why-ceo" onClick={(e) => scrollToSection(e, "#why-ceo")} className={styles.navLink}>
                             なぜ経営者なのか
                         </a>
-                        <a href="#program" onClick={(e) => scrollToSection(e, "#program")} className={styles.navLink}>
-                            プログラム
-                        </a>
                         <a href="#speakers" onClick={(e) => scrollToSection(e, "#speakers")} className={styles.navLink}>
                             登壇者
                         </a>
@@ -105,9 +102,9 @@ export default function AX1SpecialPage() {
                         </div>
 
                         <h1 className={styles.heroTitle}>
-                            <span style={{ display: "block" }}>経営者が</span>
-                            <span style={{ display: "block" }} className={styles.heroTitleIndent}>自ら描く</span>
-                            <span style={{ display: "block" }} className={styles.heroTitleAccent}>AI戦略の1日。</span>
+                            <span style={{ display: "block" }}>社員ではなく、</span>
+                            <span style={{ display: "block" }} className={styles.heroTitleIndent}>あなた自身が</span>
+                            <span style={{ display: "block" }} className={styles.heroTitleAccent}>AIを学ぶ理由。</span>
                         </h1>
 
                         <div className={styles.heroSubCopy}>
@@ -132,46 +129,93 @@ export default function AX1SpecialPage() {
                             </div>
                         </div>
                     </div>
+
+                    <div className={`${styles.heroVisual} ${styles.revealTrigger} ${styles.delay200}`}>
+                        <div className={styles.heroEnso}>
+                            <div className={styles.heroEnsoGradient} />
+                            <div className={styles.heroEnsoLine1} />
+                            <div className={styles.heroEnsoLine2} />
+                        </div>
+                    </div>
                 </div>
             </header>
 
-            {/* Section 1: The Message */}
+            {/* Section 1: The Letter (Philosophy) */}
             <section id="why-ceo" className={`${styles.sectionMa} ${styles.whyCeoSection}`}>
                 <div className={styles.whyCeoLine} />
 
                 <div className={styles.containerReading} style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
                     <h2 className={styles.whyCeoTitle}>
-                        4月開講に先駆けた、<br />特別プレビュー回のご案内
+                        なぜ、経営者自身が<br />AIを学ぶ必要があるのか
                     </h2>
 
                     <div className={`${styles.whyCeoContent} ${styles.revealTrigger}`}>
-                        <p>
-                            中小・ベンチャー企業の経営者（CxO）向けに、AI活用と組織変革を考える1DAY研修「AX1」を4月から本格始動させます。
+                        <p style={{ color: "var(--ax1-secondary)", fontWeight: "700", textAlign: "center", marginBottom: "2rem" }}>
+                            【4月開講に先駆けた、10名限定特別プレビュー回のご案内】
                         </p>
                         <p>
-                            それに先立ち、10名限定（紹介者限定）で、特別回を実施することにしました。本回の一般公開はいたしません。
+                            「AIは社員に任せておけばいい」<br />
+                            そう考えている経営者の方は、少なくないと思います。
                         </p>
                         <p>
-                            このご案内をしているあなたか、そのご紹介者のみを対象とさせていただきます。
+                            実際、社員がAIを活用して業務を効率化したり、定型作業を自動化したりすることは、すでに可能です。スライドやWebサイトは、誰でも短時間で作れるようになりました。
+                        </p>
+                        <p>
+                            でも、その先に進もうとしたとき、何が起こるでしょうか。
                         </p>
 
                         <div className={styles.whyCeoHighlight}>
-                            「役員との参加」を推奨しています。
+                            おそらく、社長がブレーキになります。
                         </div>
 
                         <p>
-                            経営を一緒に担う役員の方と一緒に参加されることを強くオススメしています。共通言語を持つことで、翌日からの変革スピードが劇的に変わるからです。
+                            企業の舵取りをしているのは、ほとんどの場合、経営者です。その意思決定をする人が、AIを前提にした戦略を描けなければ、社員が勝手に描くことはできません。
+                        </p>
+                        <p>
+                            もし社員が独自の判断で新商品開発を始めたり、契約中の基幹システムを解約して自分で作り始めたりしたら、「おいおい、待ってくれ」となるはずです。
+                        </p>
+                        <p>
+                            すでに、そのくらいのことはやろうと思えばできる時代に来ています。それをすべきかどうか、やるならどう進めるか。経営者が同じ知識と感覚を持って判断できなければ、いずれ競争力を失います。
+                        </p>
+                        <p>
+                            社員は「ならば別のところでやります」と、旅立っていくかもしれません。
                         </p>
 
+                        <div className={styles.imperfectLine} />
+
+                        <p>もう一つ、お伝えしたいことがあります。</p>
+
                         <div className={styles.whyCeoBox}>
-                            モニター価格：2.5万円（一般 5万円）<br />
-                            <span style={{ fontSize: "0.875rem", opacity: 0.8 }}>※研修後にお客さまの声を収録し、サイト等での公開をご快諾いただける方限定の価格です。</span>
+                            社長の頭の中にある考え、想い、判断基準。<br />
+                            それが社員の使うAIに活かされていないのは、<br />
+                            大きな機会損失です。
+                        </div>
+
+                        <p>
+                            組織のトップである経営者が持つ知識や表現を、頭の中にとどめたままでは、AIがどれだけ進化しても、勝手に抜き取っていくことはできません。少なくとも、そんな未来はすぐには来ません。
+                        </p>
+                        <p>
+                            だからこそ、経営者の脳内にあるナレッジを言語化し、会社として共有できる資産にして、それが常に更新されていく状態を作ること。これが、まず最低限やるべき準備だと私たちは考えています。
+                        </p>
+
+                        <div className={styles.whyCeoFooter}>
+                            <p style={{ background: "#E8F4F8", padding: "1.5rem", borderRadius: "0.5rem", color: "var(--ax1-primary)" }}>
+                                <strong>特別回のご案内：</strong><br />
+                                10名限定（紹介者限定）で、2月25日に特別回を実施します。経営を一緒に担う役員の方との参加を推奨しています。
+                                <br /><br />
+                                <strong>モニター価格：2.5万円</strong>（一般 5万円）<br />
+                                <span style={{ fontSize: "0.875rem" }}>※研修後にお客さまの声を収録し、サイト等での公開にご協力いただける方限定。</span>
+                            </p>
+                            <p style={{ marginTop: "2rem" }}>
+                                ここまで読んで「なるほど」と思えた方は、このセミナーで、その準備を最短距離で進める方法を持ち帰っていたいただけます。
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Section 2: Overview */}
+
+            {/* Section 3: Overview (About) */}
             <section id="about" className={`${styles.sectionMa} ${styles.aboutSection}`}>
                 <div className={styles.aboutDecoration} />
 
@@ -181,92 +225,93 @@ export default function AX1SpecialPage() {
                         <h2 className={styles.aboutTitle}>AX-1とは</h2>
                         <div className={styles.aboutText}>
                             <p>
-                                AX-1は、経営者のための1日集中型AI戦略セミナーです。
+                                AX-1は、中小・ベンチャー企業の経営者（CxO）のための1日集中型のAI戦略セミナーです。
                             </p>
                             <p>
-                                「AIをどう使うか」ではなく「AIを前提にどう経営をアップデートするか」を、実践的なワークを通して体得します。
+                                「AX」は「AI Transformation」の略。<br />
+                                ただのAIの使い方講座ではありません。
+                            </p>
+                            <p>
+                                AIを前提にした組織変革の考え方と方法を、1日に凝縮してお伝えします。
                             </p>
                         </div>
                     </div>
 
                     <div className={`${styles.aboutCards} ${styles.revealTrigger} ${styles.delay200}`}>
                         <div className={styles.aboutCard}>
-                            <h3 className={styles.aboutCardTitle}>経営者・CxO限定</h3>
-                            <p className={styles.aboutCardText}>意思決定者が自らAIのポテンシャルを理解し、戦略を描けるようになるためのカリキュラムです。</p>
+                            <h3 className={styles.aboutCardTitle}>経営者限定</h3>
+                            <p className={styles.aboutCardText}>意思決定者だからこそ意味がある内容です。共通言語を持つ参加者との議論も資産になります。</p>
                         </div>
                         <div className={styles.aboutCard}>
-                            <h3 className={styles.aboutCardTitle}>思考の外部化・AI化</h3>
-                            <p className={styles.aboutCardText}>経営者の脳内にあるナレッジをAIに学習させ、組織の資産として活用する手法を学びます。</p>
+                            <h3 className={styles.aboutCardTitle}>実践ワークショップ</h3>
+                            <p className={styles.aboutCardText}>聞くだけでなく、手を動かして身につけます。思考を外部化するプロセスを体感します。</p>
                         </div>
                         <div className={styles.aboutCard}>
-                            <h3 className={styles.aboutCardTitle}>10名限定の密な環境</h3>
-                            <p className={styles.aboutCardText}>少人数だからこそ、個別の課題に深く切り込んだディスカッションが可能です。</p>
+                            <h3 className={styles.aboutCardTitle}>持ち帰れる資産</h3>
+                            <p className={styles.aboutCardText}>セミナー後も使える、あなた専用のAIツールと組織変革の仕組みを提供します。</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Section 3: Program */}
-            <section id="program" className={`${styles.sectionMa} ${styles.programSection}`}>
-                <div className={styles.programContainer}>
-                    <div className={`${styles.programHeader} ${styles.revealTrigger}`}>
-                        <h2 className={styles.programTitle}>1日の流れ</h2>
-                        <p className={styles.programDesc}>10:00から19:00まで。濃密な1日をご用意しています。</p>
-                    </div>
 
-                    <div className={`${styles.timeline} ${styles.revealTrigger} ${styles.delay100}`}>
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineTime}>
-                                <span className={styles.timelineTimeMain}>10:00</span>
-                                <div className={styles.timelineTimeSub}>- 13:00</div>
+            {/* Section 5: Benefits (Assets) */}
+            <section id="benefits" className={`${styles.sectionMa} ${styles.benefitsSection}`}>
+                <div className={styles.benefitsContainer}>
+                    <h2 className={`${styles.benefitsTitle} ${styles.revealTrigger}`}>参加後に残る、4つの資産</h2>
+                    <div className={`${styles.benefitsGrid} ${styles.revealTrigger} ${styles.delay200}`}>
+                        {[
+                            {
+                                icon: (
+                                    <svg style={{ width: 32, height: 32 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                ),
+                                title: "自社の現在地レポート & 言語化",
+                                desc: "「AI活用200選チェック」と音声診断で、組織の遅れを数値化。経営者の脳内を言語化します。",
+                            },
+                            {
+                                icon: (
+                                    <svg style={{ width: 32, height: 32 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                ),
+                                title: "Google Gems（カスタムAI）",
+                                desc: "プログラミング不要。自社専用のAIボットをその場で作成し、持ち帰っていただきます。",
+                            },
+                            {
+                                icon: (
+                                    <svg style={{ width: 32, height: 32 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                ),
+                                title: "人材開発支援助成金",
+                                desc: "本セミナー後の人材育成・AI研修にかかる費用を大幅に圧縮するプランを提示します。",
+                            },
+                            {
+                                icon: (
+                                    <svg style={{ width: 32, height: 32 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                ),
+                                title: "経営者コミュニティ & 個別戦略相談",
+                                desc: "完全招待制Slackコミュニティへの参加権と、後日の個別コンサルティング。",
+                            },
+                        ].map((benefit, index) => (
+                            <div key={index} className={styles.benefitCard}>
+                                <div className={styles.benefitIcon}>{benefit.icon}</div>
+                                <h3 className={styles.benefitTitle}>{benefit.title}</h3>
+                                <p className={styles.benefitDesc}>{benefit.desc}</p>
                             </div>
-                            <div className={styles.timelineDot} />
-                            <div>
-                                <span className={styles.timelineLabel}>第1部</span>
-                                <h3 className={styles.timelineTitle}>AX戦略と脳内言語化</h3>
-                                <p className={styles.timelineDesc}>
-                                    AI時代の経営フレームワーク。経営者の「想い」を引き出し、形式知化するワークを行います。
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineTime}>
-                                <span className={styles.timelineTimeMain}>14:00</span>
-                                <div className={styles.timelineTimeSub}>- 17:00</div>
-                            </div>
-                            <div className={styles.timelineDot} />
-                            <div>
-                                <span className={styles.timelineLabel}>第2部</span>
-                                <h3 className={styles.timelineTitle}>実践ワークショップ</h3>
-                                <p className={styles.timelineDesc}>
-                                    自社専用のカスタムAIをその場で構築。プログラミング不要で思考をプロダクト化します。
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineTime}>
-                                <span className={styles.timelineTimeMain}>17:00</span>
-                                <div className={styles.timelineTimeSub}>- 18:00</div>
-                            </div>
-                            <div className={styles.timelineDot} />
-                            <div>
-                                <span className={styles.timelineLabel}>第3部</span>
-                                <h3 className={styles.timelineTitle}>資金戦略と交流</h3>
-                                <p className={styles.timelineDesc}>
-                                    助成金活用シミュレーションと、参加者同士のネットワーキング。
-                                </p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* Section 4: Speakers */}
+            {/* Section 6: Speakers */}
             <section id="speakers" className={`${styles.sectionMa} ${styles.speakersSection}`}>
                 <div className={styles.speakersContainer}>
-                    <h2 className={`${styles.speakersTitle} ${styles.revealTrigger}`}>講師陣</h2>
+                    <h2 className={`${styles.speakersTitle} ${styles.revealTrigger}`}>登壇者</h2>
                     <div className={`${styles.speakersGrid} ${styles.revealTrigger} ${styles.delay100}`}>
                         <div className={styles.speakerCard}>
                             <div className={styles.speakerImage}>
@@ -287,7 +332,8 @@ export default function AX1SpecialPage() {
                 </div>
             </section>
 
-            {/* Section 5: Details */}
+
+            {/* Section 8: Details & FAQ */}
             <section id="details" className={`${styles.sectionMa} ${styles.detailsSection}`}>
                 <div className={styles.detailsContainer}>
                     <h2 className={`${styles.detailsTitle} ${styles.revealTrigger}`}>特別回 開催概要</h2>
@@ -296,7 +342,7 @@ export default function AX1SpecialPage() {
                         <dl>
                             <div className={styles.detailsRow}>
                                 <dt className={styles.detailsLabel}>日時</dt>
-                                <dd className={styles.detailsValue}>2026年2月25日（水） 10:00 - 19:00</dd>
+                                <dd className={styles.detailsValue}>2026年2月25日（火） 10:00 - 19:00</dd>
                             </div>
                             <div className={`${styles.detailsRow} ${styles.detailsRowAlt}`}>
                                 <dt className={styles.detailsLabel}>会場</dt>
@@ -310,41 +356,42 @@ export default function AX1SpecialPage() {
                                 <dt className={styles.detailsLabel}>参加費</dt>
                                 <dd className={styles.detailsValue}>
                                     一般：50,000円（税込）<br />
-                                    モニター価格：25,000円（税込）<br />
+                                    <strong>モニター価格：25,000円（税込）</strong><br />
                                     <span style={{ fontSize: "0.875rem", opacity: 0.7 }}>
                                         ※モニター価格適用には研修後のお客さまの声収録へのご協力が必要です。
                                     </span>
                                 </dd>
                             </div>
                         </dl>
-                        <div className={styles.detailsNote}>
-                            <p>※ 定員になり次第、締め切らせていただきます。</p>
-                            <p>※ 経営を一緒に担う役員の方との参加を強く推奨しております。</p>
-                        </div>
+                    </div>
+
+                    <h3 className={`${styles.faqTitle} ${styles.revealTrigger}`}>よくあるご質問</h3>
+                    <div className={`${styles.faqList} ${styles.revealTrigger}`}>
+                        <details className={styles.faqItem}>
+                            <summary className={styles.faqQuestion}>知識がなくても参加できますか？</summary>
+                            <div className={styles.faqAnswer}>はい、プログラミング知識は不要です。経営者としての視点があれば活用いただけます。</div>
+                        </details>
                     </div>
                 </div>
             </section>
 
-            {/* Section 6: Entry */}
+            {/* Section 9: Entry */}
             <section id="entry" className={styles.entrySection}>
                 <div className={styles.entryBg} />
 
                 <div className={styles.entryContainer}>
                     <h2 className={`${styles.entryTitle} ${styles.revealTrigger}`}>
-                        未来を創る経営者のために。
+                        経営者として、<br />AIと向き合う1日を。
                     </h2>
 
                     <p className={`${styles.entryDesc} ${styles.revealTrigger} ${styles.delay100}`}>
-                        本回は一般公開されないクローズドなセッションです。<br />
-                        紹介者限定の特別な1日を、ぜひご活用ください。
+                        本回は一般公開されない完全招待制のセッションです。<br />
+                        紹介者限定の特別な1日を、あなたの組織の未来に。
                     </p>
 
                     <div className={`${styles.entryCard} ${styles.revealTrigger} ${styles.delay200}`}>
-                        <p className={styles.entryCardDate}>2026年2月25日（水） 10:00 - 19:00</p>
+                        <p className={styles.entryCardDate}>2026年2月25日（火） 10:00 - 19:00</p>
                         <p className={styles.entryCardInfo}>紹介者限定 | 10名限定 | モニター価格 25,000円</p>
-                        <p style={{ marginTop: "1rem", fontSize: "0.875rem", color: "var(--ax1-secondary)" }}>
-                            プロモーションコードをお持ちの方は入力してください。
-                        </p>
                     </div>
 
                     <div className={`${styles.revealTrigger} ${styles.delay300}`}>
@@ -353,6 +400,7 @@ export default function AX1SpecialPage() {
                 </div>
             </section>
 
+
             {/* Mobile Menu Overlay */}
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ""}`}>
                 <button className={styles.mobileMenuClose} onClick={() => setIsMobileMenuOpen(false)}>
@@ -360,10 +408,9 @@ export default function AX1SpecialPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                <a href="#why-ceo" onClick={(e) => scrollToSection(e, "#why-ceo")} className={styles.mobileMenuLink}>ご案内</a>
-                <a href="#program" onClick={(e) => scrollToSection(e, "#program")} className={styles.mobileMenuLink}>プログラム</a>
+                <a href="#why-ceo" onClick={(e) => scrollToSection(e, "#why-ceo")} className={styles.mobileMenuLink}>なぜ経営者か</a>
                 <a href="#speakers" onClick={(e) => scrollToSection(e, "#speakers")} className={styles.mobileMenuLink}>講師</a>
-                <a href="#details" onClick={(e) => scrollToSection(e, "#details")} className={styles.mobileMenuLink}>開催概要</a>
+                <a href="#details" onClick={(e) => scrollToSection(e, "#details")} className={styles.mobileMenuLink}>概要</a>
                 <a href="#entry" onClick={(e) => scrollToSection(e, "#entry")} className={styles.mobileMenuBtn}>ENTRY</a>
             </div>
         </div>
