@@ -207,7 +207,10 @@ export default function AX1SpecialPage() {
                                 <span style={{ fontSize: "0.875rem" }}>※研修後にお客さまの声を収録し、サイト等での公開にご協力いただける方限定。</span>
                             </p>
                             <p style={{ marginTop: "2rem" }}>
-                                ここまで読んで「なるほど」と思えた方は、このセミナーで、その準備を最短距離で進める方法を持ち帰っていたいただけます。
+                                ここまで読んで「なるほど」と思えた方は、このセミナーで、その準備を最短距離で進める方法を持ち帰っていただけます。
+                            </p>
+                            <p style={{ marginTop: "1rem" }}>
+                                もしピンとこなかったなら、それ自体が、このセミナーを受ける必要性を表しているのかもしれません。
                             </p>
                         </div>
                     </div>
@@ -256,57 +259,6 @@ export default function AX1SpecialPage() {
 
 
             {/* Section 5: Benefits (Assets) */}
-            <section id="benefits" className={`${styles.sectionMa} ${styles.benefitsSection}`}>
-                <div className={styles.benefitsContainer}>
-                    <h2 className={`${styles.benefitsTitle} ${styles.revealTrigger}`}>参加後に残る、4つの資産</h2>
-                    <div className={`${styles.benefitsGrid} ${styles.revealTrigger} ${styles.delay200}`}>
-                        {[
-                            {
-                                icon: (
-                                    <svg style={{ width: 32, height: 32 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                    </svg>
-                                ),
-                                title: "自社の現在地レポート & 言語化",
-                                desc: "「AI活用200選チェック」と音声診断で、組織の遅れを数値化。経営者の脳内を言語化します。",
-                            },
-                            {
-                                icon: (
-                                    <svg style={{ width: 32, height: 32 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                ),
-                                title: "Google Gems（カスタムAI）",
-                                desc: "プログラミング不要。自社専用のAIボットをその場で作成し、持ち帰っていただきます。",
-                            },
-                            {
-                                icon: (
-                                    <svg style={{ width: 32, height: 32 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                ),
-                                title: "人材開発支援助成金",
-                                desc: "本セミナー後の人材育成・AI研修にかかる費用を大幅に圧縮するプランを提示します。",
-                            },
-                            {
-                                icon: (
-                                    <svg style={{ width: 32, height: 32 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                    </svg>
-                                ),
-                                title: "経営者コミュニティ & 個別戦略相談",
-                                desc: "完全招待制Slackコミュニティへの参加権と、後日の個別コンサルティング。",
-                            },
-                        ].map((benefit, index) => (
-                            <div key={index} className={styles.benefitCard}>
-                                <div className={styles.benefitIcon}>{benefit.icon}</div>
-                                <h3 className={styles.benefitTitle}>{benefit.title}</h3>
-                                <p className={styles.benefitDesc}>{benefit.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* Section 6: Speakers */}
             <section id="speakers" className={`${styles.sectionMa} ${styles.speakersSection}`}>
