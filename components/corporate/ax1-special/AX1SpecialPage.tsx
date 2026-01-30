@@ -98,7 +98,7 @@ export default function AX1SpecialPage() {
                     <div className={`${styles.heroMain} ${styles.revealTrigger}`}>
                         <div className={styles.heroDate}>
                             <span className={styles.heroDateLine} />
-                            2026.2.25 TUE
+                            2026.2.25 WED
                         </div>
 
                         <h1 className={styles.heroTitle}>
@@ -294,7 +294,7 @@ export default function AX1SpecialPage() {
                         <dl>
                             <div className={styles.detailsRow}>
                                 <dt className={styles.detailsLabel}>日時</dt>
-                                <dd className={styles.detailsValue}>2026年2月25日（火） 10:00 - 19:00</dd>
+                                <dd className={styles.detailsValue}>2026年2月25日（水） 10:00 - 19:00</dd>
                             </div>
                             <div className={`${styles.detailsRow} ${styles.detailsRowAlt}`}>
                                 <dt className={styles.detailsLabel}>会場</dt>
@@ -342,7 +342,7 @@ export default function AX1SpecialPage() {
                     </p>
 
                     <div className={`${styles.entryCard} ${styles.revealTrigger} ${styles.delay200}`}>
-                        <p className={styles.entryCardDate}>2026年2月25日（火） 10:00 - 19:00</p>
+                        <p className={styles.entryCardDate}>2026年2月25日（水） 10:00 - 19:00</p>
                         <p className={styles.entryCardInfo}>紹介者限定 | 10名限定 | モニター価格 25,000円</p>
                     </div>
 
