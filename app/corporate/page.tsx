@@ -7,6 +7,7 @@ import { CorporateFollowUp } from "@/components/corporate/CorporateFollowUp";
 import { CorporateOtherPrograms } from "@/components/corporate/CorporateOtherPrograms";
 import { CorporateCase } from "@/components/corporate/CorporateCase";
 import { CorporatePricing } from "@/components/corporate/CorporatePricing";
+import { CorporateSimulator } from "@/components/corporate/CorporateSimulator";
 import { CorporateInstructors } from "@/components/corporate/CorporateInstructors";
 import { CorporateReasons } from "@/components/corporate/CorporateReasons";
 import { CorporateCTA } from "@/components/corporate/CorporateCTA";
@@ -24,10 +25,11 @@ export default function CorporatePage() {
       <CorporateHero />
       <CorporateProblem />
       <CorporateAbout />
+      <CorporatePricing />
+      <CorporateSimulator />
       <CorporateFollowUp />
       <CorporateOtherPrograms />
       <CorporateCase />
-      <CorporatePricing />
       <CorporateInstructors />
       <CorporateReasons />
       <CorporateCTA />
