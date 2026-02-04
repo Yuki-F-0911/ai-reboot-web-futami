@@ -336,7 +336,7 @@
     letter-spacing: -0.02em;
     line-height: 1.1;
     font-feature-settings: "palt";
-    font-size: 3rem;
+    font-size: clamp(2.6rem, 4.4vw, 5.8rem);
     color: var(--ax1-primary);
     margin-left: -0.05em;
     text-wrap: balance;
@@ -346,6 +346,22 @@
     display: block;
 }
 
+.heroTitleLead {
+    font-size: 0.78em;
+    letter-spacing: 0.02em;
+    color: var(--ax1-sub);
+    margin-bottom: 0.2em;
+}
+
+.heroTitleCore {
+    font-size: 1.02em;
+}
+
+.heroTitleTrail {
+    font-size: 0.95em;
+    letter-spacing: 0.01em;
+}
+
 .brMobile {
     display: inline;
 }
@@ -353,18 +369,6 @@
 @media (min-width: 768px) {
     .brMobile {
         display: none;
-    }
-}
-
-@media (min-width: 768px) {
-    .heroTitle {
-        font-size: 4.5rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    .heroTitle {
-        font-size: 6rem;
     }
 }
 
@@ -451,6 +455,11 @@
     .heroTitle {
         font-size: clamp(2.1rem, 8.5vw, 3rem);
         line-height: 1.12;
+    }
+
+    .heroTitleLead {
+        font-size: 0.9em;
+        color: var(--ax1-primary);
     }
 
     .heroKickerDate {

@@ -105,13 +105,13 @@ export default function AX1SpecialPage() {
                         </div>
 
                         <h1 className={styles.heroTitle}>
-                            <span className={styles.heroTitleLine}>
+                            <span className={`${styles.heroTitleLine} ${styles.heroTitleLead}`}>
                                 2026年、<br className={styles.brMobile} />中小企業は、
                             </span>
-                            <span className={styles.heroTitleLine}>
+                            <span className={`${styles.heroTitleLine} ${styles.heroTitleCore}`}>
                                 <span className={styles.markerText}>社長自らがAI駆動型に</span>
                             </span>
-                            <span className={`${styles.heroTitleLine} ${styles.heroTitleAccent}`}>
+                            <span className={`${styles.heroTitleLine} ${styles.heroTitleTrail} ${styles.heroTitleAccent}`}>
                                 変われるかどうかが問われます
                             </span>
                         </h1>
