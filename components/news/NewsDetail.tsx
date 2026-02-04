@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useMemo } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Calendar, ArrowLeft, ArrowRight, Share2 } from 'lucide-react'
@@ -153,9 +154,12 @@ export default function NewsDetail({ news, relatedNews }: NewsDetailProps) {
           {/* サムネイル画像 */}
           {news.thumbnail && (
             <div className="mb-8 rounded-lg overflow-hidden">
-              <img
+              <Image
                 src={news.thumbnail.url}
                 alt={news.title}
+                width={news.thumbnail.width}
+                height={news.thumbnail.height}
+                sizes="100vw"
                 className="w-full h-auto"
               />
             </div>

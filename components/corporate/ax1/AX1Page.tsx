@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import styles from "./AX1Page.module.css";
 
 import { AX1Hero } from "./AX1Hero";
@@ -280,7 +281,7 @@ export default function AX1Page() {
                             onClick={() => toggleSpeaker("naruse")}
                         >
                             <div className={styles.speakerImage}>
-                                <img src="/images/naruse.jpg" alt="成瀬 拓也" />
+                                <Image src="/images/naruse.jpg" alt="成瀬 拓也" width={120} height={120} />
                             </div>
                             <div className={styles.speakerInfo}>
                                 <h3 className={styles.speakerName}>成瀬 拓也</h3>
@@ -333,7 +334,7 @@ export default function AX1Page() {
                             onClick={() => toggleSpeaker("iwamoto")}
                         >
                             <div className={styles.speakerImage}>
-                                <img src="/images/iwamoto.jpg" alt="岩本 和也" />
+                                <Image src="/images/iwamoto.jpg" alt="岩本 和也" width={120} height={120} />
                             </div>
                             <div className={styles.speakerInfo}>
                                 <h3 className={styles.speakerName}>岩本 和也</h3>

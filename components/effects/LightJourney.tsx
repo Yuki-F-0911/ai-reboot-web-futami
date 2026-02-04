@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useRef, useState, useCallback } from 'react'
-import { useScroll } from 'framer-motion'
 
 type LightState = 'chaos' | 'converging' | 'path_forming' | 'clear_path' | 'focusing' | 'star_pulsing' | 'star_present'
 
@@ -128,7 +127,7 @@ export default function LightJourney({ state, intensity = 1 }: LightJourneyProps
   }, [state, dimensions.width, dimensions.height])
 
   // ターゲット位置の計算
-  const getTargetPosition = (particle: Particle, shape: string | null): { x: number, y: number } | null => {
+  const getTargetPosition = useCallback((particle: Particle, shape: string | null): { x: number, y: number } | null => {
     if (!shape) return null
     
     const centerX = dimensions.width / 2
@@ -154,7 +153,7 @@ export default function LightJourney({ state, intensity = 1 }: LightJourneyProps
       default:
         return null
     }
-  }
+  }, [dimensions.width, dimensions.height])
 
   // アニメーションループ
   const animate = useCallback(() => {
@@ -245,7 +244,7 @@ export default function LightJourney({ state, intensity = 1 }: LightJourneyProps
     })
     
     animationRef.current = requestAnimationFrame(animate)
-  }, [state, intensity, dimensions.width, dimensions.height])
+  }, [state, intensity, dimensions.width, dimensions.height, getTargetPosition])
 
   // 初期化とリサイズ処理
   useEffect(() => {

@@ -7,59 +7,6 @@ import { PersonalizedCTA, PersonalizedMessage } from '@/components/home/Personal
 import { usePersonalization } from '@/contexts/PersonalizationContext'
 import Image from 'next/image'
 
-// 吹き出し輪郭を「接線方向の短い矩形（均一）」で構成（中心方向に見えにくい）
-function BurstOutline({ count = 120, dash = 6, thickness = 2, offset = 1 }: { count?: number; dash?: number; thickness?: number; offset?: number }) {
-  const cx = 50
-  const cy = 50
-  // 楕円は使わず、歪みを避けるため円で生成
-  const rx = 40
-  const ry = 40
-  const indices = Array.from({ length: count }, (_, i) => i)
-  return (
-    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden>
-      {indices.map((i) => {
-        const t = (i / count) * Math.PI * 2
-        const px = cx + rx * Math.cos(t)
-        const py = cy + ry * Math.sin(t)
-        // 外向き法線（位置のわずかな外側オフセットに使用）
-        let nx = (px - cx) / (rx * rx)
-        let ny = (py - cy) / (ry * ry)
-        const nLen = Math.hypot(nx, ny) || 1
-        nx /= nLen
-        ny /= nLen
-        // 接線ベクトル（矩形の長辺方向）
-        const tx = -rx * Math.sin(t)
-        const ty =  ry * Math.cos(t)
-        const tLen = Math.hypot(tx, ty) || 1
-        const ux = tx / tLen
-        const uy = ty / tLen
-        // 矩形中心を輪郭のわずか外側へ
-        const cxr = px + nx * offset
-        const cyr = py + ny * offset
-        const w = dash
-        const h = thickness
-        const x = cxr - w / 2
-        const y = cyr - h / 2
-        const rotate = (Math.atan2(uy, ux) * 180) / Math.PI
-        return (
-          <rect
-            key={i}
-            x={x}
-            y={y}
-            width={w}
-            height={h}
-            rx={h / 2}
-            ry={h / 2}
-            fill="currentColor"
-            className="text-black/90"
-            transform={`rotate(${rotate} ${cxr} ${cyr})`}
-          />
-        )
-      })}
-    </svg>
-  )
-}
-
 export default function FinalChapter() {
   // PersonalizationContextを使用
   const personalizationData = usePersonalization()

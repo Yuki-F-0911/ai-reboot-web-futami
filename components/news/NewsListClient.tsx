@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Calendar, ArrowRight, Loader2 } from 'lucide-react'
@@ -68,11 +69,13 @@ export default function NewsListClient({ initialNews, totalCount }: NewsListClie
                 <div className="group h-full bg-white rounded-lg border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 overflow-hidden">
                   {/* サムネイル画像（あれば） */}
                   {item.thumbnail && (
-                    <div className="aspect-video overflow-hidden bg-gray-100">
-                      <img
+                    <div className="aspect-video overflow-hidden bg-gray-100 relative">
+                      <Image
                         src={item.thumbnail.url}
                         alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   )}

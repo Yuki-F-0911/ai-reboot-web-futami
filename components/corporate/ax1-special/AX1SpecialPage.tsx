@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import styles from "./AX1SpecialPage.module.css";
 import { AX1EntryForm } from "../ax1-2/AX1EntryForm";
 
@@ -267,7 +268,13 @@ export default function AX1SpecialPage() {
                     <div className={`${styles.speakersGrid} ${styles.revealTrigger} ${styles.delay100}`}>
                         <div className={styles.speakerCard}>
                             <div className={styles.speakerImage}>
-                                <img src="/images/naruse.jpg" alt="成瀬 拓也" className={styles.speakerImg} />
+                                <Image
+                                    src="/images/naruse.jpg"
+                                    alt="成瀬 拓也"
+                                    fill
+                                    sizes="(max-width: 768px) 6rem, 8rem"
+                                    className={styles.speakerImg}
+                                />
                             </div>
                             <p className={styles.speakerRole}>AIリブートアカデミー主宰</p>
                             <h3 className={styles.speakerName}>成瀬 拓也</h3>
@@ -275,7 +282,13 @@ export default function AX1SpecialPage() {
 
                         <div className={styles.speakerCard}>
                             <div className={styles.speakerImage}>
-                                <img src="/images/iwamoto.jpg" alt="岩本 和也" className={styles.speakerImg} />
+                                <Image
+                                    src="/images/iwamoto.jpg"
+                                    alt="岩本 和也"
+                                    fill
+                                    sizes="(max-width: 768px) 6rem, 8rem"
+                                    className={styles.speakerImg}
+                                />
                             </div>
                             <p className={styles.speakerRole}>「AIのある暮らし」主宰</p>
                             <h3 className={styles.speakerName}>岩本 和也</h3>

@@ -30,10 +30,15 @@ export default function StoryGlitch({ className = '', delay = 0 }: StoryGlitchPr
   const [glitchChars, setGlitchChars] = useState<string[]>([]) // デジタルグリッチ用の文字配列
   const [isTransitioning, setIsTransitioning] = useState(false) // 切り替え中フラグ
   const initialEffectDone = useRef(false)
+  const displayTextRef = useRef(displayText)
 
   useEffect(() => {
     setIsClient(true)
   }, [])
+
+  useEffect(() => {
+    displayTextRef.current = displayText
+  }, [displayText])
 
   // 初期グリッチエフェクト（一度だけ実行）
   useEffect(() => {
@@ -132,7 +137,7 @@ export default function StoryGlitch({ className = '', delay = 0 }: StoryGlitchPr
             
             if (currentStep < glitchSteps / 2) {
               // 前半：現在の文字が崩れていく
-              const chars = displayText.split('').map((char, i) => {
+              const chars = displayTextRef.current.split('').map((char) => {
                 if (Math.random() > 0.5) {
                   const glitchSet = '▀▄█▌▐░▒▓╔╗╚╝╠╣╦╩╬'
                   return glitchSet[Math.floor(Math.random() * glitchSet.length)]
@@ -147,7 +152,7 @@ export default function StoryGlitch({ className = '', delay = 0 }: StoryGlitchPr
               setIsGlitching(true)
             } else {
               // 後半：新しい文字が形成されていく
-              const chars = targetText.split('').map((char, i) => {
+              const chars = targetText.split('').map((char) => {
                 if (Math.random() > (currentStep - glitchSteps / 2) / (glitchSteps / 2)) {
                   const glitchSet = '▓▒░╬═║╱╲'
                   return glitchSet[Math.floor(Math.random() * glitchSet.length)]

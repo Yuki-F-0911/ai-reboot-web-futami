@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
 
 interface Node {
@@ -65,7 +65,7 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
   }
 
   // アニメーションループ
-  const animate = (timestamp?: number) => {
+  const animate = useCallback((timestamp?: number) => {
     // 見えていない時は停止
     if (!isVisible) {
       animationRef.current = 0
@@ -97,7 +97,7 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
     ctx.filter = `blur(${blurAmount}px)`
 
     // 接続線を描画
-    nodesRef.current.forEach((node, i) => {
+    nodesRef.current.forEach((node, index) => {
       node.connections.forEach(j => {
         const connectedNode = nodesRef.current[j]
         if (!connectedNode) return
@@ -119,15 +119,15 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
         
         // 有機的な曲線を描く（パフォーマンス改善: timestampを使用）
         const time = timestamp || 0
-        const cx = (node.x + connectedNode.x) / 2 + Math.sin(time * 0.00002 + i) * 10
-        const cy = (node.y + connectedNode.y) / 2 + Math.cos(time * 0.00002 + i) * 10
+        const cx = (node.x + connectedNode.x) / 2 + Math.sin(time * 0.00002 + index) * 10
+        const cy = (node.y + connectedNode.y) / 2 + Math.cos(time * 0.00002 + index) * 10
         ctx.quadraticCurveTo(cx, cy, connectedNode.x, connectedNode.y)
         ctx.stroke()
       })
     })
 
     // ノードを描画
-    nodesRef.current.forEach((node, i) => {
+    nodesRef.current.forEach((node) => {
       // ノードを移動
       node.x += node.vx
       node.y += node.vy
@@ -172,7 +172,7 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
     }
 
     animationRef.current = requestAnimationFrame(animate)
-  }
+  }, [dimensions.width, dimensions.height, focusLevel, isVisible, isScrolling])
 
   // 初期化とリサイズ処理
   useEffect(() => {
@@ -254,7 +254,7 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
     if (dimensions.width && dimensions.height) {
       nodesRef.current = generateNodes(dimensions.width, dimensions.height)
     }
-  }, [dimensions])
+  }, [dimensions.width, dimensions.height])
 
   // アニメーション開始
   useEffect(() => {
@@ -267,7 +267,7 @@ export default function OrganicCanvas({ focusLevel = 0 }: OrganicCanvasProps) {
         cancelAnimationFrame(animationRef.current)
       }
     }
-  }, [dimensions, focusLevel, isVisible])
+  }, [dimensions.width, dimensions.height, isVisible, animate])
 
   return (
     <motion.canvas
