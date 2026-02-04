@@ -97,16 +97,17 @@ export default function AX1SpecialPage() {
 
                 <div className={styles.heroContent}>
                     <div className={`${styles.heroMain} ${styles.revealTrigger}`}>
-                        <div className={styles.heroDate}>
-                            <span className={styles.heroDateLine} />
-                            <div className={styles.heroDateBadge}>
-                                <span className={styles.heroDateMain}>2026年2月25日（水）10:00〜19:00</span>
-                                <span className={styles.heroDateSub}>1DAY集中研修</span>
-                            </div>
+                        <div className={styles.heroKicker}>
+                            <span className={styles.heroKickerLabel}>1DAY集中研修</span>
+                            <span className={styles.heroKickerDate}>
+                                2026年2月25日（水）<br className={styles.brMobile} />10:00〜19:00
+                            </span>
                         </div>
 
                         <h1 className={styles.heroTitle}>
-                            <span className={styles.heroTitleLine}>2026年、中小企業は、</span>
+                            <span className={styles.heroTitleLine}>
+                                2026年、<br className={styles.brMobile} />中小企業は、
+                            </span>
                             <span className={styles.heroTitleLine}>
                                 <span className={styles.markerText}>社長自らがAI駆動型に</span>
                             </span>

@@ -300,51 +300,33 @@
     }
 }
 
-.heroDate {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    color: var(--ax1-primary);
-    letter-spacing: 0.06em;
-    font-size: 0.875rem;
-    font-weight: 700;
-}
-
-.heroDateLine {
-    width: 2rem;
-    height: 1px;
-    background: var(--ax1-primary);
-}
-
-.heroDateBadge {
+.heroKicker {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    padding: 0.75rem 1.25rem;
-    background: rgba(30, 58, 95, 0.06);
-    border: 1px solid rgba(30, 58, 95, 0.15);
-    border-radius: 0.75rem;
-    box-shadow: 0 12px 28px rgba(30, 58, 95, 0.12);
+    align-items: flex-start;
+    gap: 0.35rem;
 }
 
-.heroDateMain {
-    font-size: 1rem;
-    letter-spacing: 0.08em;
-}
-
-.heroDateSub {
-    font-size: 0.875rem;
+.heroKickerLabel {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
     color: var(--ax1-secondary);
-    letter-spacing: 0.12em;
+}
+
+.heroKickerDate {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--ax1-primary);
+    border-left: 3px solid rgba(30, 58, 95, 0.25);
+    padding-left: 0.85rem;
+    line-height: 1.5;
 }
 
 @media (min-width: 768px) {
-    .heroDateMain {
-        font-size: 1.125rem;
-    }
-
-    .heroDateSub {
-        font-size: 0.9375rem;
+    .heroKickerDate {
+        font-size: 1.2rem;
     }
 }
 
@@ -362,6 +344,16 @@
 
 .heroTitleLine {
     display: block;
+}
+
+.brMobile {
+    display: inline;
+}
+
+@media (min-width: 768px) {
+    .brMobile {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
@@ -461,27 +453,11 @@
         line-height: 1.12;
     }
 
-    .heroDate {
-        gap: 0.75rem;
-    }
-
-    .heroDateLine {
-        display: none;
-    }
-
-    .heroDateBadge {
-        width: 100%;
-        padding: 0.65rem 0.9rem;
-        border-radius: 0.75rem;
-    }
-
-    .heroDateMain {
+    .heroKickerDate {
         font-size: 0.95rem;
         letter-spacing: 0.06em;
-    }
-
-    .heroDateSub {
-        font-size: 0.8rem;
+        border-left-width: 2px;
+        padding-left: 0.75rem;
     }
 
     .heroSubCopy {
