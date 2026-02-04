@@ -256,7 +256,7 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
       drawScanlines(ctx, canvas.width, canvas.height)
       drawArtifacts(ctx, canvas.width, canvas.height)
     })
-  }, [isClient, isInitialized, active, reduceMotion])
+  }, [isClient, isInitialized, active, reduceMotion, generateNoise, drawScanlines, drawArtifacts])
   
   useEffect(() => {
     if (!isClient || !isInitialized) return
@@ -278,7 +278,6 @@ const NoiseGlitch = React.memo(function NoiseGlitch({ intensity = 1, active = tr
     updateCanvas()
     window.addEventListener('resize', updateCanvas, { passive: true })
     
-    const startTime = Date.now()
     let lastFrameTime = 0
     let frameSkipCount = 0
     const targetFPS = isScrolling ? 12 : 24  // スクロール中はFPSを半減

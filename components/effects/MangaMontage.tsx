@@ -74,7 +74,7 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
       scale: isMobile ? (0.6 + rng() * 0.3) : (1.2 + rng() * 0.6) // モバイル: 0.6-0.9, PC: 1.2-1.8
     })
     setIsPositioned(true)
-  }, [panel.id])
+  }, [panel.id, rng])
   
   // グリッチアニメーションのバリエーション（トランジションなし版）
   const glitchVariants = {
@@ -108,7 +108,7 @@ const GlitchPanel = React.memo<GlitchPanelProps>(function GlitchPanel({ panel, i
       
       return () => clearTimeout(timer)
     }
-  }, [isActive])
+  }, [isActive, rng])
   
   if (!isActive || !isPositioned) return null
   
@@ -216,6 +216,7 @@ const MangaMontage = React.memo(function MangaMontage({ enabled = true }: MangaM
   }, [isActive])
   
   useEffect(() => {
+    const timers = timersRef.current
     // reduce motion や disabled の場合は即停止
     if (reduceMotion || !enabled) {
       setIsActive(false)
@@ -224,8 +225,8 @@ const MangaMontage = React.memo(function MangaMontage({ enabled = true }: MangaM
       isLoadingRef.current = false
       setActivePanels([])
       // 予約済みタイマーのクリーンアップ
-      timersRef.current.forEach(timer => clearTimeout(timer))
-      timersRef.current.clear()
+      timers.forEach(timer => clearTimeout(timer))
+      timers.clear()
       return
     }
 
@@ -239,16 +240,16 @@ const MangaMontage = React.memo(function MangaMontage({ enabled = true }: MangaM
     const stopTimer = setTimeout(() => {
       setIsActive(false)
       isActiveRef.current = false
-      timersRef.current.forEach(timer => clearTimeout(timer))
-      timersRef.current.clear()
+      timers.forEach(timer => clearTimeout(timer))
+      timers.clear()
       setActivePanels([])
     }, 8000)
     
     return () => {
       clearTimeout(loadingTimer)
       clearTimeout(stopTimer)
-      timersRef.current.forEach(timer => clearTimeout(timer))
-      timersRef.current.clear()
+      timers.forEach(timer => clearTimeout(timer))
+      timers.clear()
     }
   }, [reduceMotion, enabled])
   
@@ -256,6 +257,7 @@ const MangaMontage = React.memo(function MangaMontage({ enabled = true }: MangaM
     if (!isMounted || !isActive) return // マウント前またはアクティブでない場合は実行しない
     if (reduceMotion || !enabled) return
     
+    const timers = timersRef.current
     const localTimers: NodeJS.Timeout[] = []
     
     // グリッチ的なランダムな表示パターン
@@ -337,28 +339,28 @@ const MangaMontage = React.memo(function MangaMontage({ enabled = true }: MangaM
           showPanel()
           const nextTimer = setTimeout(scheduleGlitch, 50 + localRNGRef.current() * 150)
           localTimers.push(nextTimer)
-          timersRef.current.add(nextTimer)
-        }
-      } else {
-        // ローディング後は適度な間隔で表示
-        const nextDelay = localRNGRef.current() * 800 + 200 // 0.2-1.0秒のランダム間隔
-        showPanel()
-        const nextTimer = setTimeout(scheduleGlitch, nextDelay)
-        localTimers.push(nextTimer)
-        timersRef.current.add(nextTimer)
+        timers.add(nextTimer)
       }
+    } else {
+      // ローディング後は適度な間隔で表示
+      const nextDelay = localRNGRef.current() * 800 + 200 // 0.2-1.0秒のランダム間隔
+      showPanel()
+      const nextTimer = setTimeout(scheduleGlitch, nextDelay)
+      localTimers.push(nextTimer)
+      timers.add(nextTimer)
     }
+  }
     
     // 初回開始
     const startTimer = setTimeout(scheduleGlitch, 200)
     localTimers.push(startTimer)
-    timersRef.current.add(startTimer)
+    timers.add(startTimer)
     
     // クリーンアップ - すべてのローカルタイマーをクリア
     return () => {
       localTimers.forEach(timer => {
         clearTimeout(timer)
-        timersRef.current.delete(timer)
+        timers.delete(timer)
       })
       // アクティブでなくなったら表示中の画像もクリア
       if (!isActive) {

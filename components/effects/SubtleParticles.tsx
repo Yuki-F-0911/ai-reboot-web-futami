@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import { motion, MotionValue, useTransform } from 'framer-motion'
 
 interface Particle {
@@ -58,7 +58,7 @@ export default function SubtleParticles({ scrollProgress }: SubtleParticlesProps
   }
   
   // アニメーションループ
-  const animate = () => {
+  const animate = useCallback(() => {
     const canvas = canvasRef.current
     if (!canvas) return
     
@@ -104,7 +104,7 @@ export default function SubtleParticles({ scrollProgress }: SubtleParticlesProps
     })
     
     animationRef.current = requestAnimationFrame(animate)
-  }
+  }, [dimensions.width, dimensions.height, currentOpacity])
   
   // 初期化とリサイズ処理
   useEffect(() => {
@@ -131,7 +131,7 @@ export default function SubtleParticles({ scrollProgress }: SubtleParticlesProps
     if (dimensions.width && dimensions.height) {
       particlesRef.current = generateParticles(dimensions.width, dimensions.height)
     }
-  }, [dimensions])
+  }, [dimensions.width, dimensions.height])
   
   // アニメーション開始
   useEffect(() => {
@@ -144,7 +144,7 @@ export default function SubtleParticles({ scrollProgress }: SubtleParticlesProps
         cancelAnimationFrame(animationRef.current)
       }
     }
-  }, [dimensions, currentOpacity])
+  }, [dimensions.width, dimensions.height, animate])
   
   return (
     <motion.canvas

@@ -12,7 +12,6 @@ export default function WilltrustLayout({
 }) {
   return (
     <>
-      <link rel="stylesheet" href="/willtrust/styles.css" />
       {children}
     </>
   )

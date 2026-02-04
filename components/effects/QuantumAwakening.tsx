@@ -1,9 +1,7 @@
 'use client'
 
-import React, { useEffect, useState, useCallback, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import PersonGlitch from './PersonGlitch'
-import StoryGlitch from './StoryGlitch'
 
 interface QuantumAwakeningProps {
   onComplete?: () => void
@@ -11,7 +9,7 @@ interface QuantumAwakeningProps {
 }
 
 // 量子ノイズパーティクル
-const QuantumParticle = ({ index, phase }: { index: number; phase: number }) => {
+const QuantumParticle = ({ phase }: { phase: number }) => {
   const seed = useRef(Math.random())
   const position = useRef({
     x: Math.random() * 100,
@@ -42,14 +40,12 @@ const QuantumParticle = ({ index, phase }: { index: number; phase: number }) => 
 
 // 重ね合わせ状態のテキスト
 const SuperpositionText = ({ 
-  text, 
   variants, 
   phase,
   targetX,
   targetY,
   delay = 0 
 }: { 
-  text: string
   variants: string[]
   phase: number
   targetX: number
@@ -194,7 +190,7 @@ export default function QuantumAwakening({ onComplete, skipAnimation = false }: 
           {/* 量子ノイズ背景 (モバイルは数を減らす) */}
           <div className="absolute inset-0">
             {Array.from({ length: isMobile ? 20 : 50 }).map((_, i) => (
-              <QuantumParticle key={i} index={i} phase={phase} />
+              <QuantumParticle key={i} phase={phase} />
             ))}
           </div>
 
@@ -236,7 +232,6 @@ export default function QuantumAwakening({ onComplete, skipAnimation = false }: 
           {/* 重ね合わせテキスト - あなた */}
           {phase >= 1 && (
             <SuperpositionText
-              text="あなた"
               variants={['あなた', '私', '君', '自分', 'YOU']}
               phase={phase}
               targetX={-150 + mousePosition.x * 10}
@@ -248,7 +243,6 @@ export default function QuantumAwakening({ onComplete, skipAnimation = false }: 
           {/* 重ね合わせテキスト - 物語 */}
           {phase >= 1 && (
             <SuperpositionText
-              text="物語"
               variants={['物語', 'WILL', '意志', '未来', 'story']}
               phase={phase}
               targetX={50 + mousePosition.x * 10}

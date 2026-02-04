@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "@/components/academyLanding/ui/Button";
 import Link from "next/link";
 
 const MessagePage = () => {

@@ -1,6 +1,4 @@
 import React from "react";
-import Button from "@/components/academyLanding/ui/Button";
-
 const SeminarsPage = () => {
     const seminars = [
         {
