@@ -298,7 +298,7 @@ export default function AX1SpecialPage() {
                             </div>
                             <div className={`${styles.detailsRow} ${styles.detailsRowAlt}`}>
                                 <dt className={styles.detailsLabel}>会場</dt>
-                                <dd className={styles.detailsValue}>東京都内（参加確定者に別途ご連絡いたします）</dd>
+                                <dd className={styles.detailsValue}>都内（港区）</dd>
                             </div>
                             <div className={styles.detailsRow}>
                                 <dt className={styles.detailsLabel}>定員</dt>
