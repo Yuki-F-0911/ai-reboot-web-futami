@@ -106,8 +106,19 @@ export const CorporateSimulator = () => {
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-depth-800 leading-[1.3] tracking-tight mb-3 md:mb-4">
                 助成金シミュレーター
               </h2>
-              <p className="text-base md:text-lg text-harmony font-medium">
+              <p className="text-base md:text-lg text-harmony font-medium mb-2">
                 貴社の条件に合わせて実質負担額を計算
+              </p>
+              <p className="text-sm text-depth-600">
+                <a
+                  href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-harmony underline hover:text-harmony/80 transition-colors"
+                >
+                  人材開発支援助成金（事業展開等リスキリング支援コース）
+                </a>
+                に基づく試算
               </p>
             </div>
           </div>
@@ -281,6 +292,18 @@ export const CorporateSimulator = () => {
               <p>※助成金の受給には各種要件（雇用保険加入等）があります。</p>
               <p>
                 ※消費税は別途発生いたしますが、実質コスト算出のため税別表記としています。
+              </p>
+              <p className="mt-2">
+                詳細は
+                <a
+                  href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-harmony underline hover:text-harmony/80 transition-colors mx-1"
+                >
+                  厚生労働省の公式ページ
+                </a>
+                をご確認ください。
               </p>
             </div>
           </div>
