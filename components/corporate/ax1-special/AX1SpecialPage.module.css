@@ -673,9 +673,15 @@
     font-family: 'Zen Old Mincho', serif;
     font-size: 1.25rem;
     color: var(--ax1-primary);
+    display: inline-block;
+    max-width: 100%;
+}
+
+.whyCeoHighlightText {
     background: linear-gradient(transparent 62%, var(--ax1-marker) 62%);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
+    padding: 0 0.1em;
 }
 
 @media (min-width: 768px) {

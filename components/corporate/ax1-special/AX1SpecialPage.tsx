@@ -178,7 +178,7 @@ export default function AX1SpecialPage() {
                         </p>
 
                         <div className={styles.whyCeoHighlight}>
-                            おそらく、社長がブレーキになります。
+                            <span className={styles.whyCeoHighlightText}>おそらく、社長がブレーキになります。</span>
                         </div>
 
                         <p>
