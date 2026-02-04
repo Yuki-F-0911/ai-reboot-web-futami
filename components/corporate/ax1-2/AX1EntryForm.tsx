@@ -25,7 +25,13 @@ interface FormErrors {
     employeeCount?: string;
 }
 
-export function AX1EntryForm() {
+interface AX1EntryFormProps {
+    hideScreeningText?: boolean;
+    submitLabel?: string;
+    entryType?: "ax1" | "ax1-special";
+}
+
+export function AX1EntryForm({ hideScreeningText = false, submitLabel, entryType }: AX1EntryFormProps) {
     const [formData, setFormData] = useState<FormData>({
         name: "",
         companyName: "",
@@ -39,6 +45,14 @@ export function AX1EntryForm() {
     const [errors, setErrors] = useState<FormErrors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+    const resolvedEntryType = entryType ?? (hideScreeningText ? "ax1-special" : "ax1");
+    const resolvedSubmitLabel = submitLabel ?? (hideScreeningText ? "エントリーする" : "エントリーする（審査制）");
+    const successNote = hideScreeningText
+        ? "追って詳細をご案内します。"
+        : "審査の上、参加可否をご連絡いたします。";
+    const formNotePrimary = hideScreeningText
+        ? "※ エントリー後、ご登録いただいたメールアドレスに確認メールをお送りします。"
+        : "※ エントリー後、審査の上、参加可否をご連絡いたします。";
 
     const validateForm = (): boolean => {
         const newErrors: FormErrors = {};
@@ -81,7 +95,10 @@ export function AX1EntryForm() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    ...formData,
+                    entryType: resolvedEntryType,
+                }),
             });
 
             if (response.ok) {
@@ -131,7 +148,7 @@ export function AX1EntryForm() {
                 <p>
                     ご登録いただいたメールアドレスに確認メールをお送りします。
                     <br />
-                    審査の上、参加可否をご連絡いたします。
+                    {successNote}
                 </p>
             </motion.div>
         );
@@ -314,12 +331,12 @@ export function AX1EntryForm() {
                         送信中...
                     </span>
                 ) : (
-                    "エントリーする（審査制）"
+                    resolvedSubmitLabel
                 )}
             </motion.button>
 
             <p className={styles.formNote}>
-                ※ エントリー後、審査の上、参加可否をご連絡いたします。
+                {formNotePrimary}
                 <br />
                 ※ 経営者・決裁者の方を対象としています。
             </p>

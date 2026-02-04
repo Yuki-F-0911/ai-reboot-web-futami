@@ -16,6 +16,7 @@ interface AX1EntryFormData {
   industry?: string;
   aiUsageStatus?: string;
   howDidYouKnow?: string;
+  entryType?: "ax1" | "ax1-special";
 }
 
 // 従業員数のラベル変換
@@ -74,6 +75,7 @@ async function sendSlackNotification(data: AX1EntryFormData) {
   console.log('[Slack通知] AX1エントリー - 送信開始');
 
   try {
+    const requiresScreening = data.entryType !== "ax1-special";
     const blocks: Array<Record<string, unknown>> = [
       {
         type: 'header',
@@ -189,7 +191,7 @@ async function sendSlackNotification(data: AX1EntryFormData) {
         elements: [
           {
             type: 'mrkdwn',
-            text: `📅 受信日時: ${new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })} | ⚡ 審査後、参加可否をご連絡ください`
+            text: `📅 受信日時: ${new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })} | ⚡ ${requiresScreening ? '審査後、参加可否をご連絡ください' : '参加案内のご連絡をお願いします'}`
           }
         ]
       }
@@ -232,6 +234,7 @@ async function sendAutoReplyViaGAS(data: AX1EntryFormData) {
     const payload = {
       type: 'ax1-entry',
       timestamp: new Date().toISOString(),
+      entryType: data.entryType ?? "ax1",
       // 必須項目
       name: data.name,
       companyName: data.companyName,
@@ -319,10 +322,13 @@ export async function POST(request: NextRequest) {
     ]);
 
     // 成功レスポンス
+    const requiresScreening = data.entryType !== "ax1-special";
     return NextResponse.json(
       { 
         success: true,
-        message: 'エントリーを受け付けました。審査の上、ご連絡いたします。' 
+        message: requiresScreening
+          ? 'エントリーを受け付けました。審査の上、ご連絡いたします。'
+          : 'エントリーを受け付けました。担当よりご連絡いたします。'
       },
       { status: 200 }
     );

@@ -396,7 +396,7 @@ export default function AX1SpecialPage() {
                     </div>
 
                     <div className={`${styles.revealTrigger} ${styles.delay300}`}>
-                        <AX1EntryForm />
+                        <AX1EntryForm hideScreeningText entryType="ax1-special" />
                     </div>
                 </div>
             </section>
