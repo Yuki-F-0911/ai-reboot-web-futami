@@ -357,6 +357,7 @@
     font-size: 3rem;
     color: var(--ax1-primary);
     margin-left: -0.05em;
+    text-wrap: balance;
 }
 
 .heroTitleLine {
@@ -427,6 +428,7 @@
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 500;
     word-break: auto-phrase;
+    line-height: 1.7;
 }
 
 .heroSubLabel {
@@ -441,6 +443,79 @@
 .heroCta {
     padding-top: 3rem;
     padding-left: 1rem;
+}
+
+@media (max-width: 640px) {
+    .heroMain {
+        background: rgba(250, 252, 253, 0.88);
+        border: 1px solid rgba(30, 58, 95, 0.1);
+        border-radius: 1.5rem;
+        padding: 1.5rem 1.25rem 2rem;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+        backdrop-filter: blur(10px);
+        gap: 2rem;
+    }
+
+    .heroTitle {
+        font-size: clamp(2.1rem, 8.5vw, 3rem);
+        line-height: 1.12;
+    }
+
+    .heroDate {
+        gap: 0.75rem;
+    }
+
+    .heroDateLine {
+        display: none;
+    }
+
+    .heroDateBadge {
+        width: 100%;
+        padding: 0.65rem 0.9rem;
+        border-radius: 0.75rem;
+    }
+
+    .heroDateMain {
+        font-size: 0.95rem;
+        letter-spacing: 0.06em;
+    }
+
+    .heroDateSub {
+        font-size: 0.8rem;
+    }
+
+    .heroSubCopy {
+        margin-left: 0;
+        padding-top: 1.5rem;
+    }
+
+    .heroSubText {
+        font-size: 1.1rem;
+        border-left: none;
+        padding-left: 0;
+        border-top: 2px solid rgba(30, 58, 95, 0.15);
+        padding-top: 1rem;
+        line-height: 1.75;
+    }
+
+    .heroSubSmall {
+        font-size: 0.9rem;
+        line-height: 1.65;
+    }
+
+    .heroCta {
+        padding-top: 2rem;
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .btnPrimary {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 @media (min-width: 768px) {
@@ -533,6 +608,15 @@
     padding-bottom: var(--ma-gap-md);
     padding-left: 5vw;
     padding-right: 5vw;
+    scroll-margin-top: 6rem;
+}
+
+@media (max-width: 640px) {
+    .sectionMa {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+        scroll-margin-top: 5.5rem;
+    }
 }
 
 .containerReading {
@@ -835,6 +919,20 @@
     transition: background-color 0.3s;
 }
 
+@media (max-width: 640px) {
+    .aboutCard {
+        padding: 1.5rem;
+    }
+
+    .aboutCardTitle {
+        font-size: 1.125rem;
+    }
+
+    .aboutCardText {
+        font-size: 0.9rem;
+    }
+}
+
 .aboutCard:hover {
     background: rgba(255, 255, 255, 0.1);
 }
@@ -1124,6 +1222,12 @@
     }
 }
 
+@media (max-width: 640px) {
+    .speakersGrid {
+        gap: 3rem;
+    }
+}
+
 .speakerCard {
     text-align: center;
 }
@@ -1218,6 +1322,12 @@
     margin-bottom: 5rem;
 }
 
+@media (max-width: 640px) {
+    .detailsCard {
+        margin-bottom: 2rem;
+    }
+}
+
 .detailsRow {
     display: grid;
     grid-template-columns: 1fr;
@@ -1247,6 +1357,18 @@
     color: var(--ax1-text);
 }
 
+@media (max-width: 640px) {
+    .detailsRow {
+        padding: 1.1rem 1.25rem;
+        gap: 0.5rem;
+    }
+
+    .detailsLabel,
+    .detailsValue {
+        font-size: 0.85rem;
+    }
+}
+
 .detailsNote {
     padding: 1.5rem;
     background: rgba(30, 58, 95, 0.05);
@@ -1265,6 +1387,12 @@
     margin-bottom: 2rem;
     text-align: center;
     font-family: 'Zen Old Mincho', serif;
+}
+
+@media (max-width: 640px) {
+    .faqTitle {
+        margin-bottom: 1.25rem;
+    }
 }
 
 .faqList {
@@ -1328,6 +1456,7 @@
     padding: 8rem 5vw;
     position: relative;
     overflow: hidden;
+    scroll-margin-top: 6rem;
 }
 
 .entryBg {
@@ -1372,6 +1501,26 @@
     border-radius: 0.5rem;
     max-width: 36rem;
     margin: 0 auto 3rem;
+}
+
+@media (max-width: 640px) {
+    .entrySection {
+        padding: 6rem 5vw 5rem;
+        scroll-margin-top: 5.5rem;
+    }
+
+    .entryTitle {
+        font-size: clamp(1.9rem, 7vw, 2.6rem);
+    }
+
+    .entryDesc {
+        margin-bottom: 2rem;
+    }
+
+    .entryCard {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
 }
 
 .entryCardDate {
