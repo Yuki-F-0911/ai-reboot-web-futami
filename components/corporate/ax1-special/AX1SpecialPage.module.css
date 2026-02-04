@@ -8,6 +8,7 @@
     /* Darker for better contrast (was #2C3E50) */
     --ax1-sub: #374151;
     /* Darker subtext (was #5D6D7E) */
+    --ax1-marker: rgba(255, 231, 166, 0.75);
     --wabi-white: hsl(35, 20%, 97%);
     --wabi-black: hsl(220, 10%, 15%);
     --sabi-brown: hsl(25, 15%, 35%);
@@ -155,8 +156,8 @@
     overflow: hidden;
     background-image: url('/images/corporate/ax1-special/hero-bg-upscaled.webp');
     background-size: cover;
-    background-position: 85% center;
-    /* Ensure person is visible on right */
+    background-position: 65% center;
+    /* Soften the visual focus to prioritize copy */
     background-repeat: no-repeat;
 }
 
@@ -173,9 +174,9 @@
     z-index: 1;
     background:
         /* Top gradient for Nav visibility */
-        linear-gradient(to bottom, rgba(250, 252, 253, 0.98) 0%, rgba(250, 252, 253, 0.8) 80px, rgba(250, 252, 253, 0) 200px),
+        linear-gradient(to bottom, rgba(250, 252, 253, 0.99) 0%, rgba(250, 252, 253, 0.85) 90px, rgba(250, 252, 253, 0) 220px),
         /* Full overlay for mobile readability */
-        linear-gradient(to right, rgba(250, 252, 253, 0.95) 0%, rgba(250, 252, 253, 0.7) 100%);
+        linear-gradient(to right, rgba(250, 252, 253, 0.98) 0%, rgba(250, 252, 253, 0.85) 70%, rgba(250, 252, 253, 0.6) 100%);
     pointer-events: none;
 }
 
@@ -183,9 +184,9 @@
     .hero::before {
         background:
             /* Top gradient for Nav visibility */
-            linear-gradient(to bottom, rgba(250, 252, 253, 0.95) 0%, rgba(250, 252, 253, 0.8) 60px, rgba(250, 252, 253, 0) 180px),
+            linear-gradient(to bottom, rgba(250, 252, 253, 0.98) 0%, rgba(250, 252, 253, 0.85) 70px, rgba(250, 252, 253, 0) 200px),
             /* Left gradient for Text visibility */
-            linear-gradient(90deg, rgba(250, 252, 253, 0.98) 0%, rgba(250, 252, 253, 0.92) 45%, rgba(250, 252, 253, 0) 75%);
+            linear-gradient(90deg, rgba(250, 252, 253, 0.99) 0%, rgba(250, 252, 253, 0.95) 55%, rgba(250, 252, 253, 0.7) 80%, rgba(250, 252, 253, 0) 100%);
     }
 }
 
@@ -301,19 +302,50 @@
 
 .heroDate {
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    color: var(--ax1-sub);
-    letter-spacing: 0.2em;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
+    align-items: flex-start;
+    gap: 1.25rem;
+    color: var(--ax1-primary);
+    letter-spacing: 0.06em;
+    font-size: 0.875rem;
+    font-weight: 700;
 }
 
 .heroDateLine {
     width: 2rem;
     height: 1px;
     background: var(--ax1-primary);
+}
+
+.heroDateBadge {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(30, 58, 95, 0.06);
+    border: 1px solid rgba(30, 58, 95, 0.15);
+    border-radius: 0.75rem;
+    box-shadow: 0 12px 28px rgba(30, 58, 95, 0.12);
+}
+
+.heroDateMain {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+}
+
+.heroDateSub {
+    font-size: 0.875rem;
+    color: var(--ax1-secondary);
+    letter-spacing: 0.12em;
+}
+
+@media (min-width: 768px) {
+    .heroDateMain {
+        font-size: 1.125rem;
+    }
+
+    .heroDateSub {
+        font-size: 0.9375rem;
+    }
 }
 
 .heroTitle {
@@ -325,6 +357,10 @@
     font-size: 3rem;
     color: var(--ax1-primary);
     margin-left: -0.05em;
+}
+
+.heroTitleLine {
+    display: block;
 }
 
 @media (min-width: 768px) {
@@ -341,7 +377,10 @@
 
 .heroTitleAccent {
     color: var(--ax1-secondary);
-    opacity: 0.9;
+    background: linear-gradient(transparent 60%, rgba(74, 144, 164, 0.2) 60%);
+    display: inline;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
 }
 
 .heroTitleIndent {
@@ -381,11 +420,22 @@
 .heroSubSmall {
     font-size: 1rem;
     color: var(--ax1-sub);
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(30, 58, 95, 0.12);
     display: block;
     font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     word-break: auto-phrase;
+}
+
+.heroSubLabel {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    color: var(--ax1-secondary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
 }
 
 .heroCta {
@@ -490,6 +540,20 @@
     margin: 0 auto;
 }
 
+.headingAccent {
+    color: var(--ax1-secondary);
+    font-weight: 700;
+}
+
+.markerText {
+    background: linear-gradient(transparent 60%, var(--ax1-marker) 60%);
+    padding: 0 0.12em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    font-weight: 700;
+    color: var(--ax1-primary);
+}
+
 /* === WHY CEO SECTION === */
 .whyCeoSection {
     background: white;
@@ -515,6 +579,15 @@
     font-family: 'Zen Old Mincho', serif;
 }
 
+.whyCeoNotice {
+    color: var(--ax1-secondary);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: 0.08em;
+    font-size: 0.875rem;
+}
+
 @media (min-width: 768px) {
     .whyCeoTitle {
         font-size: 1.875rem;
@@ -535,13 +608,14 @@
 
 .whyCeoHighlight {
     border-left: 4px solid var(--ax1-primary);
-    padding-left: 1.5rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0.75rem 1.5rem;
     margin: 3rem 0;
     font-family: 'Zen Old Mincho', serif;
     font-size: 1.25rem;
     color: var(--ax1-primary);
+    background: linear-gradient(transparent 62%, var(--ax1-marker) 62%);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
 }
 
 @media (min-width: 768px) {

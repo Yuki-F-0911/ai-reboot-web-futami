@@ -63,7 +63,7 @@ export default function AX1SpecialPage() {
 
                     <div className={styles.navLinks}>
                         <a href="#why-ceo" onClick={(e) => scrollToSection(e, "#why-ceo")} className={styles.navLink}>
-                            なぜ経営者なのか
+                            なぜ社長がAI駆動型に
                         </a>
                         <a href="#speakers" onClick={(e) => scrollToSection(e, "#speakers")} className={styles.navLink}>
                             登壇者
@@ -91,7 +91,7 @@ export default function AX1SpecialPage() {
 
                 <div className={styles.heroVerticalHook}>
                     <div className={styles.heroVerticalText}>
-                        紹介者限定・特別プレビュー回。
+                        紹介者限定・特別開催。
                     </div>
                 </div>
 
@@ -99,28 +99,39 @@ export default function AX1SpecialPage() {
                     <div className={`${styles.heroMain} ${styles.revealTrigger}`}>
                         <div className={styles.heroDate}>
                             <span className={styles.heroDateLine} />
-                            2026.2.25 WED
+                            <div className={styles.heroDateBadge}>
+                                <span className={styles.heroDateMain}>2026年2月25日（水）10:00〜19:00</span>
+                                <span className={styles.heroDateSub}>1DAY集中研修</span>
+                            </div>
                         </div>
 
                         <h1 className={styles.heroTitle}>
-                            <span style={{ display: "block" }}>社員ではなく、</span>
-                            <span style={{ display: "block" }} className={styles.heroTitleIndent}>あなた自身が</span>
-                            <span style={{ display: "block" }} className={styles.heroTitleAccent}>AIを学ぶ理由。</span>
+                            <span className={styles.heroTitleLine}>2026年、中小企業は、</span>
+                            <span className={styles.heroTitleLine}>
+                                <span className={styles.markerText}>社長自らがAI駆動型に</span>
+                            </span>
+                            <span className={`${styles.heroTitleLine} ${styles.heroTitleAccent}`}>
+                                変われるかどうかが問われます
+                            </span>
                         </h1>
 
                         <div className={styles.heroSubCopy}>
                             <p className={styles.heroSubText}>
-                                4月の正式スタートに先駆け、<br />
-                                10名限定の特別回を開催します。<br />
+                                大企業がまだ本格的に舵を切っていない今だからこそ、劇的に業績を伸ばすチャンスがあります。<br />
+                                ただし、社長自らがAIで何ができるのか、
+                                <span className={styles.markerText}>AI前提で経営を考えるAI駆動型</span>
+                                にならないと本質的な勝負はできません。
                                 <span className={styles.heroSubSmall}>
-                                    このご案内をお送りした方、またはそのご紹介者様のみのクローズドなセッションです。
+                                    <span className={styles.heroSubLabel}>特別開催</span>
+                                    今回は紹介者のみの少人数での開催となります。<br />
+                                    ＊モニタ料金もあります
                                 </span>
                             </p>
                         </div>
 
                         <div className={styles.heroCta}>
                             <a href="#entry" onClick={(e) => scrollToSection(e, "#entry")} className={styles.btnPrimary}>
-                                特別回にエントリーする
+                                特別開催にエントリーする
                             </a>
                             <div className={styles.heroScrollHint}>
                                 <svg style={{ width: 16, height: 16, animation: "bounce 1s infinite" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -147,12 +158,12 @@ export default function AX1SpecialPage() {
 
                 <div className={styles.containerReading} style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
                     <h2 className={styles.whyCeoTitle}>
-                        なぜ、経営者自身が<br />AIを学ぶ必要があるのか
+                        なぜ、<span className={styles.headingAccent}>社長自らがAI駆動型</span><br />になる必要があるのか
                     </h2>
 
                     <div className={`${styles.whyCeoContent} ${styles.revealTrigger}`}>
-                        <p style={{ color: "var(--ax1-secondary)", fontWeight: "700", textAlign: "center", marginBottom: "2rem" }}>
-                            【4月開講に先駆けた、10名限定特別プレビュー回のご案内】
+                        <p className={styles.whyCeoNotice}>
+                            【特別開催｜紹介者のみの少人数セッション】
                         </p>
                         <p>
                             「AIは社員に任せておけばいい」<br />
@@ -170,13 +181,16 @@ export default function AX1SpecialPage() {
                         </div>
 
                         <p>
-                            企業の舵取りをしているのは、ほとんどの場合、経営者です。その意思決定をする人が、AIを前提にした戦略を描けなければ、社員が勝手に描くことはできません。
+                            企業の舵取りをしているのは、ほとんどの場合、経営者です。
+                            <span className={styles.markerText}>その意思決定をする人が、AIを前提にした戦略を描けなければ</span>
+                            、社員が勝手に描くことはできません。
                         </p>
                         <p>
                             もし社員が独自の判断で新商品開発を始めたり、契約中の基幹システムを解約して自分で作り始めたりしたら、「おいおい、待ってくれ」となるはずです。
                         </p>
                         <p>
-                            すでに、そのくらいのことはやろうと思えばできる時代に来ています。それをすべきかどうか、やるならどう進めるか。経営者が同じ知識と感覚を持って判断できなければ、いずれ競争力を失います。
+                            すでに、そのくらいのことはやろうと思えばできる時代に来ています。それをすべきかどうか、やるならどう進めるか。
+                            <span className={styles.markerText}>経営者が同じ知識と感覚を持って判断できなければ、いずれ競争力を失います。</span>
                         </p>
                         <p>
                             社員は「ならば別のところでやります」と、旅立っていくかもしれません。
@@ -187,7 +201,7 @@ export default function AX1SpecialPage() {
                         <p>もう一つ、お伝えしたいことがあります。</p>
 
                         <div className={styles.whyCeoBox}>
-                            社長の頭の中にある考え、想い、判断基準。<br />
+                            <span className={styles.markerText}>社長の頭の中にある考え、想い、判断基準。</span><br />
                             それが社員の使うAIに活かされていないのは、<br />
                             大きな機会損失です。
                         </div>
@@ -201,10 +215,10 @@ export default function AX1SpecialPage() {
 
                         <div className={styles.whyCeoFooter}>
                             <p style={{ background: "#E8F4F8", padding: "1.5rem", borderRadius: "0.5rem", color: "var(--ax1-primary)" }}>
-                                <strong>特別回のご案内：</strong><br />
-                                10名限定（紹介者限定）で、2月25日に特別回を実施します。経営を一緒に担う役員の方との参加を推奨しています。
+                                <strong>特別開催のご案内：</strong><br />
+                                紹介者限定の少人数で、2月25日に1DAY研修を実施します。経営を一緒に担う役員の方との参加も歓迎しています。
                                 <br /><br />
-                                <strong>モニター価格：2.5万円</strong>（一般 5万円）<br />
+                                <strong>モニタ料金：2.5万円</strong>（一般 5万円）<br />
                                 <span style={{ fontSize: "0.875rem" }}>※研修後にお客さまの声を収録し、サイト等での公開にご協力いただける方限定。</span>
                             </p>
                             <p style={{ marginTop: "2rem" }}>
@@ -225,8 +239,8 @@ export default function AX1SpecialPage() {
 
                 <div className={styles.aboutContainer}>
                     <div className={styles.revealTrigger}>
-                        <span className={styles.aboutBadge}>SPECIAL PREVIEW</span>
-                        <h2 className={styles.aboutTitle}>AX-1とは</h2>
+                        <span className={styles.aboutBadge}>特別開催</span>
+                        <h2 className={styles.aboutTitle}><span className={styles.headingAccent}>AX-1</span>とは</h2>
                         <div className={styles.aboutText}>
                             <p>
                                 AX-1は、中小・ベンチャー企業の経営者（CxO）のための1日集中型のAI戦略セミナーです。
@@ -264,7 +278,9 @@ export default function AX1SpecialPage() {
             {/* Section 6: Speakers */}
             <section id="speakers" className={`${styles.sectionMa} ${styles.speakersSection}`}>
                 <div className={styles.speakersContainer}>
-                    <h2 className={`${styles.speakersTitle} ${styles.revealTrigger}`}>登壇者</h2>
+                    <h2 className={`${styles.speakersTitle} ${styles.revealTrigger}`}>
+                        <span className={styles.headingAccent}>登壇者</span>
+                    </h2>
                     <div className={`${styles.speakersGrid} ${styles.revealTrigger} ${styles.delay100}`}>
                         <div className={styles.speakerCard}>
                             <div className={styles.speakerImage}>
@@ -301,13 +317,15 @@ export default function AX1SpecialPage() {
             {/* Section 8: Details & FAQ */}
             <section id="details" className={`${styles.sectionMa} ${styles.detailsSection}`}>
                 <div className={styles.detailsContainer}>
-                    <h2 className={`${styles.detailsTitle} ${styles.revealTrigger}`}>特別回 開催概要</h2>
+                    <h2 className={`${styles.detailsTitle} ${styles.revealTrigger}`}>
+                        <span className={styles.headingAccent}>特別開催</span> 概要
+                    </h2>
 
                     <div className={`${styles.detailsCard} ${styles.revealTrigger} ${styles.delay100}`}>
                         <dl>
                             <div className={styles.detailsRow}>
                                 <dt className={styles.detailsLabel}>日時</dt>
-                                <dd className={styles.detailsValue}>2026年2月25日（水） 10:00 - 19:00</dd>
+                                <dd className={styles.detailsValue}>2026年2月25日（水）10:00〜19:00</dd>
                             </div>
                             <div className={`${styles.detailsRow} ${styles.detailsRowAlt}`}>
                                 <dt className={styles.detailsLabel}>会場</dt>
@@ -315,26 +333,44 @@ export default function AX1SpecialPage() {
                             </div>
                             <div className={styles.detailsRow}>
                                 <dt className={styles.detailsLabel}>定員</dt>
-                                <dd className={styles.detailsValue}>10名限定（完全招待・紹介制）</dd>
+                                <dd className={styles.detailsValue}>紹介者限定（少人数開催）</dd>
                             </div>
                             <div className={`${styles.detailsRow} ${styles.detailsRowAlt}`}>
                                 <dt className={styles.detailsLabel}>参加費</dt>
                                 <dd className={styles.detailsValue}>
                                     一般：50,000円（税込）<br />
-                                    <strong>モニター価格：25,000円（税込）</strong><br />
+                                    <strong>モニタ料金：25,000円（税込）</strong><br />
                                     <span style={{ fontSize: "0.875rem", opacity: 0.7 }}>
-                                        ※モニター価格適用には研修後のお客さまの声収録へのご協力が必要です。
+                                        ※モニタ料金適用には研修後のお客さまの声収録へのご協力が必要です。
                                     </span>
                                 </dd>
                             </div>
                         </dl>
                     </div>
 
-                    <h3 className={`${styles.faqTitle} ${styles.revealTrigger}`}>よくあるご質問</h3>
+                    <h3 className={`${styles.faqTitle} ${styles.revealTrigger}`}>
+                        <span className={styles.headingAccent}>よくあるご質問</span>
+                    </h3>
                     <div className={`${styles.faqList} ${styles.revealTrigger}`}>
                         <details className={styles.faqItem}>
-                            <summary className={styles.faqQuestion}>知識がなくても参加できますか？</summary>
+                            <summary className={styles.faqQuestion}>AIの知識がなくても参加できますか？</summary>
                             <div className={styles.faqAnswer}>はい、プログラミング知識は不要です。経営者としての視点があれば活用いただけます。</div>
+                        </details>
+                        <details className={styles.faqItem}>
+                            <summary className={styles.faqQuestion}>1日でどこまで学べますか？</summary>
+                            <div className={styles.faqAnswer}>AI駆動型の経営判断に必要な考え方と、明日から使える視点を1日で整理します。</div>
+                        </details>
+                        <details className={styles.faqItem}>
+                            <summary className={styles.faqQuestion}>社長以外の役員も参加できますか？</summary>
+                            <div className={styles.faqAnswer}>経営を共に担う役員の方との参加も歓迎しています。紹介者経由でご相談ください。</div>
+                        </details>
+                        <details className={styles.faqItem}>
+                            <summary className={styles.faqQuestion}>持ち帰れる成果物はありますか？</summary>
+                            <div className={styles.faqAnswer}>AI前提で経営を考えるための整理フレームと、次の一手を定める視点を持ち帰れます。</div>
+                        </details>
+                        <details className={styles.faqItem}>
+                            <summary className={styles.faqQuestion}>モニタ料金の条件は何ですか？</summary>
+                            <div className={styles.faqAnswer}>研修後のお客さまの声収録と、サイト等での公開へのご協力が条件となります。</div>
                         </details>
                     </div>
                 </div>
@@ -346,7 +382,7 @@ export default function AX1SpecialPage() {
 
                 <div className={styles.entryContainer}>
                     <h2 className={`${styles.entryTitle} ${styles.revealTrigger}`}>
-                        経営者として、<br />AIと向き合う1日を。
+                        経営者として、<br /><span className={styles.headingAccent}>AIと向き合う1日</span>を。
                     </h2>
 
                     <p className={`${styles.entryDesc} ${styles.revealTrigger} ${styles.delay100}`}>
@@ -355,8 +391,8 @@ export default function AX1SpecialPage() {
                     </p>
 
                     <div className={`${styles.entryCard} ${styles.revealTrigger} ${styles.delay200}`}>
-                        <p className={styles.entryCardDate}>2026年2月25日（水） 10:00 - 19:00</p>
-                        <p className={styles.entryCardInfo}>紹介者限定 | 10名限定 | モニター価格 25,000円</p>
+                        <p className={styles.entryCardDate}>2026年2月25日（水）10:00〜19:00</p>
+                        <p className={styles.entryCardInfo}>紹介者限定 | 少人数開催 | モニタ料金 25,000円</p>
                     </div>
 
                     <div className={`${styles.revealTrigger} ${styles.delay300}`}>
@@ -373,7 +409,7 @@ export default function AX1SpecialPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                <a href="#why-ceo" onClick={(e) => scrollToSection(e, "#why-ceo")} className={styles.mobileMenuLink}>なぜ経営者か</a>
+                <a href="#why-ceo" onClick={(e) => scrollToSection(e, "#why-ceo")} className={styles.mobileMenuLink}>なぜ社長がAI駆動型に</a>
                 <a href="#speakers" onClick={(e) => scrollToSection(e, "#speakers")} className={styles.mobileMenuLink}>講師</a>
                 <a href="#details" onClick={(e) => scrollToSection(e, "#details")} className={styles.mobileMenuLink}>概要</a>
                 <a href="#entry" onClick={(e) => scrollToSection(e, "#entry")} className={styles.mobileMenuBtn}>ENTRY</a>
