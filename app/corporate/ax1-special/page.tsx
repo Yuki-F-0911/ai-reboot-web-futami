@@ -4,17 +4,19 @@ import AX1SpecialPage from "@/components/corporate/ax1-special/AX1SpecialPage";
 export const metadata: Metadata = {
     title: "AX-1 Special | 紹介者限定 特別プレビュー回 | AI REBOOT",
     description:
-        "4月の本格始動に先駆け、10名限定の特別セッションを開催。経営者が自らAI戦略を描くための1日集中研修。このご案内をお送りした方、またはそのご紹介者様のみのクローズドな回です。",
+        "紹介者限定で開催するAX-1 Special。2026年2月25日、社長自らがAI駆動型へ変わるための1DAY集中研修。AI前提の経営戦略と組織変革の進め方を少人数で学びます。",
     openGraph: {
         title: "AX-1 Special | 紹介者限定 特別プレビュー回 | AI REBOOT",
-        description: "4月の本格始動に先駆け、10名限定の特別セッションを開催。経営者が自らAI戦略を描くための1日集中研修。",
+        description:
+            "紹介者限定で開催するAX-1 Special。2026年2月25日、社長自らがAI駆動型へ変わるための1DAY集中研修。AI前提の経営戦略と組織変革の進め方を少人数で学びます。",
         images: ["/images/corporate/ax1-special/ogp.webp"],
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
         title: "AX-1 Special | 紹介者限定 特別プレビュー回 | AI REBOOT",
-        description: "4月の本格始動に先駆け、10名限定の特別セッションを開催。経営者が自らAI戦略を描くための1日集中研修。",
+        description:
+            "紹介者限定で開催するAX-1 Special。2026年2月25日、社長自らがAI駆動型へ変わるための1DAY集中研修。AI前提の経営戦略と組織変革の進め方を少人数で学びます。",
         images: ["/images/corporate/ax1-special/ogp.webp"],
     },
 };
