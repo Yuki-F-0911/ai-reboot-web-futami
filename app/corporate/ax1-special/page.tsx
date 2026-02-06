@@ -9,7 +9,7 @@ export const metadata: Metadata = {
         title: "AX-1 Special | 紹介者限定 特別プレビュー回 | AI REBOOT",
         description:
             "紹介者限定で開催するAX-1 Special。2026年2月25日、社長自らがAI駆動型へ変わるための1DAY集中研修。AI前提の経営戦略と組織変革の進め方を少人数で学びます。",
-        images: ["/images/corporate/ax1-special/ogp.webp"],
+        images: ["/images/corporate/ax1-special/ogp-v2.webp"],
         type: "website",
     },
     twitter: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         title: "AX-1 Special | 紹介者限定 特別プレビュー回 | AI REBOOT",
         description:
             "紹介者限定で開催するAX-1 Special。2026年2月25日、社長自らがAI駆動型へ変わるための1DAY集中研修。AI前提の経営戦略と組織変革の進め方を少人数で学びます。",
-        images: ["/images/corporate/ax1-special/ogp.webp"],
+        images: ["/images/corporate/ax1-special/ogp-v2.webp"],
     },
 };
 
