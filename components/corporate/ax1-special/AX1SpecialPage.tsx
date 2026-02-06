@@ -5,6 +5,138 @@ import Image from "next/image";
 import styles from "./AX1SpecialPage.module.css";
 import { AX1EntryForm } from "../ax1-2/AX1EntryForm";
 
+type NavItem = {
+    label: string;
+    targetId: string;
+    isEntry?: boolean;
+};
+
+type ProgramChapter = {
+    label: string;
+    title: string;
+    description: string;
+    topics: string[];
+};
+
+type BenefitItem = {
+    title: string;
+    description: string;
+};
+
+type AudienceItem = {
+    text: string;
+    highlightText?: string;
+};
+
+const navItems: NavItem[] = [
+    { label: "必要性", targetId: "#why-ceo" },
+    { label: "講座内容", targetId: "#program" },
+    { label: "成果", targetId: "#benefits" },
+    { label: "対象者", targetId: "#audience" },
+    { label: "登壇者", targetId: "#speakers" },
+    { label: "概要", targetId: "#details" },
+    { label: "ENTRY", targetId: "#entry", isEntry: true },
+];
+
+const programChapters: ProgramChapter[] = [
+    {
+        label: "CHAPTER 01",
+        title: "2030年の未来から逆算する経営視点",
+        description: "AI産業革命の構造変化を捉え、次の一手を「生存戦略」と「飛躍シナリオ」の両軸で設計します。",
+        topics: [
+            "2030年の未来からの逆算",
+            "知能のコストゼロ社会の衝撃",
+            "AI産業革命がもたらすもの",
+            "経営者が打つべき「生存戦略」と「飛躍シナリオ」のための一手",
+        ],
+    },
+    {
+        label: "CHAPTER 02",
+        title: "経営者の思考OSを再起動する",
+        description: "過去の成功体験を再定義し、AI時代の意思決定に必要な自己認知と経営者の役割を明確化します。",
+        topics: [
+            "経験のグレートリセットと経験のリブート",
+            "AI駆動型経営への社長の役割",
+            "成功体験の「アンラーニング（学習棄却）」",
+            "経営者の自己認知の重要性",
+        ],
+    },
+    {
+        label: "CHAPTER 03",
+        title: "AXの実装と経営インフラ化",
+        description: "デジタルツインとAIOを軸に、社内業務からプロダクト開発までをAI前提で再設計する実践を行います。",
+        topics: [
+            "経営者のデジタルツイン化",
+            "定型業務の効率化",
+            "業務変革のAX思考",
+            "社長の思考・Willを学習させた「AI分身（社長ボット）」の作り方",
+            "AIO（AI Optimization）戦略",
+            "1人でCM・Web・システムを開発する「Vibe Coding」の実演",
+        ],
+    },
+    {
+        label: "CHAPTER 04",
+        title: "全社変革を定着させる組織設計",
+        description: "現場で起きる失敗パターンを先回りし、全社員をAI駆動型に変えるための実装ロードマップを固めます。",
+        topics: [
+            "AI活用の「3つの壁」と突破法",
+            "全社員をAI駆動型に変える方法",
+            "AI駆動型組織の落とし穴",
+            "AI駆動型宣言",
+        ],
+    },
+];
+
+const benefitItems: BenefitItem[] = [
+    {
+        title: "危機感と勝算",
+        description: "「なぜ今やるべきか」の理由と、競争優位を築くための具体的な勝ち筋が明確になります。",
+    },
+    {
+        title: "意思決定の高速化",
+        description: "AIを壁打ち相手に活用し、孤独な経営判断のスピードと精度を同時に引き上げます。",
+    },
+    {
+        title: "コスト構造の革命",
+        description: "外注依存を減らし、社内でクリエイティブ・開発を進める内製化の道筋を設計できます。",
+    },
+    {
+        title: "次世代リーダーの育成論",
+        description: "AIネイティブ人材を組織の推進力に変え、ベテランとの協働を前提にした育成戦略を描けます。",
+    },
+    {
+        title: "経営者ネットワーク",
+        description: "同じ視座でAXに挑む経営者同士のつながりを築き、実践知を交換できる関係性が得られます。",
+    },
+];
+
+const audienceItems: AudienceItem[] = [
+    { text: "単純な「DX」ではなく「変革（AX）」を求めている", highlightText: "「DX」ではなく「変革（AX）」" },
+    { text: "AI活用を積極的に進め、事業成長につなげたい" },
+    { text: "全社にAI活用を浸透させ、業績向上のチャンスに変えたい" },
+    { text: "社員へAI活用を指示しているが、成果が見えず焦りを感じている" },
+    { text: "数年後を見据え、自社の存在意義を再定義したい" },
+    { text: "「採用難」や「人材不足」を、AI×組織戦略で根本解決したい", highlightText: "「採用難」や「人材不足」" },
+    { text: "「デジタルツイン」や「AIO」を、自社の経営戦略に落とし込みたい", highlightText: "「デジタルツイン」や「AIO」" },
+    { text: "中小企業向けのAI活用ノウハウと、実践的な経営者ネットワークを得たい" },
+];
+
+function renderAudienceText(item: AudienceItem) {
+    if (!item.highlightText || !item.text.includes(item.highlightText)) {
+        return item.text;
+    }
+
+    const [before, after] = item.text.split(item.highlightText);
+
+    return (
+        <>
+            {before}
+            <span className={styles.markerText}>{item.highlightText}</span>
+            {after}
+        </>
+    );
+}
+
 export default function AX1SpecialPage() {
     const [isNavScrolled, setIsNavScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -62,18 +194,16 @@ export default function AX1SpecialPage() {
                     <a href="#" className={styles.navLogo}>AX-1 Special</a>
 
                     <div className={styles.navLinks}>
-                        <a href="#why-ceo" onClick={(e) => scrollToSection(e, "#why-ceo")} className={styles.navLink}>
-                            なぜ社長がAI駆動型に
-                        </a>
-                        <a href="#speakers" onClick={(e) => scrollToSection(e, "#speakers")} className={styles.navLink}>
-                            登壇者
-                        </a>
-                        <a href="#details" onClick={(e) => scrollToSection(e, "#details")} className={styles.navLink}>
-                            開催概要
-                        </a>
-                        <a href="#entry" onClick={(e) => scrollToSection(e, "#entry")} className={styles.navEntryBtn}>
-                            ENTRY
-                        </a>
+                        {navItems.map((item) => (
+                            <a
+                                key={item.targetId}
+                                href={item.targetId}
+                                onClick={(e) => scrollToSection(e, item.targetId)}
+                                className={item.isEntry ? styles.navEntryBtn : styles.navLink}
+                            >
+                                {item.label}
+                            </a>
+                        ))}
                     </div>
 
                     <button className={styles.navMobileMenuBtn} onClick={() => setIsMobileMenuOpen(true)}>
@@ -274,9 +404,94 @@ export default function AX1SpecialPage() {
             </section>
 
 
-            {/* Section 5: Benefits (Assets) */}
+            {/* Section 4: Program */}
+            <section id="program" className={`${styles.sectionMa} ${styles.programSection}`}>
+                <div className={styles.programContainer}>
+                    <div className={`${styles.programHeader} ${styles.revealTrigger}`}>
+                        <h2 className={styles.programTitle}>
+                            <span className={styles.headingAccent}>講座内容</span>
+                        </h2>
+                        <p className={styles.programDesc}>
+                            AI時代の経営を、戦略・思考・実装・組織の4章で体系化して学びます。
+                        </p>
+                        <p className={styles.programNotice}>
+                            ※AIのトレンドは激しく変化するため、講座内容は当日までに予告なくアップデートされる場合があります。
+                        </p>
+                    </div>
 
-            {/* Section 6: Speakers */}
+                    <div className={`${styles.timeline} ${styles.revealTrigger} ${styles.delay100}`}>
+                        {programChapters.map((chapter, index) => (
+                            <div key={chapter.title} className={styles.timelineItem}>
+                                <div className={styles.timelineTime}>
+                                    <span className={styles.timelineTimeMain}>{String(index + 1).padStart(2, "0")}</span>
+                                    <div className={styles.timelineTimeSub}>CHAPTER</div>
+                                </div>
+                                <div className={styles.timelineDot} />
+                                <div>
+                                    <span className={styles.timelineLabel}>{chapter.label}</span>
+                                    <h3 className={styles.timelineTitle}>{chapter.title}</h3>
+                                    <p className={styles.timelineDesc}>{chapter.description}</p>
+                                    <ul className={styles.timelineList}>
+                                        {chapter.topics.map((topic) => (
+                                            <li key={topic} className={styles.timelineListItem}>
+                                                <span className={styles.timelineListBullet}>•</span>
+                                                <span>{topic}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <p className={`${styles.programClosing} ${styles.revealTrigger} ${styles.delay200}`}>
+                        1日で「理解」だけでなく、翌日から動ける経営判断の型まで持ち帰っていただきます。
+                    </p>
+                </div>
+            </section>
+
+            {/* Section 5: Benefits */}
+            <section id="benefits" className={`${styles.sectionMa} ${styles.benefitsSection}`}>
+                <div className={styles.benefitsContainer}>
+                    <h2 className={`${styles.benefitsTitle} ${styles.revealTrigger}`}>
+                        <span className={styles.headingAccent}>講座で得られる成果</span>
+                    </h2>
+                    <p className={`${styles.benefitsDesc} ${styles.revealTrigger}`}>
+                        学んで終わりではなく、経営に実装できる成果を持ち帰る設計です。
+                    </p>
+
+                    <div className={`${styles.benefitsGrid} ${styles.revealTrigger} ${styles.delay100}`}>
+                        {benefitItems.map((benefit) => (
+                            <article key={benefit.title} className={styles.benefitCard}>
+                                <h3 className={styles.benefitTitle}>{benefit.title}</h3>
+                                <p className={styles.benefitDesc}>{benefit.description}</p>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 6: Audience */}
+            <section id="audience" className={`${styles.sectionMa} ${styles.audienceSection}`}>
+                <div className={styles.audienceContainer}>
+                    <h2 className={`${styles.audienceTitle} ${styles.revealTrigger}`}>
+                        <span className={styles.headingAccent}>こんな経営者におすすめ</span>
+                    </h2>
+                    <p className={`${styles.audienceLead} ${styles.revealTrigger}`}>
+                        中小企業の経営者・役員（CxO）を対象としています。
+                    </p>
+
+                    <div className={`${styles.audienceGrid} ${styles.revealTrigger} ${styles.delay100}`}>
+                        {audienceItems.map((item) => (
+                            <div key={item.text} className={styles.audienceItem}>
+                                {renderAudienceText(item)}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 7: Speakers */}
             <section id="speakers" className={`${styles.sectionMa} ${styles.speakersSection}`}>
                 <div className={styles.speakersContainer}>
                     <h2 className={`${styles.speakersTitle} ${styles.revealTrigger}`}>
@@ -354,6 +569,12 @@ export default function AX1SpecialPage() {
                     </h3>
                     <div className={`${styles.faqList} ${styles.revealTrigger}`}>
                         <details className={styles.faqItem}>
+                            <summary className={styles.faqQuestion}>講座内容は固定ですか？</summary>
+                            <div className={styles.faqAnswer}>
+                                いいえ。AIトレンドの変化に対応するため、講座内容は当日までに予告なくアップデートされる場合があります。
+                            </div>
+                        </details>
+                        <details className={styles.faqItem}>
                             <summary className={styles.faqQuestion}>AIの知識がなくても参加できますか？</summary>
                             <div className={styles.faqAnswer}>はい、プログラミング知識は不要です。経営者としての視点があれば活用いただけます。</div>
                         </details>
@@ -410,10 +631,16 @@ export default function AX1SpecialPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                <a href="#why-ceo" onClick={(e) => scrollToSection(e, "#why-ceo")} className={styles.mobileMenuLink}>なぜ社長がAI駆動型に</a>
-                <a href="#speakers" onClick={(e) => scrollToSection(e, "#speakers")} className={styles.mobileMenuLink}>講師</a>
-                <a href="#details" onClick={(e) => scrollToSection(e, "#details")} className={styles.mobileMenuLink}>概要</a>
-                <a href="#entry" onClick={(e) => scrollToSection(e, "#entry")} className={styles.mobileMenuBtn}>ENTRY</a>
+                {navItems.map((item) => (
+                    <a
+                        key={`mobile-${item.targetId}`}
+                        href={item.targetId}
+                        onClick={(e) => scrollToSection(e, item.targetId)}
+                        className={item.isEntry ? styles.mobileMenuBtn : styles.mobileMenuLink}
+                    >
+                        {item.label}
+                    </a>
+                ))}
             </div>
         </div>
     );

@@ -93,12 +93,12 @@
 
 .navLinks {
     display: none;
-    gap: 2rem;
+    gap: clamp(0.75rem, 1.2vw, 1.25rem);
     align-items: center;
-    font-size: 0.9375rem;
-    /* Increased from 0.875rem */
+    font-size: 0.8125rem;
     font-weight: 500;
     color: var(--ax1-sub);
+    white-space: nowrap;
 }
 
 @media (min-width: 768px) {
@@ -107,8 +107,16 @@
     }
 }
 
+@media (min-width: 1280px) {
+    .navLinks {
+        gap: 1.5rem;
+        font-size: 0.875rem;
+    }
+}
+
 .navLink {
     transition: color 0.3s;
+    white-space: nowrap;
 }
 
 .navLink:hover {
@@ -118,11 +126,12 @@
 .navEntryBtn {
     background-color: var(--ax1-primary);
     color: white;
-    padding: 0.625rem 1.5rem;
+    padding: 0.55rem 1.1rem;
     border-radius: 9999px;
     transition: all 0.3s;
     transform: translateY(0);
     box-shadow: 0 10px 15px -3px rgba(30, 58, 95, 0.2);
+    white-space: nowrap;
 }
 
 .navEntryBtn:hover {
@@ -967,6 +976,18 @@
     color: var(--ax1-sub);
 }
 
+.programNotice {
+    margin: 1.5rem auto 0;
+    max-width: 44rem;
+    padding: 0.875rem 1rem;
+    border-left: 3px solid var(--ax1-secondary);
+    background: rgba(232, 244, 248, 0.72);
+    color: var(--ax1-sub);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    text-align: left;
+}
+
 .timeline {
     position: relative;
     margin-left: 1rem;
@@ -1063,14 +1084,16 @@
 }
 
 .timelineList {
-    font-size: 0.75rem;
+    font-size: 0.9375rem;
     color: var(--ax1-text);
     background: var(--ax1-paper);
-    padding: 1rem;
-    border-radius: 0.25rem;
+    border: 1px solid rgba(30, 58, 95, 0.08);
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.65rem;
+    line-height: 1.7;
 }
 
 .timelineListItem {
@@ -1093,6 +1116,15 @@
     font-size: 0.75rem;
     color: #9ca3af;
     margin-top: 0.25rem;
+}
+
+.programClosing {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--ax1-primary);
+    line-height: 1.8;
+    font-family: 'Zen Old Mincho', serif;
 }
 
 /* === BENEFITS SECTION === */
@@ -1174,6 +1206,94 @@
     /* Increased from 0.875rem */
     color: var(--ax1-sub);
     line-height: 1.75;
+}
+
+/* === AUDIENCE SECTION === */
+.audienceSection {
+    background: white;
+}
+
+.audienceContainer {
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.audienceTitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--ax1-primary);
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Zen Old Mincho', serif;
+}
+
+.audienceLead {
+    text-align: center;
+    color: var(--ax1-sub);
+    margin-bottom: 2.75rem;
+    line-height: 1.8;
+}
+
+.audienceGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .audienceGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+.audienceItem {
+    position: relative;
+    border: 1px solid rgba(30, 58, 95, 0.08);
+    background: var(--ax1-paper);
+    border-radius: 0.75rem;
+    padding: 1rem 1rem 1rem 2.25rem;
+    color: var(--ax1-text);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.audienceItem::before {
+    content: "✓";
+    position: absolute;
+    top: 1rem;
+    left: 0.85rem;
+    color: var(--ax1-secondary);
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .programNotice {
+        font-size: 0.8125rem;
+        line-height: 1.65;
+    }
+
+    .timelineList {
+        font-size: 0.875rem;
+        padding: 0.875rem 1rem;
+    }
+
+    .programClosing {
+        font-size: 1rem;
+    }
+
+    .audienceTitle {
+        font-size: 1.5rem;
+    }
+
+    .audienceLead {
+        margin-bottom: 2rem;
+    }
+
+    .audienceItem {
+        font-size: 0.9rem;
+        padding: 0.95rem 0.95rem 0.95rem 2rem;
+    }
 }
 
 /* === SPEAKERS SECTION === */
@@ -1611,7 +1731,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1.35rem;
+    padding: 5rem 1.25rem 2rem;
+    overflow-y: auto;
     transform: translateX(100%);
     opacity: 0;
     pointer-events: none;
@@ -1633,10 +1755,11 @@
 }
 
 .mobileMenuLink {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--ax1-primary);
     font-family: 'Zen Old Mincho', serif;
+    text-align: center;
 }
 
 .mobileMenuBtn {
