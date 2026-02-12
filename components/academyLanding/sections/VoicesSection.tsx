@@ -40,17 +40,17 @@ const VoicesSection = () => {
                     {voices.map((voice) => (
                         <article
                             key={voice.title}
-                            className="h-full bg-slate-50 border border-slate-100 rounded-2xl p-6 md:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
+                            className="h-full bg-slate-50 border border-slate-100 rounded-2xl p-6 md:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col relative overflow-hidden"
                         >
-                            <span className="text-4xl text-orange-300 font-serif leading-none mb-4 block">
+                            <span className="absolute top-3 right-4 text-7xl text-orange-200 font-serif leading-none pointer-events-none select-none z-0">
                                 &ldquo;
                             </span>
 
-                            <h3 className="text-lg md:text-xl font-bold text-slate-900 leading-snug mb-4">
+                            <h3 className="relative z-10 text-lg md:text-xl font-bold text-slate-900 leading-snug mb-4">
                                 {voice.title}
                             </h3>
 
-                            <p className="text-sm md:text-base text-slate-600 leading-relaxed flex-1">
+                            <p className="relative z-10 text-sm md:text-base text-slate-600 leading-relaxed flex-1">
                                 {voice.body}
                             </p>
                         </article>
