@@ -208,9 +208,9 @@ export default function AcademyPage() {
 
       <PricingSection />
 
-      <section className="bg-gradient-to-b from-slate-50 to-slate-900 pt-8 pb-12">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl text-center mt-8 mb-4 pb-8">
-          <p className="text-base text-slate-400 mb-4">補助金の利用方法もLINEでご案内できます</p>
+      <section className="bg-slate-50">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl text-center py-8">
+          <p className="text-base text-slate-500 mb-4">補助金の利用方法もLINEでご案内できます</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="https://bexn9pao.autosns.app/line"
