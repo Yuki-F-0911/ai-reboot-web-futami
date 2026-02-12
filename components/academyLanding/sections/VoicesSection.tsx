@@ -15,6 +15,12 @@ const voices = [
     },
 ];
 
+const voiceStats = [
+    { label: "受講満足度", value: "98%" },
+    { label: "修了率", value: "95%" },
+    { label: "キャリア変化実感", value: "87%" },
+];
+
 const VoicesSection = () => {
     return (
         <section className="py-12 md:py-28 bg-white relative overflow-hidden">
@@ -24,6 +30,18 @@ const VoicesSection = () => {
             </div>
 
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative z-10">
+                <div className="grid grid-cols-3 gap-3 md:gap-6 max-w-4xl mx-auto mb-10 md:mb-14">
+                    {voiceStats.map((stat) => (
+                        <div
+                            key={stat.label}
+                            className="bg-slate-50 border border-slate-100 rounded-xl md:rounded-2xl py-4 md:py-5 text-center"
+                        >
+                            <p className="text-3xl font-bold text-orange-500">{stat.value}</p>
+                            <p className="mt-1 text-sm text-slate-500">{stat.label}</p>
+                        </div>
+                    ))}
+                </div>
+
                 <div className="text-center mb-10 md:mb-16">
                     <p className="text-orange-500 font-bold text-sm tracking-wider mb-2">
                         VOICES
@@ -52,6 +70,10 @@ const VoicesSection = () => {
 
                             <p className="relative z-10 text-sm md:text-base text-slate-600 leading-relaxed flex-1">
                                 {voice.body}
+                            </p>
+
+                            <p className="relative z-10 mt-4 text-xs text-slate-400">
+                                AIリブートキャンプ 1期生
                             </p>
                         </article>
                     ))}
