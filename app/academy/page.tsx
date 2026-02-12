@@ -6,6 +6,7 @@ import InstructorsSection from "@/components/academyLanding/sections/Instructors
 import SkillLevelSection from "@/components/academyLanding/sections/SkillLevelSection";
 import PricingSection from "@/components/academyLanding/sections/PricingSection";
 import TargetAudienceSection from "@/components/academyLanding/sections/TargetAudienceSection";
+import VoicesSection from "@/components/academyLanding/sections/VoicesSection";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -175,6 +176,8 @@ export default function AcademyPage() {
       <TargetAudienceSection />
 
       <InstructorsSection />
+
+      <VoicesSection />
 
       <PricingSection />
 
