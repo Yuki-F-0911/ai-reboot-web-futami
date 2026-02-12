@@ -76,21 +76,9 @@ const HeroSection = () => {
             <div className="relative z-10 container mx-auto px-5 md:px-6 lg:px-8 pt-16 lg:pt-28 pb-8 lg:pb-16 flex flex-1 items-center">
                 <div className="w-full lg:max-w-2xl text-center lg:text-left">
                     {/* Main Tagline - 最も目立つ訴求コピー */}
-                    <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-4 leading-tight">
+                    <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 leading-tight">
                         激変する時代に、<br className="hidden sm:block" />自分を再起動する
                     </p>
-
-                    {/* Main Heading - Logo Image */}
-                    <div className="mb-2">
-                        <Image
-                            src="/images/logo-katakana.svg"
-                            alt="AIリブートアカデミー"
-                            width={200}
-                            height={30}
-                            className="h-6 sm:h-7 md:h-8 lg:h-10 w-auto mx-auto lg:mx-0"
-                            priority
-                        />
-                    </div>
 
                     {/* Orange Highlight Text */}
                     <p className="text-lg sm:text-xl md:text-2xl font-bold text-orange-500 mb-4">
