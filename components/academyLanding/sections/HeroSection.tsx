@@ -22,7 +22,7 @@ const HeroSection = () => {
     }, []);
 
     return (
-        <section className="relative flex flex-col w-full h-screen max-[375px]:h-auto max-[375px]:min-h-screen overflow-hidden bg-slate-50">
+        <section className="relative flex flex-col w-full min-h-[85vh] max-[375px]:min-h-0 overflow-hidden bg-slate-50">
             {/* Mobile: Image at top */}
             <div className="lg:hidden relative w-full h-[40vh] min-h-[280px] overflow-hidden">
                 {heroImages.map((src, index) => (
