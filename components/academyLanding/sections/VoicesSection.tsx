@@ -42,9 +42,9 @@ const VoicesSection = () => {
                             key={voice.title}
                             className="h-full bg-slate-50 border border-slate-100 rounded-2xl p-6 md:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
                         >
-                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center text-3xl font-bold leading-none shadow-lg shadow-orange-200/70 mb-5">
+                            <span className="text-4xl text-orange-300 font-serif leading-none mb-4 block">
                                 &ldquo;
-                            </div>
+                            </span>
 
                             <h3 className="text-lg md:text-xl font-bold text-slate-900 leading-snug mb-4">
                                 {voice.title}
