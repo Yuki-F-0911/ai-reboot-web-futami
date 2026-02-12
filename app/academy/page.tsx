@@ -45,7 +45,6 @@ export default function AcademyPage() {
     <>
       <HeroSection />
       <ConceptSection />
-      <SubsidyBanner />
 
       {/* Program Flow Section */}
       <section id="flow" className="py-12 md:py-28 bg-slate-50">
@@ -178,7 +177,7 @@ export default function AcademyPage() {
       <section className="py-8 md:py-12 bg-gradient-to-r from-orange-500 to-amber-500">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-5xl text-center">
           <p className="text-xl md:text-2xl font-bold text-white">
-            まずは無料で話を聞いてみませんか？
+            当てはまる方は、まず無料で話を聞いてみませんか？
           </p>
           <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
             <a
@@ -205,11 +204,13 @@ export default function AcademyPage() {
       <InstructorsSection />
 
       <VoicesSection />
+      <SubsidyBanner />
 
       <PricingSection />
 
       <section className="bg-slate-50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl text-center mt-8 mb-4 pb-8">
+          <p className="text-base text-slate-500 mb-4">補助金の利用方法もLINEでご案内できます</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="https://bexn9pao.autosns.app/line"

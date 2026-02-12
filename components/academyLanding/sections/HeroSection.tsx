@@ -94,7 +94,7 @@ const HeroSection = () => {
 
                     {/* Orange Highlight Text */}
                     <p className="text-lg sm:text-xl md:text-2xl font-bold text-orange-500 mb-4">
-                        100日間で、変化する時代を<br className="sm:hidden" />味方につける人材へ
+                        このままでいいのか、と思ったあなたへ。
                     </p>
 
                     {/* Description */}
@@ -102,7 +102,7 @@ const HeroSection = () => {
                         <span className="hidden sm:inline">生成AI活用 × マーケティング × コミュニケーション × キャリアデザイン</span>
                         <span className="sm:hidden">生成AI活用 × マーケティング<br />× コミュニケーション × キャリアデザイン</span>
                         <br />
-                        AI時代に活躍する人材に、いち早くなる。
+                        100日後、あなたは別人になっている。
                     </p>
 
                     {/* CTA Buttons */}
