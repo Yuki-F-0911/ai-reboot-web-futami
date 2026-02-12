@@ -2,14 +2,17 @@
 
 const voices = [
     {
+        initial: "A",
         title: "単なる便利ツールだと思っていたAIが、自分の深層を掘り下げるパートナーに変わりました",
         body: "正直、参加する前は「ChatGPTにコードを書いてもらうことの延長線上でしょ？」と思っていました。でも、全く違いました。答えのない問いをAIと、そして仲間と共に探求していく過程で、「ここまで深められるのか」という衝撃を受けました。単に学ぶだけでなく、その場でWebサイトという具体的な「成果物」まで形にできたのが大きな収穫です。",
     },
     {
+        initial: "B",
         title: "自腹での参加。でも、それ以上の未来への投資になりました",
         body: "決して安い金額ではありませんでしたが、直感を信じて飛び込んで正解でした。「やっちゃうか！」というチャレンジ精神で集まったメンバーとの出会いは、何にも代えがたい資産です。自分のキャリアや過去の経験が、AIという武器を得てどう花開くのか。自分にとって良い未来にしかならないという確信があります。",
     },
     {
+        initial: "C",
         title: "一人なら動画を1本見て終わっていた。仲間がいるから、限界を超えられる",
         body: "最初は「本当に自分にできるのか」と不安でした。でも、ここに来て一番良かったのは「仲間」ができたことです。おそらく一人で独学していたら、途中で行き詰まって挫折していたと思います。励まし合い、知恵を出し合える環境があるからこそ、密度の濃い2日間を走り切れました。この後の100日間も、この仲間となら頑張れます。",
     },
@@ -54,9 +57,14 @@ const VoicesSection = () => {
                                 {voice.body}
                             </p>
 
-                            <p className="relative z-10 mt-4 text-xs text-slate-400">
-                                AIリブートキャンプ 1期生
-                            </p>
+                            <div className="relative z-10 mt-4 flex items-center gap-2">
+                                <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 font-bold text-xs flex items-center justify-center">
+                                    {voice.initial}
+                                </div>
+                                <p className="text-xs text-slate-400">
+                                    AIリブートキャンプ 1期生
+                                </p>
+                            </div>
                         </article>
                     ))}
                 </div>
