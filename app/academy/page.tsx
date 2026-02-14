@@ -47,7 +47,7 @@ export default function AcademyPage() {
       <ConceptSection />
 
       {/* Program Flow Section */}
-      <section id="flow" className="py-12 md:py-28 bg-slate-50 overflow-hidden">
+      <section id="flow" className="py-12 md:py-28 bg-slate-50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
           <div className="text-center mb-10 md:mb-16">
@@ -63,9 +63,9 @@ export default function AcademyPage() {
           </div>
 
           {/* Flow Diagram with Arrows */}
-          <div className="relative overflow-hidden">
+          <div className="relative">
             {/* Steps Grid - Desktop: cards with arrows between them */}
-            <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+            <div className="hidden md:grid md:grid-cols-1 xl:grid-cols-3 gap-6 lg:gap-8">
               {steps.map((step) => (
                 <div key={step.id} className="min-w-0">
                   {/* Step Card */}
