@@ -47,7 +47,7 @@ export default function AcademyPage() {
       <ConceptSection />
 
       {/* Program Flow Section */}
-      <section id="flow" className="py-12 md:py-28 bg-slate-50">
+      <section id="flow" className="py-12 md:py-28 bg-slate-50 overflow-hidden">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
           <div className="text-center mb-10 md:mb-16">
@@ -63,56 +63,42 @@ export default function AcademyPage() {
           </div>
 
           {/* Flow Diagram with Arrows */}
-          <div className="relative">
+          <div className="relative overflow-hidden">
             {/* Steps Grid - Desktop: cards with arrows between them */}
-            <div className="hidden md:flex items-stretch justify-center gap-0">
-              {steps.map((step, index) => (
-                <div key={step.id} className="flex items-stretch">
+            <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+              {steps.map((step) => (
+                <div key={step.id} className="min-w-0">
                   {/* Step Card */}
-                  <div className="w-[300px] lg:w-[340px]">
-                    <div className="bg-white rounded-2xl p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group h-full">
-                      {/* Background Decoration */}
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-50 to-transparent rounded-bl-full opacity-50" />
+                  <div className="bg-white rounded-2xl p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group h-full">
+                    {/* Background Decoration */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-50 to-transparent rounded-bl-full opacity-50" />
 
-                      {/* Illustration */}
-                      <div className="relative w-full h-40 mb-6 flex items-center justify-center">
-                        <Image
-                          src={step.illustration}
-                          alt={step.title}
-                          width={200}
-                          height={160}
-                          className="object-contain group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-
-                      {/* Number Badge */}
-                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 text-white font-bold text-xl mb-4 shadow-lg shadow-orange-200">
-                        {step.id}
-                      </div>
-
-                      <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
-                        {step.title}
-                      </h3>
-                      <p className="text-orange-500 font-bold text-sm mb-3">
-                        {step.subtitle}
-                      </p>
-                      <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-                        {step.description}
-                      </p>
+                    {/* Illustration */}
+                    <div className="relative w-full h-40 mb-6 flex items-center justify-center">
+                      <Image
+                        src={step.illustration}
+                        alt={step.title}
+                        width={200}
+                        height={160}
+                        className="max-w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
+
+                    {/* Number Badge */}
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 text-white font-bold text-xl mb-4 shadow-lg shadow-orange-200">
+                      {step.id}
+                    </div>
+
+                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-orange-500 font-bold text-sm mb-3">
+                      {step.subtitle}
+                    </p>
+                    <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+                      {step.description}
+                    </p>
                   </div>
-
-                  {/* Arrow between cards (only between cards, not after last) */}
-                  {index < steps.length - 1 && (
-                    <div className="flex items-center justify-center px-4 lg:px-6">
-                      <div className="flex items-center gap-1">
-                        <div className="w-8 lg:w-12 h-0.5 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full" />
-                        <svg className="w-5 h-5 text-orange-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-                        </svg>
-                      </div>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
@@ -144,7 +130,7 @@ export default function AcademyPage() {
                         alt={step.title}
                         width={200}
                         height={160}
-                        className="object-contain group-hover:scale-105 transition-transform duration-300 max-h-24"
+                        className="max-w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300 max-h-24"
                       />
                     </div>
 
