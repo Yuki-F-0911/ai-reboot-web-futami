@@ -20,20 +20,11 @@ export const metadata: Metadata = {
         siteName: "AI REBOOT",
         locale: "ja_JP",
         type: "website",
-        images: [
-            {
-                url: "/images/ogp/default-ogp.jpg",
-                width: 1200,
-                height: 630,
-                alt: "代表メッセージ | AIリブートアカデミー",
-            },
-        ],
     },
     twitter: {
         card: "summary_large_image",
         title: messageTitle,
         description: messageDescription,
-        images: ["/images/ogp/default-ogp.jpg"],
     },
 };
 
