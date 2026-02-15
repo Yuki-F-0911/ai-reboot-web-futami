@@ -18,7 +18,31 @@ const FALLBACK_SITE_ORIGIN = "https://ai-reboot.io";
 const GOOGLE_FONT_CSS_URL =
   "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap";
 const GOOGLE_FONT_USER_AGENT =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36";
+  "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36";
+
+const pickSupportedFontUrl = (css: string): string | null => {
+  const matches = Array.from(
+    css.matchAll(/url\(([^)]+)\)\s+format\('([^']+)'\)/g)
+  );
+
+  if (matches.length === 0) {
+    return null;
+  }
+
+  const priority = ["woff", "opentype", "truetype"];
+
+  for (const format of priority) {
+    const candidate = matches.find(
+      (match) => match[2]?.toLowerCase() === format
+    );
+
+    if (candidate?.[1]) {
+      return candidate[1].replace(/["']/g, "");
+    }
+  }
+
+  return null;
+};
 
 const resolveSiteOrigin = () => {
   if (!process.env.NEXT_PUBLIC_BASE_URL) {
@@ -44,15 +68,13 @@ const loadNotoSansJp = cache(async (): Promise<ArrayBuffer | null> => {
     }
 
     const css = await cssResponse.text();
-    const match = css.match(
-      /src: url\(([^)]+)\) format\('(?:woff2|woff|opentype|truetype)'\)/
-    );
+    const fontUrl = pickSupportedFontUrl(css);
 
-    if (!match?.[1]) {
+    if (!fontUrl) {
       return null;
     }
 
-    const fontResponse = await fetch(match[1], { cache: "force-cache" });
+    const fontResponse = await fetch(fontUrl, { cache: "force-cache" });
 
     if (!fontResponse.ok) {
       return null;
@@ -71,7 +93,7 @@ export async function createOgImage({
   accentColor = "#FF4B8B",
 }: OgImageOptions) {
   const fontData = await loadNotoSansJp();
-  const logoUrl = new URL("/images/logo-katakana.svg", resolveSiteOrigin()).toString();
+  const logoUrl = new URL("/images/logo.png", resolveSiteOrigin()).toString();
 
   return new ImageResponse(
     (
