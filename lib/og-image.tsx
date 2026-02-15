@@ -142,8 +142,8 @@ export async function createOgImage({
             <img
               src={logoUrl}
               alt="AI REBOOT"
-              width={178}
-              height={20}
+              width={240}
+              height={27}
               style={{ objectFit: "contain" }}
             />
             <div
