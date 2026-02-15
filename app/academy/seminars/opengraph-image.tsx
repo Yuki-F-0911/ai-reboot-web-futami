@@ -9,6 +9,6 @@ export default async function Image() {
     title: "無料セミナー",
     subtitle: "AIリブートアカデミー",
     eyebrow: "SEMINARS",
-    accentColor: "#F59E0B",
+    accentColor: "#D97706",
   });
 }

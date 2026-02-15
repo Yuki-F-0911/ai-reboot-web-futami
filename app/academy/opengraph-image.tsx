@@ -9,6 +9,6 @@ export default async function Image() {
     title: "AIリブートアカデミー",
     subtitle: "100日間の実践プログラム",
     eyebrow: "ACADEMY",
-    accentColor: "#F97316",
+    accentColor: "#EA580C",
   });
 }

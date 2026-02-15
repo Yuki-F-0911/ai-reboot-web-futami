@@ -103,9 +103,8 @@ export async function createOgImage({
           height: "100%",
           display: "flex",
           position: "relative",
-          background:
-            "linear-gradient(135deg, #0f0f14 0%, #1a1a23 55%, #2d2d3f 100%)",
-          color: "#f7f7fa",
+          background: "linear-gradient(180deg, #fffdf8 0%, #f7f7fa 100%)",
+          color: "#1A1A23",
           fontFamily: "Noto Sans JP, sans-serif",
           overflow: "hidden",
         }}
@@ -113,23 +112,11 @@ export async function createOgImage({
         <div
           style={{
             position: "absolute",
-            top: -120,
-            right: -80,
-            width: 380,
-            height: 380,
-            borderRadius: "9999px",
-            background: `${accentColor}33`,
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: -150,
-            left: -100,
-            width: 420,
-            height: 420,
-            borderRadius: "9999px",
-            background: "rgba(59, 130, 246, 0.18)",
+            top: 0,
+            right: 0,
+            width: 18,
+            height: "100%",
+            background: `linear-gradient(180deg, ${accentColor}2B 0%, ${accentColor}14 100%)`,
           }}
         />
 
@@ -155,53 +142,77 @@ export async function createOgImage({
             <img
               src={logoUrl}
               alt="AI REBOOT"
-              width={300}
-              height={34}
+              width={178}
+              height={20}
               style={{ objectFit: "contain" }}
             />
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
-                padding: "10px 20px",
+                padding: "8px 14px",
                 borderRadius: "9999px",
-                border: `1px solid ${accentColor}`,
-                background: "rgba(0, 0, 0, 0.22)",
-                color: "#f0f4f8",
-                fontSize: 24,
+                border: `1px solid ${accentColor}55`,
+                background: `${accentColor}0F`,
+                color: accentColor,
+                fontSize: 20,
                 fontWeight: 700,
-                letterSpacing: "0.08em",
+                letterSpacing: "0.09em",
               }}
             >
               {eyebrow}
             </div>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 18,
+              marginTop: 24,
+            }}
+          >
             <h1
               style={{
                 margin: 0,
-                fontSize: 76,
-                lineHeight: 1.22,
-                letterSpacing: "-0.02em",
+                fontSize: 82,
+                lineHeight: 1.16,
+                letterSpacing: "-0.03em",
                 fontWeight: 700,
-                color: "#ffffff",
-                maxWidth: "94%",
+                color: "#1A1A23",
+                maxWidth: "95%",
               }}
             >
               {title}
             </h1>
-            <p
+
+            <div
               style={{
-                margin: 0,
-                fontSize: 33,
-                lineHeight: 1.35,
-                fontWeight: 700,
-                color: accentColor,
+                display: "flex",
+                alignItems: "center",
+                gap: 16,
               }}
             >
-              {subtitle}
-            </p>
+              <div
+                style={{
+                  width: 56,
+                  height: 4,
+                  borderRadius: "9999px",
+                  background: accentColor,
+                }}
+              />
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: 32,
+                  lineHeight: 1.32,
+                  fontWeight: 700,
+                  color: "#42425A",
+                }}
+              >
+                {subtitle}
+              </p>
+            </div>
           </div>
 
           <div
@@ -209,23 +220,25 @@ export async function createOgImage({
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
+              borderTop: "1px solid rgba(26, 26, 35, 0.12)",
+              paddingTop: 24,
             }}
           >
             <p
               style={{
                 margin: 0,
-                fontSize: 26,
-                color: "#dbeafe",
+                fontSize: 22,
+                color: "#6B6B85",
                 fontWeight: 700,
-                letterSpacing: "0.02em",
+                letterSpacing: "0.06em",
               }}
             >
               AI REBOOT
             </p>
             <div
               style={{
-                width: 180,
-                height: 6,
+                width: 168,
+                height: 4,
                 borderRadius: "9999px",
                 background: accentColor,
               }}
