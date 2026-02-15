@@ -1,4 +1,41 @@
 import React from "react";
+import type { Metadata } from "next";
+
+const seminarsTitle = "無料セミナー | AIリブートアカデミー";
+const seminarsDescription =
+    "AIリブートアカデミーの無料セミナー・イベント一覧。AI時代のキャリア設計や最新トレンドを、受講検討中の方から情報収集したい方まで気軽に学べます。開催形式はオンライン（Zoom）です。";
+const seminarsUrl = "https://ai-reboot.io/academy/seminars";
+
+export const metadata: Metadata = {
+    title: seminarsTitle,
+    description: seminarsDescription,
+    alternates: {
+        canonical: seminarsUrl,
+    },
+    openGraph: {
+        title: seminarsTitle,
+        description: seminarsDescription,
+        url: seminarsUrl,
+        siteName: "AI REBOOT",
+        locale: "ja_JP",
+        type: "website",
+        images: [
+            {
+                url: "/images/ogp/default-ogp.jpg",
+                width: 1200,
+                height: 630,
+                alt: "無料セミナー | AIリブートアカデミー",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: seminarsTitle,
+        description: seminarsDescription,
+        images: ["/images/ogp/default-ogp.jpg"],
+    },
+};
+
 const SeminarsPage = () => {
     const seminars = [
         {

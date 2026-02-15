@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: article.thumbnail ? [article.thumbnail.url] : undefined,
     },
     alternates: {
-      canonical: `https://ai-reboot.com/blog/${id}`,
+      canonical: `https://ai-reboot.io/blog/${id}`,
     },
   }
 }

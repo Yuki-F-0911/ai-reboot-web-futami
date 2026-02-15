@@ -7,13 +7,66 @@ import SkillLevelSection from "@/components/academyLanding/sections/SkillLevelSe
 import PricingSection from "@/components/academyLanding/sections/PricingSection";
 import TargetAudienceSection from "@/components/academyLanding/sections/TargetAudienceSection";
 import VoicesSection from "@/components/academyLanding/sections/VoicesSection";
+import { CourseStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 import Link from "next/link";
 import Image from "next/image";
 
+const academyTitle = "AIリブートアカデミー | AI REBOOT - ウィルフォワード";
+const academyDescription =
+  "生成AIツールを使いこなすためのマインドセットとスキルを身につけ、生成AI時代を生き抜く思考OSをインストールする100日間の実践プログラム。経済産業省リスキリング補助金対象講座。";
+const academyUrl = "https://ai-reboot.io/academy";
+
+const academyFaqItems = [
+  {
+    question: "リスキリングを通じたキャリアアップ支援事業とは？",
+    answer:
+      "経済産業省が実施する在職者向けのキャリアアップ支援制度です。キャリア相談・リスキリング講座・転職支援を一体的に受けられます。",
+  },
+  {
+    question: "受講料はいくらですか？",
+    answer:
+      "一般受講料は330,000円（税込）です。経済産業省リスキリング補助金を活用した場合は180,000円〜で、転職して1年間継続就業した場合は実質120,000円〜になります。",
+  },
+  {
+    question: "補助金はどのように適用されますか？",
+    answer:
+      "受講終了時に受講費用の1/2（上限40万円）、転職後1年継続就業で追加1/5（上限16万円）が補助され、受講費用の最大70%が補助されます。",
+  },
+  {
+    question: "プログラム期間はどれくらいですか？",
+    answer:
+      "2日間の宿泊型集合研修「AIリブートキャンプ」から始まり、100日間の継続的な実践プログラム「AIリブート100」を実施します。",
+  },
+];
+
 export const metadata: Metadata = {
-  title: "AIリブートアカデミー | AI REBOOT - ウィルフォワード",
-  description:
-    "生成AIツールを使いこなすためのマインドセットとスキルを身につけ、生成AI時代を生き抜く思考OSをインストールする100日間の実践プログラム。経済産業省リスキリング補助金対象講座。",
+  title: academyTitle,
+  description: academyDescription,
+  alternates: {
+    canonical: academyUrl,
+  },
+  openGraph: {
+    title: academyTitle,
+    description: academyDescription,
+    url: academyUrl,
+    siteName: "AI REBOOT",
+    locale: "ja_JP",
+    type: "website",
+    images: [
+      {
+        url: "/images/ogp/default-ogp.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AIリブートアカデミー",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: academyTitle,
+    description: academyDescription,
+    images: ["/images/ogp/default-ogp.jpg"],
+  },
 };
 
 export default function AcademyPage() {
@@ -43,6 +96,18 @@ export default function AcademyPage() {
 
   return (
     <>
+      <CourseStructuredData
+        name="AIリブートアカデミー"
+        description={academyDescription}
+        provider="ウィルフォワード"
+        url={academyUrl}
+        duration="P100D"
+        lowPrice={120000}
+        highPrice={330000}
+        priceCurrency="JPY"
+      />
+      <FAQStructuredData items={academyFaqItems} />
+
       <HeroSection />
       <ConceptSection />
 

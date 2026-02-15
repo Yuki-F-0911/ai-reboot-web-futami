@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { getNewsList, News } from '@/lib/microcms'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://ai-reboot.com'
+  const baseUrl = 'https://ai-reboot.io'
   
   // 静的ページ
   const staticPages = [

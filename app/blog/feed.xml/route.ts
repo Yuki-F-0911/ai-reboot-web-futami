@@ -11,7 +11,7 @@ export async function GET() {
   
   const { contents: articles } = result
   
-  const baseUrl = 'https://ai-reboot.com'
+  const baseUrl = 'https://ai-reboot.io'
   const feedUrl = `${baseUrl}/blog/feed.xml`
   
   // RSS 2.0 フィードの生成
@@ -26,8 +26,8 @@ export async function GET() {
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml"/>
     <generator>AI REBOOT</generator>
     <copyright>© 2025 WILL FORWARD Inc. All rights reserved.</copyright>
-    <webMaster>contact@ai-reboot.com (AI REBOOT編集部)</webMaster>
-    <managingEditor>contact@ai-reboot.com (AI REBOOT編集部)</managingEditor>
+    <webMaster>contact@ai-reboot.io (AI REBOOT編集部)</webMaster>
+    <managingEditor>contact@ai-reboot.io (AI REBOOT編集部)</managingEditor>
     <ttl>60</ttl>
     <image>
       <url>${baseUrl}/logo.png</url>
@@ -41,7 +41,7 @@ export async function GET() {
       <link>${baseUrl}/blog/${article.id}</link>
       <guid isPermaLink="true">${baseUrl}/blog/${article.id}</guid>
       <pubDate>${new Date(article.publishedAt).toUTCString()}</pubDate>
-      <author>contact@ai-reboot.com (AI REBOOT編集部)</author>
+      <author>contact@ai-reboot.io (AI REBOOT編集部)</author>
       ${article.category ? `<category>${getCategoryLabel(typeof article.category === 'string' ? article.category : article.category[0])}</category>` : ''}
       ${article.thumbnail ? `<enclosure url="${article.thumbnail.url}" type="image/jpeg" length="0"/>` : ''}
       ${article.tags ? article.tags.map(tag => `<category>${tag}</category>`).join('') : ''}

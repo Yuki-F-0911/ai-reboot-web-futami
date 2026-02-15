@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description: 'AI活用の実践的なノウハウ、成功事例、最新トレンドをお届け',
   },
   alternates: {
-    canonical: 'https://ai-reboot.com/blog',
+    canonical: 'https://ai-reboot.io/blog',
     types: {
       'application/rss+xml': '/blog/feed.xml',
     },

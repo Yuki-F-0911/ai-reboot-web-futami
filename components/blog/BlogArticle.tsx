@@ -70,16 +70,16 @@ export default function BlogArticle({
       <ArticleStructuredData
         title={article.title}
         description={article.description || article.title}
-        url={`https://ai-reboot.com/blog/${article.id}`}
+        url={`https://ai-reboot.io/blog/${article.id}`}
         publishedTime={article.publishedAt}
         modifiedTime={article.updatedAt}
         imageUrl={article.thumbnail?.url}
       />
       <BreadcrumbStructuredData
         items={[
-          { name: 'ホーム', url: 'https://ai-reboot.com' },
-          { name: 'ブログ', url: 'https://ai-reboot.com/blog' },
-          { name: article.title, url: `https://ai-reboot.com/blog/${article.id}` },
+          { name: 'ホーム', url: 'https://ai-reboot.io' },
+          { name: 'ブログ', url: 'https://ai-reboot.io/blog' },
+          { name: article.title, url: `https://ai-reboot.io/blog/${article.id}` },
         ]}
       />
 

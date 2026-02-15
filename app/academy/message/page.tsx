@@ -1,5 +1,41 @@
 import React from "react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+const messageTitle = "代表メッセージ | AIリブートアカデミー";
+const messageDescription =
+    "AIリブートアカデミー代表メッセージ。なぜ今この講座を運営するのか、生成AI時代に必要な思考OSと、受講生と共に挑戦し続ける想いをお伝えします。";
+const messageUrl = "https://ai-reboot.io/academy/message";
+
+export const metadata: Metadata = {
+    title: messageTitle,
+    description: messageDescription,
+    alternates: {
+        canonical: messageUrl,
+    },
+    openGraph: {
+        title: messageTitle,
+        description: messageDescription,
+        url: messageUrl,
+        siteName: "AI REBOOT",
+        locale: "ja_JP",
+        type: "website",
+        images: [
+            {
+                url: "/images/ogp/default-ogp.jpg",
+                width: 1200,
+                height: 630,
+                alt: "代表メッセージ | AIリブートアカデミー",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: messageTitle,
+        description: messageDescription,
+        images: ["/images/ogp/default-ogp.jpg"],
+    },
+};
 
 const MessagePage = () => {
     const chapters = [

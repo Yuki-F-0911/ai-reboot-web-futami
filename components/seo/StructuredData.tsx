@@ -36,7 +36,7 @@ export function ArticleStructuredData({
       name: 'AI REBOOT',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://ai-reboot.com/logo.png',
+        url: 'https://ai-reboot.io/logo.png',
       },
     },
     image: imageUrl ? {
@@ -139,6 +139,9 @@ interface CourseStructuredDataProps {
   courseMode?: string
   duration?: string
   hasCertificate?: boolean
+  priceCurrency?: string
+  lowPrice?: number
+  highPrice?: number
 }
 
 export function CourseStructuredData({
@@ -148,8 +151,23 @@ export function CourseStructuredData({
   url,
   courseMode = 'blended',
   duration = 'P100D',
-  hasCertificate = true
+  hasCertificate = true,
+  priceCurrency = 'JPY',
+  lowPrice,
+  highPrice
 }: CourseStructuredDataProps) {
+  const offers = typeof lowPrice === 'number' && typeof highPrice === 'number'
+    ? {
+        '@type': 'AggregateOffer',
+        priceCurrency,
+        lowPrice,
+        highPrice,
+      }
+    : {
+        '@type': 'Offer',
+        category: 'Paid',
+      }
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Course',
@@ -167,10 +185,7 @@ export function CourseStructuredData({
       courseMode: courseMode,
       duration: duration,
     },
-    offers: {
-      '@type': 'Offer',
-      category: 'Paid',
-    },
+    offers,
     hasCertificate: hasCertificate,
   }
 
