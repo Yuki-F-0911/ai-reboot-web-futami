@@ -101,7 +101,6 @@ export default function AcademyPage() {
           url: "https://ai-reboot.io",
           type: "EducationalOrganization",
         }}
-        url={academyUrl}
         duration="P100D"
         courseMode="blended"
         price={330000}
