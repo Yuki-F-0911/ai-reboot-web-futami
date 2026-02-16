@@ -93,7 +93,10 @@ export async function createOgImage({
   accentColor = "#FF4B8B",
 }: OgImageOptions) {
   const fontData = await loadNotoSansJp();
-  const logoUrl = new URL("/images/logo.png", resolveSiteOrigin()).toString();
+  const logoUrl = new URL(
+    "/lp/seminar0828/logo_horizon_lightbg.png",
+    resolveSiteOrigin()
+  ).toString();
 
   return new ImageResponse(
     (
@@ -142,8 +145,8 @@ export async function createOgImage({
             <img
               src={logoUrl}
               alt="AI REBOOT"
-              width={240}
-              height={27}
+              width={280}
+              height={93}
               style={{ objectFit: "contain" }}
             />
             <div
