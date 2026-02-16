@@ -30,7 +30,7 @@ const chapters: Chapter[] = [
     subtitle: "不安の前に立って",
     content: (
       <>
-        <p className="font-bold text-lg mb-4 text-slate-800">「静観していることは既に退化をしている」</p>
+        <p className="message-quote font-bold text-lg mb-4 text-slate-800">「静観していることは既に退化をしている」</p>
         <p className="mb-4">「今までのスキルではもう通用しないかもしれない」「この変化のスピードに、正直ついていけるか不安だ」</p>
         <p className="mb-4">と感じているのはむしろ正常で、決してあなただけが感じているものではありません。何を隠そうこの講座を開講する私たちも同様に、変化の早さに不安を感じています。</p>
         <p>それでも一つ確信していることがあります。それは、「静観していることは既に退化をしている」ということ。なので、私たちは動き続けることを選びました。</p>
@@ -43,7 +43,7 @@ const chapters: Chapter[] = [
     subtitle: "生成AIとどう向き合うか",
     content: (
       <>
-        <p className="font-bold text-lg mb-4 text-slate-800">私たち一人ひとりには、この時代をつくる責任がある</p>
+        <p className="message-quote font-bold text-lg mb-4 text-slate-800">私たち一人ひとりには、この時代をつくる責任がある</p>
         <p className="mb-4">「生成AIとの未来」を誰かに委ねることができたかもしれません。でも、私たちは自分たちもその変化に向き合い続ける道を選びました。</p>
         <p>なぜなら、私たちウィルフォワードは2011年の創業以来、「世界を一つの家族にする」というビジョンを掲げ、常に働き方・生き方のあり方を問い続け、トライしつづけてきたという歴史があるからです。</p>
       </>
@@ -67,7 +67,7 @@ const chapters: Chapter[] = [
     subtitle: "「スキル」ではなく「思考OS」",
     content: (
       <>
-        <p className="font-bold text-lg mb-4 text-slate-800">どんな環境の変化にも適応できる思考のOS</p>
+        <p className="message-quote font-bold text-lg mb-4 text-slate-800">どんな環境の変化にも適応できる思考のOS</p>
         <p className="mb-4">私たちが提供すべきなのは、明日には陳腐化するかもしれない小手先の生成AI活用「スキル」だとは思いません。</p>
         <p className="mb-4">未知の課題に直面したとき、自ら問い、学び、AIと共に答えを見つけていく、まさに乗り越えていく力です。</p>
         <p>文明の進化により、剣が銃に変わり、馬が自動車に変わっていったように、時にこれまでの時代に役立った考え方を捨てて、これからの時代に必要などんな環境の変化にも適応できる思考のOSを身につける機会。</p>
@@ -80,7 +80,7 @@ const chapters: Chapter[] = [
     subtitle: "あなたの中にある答えを",
     content: (
       <>
-        <p className="font-bold text-lg mb-4 text-slate-800">「あなたのウェルビーイングの答えは、あなたの内側にしかない」</p>
+        <p className="message-quote font-bold text-lg mb-4 text-slate-800">「あなたのウェルビーイングの答えは、あなたの内側にしかない」</p>
         <p className="mb-4">そして、そのOSは、私たちが与えるものでは完成しません。なぜならば、「何を望み、何に幸福を感じるか」というあなたのウェルビーイングの答えは、あなたの内側にしかないからです。</p>
         <p>だから私たちは「教える教育」だけではなく、あえて「教えない」教育、問いを投げつづける伴走者である必要があると感じています。</p>
       </>
@@ -92,7 +92,7 @@ const chapters: Chapter[] = [
     subtitle: "まだ見ぬ生成AIツールにも対応できるように",
     content: (
       <>
-        <p className="font-bold text-lg mb-4 text-slate-800">考え方と学び方を身につけることが最強の武器になる</p>
+        <p className="message-quote font-bold text-lg mb-4 text-slate-800">考え方と学び方を身につけることが最強の武器になる</p>
         <p className="mb-4">加えて、今、主流となっているChatGPTやGeminiなどのツールの使い方を覚えるのもだいじですが、それ以上に、どんな生成AIも使いこなせる「考え方」や「学び方」を身につけることの方が大事です。</p>
         <p>またマーケティングやエンジニアリングの汎用的な思考スキルと組み合わせることが、時代の主流が変化しつづけたとしても、これからの時代を生き抜くための最強の武器になると信じています。</p>
       </>
@@ -104,7 +104,7 @@ const chapters: Chapter[] = [
     subtitle: "同志を求めています",
     content: (
       <>
-        <p className="font-bold text-lg mb-4 text-slate-800">「この時代を一緒に創っていきたい」</p>
+        <p className="message-quote font-bold text-lg mb-4 text-slate-800">「この時代を一緒に創っていきたい」</p>
         <p className="mb-4">私たちは、教壇に立つ「先生」ではありません。今この瞬間も挑戦を続ける現役の「実践者集団」です。</p>
         <p className="mb-4">今この瞬間に進化している世界に、今この瞬間挑んでいる私たちだからこそ、まだ教科書には載っていない「生きた知見」で、あなたの成長をブーストできるのだと確信しています。</p>
         <p>生成AIを身につけて、キャリアアップしたいという方も歓迎です。それ以上に、私たちの想いに共感し、<strong className="text-slate-800">「この時代を一緒に創っていきたい」</strong>と思っていただける方と出会えることを楽しみにしています。</p>
@@ -145,10 +145,12 @@ const MessagePageContent = () => {
               MESSAGE
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-slate-900 mb-6">
-              代表メッセージ
+              メッセージ
             </h1>
-            <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-              生成AI時代を生き抜くために、私たちが問い続けること。
+            <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl">
+              この時代に私たちが問いかける、
+              <br className="hidden sm:block" />
+              挑戦と共創の物語。
             </p>
           </motion.div>
         </div>
@@ -165,14 +167,14 @@ const MessagePageContent = () => {
             className="text-center mb-10 md:mb-16"
           >
             <p className="text-orange-500 font-bold text-sm tracking-wider uppercase mb-2">
-              OUR VOICE
+              MESSAGE
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
               私たちが届けたい8つのメッセージ
             </h2>
           </motion.div>
 
-          <div className="space-y-6 md:space-y-8">
+          <div className="max-w-3xl mx-auto">
             {chapters.map((chapter, index) => (
               <motion.article
                 key={chapter.id}
@@ -181,26 +183,27 @@ const MessagePageContent = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.45, delay: index * 0.05, ease: "easeOut" }}
-                className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300"
+                className="py-8 md:py-10"
               >
-                <div className="p-6 md:p-10">
-                  <div className="flex flex-col lg:flex-row gap-6 md:gap-10">
-                    <div className="lg:w-[260px] shrink-0">
-                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 text-white font-bold text-lg shadow-lg shadow-orange-200 mb-4">
-                        {chapter.id}
-                      </div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
-                        {chapter.title}
-                      </h3>
-                      <p className="text-sm md:text-base font-semibold text-orange-500">
-                        {chapter.subtitle}
-                      </p>
-                    </div>
-                    <div className="text-base md:text-lg text-slate-600 leading-relaxed">
-                      {chapter.content}
-                    </div>
-                  </div>
+                <div className="mb-5">
+                  <p className="text-orange-500 font-semibold text-sm tracking-wide">
+                    {chapter.id}
+                  </p>
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mt-2">
+                    {chapter.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-slate-500 mt-2">
+                    {chapter.subtitle}
+                  </p>
                 </div>
+                <div className="text-base md:text-lg text-slate-600 leading-loose [&_p]:mb-5 [&_p:last-child]:mb-0 [&_.message-quote]:border-l-2 [&_.message-quote]:border-orange-300 [&_.message-quote]:pl-4 [&_.message-quote]:text-slate-800">
+                  {chapter.content}
+                </div>
+                {index < chapters.length - 1 && (
+                  <div className="pt-8 md:pt-10 flex justify-center">
+                    <div className="h-px w-20 bg-gradient-to-r from-transparent via-orange-200 to-transparent" />
+                  </div>
+                )}
               </motion.article>
             ))}
           </div>

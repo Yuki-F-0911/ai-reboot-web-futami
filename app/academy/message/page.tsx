@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import MessagePageContent from "@/components/academyLanding/message/MessagePageContent";
 
-const messageTitle = "代表メッセージ | AIリブートアカデミー";
+const messageTitle = "メッセージ | AIリブートアカデミー";
 const messageDescription =
-    "AIリブートアカデミー代表メッセージ。なぜ今この講座を運営するのか、生成AI時代に必要な思考OSと、受講生と共に挑戦し続ける想いをお伝えします。";
+    "AIリブートアカデミーメッセージ。なぜ今この講座を運営するのか、生成AI時代に必要な思考OSと、受講生と共に挑戦し続ける想いをお伝えします。";
 const messageUrl = "https://ai-reboot.io/academy/message";
 
 export const metadata: Metadata = {
