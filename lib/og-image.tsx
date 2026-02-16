@@ -10,8 +10,8 @@ type OgImageOptions = {
 };
 
 export const OG_IMAGE_SIZE = {
-  width: 1200,
-  height: 630,
+  width: 2400,
+  height: 1260,
 } as const;
 
 const FALLBACK_SITE_ORIGIN = "https://ai-reboot.io";
@@ -117,9 +117,9 @@ export async function createOgImage({
             position: "absolute",
             top: 0,
             right: 0,
-            width: 18,
+            width: 32,
             height: "100%",
-            background: `linear-gradient(180deg, ${accentColor}2B 0%, ${accentColor}14 100%)`,
+            background: `linear-gradient(180deg, ${accentColor}1F 0%, ${accentColor}0D 100%)`,
           }}
         />
 
@@ -129,7 +129,7 @@ export async function createOgImage({
             flexDirection: "column",
             justifyContent: "space-between",
             width: "100%",
-            padding: "56px 64px",
+            padding: "112px 128px",
             position: "relative",
             zIndex: 1,
           }}
@@ -145,22 +145,22 @@ export async function createOgImage({
             <img
               src={logoUrl}
               alt="AI REBOOT"
-              width={280}
-              height={93}
+              width={560}
+              height={186}
               style={{ objectFit: "contain" }}
             />
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
-                padding: "8px 14px",
+                padding: "12px 24px",
                 borderRadius: "9999px",
-                border: `1px solid ${accentColor}55`,
-                background: `${accentColor}0F`,
+                border: `2px solid ${accentColor}4D`,
+                background: `${accentColor}10`,
                 color: accentColor,
-                fontSize: 20,
-                fontWeight: 700,
-                letterSpacing: "0.09em",
+                fontSize: 34,
+                fontWeight: 600,
+                letterSpacing: "0.13em",
               }}
             >
               {eyebrow}
@@ -171,48 +171,49 @@ export async function createOgImage({
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: 18,
-              marginTop: 24,
+              gap: 36,
+              marginTop: 48,
             }}
           >
             <h1
               style={{
                 margin: 0,
-                fontSize: 82,
-                lineHeight: 1.16,
+                fontSize: 164,
+                lineHeight: 1.14,
                 letterSpacing: "-0.03em",
                 fontWeight: 700,
                 color: "#1A1A23",
-                maxWidth: "95%",
+                maxWidth: "94%",
               }}
             >
               {title}
             </h1>
 
             <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 16,
-              }}
-            >
-              <div
                 style={{
-                  width: 56,
-                  height: 4,
-                  borderRadius: "9999px",
-                  background: accentColor,
-                }}
-              />
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: 32,
-                  lineHeight: 1.32,
-                  fontWeight: 700,
-                  color: "#42425A",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 28,
                 }}
               >
+                <div
+                  style={{
+                    width: 176,
+                    height: 6,
+                    borderRadius: "9999px",
+                    background: accentColor,
+                  }}
+                />
+                <p
+                  style={{
+                    margin: 0,
+                    fontSize: 62,
+                    lineHeight: 1.34,
+                    fontWeight: 600,
+                    letterSpacing: "0.01em",
+                    color: "#42425A",
+                  }}
+                >
                 {subtitle}
               </p>
             </div>
@@ -223,27 +224,28 @@ export async function createOgImage({
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              borderTop: "1px solid rgba(26, 26, 35, 0.12)",
-              paddingTop: 24,
+              borderTop: "2px solid rgba(26, 26, 35, 0.15)",
+              paddingTop: 48,
             }}
           >
             <p
               style={{
                 margin: 0,
-                fontSize: 22,
-                color: "#6B6B85",
-                fontWeight: 700,
-                letterSpacing: "0.06em",
+                fontSize: 34,
+                color: "#676783",
+                fontWeight: 600,
+                letterSpacing: "0.09em",
               }}
             >
               AI REBOOT
             </p>
             <div
               style={{
-                width: 168,
-                height: 4,
+                width: 300,
+                height: 6,
                 borderRadius: "9999px",
                 background: accentColor,
+                opacity: 0.82,
               }}
             />
           </div>
