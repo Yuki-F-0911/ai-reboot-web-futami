@@ -229,13 +229,13 @@ const comparisonPoints: readonly PointItem[] = [
 ] as const;
 
 const checklistRows = [
-  { marker: "①", point: "受講目的", check: "自分の目的に合ったカリキュラムか" },
-  { marker: "②", point: "価格", check: "補助金適用後の実質負担額" },
-  { marker: "③", point: "期間", check: "仕事との両立が可能な学習ペースか" },
-  { marker: "④", point: "サポート", check: "メンターや質問環境の有無" },
-  { marker: "⑤", point: "実践性", check: "手を動かす演習があるか" },
-  { marker: "⑥", point: "補助金", check: "対象講座として認定されているか" },
-  { marker: "⑦", point: "キャリア", check: "卒業後のキャリアサポートがあるか" },
+  { point: "受講目的", check: "自分の目的に合ったカリキュラムか" },
+  { point: "価格", check: "補助金適用後の実質負担額" },
+  { point: "期間", check: "仕事との両立が可能な学習ペースか" },
+  { point: "サポート", check: "メンターや質問環境の有無" },
+  { point: "実践性", check: "手を動かす演習があるか" },
+  { point: "補助金", check: "対象講座として認定されているか" },
+  { point: "キャリア", check: "卒業後のキャリアサポートがあるか" },
 ] as const;
 
 const ourApproachItems = [
@@ -458,7 +458,7 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           <h2 className={sectionHeadingClass}>講座選びチェックリスト</h2>
 
           <motion.ul
-            className="mt-8 flex flex-wrap gap-x-8 gap-y-2 border-t border-slate-100"
+            className="mt-8 mx-auto max-w-2xl border-t border-slate-100"
             variants={listReveal}
             initial="hidden"
             whileInView="visible"
@@ -468,12 +468,18 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
               <motion.li
                 key={row.point}
                 variants={itemReveal}
-                className="w-full border-b border-slate-100 py-3 text-sm leading-relaxed text-slate-700 md:w-[calc(50%-1rem)] xl:w-[calc(33.333%-1.34rem)]"
+                className="border-b border-slate-100 py-3"
               >
-                <span className="font-bold text-slate-900">
-                  {row.marker} {row.point}
-                </span>
-                <span className="text-slate-600"> — {row.check}</span>
+                <div className="flex items-center gap-3 text-sm leading-relaxed">
+                  <span
+                    className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded border-2 border-slate-300"
+                    aria-hidden="true"
+                  />
+                  <p className="text-slate-700">
+                    <span className="font-bold text-slate-900">{row.point}</span>
+                    <span className="text-slate-600"> — {row.check}</span>
+                  </p>
+                </div>
               </motion.li>
             ))}
           </motion.ul>
