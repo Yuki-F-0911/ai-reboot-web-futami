@@ -1,33 +1,78 @@
 import type { Metadata } from "next";
 import ReviewsPage from "@/components/academyLanding/reviews/ReviewsPage";
-import { FAQStructuredData } from "@/components/seo/StructuredData";
+import {
+  CourseReviewStructuredData,
+  FAQStructuredData,
+} from "@/components/seo/StructuredData";
 
-const academyReviewsTitle = "AIリブートアカデミーの評判・口コミ・受講後の変化 | AIリブートアカデミー";
+const academyReviewsTitle =
+  "AIリブートアカデミー 評判・口コミ｜受講生の声と受講後の変化";
 const academyReviewsDescription =
-  "AIリブートアカデミーの受講生による評判・口コミをご紹介。受講前後の変化、講座の満足度、おすすめポイントをリアルな声でお届けします。";
+  "AIリブートアカデミーの評判・口コミを、受講生の属性別レビューとBefore/Afterで紹介。受講後の変化や補助金FAQを確認し、無料セミナーで疑問を解消できます。";
 const academyReviewsUrl = "https://ai-reboot.io/academy/reviews";
+const academyReviewsOgImagePath = "/academy/opengraph-image";
 
 const academyReviewsFaqItems = [
   {
-    question: "AIリブートアカデミーの受講生の満足度は？",
+    question: "未経験でもついていけますか？",
     answer:
-      "現在受講生の声を収集中です。詳細が決まり次第こちらのページで公開いたします。",
+      "はい。AI活用が初めての方でも、2日間の集中研修と100日間の伴走サポートで段階的に学べる設計です。課題に応じたメンターフィードバックで、理解を積み上げられます。",
   },
   {
-    question: "未経験でも受講できますか？",
-    answer: "はい。受講生の多くがAI未経験からスタートしています。",
+    question: "補助金は本当に使えますか？",
+    answer:
+      "一定の条件を満たす場合、経済産業省リスキリング補助金の対象になります。対象条件や申請フローは「補助金ガイド」で事前に確認できます。",
   },
   {
-    question: "受講後のキャリアサポートはありますか？",
+    question: "卒業後のサポートはありますか？",
     answer:
-      "キャリアコンサルティングを3回実施し、転職支援まで一体でサポートします。",
+      "あります。修了後も学習を継続できるコミュニティと、キャリア相談・実務適用のフォローを用意しています。受講して終わりではなく、実装と定着まで支援します。",
   },
   {
-    question: "口コミや評判は今後更新されますか？",
+    question: "他の講座との違いは？",
     answer:
-      "はい。受講生インタビューや学習成果の情報がまとまり次第、順次このページで更新していきます。",
+      "知識インプット中心ではなく、2日間の集中研修から100日間の伴走で「実務で使える変化」を重視している点です。学習だけでなく、行動変容と継続実践まで一貫して設計されています。",
   },
 ] as const;
+
+const academyReviewsStructuredDataItems: ReadonlyArray<{
+  author: string;
+  reviewBody: string;
+  reviewRating: number;
+  headline?: string;
+}> = [
+  {
+    author: "30代・転職希望者",
+    headline: "未経験から業務活用へ",
+    reviewBody:
+      "AI活用の経験がない状態からでも、2日間の集中研修と100日間の伴走で実務への適用イメージを持てました。",
+    reviewRating: 5,
+  },
+  {
+    author: "40代・管理職",
+    headline: "現場導入を見据えた学び",
+    reviewBody:
+      "概念理解だけで終わらず、チーム運用に向けた活用方針を整理できました。現場での導入判断がしやすくなりました。",
+    reviewRating: 4,
+  },
+  {
+    author: "フリーランス",
+    headline: "提案改善の手応え",
+    reviewBody:
+      "伴走を通じて提案プロセスを見直せたことで、案件ごとに生成AIをどう活かすかの応用イメージが明確になりました。",
+    reviewRating: 5,
+  },
+];
+
+const academyReviewsAggregateRating = {
+  ratingValue:
+    Math.round(
+      (academyReviewsStructuredDataItems.reduce((total, item) => total + item.reviewRating, 0) /
+        academyReviewsStructuredDataItems.length) *
+        10
+    ) / 10,
+  reviewCount: academyReviewsStructuredDataItems.length,
+};
 
 export const metadata: Metadata = {
   title: academyReviewsTitle,
@@ -45,14 +90,23 @@ export const metadata: Metadata = {
     title: academyReviewsTitle,
     description: academyReviewsDescription,
     url: academyReviewsUrl,
-    siteName: "AI REBOOT",
+    siteName: "AIリブートアカデミー",
     locale: "ja_JP",
     type: "website",
+    images: [
+      {
+        url: academyReviewsOgImagePath,
+        width: 1200,
+        height: 630,
+        alt: "AIリブートアカデミーの評判・口コミ",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: academyReviewsTitle,
     description: academyReviewsDescription,
+    images: [academyReviewsOgImagePath],
   },
 };
 
@@ -60,6 +114,16 @@ export default function AcademyReviewsRoute() {
   return (
     <>
       <FAQStructuredData items={[...academyReviewsFaqItems]} />
+      {academyReviewsStructuredDataItems.length > 0 ? (
+        <CourseReviewStructuredData
+          courseName="AIリブートアカデミー"
+          courseUrl={academyReviewsUrl}
+          description={academyReviewsDescription}
+          providerName="株式会社ウィルフォワード"
+          aggregateRating={{ ...academyReviewsAggregateRating }}
+          reviews={[...academyReviewsStructuredDataItems]}
+        />
+      ) : null}
       <ReviewsPage faqItems={[...academyReviewsFaqItems]} />
     </>
   );

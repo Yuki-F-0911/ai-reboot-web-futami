@@ -14,8 +14,44 @@ import { CorporateCTA } from "@/components/corporate/CorporateCTA";
 import { CorporateContactSection } from "@/components/corporate/CorporateContactSection";
 
 export const metadata: Metadata = {
-  title: "AIリブート研修（法人向け） | AI REBOOT - ウィルフォワード",
-  description: "AIツールの使い方を教えないAI活用力強化プログラム。「自ら学び、自ら突破する生成AI活用力」を身につけ、組織全体がAI時代を生き抜く力を獲得する実践型プログラム。",
+  title: "企業向けAI研修「AIリブート」| DX人材育成・生成AI実践研修",
+  description:
+    "企業向けAI研修「AIリブート」は、生成AIの実務活用を軸にDX人材を育成。現場定着まで伴走する研修設計で、組織の生産性向上と変革推進を支援します。",
+  keywords: [
+    "企業向けAI研修",
+    "AI研修",
+    "生成AI研修",
+    "DX人材育成",
+    "AI活用研修",
+    "AIリブート",
+  ],
+  alternates: {
+    canonical: "https://ai-reboot.io/corporate",
+  },
+  openGraph: {
+    title: "企業向けAI研修「AIリブート」| DX人材育成・生成AI実践研修",
+    description:
+      "企業向けAI研修「AIリブート」は、生成AIの実務活用を軸にDX人材を育成。現場定着まで伴走する研修設計で、組織の生産性向上と変革推進を支援します。",
+    url: "https://ai-reboot.io/corporate",
+    siteName: "AI REBOOT",
+    locale: "ja_JP",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "企業向けAI研修 AIリブート",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "企業向けAI研修「AIリブート」| DX人材育成・生成AI実践研修",
+    description:
+      "企業向けAI研修「AIリブート」は、生成AIの実務活用を軸にDX人材を育成。現場定着まで伴走する研修設計で、組織の生産性向上と変革推進を支援します。",
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function CorporatePage() {

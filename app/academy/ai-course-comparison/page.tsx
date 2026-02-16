@@ -1,37 +1,38 @@
 import type { Metadata } from "next";
 import AiCourseComparisonPage from "@/components/academyLanding/ai-course-comparison/AiCourseComparisonPage";
-import { FAQStructuredData } from "@/components/seo/StructuredData";
+import { CourseStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const aiCourseComparisonTitle = "失敗しないAI講座の選び方 7つの比較ポイント | AIリブートアカデミー";
+const aiCourseComparisonTitle = "AI講座比較｜失敗しない選び方とおすすめ判断軸を解説";
 const aiCourseComparisonDescription =
-  "AI講座・リスキリング講座の選び方を7つの比較ポイントで解説。価格、期間、サポート体制、実践性、補助金対応など、後悔しない講座選びのためのガイドです。";
+  "AI講座比較で迷う方へ、価格・期間・伴走・実践性・補助金対応の5軸で選び方を整理。匿名比較表と失敗しないチェックポイントを確認し、無料説明会で最適な講座を相談できます。";
 const aiCourseComparisonUrl = "https://ai-reboot.io/academy/ai-course-comparison";
+const aiCourseComparisonOgImagePath = "/academy/ai-course-comparison/opengraph-image";
 
 const aiCourseComparisonFaqItems = [
   {
-    question: "AI講座を選ぶ際に最も重要なポイントは何ですか？",
+    question: "どの講座が自分に合っているか、最初に何を確認すべきですか？",
     answer:
-      "まず受講目的を明確にすることです。ビジネス活用、エンジニア転向、教養のどれを目指すかによって最適な講座は異なります。次に、補助金適用後の実質負担額と、サポート体制を確認しましょう。",
+      "まずは受講目的を一つに絞ることが重要です。転職、副業、現職での業務改善では必要なカリキュラムが異なるため、目的に合う実践課題と伴走体制がある講座を優先して比較してください。",
   },
   {
-    question: "AI講座の費用相場はどのくらいですか？",
+    question: "価格が安い講座でも問題ありませんか？",
     answer:
-      "一般的に10万〜60万円程度です。ただし、リスキリング補助金（最大70%補助）や教育訓練給付金（最大80%補助）を活用できる講座もあり、実質負担は大幅に軽減できます。",
+      "安さだけで判断すると、質問対応や実践課題が不足して学習が止まるケースがあります。総額に対して、伴走の深さと実務への接続支援が含まれるかを合わせて確認するのが安全です。",
   },
   {
-    question: "オンラインと対面、どちらがいいですか？",
+    question: "比較表で最も重視すべき軸は何ですか？",
     answer:
-      "一概にどちらが良いとは言えません。オンラインは場所を選ばず学べる柔軟性があり、対面は集中力と仲間との交流がメリットです。ハイブリッド型（オンライン+短期集中の対面研修）も選択肢の一つです。",
+      "目的との一致度、伴走体制、実践課題の3つを優先すると判断しやすくなります。価格と期間はこの3要素を満たした候補同士で比較するのがおすすめです。",
   },
   {
-    question: "未経験でもAI講座についていけますか？",
+    question: "未経験でもAI講座に参加できますか？",
     answer:
-      "多くの講座が未経験者向けのカリキュラムを用意しています。プログラミング不要のビジネス活用型講座もあります。不安な場合は、無料説明会やカウンセリングで事前に相談するのがおすすめです。",
+      "未経験者向けの講座は多くあります。特に、課題レビューや質問サポートが明確な講座を選ぶと学習の中断を防ぎやすくなります。",
   },
   {
-    question: "補助金が使えるかどうかはどうやって確認すればいいですか？",
+    question: "補助金対応の講座かどうかはどこで確認できますか？",
     answer:
-      "講座の運営元に直接確認するのが最も確実です。リスキリング補助金の対象講座は経済産業省の公式サイト（careerup.reskilling.go.jp）でも検索できます。",
+      "講座提供元の案内に加えて、制度の公式情報を必ず確認してください。最終的な適用可否は個別条件で変わるため、申し込み前の再確認が必要です。",
   },
 ] as const;
 
@@ -40,9 +41,9 @@ export const metadata: Metadata = {
   description: aiCourseComparisonDescription,
   keywords: [
     "AI講座 比較",
-    "AI研修 個人向け おすすめ",
-    "リスキリング講座 おすすめ",
-    "生成AI スクール 選び方",
+    "AI講座 おすすめ",
+    "AIスクール 比較",
+    "AI講座 選び方",
   ],
   alternates: {
     canonical: aiCourseComparisonUrl,
@@ -54,17 +55,40 @@ export const metadata: Metadata = {
     siteName: "AI REBOOT",
     locale: "ja_JP",
     type: "website",
+    images: [
+      {
+        url: aiCourseComparisonOgImagePath,
+        width: 1200,
+        height: 630,
+        alt: "AI講座の比較ガイド",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: aiCourseComparisonTitle,
     description: aiCourseComparisonDescription,
+    images: [aiCourseComparisonOgImagePath],
   },
 };
 
 export default function AcademyAiCourseComparisonPage() {
   return (
     <>
+      <CourseStructuredData
+        name="AIリブートアカデミー"
+        description="生成AI活用・キャリア設計・実践力を100日間で学ぶリスキリング講座。"
+        provider={{
+          name: "株式会社ウィルフォワード",
+          url: "https://ai-reboot.io",
+          type: "EducationalOrganization",
+        }}
+        url="https://ai-reboot.io/academy"
+        duration="P100D"
+        courseMode="blended"
+        price={330000}
+        priceCurrency="JPY"
+      />
       <FAQStructuredData items={[...aiCourseComparisonFaqItems]} />
       <AiCourseComparisonPage faqItems={[...aiCourseComparisonFaqItems]} />
     </>

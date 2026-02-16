@@ -1,5 +1,41 @@
 import React from "react";
+import type { Metadata } from "next";
 import Button from "@/components/academyLanding/ui/Button";
+
+const eventsTitle = "イベント一覧 | AIリブートアカデミー";
+const eventsDescription =
+  "AIリブートアカデミーの説明会・交流会・実践イベント情報を掲載。AI研修の体験談や最新の開催スケジュールを確認し、無料説明会へ参加できます。";
+const eventsUrl = "https://ai-reboot.io/events";
+
+export const metadata: Metadata = {
+  title: eventsTitle,
+  description: eventsDescription,
+  alternates: {
+    canonical: eventsUrl,
+  },
+  openGraph: {
+    title: eventsTitle,
+    description: eventsDescription,
+    url: eventsUrl,
+    siteName: "AI REBOOT",
+    locale: "ja_JP",
+    type: "website",
+    images: [
+      {
+        url: "/academy/seminars/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "AIリブートアカデミー イベント",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: eventsTitle,
+    description: eventsDescription,
+    images: ["/academy/seminars/opengraph-image"],
+  },
+};
 
 const EventsPage = () => {
     const events = [

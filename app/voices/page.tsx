@@ -1,4 +1,40 @@
 import React from "react";
+import type { Metadata } from "next";
+
+const voicesTitle = "受講生の声 | AIリブートアカデミー";
+const voicesDescription =
+  "AIリブートアカデミー受講生の体験談を掲載。AI講座受講後の変化、業務改善成果、キャリアアップ事例を確認し、受講判断に役立てられます。";
+const voicesUrl = "https://ai-reboot.io/voices";
+
+export const metadata: Metadata = {
+  title: voicesTitle,
+  description: voicesDescription,
+  alternates: {
+    canonical: voicesUrl,
+  },
+  openGraph: {
+    title: voicesTitle,
+    description: voicesDescription,
+    url: voicesUrl,
+    siteName: "AI REBOOT",
+    locale: "ja_JP",
+    type: "website",
+    images: [
+      {
+        url: "/academy/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "AIリブートアカデミー 受講生の声",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: voicesTitle,
+    description: voicesDescription,
+    images: ["/academy/opengraph-image"],
+  },
+};
 
 const VoicesPage = () => {
     const voices = [

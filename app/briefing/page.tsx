@@ -1,5 +1,41 @@
 import React from "react";
+import type { Metadata } from "next";
 import Button from "@/components/academyLanding/ui/Button";
+
+const briefingTitle = "無料説明会 | AIリブートアカデミー";
+const briefingDescription =
+  "AIリブートアカデミーの無料説明会ページです。100日間プログラムの内容、補助金活用、参加条件を1時間で確認し、オンラインで気軽に相談できます。";
+const briefingUrl = "https://ai-reboot.io/briefing";
+
+export const metadata: Metadata = {
+  title: briefingTitle,
+  description: briefingDescription,
+  alternates: {
+    canonical: briefingUrl,
+  },
+  openGraph: {
+    title: briefingTitle,
+    description: briefingDescription,
+    url: briefingUrl,
+    siteName: "AI REBOOT",
+    locale: "ja_JP",
+    type: "website",
+    images: [
+      {
+        url: "/academy/seminars/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "AIリブートアカデミー 無料説明会",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: briefingTitle,
+    description: briefingDescription,
+    images: ["/academy/seminars/opengraph-image"],
+  },
+};
 
 const BriefingPage = () => {
 

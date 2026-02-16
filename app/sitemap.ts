@@ -1,75 +1,163 @@
-import { MetadataRoute } from 'next'
-import { getNewsList, News } from '@/lib/microcms'
+import { MetadataRoute } from "next";
+import { News } from "@/lib/microcms";
+import { getBlogArticles, getNewsArticles } from "@/lib/microcms-helper";
+
+const baseUrl = "https://ai-reboot.io";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://ai-reboot.io'
-  
-  // 静的ページ
-  const staticPages = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/academy`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/corporate`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/webtoon`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/news`,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 0.8,
-    },
-  ]
+  const now = new Date();
 
-  // ニュース記事を取得
-  const result = await getNewsList(1000, 0)
-  
-  // リスト形式のレスポンスかチェック
-  if (!('contents' in result)) {
-    // エラーの場合は静的ページのみ返す
-    return staticPages
-  }
-  
-  const { contents: newsArticles } = result
-  
-  // ニュース記事のURL
-  const newsPages = newsArticles.map((article: News) => ({
+  const staticPages: MetadataRoute.Sitemap = [
+    { url: baseUrl, lastModified: now, changeFrequency: "daily", priority: 1 },
+    { url: `${baseUrl}/academy`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    {
+      url: `${baseUrl}/academy/subsidy-guide`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/academy/ai-course-comparison`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/academy/reviews`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/academy/subsidy-eligible-courses`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/academy/ai-training-for-individuals`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/academy/reskilling-course-recommendation`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/academy/meti-reskilling-comparison`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/academy/message`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/academy/seminars`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/academy/blog/what-is-generative-ai`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/academy/blog/how-to-learn-generative-ai`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/academy/blog/corporate-ai-training`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/academy/blog/corporate-ai-adoption-guide`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/academy/blog/ai-career-change-cases`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/academy/blog/skills-for-ai-era-career`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/academy/blog/ai-certification-guide`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/academy/blog/prompt-template-for-work`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    { url: `${baseUrl}/corporate`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/company`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/program`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/events`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
+    { url: `${baseUrl}/voices`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
+    { url: `${baseUrl}/briefing`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${baseUrl}/news`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
+    { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
+    { url: `${baseUrl}/rebooters`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${baseUrl}/webtoon`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/legal`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    {
+      url: `${baseUrl}/seminars/career-design`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/seminars/career-design-ad`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+  ];
+
+  const [newsResult, blogResult] = await Promise.all([
+    getNewsArticles(1000, 0),
+    getBlogArticles(1000, 0),
+  ]);
+
+  const newsPages = newsResult.contents.map((article: News) => ({
     url: `${baseUrl}/news/${article.id}`,
     lastModified: new Date(article.updatedAt || article.publishedAt),
-    changeFrequency: 'monthly' as const,
+    changeFrequency: "monthly" as const,
     priority: 0.6,
-  }))
+  }));
 
-  // ブログ記事のURL（ニュースと同じAPIを使用）
-  const blogPages = newsArticles.map((article: News) => ({
+  const blogPages = blogResult.contents.map((article: News) => ({
     url: `${baseUrl}/blog/${article.id}`,
     lastModified: new Date(article.updatedAt || article.publishedAt),
-    changeFrequency: 'monthly' as const,
+    changeFrequency: "monthly" as const,
     priority: 0.7,
-  }))
+  }));
 
-  return [...staticPages, ...newsPages, ...blogPages]
+  return [...staticPages, ...newsPages, ...blogPages];
 }
