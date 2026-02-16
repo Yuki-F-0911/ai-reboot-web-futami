@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 
 type FAQItem = {
   question: string;
@@ -141,6 +142,20 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
             ))}
           </motion.div>
         </motion.div>
+      </section>
+
+      <section className="bg-white py-12 md:py-16">
+        <div className="mx-auto max-w-4xl px-4 md:px-6 lg:px-8">
+          <p className="text-sm font-semibold text-slate-700 sm:text-base">
+            まずは39秒で概要を
+          </p>
+          <div className="mt-4">
+            <YouTubeEmbed
+              videoId="DN7omsP8C_0"
+              title="リスキリング補助金ガイド概要動画"
+            />
+          </div>
+        </div>
       </section>
 
       <section className="bg-white py-14 md:py-20">

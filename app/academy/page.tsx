@@ -7,6 +7,7 @@ import SkillLevelSection from "@/components/academyLanding/sections/SkillLevelSe
 import PricingSection from "@/components/academyLanding/sections/PricingSection";
 import TargetAudienceSection from "@/components/academyLanding/sections/TargetAudienceSection";
 import VoicesSection from "@/components/academyLanding/sections/VoicesSection";
+import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import {
   CourseStructuredData,
   EducationalOrganizationStructuredData,
@@ -114,6 +115,12 @@ export default function AcademyPage() {
       <FAQStructuredData items={academyFaqItems} />
 
       <HeroSection />
+      <section className="mx-auto max-w-4xl px-4 py-16 md:py-20">
+        <YouTubeEmbed
+          videoId="aNmhgX1WomI"
+          title="AIリブートアカデミー紹介動画"
+        />
+      </section>
       <ConceptSection />
 
       {/* Program Flow Section */}

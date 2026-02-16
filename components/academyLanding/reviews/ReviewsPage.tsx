@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 
 type FAQItem = {
   question: string;
@@ -126,6 +127,20 @@ const ReviewsPage = ({ faqItems }: ReviewsPageProps) => {
             />
           </div>
         </motion.div>
+      </section>
+
+      <section className="bg-white py-12 md:py-16">
+        <div className="mx-auto max-w-4xl px-4 md:px-6 lg:px-8">
+          <p className="text-sm font-semibold text-slate-700 sm:text-base">
+            33秒で体験の雰囲気を
+          </p>
+          <div className="mt-4">
+            <YouTubeEmbed
+              videoId="iBJgynd2q20"
+              title="AIリブートアカデミー受講体験動画"
+            />
+          </div>
+        </div>
       </section>
 
       <section className="bg-slate-50 py-14 md:py-20">

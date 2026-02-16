@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 
 type FAQItem = {
   question: string;
@@ -322,6 +323,20 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
             ))}
           </motion.ol>
         </motion.div>
+      </section>
+
+      <section className="bg-white py-12 md:py-16">
+        <div className="mx-auto max-w-4xl px-4 md:px-6 lg:px-8">
+          <p className="text-sm font-semibold text-slate-700 sm:text-base">
+            35秒でわかるAI講座の選び方
+          </p>
+          <div className="mt-4">
+            <YouTubeEmbed
+              videoId="oW8ri_Xdqt8"
+              title="AI講座の選び方ショートガイド"
+            />
+          </div>
+        </div>
       </section>
 
       <section className="bg-white py-14 md:py-20">
