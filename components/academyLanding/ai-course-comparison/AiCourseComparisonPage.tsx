@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
+import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 
 type FAQItem = {
   question: string;
@@ -14,19 +14,23 @@ type AiCourseComparisonPageProps = {
   faqItems: readonly FAQItem[];
 };
 
-type PointItem = {
-  id: number;
+type ComparisonAxis = {
   title: string;
   description: string;
-  check: string;
-  extraLink?: {
-    href: string;
-    label: string;
-  };
+  checkpoints: readonly string[];
+};
+
+type AnonymousComparisonRow = {
+  school: string;
+  price: string;
+  duration: string;
+  support: string;
+  practical: string;
+  subsidy: string;
 };
 
 const sectionReveal = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -39,265 +43,143 @@ const listReveal = {
 };
 
 const itemReveal = {
-  hidden: { opacity: 0, y: 18 },
+  hidden: { opacity: 0, y: 12 },
   visible: { opacity: 1, y: 0 },
 };
 
-const sectionHeadingClass = "text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900";
+const sectionLabelClass = "text-xs font-bold tracking-[0.14em] text-slate-500";
+const sectionHeadingClass = "mt-3 text-2xl font-bold leading-tight text-slate-900 sm:text-3xl md:text-4xl";
 
-const problemItems = [
+const comparisonAxes: readonly ComparisonAxis[] = [
   {
-    title: "たくさんあって違いがわからない",
-    description: "生成AIスクールは急増中。価格も期間もバラバラで比較が難しい",
+    title: "価格",
+    description: "受講料の総額だけでなく、質問対応や演習レビューが含まれるかを同条件で比較します。",
+    checkpoints: ["税込総額の明記", "追加費用の有無", "費用に含まれるサポート範囲"],
   },
   {
-    title: "高額な費用を払って失敗したくない",
-    description: "10万〜60万円の受講料は気軽に払える額ではない",
+    title: "期間",
+    description: "仕事や家庭と両立できる学習ペースかどうかを、週単位で確認します。",
+    checkpoints: ["受講期間", "週の学習目安", "遅れた場合のフォロー"],
   },
   {
-    title: "動画を見るだけで身につくのか不安",
-    description: "独学やeラーニングだけでは実務に活かせるか心配",
+    title: "伴走度",
+    description: "質問窓口の有無だけでなく、面談頻度や回答スピードの運用まで確認します。",
+    checkpoints: ["質問手段", "面談頻度", "相談できる範囲"],
   },
   {
-    title: "補助金が使えるのか、どう使えばいいかわからない",
-    description: "複数の制度があり条件も複雑",
+    title: "実践性",
+    description: "知識インプット中心か、業務課題に近いアウトプット中心かで習得の質が変わります。",
+    checkpoints: ["課題提出の有無", "レビューの有無", "成果物の作成機会"],
+  },
+  {
+    title: "補助金対応",
+    description: "講座情報と制度公式情報を突き合わせ、適用条件と申請フローを事前確認します。",
+    checkpoints: ["対象制度の明記", "適用条件の明記", "最新情報の確認導線"],
   },
 ] as const;
 
-const comparisonPoints: readonly PointItem[] = [
+const anonymousComparisonRows: readonly AnonymousComparisonRow[] = [
   {
-    id: 1,
-    title: "まず目的を明確にする",
-    description:
-      "ビジネス活用（業務効率化）、エンジニア転向（開発力）、教養・リテラシーの3タイプがある。目的によって最適な講座は異なる。",
-    check: "自分の目的に合ったカリキュラムが用意されているか",
+    school: "A社",
+    price: "要確認",
+    duration: "要確認",
+    support: "要確認",
+    practical: "要確認",
+    subsidy: "要確認",
   },
   {
-    id: 2,
-    title: "料金だけでなく実質負担額で比較する",
-    description:
-      "市場の相場は10万〜60万円程度。ただし補助金制度を活用すると実質負担が大幅に下がるケースがある。「受講料÷学習時間」や「受講料÷サポート回数」で費用対効果を考えるのも一つの方法。",
-    check: "補助金適用後の実質負担額を確認しているか",
+    school: "B社",
+    price: "要確認",
+    duration: "要確認",
+    support: "要確認",
+    practical: "要確認",
+    subsidy: "要確認",
   },
   {
-    id: 3,
-    title: "無理なく続けられる期間か",
-    description:
-      "4週間の短期集中型から6ヶ月のじっくり型まで様々。社会人は仕事との両立が重要。週あたりの学習時間の目安も確認すべき。",
-    check: "自分の生活リズムに無理なく組み込めるか",
+    school: "C社",
+    price: "要確認",
+    duration: "要確認",
+    support: "要確認",
+    practical: "要確認",
+    subsidy: "要確認",
   },
   {
-    id: 4,
-    title: "一人で学ぶか伴走してもらうか",
-    description:
-      "動画教材のみ/チャット質問対応/メンター定期面談/マンツーマン指導 の4段階がある。学習の挫折率はサポート体制で大きく変わる。",
-    check: "質問できる環境があるか、メンターがつくか",
-  },
-  {
-    id: 5,
-    title: "わかるとできるは違う",
-    description:
-      "知識のインプットだけでなく、実際のプロジェクトや業務課題に取り組む演習があるかが重要。実務で使えるスキルは実践の中でしか身につかない。",
-    check: "実際に手を動かす演習やプロジェクトがカリキュラムに含まれているか",
-  },
-  {
-    id: 6,
-    title: "使える制度を最大限活用する",
-    description:
-      "主な制度は「リスキリングを通じたキャリアアップ支援事業」（最大70%/上限56万円）と「教育訓練給付金」（最大80%）。すべての講座が対象ではないので事前確認が必須。",
-    check: "受講したい講座が補助金の対象になっているか",
-    extraLink: {
-      href: "/academy/subsidy-guide",
-      label: "補助金の詳細はこちら",
-    },
-  },
-  {
-    id: 7,
-    title: "学んだ後のサポートがあるか",
-    description:
-      "キャリアコンサルティング、転職支援、卒業生コミュニティなど。学んだスキルをキャリアに活かすためのサポートがあるかどうか。",
-    check: "卒業後のキャリア支援や相談窓口があるか",
+    school: "AIリブートアカデミー",
+    price: "公式案内で確認",
+    duration: "100日伴走",
+    support: "伴走サポートあり",
+    practical: "実務直結の課題設計",
+    subsidy: "経産省リスキリング関連制度の対象講座として案内",
   },
 ] as const;
 
-const checklistRows = [
-  { point: "受講目的", check: "自分の目的に合ったカリキュラムか" },
-  { point: "価格", check: "補助金適用後の実質負担額" },
-  { point: "期間", check: "仕事との両立が可能な学習ペースか" },
-  { point: "サポート", check: "メンターや質問環境の有無" },
-  { point: "実践性", check: "手を動かす演習があるか" },
-  { point: "補助金", check: "対象講座として認定されているか" },
-  { point: "キャリア", check: "卒業後のキャリアサポートがあるか" },
-] as const;
-
-const ourApproachItems = [
+const differentiationPoints = [
   {
-    point: "目的",
-    title: "生成AI活用を軸に、100日間で実践力を育てる",
-    description: "生成AIツールを使いこなすためのマインドセットとスキルを習得する実践プログラム",
+    title: "100日伴走で継続しやすい設計",
+    body: "学習の初速だけでなく、途中のつまずきにも対応しやすい伴走体制を重視しています。",
   },
   {
-    point: "価格",
-    title: "一般受講料330,000円（税込）",
-    description: "補助金活用で180,000円〜、転職後1年継続就業で実質120,000円〜",
+    title: "経産省認定に関する情報を明確化",
+    body: "制度情報の参照先と確認手順を明示し、受講前に判断できる状態をつくっています。",
   },
   {
-    point: "期間",
-    title: "2日間の宿泊型集合研修 + 100日間プログラム",
-    description: "短期集中のスタートと、継続的な実践で学びを定着",
-  },
-  {
-    point: "サポート",
-    title: "メンター伴走サポート",
-    description: "継続支援に加えてキャリアコンサルティングを3回実施",
-  },
-  {
-    point: "実践性",
-    title: "実践的なワークショップ中心",
-    description: "100日間の実践プログラムで、実務に活かすアウトプットを重視",
-  },
-  {
-    point: "補助金",
-    title: "経済産業省リスキリング補助金対象講座",
-    description: "「リスキリングを通じたキャリアアップ支援事業」の対象として受講可能",
-  },
-  {
-    point: "キャリア",
-    title: "受講後のキャリア支援まで一体でサポート",
-    description: "キャリア相談・転職支援を通じて学びの先まで伴走",
+    title: "実務直結のアウトプット重視",
+    body: "学習内容を業務で再現できるように、実践課題と振り返りを中心に設計しています。",
   },
 ] as const;
 
-const lineIcon = (
-  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
-  </svg>
-);
-
-const renderPointIcon = (id: number) => {
-  const iconClassName = "h-8 w-8 text-slate-400";
-
-  switch (id) {
-    case 1:
-      return (
-        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.8" />
-          <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.8" />
-          <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        </svg>
-      );
-    case 2:
-      return (
-        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
-          <path
-            d="M9.5 7.5h5M9 10.5h6M12 7.5v9M8.5 16.5h7"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    case 3:
-      return (
-        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="3.5" y="5.5" width="17" height="15" rx="2.5" stroke="currentColor" strokeWidth="1.8" />
-          <path d="M3.5 9.5h17M8 3.5v4M16 3.5v4M8 13h3M13 13h3M8 16.5h3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        </svg>
-      );
-    case 4:
-      return (
-        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="8" cy="7.5" r="2.5" stroke="currentColor" strokeWidth="1.8" />
-          <path
-            d="M4.5 15c0-2.1 1.7-3.8 3.8-3.8h1.4c2.1 0 3.8 1.7 3.8 3.8v1.5M13.5 11.5h3.3c1.2 0 2.2 1 2.2 2.2v2.8m-4.5-2h4.5M17.2 14.2l1.8-1.8"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    case 5:
-      return (
-        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path
-            d="M14.5 4.5 19 9l-3 3-4.5-4.5m0 0-5 5M3.5 19.5l4-1 8-8M15 3l6 6"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    case 6:
-      return (
-        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M7 3.5h7l4 4V20.5H7z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-          <path d="M14 3.5v4h4M9.5 12.5h6M9.5 16h5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-          <path d="m9 8.5 1.4 1.4L13 7.3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      );
-    case 7:
-      return (
-        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path
-            d="M4 11.5h3l2.2-2.2a2.2 2.2 0 0 1 3.1 0l1.2 1.2a1.9 1.9 0 0 0 2.7 0l1.8-1.8H20m-6.8 8.3L9 12.8m6.1 4.2 1.7 1.7m-3.5-1.8 1.7 1.7m-8.2-2.7L4 13.3M2.5 9.5h3v5h-3zm16 0h3v5h-3z"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    default:
-      return null;
-  }
-};
-
-const checklistCheckIcon = (
-  <svg className="h-5 w-5 text-orange-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="m5 12 4.2 4.2L19 6.4" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+const internalLinks = [
+  { href: "/academy", label: "AIリブートアカデミーTOP" },
+  { href: "/academy/subsidy-guide", label: "補助金ガイド" },
+  { href: "/academy/reviews", label: "受講生の評判・口コミ" },
+  { href: "/academy/seminars", label: "セミナー一覧" },
+] as const;
 
 const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   return (
     <main className="bg-white">
-      <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 pt-28 pb-16 sm:pt-32 sm:pb-20">
+      <section className="relative overflow-hidden bg-[linear-gradient(130deg,#ffffff_0%,#fff6ed_56%,#ffeeda_100%)] pt-28 pb-14 sm:pt-32 sm:pb-16">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_5%,rgba(249,115,22,0.16),transparent_36%)]" />
         <motion.div
-          className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-slate-900">
-            失敗しないAI講座の選び方 — 7つの比較ポイント
-          </h1>
-          <p className="mt-5 max-w-3xl text-base sm:text-lg leading-relaxed text-slate-700">
-            生成AI講座・リスキリング講座を選ぶ際に確認すべき7つの視点を解説します。あなたに合った講座を見つけるためのガイドです。
-          </p>
-        </motion.div>
-      </section>
-
-      <section className="bg-slate-50 py-14 md:py-20">
-        <motion.div
-          className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
+          className="relative container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <h2 className={sectionHeadingClass}>AI講座選びでよくある悩み</h2>
-          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-relaxed text-slate-600">
-            以下は市場一般の傾向としてよく挙がる悩みです。特定の講座やサービスを批判する意図はありません。
+          <AcademyBreadcrumb
+            className="mb-6"
+            items={[
+              { label: "ホーム", href: "/" },
+              { label: "アカデミー", href: "/academy" },
+              { label: "AI講座比較" },
+            ]}
+          />
+          <p className={sectionLabelClass}>AI COURSE COMPARISON</p>
+          <h1 className="mt-3 max-w-4xl text-3xl font-bold leading-tight text-slate-900 sm:text-4xl md:text-5xl">
+            AI講座比較｜失敗しない選び方（価格・期間・伴走・実践性）
+          </h1>
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-700 sm:text-lg">
+            結論として、価格だけでなく「伴走の深さ」と「実践課題の質」を同時に比較すると、受講後のミスマッチを減らせます。
+            このページでは、事実確認しながら比較するための軸とテンプレートを整理しています。
           </p>
+        </motion.div>
+      </section>
+
+      <section className="border-t border-slate-200 py-14 md:py-20">
+        <motion.div
+          className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.52, ease: "easeOut" }}
+        >
+          <p className={sectionLabelClass}>AXES</p>
+          <h2 className={sectionHeadingClass}>比較前に揃える5つの比較軸</h2>
 
           <motion.ol
             className="mt-8 border-t border-slate-200"
@@ -306,221 +188,122 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            {problemItems.map((item, index) => (
-              <motion.li
-                key={item.title}
-                variants={itemReveal}
-                className="flex gap-4 border-b border-slate-200 py-5 sm:gap-6"
-              >
-                <p className="inline-flex min-w-8 text-lg font-bold leading-none text-slate-400">
-                  {index + 1}
-                </p>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-700">{item.description}</p>
-                </div>
+            {comparisonAxes.map((axis, index) => (
+              <motion.li key={axis.title} variants={itemReveal} className="border-b border-slate-200 py-6">
+                <p className="text-xs font-bold tracking-[0.14em] text-slate-500">AXIS {index + 1}</p>
+                <h3 className="mt-2 text-lg font-bold text-slate-900 sm:text-xl">{axis.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-700 sm:text-base">{axis.description}</p>
+                <ul className="mt-4 space-y-1 text-sm leading-relaxed text-slate-700 sm:text-base">
+                  {axis.checkpoints.map((checkpoint) => (
+                    <li key={checkpoint}>- {checkpoint}</li>
+                  ))}
+                </ul>
               </motion.li>
             ))}
           </motion.ol>
         </motion.div>
       </section>
 
-      <section className="bg-white py-12 md:py-16">
-        <div className="mx-auto max-w-4xl px-4 md:px-6 lg:px-8">
-          <p className="text-sm font-semibold text-slate-700 sm:text-base">
-            35秒でわかるAI講座の選び方
+      <section className="border-t border-slate-200 py-14 md:py-20">
+        <motion.div
+          className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.52, ease: "easeOut" }}
+        >
+          <p className={sectionLabelClass}>TABLE</p>
+          <h2 className={sectionHeadingClass}>匿名比較表（A社〜C社 + 自社）</h2>
+          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
+            競合名は匿名化し、確認できる事実のみを記載しています。A社〜C社は公開情報の精査前のため、入力欄として利用してください。
           </p>
-          <div className="mt-4">
-            <YouTubeEmbed
-              videoId="oW8ri_Xdqt8"
-              title="AI講座の選び方ショートガイド"
-            />
+          {/* TODO: 要ファクト確認 - A社/B社/C社の項目は一次情報確認後に更新 */}
+
+          <div className="mt-6 overflow-x-auto rounded-lg border border-slate-200">
+            <table className="min-w-full border-collapse text-sm sm:text-base">
+              <thead className="bg-slate-50">
+                <tr>
+                  <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">講座</th>
+                  <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">価格</th>
+                  <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">期間</th>
+                  <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">伴走度</th>
+                  <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">実践性</th>
+                  <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">補助金対応</th>
+                </tr>
+              </thead>
+              <tbody>
+                {anonymousComparisonRows.map((row) => (
+                  <tr key={row.school}>
+                    <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">{row.school}</th>
+                    <td className="border-b border-slate-200 px-4 py-3 text-slate-700">{row.price}</td>
+                    <td className="border-b border-slate-200 px-4 py-3 text-slate-700">{row.duration}</td>
+                    <td className="border-b border-slate-200 px-4 py-3 text-slate-700">{row.support}</td>
+                    <td className="border-b border-slate-200 px-4 py-3 text-slate-700">{row.practical}</td>
+                    <td className="border-b border-slate-200 px-4 py-3 text-slate-700">{row.subsidy}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      <section className="bg-white py-14 md:py-20">
+      <section className="border-t border-slate-200 py-14 md:py-20">
         <motion.div
           className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
-          transition={{ duration: 0.55, ease: "easeOut" }}
+          transition={{ duration: 0.52, ease: "easeOut" }}
         >
-          <h2 className={sectionHeadingClass}>AI講座を選ぶ7つの比較ポイント</h2>
-
-          <motion.ol
-            className="mt-10 space-y-10 sm:space-y-12"
-            variants={listReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {comparisonPoints.map((point) => {
-              const isEven = point.id % 2 === 0;
-
-              return (
-              <motion.li
-                key={point.id}
-                variants={itemReveal}
-                className={isEven ? "md:pl-12" : "md:pr-12"}
-              >
-                <article className={isEven ? "md:ml-auto md:max-w-3xl" : "md:max-w-3xl"}>
-                  <div className="flex items-start gap-4 sm:gap-5">
-                    <span className="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center" aria-hidden="true">
-                      {renderPointIcon(point.id)}
-                    </span>
-                    <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">{point.title}</h3>
-                  </div>
-
-                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-700 sm:text-base">{point.description}</p>
-
-                  <p className="mt-4">
-                    <span className="inline-flex rounded bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
-                      チェック: {point.check}
-                    </span>
-                  </p>
-
-                  {point.extraLink && (
-                    <div className="mt-4">
-                      <Link
-                        href={point.extraLink.href}
-                        className="text-sm font-bold text-orange-600 underline underline-offset-4 hover:text-orange-700"
-                      >
-                        {point.extraLink.label}
-                      </Link>
-                    </div>
-                  )}
-                </article>
-              </motion.li>
-              );
-            })}
-          </motion.ol>
-        </motion.div>
-      </section>
-
-      <section className="border-y border-slate-100 bg-white py-10 md:py-12">
-        <motion.div
-          className="container mx-auto max-w-5xl px-4 text-center md:px-6 lg:px-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.55, ease: "easeOut" }}
-        >
-          <p className="text-lg font-bold text-slate-900">ここまで読んで気になった方へ</p>
-          <p className="mt-2 text-sm text-slate-600">無料説明会で、あなたに合った学び方をご相談いただけます</p>
-
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-            <a
-              href="https://bexn9pao.autosns.app/line"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#06C755] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-green-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#05b54d]"
-            >
-              {lineIcon}
-              LINE で無料相談する
-            </a>
-            <Link
-              href="/briefing"
-              className="inline-flex items-center justify-center rounded-full bg-orange-500 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-orange-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-600"
-            >
-              無料説明会に申し込む
-            </Link>
-          </div>
-        </motion.div>
-      </section>
-
-      <section className="bg-white py-14 md:py-20">
-        <motion.div
-          className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.55, ease: "easeOut" }}
-        >
-          <h2 className={sectionHeadingClass}>講座選びチェックリスト</h2>
+          <p className={sectionLabelClass}>DIFFERENTIATION</p>
+          <h2 className={sectionHeadingClass}>AIリブートアカデミーの差別化ポイント</h2>
 
           <motion.ul
-            className="mx-auto mt-8 max-w-2xl rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+            className="mt-8 border-t border-slate-200"
             variants={listReveal}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            {checklistRows.map((row, index) => (
-              <motion.li
-                key={row.point}
-                variants={itemReveal}
-                className={`rounded-lg px-3 py-3 ${index % 2 === 1 ? "bg-slate-50" : ""}`}
-              >
-                <div className="flex items-center gap-3 text-sm leading-relaxed">
-                  <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center" aria-hidden="true">
-                    {checklistCheckIcon}
-                  </span>
-                  <p className="text-slate-700">
-                    <span className="font-bold text-slate-900">{row.point}</span>
-                    <span className="text-slate-600"> — {row.check}</span>
-                  </p>
-                </div>
+            {differentiationPoints.map((point) => (
+              <motion.li key={point.title} variants={itemReveal} className="border-b border-slate-200 py-6">
+                <h3 className="text-lg font-bold text-slate-900 sm:text-xl">{point.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-700 sm:text-base">{point.body}</p>
               </motion.li>
             ))}
           </motion.ul>
         </motion.div>
       </section>
 
-      <section className="bg-white py-14 md:py-20">
-        <motion.div
-          className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.55, ease: "easeOut" }}
-        >
-          <h2 className={sectionHeadingClass}>AIリブートアカデミーの特徴</h2>
-          <p className="mt-4 max-w-3xl text-sm sm:text-base leading-relaxed text-slate-600">
-            上記の7つのポイントに沿って、AIリブートアカデミーの特徴をご紹介します。
-          </p>
-
-          <motion.dl
-            className="mt-8 border-t border-slate-100"
-            variants={listReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {ourApproachItems.map((item) => (
-              <motion.div
-                key={item.point}
-                variants={itemReveal}
-                className="border-b border-slate-100 py-4 sm:py-5"
-              >
-                <div className="grid gap-2 sm:grid-cols-[120px_1fr] sm:gap-6">
-                  <dt className="text-sm font-bold text-slate-900">{item.point}</dt>
-                  <dd>
-                    <p className="font-bold text-slate-900">{item.title}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-700">{item.description}</p>
-                  </dd>
-                </div>
-              </motion.div>
+      <section className="border-t border-slate-200 py-12">
+        <div className="container mx-auto max-w-5xl px-4 md:px-6 lg:px-8">
+          <h2 className="text-lg font-bold text-slate-900">関連ページ</h2>
+          <ul className="mt-4 space-y-2 text-sm sm:text-base">
+            {internalLinks.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                  {item.label}
+                </Link>
+              </li>
             ))}
-          </motion.dl>
-        </motion.div>
+          </ul>
+        </div>
       </section>
 
-      <section className="bg-slate-50 py-14 md:py-20">
+      <section className="border-t border-slate-200 py-14 md:py-20">
         <motion.div
           className="container mx-auto max-w-5xl px-4 md:px-6 lg:px-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
-          transition={{ duration: 0.55, ease: "easeOut" }}
+          transition={{ duration: 0.52, ease: "easeOut" }}
         >
-          <h2 className={sectionHeadingClass}>AI講座選びに関するよくある質問</h2>
+          <p className={sectionLabelClass}>FAQ</p>
+          <h2 className={sectionHeadingClass}>よくある質問</h2>
 
           <motion.div
             className="mt-8 border-t border-slate-200"
@@ -530,11 +313,7 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
             viewport={{ once: true, amount: 0.2 }}
           >
             {faqItems.map((item, index) => (
-              <motion.div
-                key={item.question}
-                variants={itemReveal}
-                className="border-b border-slate-200 py-4"
-              >
+              <motion.div key={item.question} variants={itemReveal} className="border-b border-slate-200 py-4">
                 <details
                   open={openFaqIndex === index}
                   onToggle={(event) => {
@@ -547,91 +326,17 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
                     }
                   }}
                 >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base sm:text-lg font-bold text-slate-900 [&::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-3 text-base font-bold text-slate-900 sm:text-lg [&::-webkit-details-marker]:hidden">
                     <span>
-                      Q{index + 1}: {item.question}
+                      Q{index + 1}. {item.question}
                     </span>
-                    <span className="text-2xl font-medium text-orange-500">{openFaqIndex === index ? "−" : "+"}</span>
+                    <span className="text-xl text-slate-500">{openFaqIndex === index ? "-" : "+"}</span>
                   </summary>
-                  <p className="mt-3 pr-8 text-sm sm:text-base leading-relaxed text-slate-700">A{index + 1}: {item.answer}</p>
+                  <p className="mt-3 pr-6 text-sm leading-relaxed text-slate-700 sm:text-base">A{index + 1}. {item.answer}</p>
                 </details>
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>
-      </section>
-
-      <section className="border-t border-slate-200 pt-12 pb-4">
-        <div className="container mx-auto max-w-5xl px-4 md:px-6 lg:px-8">
-          <h2 className="mb-4 text-lg font-bold text-slate-900">関連コンテンツ</h2>
-          <ul className="space-y-2">
-            <li>
-              <Link
-                href="/academy/ai-training-for-individuals"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                個人向けAI研修の選び方
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/academy/reskilling-course-recommendation"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                リスキリング講座おすすめガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AIリブートアカデミーの評判・口コミ
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section className="bg-gradient-to-r from-orange-500 to-amber-500 py-14 md:py-20 text-white">
-        <motion.div
-          className="container mx-auto max-w-5xl px-4 md:px-6 lg:px-8 text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.55, ease: "easeOut" }}
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-            まずは無料説明会であなたに合った学び方をご相談ください
-          </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-base sm:text-lg text-orange-50">
-            AIリブートアカデミーが気になった方は、まず無料説明会で詳しくお話しします。補助金の対象かどうかもその場で確認できます。
-          </p>
-
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="https://bexn9pao.autosns.app/line"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#06C755] px-8 py-3.5 text-base font-bold text-white shadow-lg shadow-green-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#05b54d]"
-            >
-              {lineIcon}
-              LINE で無料相談する
-            </a>
-            <Link
-              href="/briefing"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-bold text-orange-600 transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-50"
-            >
-              無料説明会に申し込む
-            </Link>
-          </div>
-
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-6">
-            <Link href="/academy/subsidy-guide" className="text-sm font-bold underline underline-offset-4 hover:opacity-90">
-              補助金ガイドを見る
-            </Link>
-            <Link href="/academy" className="text-sm font-bold underline underline-offset-4 hover:opacity-90">
-              アカデミーTOPに戻る
-            </Link>
-          </div>
         </motion.div>
       </section>
     </main>

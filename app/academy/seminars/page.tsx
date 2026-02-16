@@ -3,12 +3,20 @@ import type { Metadata } from "next";
 
 const seminarsTitle = "無料オンライン説明会・セミナー | AIリブートアカデミー";
 const seminarsDescription =
-    "AIリブートアカデミーの無料オンライン説明会・セミナー情報。補助金の活用方法や講座内容を詳しくご説明します。お気軽にご参加ください。";
+    "AIリブートアカデミーの無料オンライン説明会・セミナー情報。AIリスキリングを検討中の会社員・個人事業主・転職検討者に向けて、オンライン開催で講座内容や補助金活用を解説します。";
 const seminarsUrl = "https://ai-reboot.io/academy/seminars";
+const seminarsOgImagePath = "/academy/seminars/opengraph-image";
 
 export const metadata: Metadata = {
     title: seminarsTitle,
     description: seminarsDescription,
+    keywords: [
+        "AIリブートアカデミー 無料セミナー",
+        "オンライン説明会",
+        "生成AI リスキリング",
+        "経産省認定 講座",
+        "AI キャリアアップ",
+    ],
     alternates: {
         canonical: seminarsUrl,
     },
@@ -19,11 +27,20 @@ export const metadata: Metadata = {
         siteName: "AIリブートアカデミー",
         locale: "ja_JP",
         type: "website",
+        images: [
+            {
+                url: seminarsOgImagePath,
+                width: 1200,
+                height: 630,
+                alt: "AIリブートアカデミー 無料オンライン説明会",
+            },
+        ],
     },
     twitter: {
         card: "summary_large_image",
         title: seminarsTitle,
         description: seminarsDescription,
+        images: [seminarsOgImagePath],
     },
 };
 
@@ -73,7 +90,16 @@ const SeminarsPage = () => {
                     </p>
                 </div>
 
-
+                <div className="max-w-4xl mx-auto mb-8">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
+                        無料オンライン説明会の開催情報
+                    </h2>
+                    <p className="text-slate-600 leading-relaxed">
+                        対象者: 生成AIスキルを仕事で活かしたい会社員・個人事業主・転職検討中の方
+                        <br />
+                        開催形式: オンライン（Zoom）
+                    </p>
+                </div>
                 <div className="max-w-4xl mx-auto grid gap-8">
                     {seminars.map((seminar, i) => (
                         <div key={i} className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-lg transition-all duration-300 relative overflow-hidden">

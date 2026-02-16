@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
+import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 
 type FAQItem = {
   question: string;
@@ -33,61 +34,97 @@ const itemReveal = {
 
 const factItems = [
   { label: "最大補助率", value: "70%" },
-  { label: "上限額", value: "56万円" },
-  { label: "自己負担", value: "実質120,000円〜" },
-  { label: "期限", value: "2027年3月31日まで（受講開始）" },
+  { label: "補助上限額", value: "56万円" },
+  { label: "受講料（税込）", value: "¥330,000" },
+  { label: "実質負担目安", value: "¥120,000〜¥180,000" },
 ] as const;
 
 const supportCards = [
   {
-    title: "キャリア相談（無料）",
-    description: "専門家とキャリアの棚卸し・ゴール設定",
+    title: "キャリア相談",
+    description: "キャリアの棚卸しと方向性整理を行い、対象可否の前提を確認します。",
   },
   {
-    title: "リスキリング（補助対象）",
-    description: "AI活用スキルなど新しいスキルを習得",
+    title: "リスキリング講座",
+    description: "AIリブートアカデミーで、実務で使うAIスキルを体系的に習得します。",
   },
   {
-    title: "転職支援（無料）",
-    description: "転職に向けた伴走支援・転職先紹介",
+    title: "転職支援",
+    description: "転職活動の設計と伴走支援を受けながら、追加補助の条件達成を目指します。",
   },
 ] as const;
 
 const eligibleItems = [
-  "企業等と雇用契約を締結している在職者",
-  "雇用形態は問わない（正社員・契約社員・パート・アルバイト・派遣）",
-  "転職を目指している方",
-  "副業・兼業をしていても利用可能",
-  "同業他社への転職でも対象",
+  "会社員（正社員）として在職中",
+  "契約社員・派遣社員として在職中",
+  "パート・アルバイトとして在職中",
+  "転職意向があり、キャリア相談に参加できる",
+  "受講開始前に必要書類を期限内にそろえられる",
+  "AI研修 補助金 申し込みの手順に沿って進められる",
 ] as const;
 
 const ineligibleItems = [
-  "フリーランス・個人事業主",
-  "経営者",
-  "失業中の方（登録時点で在職が必要）",
-  "スキルアップのみが目的の方（転職意思が必要）",
+  "登録時点で離職中",
+  "フリーランス・個人事業主のみで就業",
+  "転職意思がなく、学習のみを目的にしている",
+  "必要書類を期限までに提出できない",
+] as const;
+
+const simulationRows = [
+  {
+    caseLabel: "受講修了まで完了",
+    subsidyRate: "50%",
+    subsidyAmount: "¥150,000",
+    outOfPocket: "¥180,000",
+    condition: "講座修了",
+  },
+  {
+    caseLabel: "追加補助まで達成",
+    subsidyRate: "最大70%",
+    subsidyAmount: "¥210,000",
+    outOfPocket: "¥120,000",
+    condition: "転職後1年継続就業",
+  },
 ] as const;
 
 const flowSteps = [
   {
-    title: "無料説明会に参加",
-    description: "補助金の対象条件や申請方法を詳しくご案内",
+    title: "無料説明会で制度確認",
+    description: "まずは制度概要、対象条件、必要書類、締切を確認します。",
   },
   {
-    title: "キャリア相談（無料）",
-    description: "専門のキャリアコンサルタントと目標設定",
+    title: "個別相談で対象判定",
+    description: "在職状況や転職意向を確認し、申し込み可否を明確にします。",
   },
   {
-    title: "リスキリング講座を受講",
-    description: "100日間の実践プログラムでAIスキルを習得",
+    title: "対象講座へ正式申し込み",
+    description: "リスキリング補助金 対象講座として手続きを進め、受講準備を行います。",
   },
   {
-    title: "受講修了・一次補助",
-    description: "受講費用の50%が補助される",
+    title: "受講修了で一次補助",
+    description: "受講修了要件を満たすと、受講費用の50%が補助対象になります。",
   },
   {
-    title: "転職成功・追加補助",
-    description: "転職後1年継続就業で追加20%が補助される",
+    title: "転職後1年継続で追加補助",
+    description: "追加20%の条件を満たすと、合計で最大70%まで補助されます。",
+  },
+] as const;
+
+const failurePatterns = [
+  {
+    title: "申請期限を過ぎてしまう",
+    detail: "説明会参加後に書類準備を後回しにすると、受付期限を超えるケースがあります。",
+    avoid: "初回相談で締切日を確認し、提出書類の準備日を先に決めておきましょう。",
+  },
+  {
+    title: "必要書類の不備",
+    detail: "記入漏れや添付不足で差し戻しになり、結果的に受講開始が遅れることがあります。",
+    avoid: "提出前にチェックリストで照合し、不安な項目は事前に相談するのが安全です。",
+  },
+  {
+    title: "対象外講座を選ぶ",
+    detail: "制度対象でない講座を申し込むと、補助金が適用されません。",
+    avoid: "申込前に対象講座かどうかを事業者案内と公式情報の両方で確認してください。",
   },
 ] as const;
 
@@ -115,13 +152,33 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <p className={sectionLabelClass}>SUBSIDY GUIDE</p>
+          <AcademyBreadcrumb
+            className="mb-6"
+            items={[
+              { label: "ホーム", href: "/" },
+              { label: "アカデミー", href: "/academy" },
+              { label: "補助金ガイド" },
+            ]}
+          />
+          <p className={sectionLabelClass}>SUBSIDY GUIDE 2026</p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-slate-900">
-            リスキリング補助金で受講費用の最大70%をカバー
+            2026年版 リスキリング補助金を個人で活用する完全ガイド
           </h1>
           <p className="mt-5 max-w-3xl text-base sm:text-lg leading-relaxed text-slate-700">
-            経済産業省「リスキリングを通じたキャリアアップ支援事業」を活用して、AIスキルを身につけませんか？
+            リスキリング補助金 個人向けの制度は、条件を理解すれば難しくありません。対象者条件、補助金額、
+            AI研修 補助金 申し込みの流れを、順番にわかりやすく整理しました。
           </p>
+          <p className="mt-3 inline-flex rounded-full border border-orange-300 bg-white/80 px-4 py-1.5 text-xs font-semibold text-slate-700">
+            2026年2月時点の情報です
+          </p>
+
+          <div className="mt-6 rounded-2xl border border-orange-300 bg-white p-5 shadow-sm">
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900">結論: まず押さえるポイント</h2>
+            <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-700">
+              経済産業省公式情報の補助率は、受講修了で50% + 条件達成で追加20%（合計最大70%、上限56万円）です。
+              AIリブートアカデミー受講料¥330,000（税込、税抜¥300,000）の計算例では、実質負担は¥120,000〜¥180,000が目安です。
+            </p>
+          </div>
 
           <motion.div
             className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
@@ -146,14 +203,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
 
       <section className="bg-white py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-4 md:px-6 lg:px-8">
-          <p className="text-sm font-semibold text-slate-700 sm:text-base">
-            まずは39秒で概要を
-          </p>
+          <p className="text-sm font-semibold text-slate-700 sm:text-base">まずは39秒で概要を確認</p>
           <div className="mt-4">
-            <YouTubeEmbed
-              videoId="DN7omsP8C_0"
-              title="リスキリング補助金ガイド概要動画"
-            />
+            <YouTubeEmbed videoId="DN7omsP8C_0" title="リスキリング補助金ガイド概要動画" />
           </div>
         </div>
       </section>
@@ -168,9 +220,14 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
           <p className={sectionLabelClass}>ABOUT</p>
-          <h2 className={sectionHeadingClass}>リスキリングを通じたキャリアアップ支援事業とは</h2>
+          <h2 className={sectionHeadingClass}>制度の概要</h2>
           <p className="mt-5 max-w-4xl text-base sm:text-lg leading-relaxed text-slate-700">
-            経済産業省が実施する在職者向けのキャリアアップ支援制度。「キャリア相談」「リスキリング講座」「転職支援」の3つのサポートを一体的に受けられます。
+            本制度の正式名称は、経済産業省「リスキリングを通じたキャリアアップ支援事業」です。キャリア相談、
+            リスキリング、転職支援を一体で提供する講座を通じて、在職者のキャリアアップを支援する枠組みです。
+          </p>
+          <p className="mt-4 max-w-4xl text-base sm:text-lg leading-relaxed text-slate-700">
+            補助は2段階で、受講修了時に50%、転職後1年間の継続就業で追加20%が適用されます。リスキリング補助金
+            対象講座を選ぶ際は、制度対象であることに加え、申請サポート体制の有無も重要です。
           </p>
 
           <motion.div
@@ -194,10 +251,6 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
               </motion.article>
             ))}
           </motion.div>
-
-          <p className="mt-6 rounded-xl bg-slate-50 p-4 text-sm leading-relaxed text-slate-600">
-            所管は経済産業省。事業期間は延長されている（2023年12月発表）。
-          </p>
         </motion.div>
       </section>
 
@@ -210,9 +263,12 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <p className={sectionLabelClass}>ELIGIBILITY</p>
-          <h2 className={sectionHeadingClass}>補助金の対象になる方</h2>
-
+          <p className={sectionLabelClass}>ELIGIBILITY CHECK</p>
+          <h2 className={sectionHeadingClass}>対象者チェックリスト</h2>
+          <p className="mt-4 max-w-4xl text-sm sm:text-base text-slate-700">
+            「自分は対象か分からない」という方は、下のチェックで判断できます。該当が多いほど申請を進めやすくなります。
+          </p>
+          {/* TODO: 要ファクト確認 - 「雇用保険被保険者等」の詳細要件は募集回ごとの最新要項で確認 */}
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             <motion.div
               className="rounded-2xl border border-emerald-200 bg-white p-6 shadow-sm"
@@ -222,7 +278,7 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: 0.05 }}
             >
-              <h3 className="text-xl font-bold text-slate-900">対象者</h3>
+              <h3 className="text-xl font-bold text-slate-900">対象になりやすい方</h3>
               <ul className="mt-4 space-y-3">
                 {eligibleItems.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-slate-700">
@@ -243,7 +299,7 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <h3 className="text-xl font-bold text-slate-900">対象外</h3>
+              <h3 className="text-xl font-bold text-slate-900">対象外になりやすい方</h3>
               <ul className="mt-4 space-y-3">
                 {ineligibleItems.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-slate-700">
@@ -255,15 +311,6 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
                 ))}
               </ul>
             </motion.div>
-          </div>
-
-          <div className="mt-6 space-y-3 rounded-2xl border border-orange-200 bg-orange-50 p-5 text-sm leading-relaxed text-slate-700">
-            <p>
-              「公務員の方は原則対象外ですが、雇用保険加入等の条件により対象となる場合があります。詳しくは無料説明会でご確認ください。」
-            </p>
-            <p>
-              「年齢制限や役員の対象可否については、個別の状況により異なります。お気軽にお問い合わせください。」
-            </p>
           </div>
         </motion.div>
       </section>
@@ -277,49 +324,37 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <p className={sectionLabelClass}>PRICING</p>
-          <h2 className={sectionHeadingClass}>補助金額の計算例</h2>
-
-          <div className="mt-8 rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 to-amber-50 p-6">
-            <div className="space-y-5">
-              <div className="flex gap-4">
-                <div className="inline-flex h-8 items-center rounded-full bg-orange-500 px-3 text-sm font-bold text-white">
-                  Step1
-                </div>
-                <p className="text-slate-700">
-                  <span className="font-bold text-slate-900">受講修了時</span> → 受講費用（税抜）の1/2（上限40万円）
-                </p>
-              </div>
-              <div className="flex gap-4">
-                <div className="inline-flex h-8 items-center rounded-full bg-amber-500 px-3 text-sm font-bold text-white">
-                  Step2
-                </div>
-                <p className="text-slate-700">
-                  <span className="font-bold text-slate-900">転職後1年継続就業</span> → 追加で受講費用（税抜）の1/5（上限16万円）
-                </p>
-              </div>
-              <p className="rounded-xl border border-orange-300 bg-white px-4 py-3 text-center text-lg font-bold text-orange-600">
-                合計: 最大70%（上限56万円）
-              </p>
-            </div>
+          <p className={sectionLabelClass}>SIMULATION</p>
+          <h2 className={sectionHeadingClass}>補助金額のシミュレーション</h2>
+          <div className="mt-8 overflow-hidden rounded-2xl border border-orange-200">
+            <table className="w-full border-collapse bg-white text-left text-sm sm:text-base">
+              <thead className="bg-orange-50">
+                <tr>
+                  <th className="px-4 py-3 font-bold text-slate-900">ケース</th>
+                  <th className="px-4 py-3 font-bold text-slate-900">補助率</th>
+                  <th className="px-4 py-3 font-bold text-slate-900">補助額（目安）</th>
+                  <th className="px-4 py-3 font-bold text-slate-900">実質負担（目安）</th>
+                  <th className="px-4 py-3 font-bold text-slate-900">条件</th>
+                </tr>
+              </thead>
+              <tbody>
+                {simulationRows.map((row) => (
+                  <tr key={row.caseLabel} className="border-t border-orange-100">
+                    <td className="px-4 py-3 font-semibold text-slate-900">{row.caseLabel}</td>
+                    <td className="px-4 py-3 text-slate-700">{row.subsidyRate}</td>
+                    <td className="px-4 py-3 text-slate-700">{row.subsidyAmount}</td>
+                    <td className="px-4 py-3 font-bold text-orange-600">{row.outOfPocket}</td>
+                    <td className="px-4 py-3 text-slate-700">{row.condition}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-
-          <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-            <h3 className="text-xl font-bold text-slate-900">AIリブートアカデミーの場合（計算例）</h3>
-            <ul className="mt-4 space-y-2 text-slate-700">
-              <li>通常価格: 330,000円（税込）/ 税抜300,000円</li>
-              <li>Step1補助: 300,000 × 50% = 150,000円</li>
-              <li>受講修了後の自己負担: 180,000円</li>
-              <li>Step2補助: 300,000 × 20% = 60,000円</li>
-              <li className="font-bold text-slate-900">転職成功後の実質負担: 120,000円</li>
-            </ul>
-          </div>
-
           <div className="mt-5 space-y-2 text-sm text-slate-600">
-            <p>※補助金は税抜価格を基準に計算されます</p>
-            <p>
-              ※補助金は受講者への直接給付ではなく、補助事業者（AIリブートアカデミー）を通じて処理されます
-            </p>
+            <p>※ AIリブートアカデミー受講料¥330,000（税込、税抜¥300,000）を基準にした計算例です。</p>
+            <p>※ 補助率の上限は受講修了時50% + 条件達成時20%で、合計最大70%です。</p>
+            {/* TODO: 要ファクト確認 - 税込総額ベースの「約¥99,000〜¥165,000」表記を使う場合は公式根拠の明示が必要 */}
+            <p>※ 制度は年度ごとに変更される可能性があります。最新条件は説明会で確認してください。</p>
           </div>
         </motion.div>
       </section>
@@ -333,8 +368,8 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <p className={sectionLabelClass}>FLOW</p>
-          <h2 className={sectionHeadingClass}>ご利用の流れ</h2>
+          <p className={sectionLabelClass}>HOW TO APPLY</p>
+          <h2 className={sectionHeadingClass}>AI研修 補助金 申し込みの流れ</h2>
 
           <motion.ol
             className="mt-8 space-y-5"
@@ -358,10 +393,41 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
               </motion.li>
             ))}
           </motion.ol>
+        </motion.div>
+      </section>
 
-          <p className="mt-6 rounded-xl border border-orange-200 bg-white p-4 text-sm text-slate-600">
-            受講開始は2027年3月31日以前、転職は2028年3月31日以前が条件です
-          </p>
+      <section className="bg-white py-14 md:py-20">
+        <motion.div
+          className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+        >
+          <p className={sectionLabelClass}>COMMON MISTAKES</p>
+          <h2 className={sectionHeadingClass}>よくある失敗パターン</h2>
+          <motion.div
+            className="mt-8 grid gap-4 md:grid-cols-3"
+            variants={listReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {failurePatterns.map((pattern) => (
+              <motion.article
+                key={pattern.title}
+                variants={itemReveal}
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+              >
+                <h3 className="text-lg font-bold text-slate-900">{pattern.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-700">{pattern.detail}</p>
+                <p className="mt-3 rounded-lg bg-white p-3 text-sm leading-relaxed text-slate-700">
+                  <span className="font-semibold text-slate-900">回避策:</span> {pattern.avoid}
+                </p>
+              </motion.article>
+            ))}
+          </motion.div>
         </motion.div>
       </section>
 
@@ -405,19 +471,32 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
           <h2 className="mb-4 text-lg font-bold text-slate-900">関連コンテンツ</h2>
           <ul className="space-y-2">
             <li>
-              <Link
-                href="/academy/subsidy-eligible-courses"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                補助金対象講座の見分け方
+              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIリブートアカデミーTOP
               </Link>
             </li>
             <li>
               <Link
-                href="/academy/ai-course-comparison"
+                href="/academy/reviews"
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
-                AI講座の選び方 7つの比較ポイント
+                AIリブートアカデミーの評判・口コミ
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/seminars"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                無料オンライン説明会・セミナー
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/subsidy-eligible-courses"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                リスキリング補助金 対象講座の見分け方
               </Link>
             </li>
           </ul>
@@ -433,12 +512,12 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <p className="text-sm font-bold tracking-wider text-orange-100">APPLY</p>
+          <p className="text-sm font-bold tracking-wider text-orange-100">CTA</p>
           <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold">
-            まずは無料説明会で補助金の詳細をご確認ください
+            補助金活用の個別相談と無料セミナーはこちら
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-orange-50">
-            あなたが補助金の対象かどうか、個別にご案内いたします
+            「難しそう」を「自分にもできそう」に変えるために、対象可否と申し込み手順を一緒に整理します。
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -449,13 +528,13 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#06C755] px-8 py-3.5 text-base font-bold text-white shadow-lg shadow-green-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#05b54d]"
             >
               {lineIcon}
-              LINE で無料相談する
+              LINEで個別相談する
             </a>
             <Link
-              href="/briefing"
+              href="/academy/seminars"
               className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-bold text-orange-600 transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-50"
             >
-              無料説明会に申し込む
+              無料セミナーに申し込む
             </Link>
           </div>
 
@@ -473,8 +552,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
               rel="noopener noreferrer"
               className="underline underline-offset-4"
             >
-              https://careerup.reskilling.go.jp/
+              careerup.reskilling.go.jp
             </a>
+            {" / "}2026年2月時点で確認
           </p>
         </motion.div>
       </section>

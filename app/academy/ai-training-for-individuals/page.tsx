@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import AiTrainingForIndividualsPage from "@/components/academyLanding/ai-training-for-individuals/AiTrainingForIndividualsPage";
 import { FAQStructuredData } from "@/components/seo/StructuredData";
 
-const aiTrainingForIndividualsTitle = "個人向けAI研修おすすめの選び方 | AIリブートアカデミー";
+const aiTrainingForIndividualsTitle = "個人向けAI研修おすすめの選び方｜独学 vs スクール徹底比較";
 const aiTrainingForIndividualsDescription =
-  "個人でAI研修を選ぶときに押さえたい判断軸を整理。独学との違い、スクール活用のメリット、チェックリスト、向き不向き、FAQまで客観的に解説します。";
+  "「AI研修 個人向け おすすめ」で比較中の方向けに、独学とスクールのメリット・デメリット、向いている人のチェックリスト、目的別学習パスを整理しました。";
 const aiTrainingForIndividualsUrl = "https://ai-reboot.io/academy/ai-training-for-individuals";
 
 const aiTrainingForIndividualsFaqItems = [
   {
-    question: "個人でAI研修を受けるべきか、独学を続けるべきか迷っています。",
+    question: "独学とスクール、どちらが向いているかはどう判断すればいいですか？",
     answer:
-      "短期間で実務利用まで到達したい、質問相手が必要、学習計画を一人で管理しづらい場合は研修活用が向いています。時間をかけて自分のペースで進められる場合は独学も有効です。",
+      "短期で実務活用したい場合や、質問・伴走が必要な場合はスクールが向いています。時間をかけて探索したい場合は独学でも進められます。",
   },
   {
     question: "個人向けAI研修を選ぶとき、最初に確認する項目は何ですか？",
@@ -24,9 +24,9 @@ const aiTrainingForIndividualsFaqItems = [
       "受講料だけでは判断しにくいため、学習期間、質問サポート、実践課題の有無、補助制度の利用可否を合わせて実質的な負担と得られる成果を確認するのが安全です。",
   },
   {
-    question: "補助金や支援制度は個人でも使えますか？",
+    question: "スクールが向いている人の特徴はありますか？",
     answer:
-      "制度ごとに対象条件が異なるため、公式情報と講座提供元の案内を両方確認するのが確実です。利用可否は雇用形態や受講目的で変わる場合があります。",
+      "学習計画を一人で管理しづらい人、実務課題に落とし込みたい人、質問環境が必要な人はスクール活用の効果が出やすい傾向があります。",
   },
   {
     question: "研修修了後に確認しておくべきことはありますか？",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   keywords: [
     "AI研修 個人向け おすすめ",
     "個人向けAI研修",
-    "AIスクール 選び方",
+    "独学 スクール 比較",
     "AI学習 独学",
   ],
   alternates: {

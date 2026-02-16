@@ -2,31 +2,31 @@ import type { Metadata } from "next";
 import MetiReskillingComparisonPage from "@/components/academyLanding/meti-reskilling-comparison/MetiReskillingComparisonPage";
 import { FAQStructuredData } from "@/components/seo/StructuredData";
 
-const metiReskillingComparisonTitle = "経産省認定リスキリング講座を比較する視点 | AIリブートアカデミー";
+const metiReskillingComparisonTitle = "経産省認定リスキリング講座を比較する視点｜選び方のポイント";
 const metiReskillingComparisonDescription =
-  "経産省認定リスキリング講座を比較するときに確認したい5つの視点を整理。認定制度の違い、実績、サポート体制、実践性、実質負担額まで客観的に解説します。";
+  "「経産省認定 リスキリング講座」を検討する方向けに、認定の意味、選定基準、チェックリスト、確認ポイントを整理。制度理解と講座選びを両立する比較ガイドです。";
 const metiReskillingComparisonUrl = "https://ai-reboot.io/academy/meti-reskilling-comparison";
 
 const metiReskillingComparisonFaqItems = [
   {
-    question: "経産省認定の講座なら、どれを選んでも安心ですか？",
+    question: "経産省認定の講座なら、どれを選んでも同じですか？",
     answer:
-      "認定は一定の要件を満たしていることを示す情報ですが、それだけで受講成果まで保証されるわけではありません。受講目的、学習支援、実践課題の有無まで合わせて確認することが重要です。",
+      "認定は一定要件を満たす目安ですが、成果までを保証するものではありません。実践課題、サポート体制、受講目的との一致をあわせて確認することが重要です。",
   },
   {
-    question: "リスキリング補助金と教育訓練給付金は同じ制度ですか？",
+    question: "経産省認定かどうかはどこで確認できますか？",
     answer:
-      "同じではありません。制度の目的や対象者、申請条件が異なるため、講座ページだけで判断せず、必ず制度の公式情報と講座提供元の案内を併せて確認しましょう。",
+      "制度の公式情報と講座提供元の案内を両方確認してください。表記が最新でない場合もあるため、申し込み前に再確認するのが確実です。",
   },
   {
-    question: "実質負担額はどのように比較すればよいですか？",
+    question: "選定基準は何を重視すべきですか？",
     answer:
-      "受講料の総額だけでなく、制度適用後の自己負担、学習期間中に必要な追加費用、サポートの範囲を同じ表に並べると比較しやすくなります。",
+      "認定要件の確認に加えて、講座実績、実践課題の有無、サポート運用の具体性を重視してください。制度要件と実務成果の両方を見て判断できます。",
   },
   {
-    question: "制度情報の確認先はどこですか？",
+    question: "実質負担額はどう比較すればよいですか？",
     answer:
-      "経済産業省のリスキリング関連制度は careerup.reskilling.go.jp で確認できます。最終的な適用可否は、最新の公式案内と講座提供元への確認を行ってください。",
+      "定価だけでなく、制度適用後の自己負担、追加費用、サポート範囲を同じ条件で並べると比較しやすくなります。",
   },
 ] as const;
 
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   description: metiReskillingComparisonDescription,
   keywords: [
     "経産省認定 リスキリング講座",
-    "リスキリング講座 比較",
-    "リスキリング 補助金 講座",
-    "教育訓練給付金 講座",
+    "経産省認定 講座 比較",
+    "リスキリング 認定講座",
+    "補助金対応 講座",
   ],
   alternates: {
     canonical: metiReskillingComparisonUrl,

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 
 type FAQItem = {
   question: string;
@@ -130,6 +131,14 @@ const SubsidyEligibleCoursesPage = ({ faqItems }: SubsidyEligibleCoursesPageProp
           variants={sectionReveal}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
+          <AcademyBreadcrumb
+            className="mb-6"
+            items={[
+              { label: "ホーム", href: "/" },
+              { label: "アカデミー", href: "/academy" },
+              { label: "対象講座チェック" },
+            ]}
+          />
           <p className={sectionLabelClass}>SUBSIDY ELIGIBILITY</p>
           <h1 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
             リスキリング補助金の対象講座とは？

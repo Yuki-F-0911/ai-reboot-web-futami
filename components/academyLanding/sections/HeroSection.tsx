@@ -5,10 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const heroImages = [
-    "/images/hero-slide-v2-1.png",
-    "/images/hero-slide-v2-2.png",
-    "/images/hero-slide-v2-3.png",
-    "/images/hero-slide-v2-4.png",
+    "/images/hero-slide-v2-1.jpg",
+    "/images/hero-slide-v2-2.jpg",
+    "/images/hero-slide-v2-3.jpg",
+    "/images/hero-slide-v2-4.jpg",
 ];
 
 const HeroSection = () => {
@@ -77,7 +77,10 @@ const HeroSection = () => {
                 <div className="w-full lg:max-w-2xl text-center lg:text-left">
                     {/* Main Tagline - 最も目立つ訴求コピー */}
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 leading-tight">
-                        激変する時代に、<br className="hidden sm:block" />自分を再起動する
+                        <span className="sr-only">AIリブートアカデミー｜経産省認定リスキリング講座で生成AIスキルを習得</span>
+                        <span aria-hidden="true">
+                            激変する時代に、<br className="hidden sm:block" />自分を再起動する
+                        </span>
                     </h1>
 
                     {/* Orange Highlight Text */}
@@ -115,9 +118,12 @@ const HeroSection = () => {
                     </div>
 
                     {/* Sub Link */}
-                    <p className="text-sm text-slate-500 mb-6 underline underline-offset-4 cursor-pointer hover:text-slate-700">
+                    <Link
+                        href="/corporate"
+                        className="mb-6 inline-block text-sm text-slate-500 underline underline-offset-4 transition-colors hover:text-slate-700"
+                    >
                         法人向けはこちら
-                    </p>
+                    </Link>
 
                     {/* Trust Badges - カードなし、余白で区切り */}
                     <div className="flex flex-wrap items-center gap-6 justify-center lg:justify-start">

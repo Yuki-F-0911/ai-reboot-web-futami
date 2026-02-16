@@ -19,68 +19,59 @@ const sectionReveal = {
 
 const roleSkillSections = [
   {
-    role: "営業・マーケティング",
-    summary:
-      "顧客理解と提案速度が求められる領域では、AIを使って情報収集と仮説整理の初速を上げるスキルが重要です。",
+    role: "営業職",
+    summary: "顧客理解と提案速度を高めるため、営業プロセスへAIを組み込む力が重要です。",
     skills: [
-      "AI活用リサーチ: 市場動向や顧客課題の仮説を短時間で整理する",
-      "データ読解: 数字や反応データを解釈し、施策の優先順位を判断する",
-      "プロンプト設計: 目的に沿う出力形式を指定し、再利用可能な指示を作る",
+      "AI営業支援ツール活用: 商談準備、提案下書き、フォロー文面の初稿を高速化する",
+      "データ分析: 商談履歴や受注データから次アクションを判断する",
     ],
   },
   {
-    role: "管理部門・バックオフィス",
-    summary:
-      "定型業務と判断業務が混在する部門では、AIに任せる範囲と人が担う範囲を設計する視点が成果を左右します。",
+    role: "マーケ職",
+    summary: "企画から運用、改善までの回転数を上げるためのAI活用が求められます。",
     skills: [
-      "業務自動化設計: 手順を分解して、AIと他ツールを組み合わせた流れを作る",
-      "AI活用の判断力: 品質やリスクを見ながら、活用可否を業務単位で決める",
+      "生成AIコンテンツ制作: 記事構成、広告文、LPドラフトの試作を効率化する",
+      "AIアナリティクス: 施策データを要約し、改善仮説を素早く立てる",
     ],
   },
   {
-    role: "企画・事業開発",
-    summary:
-      "不確実性の高い領域では、AIを思考の補助線として使い、仮説検証の回転数を上げる力が求められます。",
+    role: "管理職",
+    summary: "個人活用を組織成果につなげるため、方針策定と導入推進の両方が必要です。",
     skills: [
-      "AI活用による仮説構築: 課題定義から打ち手候補までを複数案で比較する",
-      "プロトタイピング: 企画段階の文書や画面案を素早く作り、検証に進む",
+      "AI戦略立案: 目的、対象業務、評価指標を明確にする",
+      "チームへのAI導入推進: 小さな成功事例を作り、運用へ定着させる",
     ],
   },
   {
-    role: "エンジニア",
-    summary:
-      "実装だけでなく設計判断にもAIを取り込むことで、開発速度と品質改善の両立がしやすくなります。",
+    role: "事務職",
+    summary: "定型業務の効率化と品質担保を両立するため、業務分解と自動化設計が鍵になります。",
     skills: [
-      "AI連携開発: 要件整理、実装補助、テスト観点整理までを一連で扱う",
-      "プロンプトエンジニアリング: コンテキスト設計と制約指定で出力品質を安定化させる",
+      "RPA×AI自動化: 入力・集計・報告作成の流れを半自動化する",
+      "ドキュメントAI活用: 議事録や申請書作成の時間を短縮する",
     ],
   },
   {
-    role: "マネジメント",
-    summary:
-      "個人の活用を組織成果につなげるには、方向性の言語化と導入支援の設計が不可欠です。",
+    role: "クリエイティブ職",
+    summary: "企画意図を維持しながら制作速度を上げるため、AIを補助線として使う力が重要です。",
     skills: [
-      "AI活用方針の策定: 目的、優先業務、評価観点をチームの共通言語にする",
-      "チームへの導入支援: 実践機会と振り返りの場を作り、学習を業務に定着させる",
+      "画像/動画AI活用: コンセプト案やラフ素材の作成を加速する",
+      "AIアシスト制作: 人の判断で最終品質を担保しながら工程を最適化する",
     ],
   },
 ] as const;
 
-const commonCoreSkills = [
+const learnOrder = [
   {
-    title: "問いを立てる力",
-    description:
-      "AIの出力品質は、最初に設定する問いで大きく変わります。目的、前提、制約を整理して問いを作る力は、どの職種でも土台になります。",
+    title: "共通基礎を固める",
+    body: "課題の言語化、プロンプト設計、出力検証の基本を身につけます。",
   },
   {
-    title: "AIに渡す前の構造化力",
-    description:
-      "情報が曖昧なままでは、出力も曖昧になります。論点、優先順位、欲しい出力形式を先に整理することで、やり直しを減らせます。",
+    title: "職種別スキルを深める",
+    body: "営業なら提案、マーケなら施策検証など、成果に直結する業務から優先して学習します。",
   },
   {
-    title: "結果を判断する力",
-    description:
-      "AIの回答はそのまま採用するものではなく、意思決定の材料です。妥当性や実行可能性を確認し、最終判断を人が担う姿勢が重要です。",
+    title: "効果測定しながら運用する",
+    body: "作業時間、品質、意思決定速度などを指標にし、AI活用を継続改善します。",
   },
 ] as const;
 
@@ -95,13 +86,14 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm font-semibold tracking-wide text-gray-500">AI時代 必要なスキル</p>
+          <p className="text-sm font-semibold tracking-wide text-gray-500">AI時代 必要なスキル / AI時代 キャリア</p>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            AI時代に求められるスキルとは？職種別に整理する
+            AI時代に必要なスキルを職種別に解説｜2026年版キャリア戦略
           </h1>
+          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月に更新されました</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI活用が広がる中で、求められる能力は「ツールを触れること」だけではなくなっています。本記事では、職種ごとに必要なスキルの違いを整理しながら、
-            どの仕事にも共通する土台の力まで解説します。
+            AI活用が進む中で、求められるのはツール操作だけではありません。職種ごとに必要なスキルを整理し、
+            どこから学べばキャリアに直結するのかを実務目線で解説します。
           </p>
         </motion.header>
 
@@ -113,19 +105,11 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">なぜ今スキルの見直しが必要か</h2>
+          <h2 className="text-2xl font-bold text-gray-900">AI時代に変わること / 変わらないこと</h2>
           <div className="mt-6 space-y-5 text-base leading-8 text-gray-700">
-            <p>
-              AIの普及によって、多くの業務で「情報を集める」「整理する」「たたき台を作る」といった初動の工程が短縮しやすくなりました。その結果、単純な作業量よりも、
-              何を判断し、どう使うかという設計力が重要になっています。
-            </p>
-            <p>
-              これまで経験で行っていた仕事も、AIを前提に進め方を再設計することで、同じ時間で扱える論点や選択肢を増やせるようになっています。反対に、従来の進め方のままでは、
-              速度と質の両面で差が開きやすくなります。
-            </p>
-            <p>
-              だからこそ、職種ごとに必要なスキルを整理し、共通基盤を押さえた上で学び直すことが重要です。特別な肩書きよりも、実務で再現できる使い方を持てるかが分岐点になります。
-            </p>
+            <p>変わることは、情報収集や下書き作成の初動速度です。AIで検討サイクルを増やせます。</p>
+            <p>変わらないことは、課題設定と最終判断の責任です。成果を左右するのは人の判断です。</p>
+            <p>だからこそ、AI時代のキャリアでは「人の判断をAIで拡張する力」が重要になります。</p>
           </div>
         </motion.section>
 
@@ -137,12 +121,8 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">職種別に求められるスキル</h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            同じAIツールを使っていても、成果につながる使い方は職種によって異なります。以下では代表的な5職種の観点で整理します。
-          </p>
-
-          <div className="mt-8 space-y-10">
+          <h2 className="text-2xl font-bold text-gray-900">職種別に必須のAIスキル</h2>
+          <div className="mt-8 space-y-9">
             {roleSkillSections.map((section, index) => (
               <motion.section
                 key={section.role}
@@ -151,7 +131,7 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
                 viewport={{ once: true, amount: 0.2 }}
                 variants={sectionReveal}
                 transition={{ duration: 0.45, delay: index * 0.04, ease: "easeOut" }}
-                className="border-t border-gray-200 pt-8"
+                className="rounded-lg border border-gray-200 p-6"
               >
                 <h3 className="text-xl font-semibold text-gray-900">{section.role}</h3>
                 <p className="mt-4 text-base leading-8 text-gray-700">{section.summary}</p>
@@ -168,6 +148,20 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
         </motion.section>
 
         <motion.section
+          className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="text-2xl font-bold text-gray-900">「AIに奪われる仕事」ではなく「AIで拡張される仕事」へ</h2>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            AIの価値は代替だけではありません。単純作業を減らし、提案力や判断力へ時間を振り向けることで、職種を問わず仕事の価値を拡張できます。
+          </p>
+        </motion.section>
+
+        <motion.section
           className="mt-14"
           initial="hidden"
           whileInView="visible"
@@ -175,24 +169,17 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">共通して重要な3つの力</h2>
-          <div className="mt-7 space-y-7">
-            {commonCoreSkills.map((skill, index) => (
-              <motion.section
-                key={skill.title}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={sectionReveal}
-                transition={{ duration: 0.45, delay: index * 0.05, ease: "easeOut" }}
-              >
+          <h2 className="text-2xl font-bold text-gray-900">学習順序の提案</h2>
+          <ol className="mt-7 space-y-7">
+            {learnOrder.map((item, index) => (
+              <li key={item.title} className="border-t border-gray-200 pt-5">
                 <h3 className="text-lg font-semibold text-gray-900">
-                  {index + 1}. {skill.title}
+                  Step {index + 1}. {item.title}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-gray-700">{skill.description}</p>
-              </motion.section>
+                <p className="mt-3 text-sm leading-7 text-gray-700">{item.body}</p>
+              </li>
             ))}
-          </div>
+          </ol>
         </motion.section>
 
         <motion.section
@@ -215,27 +202,26 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pt-12 pb-4">
-          <h2 className="mb-4 text-lg font-bold text-slate-900">関連コンテンツ</h2>
+          <h2 className="mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
           <ul className="space-y-2">
             <li>
-              <Link
-                href="/academy/blog/ai-career-change-cases"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                AIキャリアチェンジのルートと事例
+              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIリブートアカデミー TOP
               </Link>
             </li>
             <li>
-              <Link
-                href="/academy/ai-training-for-individuals"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                個人向けAI研修の選び方
+              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                補助金ガイド
               </Link>
             </li>
             <li>
               <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AIリブートアカデミーの評判・口コミ
+                受講生の評判・口コミ
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                無料セミナー一覧
               </Link>
             </li>
           </ul>
@@ -249,16 +235,16 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">スキルを体系的に身につけたい方へ</h2>
+          <h2 className="text-2xl font-bold text-gray-900">職種に合う学習戦略を設計したい方へ</h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            独学だけでは設計しづらい場合は、学習順序と実務接続を意識した環境を使う方法もあります。現在地と目標に合う進め方を比較しながら検討してください。
+            無料セミナーで全体像を把握し、個別相談であなたの職種に合う学習順序を整理できます。実務で使えるスキルから着実に積み上げましょう。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/academy"
+              href="/academy/seminars"
               className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
             >
-              アカデミーを見る
+              無料セミナーに参加する
             </Link>
             <a
               href="https://bexn9pao.autosns.app/line"
@@ -266,7 +252,7 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
             >
-              LINEで相談する
+              個別相談を申し込む
             </a>
           </div>
         </motion.section>
