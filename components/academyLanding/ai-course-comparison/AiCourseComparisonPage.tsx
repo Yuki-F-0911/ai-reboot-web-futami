@@ -42,7 +42,6 @@ const itemReveal = {
   visible: { opacity: 1, y: 0 },
 };
 
-const sectionLabelClass = "text-orange-500 font-bold text-sm tracking-wider mb-2";
 const sectionHeadingClass = "text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900";
 
 const problemItems = [
@@ -174,24 +173,108 @@ const lineIcon = (
   </svg>
 );
 
+const renderPointIcon = (id: number) => {
+  const iconClassName = "h-8 w-8 text-slate-400";
+
+  switch (id) {
+    case 1:
+      return (
+        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.8" />
+          <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.8" />
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        </svg>
+      );
+    case 2:
+      return (
+        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
+          <path
+            d="M9.5 7.5h5M9 10.5h6M12 7.5v9M8.5 16.5h7"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+    case 3:
+      return (
+        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3.5" y="5.5" width="17" height="15" rx="2.5" stroke="currentColor" strokeWidth="1.8" />
+          <path d="M3.5 9.5h17M8 3.5v4M16 3.5v4M8 13h3M13 13h3M8 16.5h3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        </svg>
+      );
+    case 4:
+      return (
+        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="8" cy="7.5" r="2.5" stroke="currentColor" strokeWidth="1.8" />
+          <path
+            d="M4.5 15c0-2.1 1.7-3.8 3.8-3.8h1.4c2.1 0 3.8 1.7 3.8 3.8v1.5M13.5 11.5h3.3c1.2 0 2.2 1 2.2 2.2v2.8m-4.5-2h4.5M17.2 14.2l1.8-1.8"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+    case 5:
+      return (
+        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M14.5 4.5 19 9l-3 3-4.5-4.5m0 0-5 5M3.5 19.5l4-1 8-8M15 3l6 6"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+    case 6:
+      return (
+        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M7 3.5h7l4 4V20.5H7z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+          <path d="M14 3.5v4h4M9.5 12.5h6M9.5 16h5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          <path d="m9 8.5 1.4 1.4L13 7.3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    case 7:
+      return (
+        <svg className={iconClassName} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M4 11.5h3l2.2-2.2a2.2 2.2 0 0 1 3.1 0l1.2 1.2a1.9 1.9 0 0 0 2.7 0l1.8-1.8H20m-6.8 8.3L9 12.8m6.1 4.2 1.7 1.7m-3.5-1.8 1.7 1.7m-8.2-2.7L4 13.3M2.5 9.5h3v5h-3zm16 0h3v5h-3z"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+    default:
+      return null;
+  }
+};
+
+const checklistCheckIcon = (
+  <svg className="h-5 w-5 text-orange-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="m5 12 4.2 4.2L19 6.4" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   return (
     <main className="bg-white">
       <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 pt-28 pb-16 sm:pt-32 sm:pb-20">
-        <div className="absolute -top-28 -left-16 h-72 w-72 rounded-full bg-orange-200/40 blur-3xl" />
-        <div className="absolute -bottom-32 right-0 h-80 w-80 rounded-full bg-amber-200/40 blur-3xl" />
-
         <motion.div
-          className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8 relative z-10"
+          className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <p className={sectionLabelClass}>COURSE GUIDE</p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-slate-900">
             失敗しないAI講座の選び方 — 7つの比較ポイント
           </h1>
@@ -210,7 +293,6 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <p className={sectionLabelClass}>PROBLEM</p>
           <h2 className={sectionHeadingClass}>AI講座選びでよくある悩み</h2>
           <p className="mt-4 max-w-4xl text-sm sm:text-base leading-relaxed text-slate-600">
             以下は市場一般の傾向としてよく挙がる悩みです。特定の講座やサービスを批判する意図はありません。
@@ -251,36 +333,38 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <p className={sectionLabelClass}>COMPARISON</p>
           <h2 className={sectionHeadingClass}>AI講座を選ぶ7つの比較ポイント</h2>
 
           <motion.ol
-            className="mt-8 border-t border-slate-100"
+            className="mt-10 space-y-10 sm:space-y-12"
             variants={listReveal}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            {comparisonPoints.map((point) => (
+            {comparisonPoints.map((point) => {
+              const isEven = point.id % 2 === 0;
+
+              return (
               <motion.li
                 key={point.id}
                 variants={itemReveal}
-                className="relative border-b border-slate-100 py-8 sm:py-10"
+                className={isEven ? "md:pl-12" : "md:pr-12"}
               >
-                <article className="relative">
-                  <div className="relative">
-                    <p className="flex items-baseline text-[11px] font-bold tracking-wide text-slate-400">
-                      ポイント
-                      <span className="ml-1 text-lg font-bold text-orange-500 tabular-nums">{point.id}</span>
-                      <span className="ml-1 text-[11px] font-bold tracking-wide text-slate-400">/ 7</span>
-                    </p>
-                    <h3 className="mt-2 text-xl font-bold text-slate-900 sm:text-2xl">{point.title}</h3>
+                <article className={isEven ? "md:ml-auto md:max-w-3xl" : "md:max-w-3xl"}>
+                  <div className="flex items-start gap-4 sm:gap-5">
+                    <span className="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center" aria-hidden="true">
+                      {renderPointIcon(point.id)}
+                    </span>
+                    <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">{point.title}</h3>
                   </div>
 
                   <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-700 sm:text-base">{point.description}</p>
 
-                  <p className="mt-4 max-w-2xl text-sm text-slate-500">
-                    <span className="font-bold text-slate-700">→ チェック:</span> {point.check}
+                  <p className="mt-4">
+                    <span className="inline-flex rounded bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
+                      チェック: {point.check}
+                    </span>
                   </p>
 
                   {point.extraLink && (
@@ -295,7 +379,8 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
                   )}
                 </article>
               </motion.li>
-            ))}
+              );
+            })}
           </motion.ol>
         </motion.div>
       </section>
@@ -344,23 +429,22 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           <h2 className={sectionHeadingClass}>講座選びチェックリスト</h2>
 
           <motion.ul
-            className="mt-8 mx-auto max-w-2xl border-t border-slate-100"
+            className="mx-auto mt-8 max-w-2xl rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
             variants={listReveal}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            {checklistRows.map((row) => (
+            {checklistRows.map((row, index) => (
               <motion.li
                 key={row.point}
                 variants={itemReveal}
-                className="border-b border-slate-100 py-3"
+                className={`rounded-lg px-3 py-3 ${index % 2 === 1 ? "bg-slate-50" : ""}`}
               >
                 <div className="flex items-center gap-3 text-sm leading-relaxed">
-                  <span
-                    className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded border-2 border-slate-300"
-                    aria-hidden="true"
-                  />
+                  <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center" aria-hidden="true">
+                    {checklistCheckIcon}
+                  </span>
                   <p className="text-slate-700">
                     <span className="font-bold text-slate-900">{row.point}</span>
                     <span className="text-slate-600"> — {row.check}</span>
@@ -421,7 +505,6 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <p className={sectionLabelClass}>FAQ</p>
           <h2 className={sectionHeadingClass}>AI講座選びに関するよくある質問</h2>
 
           <motion.div
