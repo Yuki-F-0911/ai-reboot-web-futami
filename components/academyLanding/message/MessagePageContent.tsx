@@ -147,7 +147,7 @@ const MessagePageContent = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-slate-900 mb-6">
               メッセージ
             </h1>
-            <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl">
+            <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-2xl">
               この時代に私たちが問いかける、
               <br className="hidden sm:block" />
               挑戦と共創の物語。
@@ -192,11 +192,11 @@ const MessagePageContent = () => {
                   <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mt-2">
                     {chapter.title}
                   </h3>
-                  <p className="text-sm md:text-base text-slate-500 mt-2">
+                  <p className="text-sm md:text-base text-slate-600 mt-2">
                     {chapter.subtitle}
                   </p>
                 </div>
-                <div className="text-base md:text-lg text-slate-600 leading-loose [&_p]:mb-5 [&_p:last-child]:mb-0 [&_.message-quote]:border-l-2 [&_.message-quote]:border-orange-300 [&_.message-quote]:pl-4 [&_.message-quote]:text-slate-800">
+                <div className="text-base md:text-lg text-slate-700 leading-loose [&_p]:mb-5 [&_p:last-child]:mb-0 [&_.message-quote]:border-l-2 [&_.message-quote]:border-orange-300 [&_.message-quote]:pl-4 [&_.message-quote]:text-slate-800">
                   {chapter.content}
                 </div>
                 {index < chapters.length - 1 && (
