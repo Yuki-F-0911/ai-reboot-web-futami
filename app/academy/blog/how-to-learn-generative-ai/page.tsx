@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import HowToLearnGenerativeAiPage from "@/components/blog/how-to-learn-generative-ai/HowToLearnGenerativeAiPage";
+import HowToLearnGenerativeAiPage from "@/components/academyLanding/blog/how-to-learn-generative-ai/HowToLearnGenerativeAiPage";
 import { FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "社会人のための生成AI学習ロードマップ（0→100日） | AIリブートジャーナル";
 const pageDescription =
   "生成AIの学び方を、社会人向けに100日ロードマップで整理。基礎理解から業務活用、応用実践まで、段階的に進める方法を解説します。";
-const pageUrl = "https://ai-reboot.io/blog/how-to-learn-generative-ai";
+const pageUrl = "https://ai-reboot.io/academy/blog/how-to-learn-generative-ai";
 
 const faqItems = [
   {

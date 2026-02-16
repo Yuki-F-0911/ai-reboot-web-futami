@@ -44,11 +44,11 @@
 | リスキリング補助金 個人 | 補助金の対象条件・受給可否を知りたい | 解説記事 + FAQ | 新規 `/academy/subsidy-guide` | 高 |
 | リスキリング補助金 対象講座 | 対象講座の一覧/判断基準を知りたい | 解説記事 | 新規 `/academy/subsidy-eligible-courses` | 高 |
 | 経産省認定 リスキリング講座 | 信頼性の高い講座を探したい | 比較コラム | 新規 `/academy/meti-reskilling-comparison` | 高 |
-| 社会人 学び直し AI | 社会人向けの学習ステップを知りたい | ハウツー記事 | 新規 `/blog/ai-reskilling-roadmap-for-workers` | 中 |
-| 生成AI 学び方 | 学習順序・教材・期間を知りたい | ハウツー記事 | 新規 `/blog/how-to-learn-generative-ai` | 高 |
-| 生成AI スキル 身につける | 実務で使えるスキルを知りたい | 実践コラム | 新規 `/blog/generative-ai-skills-checklist` | 中 |
-| AI時代 必要なスキル | キャリア観点で必要スキルを把握したい | コラム | 新規 `/blog/skills-for-ai-era-career` | 中 |
-| AI時代 キャリアチェンジ | 転職/複業の現実的ルートを知りたい | 事例記事 | 新規 `/blog/ai-career-change-cases` | 中 |
+| 社会人 学び直し AI | 社会人向けの学習ステップを知りたい | ハウツー記事 | 新規 `/academy/blog/ai-reskilling-roadmap-for-workers` | 中 |
+| 生成AI 学び方 | 学習順序・教材・期間を知りたい | ハウツー記事 | 新規 `/academy/blog/how-to-learn-generative-ai` | 高 |
+| 生成AI スキル 身につける | 実務で使えるスキルを知りたい | 実践コラム | 新規 `/academy/blog/generative-ai-skills-checklist` | 中 |
+| AI時代 必要なスキル | キャリア観点で必要スキルを把握したい | コラム | 新規 `/academy/blog/skills-for-ai-era-career` | 中 |
+| AI時代 キャリアチェンジ | 転職/複業の現実的ルートを知りたい | 事例記事 | 新規 `/academy/blog/ai-career-change-cases` | 中 |
 | AI研修 個人向け おすすめ | 個人向け講座を比較検討したい | 比較記事 | 新規 `/academy/ai-training-for-individuals` | 高 |
 | AI講座 比較 | 価格・期間・成果を比較したい | 比較記事 + 表 | 新規 `/academy/ai-course-comparison` | 高 |
 | リスキリング講座 おすすめ | おすすめ講座を知りたい | 比較記事 | 新規 `/academy/reskilling-course-recommendation` | 高 |
@@ -70,7 +70,7 @@
 | AI講座比較 失敗しない選び方（価格・期間・伴走・実践性） | `/academy/ai-course-comparison` | AI講座 比較 | 比較軸を明確化し、選定基準を表形式で提示。 |
 | 個人向けAI研修おすすめの選び方 | `/academy/ai-training-for-individuals` | AI研修 個人向け おすすめ | 個人学習とスクール活用の使い分けを整理。 |
 | AIリブートアカデミーの評判・口コミ・受講後の変化 | `/academy/reviews` | AIリブートアカデミー 評判 | 受講生の定量/定性データ、属性別の成果、注意点を公開。 |
-| 社会人のための生成AI学習ロードマップ（0→100日） | `/blog/how-to-learn-generative-ai` | 生成AI 学び方 | 学習ステップ、週次学習計画、学習のつまずき対策。 |
+| 社会人のための生成AI学習ロードマップ（0→100日） | `/academy/blog/how-to-learn-generative-ai` | 生成AI 学び方 | 学習ステップ、週次学習計画、学習のつまずき対策。 |
 | AI時代に必要なスキルを職種別に解説 | `/blog/skills-for-ai-era-career` | AI時代 必要なスキル | 職種別に必須スキルと学習順序を提示。 |
 | AI時代のキャリアチェンジ事例集 | `/blog/ai-career-change-cases` | AI時代 キャリアチェンジ | 実践者の転換プロセスと再現可能な行動を提示。 |
 | 経産省認定リスキリング講座を比較する視点 | `/academy/meti-reskilling-comparison` | 経産省認定 リスキリング講座 | 信頼性確認の観点（認定・実績・サポート）を解説。 |
@@ -121,7 +121,7 @@
 ### フェーズ2（高効果・中工数 / 3-5週間）
 1. 比較系ページ公開（`/academy/ai-course-comparison`、`/academy/ai-training-for-individuals`）  
 2. 指名検索受け皿公開（`/academy/reviews`）  
-3. 学習系記事公開（`/blog/how-to-learn-generative-ai` など2-3本）
+3. 学習系記事公開（`/academy/blog/how-to-learn-generative-ai` など2-3本）
 
 ### フェーズ3（検証・最適化 / 継続）
 1. Search Console でクエリ別 CTR/掲載順位を確認し、タイトルと冒頭回答をAB改善  
