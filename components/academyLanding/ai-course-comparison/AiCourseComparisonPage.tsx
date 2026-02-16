@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -75,8 +75,18 @@ const comparisonPoints: readonly PointItem[] = [
       "ビジネス活用（業務効率化）、エンジニア転向（開発力）、教養・リテラシーの3タイプがある。目的によって最適な講座は異なる。",
     check: "自分の目的に合ったカリキュラムが用意されているか",
     icon: (
-      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v18m9-9H3" />
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
       </svg>
     ),
   },
@@ -88,8 +98,17 @@ const comparisonPoints: readonly PointItem[] = [
       "市場の相場は10万〜60万円程度。ただし補助金制度を活用すると実質負担が大幅に下がるケースがある。「受講料÷学習時間」や「受講料÷サポート回数」で費用対効果を考えるのも一つの方法。",
     check: "補助金適用後の実質負担額を確認しているか",
     icon: (
-      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-10v12m9-6a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
   },
@@ -101,8 +120,17 @@ const comparisonPoints: readonly PointItem[] = [
       "4週間の短期集中型から6ヶ月のじっくり型まで様々。社会人は仕事との両立が重要。週あたりの学習時間の目安も確認すべき。",
     check: "自分の生活リズムに無理なく組み込めるか",
     icon: (
-      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
       </svg>
     ),
   },
@@ -114,8 +142,17 @@ const comparisonPoints: readonly PointItem[] = [
       "動画教材のみ/チャット質問対応/メンター定期面談/マンツーマン指導 の4段階がある。学習の挫折率はサポート体制で大きく変わる。",
     check: "質問できる環境があるか、メンターがつくか",
     icon: (
-      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v8l-4-4H7a2 2 0 01-2-2v-2m12-6V4a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h2" />
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
       </svg>
     ),
   },
@@ -127,8 +164,17 @@ const comparisonPoints: readonly PointItem[] = [
       "知識のインプットだけでなく、実際のプロジェクトや業務課題に取り組む演習があるかが重要。実務で使えるスキルは実践の中でしか身につかない。",
     check: "実際に手を動かす演習やプロジェクトがカリキュラムに含まれているか",
     icon: (
-      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L6 21m0 0l-3-3m3 3V10a8 8 0 018-8h4" />
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
   },
@@ -140,8 +186,17 @@ const comparisonPoints: readonly PointItem[] = [
       "主な制度は「リスキリングを通じたキャリアアップ支援事業」（最大70%/上限56万円）と「教育訓練給付金」（最大80%）。すべての講座が対象ではないので事前確認が必須。",
     check: "受講したい講座が補助金の対象になっているか",
     icon: (
-      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 14l2 2 4-4m5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ),
     extraLink: {
@@ -157,8 +212,17 @@ const comparisonPoints: readonly PointItem[] = [
       "キャリアコンサルティング、転職支援、卒業生コミュニティなど。学んだスキルをキャリアに活かすためのサポートがあるかどうか。",
     check: "卒業後のキャリア支援や相談窓口があるか",
     icon: (
-      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A6.969 6.969 0 0112 15c2.042 0 3.88.867 5.162 2.252M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
       </svg>
     ),
   },
@@ -225,6 +289,8 @@ const checkIcon = (
 );
 
 const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
   return (
     <main className="bg-white">
       <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 pt-28 pb-16 sm:pt-32 sm:pb-20">
@@ -264,31 +330,33 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
             以下は市場一般の傾向としてよく挙がる悩みです。特定の講座やサービスを批判する意図はありません。
           </p>
 
-          <motion.div
-            className="mt-8 grid gap-4 md:grid-cols-2"
+          <motion.ol
+            className="mt-8 border-t border-slate-200"
             variants={listReveal}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
             {problemItems.map((item, index) => (
-              <motion.article
+              <motion.li
                 key={item.title}
                 variants={itemReveal}
-                className="rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 to-amber-50 p-5"
+                className="flex gap-4 border-b border-slate-200 py-5 sm:gap-6"
               >
-                <p className="inline-flex h-8 min-w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-amber-500 px-2 text-sm font-bold text-white">
-                  {index + 1}
+                <p className="inline-flex min-w-8 text-2xl font-bold leading-none text-orange-500">
+                  {String(index + 1).padStart(2, "0")}
                 </p>
-                <h3 className="mt-4 text-xl font-bold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-700">{item.description}</p>
-              </motion.article>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-700">{item.description}</p>
+                </div>
+              </motion.li>
             ))}
-          </motion.div>
+          </motion.ol>
         </motion.div>
       </section>
 
-      <section className="bg-slate-50 py-14 md:py-20">
+      <section className="bg-white py-14 md:py-20">
         <motion.div
           className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
           initial="hidden"
@@ -311,16 +379,16 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
               <motion.article
                 key={point.id}
                 variants={itemReveal}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                className={`rounded-xl border-l-4 border-orange-400 bg-white px-5 py-6 shadow-sm ${
+                  point.id === 7 ? "lg:col-span-2" : ""
+                }`}
               >
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-orange-100 text-orange-600">
-                    {point.icon}
-                  </span>
-                  <div>
+                <div>
+                  <div className="flex items-center gap-2">
                     <p className="text-xs font-bold tracking-wide text-orange-500">{point.headline}</p>
-                    <h3 className="text-xl font-bold text-slate-900">{point.title}</h3>
+                    <span className="inline-flex text-orange-500 [&>svg]:h-5 [&>svg]:w-5">{point.icon}</span>
                   </div>
+                  <h3 className="mt-2 text-xl font-bold text-slate-900">{point.title}</h3>
                 </div>
 
                 <p className="mt-4 text-sm leading-relaxed text-slate-700">{point.description}</p>
@@ -350,7 +418,7 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
         </motion.div>
       </section>
 
-      <section className="bg-white py-14 md:py-20">
+      <section className="bg-slate-50 py-14 md:py-20">
         <motion.div
           className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
           initial="hidden"
@@ -378,7 +446,12 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
                 {checklistRows.map((row) => (
                   <tr key={row.point} className="odd:bg-white even:bg-slate-50/70">
                     <td className="border-b border-slate-100 px-4 py-3 text-sm font-bold text-slate-900 sm:px-6">
-                      {row.point}
+                      <span className="flex items-center gap-2">
+                        <span className="text-orange-500" aria-hidden="true">
+                          ✓
+                        </span>
+                        <span>{row.point}</span>
+                      </span>
                     </td>
                     <td className="border-b border-slate-100 px-4 py-3 text-sm text-slate-700 sm:px-6">{row.check}</td>
                   </tr>
@@ -389,7 +462,7 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
         </motion.div>
       </section>
 
-      <section className="bg-slate-50 py-14 md:py-20">
+      <section className="bg-white py-14 md:py-20">
         <motion.div
           className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
           initial="hidden"
@@ -404,25 +477,31 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
             上記の7つのポイントに沿って、AIリブートアカデミーの特徴をご紹介します。
           </p>
 
-          <motion.div
-            className="mt-8 grid gap-4 md:grid-cols-2"
-            variants={listReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {ourApproachItems.map((item) => (
-              <motion.article
-                key={item.point}
-                variants={itemReveal}
-                className="rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 to-amber-50 p-5"
-              >
-                <p className="text-xs font-bold tracking-wide text-orange-500">{item.point}</p>
-                <h3 className="mt-2 text-xl font-bold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-700">{item.description}</p>
-              </motion.article>
-            ))}
-          </motion.div>
+          <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <table className="min-w-full border-collapse text-left">
+              <thead className="bg-orange-50">
+                <tr>
+                  <th className="w-40 border-b border-orange-200 px-4 py-3 text-sm font-bold text-orange-700 sm:px-6">
+                    比較項目
+                  </th>
+                  <th className="border-b border-orange-200 px-4 py-3 text-sm font-bold text-orange-700 sm:px-6">
+                    当講座の特徴
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {ourApproachItems.map((item) => (
+                  <tr key={item.point} className="odd:bg-white even:bg-slate-50/70">
+                    <td className="border-b border-slate-100 px-4 py-4 text-sm font-bold text-slate-900 sm:px-6">{item.point}</td>
+                    <td className="border-b border-slate-100 px-4 py-4 sm:px-6">
+                      <p className="font-bold text-slate-900">{item.title}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-slate-700">{item.description}</p>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </motion.div>
       </section>
 
@@ -439,23 +518,39 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           <h2 className={sectionHeadingClass}>AI講座選びに関するよくある質問</h2>
 
           <motion.div
-            className="mt-8 space-y-4"
+            className="mt-8 border-t border-slate-200"
             variants={listReveal}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
             {faqItems.map((item, index) => (
-              <motion.article
+              <motion.div
                 key={item.question}
                 variants={itemReveal}
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+                className="border-b border-slate-200 py-4"
               >
-                <h3 className="text-base sm:text-lg font-bold text-slate-900">
-                  Q{index + 1}: {item.question}
-                </h3>
-                <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-700">A{index + 1}: {item.answer}</p>
-              </motion.article>
+                <details
+                  open={openFaqIndex === index}
+                  onToggle={(event) => {
+                    if (event.currentTarget.open) {
+                      setOpenFaqIndex(index);
+                      return;
+                    }
+                    if (openFaqIndex === index) {
+                      setOpenFaqIndex(null);
+                    }
+                  }}
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base sm:text-lg font-bold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    <span>
+                      Q{index + 1}: {item.question}
+                    </span>
+                    <span className="text-2xl font-medium text-orange-500">{openFaqIndex === index ? "−" : "+"}</span>
+                  </summary>
+                  <p className="mt-3 pr-8 text-sm sm:text-base leading-relaxed text-slate-700">A{index + 1}: {item.answer}</p>
+                </details>
+              </motion.div>
             ))}
           </motion.div>
         </motion.div>
