@@ -327,6 +327,35 @@ const ReskillingCourseRecommendationPage = ({ faqItems }: ReskillingCourseRecomm
         </motion.div>
       </section>
 
+      <section className="border-t border-slate-200 pt-12 pb-4">
+        <div className="container mx-auto max-w-5xl px-4 md:px-6 lg:px-8">
+          <h2 className="mb-4 text-lg font-bold text-slate-900">関連コンテンツ</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="/academy/ai-training-for-individuals"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                個人向けAI研修の選び方
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/meti-reskilling-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                経産省認定講座の比較ポイント
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIリブートアカデミーの評判・口コミ
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       <section className="border-t border-slate-200 py-16 md:py-20">
         <motion.div
           className="container mx-auto max-w-5xl px-4 text-center md:px-6 lg:px-8"

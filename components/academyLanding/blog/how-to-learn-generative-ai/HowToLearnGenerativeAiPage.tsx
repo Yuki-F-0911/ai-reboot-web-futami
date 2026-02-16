@@ -245,6 +245,33 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           </dl>
         </motion.section>
 
+        <section className="mt-14 border-t border-slate-200 pt-12 pb-4">
+          <h2 className="mb-4 text-lg font-bold text-slate-900">関連コンテンツ</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="/academy/ai-training-for-individuals"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                個人向けAI研修の選び方
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/ai-course-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI講座の選び方 7つの比較ポイント
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                リスキリング補助金ガイド
+              </Link>
+            </li>
+          </ul>
+        </section>
+
         <motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
