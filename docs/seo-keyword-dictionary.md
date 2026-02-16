@@ -48,8 +48,8 @@
 | ChatGPT 始め方 スマホ | 端末別に始めたい | B | 未対応 | 新規: `/academy/blog/chatgpt-start-guide-smartphone` |
 | Claude 使い方 初心者 | Claudeの基礎を学びたい | A | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（Claude章追加） |
 | ChatGPT Claude 違い | ツールを比較して選びたい | A | 対応済み | `/academy/blog/what-is-generative-ai` |
-| プロンプト 書き方 コツ | 出力品質を上げたい | A | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（実例拡張） |
-| プロンプト テンプレート 仕事 | すぐ使える型が欲しい | A | 未対応 | 新規: `/academy/blog/prompt-template-for-work` |
+| プロンプト 書き方 コツ | 出力品質を上げたい | A | 対応済み | `/academy/blog/prompt-template-for-work` |
+| プロンプト テンプレート 仕事 | すぐ使える型が欲しい | A | 対応済み | `/academy/blog/prompt-template-for-work` |
 | プロンプトエンジニアリング 入門 | 体系的に学びたい | B | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（専用H2追加） |
 | 生成AI とは わかりやすく | 概念理解したい | A | 対応済み | `/academy/blog/what-is-generative-ai` |
 | AIチャット おすすめ 比較 | 主要ツールを比較したい | A | 対応済み | `/academy/blog/what-is-generative-ai` |
@@ -59,10 +59,10 @@
 | キーワード | 検索意図 | 優先度 | 対応状況 | 対応ページ/施策 |
 |---|---|---|---|---|
 | AI 業務効率化 事例 | 実務での改善例を知りたい | A | 部分対応 | `/academy/blog/skills-for-ai-era-career` |
-| ChatGPT 仕事 活用 | 仕事での使い方を知りたい | A | 部分対応 | `/academy/blog/how-to-learn-generative-ai` |
+| ChatGPT 仕事 活用 | 仕事での使い方を知りたい | A | 対応済み | `/academy/blog/prompt-template-for-work` |
 | 生成AI ビジネス 活用 | ビジネス適用の全体像を知りたい | A | 部分対応 | `/academy`（事例導線の強化） |
-| AI メール作成 | 定型文作成を効率化したい | B | 部分対応 | `/academy/blog/how-to-learn-generative-ai` |
-| AI 議事録 作成 | 会議業務を効率化したい | B | 部分対応 | `/academy/blog/how-to-learn-generative-ai` |
+| AI メール作成 | 定型文作成を効率化したい | B | 対応済み | `/academy/blog/prompt-template-for-work` |
+| AI 議事録 作成 | 会議業務を効率化したい | B | 対応済み | `/academy/blog/prompt-template-for-work` |
 | AI プレゼン資料 作成 | 資料作成工数を削減したい | B | 未対応 | 新規: `/academy/blog/ai-presentation-workflow` |
 | AI データ分析 Excel | Excel分析を高度化したい | B | 未対応 | 新規: `/academy/blog/ai-data-analysis-excel` |
 | AI マーケティング 活用 | マーケ施策に活かしたい | A | 部分対応 | `/academy/blog/skills-for-ai-era-career`（マーケ職章） |
@@ -184,10 +184,9 @@
 ## サマリー
 
 ### 対応済みキーワード数 / 全キーワード数
-- **23 / 100**
+- **28 / 100**
 
 ### 優先度S/Aで未対応のキーワード（次に作るべき候補）
-- プロンプト テンプレート 仕事
 - 生成AI 導入 企業
 - 中小企業 生成AI 活用
 - AI資格 おすすめ
