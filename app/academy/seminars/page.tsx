@@ -1,9 +1,9 @@
 import React from "react";
 import type { Metadata } from "next";
 
-const seminarsTitle = "無料セミナー | AIリブートアカデミー";
+const seminarsTitle = "無料オンライン説明会・セミナー | AIリブートアカデミー";
 const seminarsDescription =
-    "AIリブートアカデミーの無料セミナー・イベント一覧。AI時代のキャリア設計や最新トレンドを、受講検討中の方から情報収集したい方まで気軽に学べます。開催形式はオンライン（Zoom）です。";
+    "AIリブートアカデミーの無料オンライン説明会・セミナー情報。補助金の活用方法や講座内容を詳しくご説明します。お気軽にご参加ください。";
 const seminarsUrl = "https://ai-reboot.io/academy/seminars";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         title: seminarsTitle,
         description: seminarsDescription,
         url: seminarsUrl,
-        siteName: "AI REBOOT",
+        siteName: "AIリブートアカデミー",
         locale: "ja_JP",
         type: "website",
     },

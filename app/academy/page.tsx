@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: academyTitle,
     description: academyDescription,
     url: academyUrl,
-    siteName: "AI REBOOT",
+    siteName: "AIリブートアカデミー",
     locale: "ja_JP",
     type: "website",
   },

@@ -3,7 +3,7 @@ import MessagePageContent from "@/components/academyLanding/message/MessagePageC
 
 const messageTitle = "メッセージ | AIリブートアカデミー";
 const messageDescription =
-    "AIリブートアカデミーメッセージ。なぜ今この講座を運営するのか、生成AI時代に必要な思考OSと、受講生と共に挑戦し続ける想いをお伝えします。";
+    "AIリブートアカデミーを運営する想いと、受講生に届けたいメッセージ。なぜ今AIリスキリングが必要なのか。";
 const messageUrl = "https://ai-reboot.io/academy/message";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         title: messageTitle,
         description: messageDescription,
         url: messageUrl,
-        siteName: "AI REBOOT",
+        siteName: "AIリブートアカデミー",
         locale: "ja_JP",
         type: "website",
     },
