@@ -66,8 +66,8 @@
 | AI プレゼン資料 作成 | 資料作成工数を削減したい | B | 未対応 | 新規: `/academy/blog/ai-presentation-workflow` |
 | AI データ分析 Excel | Excel分析を高度化したい | B | 未対応 | 新規: `/academy/blog/ai-data-analysis-excel` |
 | AI マーケティング 活用 | マーケ施策に活かしたい | A | 部分対応 | `/academy/blog/skills-for-ai-era-career`（マーケ職章） |
-| 生成AI 導入 企業 | 導入プロセスを知りたい | A | 未対応 | 新規: `/academy/blog/generative-ai-implementation-guide` |
-| 中小企業 生成AI 活用 | SME向け導入パターンを知りたい | A | 未対応 | 新規: `/academy/blog/sme-generative-ai-use-cases` |
+| 生成AI 導入 企業 | 導入プロセスを知りたい | S | 対応済み | `/academy/blog/corporate-ai-adoption-guide` |
+| 中小企業 生成AI 活用 | SME向け導入パターンを知りたい | A | 対応済み | `/academy/blog/corporate-ai-adoption-guide` |
 
 ### C. AI画像・動画・コード
 | キーワード | 検索意図 | 優先度 | 対応状況 | 対応ページ/施策 |
@@ -137,7 +137,7 @@
 | AIリブートアカデミー 評判 | 指名検索で判断したい | S | 対応済み | `/academy/reviews` |
 | AIリブートアカデミー 口コミ | 受講者の実感を確認したい | S | 対応済み | `/academy/reviews` |
 | AI研修 個人向け | 個人向け講座を探したい | S | 対応済み | `/academy/ai-training-for-individuals` |
-| AI研修 法人向け | 法人向け研修を探したい | A | 未対応 | 新規: `/academy/corporate-ai-training` |
+| AI研修 法人向け | 法人向け研修を探したい | A | 対応済み | `/academy/blog/corporate-ai-training` |
 
 ### H. AI最新トレンド（ロングテール）
 | キーワード | 検索意図 | 優先度 | 対応状況 | 対応ページ/施策 |
@@ -184,18 +184,15 @@
 ## サマリー
 
 ### 対応済みキーワード数 / 全キーワード数
-- **28 / 100**
+- **31 / 100**
 
 ### 優先度S/Aで未対応のキーワード（次に作るべき候補）
-- 生成AI 導入 企業
-- 中小企業 生成AI 活用
 - AI資格 おすすめ
 - AI資格 一覧
 - AI資格 難易度
 - AIエンジニア 転職 未経験
 - DXリスキリング 助成金
 - AI講座 ランキング
-- AI研修 法人向け
 - AIエージェント とは
 
 ### 新規ページ提案（キーワードクラスタ別）

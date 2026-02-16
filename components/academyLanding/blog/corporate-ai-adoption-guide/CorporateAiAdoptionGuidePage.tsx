@@ -1,0 +1,395 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+type FAQItem = {
+  question: string;
+  answer: string;
+};
+
+type CorporateAiAdoptionGuidePageProps = {
+  faqItems: readonly FAQItem[];
+};
+
+const sectionReveal = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const roadmapSteps = [
+  {
+    step: "Step 1",
+    title: "目的を1つに絞る（2週間）",
+    summary: "最初から全社展開を狙わず、削減したい工数や改善したい業務を1つに限定します。",
+    actions: [
+      "対象業務を1つ選ぶ（例: 提案書下書き、採用候補者の要約）",
+      "現状の工数と品質を記録する",
+      "担当者と責任者を明確にする",
+    ],
+  },
+  {
+    step: "Step 2",
+    title: "小規模PoCを実施する（3〜4週間）",
+    summary: "10〜20件程度の実データで試し、使えるパターンと使えないパターンを切り分けます。",
+    actions: [
+      "入力ルールと出力フォーマットを固定する",
+      "人のレビュー手順を明文化する",
+      "時間短縮率と品質差分を測る",
+    ],
+  },
+  {
+    step: "Step 3",
+    title: "運用ルールを作る（2週間）",
+    summary: "情報漏えいと誤回答のリスクを抑えるため、利用範囲とNG入力を先に決めます。",
+    actions: [
+      "社外秘情報の取り扱いルールを決める",
+      "プロンプトテンプレートを共通化する",
+      "最終判断者を業務ごとに設定する",
+    ],
+  },
+  {
+    step: "Step 4",
+    title: "部門展開と研修を行う（4〜8週間）",
+    summary: "現場定着には、操作説明よりも業務別のハンズオンとフォロー体制が重要です。",
+    actions: [
+      "営業・人事・経理など部門別にユースケースを設計する",
+      "管理職向けに評価指標を共有する",
+      "質問窓口と定例レビューを運用する",
+    ],
+  },
+  {
+    step: "Step 5",
+    title: "KPIで効果検証し改善する（継続）",
+    summary: "導入完了で終わらせず、月次で成果を確認して使い方を更新します。",
+    actions: [
+      "工数削減率、再作業率、提案速度をKPI化する",
+      "使われないテンプレートを更新・整理する",
+      "新規業務への展開可否を四半期ごとに判断する",
+    ],
+  },
+] as const;
+
+const costRows = [
+  {
+    category: "無料ツールで試す",
+    scope: "1〜3名でPoC",
+    estimate: "0円〜1万円 / 月",
+    point: "まずは検証。正式導入前に効果を測る段階。",
+  },
+  {
+    category: "有料SaaSを導入",
+    scope: "10〜30名で実運用",
+    estimate: "5万円〜30万円 / 月",
+    point: "管理機能・セキュリティ・監査ログが必要な段階。",
+  },
+  {
+    category: "法人研修を併用",
+    scope: "全社または部門展開",
+    estimate: "30万円〜200万円（研修設計により変動）",
+    point: "定着率を上げたい、稟議材料を整えたい段階。",
+  },
+] as const;
+
+const useCaseRows = [
+  {
+    department: "営業",
+    useCase: "提案書の初稿作成、商談準備、メール文面作成",
+    impact: "提案準備時間を短縮し、提案回数を増やしやすい",
+  },
+  {
+    department: "人事",
+    useCase: "求人票改善、候補者サマリー、面接評価の整理",
+    impact: "採用業務の標準化と選考スピード改善につながる",
+  },
+  {
+    department: "経理",
+    useCase: "経費規程Q&A、請求書確認ポイントの整理、月次コメント下書き",
+    impact: "確認漏れを減らし、月次締めの負荷を下げやすい",
+  },
+  {
+    department: "マーケ",
+    useCase: "広告文案、記事構成、レポート要約、施策案の発散",
+    impact: "実行速度を上げながら、検証サイクルを短縮できる",
+  },
+] as const;
+
+const failurePatterns = [
+  {
+    title: "ツール導入だけ先行して、現場業務に接続されない",
+    solution:
+      "最初に対象業務を1つ決め、導入前後の工数と品質を比較できる状態で始めると失敗しにくくなります。",
+  },
+  {
+    title: "部門ごとに使い方がバラバラで再現性がない",
+    solution:
+      "部門共通テンプレートを先に作り、毎週の運用レビューで改善する仕組みを作ることが有効です。",
+  },
+  {
+    title: "セキュリティとガバナンス設計が後回しになる",
+    solution:
+      "入力禁止情報、レビュー責任、ログ管理の3点を最低限の運用ルールとして明文化してください。",
+  },
+] as const;
+
+export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAdoptionGuidePageProps) {
+  return (
+    <main className="bg-white pb-20 pt-28 sm:pt-32">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+        <motion.header
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <p className="text-sm font-semibold tracking-wide text-gray-500">
+            生成AI 導入 企業 / 中小企業 生成AI 活用
+          </p>
+          <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">中小企業の生成AI導入ガイド</h1>
+          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月16日に更新されました</p>
+          <p className="mt-6 text-base leading-8 text-gray-700">
+            生成AIの導入は、ツール選びよりも「どの業務を、どの順番で変えるか」で成果が大きく変わります。本記事では中小企業の担当者向けに、
+            導入手順、費用感、業種別活用、失敗回避までを稟議で使える粒度で整理しました。
+          </p>
+        </motion.header>
+
+        <motion.section
+          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="text-2xl font-bold text-gray-900">結論先出し</h2>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            成果が出る企業は「業務を1つに絞る小規模PoC」から始めています。最初の2〜3か月で効果測定まで回し、成功パターンを部門展開する進め方が安全です。
+          </p>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="text-2xl font-bold text-gray-900">導入ステップ（5段階ロードマップ）</h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            導入成功の鍵は、全社一斉ではなく段階導入です。次の5ステップで進めると、リスクを抑えながら実運用へつなげやすくなります。
+          </p>
+          <div className="mt-8 space-y-6">
+            {roadmapSteps.map((item, index) => (
+              <motion.section
+                key={item.step}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={sectionReveal}
+                transition={{ duration: 0.45, delay: index * 0.04, ease: "easeOut" }}
+                className="rounded-lg border border-gray-200 p-6"
+              >
+                <p className="text-sm font-semibold tracking-wide text-orange-600">{item.step}</p>
+                <h3 className="mt-2 text-xl font-semibold leading-8 text-gray-900">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-gray-700">{item.summary}</p>
+                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+                  {item.actions.map((action) => (
+                    <li key={action} className="pl-1 marker:text-gray-500">
+                      {action}
+                    </li>
+                  ))}
+                </ul>
+              </motion.section>
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="text-2xl font-bold text-gray-900">費用感の目安（無料ツール〜有料SaaS〜研修）</h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            費用は「検証」「運用」「定着」のどの段階かで変わります。段階別に予算を分けると、稟議が通しやすくなります。
+          </p>
+          <div className="mt-7 overflow-x-auto">
+            <table className="w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
+              <thead>
+                <tr className="border-b border-gray-300">
+                  <th className="py-3 pr-4 font-semibold text-gray-900">フェーズ</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">対象規模</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">費用目安</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">判断ポイント</th>
+                </tr>
+              </thead>
+              <tbody>
+                {costRows.map((row) => (
+                  <tr key={row.category} className="border-b border-gray-200 align-top">
+                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.category}</th>
+                    <td className="py-4 px-4">{row.scope}</td>
+                    <td className="py-4 px-4">{row.estimate}</td>
+                    <td className="py-4 pl-4">{row.point}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-xs leading-6 text-gray-500">
+            費用は契約条件・受講人数・研修期間で変動します。正式見積の前に、対象業務とKPIを固定しておくと見積比較がしやすくなります。
+          </p>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="text-2xl font-bold text-gray-900">業種別活用事例（営業 / 人事 / 経理 / マーケ）</h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            部門ごとに期待効果が違うため、同じ使い方を横展開すると失敗しがちです。まずは部門別にユースケースを設計してください。
+          </p>
+          <div className="mt-7 overflow-x-auto">
+            <table className="w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
+              <thead>
+                <tr className="border-b border-gray-300">
+                  <th className="py-3 pr-4 font-semibold text-gray-900">部門</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">主な活用内容</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">期待効果</th>
+                </tr>
+              </thead>
+              <tbody>
+                {useCaseRows.map((row) => (
+                  <tr key={row.department} className="border-b border-gray-200 align-top">
+                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.department}</th>
+                    <td className="py-4 px-4">{row.useCase}</td>
+                    <td className="py-4 pl-4">{row.impact}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="text-2xl font-bold text-gray-900">失敗パターンと回避策</h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            失敗は「進め方の不一致」で起こります。典型パターンを先に把握しておくと、導入時の手戻りを減らせます。
+          </p>
+          <div className="mt-6 space-y-4">
+            {failurePatterns.map((item) => (
+              <section key={item.title} className="rounded-lg border border-gray-200 p-5">
+                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-gray-700">{item.solution}</p>
+              </section>
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section
+          className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="text-2xl font-bold text-gray-900">補助金・助成金を活用して導入負担を下げる</h2>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            研修費用を抑えたい企業は、制度活用の有無で実質負担が変わります。まず対象条件と申請時期を確認し、導入スケジュールと合わせて計画してください。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            詳しくは
+            <Link href="/academy/subsidy-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              補助金ガイド
+            </Link>
+            で、申請フローと注意点を確認できます。
+          </p>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="text-2xl font-bold text-gray-900">FAQ</h2>
+          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
+            {faqItems.map((item) => (
+              <div key={item.question} className="py-5">
+                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
+                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </motion.section>
+
+        <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 className="mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                補助金ガイド
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                無料セミナー一覧
+              </Link>
+            </li>
+            <li>
+              <Link href="/briefing" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                法人向け導入相談（無料）
+              </Link>
+            </li>
+          </ul>
+        </section>
+
+        <motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="text-2xl font-bold text-gray-900">まずは無料セミナーで体験</h2>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            どこから導入すべきか迷う場合は、無料セミナーで全体像を確認し、個別相談で業務課題を具体化する進め方が最短です。御社の課題に合った進め方をご提案します。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーに参加する
+            </Link>
+            <Link
+              href="/briefing"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              導入相談を予約する
+            </Link>
+          </div>
+        </motion.section>
+      </article>
+    </main>
+  );
+}
