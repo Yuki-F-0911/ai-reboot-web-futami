@@ -101,6 +101,41 @@ export function OrganizationStructuredData({
   )
 }
 
+interface EducationalOrganizationStructuredDataProps {
+  name: string
+  url: string
+  parentOrganizationName?: string
+}
+
+export function EducationalOrganizationStructuredData({
+  name,
+  url,
+  parentOrganizationName
+}: EducationalOrganizationStructuredDataProps) {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'EducationalOrganization',
+    name,
+    url,
+    parentOrganization: parentOrganizationName
+      ? {
+          '@type': 'Organization',
+          name: parentOrganizationName,
+        }
+      : undefined,
+  }
+
+  return (
+    <Script
+      id="educational-organization-structured-data"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(structuredData),
+      }}
+    />
+  )
+}
+
 interface BreadcrumbStructuredDataProps {
   items: Array<{
     name: string
@@ -134,14 +169,16 @@ export function BreadcrumbStructuredData({ items }: BreadcrumbStructuredDataProp
 interface CourseStructuredDataProps {
   name: string
   description: string
-  provider: string
-  url: string
+  provider: string | {
+    name: string
+    url?: string
+    type?: 'Organization' | 'EducationalOrganization'
+  }
+  url?: string
   courseMode?: string
   duration?: string
-  hasCertificate?: boolean
+  price?: number | string
   priceCurrency?: string
-  lowPrice?: number
-  highPrice?: number
 }
 
 export function CourseStructuredData({
@@ -151,42 +188,41 @@ export function CourseStructuredData({
   url,
   courseMode = 'blended',
   duration = 'P100D',
-  hasCertificate = true,
   priceCurrency = 'JPY',
-  lowPrice,
-  highPrice
+  price,
 }: CourseStructuredDataProps) {
-  const offers = typeof lowPrice === 'number' && typeof highPrice === 'number'
+  const providerData = typeof provider === 'string'
     ? {
-        '@type': 'AggregateOffer',
-        priceCurrency,
-        lowPrice,
-        highPrice,
+        '@type': 'Organization',
+        name: provider,
       }
     : {
-        '@type': 'Offer',
-        category: 'Paid',
+        '@type': provider.type ?? 'Organization',
+        name: provider.name,
+        url: provider.url,
       }
+
+  const hasCourseInstance = {
+    '@type': 'CourseInstance',
+    courseMode,
+    duration,
+    offers: typeof price === 'undefined'
+      ? undefined
+      : {
+          '@type': 'Offer',
+          price: String(price),
+          priceCurrency,
+        },
+  }
 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Course',
-    name: name,
-    description: description,
-    provider: {
-      '@type': 'Organization',
-      name: provider,
-    },
-    url: url,
-    courseMode: courseMode,
-    duration: duration,
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      courseMode: courseMode,
-      duration: duration,
-    },
-    offers,
-    hasCertificate: hasCertificate,
+    name,
+    description,
+    provider: providerData,
+    url,
+    hasCourseInstance,
   }
 
   return (
