@@ -229,13 +229,13 @@ const comparisonPoints: readonly PointItem[] = [
 ] as const;
 
 const checklistRows = [
-  { point: "受講目的", check: "自分の目的に合ったカリキュラムか" },
-  { point: "価格", check: "補助金適用後の実質負担額" },
-  { point: "期間", check: "仕事との両立が可能な学習ペースか" },
-  { point: "サポート", check: "メンターや質問環境の有無" },
-  { point: "実践性", check: "手を動かす演習があるか" },
-  { point: "補助金", check: "対象講座として認定されているか" },
-  { point: "キャリア", check: "卒業後のキャリアサポートがあるか" },
+  { marker: "①", point: "受講目的", check: "自分の目的に合ったカリキュラムか" },
+  { marker: "②", point: "価格", check: "補助金適用後の実質負担額" },
+  { marker: "③", point: "期間", check: "仕事との両立が可能な学習ペースか" },
+  { marker: "④", point: "サポート", check: "メンターや質問環境の有無" },
+  { marker: "⑤", point: "実践性", check: "手を動かす演習があるか" },
+  { marker: "⑥", point: "補助金", check: "対象講座として認定されているか" },
+  { marker: "⑦", point: "キャリア", check: "卒業後のキャリアサポートがあるか" },
 ] as const;
 
 const ourApproachItems = [
@@ -282,12 +282,6 @@ const lineIcon = (
   </svg>
 );
 
-const checkIcon = (
-  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-  </svg>
-);
-
 const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
@@ -315,7 +309,7 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
         </motion.div>
       </section>
 
-      <section className="bg-white py-14 md:py-20">
+      <section className="bg-slate-50 py-14 md:py-20">
         <motion.div
           className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
           initial="hidden"
@@ -368,57 +362,60 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           <p className={sectionLabelClass}>COMPARISON</p>
           <h2 className={sectionHeadingClass}>AI講座を選ぶ7つの比較ポイント</h2>
 
-          <motion.div
-            className="mt-8 grid gap-5 lg:grid-cols-2"
+          <motion.ol
+            className="mt-8 border-t border-slate-100"
             variants={listReveal}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
             {comparisonPoints.map((point) => (
-              <motion.article
+              <motion.li
                 key={point.id}
                 variants={itemReveal}
-                className={`rounded-xl border-l-4 border-orange-400 bg-white px-5 py-6 shadow-sm ${
-                  point.id === 7 ? "lg:col-span-2" : ""
-                }`}
+                className="relative border-b border-slate-100 py-8 sm:py-10"
               >
-                <div>
-                  <div className="flex items-center gap-2">
-                    <p className="text-xs font-bold tracking-wide text-orange-500">{point.headline}</p>
-                    <span className="inline-flex text-orange-500 [&>svg]:h-5 [&>svg]:w-5">{point.icon}</span>
-                  </div>
-                  <h3 className="mt-2 text-xl font-bold text-slate-900">{point.title}</h3>
-                </div>
-
-                <p className="mt-4 text-sm leading-relaxed text-slate-700">{point.description}</p>
-
-                {point.extraLink && (
-                  <div className="mt-4">
-                    <Link
-                      href={point.extraLink.href}
-                      className="text-sm font-bold text-orange-600 underline underline-offset-4 hover:text-orange-700"
-                    >
-                      {point.extraLink.label}
-                    </Link>
-                  </div>
-                )}
-
-                <div className="mt-5 rounded-xl border border-orange-200 bg-orange-50 px-4 py-3 text-sm text-slate-700">
-                  <p className="flex items-start gap-2">
-                    <span className="mt-0.5 inline-flex text-orange-600">{checkIcon}</span>
-                    <span>
-                      <strong className="font-bold text-slate-900">チェック:</strong> {point.check}
-                    </span>
+                <article className={`relative ${point.id % 2 === 0 ? "sm:pr-16" : "sm:pl-16"}`}>
+                  <p
+                    className={`pointer-events-none absolute -top-1 text-5xl font-bold leading-none text-orange-500/20 ${
+                      point.id % 2 === 0 ? "right-0" : "left-0"
+                    }`}
+                  >
+                    {String(point.id).padStart(2, "0")}
                   </p>
-                </div>
-              </motion.article>
+
+                  <div className="relative">
+                    <div className="flex items-center gap-2">
+                      <p className="text-[11px] font-bold tracking-[0.14em] text-orange-500/85">{point.headline}</p>
+                      <span className="inline-flex text-orange-500 [&>svg]:h-4 [&>svg]:w-4">{point.icon}</span>
+                    </div>
+                    <h3 className="mt-2 text-xl font-bold text-slate-900 sm:text-2xl">{point.title}</h3>
+                  </div>
+
+                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-700 sm:text-base">{point.description}</p>
+
+                  <p className="mt-4 max-w-2xl text-sm text-slate-500">
+                    <span className="font-bold text-slate-700">→ チェック:</span> {point.check}
+                  </p>
+
+                  {point.extraLink && (
+                    <div className="mt-4">
+                      <Link
+                        href={point.extraLink.href}
+                        className="text-sm font-bold text-orange-600 underline underline-offset-4 hover:text-orange-700"
+                      >
+                        {point.extraLink.label}
+                      </Link>
+                    </div>
+                  )}
+                </article>
+              </motion.li>
             ))}
-          </motion.div>
+          </motion.ol>
         </motion.div>
       </section>
 
-      <section className="bg-slate-50 py-14 md:py-20">
+      <section className="bg-white py-14 md:py-20">
         <motion.div
           className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
           initial="hidden"
@@ -430,35 +427,26 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           <p className={sectionLabelClass}>CHECKLIST</p>
           <h2 className={sectionHeadingClass}>講座選びチェックリスト</h2>
 
-          <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <table className="min-w-full border-collapse text-left">
-              <thead className="bg-slate-50">
-                <tr>
-                  <th className="w-40 border-b border-slate-200 px-4 py-3 text-sm font-bold text-slate-900 sm:px-6">
-                    比較ポイント
-                  </th>
-                  <th className="border-b border-slate-200 px-4 py-3 text-sm font-bold text-slate-900 sm:px-6">
-                    確認すること
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {checklistRows.map((row) => (
-                  <tr key={row.point} className="odd:bg-white even:bg-slate-50/70">
-                    <td className="border-b border-slate-100 px-4 py-3 text-sm font-bold text-slate-900 sm:px-6">
-                      <span className="flex items-center gap-2">
-                        <span className="text-orange-500" aria-hidden="true">
-                          ✓
-                        </span>
-                        <span>{row.point}</span>
-                      </span>
-                    </td>
-                    <td className="border-b border-slate-100 px-4 py-3 text-sm text-slate-700 sm:px-6">{row.check}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <motion.ul
+            className="mt-8 flex flex-wrap gap-x-8 gap-y-2 border-t border-slate-100"
+            variants={listReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {checklistRows.map((row) => (
+              <motion.li
+                key={row.point}
+                variants={itemReveal}
+                className="w-full border-b border-slate-100 py-3 text-sm leading-relaxed text-slate-700 md:w-[calc(50%-1rem)] xl:w-[calc(33.333%-1.34rem)]"
+              >
+                <span className="font-bold text-slate-900">
+                  {row.marker} {row.point}
+                </span>
+                <span className="text-slate-600"> — {row.check}</span>
+              </motion.li>
+            ))}
+          </motion.ul>
         </motion.div>
       </section>
 
@@ -505,7 +493,7 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
         </motion.div>
       </section>
 
-      <section className="bg-white py-14 md:py-20">
+      <section className="bg-slate-50 py-14 md:py-20">
         <motion.div
           className="container mx-auto max-w-5xl px-4 md:px-6 lg:px-8"
           initial="hidden"
