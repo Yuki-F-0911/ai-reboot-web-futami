@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -15,11 +15,9 @@ type AiCourseComparisonPageProps = {
 
 type PointItem = {
   id: number;
-  headline: string;
   title: string;
   description: string;
   check: string;
-  icon: ReactNode;
   extraLink?: {
     href: string;
     label: string;
@@ -69,136 +67,45 @@ const problemItems = [
 const comparisonPoints: readonly PointItem[] = [
   {
     id: 1,
-    headline: "ポイント1",
     title: "まず目的を明確にする",
     description:
       "ビジネス活用（業務効率化）、エンジニア転向（開発力）、教養・リテラシーの3タイプがある。目的によって最適な講座は異なる。",
     check: "自分の目的に合ったカリキュラムが用意されているか",
-    icon: (
-      <svg
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-      </svg>
-    ),
   },
   {
     id: 2,
-    headline: "ポイント2",
     title: "料金だけでなく実質負担額で比較する",
     description:
       "市場の相場は10万〜60万円程度。ただし補助金制度を活用すると実質負担が大幅に下がるケースがある。「受講料÷学習時間」や「受講料÷サポート回数」で費用対効果を考えるのも一つの方法。",
     check: "補助金適用後の実質負担額を確認しているか",
-    icon: (
-      <svg
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
   },
   {
     id: 3,
-    headline: "ポイント3",
     title: "無理なく続けられる期間か",
     description:
       "4週間の短期集中型から6ヶ月のじっくり型まで様々。社会人は仕事との両立が重要。週あたりの学習時間の目安も確認すべき。",
     check: "自分の生活リズムに無理なく組み込めるか",
-    icon: (
-      <svg
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
-    ),
   },
   {
     id: 4,
-    headline: "ポイント4",
     title: "一人で学ぶか伴走してもらうか",
     description:
       "動画教材のみ/チャット質問対応/メンター定期面談/マンツーマン指導 の4段階がある。学習の挫折率はサポート体制で大きく変わる。",
     check: "質問できる環境があるか、メンターがつくか",
-    icon: (
-      <svg
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    ),
   },
   {
     id: 5,
-    headline: "ポイント5",
     title: "わかるとできるは違う",
     description:
       "知識のインプットだけでなく、実際のプロジェクトや業務課題に取り組む演習があるかが重要。実務で使えるスキルは実践の中でしか身につかない。",
     check: "実際に手を動かす演習やプロジェクトがカリキュラムに含まれているか",
-    icon: (
-      <svg
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
   },
   {
     id: 6,
-    headline: "ポイント6",
     title: "使える制度を最大限活用する",
     description:
       "主な制度は「リスキリングを通じたキャリアアップ支援事業」（最大70%/上限56万円）と「教育訓練給付金」（最大80%）。すべての講座が対象ではないので事前確認が必須。",
     check: "受講したい講座が補助金の対象になっているか",
-    icon: (
-      <svg
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
     extraLink: {
       href: "/academy/subsidy-guide",
       label: "補助金の詳細はこちら",
@@ -206,25 +113,10 @@ const comparisonPoints: readonly PointItem[] = [
   },
   {
     id: 7,
-    headline: "ポイント7",
     title: "学んだ後のサポートがあるか",
     description:
       "キャリアコンサルティング、転職支援、卒業生コミュニティなど。学んだスキルをキャリアに活かすためのサポートがあるかどうか。",
     check: "卒業後のキャリア支援や相談窓口があるか",
-    icon: (
-      <svg
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-      </svg>
-    ),
   },
 ] as const;
 
@@ -337,8 +229,8 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
                 variants={itemReveal}
                 className="flex gap-4 border-b border-slate-200 py-5 sm:gap-6"
               >
-                <p className="inline-flex min-w-8 text-2xl font-bold leading-none text-orange-500">
-                  {String(index + 1).padStart(2, "0")}
+                <p className="inline-flex min-w-8 text-lg font-bold leading-none text-slate-400">
+                  {index + 1}
                 </p>
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900">{item.title}</h3>
@@ -375,18 +267,13 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
                 variants={itemReveal}
                 className="relative border-b border-slate-100 py-8 sm:py-10"
               >
-                <article className="relative sm:pl-16">
-                  <p
-                    className="pointer-events-none absolute -top-1 left-0 text-5xl font-bold leading-none text-orange-500/20"
-                  >
-                    {String(point.id).padStart(2, "0")}
-                  </p>
-
+                <article className="relative">
                   <div className="relative">
-                    <div className="flex items-center gap-2">
-                      <p className="text-[11px] font-bold tracking-[0.14em] text-orange-500/85">{point.headline}</p>
-                      <span className="inline-flex text-orange-500 [&>svg]:h-4 [&>svg]:w-4">{point.icon}</span>
-                    </div>
+                    <p className="flex items-baseline text-[11px] font-bold tracking-wide text-slate-400">
+                      ポイント
+                      <span className="ml-1 text-lg font-bold text-orange-500 tabular-nums">{point.id}</span>
+                      <span className="ml-1 text-[11px] font-bold tracking-wide text-slate-400">/ 7</span>
+                    </p>
                     <h3 className="mt-2 text-xl font-bold text-slate-900 sm:text-2xl">{point.title}</h3>
                   </div>
 
@@ -454,7 +341,6 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <p className={sectionLabelClass}>CHECKLIST</p>
           <h2 className={sectionHeadingClass}>講座選びチェックリスト</h2>
 
           <motion.ul
@@ -495,37 +381,34 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <p className={sectionLabelClass}>OUR APPROACH</p>
           <h2 className={sectionHeadingClass}>AIリブートアカデミーの特徴</h2>
           <p className="mt-4 max-w-3xl text-sm sm:text-base leading-relaxed text-slate-600">
             上記の7つのポイントに沿って、AIリブートアカデミーの特徴をご紹介します。
           </p>
 
-          <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <table className="min-w-full border-collapse text-left">
-              <thead className="bg-orange-50">
-                <tr>
-                  <th className="w-40 border-b border-orange-200 px-4 py-3 text-sm font-bold text-orange-700 sm:px-6">
-                    比較項目
-                  </th>
-                  <th className="border-b border-orange-200 px-4 py-3 text-sm font-bold text-orange-700 sm:px-6">
-                    当講座の特徴
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {ourApproachItems.map((item) => (
-                  <tr key={item.point} className="odd:bg-white even:bg-slate-50/70">
-                    <td className="border-b border-slate-100 px-4 py-4 text-sm font-bold text-slate-900 sm:px-6">{item.point}</td>
-                    <td className="border-b border-slate-100 px-4 py-4 sm:px-6">
-                      <p className="font-bold text-slate-900">{item.title}</p>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-700">{item.description}</p>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <motion.dl
+            className="mt-8 border-t border-slate-100"
+            variants={listReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {ourApproachItems.map((item) => (
+              <motion.div
+                key={item.point}
+                variants={itemReveal}
+                className="border-b border-slate-100 py-4 sm:py-5"
+              >
+                <div className="grid gap-2 sm:grid-cols-[120px_1fr] sm:gap-6">
+                  <dt className="text-sm font-bold text-slate-900">{item.point}</dt>
+                  <dd>
+                    <p className="font-bold text-slate-900">{item.title}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-700">{item.description}</p>
+                  </dd>
+                </div>
+              </motion.div>
+            ))}
+          </motion.dl>
         </motion.div>
       </section>
 
@@ -589,8 +472,7 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <p className="text-sm font-bold tracking-wider text-orange-100">NEXT STEP</p>
-          <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
             まずは無料説明会であなたに合った学び方をご相談ください
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-base sm:text-lg text-orange-50">
@@ -609,7 +491,7 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
             </a>
             <Link
               href="/briefing"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-bold text-orange-600 transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-50"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-bold text-orange-600 transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-50"
             >
               無料説明会に申し込む
             </Link>
