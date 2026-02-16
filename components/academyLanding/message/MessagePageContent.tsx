@@ -124,13 +124,45 @@ const LineIcon = () => (
   </svg>
 );
 
+const MidChapterCTA = () => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.45, ease: "easeOut" }}
+    className="mt-8 md:mt-10 bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-8 md:p-12"
+  >
+    <p className="text-xl md:text-2xl font-bold text-slate-900 text-center">
+      あなたも一歩踏み出しませんか？
+    </p>
+    <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a
+        href="https://lin.ee/KkMHGGv"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-bold text-white bg-[#06C755] hover:bg-[#05b54d] rounded-full transition-all duration-300 shadow-lg shadow-green-500/25"
+      >
+        <LineIcon />
+        LINE登録
+      </a>
+      <Link
+        href="/academy/seminars"
+        className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-orange-600 bg-white border border-orange-300 hover:border-orange-400 hover:bg-orange-50 rounded-full transition-all duration-300"
+      >
+        無料セミナー
+      </Link>
+    </div>
+  </motion.div>
+);
+
 const MessagePageContent = () => {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative overflow-hidden bg-white pt-28 pb-16 md:pt-36 md:pb-24">
+      <section className="relative overflow-hidden bg-gradient-to-r from-orange-500 to-amber-500 pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-24 -left-20 w-80 h-80 rounded-full bg-orange-100/70 blur-3xl" />
-          <div className="absolute top-10 right-0 w-96 h-96 rounded-full bg-amber-100/60 blur-3xl" />
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[140%] h-56 border border-white/20 rounded-[9999px] opacity-40" />
+          <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute -bottom-24 left-0 w-80 h-80 rounded-full bg-white/10 blur-3xl" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -141,18 +173,35 @@ const MessagePageContent = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="max-w-4xl"
           >
-            <p className="text-orange-500 font-bold text-sm tracking-wider uppercase mb-4">
+            <p className="text-white/80 font-bold text-sm tracking-wider uppercase mb-4">
               MESSAGE
             </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-slate-900 mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white mb-6">
               メッセージ
             </h1>
-            <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-2xl">
+            <p className="text-base md:text-lg text-white/90 leading-relaxed max-w-2xl">
               この時代に私たちが問いかける、
               <br className="hidden sm:block" />
               挑戦と共創の物語。
             </p>
+            <p className="text-sm text-white/70 mt-6">
+              成瀬拓也 ― AIリブートアカデミー代表
+            </p>
           </motion.div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+          <svg
+            className="relative block w-[calc(100%+1.3px)] h-10 md:h-14 text-slate-50"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M0,64 C200,120 420,0 600,48 C760,92 980,118 1200,72 L1200,120 L0,120 Z"
+              fill="currentColor"
+            />
+          </svg>
         </div>
       </section>
 
@@ -185,20 +234,23 @@ const MessagePageContent = () => {
                 transition={{ duration: 0.45, delay: index * 0.05, ease: "easeOut" }}
                 className="py-8 md:py-10"
               >
-                <div className="mb-5">
-                  <p className="text-orange-500 font-semibold text-sm tracking-wide">
-                    {chapter.id}
-                  </p>
-                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mt-2">
-                    {chapter.title}
-                  </h3>
-                  <p className="text-sm md:text-base text-slate-600 mt-2">
-                    {chapter.subtitle}
-                  </p>
+                <div className={chapter.id === "04" || chapter.id === "08" ? "bg-gradient-to-br from-orange-50/50 to-amber-50/30 rounded-2xl p-6 md:p-8" : ""}>
+                  <div className="mb-5">
+                    <p className={chapter.id === "04" || chapter.id === "08" ? "text-orange-500 font-bold text-lg tracking-wide" : "text-orange-500 font-semibold text-sm tracking-wide"}>
+                      {chapter.id}
+                    </p>
+                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mt-2">
+                      {chapter.title}
+                    </h3>
+                    <p className="text-sm md:text-base text-slate-600 mt-2">
+                      {chapter.subtitle}
+                    </p>
+                  </div>
+                  <div className="text-base md:text-lg text-slate-700 leading-loose [&_p]:mb-5 [&_p:last-child]:mb-0 [&_.message-quote]:border-l-2 [&_.message-quote]:border-orange-300 [&_.message-quote]:pl-4 [&_.message-quote]:text-slate-800">
+                    {chapter.content}
+                  </div>
                 </div>
-                <div className="text-base md:text-lg text-slate-700 leading-loose [&_p]:mb-5 [&_p:last-child]:mb-0 [&_.message-quote]:border-l-2 [&_.message-quote]:border-orange-300 [&_.message-quote]:pl-4 [&_.message-quote]:text-slate-800">
-                  {chapter.content}
-                </div>
+                {(chapter.id === "04" || chapter.id === "08") && <MidChapterCTA />}
                 {index < chapters.length - 1 && (
                   <div className="pt-8 md:pt-10 flex justify-center">
                     <div className="h-px w-20 bg-gradient-to-r from-transparent via-orange-200 to-transparent" />
