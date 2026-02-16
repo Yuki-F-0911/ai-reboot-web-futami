@@ -375,11 +375,9 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
                 variants={itemReveal}
                 className="relative border-b border-slate-100 py-8 sm:py-10"
               >
-                <article className={`relative ${point.id % 2 === 0 ? "sm:pr-16" : "sm:pl-16"}`}>
+                <article className="relative sm:pl-16">
                   <p
-                    className={`pointer-events-none absolute -top-1 text-5xl font-bold leading-none text-orange-500/20 ${
-                      point.id % 2 === 0 ? "right-0" : "left-0"
-                    }`}
+                    className="pointer-events-none absolute -top-1 left-0 text-5xl font-bold leading-none text-orange-500/20"
                   >
                     {String(point.id).padStart(2, "0")}
                   </p>
@@ -412,6 +410,38 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
               </motion.li>
             ))}
           </motion.ol>
+        </motion.div>
+      </section>
+
+      <section className="border-y border-slate-100 bg-white py-10 md:py-12">
+        <motion.div
+          className="container mx-auto max-w-5xl px-4 text-center md:px-6 lg:px-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+        >
+          <p className="text-lg font-bold text-slate-900">ここまで読んで気になった方へ</p>
+          <p className="mt-2 text-sm text-slate-600">無料説明会で、あなたに合った学び方をご相談いただけます</p>
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <a
+              href="https://bexn9pao.autosns.app/line"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#06C755] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-green-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#05b54d]"
+            >
+              {lineIcon}
+              LINE で無料相談する
+            </a>
+            <Link
+              href="/briefing"
+              className="inline-flex items-center justify-center rounded-full bg-orange-500 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-orange-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-600"
+            >
+              無料説明会に申し込む
+            </Link>
+          </div>
         </motion.div>
       </section>
 
