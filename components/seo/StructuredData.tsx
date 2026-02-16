@@ -8,6 +8,9 @@ interface ArticleStructuredDataProps {
   modifiedTime?: string
   imageUrl?: string
   authorName?: string
+  articleType?: 'Article' | 'BlogPosting'
+  publisherName?: string
+  publisherLogoUrl?: string
 }
 
 export function ArticleStructuredData({
@@ -17,11 +20,14 @@ export function ArticleStructuredData({
   publishedTime,
   modifiedTime,
   imageUrl,
-  authorName = 'AI REBOOT編集部'
+  authorName = 'AI REBOOT編集部',
+  articleType = 'Article',
+  publisherName = 'AI REBOOT',
+  publisherLogoUrl = 'https://ai-reboot.io/logo.png',
 }: ArticleStructuredDataProps) {
   const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': articleType,
     headline: title,
     description: description,
     url: url,
@@ -33,10 +39,10 @@ export function ArticleStructuredData({
     },
     publisher: {
       '@type': 'Organization',
-      name: 'AI REBOOT',
+      name: publisherName,
       logo: {
         '@type': 'ImageObject',
-        url: 'https://ai-reboot.io/logo.png',
+        url: publisherLogoUrl,
       },
     },
     image: imageUrl ? {
@@ -260,6 +266,83 @@ export function FAQStructuredData({ items }: FAQStructuredDataProps) {
   return (
     <Script
       id="faq-structured-data"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(structuredData),
+      }}
+    />
+  )
+}
+
+interface CourseReviewStructuredDataProps {
+  courseName: string
+  courseUrl: string
+  description: string
+  providerName: string
+  aggregateRating: {
+    ratingValue: number
+    reviewCount: number
+    bestRating?: number
+    worstRating?: number
+  }
+  reviews: Array<{
+    author: string
+    reviewBody: string
+    reviewRating: number
+    headline?: string
+    datePublished?: string
+  }>
+}
+
+export function CourseReviewStructuredData({
+  courseName,
+  courseUrl,
+  description,
+  providerName,
+  aggregateRating,
+  reviews,
+}: CourseReviewStructuredDataProps) {
+  const bestRating = aggregateRating.bestRating ?? 5
+  const worstRating = aggregateRating.worstRating ?? 1
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: courseName,
+    url: courseUrl,
+    description,
+    provider: {
+      '@type': 'Organization',
+      name: providerName,
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: aggregateRating.ratingValue,
+      reviewCount: aggregateRating.reviewCount,
+      bestRating,
+      worstRating,
+    },
+    review: reviews.map((item) => ({
+      '@type': 'Review',
+      author: {
+        '@type': 'Person',
+        name: item.author,
+      },
+      name: item.headline,
+      reviewBody: item.reviewBody,
+      datePublished: item.datePublished,
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: item.reviewRating,
+        bestRating,
+        worstRating,
+      },
+    })),
+  }
+
+  return (
+    <Script
+      id="course-review-structured-data"
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(structuredData),

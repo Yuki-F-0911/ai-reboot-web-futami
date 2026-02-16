@@ -8,6 +8,38 @@ interface PageProps {
   params: Promise<{ id: string }>
 }
 
+const siteUrl = 'https://ai-reboot.io'
+const defaultOgImageUrl = `${siteUrl}/images/ogp-default.webp`
+const maxDescriptionLength = 160
+
+function toPlainText(input: string): string {
+  return input
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/!\[[^\]]*]\([^)]+\)/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[`*_>#-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function toSeoDescription(article: News): string {
+  const candidates = [article.description, article['md-content'], article.content, article.title]
+
+  for (const candidate of candidates) {
+    if (!candidate) continue
+    const plainText = toPlainText(candidate)
+    if (!plainText) continue
+
+    if (plainText.length <= maxDescriptionLength) {
+      return plainText
+    }
+
+    return `${plainText.slice(0, maxDescriptionLength - 1).trimEnd()}…`
+  }
+
+  return article.title
+}
+
 // メタデータ生成（SEO最適化）
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params
@@ -15,44 +47,49 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   
   if (!result || !('id' in result)) {
     return {
-      title: '記事が見つかりません | AIリブートジャーナル',
+      title: '記事が見つかりません | AIリブート',
     }
   }
 
   const article = result as News
+  const title = `${article.title} | AIリブート`
+  const description = toSeoDescription(article)
+  const imageUrl = article.thumbnail?.url ?? defaultOgImageUrl
+  const canonicalUrl = `${siteUrl}/blog/${id}`
   const publishedTime = article.publishedAt
   const modifiedTime = article.updatedAt || article.publishedAt
 
   return {
-    title: `${article.title} | AIリブートジャーナル`,
-    description: article.description || article.title,
+    title,
+    description,
     keywords: article.tags?.join(', ') || 'AI, 生成AI, ChatGPT, Claude, AI活用',
     authors: [{ name: 'AI REBOOT編集部' }],
     openGraph: {
-      title: article.title,
-      description: article.description || article.title,
+      title,
+      description,
       type: 'article',
       publishedTime,
       modifiedTime,
       authors: ['AI REBOOT編集部'],
-      images: article.thumbnail ? [
+      url: canonicalUrl,
+      siteName: 'AI REBOOT',
+      images: [
         {
-          url: article.thumbnail.url,
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: article.title,
         }
-      ] : undefined,
-      siteName: 'AIリブートジャーナル',
+      ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: article.title,
-      description: article.description || article.title,
-      images: article.thumbnail ? [article.thumbnail.url] : undefined,
+      title,
+      description,
+      images: [imageUrl],
     },
     alternates: {
-      canonical: `https://ai-reboot.io/blog/${id}`,
+      canonical: canonicalUrl,
     },
   }
 }

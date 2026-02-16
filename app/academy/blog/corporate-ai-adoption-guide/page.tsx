@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import CorporateAiAdoptionGuidePage from "@/components/academyLanding/blog/corporate-ai-adoption-guide/CorporateAiAdoptionGuidePage";
 import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "中小企業の生成AI導入ガイド｜失敗しない進め方と費用感 | AIリブートジャーナル";
+const pageTitle = "中小企業の生成AI導入ガイド｜失敗しない進め方と費用感 | AIリブート";
 const pageDescription =
   "「生成AI 導入 企業」「中小企業 生成AI 活用」をテーマに、5段階ロードマップ、費用目安、部門別活用事例、失敗回避策を法人担当者向けに解説。";
 const pageUrl = "https://ai-reboot.io/academy/blog/corporate-ai-adoption-guide";
+const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-16T09:00:00+09:00";
 const modifiedTime = "2026-02-16T09:00:00+09:00";
 
@@ -57,11 +58,20 @@ export const metadata: Metadata = {
     siteName: "AI REBOOT",
     locale: "ja_JP",
     type: "article",
+    images: [
+      {
+        url: pageOgImageUrl,
+        width: 1200,
+        height: 630,
+        alt: pageTitle,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
+    images: [pageOgImageUrl],
   },
 };
 
@@ -74,6 +84,8 @@ export default function CorporateAiAdoptionGuideRoute() {
         url={pageUrl}
         publishedTime={publishedTime}
         modifiedTime={modifiedTime}
+        imageUrl={pageOgImageUrl}
+        articleType="BlogPosting"
       />
       <FAQStructuredData items={[...faqItems]} />
       <CorporateAiAdoptionGuidePage faqItems={[...faqItems]} />

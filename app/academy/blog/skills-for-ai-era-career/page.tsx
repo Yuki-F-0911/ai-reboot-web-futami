@@ -1,32 +1,35 @@
 import type { Metadata } from "next";
 import SkillsForAiEraCareerPage from "@/components/academyLanding/blog/skills-for-ai-era-career/SkillsForAiEraCareerPage";
-import { FAQStructuredData } from "@/components/seo/StructuredData";
+import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "AI時代に必要なスキルを職種別に解説 | AIリブートジャーナル";
+const pageTitle = "AI時代に必要なスキルを職種別に解説｜2026年版キャリア戦略 | AIリブート";
 const pageDescription =
-  "AI時代に必要なスキルを職種別に整理。営業・管理部門・企画・エンジニア・マネジメントそれぞれで求められる力と、共通して重要な3つの力を解説します。";
+  "「AI時代 必要なスキル」「AI時代 キャリア」で検索する方向けに、営業・マーケ・管理職・事務職・クリエイティブ職の必須スキルと学習順序を整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/skills-for-ai-era-career";
+const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
+const publishedTime = "2025-10-04T09:00:00+09:00";
+const modifiedTime = "2026-02-10T09:00:00+09:00";
 
 const faqItems = [
   {
-    question: "AI時代に必要なスキルは、まず何から身につけるべきですか？",
+    question: "AI時代に必要なスキルは何から学べばよいですか？",
     answer:
-      "最初はツール操作そのものよりも、業務課題を言語化する力と、AIに渡す情報を整理する力から始めると実務につながりやすくなります。",
+      "最初はAIツールの操作よりも、業務課題の言語化と情報整理から始めるのが効果的です。次に職種別の活用スキルへ進むと実務に接続しやすくなります。",
   },
   {
-    question: "文系職種でもAI活用スキルは身につきますか？",
+    question: "文系職種でもAI時代のキャリアを築けますか？",
     answer:
-      "はい。多くの職種で必要なのは高度な開発知識ではなく、課題設定、情報整理、出力判断といった実務で使える基礎スキルです。",
+      "はい。多くの職種では、開発知識よりも課題設定・検証・意思決定の力が重視されます。職種に合ったAI活用パターンを持てば十分に競争力を高められます。",
   },
   {
-    question: "職種ごとの学び分けは本当に必要ですか？",
+    question: "「AIに奪われる仕事」が不安です。何を意識すべきですか？",
     answer:
-      "必要です。共通する基礎力はありますが、営業と管理部門、企画とエンジニアではAIの使いどころが異なるため、職種ごとの重点を持つ方が成果に直結しやすくなります。",
+      "奪われる前提で考えるより、AIで成果を拡張できる業務を特定する視点が重要です。作業の代替ではなく、提案品質や判断速度の向上に焦点を当てると方向性が明確になります。",
   },
   {
-    question: "チームでAI活用を進めるときに最初に決めるべきことは何ですか？",
+    question: "管理職が最初に取り組むべきAI導入アクションは何ですか？",
     answer:
-      "導入の目的、活用する業務範囲、検証と最終判断の担当を最初に明確にすることが重要です。これにより現場での混乱を減らしやすくなります。",
+      "導入目的、対象業務、品質責任の3点を明確にすることです。加えて、小さな検証テーマを設定してチームに成功体験を作ると定着が進みやすくなります。",
   },
 ] as const;
 
@@ -35,10 +38,10 @@ export const metadata: Metadata = {
   description: pageDescription,
   keywords: [
     "AI時代 必要なスキル",
-    "AIスキル 職種別",
-    "AI活用 スキル",
     "AI時代 キャリア",
-    "AIリテラシー",
+    "AIスキル 職種別",
+    "AIキャリア戦略",
+    "生成AI 活用スキル",
   ],
   alternates: {
     canonical: pageUrl,
@@ -50,17 +53,35 @@ export const metadata: Metadata = {
     siteName: "AI REBOOT",
     locale: "ja_JP",
     type: "article",
+    images: [
+      {
+        url: pageOgImageUrl,
+        width: 1200,
+        height: 630,
+        alt: pageTitle,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
+    images: [pageOgImageUrl],
   },
 };
 
 export default function SkillsForAiEraCareerRoute() {
   return (
     <>
+      <ArticleStructuredData
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedTime={publishedTime}
+        modifiedTime={modifiedTime}
+        imageUrl={pageOgImageUrl}
+        articleType="BlogPosting"
+      />
       <FAQStructuredData items={[...faqItems]} />
       <SkillsForAiEraCareerPage faqItems={[...faqItems]} />
     </>

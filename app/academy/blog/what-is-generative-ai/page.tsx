@@ -3,10 +3,11 @@ import WhatIsGenerativeAiPage from "@/components/academyLanding/blog/what-is-gen
 import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle =
-  "生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】 | AIリブートジャーナル";
+  "生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】 | AIリブート";
 const pageDescription =
   "「生成AI とは わかりやすく」を知りたい方向けに、非技術者でも理解できる定義、ChatGPT・Claude・Geminiの違い、AIチャットおすすめ比較、プロンプトの基本を整理しました。";
 const pageUrl = "https://ai-reboot.io/academy/blog/what-is-generative-ai";
+const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-16T09:00:00+09:00";
 const modifiedTime = "2026-02-16T09:00:00+09:00";
 
@@ -64,11 +65,20 @@ export const metadata: Metadata = {
     siteName: "AI REBOOT",
     locale: "ja_JP",
     type: "article",
+    images: [
+      {
+        url: pageOgImageUrl,
+        width: 1200,
+        height: 630,
+        alt: pageTitle,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
+    images: [pageOgImageUrl],
   },
 };
 
@@ -81,6 +91,8 @@ export default function WhatIsGenerativeAiRoute() {
         url={pageUrl}
         publishedTime={publishedTime}
         modifiedTime={modifiedTime}
+        imageUrl={pageOgImageUrl}
+        articleType="BlogPosting"
       />
       <FAQStructuredData items={[...faqItems]} />
       <WhatIsGenerativeAiPage faqItems={[...faqItems]} />

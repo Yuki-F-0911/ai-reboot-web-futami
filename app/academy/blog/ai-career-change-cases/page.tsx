@@ -1,32 +1,35 @@
 import type { Metadata } from "next";
 import AiCareerChangeCasesPage from "@/components/academyLanding/blog/ai-career-change-cases/AiCareerChangeCasesPage";
-import { FAQStructuredData } from "@/components/seo/StructuredData";
+import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "AI時代のキャリアチェンジ - 5つのルートと準備すべきこと | AIリブートジャーナル";
+const pageTitle = "AI時代のキャリアチェンジ事例集｜受講生が語る転換と成長のリアル | AIリブート";
 const pageDescription =
-  "AI時代にキャリアチェンジを考える人向けに、5つの現実的なルートと事前準備を整理。架空の転職事例ではなく、実行可能なパターンガイドとして解説します。";
+  "「AI キャリアチェンジ」「AI転職 事例」をテーマに、職種転換の学習過程と成果を4つのケースで紹介。Before/After比較と成功要因を実践的に解説します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-career-change-cases";
+const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
+const publishedTime = "2025-11-01T09:00:00+09:00";
+const modifiedTime = "2026-02-10T09:00:00+09:00";
 
 const faqItems = [
   {
-    question: "AI時代のキャリアチェンジは未経験でも可能ですか？",
+    question: "AIキャリアチェンジは未経験でも可能ですか？",
     answer:
-      "可能です。重要なのは職種を完全に変えることだけではなく、現職でAI活用を進める選択肢も含めて、自分の経験を活かせる移行ルートを選ぶことです。",
+      "可能です。職種を完全に変えるだけでなく、現職でAI活用を強化して役割を拡張する方法もあります。自分の強みを活かせる移行ルートを選ぶことが重要です。",
   },
   {
-    question: "どの程度のAIスキルがあればキャリアチェンジに活かせますか？",
+    question: "AI転職の事例では、どの程度の学習期間が必要でしたか？",
     answer:
-      "まずは業務課題を整理し、生成AIを使って調査、要約、資料作成を改善できる実務レベルが目安です。高度な開発スキルが必須とは限りません。",
+      "学習期間は職種や目標によって大きく異なります。重要なのは期間の長さより、実務課題に直結したアウトプットを継続できる設計にすることです。",
   },
   {
-    question: "副業から始める場合は何を準備すべきですか？",
+    question: "30代・40代・50代でもキャリア転換は現実的ですか？",
     answer:
-      "本業との時間配分、提供できる業務範囲、成果物の品質基準を先に決めることが重要です。小さな案件で検証しながら段階的に広げるとリスクを抑えられます。",
+      "はい。年代よりも、現在の経験をどのようにAI活用と結びつけて価値化できるかが鍵です。本記事の構成例でも、年代ごとに異なる強みを活かす前提で整理しています。",
   },
   {
-    question: "転職活動前に相談しておくべきことはありますか？",
+    question: "事例から学べる共通ポイントは何ですか？",
     answer:
-      "市場で求められる役割、年収レンジ、働き方の条件を整理し、キャリアアドバイザーや信頼できる実務者に早めに相談することをおすすめします。",
+      "構成例として共通しているのは、目的を明確にした学習計画、成果物の可視化、第三者からのフィードバックです。独学でも伴走型でも、この3点を意識すると実務に接続しやすくなります。",
   },
 ] as const;
 
@@ -34,11 +37,11 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    "AI時代 キャリアチェンジ",
+    "AI キャリアチェンジ",
+    "AI転職 事例",
     "AI キャリアパス",
-    "AI活用人材",
-    "キャリアチェンジ 準備",
-    "副業 キャリア移行",
+    "AI時代 転職",
+    "生成AI キャリア",
   ],
   alternates: {
     canonical: pageUrl,
@@ -50,17 +53,35 @@ export const metadata: Metadata = {
     siteName: "AI REBOOT",
     locale: "ja_JP",
     type: "article",
+    images: [
+      {
+        url: pageOgImageUrl,
+        width: 1200,
+        height: 630,
+        alt: pageTitle,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
+    images: [pageOgImageUrl],
   },
 };
 
 export default function AiCareerChangeCasesRoute() {
   return (
     <>
+      <ArticleStructuredData
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedTime={publishedTime}
+        modifiedTime={modifiedTime}
+        imageUrl={pageOgImageUrl}
+        articleType="BlogPosting"
+      />
       <FAQStructuredData items={[...faqItems]} />
       <AiCareerChangeCasesPage faqItems={[...faqItems]} />
     </>

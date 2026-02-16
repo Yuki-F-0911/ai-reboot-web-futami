@@ -1,11 +1,9 @@
-'use client'
-
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
 import { News } from '@/lib/microcms'
-import { marked } from 'marked'
+import { Marked, Tokens } from 'marked'
 import { ArticleStructuredData, BreadcrumbStructuredData } from '@/components/seo/StructuredData'
+import ArticleShareButtons from '@/components/blog/ArticleShareButtons'
 
 interface BlogArticleProps {
   article: News
@@ -13,55 +11,80 @@ interface BlogArticleProps {
   recommendedArticles: News[]
 }
 
-export default function BlogArticle({ 
-  article, 
-  relatedArticles,
-  recommendedArticles 
-}: BlogArticleProps) {
-  const [htmlContent, setHtmlContent] = useState('')
-  const [toc, setToc] = useState<{ id: string; text: string; level: number }[]>([])
+const siteUrl = 'https://ai-reboot.io'
+const defaultArticleImageUrl = `${siteUrl}/images/ogp-default.webp`
 
-  useEffect(() => {
-    const processContent = async () => {
-      if (article['md-content']) {
-        // マークダウンを設定
-        marked.setOptions({
-          gfm: true,
-          breaks: true,
-        })
-        
-        // 見出しを抽出してTOCを生成
-        const headings: { id: string; text: string; level: number }[] = []
-        const renderer = new marked.Renderer()
-        
-        renderer.heading = ({ tokens, depth }) => {
-          const text = tokens.map(token => token.raw).join('')
-          const id = text.toLowerCase().replace(/[^\w]+/g, '-')
-          headings.push({ id, text, level: depth })
-          return `<h${depth} id="${id}">${text}</h${depth}>`
-        }
-        
-        marked.use({ renderer })
-        const html = await marked(article['md-content'])
-        
-        setHtmlContent(html)
-        setToc(headings)
-      } else {
-        setHtmlContent(article.content)
-      }
-    }
-    
-    processContent()
-  }, [article])
+type TocItem = {
+  id: string
+  text: string
+  level: number
+}
 
-  // 読了時間の計算
-  const calculateReadTime = (content: string) => {
-    const text = content.replace(/<[^>]*>/g, '')
-    const wordsPerMinute = 400 // 日本語の平均読書速度
-    const minutes = Math.ceil(text.length / wordsPerMinute)
-    return minutes
+function buildHeadingId(rawText: string, index: number, usedIds: Map<string, number>): string {
+  const base = rawText
+    .toLowerCase()
+    .trim()
+    .replace(/[^\p{L}\p{N}\s-]/gu, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+
+  const fallbackId = `section-${index + 1}`
+  const safeBase = base || fallbackId
+  const count = usedIds.get(safeBase) ?? 0
+  usedIds.set(safeBase, count + 1)
+
+  return count === 0 ? safeBase : `${safeBase}-${count + 1}`
+}
+
+async function renderContent(article: News): Promise<{ htmlContent: string; toc: TocItem[] }> {
+  if (!article['md-content']) {
+    return { htmlContent: article.content, toc: [] }
   }
 
+  const toc: TocItem[] = []
+  const usedIds = new Map<string, number>()
+  const marked = new Marked({
+    gfm: true,
+    breaks: true,
+  })
+  const renderer = new marked.Renderer()
+
+  renderer.heading = ({ tokens, depth }) => {
+    const text = tokens.map((token: Tokens.Generic) => token.raw).join('')
+    const id = buildHeadingId(text, toc.length, usedIds)
+
+    toc.push({
+      id,
+      text,
+      level: depth,
+    })
+
+    return `<h${depth} id="${id}">${text}</h${depth}>`
+  }
+
+  marked.use({ renderer })
+  const parsed = marked.parse(article['md-content'])
+  const htmlContent = typeof parsed === 'string' ? parsed : await parsed
+
+  return { htmlContent, toc }
+}
+
+function calculateReadTime(content: string): number {
+  const text = content.replace(/<[^>]*>/g, '')
+  const charsPerMinute = 400
+  return Math.max(1, Math.ceil(text.length / charsPerMinute))
+}
+
+export default async function BlogArticle({
+  article,
+  relatedArticles,
+  recommendedArticles
+}: BlogArticleProps) {
+  const articleUrl = `${siteUrl}/blog/${article.id}`
+  const articleDescription = article.description || article.title
+  const articleImageUrl = article.thumbnail?.url ?? defaultArticleImageUrl
+  const { htmlContent, toc } = await renderContent(article)
   const readTime = calculateReadTime(htmlContent)
 
   return (
@@ -69,17 +92,18 @@ export default function BlogArticle({
       {/* 構造化データ */}
       <ArticleStructuredData
         title={article.title}
-        description={article.description || article.title}
-        url={`https://ai-reboot.io/blog/${article.id}`}
+        description={articleDescription}
+        url={articleUrl}
         publishedTime={article.publishedAt}
         modifiedTime={article.updatedAt}
-        imageUrl={article.thumbnail?.url}
+        imageUrl={articleImageUrl}
+        articleType="BlogPosting"
       />
       <BreadcrumbStructuredData
         items={[
-          { name: 'ホーム', url: 'https://ai-reboot.io' },
-          { name: 'ブログ', url: 'https://ai-reboot.io/blog' },
-          { name: article.title, url: `https://ai-reboot.io/blog/${article.id}` },
+          { name: 'ホーム', url: siteUrl },
+          { name: 'ブログ', url: `${siteUrl}/blog` },
+          { name: article.title, url: articleUrl },
         ]}
       />
 
@@ -136,6 +160,8 @@ export default function BlogArticle({
                 alt={article.title}
                 width={1200}
                 height={675}
+                sizes="(max-width: 768px) 100vw, 1024px"
+                priority
                 className="w-full rounded-lg shadow-soft"
               />
             </div>
@@ -190,51 +216,7 @@ export default function BlogArticle({
 
               {/* シェアボタン */}
               <div className="mt-12 pt-8 border-t border-gray-200">
-                <div className="flex items-center gap-4">
-                  <span className="text-gray-600 font-medium">この記事をシェア:</span>
-                  <div className="flex gap-3">
-                    <button
-                      onClick={() => {
-                        window.open(
-                          `https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(window.location.href)}`,
-                          '_blank'
-                        )
-                      }}
-                      className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
-                      aria-label="Twitterでシェア"
-                    >
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                      </svg>
-                    </button>
-                    <button
-                      onClick={() => {
-                        window.open(
-                          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`,
-                          '_blank'
-                        )
-                      }}
-                      className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
-                      aria-label="Facebookでシェア"
-                    >
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                      </svg>
-                    </button>
-                    <button
-                      onClick={() => {
-                        navigator.clipboard.writeText(window.location.href)
-                        alert('URLをコピーしました')
-                      }}
-                      className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
-                      aria-label="URLをコピー"
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
+                <ArticleShareButtons title={article.title} />
               </div>
             </article>
 
@@ -333,6 +315,7 @@ export default function BlogArticle({
                           alt={item.title}
                           width={800}
                           height={500}
+                          sizes="(max-width: 768px) 100vw, 33vw"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>

@@ -1,27 +1,30 @@
 import type { Metadata } from "next";
 import HowToLearnGenerativeAiPage from "@/components/academyLanding/blog/how-to-learn-generative-ai/HowToLearnGenerativeAiPage";
-import { FAQStructuredData } from "@/components/seo/StructuredData";
+import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "社会人のための生成AI学習ロードマップ（0→100日） | AIリブートジャーナル";
+const pageTitle = "社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ | AIリブート";
 const pageDescription =
-  "生成AIの学び方を、社会人向けに100日ロードマップで整理。基礎理解から業務活用、応用実践まで、段階的に進める方法を解説します。";
+  "「生成AI 学び方」「生成AI 勉強」をテーマに、社会人向けの100日ロードマップを解説。基礎理解→実践応用→業務統合の順で、実務活用レベルを目指します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/how-to-learn-generative-ai";
+const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
+const publishedTime = "2025-09-12T09:00:00+09:00";
+const modifiedTime = "2026-02-10T09:00:00+09:00";
 
 const faqItems = [
   {
-    question: "生成AIの学習は未経験からでも始められますか？",
+    question: "プログラミング経験がなくても生成AIは学べますか？",
     answer:
-      "はい。まずは基本操作と考え方を身につけるところから始めれば、未経験でも段階的に進められます。最初の1か月はツール操作と用語理解に集中するのがおすすめです。",
+      "はい。最初に必要なのはプログラミングよりも、業務課題を言語化し、AIの出力を評価する力です。まずはChatGPTやClaudeの基本操作から始めれば十分です。",
   },
   {
-    question: "社会人は1日どれくらい学習時間を確保すればよいですか？",
+    question: "1日何時間くらい勉強すれば実務活用まで到達できますか？",
     answer:
-      "平日は短時間でも継続し、週末にまとめて復習する形が現実的です。毎日30分から60分を目安に、業務に近い課題で手を動かすと定着しやすくなります。",
+      "目安は平日30〜60分です。週末に90分程度の復習を加えると定着しやすく、100日で実務レベルの活用まで進めやすくなります。",
   },
   {
-    question: "ChatGPTとClaudeとGeminiは全部学ぶべきですか？",
+    question: "ChatGPTとClaudeはどちらから始めるべきですか？",
     answer:
-      "最初から全部を深く学ぶ必要はありません。まずは1つを軸に使い方を固め、比較のために他ツールを試す順序にすると混乱を減らせます。",
+      "最初はどちらか1つを軸にして問題ありません。基本操作とプロンプト設計が固まってから、比較目的で2つ目を導入するのがおすすめです。",
   },
   {
     question: "独学と講座受講はどちらが向いていますか？",
@@ -35,10 +38,10 @@ export const metadata: Metadata = {
   description: pageDescription,
   keywords: [
     "生成AI 学び方",
-    "社会人 生成AI 学習",
-    "生成AI ロードマップ",
-    "ChatGPT 学習方法",
-    "Claude 学習方法",
+    "生成AI 勉強",
+    "生成AI 学習ロードマップ",
+    "社会人 AI学習",
+    "生成AI 実務活用",
   ],
   alternates: {
     canonical: pageUrl,
@@ -50,17 +53,35 @@ export const metadata: Metadata = {
     siteName: "AI REBOOT",
     locale: "ja_JP",
     type: "article",
+    images: [
+      {
+        url: pageOgImageUrl,
+        width: 1200,
+        height: 630,
+        alt: pageTitle,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
+    images: [pageOgImageUrl],
   },
 };
 
 export default function HowToLearnGenerativeAiRoute() {
   return (
     <>
+      <ArticleStructuredData
+        title={pageTitle}
+        description={pageDescription}
+        url={pageUrl}
+        publishedTime={publishedTime}
+        modifiedTime={modifiedTime}
+        imageUrl={pageOgImageUrl}
+        articleType="BlogPosting"
+      />
       <FAQStructuredData items={[...faqItems]} />
       <HowToLearnGenerativeAiPage faqItems={[...faqItems]} />
     </>
