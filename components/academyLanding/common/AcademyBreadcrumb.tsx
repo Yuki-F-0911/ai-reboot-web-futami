@@ -29,7 +29,7 @@ export default function AcademyBreadcrumb({ items, className = "" }: AcademyBrea
             ) : (
               <span className="font-semibold text-slate-700">{item.label}</span>
             )}
-            {index < items.length - 1 ? <span className="text-slate-300">/</span> : null}
+            {index < items.length - 1 ? <span className="text-slate-300">›</span> : null}
           </li>
         ))}
       </ol>

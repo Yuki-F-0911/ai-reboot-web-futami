@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
+import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 
 type FAQItem = {
   question: string;
@@ -90,6 +91,16 @@ const comparisonRows = [
   },
 ] as const;
 
+const keywordTags = ["生成AI 学び方", "100日ロードマップ", "独学とスクール比較"] as const;
+
+const tocItems = [
+  { id: "conclusion", label: "結論先出し" },
+  { id: "learning-phases", label: "学習の3フェーズ（0→100日）" },
+  { id: "pitfalls", label: "よくあるつまずきポイントと対策" },
+  { id: "self-study-vs-school", label: "独学 vs スクールの比較" },
+  { id: "faq", label: "FAQ" },
+] as const;
+
 export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGenerativeAiPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -110,7 +121,16 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm font-semibold tracking-wide text-gray-500">生成AI 学び方 / 生成AI 勉強</p>
+          <div className="flex flex-wrap gap-2">
+            {keywordTags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ
           </h1>
@@ -121,6 +141,8 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           </p>
         </motion.header>
 
+        <ArticleTOC items={tocItems} />
+
         <motion.section
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
@@ -129,7 +151,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">結論先出し</h2>
+          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            結論先出し
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             生成AIは正しい順序で学べば100日で実務レベルに到達可能です。重要なのは、ツールを増やすことよりも、
             1つの業務を確実に改善できる使い方を段階的に増やすことです。
@@ -144,7 +168,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">学習の3フェーズ（0→100日）</h2>
+          <h2 id="learning-phases" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            学習の3フェーズ（0→100日）
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             100日を「基礎理解 → 実践応用 → 業務統合」に分けると、学習が点ではなく線になります。各フェーズで達成すべき目標を明確にしましょう。
           </p>
@@ -183,7 +209,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">よくあるつまずきポイントと対策</h2>
+          <h2 id="pitfalls" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            よくあるつまずきポイントと対策
+          </h2>
           <div className="mt-6 space-y-4">
             {pitfallItems.map((item) => (
               <div key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -202,7 +230,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">独学 vs スクールの比較</h2>
+          <h2 id="self-study-vs-school" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            独学 vs スクールの比較
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             どちらが正解かではなく、現在の制約に合う方法を選ぶことが重要です。講座選びを具体化したい方は
             <Link
@@ -245,7 +275,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">FAQ</h2>
+          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            FAQ
+          </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -257,7 +289,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pt-12 pb-4">
-          <h2 className="mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
           <ul className="space-y-2">
             <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -290,7 +324,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">次の一歩を決めたい方へ</h2>
+          <h2 id="next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次の一歩を決めたい方へ
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             ひとりで学習計画を作るのが難しい場合は、無料セミナーと個別相談を使って現在地を確認するのが近道です。無理なく続く学習ルートを一緒に設計できます。
           </p>

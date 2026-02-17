@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
+import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 
 type FAQItem = {
   question: string;
@@ -110,6 +111,17 @@ const nextStepItems = [
   "運用ルール（機密情報・事実確認・最終判断者）を決めて継続する",
 ] as const;
 
+const keywordTags = ["生成AIとは", "ChatGPTとClaudeの違い", "AIチャット比較"] as const;
+
+const tocItems = [
+  { id: "q1-what-is-generative-ai", label: "Q1. 生成AIとは何ですか？" },
+  { id: "q2-chatgpt-claude-gemini", label: "Q2. ChatGPT・Claude・Geminiは何が違いますか？" },
+  { id: "q3-ai-chat-tool-comparison", label: "Q3. AIチャットのおすすめ比較を知りたいです" },
+  { id: "q4-prompt-writing", label: "Q4. プロンプトはどう書けばいいですか？" },
+  { id: "q5-next-step", label: "Q5. 次に何をすれば実務活用につながりますか？" },
+  { id: "faq", label: "FAQ" },
+] as const;
+
 export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -130,9 +142,16 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm font-semibold tracking-wide text-gray-500">
-            生成AI とは わかりやすく / ChatGPT Claude 違い / AIチャット おすすめ 比較
-          </p>
+          <div className="flex flex-wrap gap-2">
+            {keywordTags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             生成AIとは？初心者向けにわかりやすく解説
           </h1>
@@ -142,6 +161,8 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           </p>
         </motion.header>
 
+        <ArticleTOC items={tocItems} />
+
         <motion.section
           className="mt-14"
           initial="hidden"
@@ -150,7 +171,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">Q1. 生成AIとは何ですか？</h2>
+          <h2 id="q1-what-is-generative-ai" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            Q1. 生成AIとは何ですか？
+          </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 生成AIは、文章・画像・コードなどの新しいコンテンツを作るAIです。専門知識がなくても、自然文で指示すれば使い始められます。
           </p>
@@ -175,7 +198,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">Q2. ChatGPT・Claude・Geminiは何が違いますか？</h2>
+          <h2 id="q2-chatgpt-claude-gemini" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            Q2. ChatGPT・Claude・Geminiは何が違いますか？
+          </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: どれが絶対に正解というより、あなたの業務に合うかで選ぶのが正解です。最初は1つに絞って使い、必要に応じて比較すると定着しやすくなります。
           </p>
@@ -213,7 +238,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">Q3. AIチャットのおすすめ比較を知りたいです</h2>
+          <h2 id="q3-ai-chat-tool-comparison" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            Q3. AIチャットのおすすめ比較を知りたいです
+          </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 初心者は無料プランがある主要ツールから始めるのが安全です。選定基準は「使う環境との相性」と「日常業務に直結するか」の2点です。
           </p>
@@ -253,7 +280,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">Q4. プロンプトはどう書けばいいですか？</h2>
+          <h2 id="q4-prompt-writing" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            Q4. プロンプトはどう書けばいいですか？
+          </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 「目的・前提・制約・出力形式」の4点を分けて書くと、出力の質が安定します。最初は短い業務タスクで反復するのが近道です。
           </p>
@@ -285,7 +314,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">Q5. 次に何をすれば実務活用につながりますか？</h2>
+          <h2 id="q5-next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            Q5. 次に何をすれば実務活用につながりますか？
+          </h2>
           <p className="mt-4 text-base font-medium leading-8 text-gray-900">
             結論: まずは小さく使い始め、1つの業務で成果を出してから範囲を広げると失敗しにくくなります。学習順序を決めるだけでも継続率は大きく変わります。
           </p>
@@ -321,7 +352,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">FAQ</h2>
+          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            FAQ
+          </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -333,7 +366,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
-          <h2 className="mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
           <ul className="space-y-2">
             <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">

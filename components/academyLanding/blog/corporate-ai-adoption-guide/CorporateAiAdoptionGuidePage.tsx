@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
+import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 
 type FAQItem = {
   question: string;
@@ -133,6 +134,18 @@ const failurePatterns = [
   },
 ] as const;
 
+const keywordTags = ["生成AI導入 企業", "中小企業 生成AI活用", "法人AI導入ロードマップ"] as const;
+
+const tocItems = [
+  { id: "conclusion", label: "結論先出し" },
+  { id: "adoption-roadmap", label: "導入ステップ（5段階ロードマップ）" },
+  { id: "cost-estimate", label: "費用感の目安（無料ツール〜有料SaaS〜研修）" },
+  { id: "department-use-cases", label: "業種別活用事例（営業 / 人事 / 経理 / マーケ）" },
+  { id: "failure-patterns", label: "失敗パターンと回避策" },
+  { id: "subsidy", label: "補助金・助成金を活用して導入負担を下げる" },
+  { id: "faq", label: "FAQ" },
+] as const;
+
 export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAdoptionGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -153,9 +166,16 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm font-semibold tracking-wide text-gray-500">
-            生成AI 導入 企業 / 中小企業 生成AI 活用
-          </p>
+          <div className="flex flex-wrap gap-2">
+            {keywordTags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">中小企業の生成AI導入ガイド</h1>
           <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月16日に更新されました</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
@@ -163,6 +183,8 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
             導入手順、費用感、業種別活用、失敗回避までを稟議で使える粒度で整理しました。
           </p>
         </motion.header>
+
+        <ArticleTOC items={tocItems} />
 
         <motion.section
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
@@ -172,7 +194,9 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">結論先出し</h2>
+          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            結論先出し
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             成果が出る企業は「業務を1つに絞る小規模PoC」から始めています。最初の2〜3か月で効果測定まで回し、成功パターンを部門展開する進め方が安全です。
           </p>
@@ -186,7 +210,9 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">導入ステップ（5段階ロードマップ）</h2>
+          <h2 id="adoption-roadmap" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            導入ステップ（5段階ロードマップ）
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             導入成功の鍵は、全社一斉ではなく段階導入です。次の5ステップで進めると、リスクを抑えながら実運用へつなげやすくなります。
           </p>
@@ -224,7 +250,9 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">費用感の目安（無料ツール〜有料SaaS〜研修）</h2>
+          <h2 id="cost-estimate" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            費用感の目安（無料ツール〜有料SaaS〜研修）
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             費用は「検証」「運用」「定着」のどの段階かで変わります。段階別に予算を分けると、稟議が通しやすくなります。
           </p>
@@ -263,7 +291,9 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">業種別活用事例（営業 / 人事 / 経理 / マーケ）</h2>
+          <h2 id="department-use-cases" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            業種別活用事例（営業 / 人事 / 経理 / マーケ）
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             部門ごとに期待効果が違うため、同じ使い方を横展開すると失敗しがちです。まずは部門別にユースケースを設計してください。
           </p>
@@ -297,7 +327,9 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">失敗パターンと回避策</h2>
+          <h2 id="failure-patterns" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            失敗パターンと回避策
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             失敗は「進め方の不一致」で起こります。典型パターンを先に把握しておくと、導入時の手戻りを減らせます。
           </p>
@@ -319,7 +351,9 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">補助金・助成金を活用して導入負担を下げる</h2>
+          <h2 id="subsidy" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            補助金・助成金を活用して導入負担を下げる
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             研修費用を抑えたい企業は、制度活用の有無で実質負担が変わります。まず対象条件と申請時期を確認し、導入スケジュールと合わせて計画してください。
           </p>
@@ -340,7 +374,9 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">FAQ</h2>
+          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            FAQ
+          </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -352,7 +388,9 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
-          <h2 className="mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
           <ul className="space-y-2">
             <li>
               <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -380,7 +418,9 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">まずは無料セミナーで体験</h2>
+          <h2 id="free-seminar" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まずは無料セミナーで体験
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             どこから導入すべきか迷う場合は、無料セミナーで全体像を確認し、個別相談で業務課題を具体化する進め方が最短です。御社の課題に合った進め方をご提案します。
           </p>

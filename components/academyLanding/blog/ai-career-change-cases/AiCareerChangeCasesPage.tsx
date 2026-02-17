@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
+import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 
 type FAQItem = {
   question: string;
@@ -72,6 +73,15 @@ const successFactors = [
   "第三者のフィードバックを受け、独りよがりな活用を避ける",
 ] as const;
 
+const keywordTags = ["AIキャリアチェンジ", "AI転職事例", "キャリア転換の進め方"] as const;
+
+const tocItems = [
+  { id: "career-change-cases", label: "キャリアチェンジ事例（構成例）" },
+  { id: "before-after-table", label: "Before / After 比較表（構成例）" },
+  { id: "success-factors", label: "共通する成功要因" },
+  { id: "faq", label: "FAQ" },
+] as const;
+
 export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCasesPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -92,7 +102,16 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm font-semibold tracking-wide text-gray-500">AI キャリアチェンジ / AI転職 事例</p>
+          <div className="flex flex-wrap gap-2">
+            {keywordTags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI時代のキャリアチェンジ事例集｜受講生が語る転換と成長のリアル
           </h1>
@@ -102,6 +121,8 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
             学習の進め方と成果の出し方には共通点があります。
           </p>
         </motion.header>
+
+        <ArticleTOC items={tocItems} />
 
         <motion.section
           className="mt-10 rounded-lg border border-amber-200 bg-amber-50 p-5"
@@ -126,7 +147,9 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">キャリアチェンジ事例（構成例）</h2>
+          <h2 id="career-change-cases" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            キャリアチェンジ事例（構成例）
+          </h2>
           <div className="mt-8 space-y-8">
             {/* TODO: 実データに置換 */}
             {/* TODO: 要ファクト確認 */}
@@ -159,7 +182,9 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">Before / After 比較表（構成例）</h2>
+          <h2 id="before-after-table" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            Before / After 比較表（構成例）
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             各ケースの変化を、役割の視点で一覧化しました。
           </p>
@@ -196,7 +221,9 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">共通する成功要因</h2>
+          <h2 id="success-factors" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            共通する成功要因
+          </h2>
           <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-7 text-gray-700">
             {successFactors.map((factor) => (
               <li key={factor} className="pl-1 marker:text-gray-500">
@@ -214,7 +241,9 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">FAQ</h2>
+          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            FAQ
+          </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -226,7 +255,9 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pt-12 pb-4">
-          <h2 className="mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
           <ul className="space-y-2">
             <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -259,7 +290,9 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">キャリアチェンジを具体化したい方へ</h2>
+          <h2 id="next-career-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            キャリアチェンジを具体化したい方へ
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             無料セミナーで全体像を把握し、個別相談であなたの経験に合う移行ルートを整理できます。焦らず、現実的に実行できる一歩から始めましょう。
           </p>

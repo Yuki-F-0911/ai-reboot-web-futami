@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
+import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 
 type FAQItem = {
   question: string;
@@ -22,6 +23,7 @@ type PromptTemplate = {
 };
 
 type TemplateGroup = {
+  id: string;
   title: string;
   description: string;
   templates: readonly PromptTemplate[];
@@ -58,6 +60,7 @@ const promptComparison = {
 
 const templateGroups: readonly TemplateGroup[] = [
   {
+    id: "email-templates",
     title: "メール作成テンプレート",
     description: "依頼・お詫び・日程調整・英訳まで、実務で頻出するメール業務を短時間で処理するための型です。",
     templates: [
@@ -100,6 +103,7 @@ const templateGroups: readonly TemplateGroup[] = [
     ],
   },
   {
+    id: "minutes-summary-templates",
     title: "議事録・要約テンプレート",
     description: "会議メモや報告文を、意思決定と実行に直結する形式へ整えるためのテンプレートです。",
     templates: [
@@ -142,6 +146,7 @@ const templateGroups: readonly TemplateGroup[] = [
     ],
   },
   {
+    id: "document-templates",
     title: "資料作成テンプレート",
     description: "企画書・提案書・プレゼン資料の下書きを高速化し、検討すべきポイントを先に可視化します。",
     templates: [
@@ -184,6 +189,7 @@ const templateGroups: readonly TemplateGroup[] = [
     ],
   },
   {
+    id: "data-analysis-templates",
     title: "データ分析テンプレート",
     description: "ExcelやCSVの数字から傾向・示唆を抽出し、報告まで一気通貫で進めるための型です。",
     templates: [
@@ -226,6 +232,7 @@ const templateGroups: readonly TemplateGroup[] = [
     ],
   },
   {
+    id: "idea-generation-templates",
     title: "アイデア出しテンプレート",
     description: "発散と収束を分けて進めることで、実行可能な施策までつなげるためのテンプレートです。",
     templates: [
@@ -277,6 +284,20 @@ const improvementTips = [
   "1回で決めずに2回回す: 初稿→改善指示の2段階にすると実務品質に近づきます。",
 ] as const;
 
+const keywordTags = ["仕事用プロンプト", "AIメール作成", "AI議事録作成", "資料作成テンプレート"] as const;
+
+const tocItems = [
+  { id: "conclusion", label: "結論先出し" },
+  { id: "prompt-basics", label: "プロンプトの基本原則" },
+  { id: "email-templates", label: "メール作成テンプレート" },
+  { id: "minutes-summary-templates", label: "議事録・要約テンプレート" },
+  { id: "document-templates", label: "資料作成テンプレート" },
+  { id: "data-analysis-templates", label: "データ分析テンプレート" },
+  { id: "idea-generation-templates", label: "アイデア出しテンプレート" },
+  { id: "improvement-tips", label: "プロンプト改善のコツ5選" },
+  { id: "faq", label: "FAQ" },
+] as const;
+
 export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateForWorkPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -297,9 +318,16 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm font-semibold tracking-wide text-gray-500">
-            プロンプト テンプレート 仕事 / ChatGPT 仕事 活用 / AI メール作成 / AI 議事録 作成
-          </p>
+          <div className="flex flex-wrap gap-2">
+            {keywordTags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成を最短で回す
           </h1>
@@ -321,6 +349,8 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           </p>
         </motion.header>
 
+        <ArticleTOC items={tocItems} />
+
         <motion.section
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
@@ -329,7 +359,9 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">結論先出し</h2>
+          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            結論先出し
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             まずは自分の業務で頻度が高いカテゴリから1つ選び、テンプレートをそのままコピーして使ってみてください。1回使って不足点を追記するだけで、
             明日から使える自分専用テンプレートに育てられます。
@@ -344,7 +376,9 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">プロンプトの基本原則</h2>
+          <h2 id="prompt-basics" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            プロンプトの基本原則
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             実務では「役割指定」「文脈」「出力形式指定」の3点を押さえると品質が安定します。以下の型を最初に入れてから、業務ごとの条件を足してください。
           </p>
@@ -382,7 +416,9 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
             variants={sectionReveal}
             transition={{ duration: 0.45, delay: groupIndex * 0.03, ease: "easeOut" }}
           >
-            <h2 className="text-2xl font-bold text-gray-900">{group.title}</h2>
+            <h2 id={group.id} className="scroll-mt-28 text-2xl font-bold text-gray-900">
+              {group.title}
+            </h2>
             <p className="mt-3 text-sm leading-7 text-gray-700">{group.description}</p>
             <div className="mt-6 space-y-6">
               {group.templates.map((template) => (
@@ -423,7 +459,9 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">プロンプト改善のコツ5選</h2>
+          <h2 id="improvement-tips" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            プロンプト改善のコツ5選
+          </h2>
           <ol className="mt-6 space-y-4 text-sm leading-7 text-gray-700">
             {improvementTips.map((tip, index) => (
               <li key={tip} className="rounded-lg border border-gray-200 p-4">
@@ -442,7 +480,9 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">さらに効果的に使いこなすには</h2>
+          <h2 id="advanced-usage" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            さらに効果的に使いこなすには
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             テンプレートを1人で使うだけでなく、チームで共通化すると効果が一気に上がります。アカデミーでは業務別テンプレートの設計、
             評価観点の作り方、社内展開まで実務ベースで学べます。
@@ -477,7 +517,9 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">FAQ</h2>
+          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            FAQ
+          </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -489,7 +531,9 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
-          <h2 className="mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
           <ul className="space-y-2">
             <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -520,7 +564,9 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">もっと使いこなしたい方へ</h2>
+          <h2 id="mastering-next" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            もっと使いこなしたい方へ
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             テンプレートを自分の業務に最適化したい場合は、無料説明会で実務フローに合わせた活用方法を確認するのが近道です。現場で定着させる
             運用設計まで具体化できます。

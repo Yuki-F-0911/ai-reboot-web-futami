@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
+import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 
 type FAQItem = {
   question: string;
@@ -144,6 +145,17 @@ const schoolBenefits = [
   "補助金対象制度を活用して、学習投資の負担を調整できる",
 ] as const;
 
+const keywordTags = ["AI資格おすすめ", "AI資格一覧", "AI資格難易度"] as const;
+
+const tocItems = [
+  { id: "conclusion", label: "結論先出し" },
+  { id: "ai-certification-map", label: "AI資格の全体マップ" },
+  { id: "certification-comparison", label: "主要AI資格の詳細比較表" },
+  { id: "recommended-by-goal", label: "目的別おすすめ" },
+  { id: "learning-roadmap", label: "学習方法とロードマップ" },
+  { id: "faq", label: "FAQ" },
+] as const;
+
 export default function AiCertificationGuidePage({ faqItems }: AiCertificationGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -164,7 +176,16 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm font-semibold tracking-wide text-gray-500">AI資格 おすすめ / AI資格 一覧 / AI資格 難易度</p>
+          <div className="flex flex-wrap gap-2">
+            {keywordTags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】
           </h1>
@@ -175,6 +196,8 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           </p>
         </motion.header>
 
+        <ArticleTOC items={tocItems} />
+
         <motion.section
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
@@ -183,7 +206,9 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">結論先出し</h2>
+          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            結論先出し
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             AI資格は目的で選ぶのが正解です。ビジネス活用ならG検定、技術職ならE検定、実装力ならAI実装検定がおすすめです。
           </p>
@@ -197,7 +222,9 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">AI資格の全体マップ</h2>
+          <h2 id="ai-certification-map" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            AI資格の全体マップ
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             AI資格は「ビジネス系」「技術系」「実装系」の3軸で見ると、選ぶべき順序が明確になります。まず現在の業務と目標職種を決めた上で、
             軸と難易度を合わせるのが失敗しにくい選び方です。
@@ -241,7 +268,9 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">主要AI資格の詳細比較表</h2>
+          <h2 id="certification-comparison" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            主要AI資格の詳細比較表
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             受験費用は公式サイト公表値を基準に整理しています。難易度と学習期間は、公式シラバスと一般的な学習報告をもとにした目安です。
           </p>
@@ -336,7 +365,9 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">目的別おすすめ</h2>
+          <h2 id="recommended-by-goal" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            目的別おすすめ
+          </h2>
           <div className="mt-6 space-y-4">
             {recommendationItems.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -355,7 +386,9 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">学習方法とロードマップ</h2>
+          <h2 id="learning-roadmap" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            学習方法とロードマップ
+          </h2>
           <h3 className="mt-6 text-xl font-semibold text-gray-900">独学で進める場合</h3>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {selfStudySteps.map((step) => (
@@ -404,7 +437,9 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">FAQ</h2>
+          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            FAQ
+          </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -416,7 +451,9 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pt-12 pb-4">
-          <h2 className="mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
           <ul className="space-y-2">
             <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -460,7 +497,9 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">無料セミナー / 個別相談</h2>
+          <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            無料セミナー / 個別相談
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             資格の勉強で得た知識を「現場で使える形」に落とし込みたい方は、無料セミナーで学習戦略を整理できます。受講前の個別相談では、現職・目標に合わせた実務ロードマップを確認できます。
           </p>

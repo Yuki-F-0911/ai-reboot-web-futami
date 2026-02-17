@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
+import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 
 type FAQItem = {
   question: string;
@@ -125,6 +126,18 @@ const caseStudies = [
   },
 ] as const;
 
+const keywordTags = ["AI研修 法人向け", "企業向け 生成AI研修", "研修KPI設計"] as const;
+
+const tocItems = [
+  { id: "conclusion", label: "結論先出し" },
+  { id: "training-types", label: "法人研修の種類（オンライン / 対面 / ハイブリッド）" },
+  { id: "training-design-points", label: "研修設計のポイント（レベル分け / KPI / フォロー）" },
+  { id: "academy-plan", label: "AIリブートアカデミーの法人プラン" },
+  { id: "comparison-table", label: "他社比較表（AI講座一般 vs アカデミー）" },
+  { id: "case-studies", label: "導入事例（想定ケーススタディ）" },
+  { id: "faq", label: "FAQ" },
+] as const;
+
 export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainingPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -145,7 +158,16 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm font-semibold tracking-wide text-gray-500">AI研修 法人向け / 企業向け 生成AI 研修</p>
+          <div className="flex flex-wrap gap-2">
+            {keywordTags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             法人向けAI研修で成果を出すための完全ガイド
           </h1>
@@ -156,6 +178,8 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           </p>
         </motion.header>
 
+        <ArticleTOC items={tocItems} />
+
         <motion.section
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
@@ -164,7 +188,9 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">結論先出し</h2>
+          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            結論先出し
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             成果が出る法人研修は、受講前に「対象者レベル分け」「業務KPI」「研修後フォロー」をセットで設計しています。単発研修より、
             伴走型で運用定着まで見る設計が有効です。
@@ -179,7 +205,9 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">法人研修の種類（オンライン / 対面 / ハイブリッド）</h2>
+          <h2 id="training-types" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            法人研修の種類（オンライン / 対面 / ハイブリッド）
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             研修形式は「実施しやすさ」と「定着しやすさ」のバランスで選びます。目的に応じて形式を使い分けるのが現実的です。
           </p>
@@ -216,7 +244,9 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">研修設計のポイント（レベル分け / KPI / フォロー）</h2>
+          <h2 id="training-design-points" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            研修設計のポイント（レベル分け / KPI / フォロー）
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             研修効果を左右するのは講義内容より設計です。事前設計の3要素を押さえると、研修後の現場活用率が上がります。
           </p>
@@ -239,7 +269,9 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">AIリブートアカデミーの法人プラン</h2>
+          <h2 id="academy-plan" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            AIリブートアカデミーの法人プラン
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             法人プランは、単発研修ではなく「設計から定着まで」を一体で支援します。比較検討時は、研修後の運用支援範囲まで確認してください。
           </p>
@@ -268,7 +300,9 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">他社比較表（AI講座一般 vs アカデミー）</h2>
+          <h2 id="comparison-table" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            他社比較表（AI講座一般 vs アカデミー）
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             価格だけで比較すると、導入後の定着コストが見えにくくなります。比較時は「運用支援」と「成果測定」まで確認することが重要です。
           </p>
@@ -302,7 +336,9 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">導入事例（想定ケーススタディ）</h2>
+          <h2 id="case-studies" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            導入事例（想定ケーススタディ）
+          </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             実際の導入では、部門ごとに課題が異なります。以下のケースをベースに、自社に近い進め方を検討してください。
           </p>
@@ -332,7 +368,9 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">FAQ</h2>
+          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            FAQ
+          </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -344,7 +382,9 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
-          <h2 className="mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
           <ul className="space-y-2">
             <li>
               <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -372,7 +412,9 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">まず資料請求</h2>
+          <h2 id="request-materials" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まず資料請求
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             研修形式や対象人数が未確定でも問題ありません。資料請求時に現状課題を共有いただければ、御社の課題に合った進め方をご提案します。
           </p>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
+import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 
 type FAQItem = {
   question: string;
@@ -76,6 +77,16 @@ const learnOrder = [
   },
 ] as const;
 
+const keywordTags = ["AI時代 必要なスキル", "職種別AIスキル", "AI時代 キャリア戦略"] as const;
+
+const tocItems = [
+  { id: "what-changes", label: "AI時代に変わること / 変わらないこと" },
+  { id: "role-based-skills", label: "職種別に必須のAIスキル" },
+  { id: "career-expansion", label: "「AIに奪われる仕事」ではなく「AIで拡張される仕事」へ" },
+  { id: "learning-order", label: "学習順序の提案" },
+  { id: "faq", label: "FAQ" },
+] as const;
+
 export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCareerPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -96,7 +107,16 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className="text-sm font-semibold tracking-wide text-gray-500">AI時代 必要なスキル / AI時代 キャリア</p>
+          <div className="flex flex-wrap gap-2">
+            {keywordTags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI時代に必要なスキルを職種別に解説｜2026年版キャリア戦略
           </h1>
@@ -107,6 +127,8 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           </p>
         </motion.header>
 
+        <ArticleTOC items={tocItems} />
+
         <motion.section
           className="mt-14"
           initial="hidden"
@@ -115,7 +137,9 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">AI時代に変わること / 変わらないこと</h2>
+          <h2 id="what-changes" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            AI時代に変わること / 変わらないこと
+          </h2>
           <div className="mt-6 space-y-5 text-base leading-8 text-gray-700">
             <p>変わることは、情報収集や下書き作成の初動速度です。AIで検討サイクルを増やせます。</p>
             <p>変わらないことは、課題設定と最終判断の責任です。成果を左右するのは人の判断です。</p>
@@ -131,7 +155,9 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">職種別に必須のAIスキル</h2>
+          <h2 id="role-based-skills" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            職種別に必須のAIスキル
+          </h2>
           <div className="mt-8 space-y-9">
             {roleSkillSections.map((section, index) => (
               <motion.section
@@ -165,7 +191,9 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">「AIに奪われる仕事」ではなく「AIで拡張される仕事」へ</h2>
+          <h2 id="career-expansion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            「AIに奪われる仕事」ではなく「AIで拡張される仕事」へ
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             AIの価値は代替だけではありません。単純作業を減らし、提案力や判断力へ時間を振り向けることで、職種を問わず仕事の価値を拡張できます。
           </p>
@@ -179,7 +207,9 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">学習順序の提案</h2>
+          <h2 id="learning-order" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            学習順序の提案
+          </h2>
           <ol className="mt-7 space-y-7">
             {learnOrder.map((item, index) => (
               <li key={item.title} className="border-t border-gray-200 pt-5">
@@ -200,7 +230,9 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">FAQ</h2>
+          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            FAQ
+          </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -212,7 +244,9 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pt-12 pb-4">
-          <h2 className="mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
           <ul className="space-y-2">
             <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -245,7 +279,9 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">職種に合う学習戦略を設計したい方へ</h2>
+          <h2 id="personalized-learning-strategy" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            職種に合う学習戦略を設計したい方へ
+          </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             無料セミナーで全体像を把握し、個別相談であなたの職種に合う学習順序を整理できます。実務で使えるスキルから着実に積み上げましょう。
           </p>
