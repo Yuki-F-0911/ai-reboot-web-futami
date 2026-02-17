@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで16記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで20記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -116,6 +116,33 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "教育訓練給付金の3種の概要、リスキリング補助金との違い、AI講座の費用相場とコスパの良い選び方を整理した記事です。",
     category: "実務活用",
+  },
+  {
+    slug: "ai-school-for-working-adults",
+    title: "社会人向けAIスクールの選び方ガイド",
+    summary:
+      "社会人がAIスクールを選ぶ際の5つの基準、オンラインvs通学の比較、目的別の選び方と補助金活用法を整理した記事です。",
+    category: "資格・スキル",
+  },
+  {
+    slug: "chatgpt-claude-beginners-guide",
+    title: "ChatGPT・Claude初心者ガイド｜最初の1週間でできること",
+    summary:
+      "アカウント作成から最初の質問まで、無料プランと有料プランの違い、1週間で試すべき使い方を整理した入門記事です。",
+    category: "AI基礎知識",
+  },
+  {
+    slug: "corporate-ai-training-internal",
+    title: "社内AI研修の始め方と定着の進め方",
+    summary:
+      "社内AI研修の設計ステップ、外部研修との比較、定着施策と効果測定の進め方を整理した法人向け記事です。",
+    category: "法人向け",
+  },
+  {
+    slug: "ai-side-business-guide",
+    title: "副業でAIを活用する始め方ガイド",
+    summary: "AIスキルで始められる副業の種類、学習ステップ、必要なスキルレベルと注意点を整理した記事です。",
+    category: "キャリア・転職",
   },
 ] as const;
 

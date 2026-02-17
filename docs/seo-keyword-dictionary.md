@@ -44,9 +44,9 @@
 ### A. 生成AI基礎（入門〜初級）
 | キーワード | 検索意図 | 優先度 | 対応状況 | 対応ページ/施策 |
 |---|---|---|---|---|
-| ChatGPT 使い方 初心者 | 基本操作をすぐ試したい | A | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（入門章の拡張） |
+| ChatGPT 使い方 初心者 | 基本操作をすぐ試したい | A | 対応済み | `/academy/blog/chatgpt-claude-beginners-guide` |
 | ChatGPT 始め方 スマホ | 端末別に始めたい | B | 未対応 | 新規: `/academy/blog/chatgpt-start-guide-smartphone` |
-| Claude 使い方 初心者 | Claudeの基礎を学びたい | A | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（Claude章追加） |
+| Claude 使い方 初心者 | Claudeの基礎を学びたい | A | 対応済み | `/academy/blog/chatgpt-claude-beginners-guide` |
 | ChatGPT Claude 違い | ツールを比較して選びたい | A | 対応済み | `/academy/blog/what-is-generative-ai` |
 | プロンプト 書き方 コツ | 出力品質を上げたい | A | 対応済み | `/academy/blog/prompt-template-for-work` |
 | プロンプト テンプレート 仕事 | すぐ使える型が欲しい | A | 対応済み | `/academy/blog/prompt-template-for-work` |
@@ -95,7 +95,7 @@
 | AI 学習ロードマップ | 段階的に学びたい | S | 対応済み | `/academy/blog/how-to-learn-generative-ai` |
 | G検定 E検定 違い | 資格選定したい | B | 未対応 | 新規: `/academy/blog/g-e-certification-comparison` |
 | Python AI 入門 | 技術基礎を学びたい | B | 未対応 | 新規: `/academy/blog/python-ai-intro` |
-| AI 研修 社内 | 社内展開の進め方を知りたい | A | 部分対応 | `/academy/blog/skills-for-ai-era-career`（管理職章） |
+| AI 研修 社内 | 社内展開の進め方を知りたい | A | 対応済み | `/academy/blog/corporate-ai-training-internal` |
 
 ### E. キャリア・転職
 | キーワード | 検索意図 | 優先度 | 対応状況 | 対応ページ/施策 |
@@ -104,12 +104,12 @@
 | AIエンジニア 転職 未経験 | 未経験転職の道筋を知りたい | A | 対応済み | `/academy/blog/ai-engineer-career-change` |
 | AI時代 仕事 なくなる | 将来不安を解消したい | A | 対応済み | `/academy/blog/skills-for-ai-era-career` |
 | AI時代 必要なスキル | 必須スキルを把握したい | S | 対応済み | `/academy/blog/skills-for-ai-era-career` |
-| DX人材 リスキリング | DX文脈の学び直しを知りたい | A | 部分対応 | `/academy/meti-reskilling-comparison` |
+| DX人材 リスキリング | DX文脈の学び直しを知りたい | A | 対応済み | `/academy/blog/corporate-ai-training-internal` |
 | 40代 リスキリング | 年代別に現実的な学習法を知りたい | A | 対応済み | `/academy/blog/reskilling-over-40` |
 | 50代 学び直し | 年代不安を解消したい | A | 対応済み | `/academy/blog/reskilling-over-40` |
 | AI キャリアチェンジ | 職種転換ルートを知りたい | S | 対応済み | `/academy/blog/ai-career-change-cases` |
-| 副業 AI 始め方 | 副業導線を作りたい | A | 対応済み | `/academy/blog/ai-for-non-engineers`（副業向け章あり） |
-| フリーランス AI 仕事 | 独立系の活用法を知りたい | B | 部分対応 | `/academy/reviews`（属性別の声） |
+| 副業 AI 始め方 | 副業導線を作りたい | A | 対応済み | `/academy/blog/ai-side-business-guide` |
+| フリーランス AI 仕事 | 独立系の活用法を知りたい | B | 対応済み | `/academy/blog/ai-side-business-guide` |
 
 ### F. 補助金・費用
 | キーワード | 検索意図 | 優先度 | 対応状況 | 対応ページ/施策 |
@@ -131,8 +131,8 @@
 | AI講座 比較 | 比較検討したい | S | 対応済み | `/academy/ai-course-comparison` |
 | AI講座 おすすめ | 推奨講座を知りたい | S | 対応済み | `/academy/reskilling-course-recommendation` |
 | AI講座 ランキング | ランキングで選びたい | A | 対応済み | `/academy/blog/ai-course-ranking` |
-| AIスクール 社会人 おすすめ | 社会人向けに選びたい | S | 部分対応 | `/academy/ai-training-for-individuals` |
-| オンライン AI講座 | 受講形式で比較したい | A | 部分対応 | `/academy/seminars` + `/academy` |
+| AIスクール 社会人 おすすめ | 社会人向けに選びたい | S | 対応済み | `/academy/blog/ai-school-for-working-adults` |
+| オンライン AI講座 | 受講形式で比較したい | A | 対応済み | `/academy/blog/ai-school-for-working-adults` |
 | 通学 AI講座 | オフライン受講を探したい | B | 未対応 | 新規: `/academy/blog/offline-ai-course-comparison` |
 | AIリブートアカデミー 評判 | 指名検索で判断したい | S | 対応済み | `/academy/reviews` |
 | AIリブートアカデミー 口コミ | 受講者の実感を確認したい | S | 対応済み | `/academy/reviews` |
@@ -184,7 +184,7 @@
 ## サマリー
 
 ### 対応済みキーワード数 / 全キーワード数
-- **54 / 100**
+- **61 / 100**
 
 ### 優先度S/Aで未対応のキーワード（次に作るべき候補）
 

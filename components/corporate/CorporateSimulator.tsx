@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 type CompanySize = "sme" | "large";
 
@@ -31,11 +31,7 @@ export const CorporateSimulator = () => {
     realCost: 0,
   });
 
-  useEffect(() => {
-    calculate();
-  }, [selectedPlan, days, companySize, participants]);
-
-  const calculate = () => {
+  const calculate = useCallback(() => {
     const hoursPerDay = 7;
     const totalHours = days * hoursPerDay;
 
@@ -83,7 +79,11 @@ export const CorporateSimulator = () => {
       grantWage: totalWageGrant,
       realCost,
     });
-  };
+  }, [companySize, days, participants, selectedPlan]);
+
+  useEffect(() => {
+    calculate();
+  }, [calculate]);
 
   const formatCurrency = (value: number) => {
     return value.toLocaleString();
