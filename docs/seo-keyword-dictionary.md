@@ -48,8 +48,8 @@
 | ChatGPT 始め方 スマホ | 端末別に始めたい | B | 未対応 | 新規: `/academy/blog/chatgpt-start-guide-smartphone` |
 | Claude 使い方 初心者 | Claudeの基礎を学びたい | A | 対応済み | `/academy/blog/chatgpt-claude-beginners-guide` |
 | ChatGPT Claude 違い | ツールを比較して選びたい | A | 対応済み | `/academy/blog/what-is-generative-ai` |
-| Gemini 使い方 初心者 | Google AIの始め方を知りたい | A | 部分対応 | `/academy/blog/what-is-generative-ai`（Gemini言及あり） |
-| Gemini ChatGPT 違い | ツール比較して選びたい | A | 部分対応 | `/academy/blog/what-is-generative-ai`（比較言及あり） |
+| Gemini 使い方 初心者 | Google AIの始め方を知りたい | A | 対応済み | `/academy/blog/gemini-beginners-guide` |
+| Gemini ChatGPT 違い | ツール比較して選びたい | A | 対応済み | `/academy/blog/gemini-beginners-guide` |
 | プロンプト 書き方 コツ | 出力品質を上げたい | A | 対応済み | `/academy/blog/prompt-template-for-work` |
 | プロンプト テンプレート 仕事 | すぐ使える型が欲しい | A | 対応済み | `/academy/blog/prompt-template-for-work` |
 | プロンプトエンジニアリング 入門 | 体系的に学びたい | B | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（専用H2追加） |
@@ -74,10 +74,10 @@
 ### C. AI画像・動画・コード
 | キーワード | 検索意図 | 優先度 | 対応状況 | 対応ページ/施策 |
 |---|---|---|---|---|
-| AI画像生成 おすすめ | 画像生成ツールを比較したい | B | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（用途紹介） |
-| AI画像生成 使い方 | 画像生成の始め方を知りたい | B | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（実践章追加） |
-| Nano Banana 使い方 | Gemini画像生成機能の活用法を知りたい | B | 未対応 | 新規: `/academy/blog/gemini-image-generation-guide` |
-| Midjourney 使い方 | Midjourneyを始めたい | B | 未対応 | 新規: `/academy/blog/midjourney-beginner-guide` |
+| AI画像生成 おすすめ | 画像生成ツールを比較したい | B | 対応済み | `/academy/blog/ai-image-generation-guide` |
+| AI画像生成 使い方 | 画像生成の始め方を知りたい | B | 対応済み | `/academy/blog/ai-image-generation-guide` |
+| Nano Banana 使い方 | Gemini画像生成機能の活用法を知りたい | B | 対応済み | `/academy/blog/ai-image-generation-guide` |
+| Midjourney 使い方 | Midjourneyを始めたい | B | 対応済み | `/academy/blog/ai-image-generation-guide` |
 | Stable Diffusion 入門 | ローカル生成を学びたい | C | 未対応 | 新規: `/academy/blog/stable-diffusion-intro` |
 | AI 動画生成 おすすめ | 動画生成ツールを知りたい | B | 未対応 | 新規: `/academy/blog/ai-video-tool-comparison` |
 | AI 動画編集 ツール | 動画編集を効率化したい | B | 未対応 | 新規: `/academy/blog/ai-video-editing-tools` |
@@ -189,7 +189,7 @@
 ## サマリー
 
 ### 対応済みキーワード数 / 全キーワード数
-- **61 / 105**
+- **67 / 105**
 
 ### 優先度S/Aで未対応のキーワード（次に作るべき候補）
 
