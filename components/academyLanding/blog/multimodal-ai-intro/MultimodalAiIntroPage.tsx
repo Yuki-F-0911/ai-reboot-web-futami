@@ -54,9 +54,9 @@ const mechanismSteps = [
 
 const modelCards = [
   {
-    name: "GPT-4o",
+    name: "GPT-5（例）",
     description:
-      "テキストだけでなく画像や音声を扱えるマルチモーダルモデルの代表例として知られ、会話・要約・画像理解などを1つの体験で扱いやすい傾向があります（対応範囲はプロダクト/プランで変わります）。",
+      "テキスト・画像・音声を統合的に扱えるマルチモーダルモデルの代表例として知られ、会話・要約・画像理解などを1つの体験で扱いやすい傾向があります（対応範囲はプロダクト/プランで変わります）。",
     fit: "会話型UIで「見せて・聞かせて・まとめる」を一気通貫したいケース",
   },
   {
@@ -66,7 +66,7 @@ const modelCards = [
     fit: "Google Workspaceと合わせて情報整理・要約を進めたいケース",
   },
   {
-    name: "Claude Sonnet 4（例）",
+    name: "Claude 4.5 Sonnet（例）",
     description:
       "文章理解と指示追従の強みで選ばれることがあり、画像を含む入力からの要約・整理で活用されることがあります（対応範囲はプラン/製品により異なります）。",
     fit: "長文・資料の要点抽出や、説明文の品質を重視したいケース",
@@ -311,7 +311,7 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="models" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            代表的なマルチモーダルAIモデル（GPT-4o/Gemini 2.5 Pro/Claude Sonnet 4 など）
+            代表的なマルチモーダルAIモデル（GPT-5/Gemini 2.5 Pro/Claude 4.5 Sonnet など）
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
             結論: 代表例としてよく挙がるモデルを、選び方の観点で整理します。実際の対応モダリティや提供形態はプラン/製品により変わるため、導入前に必ず最新の仕様を確認してください。

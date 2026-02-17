@@ -41,8 +41,8 @@ const basicInfoRows = [
   },
   {
     label: "代表的なモデル系統（例）",
-    gpt: "GPT系（例: GPT-5.2 / GPT-4.1 / GPT-4o など。提供名や選択肢は時期により変動）",
-    claude: "Claude系（例: Claude Sonnet 4 / Claude 3.7 Sonnet など。提供名や選択肢は時期により変動）",
+    gpt: "GPT系（例: GPT-5 / GPT-5.2 など。提供名や選択肢は時期により変動）",
+    claude: "Claude系（例: Claude 4.5 Sonnet / Claude 4.6 Opus など。提供名や選択肢は時期により変動）",
   },
   {
     label: "リリース時期（目安）",

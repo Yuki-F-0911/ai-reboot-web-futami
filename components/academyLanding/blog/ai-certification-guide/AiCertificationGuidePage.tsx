@@ -302,13 +302,6 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           </div>
           <p className="mt-4 text-xs leading-6 text-gray-500">
             受験費用と制度情報は2026年2月時点の公式公表値です。学習期間目安は公式の固定値ではなく、受験者の一般的な準備期間に基づく編集部目安です。
-            {/* TODO: 要ファクト確認 - G検定公式サイトで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - E資格公式サイトで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - AI実装検定公式サイトで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - DS検定公式サイトで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - AWS Certified Machine Learning - Specialty公式ページで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - Google Cloud Professional ML Engineer公式ページで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - Python 3 エンジニア認定データ分析試験公式ページで最新情報を確認 */}
           </p>
           <div className="mt-7 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm leading-7 text-gray-700">
             <h3 className="text-base font-semibold text-gray-900">比較表の出典（公式）</h3>
@@ -329,7 +322,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
                 </a>
               </li>
               <li>
-                <a href="https://www.datascientist.or.jp/dss/" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                <a href="https://www.datascientist.or.jp/dscertification/" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                   データサイエンティスト検定（DS検定）
                 </a>
               </li>
