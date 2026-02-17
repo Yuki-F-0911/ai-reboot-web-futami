@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで32記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで33記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -80,6 +80,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "AI業務効率化事例集",
     summary: "営業・マーケ・管理部門の一般的な活用傾向と、導入前に押さえる設計ポイントや失敗対策を整理した記事です。",
     category: "実務活用",
+  },
+  {
+    slug: "ai-hr-recruiting",
+    title: "AI × 人事・採用の実践ガイド",
+    summary:
+      "求人票作成、スクリーニング補助、面接調整、評価コメント作成まで、人事・採用領域でのAI活用方法と導入の注意点をまとめたガイドです。",
+    category: "法人向け",
   },
   {
     slug: "rag-use-cases",
