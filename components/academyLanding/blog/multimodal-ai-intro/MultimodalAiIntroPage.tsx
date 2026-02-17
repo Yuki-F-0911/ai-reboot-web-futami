@@ -66,7 +66,7 @@ const modelCards = [
     fit: "Google Workspaceと合わせて情報整理・要約を進めたいケース",
   },
   {
-    name: "Claude 4.5 Sonnet（例）",
+    name: "Claude Sonnet 4.6（例）",
     description:
       "文章理解と指示追従の強みで選ばれることがあり、画像を含む入力からの要約・整理で活用されることがあります（対応範囲はプラン/製品により異なります）。",
     fit: "長文・資料の要点抽出や、説明文の品質を重視したいケース",
@@ -316,7 +316,7 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="models" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            代表的なマルチモーダルAIモデル（GPT-5/Gemini 2.5 Pro/Claude 4.5 Sonnet など）
+            代表的なマルチモーダルAIモデル（GPT-5/Gemini 2.5 Pro/Claude Sonnet 4.6 など）
           </h2>
           <p className="mt-5 text-base font-medium text-gray-900">
             代表例としてよく挙がるモデルを、選び方の観点で整理します。実際の対応モダリティや提供形態はプラン/製品により変わるため、導入前に必ず最新の仕様を確認してください。

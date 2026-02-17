@@ -8,7 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/multimodal-ai-intro";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-18T12:00:00+09:00";
+const modifiedTime = "2026-02-18T18:00:00+09:00";
 
 const faqItems = [
   {
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     "マルチモーダル AI モデル",
     "GPT-5",
     "Gemini 2.5 Pro",
-    "Claude 4.5 Sonnet",
+    "Claude Sonnet 4.6",
   ],
   alternates: {
     canonical: pageUrl,
