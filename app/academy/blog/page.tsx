@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで27記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで28記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -29,6 +29,12 @@ const blogPosts: readonly BlogPost[] = [
     slug: "what-is-ai-agent",
     title: "AIエージェントとは？定義・種類・作り方を解説",
     summary: "AIエージェントの基礎、従来AIとの違い、導入ステップと注意点を実務目線で整理した記事です。",
+    category: "AI基礎知識",
+  },
+  {
+    slug: "multimodal-ai-intro",
+    title: "マルチモーダルAIとは？テキスト・画像・音声を横断する次世代AIを解説",
+    summary: "マルチモーダルAIの定義、仕組み、代表モデル、業務活用と導入ステップを初心者向けに整理した入門記事です。",
     category: "AI基礎知識",
   },
   {
