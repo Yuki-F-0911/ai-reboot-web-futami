@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説【2026年版】 | AIリブート";
 const pageDescription =
-  "GPT-4とClaudeの違いを、文章生成・コード生成・分析・要約・創造性の観点で比較。得意分野、料金プラン（無料/個人/API）の考え方、用途別おすすめ、併用のコツまでまとめます。";
+  "GPT-4とClaudeを文章/コード/分析/要約で比較し、用途別おすすめと併用のコツを整理。料金（無料/個人/API）の考え方も、迷いにくい比較軸で解説します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/gpt-vs-claude-comparison";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";

@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "GitHub Copilotの使い方｜導入・設定・効率化のコツを初心者向けに解説 | AIリブート";
 const pageDescription =
-  "「GitHub Copilot 使い方」を知りたい方向けに、導入（VS Code等）→使い方（指示の出し方）→レビュー・テストまでの実務フロー、チーム導入時の注意点（情報管理/ルール）を、迷いにくい手順でまとめました。";
+  "GitHub Copilotの導入（VS Code等）から設定、指示の出し方、レビュー/テストまでの実務フローを初心者向けに解説。チーム導入の情報管理ルールもチェックできます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/github-copilot-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

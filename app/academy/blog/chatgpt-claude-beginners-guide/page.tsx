@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "ChatGPT・Claude初心者ガイド｜最初の1週間でできること | AIリブート";
 const pageDescription =
-  "「ChatGPT 使い方 初心者」「Claude 使い方 初心者」を調べる方向けに、アカウント作成から最初の活用までを整理。無料/有料の違い、1週間で試す使い方、失敗対策を解説します。";
+  "ChatGPT/Claude初心者向けに、登録〜最初の1週間で試す使い方を手順で解説。無料/有料の違い、失敗しない質問の型、よくあるミス対策までまとめました。";
 const pageUrl = "https://ai-reboot.io/academy/blog/chatgpt-claude-beginners-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

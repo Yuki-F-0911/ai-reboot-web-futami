@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "NotebookLMの使い方完全ガイド｜AIで情報整理・学習を効率化する方法 | AIリブート";
 const pageDescription =
-  "GoogleのNotebookLMの基本的な使い方を、始め方から「ソースを取り込んで要約・質問する」実務手順まで整理。仕事のリサーチ・報告書整理・学習ノートに活かすコツや、Audio Overviewの活用法も解説します。";
+  "NotebookLMの始め方と使い方を、ソース取り込み→要約→質問→アウトプットまで手順で解説。リサーチ/学習ノート整理に効く使い分け、Audio Overview活用のコツも掲載します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/notebooklm-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

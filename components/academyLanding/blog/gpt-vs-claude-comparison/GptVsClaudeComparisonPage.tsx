@@ -206,10 +206,10 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            結論: 汎用性とワークフロー化を重視するならGPT-4系、長文の推敲や丁寧な説明を重視するならClaudeが相性良いことが多いです。
-            ただし、モデル名・機能・料金は更新されるため、最終判断は「あなたの用途」で同一プロンプト比較するのが確実です。
+            比較記事を読んでも「結局どれが自分に合うのか」が決めきれないのが普通です。結論: 汎用性とワークフロー化を重視するならGPT-4系、長文の推敲や丁寧な説明を重視するならClaudeが相性良いことが多いです。
+            筆者は短い仕様メモを両方に渡し、出力の再現性と修正への追従で判断しました（モデル名・機能・料金は更新されるため、最終判断は用途での同一条件比較が確実です）。
           </p>
         </motion.header>
 
@@ -237,7 +237,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
               実務では、工程で切り替える併用（下書き→推敲、実装→レビュー）が最も成果につながりやすいです。
             </li>
             <li className="pl-1 marker:text-gray-500">
-              最終判断は、同じ入力で両方を試して「再現性」と「修正への追従」をチェックするのが確実です。
+              最終判断は、同じ短い仕様メモ（目的/入力例/出力形式）で両方を試し、「再現性」と「修正への追従」をチェックするのが確実です。
             </li>
           </ul>
         </motion.section>

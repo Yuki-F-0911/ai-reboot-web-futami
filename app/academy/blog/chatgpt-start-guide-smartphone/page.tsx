@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "ChatGPTをスマホで始める方法｜iPhone・Android対応の初期設定ガイド | AIリブート";
 const pageDescription =
-  "「ChatGPT 始め方 スマホ」「ChatGPT iPhone 使い方」「ChatGPT アプリ 始め方」を調べる方向けに、公式アプリの入れ方、アカウント作成・ログイン、初期設定、便利機能、無料/有料の違いまでをiPhone/Android別にまとめます。";
+  "ChatGPTをスマホで始めたい方向けに、公式アプリの入れ方、ログイン、初期設定、iPhone/Android別のつまずきポイントを手順で解説。無料/有料の違いも確認できます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/chatgpt-start-guide-smartphone";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

@@ -136,10 +136,11 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             Google Gemini完全入門ガイド｜使い方・ChatGPTとの違い・無料で始める方法
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            本記事は「Geminiをこれから使う初心者」の方向けに、まず何を理解して、どんな順番で触れば業務で使えるようになるかを整理した入門ガイドです。
-            なお、機能や料金、提供条件は変更される可能性があるため、実際の画面・公式案内もあわせて確認してください。
+            Geminiを触ってみたものの、どこから始めるか・何ができるかが分かりにくいのが最初の壁です。
+            このガイドでは、無料で始める手順、ChatGPT/Claudeとの違い、仕事で再現しやすい使い方を結論先出しで整理します。
+            筆者はまず「社内FAQの下書き→チェックリスト化」で試し、Googleサービス連携の強みが出る場面を掴みました（機能/料金/提供条件は更新されるため、実際の画面・公式案内もあわせて確認してください）。
           </p>
         </motion.header>
 

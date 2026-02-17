@@ -4,7 +4,7 @@ import { CourseStructuredData, FAQStructuredData } from "@/components/seo/Struct
 
 const aiCourseComparisonTitle = "AI講座比較｜失敗しない選び方とおすすめ判断軸を解説";
 const aiCourseComparisonDescription =
-  "AI講座比較で迷う方へ、価格・期間・伴走・実践性・補助金対応の5軸で選び方を整理。匿名比較表と失敗しないチェックポイントを確認し、無料説明会で最適な講座を相談できます。";
+  "AI講座比較で迷う方向けに、価格・期間・伴走・実践性・補助金対応の5軸で選び方を整理。匿名比較表とチェックポイントを確認し、無料説明会で最適な講座を相談できます。";
 const aiCourseComparisonUrl = "https://ai-reboot.io/academy/ai-course-comparison";
 const aiCourseComparisonOgImagePath = "/academy/ai-course-comparison/opengraph-image";
 

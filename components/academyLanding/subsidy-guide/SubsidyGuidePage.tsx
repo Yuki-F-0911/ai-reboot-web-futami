@@ -165,8 +165,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
             2026年版 リスキリング補助金を個人で活用する完全ガイド
           </h1>
           <p className="mt-5 max-w-3xl text-base sm:text-lg leading-relaxed text-slate-700">
-            リスキリング補助金 個人向けの制度は、条件を理解すれば難しくありません。対象者条件、補助金額、
-            AI研修 補助金 申し込みの流れを、順番にわかりやすく整理しました。
+            リスキリング補助金は、対象条件と締切（書類）さえ先に押さえれば、流れ自体はシンプルです。
+            この記事では、対象者チェック、補助額の計算例、AI研修 補助金 申し込みの手順を“迷わない順番”で整理しました。
+            筆者は「書類準備の逆算」でつまずく相談が多いと感じるので、最初に全体像を掴める構成にしています。
           </p>
           <p className="mt-3 inline-flex rounded-full border border-orange-300 bg-white/80 px-4 py-1.5 text-xs font-semibold text-slate-700">
             2026年2月時点の情報です
@@ -221,7 +222,10 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
         >
           <p className={sectionLabelClass}>ABOUT</p>
           <h2 className={sectionHeadingClass}>制度の概要</h2>
-          <p className="mt-5 max-w-4xl text-base sm:text-lg leading-relaxed text-slate-700">
+          <p className="mt-5 max-w-4xl text-base sm:text-lg font-semibold leading-relaxed text-slate-900">
+            結論: 本制度は「在職者が転職（転職先での就業）を目指して学ぶ」ことを支援する枠組みで、キャリア相談・学習・転職支援が一体で設計されています。
+          </p>
+          <p className="mt-4 max-w-4xl text-base sm:text-lg leading-relaxed text-slate-700">
             本制度の正式名称は、経済産業省「リスキリングを通じたキャリアアップ支援事業」です。キャリア相談、
             リスキリング、転職支援を一体で提供する講座を通じて、在職者のキャリアアップを支援する枠組みです。
           </p>
@@ -265,8 +269,11 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
         >
           <p className={sectionLabelClass}>ELIGIBILITY CHECK</p>
           <h2 className={sectionHeadingClass}>対象者チェックリスト</h2>
-          <p className="mt-4 max-w-4xl text-sm sm:text-base text-slate-700">
-            「自分は対象か分からない」という方は、下のチェックで判断できます。該当が多いほど申請を進めやすくなります。
+          <p className="mt-4 max-w-4xl text-sm sm:text-base font-semibold text-slate-900">
+            結論: 「在職中」「転職意向あり」「期限内に書類を揃えられる」が満たせるほど、申請を進めやすくなります。
+          </p>
+          <p className="mt-3 max-w-4xl text-sm sm:text-base text-slate-700">
+            「自分は対象か分からない」という方は、下のチェックで判断できます。該当が多いほど、手続きの見通しが立てやすくなります。
           </p>
           {/* TODO: 要ファクト確認 - 「雇用保険被保険者等」の詳細要件は募集回ごとの最新要項で確認 */}
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
@@ -326,6 +333,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
         >
           <p className={sectionLabelClass}>SIMULATION</p>
           <h2 className={sectionHeadingClass}>補助金額のシミュレーション</h2>
+          <p className="mt-5 max-w-4xl text-base sm:text-lg font-semibold leading-relaxed text-slate-900">
+            結論: 受講修了までで「実質負担¥180,000目安」、追加補助まで達成すると「¥120,000目安」のケースがあります（条件で変動）。
+          </p>
           <div className="mt-8 overflow-hidden rounded-2xl border border-orange-200">
             <table className="w-full border-collapse bg-white text-left text-sm sm:text-base">
               <thead className="bg-orange-50">
@@ -373,6 +383,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
         >
           <p className={sectionLabelClass}>HOW TO APPLY</p>
           <h2 className={sectionHeadingClass}>AI研修 補助金 申し込みの流れ</h2>
+          <p className="mt-5 max-w-4xl text-base sm:text-lg font-semibold leading-relaxed text-slate-900">
+            結論: 「説明会で条件確認→個別相談で対象判定→申し込み→受講→転職支援」の順で進めると、手戻りが減ります。
+          </p>
 
           <motion.ol
             className="mt-8 space-y-5"
@@ -410,6 +423,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
         >
           <p className={sectionLabelClass}>COMMON MISTAKES</p>
           <h2 className={sectionHeadingClass}>よくある失敗パターン</h2>
+          <p className="mt-5 max-w-4xl text-base sm:text-lg font-semibold leading-relaxed text-slate-900">
+            結論: 失敗の多くは「締切」「書類不備」「対象講座の取り違え」です。最初に締切の逆算とチェックリストを作ると防げます。
+          </p>
           <motion.div
             className="mt-8 grid gap-4 md:grid-cols-3"
             variants={listReveal}
@@ -445,6 +461,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
         >
           <p className={sectionLabelClass}>FAQ</p>
           <h2 className={sectionHeadingClass}>補助金に関するよくある質問</h2>
+          <p className="mt-5 max-w-4xl text-base sm:text-lg font-semibold leading-relaxed text-slate-900">
+            結論: 最終判定は募集回の要項・事務局審査になります。迷う項目は「説明会→個別相談」で早めに確認するのが安全です。
+          </p>
 
           <motion.div
             className="mt-8 space-y-4"
@@ -472,6 +491,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
       <section className="border-t border-slate-200 pt-12 pb-4">
         <div className="container mx-auto max-w-5xl px-4 md:px-6 lg:px-8">
           <h2 className="mb-4 text-lg font-bold text-slate-900">関連コンテンツ</h2>
+          <p className="mb-4 max-w-4xl text-sm sm:text-base text-slate-700">
+            <span className="font-semibold text-slate-900">結論:</span> 補助金と講座選びはセットで考えると失敗しにくいです。必要な順に関連ページも確認してください。
+          </p>
           <ul className="space-y-2">
             <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -538,7 +560,7 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
             補助金活用の個別相談と無料セミナーはこちら
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-orange-50">
-            「難しそう」を「自分にもできそう」に変えるために、対象可否と申し込み手順を一緒に整理します。
+            <span className="font-semibold">結論:</span> 「難しそう」を「自分にもできそう」に変えるために、対象可否と申し込み手順を一緒に整理します。
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

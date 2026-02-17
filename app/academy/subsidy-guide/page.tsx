@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import SubsidyGuidePage from "@/components/academyLanding/subsidy-guide/SubsidyGuidePage";
 import { CourseStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const subsidyGuideTitle = "リスキリング補助金ガイド2026｜個人向けAI研修の対象条件と申請手順";
 const subsidyGuideDescription =
-  "リスキリング補助金を個人で活用するための対象条件、申請手順、AI研修での使い方を解説。受講料330,000円の計算例（条件で変動）と最大70%相当の負担軽減ポイントを確認し、まずは無料説明会へ。";
+  "リスキリング補助金を個人で活用するための対象条件、申請手順、AI研修での使い方を解説。補助額の目安と計算例も確認し、無料説明会で次の一歩を進められます。";
 const subsidyGuideUrl = "https://ai-reboot.io/academy/subsidy-guide";
 const subsidyGuideOgImagePath = "/academy/subsidy-guide/opengraph-image";
 
@@ -155,7 +156,7 @@ export default function AcademySubsidyGuidePage() {
         priceCurrency="JPY"
       />
       <FAQStructuredData items={[...subsidyGuideFaqItems]} />
-      <script
+      <Script
         id="subsidy-guide-howto-structured-data"
         type="application/ld+json"
         dangerouslySetInnerHTML={{

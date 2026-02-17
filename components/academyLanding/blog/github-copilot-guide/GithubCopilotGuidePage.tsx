@@ -101,10 +101,11 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             GitHub Copilotの使い方｜導入・設定・効率化のコツを初心者向けに解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            結論: Copilotは「実装の下書きを速くする道具」です。品質を上げるには、制約を明文化し、テストとレビューで固定する運用が必須です。
-            このページでは、導入の流れと、実務で事故を起こしにくい使い方を最短で整理します。
+            Copilotを入れてみたけど、提案がブレる/レビューが不安…という悩みがよく出ます。
+            結論: Copilotは「実装の下書きを速くする道具」で、品質は制約の明文化＋テスト＋レビューで守ります。
+            筆者はまず小さなDTOとユニットテストから試し、チームルールを先に決めるほど事故が減ると感じました。
           </p>
         </motion.header>
 
@@ -140,7 +141,10 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
           <h2 id="what-is" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             GitHub Copilotとは
           </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: Copilotは「IDE上で書く/読む/直す」を加速する開発者向けAIで、曖昧な要件のまま使うと意図と違う実装が混ざりやすいです。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
             GitHub Copilotは、コード補完やチャットを通じて、実装・リファクタ・テスト作成などを支援する開発者向けAIです。強いのは「手を動かす」
             部分で、要件や制約が曖昧なまま使うと、見た目は動くが意図と違うコードが混ざりやすくなります。
           </p>
@@ -165,6 +169,9 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
           <h2 id="setup" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             導入（VS Codeの例）
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: まずは拡張機能を入れてサインインし、小さな関数で提案の癖を掴むところまでやればOKです。
+          </p>
           <ol className="mt-5 list-decimal space-y-3 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">VS Codeに拡張機能（Copilot/Copilot Chat等）を追加します。</li>
             <li className="pl-1 marker:text-gray-500">GitHubアカウントでサインインし、利用が有効になっているか確認します。</li>
@@ -188,6 +195,9 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
           <h2 id="how-to" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             使い方：精度を上げるコツ
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 精度を上げる鍵は「制約・例・分割」。先にチームの方針を書くほど、提案がブレにくくなります。
+          </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {tips.map((tip) => (
               <div key={tip.title} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -227,8 +237,11 @@ export function normalizeEmail(input: string) {
           <h2 id="workflow" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             実務フロー：テストとレビュー
           </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
-            Copilotをうまく使うチームほど、生成したコードを「自動テスト」と「レビュー」で守る運用になっています。生成の速度が上がるほど、担保の仕組みが重要になります。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 生成コードは「テストで固定→レビューで担保」が前提。速度が上がるほど、担保の仕組みが重要になります。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            Copilotをうまく使うチームほど、生成したコードを「自動テスト」と「レビュー」で守る運用になっています。
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {workflowSteps.map((step) => (
@@ -251,6 +264,9 @@ export function normalizeEmail(input: string) {
           <h2 id="team" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             チーム導入の注意点
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: チーム導入は、入力データ・レビュー基準・責任の所在を「先に決める」ほど安全です。
+          </p>
           <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               <span className="font-semibold text-gray-900">入力データ:</span> APIキー、顧客情報、未公開仕様などを入力しない運用にします。
@@ -296,6 +312,9 @@ export function normalizeEmail(input: string) {
           <h2 id="related" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             関連記事（内部リンク）
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: まずは「AIコーディング入門」→「プロンプトの型」→「初心者ガイド」の順で読むと迷いにくいです。
+          </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <Link
               href="/academy/blog/ai-coding-for-beginners"
@@ -339,8 +358,11 @@ export function normalizeEmail(input: string) {
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIリブートアカデミーで学ぶ
           </h2>
+          <p className="mt-4 text-base font-medium leading-8 text-gray-900">
+            結論: Copilot活用は「知識」だけでなく、「仕事の型」に落とし込めるかが勝負です。
+          </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
-            AI活用は「知識」だけでなく、「仕事の型」に落とし込めるかが勝負です。まずは、業務別のテンプレや学び方の全体像から整理していきましょう。
+            まずは、業務別のテンプレや学び方の全体像から整理していきましょう。
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link

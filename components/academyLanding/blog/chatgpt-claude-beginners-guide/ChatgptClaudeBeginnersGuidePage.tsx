@@ -59,7 +59,7 @@ const planComparison = [
 const firstWeekUseCases = [
   {
     title: "1. 記事・資料の要約",
-    detail: "長文を短く整理し、会議前のインプット時間を短縮します。",
+    detail: "社内資料（数〜10ページ程度）を「結論/根拠/論点」の形で要約し、会議前のインプット時間を短縮します。",
   },
   {
     title: "2. メール下書き作成",
@@ -75,7 +75,7 @@ const firstWeekUseCases = [
   },
   {
     title: "5. 議事録の整理",
-    detail: "メモを要点、決定事項、次アクションに分解します。",
+    detail: "箇条書きメモを貼り付け、「要点/決定事項/未決/次アクション」に分解して整理します。",
   },
   {
     title: "6. 文章の言い換え",
@@ -151,9 +151,10 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             ChatGPT・Claude初心者ガイド｜最初の1週間でできること
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            生成AIを初めて使うなら、最初の1週間で「基本操作」と「実務に使える型」を作ることが重要です。本記事では、ChatGPTとClaudeを比較しながら、初心者がつまずきにくい進め方を解説します。
+            初めての生成AIは、何を聞けばいいか・何が正解かでつまずきがちです。最初の1週間で「基本操作」と「実務に使える型」を作ると、迷いが一気に減ります。
+            筆者はまず議事録要約とメール下書きから試し、同じ質問をChatGPT/Claudeに投げて違いを掴みました。
           </p>
         </motion.header>
 

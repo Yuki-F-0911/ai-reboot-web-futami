@@ -155,9 +155,11 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             ChatGPTをスマホで始める方法｜iPhone・Android対応の初期設定ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            スマホでChatGPTを使い始めるなら、まずは「公式アプリの導入」と「最低限の初期設定（権限・通知・プライバシー）」を押さえると迷いません。本記事では、iPhone/Android別に始め方を整理し、スマホならではの使いどころまでまとめます。
+            スマホで始めると、公式アプリの見分け方・権限設定・通知あたりで迷いがちです。
+            この記事では、iPhone/Android別に「インストール→ログイン→初期設定」を最短手順で整理し、スマホならではの使いどころまで具体例つきでまとめます。
+            筆者は通勤中の音声入力で「メール返信の下書き」を試し、短い質問→追質問の型が最も失敗しにくいと感じました。
           </p>
         </motion.header>
 
@@ -198,7 +200,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           <h2 id="about-app" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             ChatGPTスマホアプリとは？（公式アプリの概要、Web版との違い）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: スマホでは公式アプリでチャットできます。ブラウザ版（Web）でも利用できますが、アプリは音声やカメラ連携などスマホ向け機能が使いやすいのが特徴です。一方で、権限（マイク/カメラ）や通知設定を適切に管理する必要があります。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
@@ -269,7 +271,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           <h2 id="smartphone-features" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             スマホ版ならではの便利機能（音声入力、カメラ連携、ウィジェット）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: スマホは「入力の手間」を減らすほど継続利用しやすくなります。まずは音声とカメラ連携を試し、よく使うパターンをテンプレ化しておくのがおすすめです。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -293,7 +295,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           <h2 id="free-vs-paid" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             無料プランと有料プランの違い（スマホでの課金方法）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 最初は無料で「使いどころ」を固めてから、有料プランを比較するのが堅実です。業務で毎日使う/上限や追加機能が必要、という条件が揃った段階で検討するとミスマッチを減らせます。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">

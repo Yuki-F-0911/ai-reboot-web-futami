@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "Google Gemini完全入門ガイド｜使い方・ChatGPTとの違い・無料で始める方法【2026年版】 | AIリブート";
 const pageDescription =
-  "「Gemini 使い方 初心者」「Gemini ChatGPT 違い」を知りたい方向けに、Geminiの概要、主要AIチャットとの比較、無料で始める手順、業務での活用パターンを入門者向けに整理しました（機能・料金は変更される可能性があります）。";
+  "Google Gemini初心者向けに、概要・無料で始める手順・ChatGPT/Claudeとの違い・業務での使い分けを整理。最初に試すプロンプト例と注意点もまとめました。";
 const pageUrl = "https://ai-reboot.io/academy/blog/gemini-beginners-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

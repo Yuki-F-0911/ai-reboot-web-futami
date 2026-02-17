@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート";
 const pageDescription =
-  "「AI コーディング 初心者」「AI プログラミング 始め方」「コード生成AI」で調べる方向けに、AIコーディングの基本、代表ツール、非エンジニアができること、始め方5ステップ、すぐ試せるプロンプト例、注意点までを整理した入門ガイドです。";
+  "AIコーディング初心者向けに、できること・代表ツール・始め方5ステップを整理。非エンジニアでも試せる小さな自動化例、すぐ使えるプロンプト、注意点までまとめました。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-coding-for-beginners";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

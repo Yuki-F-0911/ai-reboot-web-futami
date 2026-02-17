@@ -200,9 +200,11 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
+            AIでコードを書けると聞くとワクワクしますが、最初は「何を作ればいいか」で止まりがちです。
             結論: AIコーディングは「環境構築なしで小さく試す」→「1つの自動化を完成させる」→「ツールを選び、レビュー手順を作って実務に乗せる」が最短ルートです。
+            筆者はまず「CSVを整形して、そのままSlackに貼れる文章にする」小さな自動化から始め、プロンプトの型を掴みました。
           </p>
         </motion.header>
 
@@ -219,7 +221,10 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           <h2 id="what-is-ai-coding" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIコーディングとは？（コード生成AIの概要）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: AIコーディングは、目的と条件を日本語で指定してコードの叩き台を作り、検証と修正を反復して完成度を上げる進め方です。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
             AIコーディングは、自然言語（日本語）で目的や条件を伝え、コードの叩き台・修正案・テスト観点などを生成してもらう開発スタイルです。「ゼロから書く」よりも、
             <span className="font-semibold text-gray-900">仕様を言語化して、反復で精度を上げる</span>
             ことに強みがあります。
@@ -255,8 +260,11 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           <h2 id="tools" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             代表的なAIコーディングツール（ChatGPT/Claude/Copilot/Cursor/Windsurf/Replit）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            初心者はまず「チャット型」で理解と方針を固め、次に「エディタ統合」で速度を上げる順序が取り組みやすいです。各ツールの機能やプランは変わるため、必要に応じて公式情報も確認してください。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 初心者はまず「チャット型」で理解と方針を固め、次に「エディタ統合」で速度を上げる順序が取り組みやすいです。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            各ツールの機能やプランは変わるため、必要に応じて公式情報も確認してください。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {toolCards.map((tool) => (
@@ -279,7 +287,10 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           <h2 id="what-you-can-do" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             非エンジニアがAIコーディングで実現できること
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 非エンジニアは「影響範囲が小さく、成果が見えやすい作業」をAIで自動化すると、学びが実務につながりやすいです。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
             ポイントは「影響範囲が小さく、成果が見えやすい作業」から始めることです。最初に作るテーマ選びは、
             <Link
               href="/academy/blog/how-to-learn-generative-ai"
@@ -320,7 +331,10 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           <h2 id="getting-started" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIコーディングの始め方5ステップ
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 5ステップで「小さく作る→動かす→テスト/レビューで固定」を回すと、最短で実務に乗ります。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
             初心者がつまずきやすいのは「最初から大きく作る」「ツールを先に固定する」「レビューなしで本番に当てる」です。以下の順序で、検証しながら段階的に広げましょう。
           </p>
           <div className="mt-6 space-y-4">
@@ -344,8 +358,11 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           <h2 id="prompt-examples" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             すぐ試せるプロンプト例（Python / Excel VBA / GAS / HTML）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            まずは「目的」「前提」「要件」「出力形式」を固定すると、回答のブレが減ります。仕事向けのテンプレは
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: プロンプトは「目的/前提/要件/出力形式」を先に固定すると、コードのブレが減ります。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            仕事向けのテンプレは
             <Link
               href="/academy/blog/prompt-template-for-work"
               className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
@@ -378,7 +395,10 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           <h2 id="limitations" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIコーディングの限界と注意点（セキュリティ、レビュー）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 生成コードはそのまま本番に入れず、機密/レビュー/権利の3点をルール化してから使うのが安全です。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
             AIは便利ですが「正しさ」を保証してくれるわけではありません。特に実務では、セキュリティと品質の観点を先に決めておくと事故を防げます。
           </p>
           <ul className="mt-6 space-y-3 text-sm leading-7 text-gray-700">
@@ -477,8 +497,11 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIリブートアカデミーで、AIを「実務で使える型」へ
           </h2>
+          <p className="mt-4 text-base font-medium leading-8 text-gray-900">
+            結論: 成果を分けるのはツール名よりも「入力の設計（前提・制約・出力形式）」「レビュー手順」「小さく回す運用」です。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            AIコーディングは、ツール名よりも「入力の設計（前提・制約・出力形式）」「レビュー手順」「小さく回す運用」が成果を分けます。体系的に学び、実務へつなげたい方はアカデミーの講座一覧をご覧ください。
+            体系的に学び、実務へつなげたい方はアカデミーの講座一覧をご覧ください。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
