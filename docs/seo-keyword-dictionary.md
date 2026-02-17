@@ -1,6 +1,6 @@
 # SEOキーワード辞書 - AIリブートアカデミー
 
-## 更新日: 2026-02-16
+## 更新日: 2026-02-17
 
 ## 既存キーワード棚卸し（/academy）
 
@@ -86,9 +86,9 @@
 ### D. AIスキル・資格・学習
 | キーワード | 検索意図 | 優先度 | 対応状況 | 対応ページ/施策 |
 |---|---|---|---|---|
-| AI資格 おすすめ | 取得対象を絞りたい | A | 未対応 | 新規: `/academy/blog/ai-certification-recommendation` |
-| AI資格 一覧 | 資格の全体像を知りたい | A | 未対応 | 新規: `/academy/blog/ai-certification-list` |
-| AI資格 難易度 | 学習難易度を把握したい | A | 未対応 | 新規: `/academy/blog/ai-certification-difficulty` |
+| AI資格 おすすめ | 取得対象を絞りたい | A | 対応済み | `/academy/blog/ai-certification-guide` |
+| AI資格 一覧 | 資格の全体像を知りたい | A | 対応済み | `/academy/blog/ai-certification-guide` |
+| AI資格 難易度 | 学習難易度を把握したい | A | 対応済み | `/academy/blog/ai-certification-guide` |
 | 生成AI 学び方 | 学習手順を知りたい | S | 対応済み | `/academy/blog/how-to-learn-generative-ai` |
 | AIスキル 独学 | 独学で進める可否を知りたい | A | 対応済み | `/academy/ai-training-for-individuals` |
 | AI 勉強法 社会人 | 時間制約下で学びたい | A | 対応済み | `/academy/blog/how-to-learn-generative-ai` |
@@ -101,7 +101,7 @@
 | キーワード | 検索意図 | 優先度 | 対応状況 | 対応ページ/施策 |
 |---|---|---|---|---|
 | AI 転職 | 転職可能性を知りたい | A | 部分対応 | `/academy/blog/ai-career-change-cases` |
-| AIエンジニア 転職 未経験 | 未経験転職の道筋を知りたい | A | 未対応 | 新規: `/academy/blog/ai-engineer-career-change` |
+| AIエンジニア 転職 未経験 | 未経験転職の道筋を知りたい | A | 対応済み | `/academy/blog/ai-engineer-career-change` |
 | AI時代 仕事 なくなる | 将来不安を解消したい | A | 対応済み | `/academy/blog/skills-for-ai-era-career` |
 | AI時代 必要なスキル | 必須スキルを把握したい | S | 対応済み | `/academy/blog/skills-for-ai-era-career` |
 | DX人材 リスキリング | DX文脈の学び直しを知りたい | A | 部分対応 | `/academy/meti-reskilling-comparison` |
@@ -117,7 +117,7 @@
 | リスキリング補助金 個人 | 対象可否を知りたい | S | 対応済み | `/academy/subsidy-guide` |
 | リスキリング補助金 2026 | 最新制度を確認したい | S | 対応済み | `/academy/subsidy-guide` |
 | 教育訓練給付金 AI講座 | 制度差分を比較したい | A | 部分対応 | `/academy/subsidy-eligible-courses`（FAQ） |
-| DXリスキリング 助成金 | 企業向け助成制度を知りたい | A | 未対応 | 新規: `/academy/blog/dx-reskilling-subsidy-guide` |
+| DXリスキリング 助成金 | 企業向け助成制度を知りたい | A | 対応済み | `/academy/blog/dx-reskilling-subsidy-guide` |
 | AI講座 費用 相場 | 価格妥当性を判断したい | A | 部分対応 | `/academy/ai-course-comparison` |
 | AI講座 料金 比較 | 料金軸で比較したい | S | 対応済み | `/academy/ai-course-comparison` |
 | AIスクール 安い | 低価格候補を探したい | A | 部分対応 | `/academy/ai-course-comparison`（価格軸拡張） |
@@ -130,7 +130,7 @@
 |---|---|---|---|---|
 | AI講座 比較 | 比較検討したい | S | 対応済み | `/academy/ai-course-comparison` |
 | AI講座 おすすめ | 推奨講座を知りたい | S | 対応済み | `/academy/reskilling-course-recommendation` |
-| AI講座 ランキング | ランキングで選びたい | A | 未対応 | 新規: `/academy/blog/ai-course-ranking` |
+| AI講座 ランキング | ランキングで選びたい | A | 対応済み | `/academy/blog/ai-course-ranking` |
 | AIスクール 社会人 おすすめ | 社会人向けに選びたい | S | 部分対応 | `/academy/ai-training-for-individuals` |
 | オンライン AI講座 | 受講形式で比較したい | A | 部分対応 | `/academy/seminars` + `/academy` |
 | 通学 AI講座 | オフライン受講を探したい | B | 未対応 | 新規: `/academy/blog/offline-ai-course-comparison` |
@@ -145,7 +145,7 @@
 | 最新 生成AI ニュース | 最新動向を追いたい | B | 未対応 | 新規: `/academy/blog/ai-news-monthly` |
 | GPT-5 できること | 新モデルの特徴を把握したい | B | 未対応 | 新規: `/academy/blog/gpt5-capabilities` |
 | Claude 4 使い方 | 新モデル活用法を知りたい | B | 未対応 | 新規: `/academy/blog/claude4-guide` |
-| AIエージェント とは | 概念理解したい | A | 未対応 | 新規: `/academy/blog/what-is-ai-agent` |
+| AIエージェント とは | 概念理解したい | A | 対応済み | `/academy/blog/what-is-ai-agent` |
 | AIエージェント 作り方 | 実装手順を知りたい | B | 未対応 | 新規: `/academy/blog/ai-agent-build-guide` |
 | RAG とは | 技術概要を知りたい | B | 未対応 | 新規: `/academy/blog/what-is-rag` |
 | RAG 活用事例 | 実務ユースケースを知りたい | B | 未対応 | 新規: `/academy/blog/rag-use-cases` |
@@ -184,16 +184,9 @@
 ## サマリー
 
 ### 対応済みキーワード数 / 全キーワード数
-- **31 / 100**
+- **38 / 100**
 
 ### 優先度S/Aで未対応のキーワード（次に作るべき候補）
-- AI資格 おすすめ
-- AI資格 一覧
-- AI資格 難易度
-- AIエンジニア 転職 未経験
-- DXリスキリング 助成金
-- AI講座 ランキング
-- AIエージェント とは
 
 ### 新規ページ提案（キーワードクラスタ別）
 1. 基礎入門クラスタ: **ChatGPT/Claude完全入門（初心者向け使い方・違い・最初の1週間）**
