@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】 | AIリブート";
 const pageDescription =
-  "「AI資格 おすすめ」「AI資格 一覧」「AI資格 難易度」を1記事で比較。G検定・E検定・AI実装検定・DS検定・AWS/GCP・Python試験を目的別に整理します。";
+  "「AI資格 おすすめ」「AI資格 一覧」「AI資格 難易度」を1記事で比較。G検定・E資格・AI実装検定・DS検定・AWS/GCP・Python試験を目的別に整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-certification-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-16T09:00:00+09:00";
-const modifiedTime = "2026-02-16T09:00:00+09:00";
+const modifiedTime = "2026-02-17T12:00:00+09:00";
 
 const faqItems = [
   {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     "AI資格 おすすめ",
     "AI資格 一覧",
     "AI資格 難易度",
-    "G検定 E検定 違い",
+    "G検定 E資格 違い",
     "AI資格 比較 2026",
   ],
   alternates: {

@@ -326,6 +326,19 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                リスキリング補助金ガイド（個人向け）
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/subsidy-eligible-courses"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                リスキリング補助金の対象講座の見分け方チェックリスト
+              </Link>
+            </li>
+            <li>
               <Link
                 href="/academy/blog/dx-reskilling-subsidy-guide"
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"

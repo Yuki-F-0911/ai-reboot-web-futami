@@ -28,7 +28,7 @@ const mapAxes = [
   {
     axis: "技術系",
     summary: "機械学習・深層学習の理論と設計を扱い、AIエンジニアとしての基礎体力を高める領域です。",
-    certifications: "E検定 / Google Cloud Professional ML Engineer",
+    certifications: "E資格 / Google Cloud Professional ML Engineer",
   },
   {
     axis: "実装系",
@@ -50,7 +50,7 @@ const difficultyLevels = [
   },
   {
     level: "上級",
-    items: "E検定、AWS Certified Machine Learning - Specialty、Google Cloud Professional ML Engineer、AI実装検定S級",
+    items: "E資格、AWS Certified Machine Learning - Specialty、Google Cloud Professional ML Engineer、AI実装検定S級",
     note: "理論理解と実務経験を求められやすい層。",
   },
 ] as const;
@@ -65,7 +65,7 @@ const comparisonRows = [
     fit: "非エンジニア、企画・営業、社内DX推進担当",
   },
   {
-    name: "E検定",
+    name: "E資格",
     organizer: "JDLA",
     difficulty: "上級",
     fee: "一般33,000円 / 学生22,000円 / 会員27,500円",
@@ -82,7 +82,7 @@ const comparisonRows = [
   },
   {
     name: "データサイエンティスト検定（DS検定）",
-    organizer: "DS協会",
+    organizer: "一般社団法人データサイエンティスト協会",
     difficulty: "入門〜中級",
     fee: "一般10,000円（税抜） / 学生5,000円（税抜）",
     period: "1〜3か月",
@@ -125,7 +125,7 @@ const recommendationItems = [
   },
   {
     title: "AIエンジニアを目指す人",
-    body: "E検定で理論を固めた上で、AWSまたはGCPのML系資格で運用スキルを補強すると実務に接続しやすくなります。",
+    body: "E資格で理論を固めた上で、AWSまたはGCPのML系資格で運用スキルを補強すると実務に接続しやすくなります。",
   },
   {
     title: "非エンジニアの第一歩",
@@ -136,7 +136,7 @@ const recommendationItems = [
 const selfStudySteps = [
   "1か月目: G検定またはDS検定の公式シラバスと問題集で基礎固め",
   "2か月目: Python演習やミニ課題で実装・分析の体験を追加",
-  "3か月目以降: 目標職種に合わせてE検定/AWS/GCPへ拡張",
+  "3か月目以降: 目標職種に合わせてE資格/AWS/GCPへ拡張",
 ] as const;
 
 const schoolBenefits = [
@@ -189,10 +189,10 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月16日に更新されました</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AI資格選びで迷う人向けに、主要資格を「難易度」「費用」「活かせる仕事」で整理しました。結論として、AI資格は目的で選ぶのが正解です。
-            ビジネス活用ならG検定、技術職ならE検定、実装力ならAI実装検定が有力候補です。
+            ビジネス活用ならG検定、技術職ならE資格、実装力ならAI実装検定が有力候補です。
           </p>
         </motion.header>
 
@@ -210,7 +210,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
             要点まとめ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            AI資格は目的で選ぶのが正解です。ビジネス活用ならG検定、技術職ならE検定、実装力ならAI実装検定がおすすめです。
+            AI資格は目的で選ぶのが正解です。ビジネス活用ならG検定、技術職ならE資格、実装力ならAI実装検定がおすすめです。
           </p>
         </motion.section>
 
@@ -301,9 +301,9 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
             </table>
           </div>
           <p className="mt-4 text-xs leading-6 text-gray-500">
-            受験費用と制度情報は2026年2月16日時点の公式公表値です。学習期間目安は公式の固定値ではなく、受験者の一般的な準備期間に基づく編集部目安です。
+            受験費用と制度情報は2026年2月時点の公式公表値です。学習期間目安は公式の固定値ではなく、受験者の一般的な準備期間に基づく編集部目安です。
             {/* TODO: 要ファクト確認 - G検定公式サイトで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - E検定公式サイトで最新情報を確認 */}
+            {/* TODO: 要ファクト確認 - E資格公式サイトで最新情報を確認 */}
             {/* TODO: 要ファクト確認 - AI実装検定公式サイトで最新情報を確認 */}
             {/* TODO: 要ファクト確認 - DS検定公式サイトで最新情報を確認 */}
             {/* TODO: 要ファクト確認 - AWS Certified Machine Learning - Specialty公式ページで最新情報を確認 */}
@@ -479,6 +479,19 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
             <li>
               <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 補助金ガイド
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/ai-course-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI講座比較｜失敗しない選び方
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/ai-training-for-individuals"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                個人向けAI研修の選び方（独学 vs スクール）
               </Link>
             </li>
             <li>

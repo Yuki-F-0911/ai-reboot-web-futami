@@ -51,7 +51,7 @@ const requirementItems = [
 const checklistItems: readonly ChecklistItem[] = [
   {
     id: 1,
-    title: "経済産業省の認定事業として案内されているか",
+    title: "制度の対象講座として案内されているか",
     description:
       "講座ページや説明会で「リスキリングを通じたキャリアアップ支援事業」の対象講座である旨が明記されているかを確認します。",
     checkPoint: "公式サイト情報と講座側の案内に矛盾がないかを確認する",
@@ -167,7 +167,7 @@ const SubsidyEligibleCoursesPage = ({ faqItems }: SubsidyEligibleCoursesPageProp
           <p className="mt-5 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
             対象講座は、単なるスキル学習ではなく、キャリアアップに接続する支援設計が前提です。要件を満たすと、受講費用の
             <span className="font-bold"> 最大70%（上限56万円）</span>
-            が補助されます。講座選定時は、公式情報と講座提供事業者の案内を必ず照合してください。
+            相当が負担軽減されます（補助は補助事業者へ交付され、受講者は割引等として受ける形が一般的です）。講座選定時は、公式情報と講座提供事業者の案内を必ず照合してください。
           </p>
           <motion.ul
             className="mt-7 border-t border-slate-200"
@@ -212,6 +212,9 @@ const SubsidyEligibleCoursesPage = ({ faqItems }: SubsidyEligibleCoursesPageProp
         >
           <p className={sectionLabelClass}>CHECKLIST</p>
           <h2 className={sectionHeadingClass}>対象講座の見分け方チェックリスト</h2>
+          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
+            結論として、公式情報・事業者の最新案内・更新日の3点を揃えると、誤認を避けやすくなります。
+          </p>
           <motion.dl
             className="mt-8 border-t border-slate-200"
             variants={listReveal}
@@ -253,6 +256,9 @@ const SubsidyEligibleCoursesPage = ({ faqItems }: SubsidyEligibleCoursesPageProp
         >
           <p className={sectionLabelClass}>CAUTION</p>
           <h2 className={sectionHeadingClass}>よくある誤解・注意点</h2>
+          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
+            先に「どの制度の話か」を切り分け、満額前提の比較を避けるだけで、講座選びのミスは減らせます。
+          </p>
           <motion.ol
             className="mt-8 border-t border-slate-200"
             variants={listReveal}
@@ -334,7 +340,7 @@ const SubsidyEligibleCoursesPage = ({ faqItems }: SubsidyEligibleCoursesPageProp
                 href="/academy/meti-reskilling-comparison"
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
-                経産省認定講座の比較ポイント
+                経産省制度対象講座の比較ポイント
               </Link>
             </li>
             <li>
@@ -351,6 +357,11 @@ const SubsidyEligibleCoursesPage = ({ faqItems }: SubsidyEligibleCoursesPageProp
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 リスキリング講座おすすめガイド
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                無料セミナー・説明会一覧
               </Link>
             </li>
           </ul>

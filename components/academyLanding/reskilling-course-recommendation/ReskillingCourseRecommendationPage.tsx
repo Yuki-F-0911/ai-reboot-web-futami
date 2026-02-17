@@ -152,6 +152,9 @@ const ReskillingCourseRecommendationPage = ({ faqItems }: ReskillingCourseRecomm
         >
           <p className={sectionLabelClass}>CRITERIA</p>
           <h2 className={sectionHeadingClass}>おすすめ講座の選定基準</h2>
+          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
+            結論として、目的一致とAI実践性を先に揃え、最後に補助金対応を確認すると比較の精度が上がります。
+          </p>
 
           <motion.ol
             className="mt-8 border-t border-slate-200"
@@ -187,6 +190,9 @@ const ReskillingCourseRecommendationPage = ({ faqItems }: ReskillingCourseRecomm
         >
           <p className={sectionLabelClass}>BY PURPOSE</p>
           <h2 className={sectionHeadingClass}>目的別おすすめ</h2>
+          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
+            目的が違うと最適解は変わります。ここでは「優先すべき成果」から逆算して整理します。
+          </p>
 
           <motion.div
             className="mt-8 grid gap-6 lg:grid-cols-3"
@@ -221,6 +227,9 @@ const ReskillingCourseRecommendationPage = ({ faqItems }: ReskillingCourseRecomm
         >
           <p className={sectionLabelClass}>SUBSIDY</p>
           <h2 className={sectionHeadingClass}>補助金が使える講座の見分け方</h2>
+          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
+            結論として、公式情報への導線があるかどうかで、制度適用の誤解を減らせます。
+          </p>
           <ul className="mt-8 rounded-lg border border-slate-200">
             {subsidyCheckItems.map((item, index) => (
               <li key={item} className="border-b border-slate-200 px-5 py-4 last:border-b-0">
@@ -244,6 +253,9 @@ const ReskillingCourseRecommendationPage = ({ faqItems }: ReskillingCourseRecomm
         >
           <p className={sectionLabelClass}>FINAL CHECK</p>
           <h2 className={sectionHeadingClass}>失敗しないための3つのチェックポイント</h2>
+          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
+            比較表の前に、最低限この3点だけ確認するとミスマッチを避けやすいです。
+          </p>
           <ul className="mt-8 rounded-lg border border-slate-200">
             {finalCheckpoints.map((item, index) => (
               <li key={item} className="border-b border-slate-200 px-5 py-4 last:border-b-0">

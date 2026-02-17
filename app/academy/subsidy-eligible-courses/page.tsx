@@ -5,7 +5,7 @@ import { FAQStructuredData } from "@/components/seo/StructuredData";
 const subsidyEligibleCoursesTitle =
   "リスキリング補助金の対象講座とは？見分け方チェックリスト | AIリブートアカデミー";
 const subsidyEligibleCoursesDescription =
-  "「リスキリングを通じたキャリアアップ支援事業」の対象講座を見分けるチェックリストを解説。経産省認定、キャリア相談、転職支援、申請サポートの確認ポイントを整理しました。";
+  "「リスキリングを通じたキャリアアップ支援事業」の対象講座を見分けるチェックリストを解説。制度対象の案内、キャリア相談、転職支援、申請サポートの確認ポイントを整理しました。";
 const subsidyEligibleCoursesUrl = "https://ai-reboot.io/academy/subsidy-eligible-courses";
 
 const subsidyEligibleCoursesFaqItems = [
@@ -27,7 +27,7 @@ const subsidyEligibleCoursesFaqItems = [
   {
     question: "補助金はどのくらいですか？",
     answer:
-      "本制度では、要件を満たすと受講費用の最大70%（上限56万円）が補助されます。内訳や適用条件は講座ごとに確認が必要です。",
+      "本制度では、要件を満たすと受講費用の最大70%相当（上限56万円）まで負担が軽減されます（補助は補助事業者へ交付され、受講者は割引等として受ける形が一般的です）。内訳や適用条件は講座ごとに確認が必要です。",
   },
   {
     question: "受講後に転職しなかった場合はどうなりますか？",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   keywords: [
     "リスキリング補助金 対象講座",
     "リスキリングを通じたキャリアアップ支援事業",
-    "経産省認定 リスキリング講座",
+    "経産省 制度対象 リスキリング講座",
   ],
   alternates: {
     canonical: subsidyEligibleCoursesUrl,

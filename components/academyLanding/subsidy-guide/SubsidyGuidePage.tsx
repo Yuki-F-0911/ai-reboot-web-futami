@@ -73,14 +73,14 @@ const ineligibleItems = [
 const simulationRows = [
   {
     caseLabel: "受講修了まで完了",
-    subsidyRate: "50%",
+    subsidyRate: "1/2",
     subsidyAmount: "¥150,000",
     outOfPocket: "¥180,000",
     condition: "講座修了",
   },
   {
     caseLabel: "追加補助まで達成",
-    subsidyRate: "最大70%",
+    subsidyRate: "最大70%相当",
     subsidyAmount: "¥210,000",
     outOfPocket: "¥120,000",
     condition: "転職後1年継続就業",
@@ -102,11 +102,11 @@ const flowSteps = [
   },
   {
     title: "受講修了で一次補助",
-    description: "受講修了要件を満たすと、受講費用の50%が補助対象になります。",
+    description: "受講修了要件を満たすと、受講費用の1/2（上限40万円）が補助対象になります。",
   },
   {
     title: "転職後1年継続で追加補助",
-    description: "追加20%の条件を満たすと、合計で最大70%まで補助されます。",
+    description: "転職先で1年継続就業などの要件を満たすと、追加1/5（上限16万円）が補助対象になります。",
   },
 ] as const;
 
@@ -175,7 +175,7 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
           <div className="mt-6 rounded-2xl border border-orange-300 bg-white p-5 shadow-sm">
             <h2 className="text-lg sm:text-xl font-bold text-slate-900">結論: まず押さえるポイント</h2>
             <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-700">
-              経済産業省公式情報の補助率は、受講修了で50% + 条件達成で追加20%（合計最大70%、上限56万円）です。
+              経済産業省公式情報では、受講修了で受講費用の1/2（上限40万円）、転職先で1年継続就業で追加1/5（上限16万円）など段階要件があり、合計で最大70%相当（上限56万円）となります。
               AIリブートアカデミー受講料¥330,000（税込、税抜¥300,000）の計算例では、実質負担は¥120,000〜¥180,000が目安です。
             </p>
           </div>
@@ -226,7 +226,7 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
             リスキリング、転職支援を一体で提供する講座を通じて、在職者のキャリアアップを支援する枠組みです。
           </p>
           <p className="mt-4 max-w-4xl text-base sm:text-lg leading-relaxed text-slate-700">
-            補助は2段階で、受講修了時に50%、転職後1年間の継続就業で追加20%が適用されます。リスキリング補助金
+            補助は段階要件で、受講修了で受講費用の1/2（上限40万円）、転職先で1年間の継続就業で追加1/5（上限16万円）などが適用されます。リスキリング補助金
             対象講座を選ぶ際は、制度対象であることに加え、申請サポート体制の有無も重要です。
           </p>
 
@@ -352,7 +352,10 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
           </div>
           <div className="mt-5 space-y-2 text-sm text-slate-600">
             <p>※ AIリブートアカデミー受講料¥330,000（税込、税抜¥300,000）を基準にした計算例です。</p>
-            <p>※ 補助率の上限は受講修了時50% + 条件達成時20%で、合計最大70%です。</p>
+            <p>※ 補助の上限は受講修了で受講費用の1/2（上限40万円）、条件達成で追加1/5（上限16万円）など、合計最大70%相当（上限56万円）です。</p>
+            <p>
+              ※ 補助は補助事業者へ交付され、受講者は受講費用の軽減として受ける形が一般的です。適用タイミングや手続きは募集回・事業者により異なる場合があります。
+            </p>
             {/* TODO: 要ファクト確認 - 税込総額ベースの「約¥99,000〜¥165,000」表記を使う場合は公式根拠の明示が必要 */}
             <p>※ 制度は年度ごとに変更される可能性があります。最新条件は説明会で確認してください。</p>
           </div>
@@ -497,6 +500,24 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 リスキリング補助金 対象講座の見分け方
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/meti-reskilling-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                経産省制度対象講座の比較ポイント
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/ai-course-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI講座比較｜失敗しない選び方
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/education-training-benefit-ai"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                教育訓練給付金でAI講座を受講するガイド
               </Link>
             </li>
           </ul>
