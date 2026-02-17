@@ -20,11 +20,12 @@ export function ArticleStructuredData({
   publishedTime,
   modifiedTime,
   imageUrl,
-  authorName = 'AI REBOOT編集部',
+  authorName = 'AIリブート編集部',
   articleType = 'Article',
   publisherName = 'AI REBOOT',
-  publisherLogoUrl = 'https://ai-reboot.io/logo.png',
+  publisherLogoUrl = 'https://ai-reboot.io/images/logo.png',
 }: ArticleStructuredDataProps) {
+  const authorType = authorName.includes('編集部') ? 'Organization' : 'Person'
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': articleType,
@@ -34,7 +35,7 @@ export function ArticleStructuredData({
     datePublished: publishedTime,
     dateModified: modifiedTime || publishedTime,
     author: {
-      '@type': 'Person',
+      '@type': authorType,
       name: authorName,
     },
     publisher: {

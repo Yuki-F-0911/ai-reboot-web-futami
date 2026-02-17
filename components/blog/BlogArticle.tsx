@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { News } from '@/lib/microcms'
 import { Marked, Tokens } from 'marked'
-import { ArticleStructuredData, BreadcrumbStructuredData } from '@/components/seo/StructuredData'
+import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from '@/components/seo/StructuredData'
 import ArticleShareButtons from '@/components/blog/ArticleShareButtons'
 
 interface BlogArticleProps {
@@ -65,7 +65,13 @@ async function renderContent(article: News): Promise<{ htmlContent: string; toc:
 
   marked.use({ renderer })
   const parsed = marked.parse(article['md-content'])
-  const htmlContent = typeof parsed === 'string' ? parsed : await parsed
+  const htmlContentRaw = typeof parsed === 'string' ? parsed : await parsed
+  const htmlContent = htmlContentRaw.replace(/<img\\b([^>]*)>/g, (_match, attrs: string) => {
+    const hasLoading = /\\sloading=/.test(attrs)
+    const hasDecoding = /\\sdecoding=/.test(attrs)
+    const nextAttrs = `${attrs}${hasLoading ? '' : ' loading="lazy"'}${hasDecoding ? '' : ' decoding="async"'}`
+    return `<img${nextAttrs}>`
+  })
 
   return { htmlContent, toc }
 }
@@ -76,6 +82,113 @@ function calculateReadTime(content: string): number {
   return Math.max(1, Math.ceil(text.length / charsPerMinute))
 }
 
+function toPlainText(input: string): string {
+  return input
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/!\[[^\]]*]\([^)]+\)/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[`*_>#-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function extractFaqItemsFromMarkdown(markdown?: string): Array<{ question: string; answer: string }> {
+  if (!markdown) return []
+
+  const lines = markdown.split('\n')
+  const faqHeadingRegex = /^#{2,6}\s*(faq|ｆａｑ|よくある質問|よくあるご質問)(\s|$)/i
+
+  let startIndex = -1
+  let startHeadingLevel = 0
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i].trim()
+    if (!faqHeadingRegex.test(line)) continue
+
+    const m = line.match(/^(#{2,6})\s+/)
+    startHeadingLevel = m?.[1]?.length ?? 2
+    startIndex = i + 1
+    break
+  }
+
+  if (startIndex < 0) return []
+
+  let endIndex = lines.length
+  for (let i = startIndex; i < lines.length; i += 1) {
+    const line = lines[i].trim()
+    const headingMatch = line.match(/^(#{1,6})\s+/)
+    if (!headingMatch) continue
+    const level = headingMatch[1].length
+    if (level <= startHeadingLevel) {
+      endIndex = i
+      break
+    }
+  }
+
+  const sectionLines = lines.slice(startIndex, endIndex)
+  const sectionText = sectionLines.join('\n').trim()
+  if (!sectionText) return []
+
+  const items: Array<{ question: string; answer: string }> = []
+  let currentQuestion: string | null = null
+  let currentAnswerLines: string[] = []
+
+  const flush = () => {
+    if (!currentQuestion) return
+    const question = toPlainText(currentQuestion)
+    const answer = toPlainText(currentAnswerLines.join('\n'))
+    if (!question || !answer) {
+      currentQuestion = null
+      currentAnswerLines = []
+      return
+    }
+    items.push({ question, answer })
+    currentQuestion = null
+    currentAnswerLines = []
+  }
+
+  const questionHeadingRegex = /^#{3,6}\s*(?:q(?:\d+)?[.：:]?\s*)?(.+)\s*$|^[-*]?\s*\*\*\s*q(?:\d+)?[.：:]?\s*(.+?)\s*\*\*\s*$/i
+  const questionLineRegex = /^[-*]?\s*(?:q(?:\d+)?[.：:]|\*\*q(?:\d+)?[.：:]\*\*)\s*(.+)\s*$/i
+  const answerLineRegex = /^[-*]?\s*(?:a[.：:]|\*\*a[.：:]\*\*)\s*(.+)\s*$/i
+
+  for (const rawLine of sectionLines) {
+    const line = rawLine.trim()
+    if (!line) {
+      if (currentQuestion) currentAnswerLines.push('')
+      continue
+    }
+
+    const headingMatch = line.match(questionHeadingRegex)
+    if (headingMatch) {
+      flush()
+      currentQuestion = (headingMatch[1] ?? headingMatch[2] ?? '').trim()
+      continue
+    }
+
+    const questionMatch = line.match(questionLineRegex)
+    if (questionMatch) {
+      flush()
+      currentQuestion = questionMatch[1].trim()
+      continue
+    }
+
+    const answerMatch = line.match(answerLineRegex)
+    if (answerMatch) {
+      if (!currentQuestion) continue
+      currentAnswerLines.push(answerMatch[1].trim())
+      continue
+    }
+
+    if (currentQuestion) {
+      currentAnswerLines.push(line)
+    }
+  }
+
+  flush()
+
+  return items.filter((item) => item.question.length >= 4 && item.answer.length >= 10)
+}
+
 export default async function BlogArticle({
   article,
   relatedArticles,
@@ -84,6 +197,7 @@ export default async function BlogArticle({
   const articleUrl = `${siteUrl}/blog/${article.id}`
   const articleDescription = article.description || article.title
   const articleImageUrl = article.thumbnail?.url ?? defaultArticleImageUrl
+  const faqItems = extractFaqItemsFromMarkdown(article['md-content'])
   const { htmlContent, toc } = await renderContent(article)
   const readTime = calculateReadTime(htmlContent)
 
@@ -106,6 +220,7 @@ export default async function BlogArticle({
           { name: article.title, url: articleUrl },
         ]}
       />
+      {faqItems.length >= 2 && <FAQStructuredData items={faqItems} />}
 
       <div className="min-h-screen bg-white">
       {/* ヒーローセクション */}

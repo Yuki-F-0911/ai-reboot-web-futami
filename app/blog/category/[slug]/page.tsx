@@ -11,6 +11,9 @@ interface PageProps {
   params: Promise<{ slug: string }>
 }
 
+const siteUrl = 'https://ai-reboot.io'
+const defaultOgImageUrl = `${siteUrl}/images/ogp-default.webp`
+
 // カテゴリーのメタデータ
 const categoryMetadata: Record<string, { title: string; description: string }> = {
   'featured': {
@@ -48,10 +51,37 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: 'カテゴリーが見つかりません | AIリブートジャーナル',
     }
   }
+
+  const canonicalUrl = `${siteUrl}/blog/category/${slug}`
+  const title = `${meta.title} | AIリブートジャーナル`
   
   return {
-    title: `${meta.title} | AIリブートジャーナル`,
+    title,
     description: meta.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description: meta.description,
+      url: canonicalUrl,
+      type: 'website',
+      siteName: 'AI REBOOT',
+      images: [
+        {
+          url: defaultOgImageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: meta.description,
+      images: [defaultOgImageUrl],
+    },
   }
 }
 

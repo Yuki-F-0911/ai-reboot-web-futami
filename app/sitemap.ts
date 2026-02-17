@@ -2,12 +2,28 @@ import { MetadataRoute } from "next";
 import { News } from "@/lib/microcms";
 import { getBlogArticles, getNewsArticles } from "@/lib/microcms-helper";
 import type { Dirent } from "node:fs";
-import { readdir, stat } from "node:fs/promises";
+import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 
 const baseUrl = "https://ai-reboot.io";
 
 export const runtime = "nodejs";
+
+async function getRouteLastModifiedFromPageConst(pagePath: string, constName: string): Promise<Date | null> {
+  let source: string;
+  try {
+    source = await readFile(pagePath, "utf8");
+  } catch {
+    return null;
+  }
+
+  const match = source.match(new RegExp(`const\\s+${constName}\\s*=\\s*["']([^"']+)["']`));
+  if (!match?.[1]) return null;
+
+  const parsed = new Date(match[1]);
+  if (Number.isNaN(parsed.getTime())) return null;
+  return parsed;
+}
 
 async function getAppRouteSlugs(routeDirFromAppRoot: string): Promise<string[]> {
   const absoluteRouteDir = path.join(process.cwd(), "app", routeDirFromAppRoot);
@@ -132,12 +148,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const academyBlogSlugs = await getAppRouteSlugs("academy/blog");
-  const academyBlogPages: MetadataRoute.Sitemap = academyBlogSlugs.map((slug) => ({
-    url: `${baseUrl}/academy/blog/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
+  const academyBlogPages: MetadataRoute.Sitemap = await Promise.all(
+    academyBlogSlugs.map(async (slug) => {
+      const pagePath = path.join(process.cwd(), "app", "academy", "blog", slug, "page.tsx");
+      const [modifiedTime, fileStats] = await Promise.all([
+        getRouteLastModifiedFromPageConst(pagePath, "modifiedTime"),
+        stat(pagePath).catch(() => null),
+      ]);
+
+      return {
+        url: `${baseUrl}/academy/blog/${slug}`,
+        lastModified: modifiedTime ?? fileStats?.mtime ?? now,
+        changeFrequency: "monthly",
+        priority: 0.7,
+      };
+    })
+  );
 
   const [newsResult, blogResult] = await Promise.all([
     getNewsArticles(1000, 0),

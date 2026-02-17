@@ -1,18 +1,13 @@
 import { NextResponse } from 'next/server'
-import { getNewsList, News } from '@/lib/microcms'
+import { News } from '@/lib/microcms'
+import { getBlogArticles } from '@/lib/microcms-helper'
 
 export async function GET() {
-  const result = await getNewsList(50, 0)
-  
-  // リスト形式のレスポンスかチェック
-  if (!('contents' in result)) {
-    return new NextResponse('Error generating feed', { status: 500 })
-  }
-  
-  const { contents: articles } = result
+  const { contents: articles } = await getBlogArticles(50, 0)
   
   const baseUrl = 'https://ai-reboot.io'
   const feedUrl = `${baseUrl}/blog/feed.xml`
+  const editorialName = 'AIリブート編集部'
   
   // RSS 2.0 フィードの生成
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
@@ -26,11 +21,11 @@ export async function GET() {
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml"/>
     <generator>AI REBOOT</generator>
     <copyright>© 2025 WILL FORWARD Inc. All rights reserved.</copyright>
-    <webMaster>contact@ai-reboot.io (AI REBOOT編集部)</webMaster>
-    <managingEditor>contact@ai-reboot.io (AI REBOOT編集部)</managingEditor>
+    <webMaster>contact@ai-reboot.io (${editorialName})</webMaster>
+    <managingEditor>contact@ai-reboot.io (${editorialName})</managingEditor>
     <ttl>60</ttl>
     <image>
-      <url>${baseUrl}/logo.png</url>
+      <url>${baseUrl}/images/logo.png</url>
       <title>AIリブートジャーナル</title>
       <link>${baseUrl}/blog</link>
     </image>
@@ -41,9 +36,9 @@ export async function GET() {
       <link>${baseUrl}/blog/${article.id}</link>
       <guid isPermaLink="true">${baseUrl}/blog/${article.id}</guid>
       <pubDate>${new Date(article.publishedAt).toUTCString()}</pubDate>
-      <author>contact@ai-reboot.io (AI REBOOT編集部)</author>
+      <author>contact@ai-reboot.io (${editorialName})</author>
       ${article.category ? `<category>${getCategoryLabel(typeof article.category === 'string' ? article.category : article.category[0])}</category>` : ''}
-      ${article.thumbnail ? `<enclosure url="${article.thumbnail.url}" type="image/jpeg" length="0"/>` : ''}
+      ${article.thumbnail ? `<enclosure url="${article.thumbnail.url}" type="${getImageMimeType(article.thumbnail.url)}" length="0"/>` : ''}
       ${article.tags ? article.tags.map(tag => `<category>${tag}</category>`).join('') : ''}
       <content:encoded><![CDATA[
         ${article.thumbnail ? `<img src="${article.thumbnail.url}" alt="${article.title}" /><br/>` : ''}
@@ -74,4 +69,14 @@ function getCategoryLabel(category: string): string {
     'event': 'イベント',
   }
   return labels[category] || category
+}
+
+function getImageMimeType(url: string): string {
+  const normalized = url.toLowerCase()
+  if (normalized.endsWith('.png')) return 'image/png'
+  if (normalized.endsWith('.webp')) return 'image/webp'
+  if (normalized.endsWith('.gif')) return 'image/gif'
+  if (normalized.endsWith('.svg')) return 'image/svg+xml'
+  if (normalized.endsWith('.jpg') || normalized.endsWith('.jpeg')) return 'image/jpeg'
+  return 'image/*'
 }

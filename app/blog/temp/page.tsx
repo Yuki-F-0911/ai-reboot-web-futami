@@ -5,6 +5,10 @@ import { getNewsList, News } from '@/lib/microcms'
 export const metadata: Metadata = {
   title: 'ブログ（テスト） | AI REBOOT',
   description: 'テスト用ページ - すべての記事を表示',
+  robots: {
+    index: false,
+    follow: false,
+  },
 }
 
 export default async function BlogTempPage() {
