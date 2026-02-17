@@ -358,7 +358,14 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
             研修費用を抑えたい企業は、制度活用の有無で実質負担が変わります。まず対象条件と申請時期を確認し、導入スケジュールと合わせて計画してください。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
-            詳しくは
+            個人向けのリスキリング補助金と法人向けの助成金は制度が異なります。法人向けの研修プランと助成金の詳細は
+            <Link href="/corporate" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              法人研修ページ
+            </Link>
+            で確認できます。
+          </p>
+          <p className="mt-2 text-sm leading-7 text-gray-700">
+            個人でリスキリングを検討する方は
             <Link href="/academy/subsidy-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               補助金ガイド
             </Link>
@@ -393,6 +400,11 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link href="/corporate" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                法人向けAI研修プラン
+              </Link>
+            </li>
+            <li>
               <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 補助金ガイド
               </Link>
@@ -419,17 +431,17 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="free-seminar" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            まずは無料セミナーで体験
+            法人向け研修を検討する方へ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            どこから導入すべきか迷う場合は、無料セミナーで全体像を確認し、個別相談で業務課題を具体化する進め方が最短です。御社の課題に合った進め方をご提案します。
+            生成AIの全社導入は、業務課題に合わせた研修設計と実行支援まで含めて検討することが重要です。法人向けページでプランを確認し、必要に応じて導入相談をご予約ください。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/academy/seminars"
+              href="/corporate"
               className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
             >
-              無料セミナーに参加する
+              法人研修の詳細を見る
             </Link>
             <Link
               href="/briefing"
