@@ -9,13 +9,13 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-image-generation-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-18T12:00:00+09:00";
+const modifiedTime = "2026-02-18T18:00:00+09:00";
 
 const faqItems = [
   {
     question: "Geminiの画像生成は無料で使えますか？",
     answer:
-      "無料で試せる場合がありますが、利用回数や機能に制限があることが一般的です。仕様は更新されるため、最新の利用条件は公式情報で確認してください（「Nano Banana」は通称として紹介されることがあります）。",
+      "無料で試せる場合がありますが、利用回数や機能に制限があることが一般的です。仕様は更新されるため、最新の利用条件は公式情報で確認してください（「Nano Banana（Pro）」は画像生成機能の呼称として紹介されることがあります）。",
   },
   {
     question: "Midjourneyはどこから使えばよいですか？",
@@ -25,7 +25,7 @@ const faqItems = [
   {
     question: "ChatGPTで画像生成は使えますか？",
     answer:
-      "ChatGPT上で画像生成機能が提供される場合があり、会話の流れで指示しやすいのが特徴です。DALL·E等の提供状況を含め、利用可否や回数は契約プランや提供状況で異なるため、公式情報で確認してください。",
+      "ChatGPT上で画像生成機能が提供される場合があり、会話の流れで指示しやすいのが特徴です。GPT Image / DALL·E 3等の提供状況を含め、利用可否や回数は契約プランや提供状況で異なるため、公式情報で確認してください。",
   },
   {
     question: "Stable Diffusionは初心者でも扱えますか？",

@@ -41,13 +41,13 @@ const basicInfoRows = [
   },
   {
     label: "代表的なモデル系統（例）",
-    gpt: "GPT系（例: GPT-5 / GPT-5.2 など。提供名や選択肢は時期により変動）",
-    claude: "Claude系（例: Claude 4.5 Sonnet / Claude 4.6 Opus など。提供名や選択肢は時期により変動）",
+    gpt: "GPT系（例: GPT-5.2（Instant/Thinking）/ o3 / o4-mini / GPT-4o（API）など。提供名や選択肢は時期により変動）",
+    claude: "Claude系（例: Claude Opus 4.1 / Claude Sonnet 4 / Claude Haiku 3.5 など。提供名や選択肢は時期により変動）",
   },
   {
     label: "リリース時期（目安）",
     gpt: "GPT-4は2023年以降に一般向けで広く利用が進んだ系統（その後も継続的にモデル更新）",
-    claude: "Claude 3は2024年以降に一般向けで広く利用が進んだ系統（その後も継続的にモデル更新）",
+    claude: "Claudeは2024年以降に一般向けで広く利用が進んだ系統（その後も継続的にモデル更新）",
   },
   {
     label: "注意点",

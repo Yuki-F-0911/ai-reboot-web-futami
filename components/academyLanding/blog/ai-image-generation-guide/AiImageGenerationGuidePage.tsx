@@ -55,7 +55,7 @@ const toolComparisonRows = [
     tool: "ChatGPT（画像生成）",
     strengths: "会話の文脈を踏まえて指示を調整しやすく、修正依頼が自然言語でできる。",
     howToStart: "ChatGPTで画像生成が利用できる環境で、目的と禁止事項を文章で伝える。",
-    caution: "利用可否・回数・出力仕様（DALL·E等の提供状況含む）はプランや提供状況で変わるため公式で確認する。",
+    caution: "利用可否・回数・出力仕様（GPT Image / DALL·E 3等の提供状況含む）はプランや提供状況で変わるため公式で確認する。",
     fit: "文章とセットで、提案資料やSNS素材を効率よく作りたい人。",
   },
   {
@@ -144,7 +144,7 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AI画像生成は手軽になった一方で、「どのツールを選ぶべきか」「商用利用は大丈夫か」で迷いやすくなりました。
-            この記事では、Gemini/Midjourney/ChatGPT/Stable Diffusion/Fireflyを用途別に比較し、始め方・使いどころ・注意点を結論先出しで整理します（「Nano Banana」はGeminiの通称として紹介されることがあります）。
+            この記事では、Gemini/Midjourney/ChatGPT/Stable Diffusion/Fireflyを用途別に比較し、始め方・使いどころ・注意点を結論先出しで整理します（「Nano Banana（Pro）」はGeminiの画像生成機能の呼称として紹介されることがあります）。
             筆者はまず「作りたい素材の目的（SNS/提案/広告など）」を1つ決めてからツールを選ぶのが最短だと感じています。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-600">
@@ -170,7 +170,7 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
               まずは<strong className="font-semibold text-gray-900">目的（何の素材を作るか）</strong>を決めると、ツール選びとプロンプトがブレにくくなります。
             </li>
             <li className="pl-1 marker:text-gray-500">
-              <strong className="font-semibold text-gray-900">Google Gemini（画像生成）</strong>は日本語で始めやすく、まず試したい人向きです（「Nano Banana」と呼ばれることもあります）。
+              <strong className="font-semibold text-gray-900">Google Gemini（画像生成）</strong>は日本語で始めやすく、まず試したい人向きです（「Nano Banana（Pro）」と呼ばれることもあります）。
             </li>
             <li className="pl-1 marker:text-gray-500">
               <strong className="font-semibold text-gray-900">Midjourney</strong>は高品質なアート表現に強く、世界観づくりに向きます（Discord/公式UI）。
@@ -260,7 +260,7 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
             Google Gemini（画像生成）の使い方
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            「Nano Banana」は、Geminiの画像生成機能の通称として紹介されることがあります。実務では、文章で目的と制約を伝え、まずは小さく試して当たりの型を作るのが失敗しにくい方法です。
+            「Nano Banana（Pro）」は、Geminiの画像生成機能の呼称として紹介されることがあります。実務では、文章で目的と制約を伝え、まずは小さく試して当たりの型を作るのが失敗しにくい方法です。
           </p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">ステップ（初心者向け）</h3>
           <ol className="mt-5 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">

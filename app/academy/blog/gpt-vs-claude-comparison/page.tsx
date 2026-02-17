@@ -8,7 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/gpt-vs-claude-comparison";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-18T12:00:00+09:00";
+const modifiedTime = "2026-02-18T18:00:00+09:00";
 
 const faqItems = [
   {
@@ -17,7 +17,7 @@ const faqItems = [
       "迷ったら、業務での汎用性と外部ツール連携を重視するならGPT-4系、長文の推敲・要約や丁寧な文体を重視するならClaudeから試すのが分かりやすいです。最終的には「あなたの用途（入力の長さ / 目的 / 制約）」で相性が決まるため、本記事の比較軸で検証するのが最短です。",
   },
   {
-    question: "ChatGPTのGPT-4と、APIのGPT-4は同じですか？",
+    question: "ChatGPTで選べるモデルと、APIのモデルは同じですか？",
     answer:
       "同じ名称でも、提供形態（ChatGPT / API）や選択できるモデル、機能（ツール呼び出し、ファイル扱いなど）が異なる場合があります。まずは「どのプロダクトで使うか」を決め、その上でモデルと機能を比較するのがおすすめです。",
   },
