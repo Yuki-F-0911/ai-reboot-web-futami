@@ -8,7 +8,8 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/gemini-beginners-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-18T12:00:00+09:00";
+const modifiedTime = "2026-02-17T12:00:00+09:00";
+
 const faqItems = [
   {
     question: "Geminiは無料で使えますか？",
@@ -23,7 +24,7 @@ const faqItems = [
   {
     question: "Google AI Pro（旧: Gemini Advanced）とは何ですか？",
     answer:
-      "Geminiには有料の上位プランが提供される場合があります（例: Google AI Pro）。米国では月額$19.99（2TB）のプランとして案内されることがありますが、名称・料金・提供形態は更新されることがあるため、利用できる地域・契約・機能は公式のプラン情報で確認してください。",
+      "Geminiには有料の上位プランが提供される場合があります（例: Google AI Pro）。名称や提供形態は更新されることがあるため、利用できる地域・契約・機能は公式のプラン情報で確認してください。",
   },
   {
     question: "Google Workspaceの仕事で使えますか？",

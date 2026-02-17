@@ -237,7 +237,7 @@ export default function PythonAiIntroPage({ faqItems }: PythonAiIntroPageProps) 
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             Python × AI入門｜環境構築からはじめての機械学習までの学習ロードマップ
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             PythonでAI開発を始めるときに迷いやすいのは「環境構築」「何から学ぶべきか」「ライブラリの順番」です。この記事では、最短で1本作って学習を線にするために、環境選びから機械学習の実践、生成AI時代の活用までをロードマップ形式で整理します。
           </p>

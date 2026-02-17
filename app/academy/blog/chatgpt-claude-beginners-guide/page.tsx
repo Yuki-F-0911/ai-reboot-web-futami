@@ -8,7 +8,8 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/chatgpt-claude-beginners-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-18T12:00:00+09:00";
+const modifiedTime = "2026-02-17T12:00:00+09:00";
+
 const faqItems = [
   {
     question: "ChatGPTとClaudeはどちらから始めればよいですか？",
@@ -38,7 +39,7 @@ const faqItems = [
   {
     question: "有料プランへ切り替える判断基準はありますか？",
     answer:
-      "日常業務で継続利用し、応答品質や利用上限、追加機能の必要性が明確になった時点が判断しやすいです（例: 2026年2月時点の公式公表値ではChatGPT Plusは月額$20、ChatGPT Proは月額$200、Claude Proは月額$20。国/税で変動）。まずは無料プランで利用パターンを固めると選択ミスを減らせます。",
+      "日常業務で継続利用し、応答品質や利用上限、追加機能の必要性が明確になった時点が判断しやすいです。まずは無料プランで利用パターンを固めると選択ミスを減らせます。",
   },
 ] as const;
 

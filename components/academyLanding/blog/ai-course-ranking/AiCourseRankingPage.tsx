@@ -165,7 +165,7 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI講座ランキング2026｜選び方の基準と目的別おすすめ
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AI講座を比較するときは、知名度ではなく「目的適合」で選ぶことが重要です。本記事では、他社名を挙げずに評価基準と選び方を整理し、
             失敗しやすいポイントまで解説します。

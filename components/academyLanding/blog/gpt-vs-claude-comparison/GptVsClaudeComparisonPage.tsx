@@ -42,7 +42,7 @@ const basicInfoRows = [
   {
     label: "代表的なモデル系統（例）",
     gpt: "GPT系（例: GPT-5 / GPT-5.2 など。提供名や選択肢は時期により変動）",
-    claude: "Claude系（例: Claude Opus 4.1 / Claude Sonnet 4 など。提供名や選択肢は時期により変動）",
+    claude: "Claude系（例: Claude 4.5 Sonnet / Claude 4.6 Opus など。提供名や選択肢は時期により変動）",
   },
   {
     label: "リリース時期（目安）",
@@ -112,7 +112,7 @@ const pricingRows = [
   {
     axis: "個人プラン（サブスク）",
     point:
-      "月額制の有料プランで上限や機能が増えるのが一般的です（例: ChatGPT Plusは月額$20、ChatGPT Proは月額$200、Claude Proは月額$20。国/税で変動）。毎日使うか、業務の基幹用途かが判断材料になります。",
+      "月額制の有料プランで上限や機能が増えるのが一般的です。毎日使うか、業務の基幹用途かが判断材料になります。",
   },
   {
     axis: "チーム/法人",
@@ -206,7 +206,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             結論: 汎用性とワークフロー化を重視するならGPT-4系、長文の推敲や丁寧な説明を重視するならClaudeが相性良いことが多いです。
             ただし、モデル名・機能・料金は更新されるため、最終判断は「あなたの用途」で同一プロンプト比較するのが確実です。

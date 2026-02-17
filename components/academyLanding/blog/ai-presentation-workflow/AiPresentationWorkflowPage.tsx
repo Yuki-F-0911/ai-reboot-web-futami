@@ -159,7 +159,7 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
             ))}
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">AIでプレゼン資料を効率的に作る方法</h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AIを使えば、プレゼン資料作成（構成・原稿・デザイン・推敲）にかかる時間を大幅に短縮できます。コツは工程を分け、各工程で必要な入力と出力形式を固定することです。
             実務で使えるプロンプトの型は
@@ -510,7 +510,7 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
             監修・更新情報
           </h2>
           <p className="text-sm leading-7 text-gray-700">
-            監修: AIリブートアカデミー 編集部 / 最終更新日: 2026年2月18日
+            監修: AIリブートアカデミー 編集部 / 最終更新日: 2026年2月17日
           </p>
         </section>
       </article>

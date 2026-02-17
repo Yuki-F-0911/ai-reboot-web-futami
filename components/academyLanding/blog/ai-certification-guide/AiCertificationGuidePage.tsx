@@ -84,7 +84,7 @@ const comparisonRows = [
     name: "データサイエンティスト検定（DS検定）",
     organizer: "一般社団法人データサイエンティスト協会",
     difficulty: "入門〜中級",
-    fee: "一般11,000円（税込） / 学生5,500円（税込）",
+    fee: "一般10,000円（税抜） / 学生5,000円（税抜）",
     period: "1〜3か月",
     fit: "データ活用職、DX企画、アナリティクス担当",
   },
@@ -189,7 +189,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AI資格選びで迷う人向けに、主要資格を「難易度」「費用」「活かせる仕事」で整理しました。結論として、AI資格は目的で選ぶのが正解です。
             ビジネス活用ならG検定、技術職ならE資格、実装力ならAI実装検定が有力候補です。

@@ -9,6 +9,7 @@ const pageUrl = "https://ai-reboot.io/academy/blog/gpt-vs-claude-comparison";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
 const modifiedTime = "2026-02-18T12:00:00+09:00";
+
 const faqItems = [
   {
     question: "GPT-4とClaudeは結局どちらを選べばよいですか？",

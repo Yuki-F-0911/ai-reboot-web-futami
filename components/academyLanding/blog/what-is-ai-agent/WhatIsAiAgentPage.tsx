@@ -138,7 +138,7 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AIエージェントとは？定義・種類・作り方を初心者向けに解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AIエージェントは、単に回答を返すAIではなく、目標達成までの作業を段階的に進める仕組みです。本記事では「AIエージェント
             とは」の基本から、実務で使える導入ステップまで整理します。

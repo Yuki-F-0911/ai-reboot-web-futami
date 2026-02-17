@@ -163,7 +163,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             社内AI研修の始め方と定着の進め方
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月18日に更新されました</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月17日に更新されました</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             本記事は、外部研修サービスの比較ではなく、社内でAI研修を立ち上げて運用定着させる方法に絞って整理した実務ガイドです。
             DX推進と人材育成を同時に進めたい法人担当者向けに、設計から実装までの流れを解説します。

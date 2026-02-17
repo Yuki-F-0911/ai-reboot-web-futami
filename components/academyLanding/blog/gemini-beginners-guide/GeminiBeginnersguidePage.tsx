@@ -83,7 +83,7 @@ const gettingStartedFlow = [
   },
   {
     step: "Step 4. 必要なら上位プラン（例: Google AI Pro）を検討する",
-    body: "上位プランが提供される場合、より高性能なモデルや追加機能が含まれることがあります（例: 米国ではGoogle AI Proが月額$19.99（2TB）として案内されることがあります。名称は更新されることがあります）。契約前に、あなたの地域/契約での最新のプラン名・料金・提供範囲を公式案内で確認してください。",
+    body: "上位プランが提供される場合、より高性能なモデルや追加機能が含まれることがあります（名称は更新されることがあります）。契約前に、あなたの地域/契約での最新のプラン名・料金・提供範囲を公式案内で確認してください。",
   },
 ] as const;
 
@@ -136,7 +136,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             Google Gemini完全入門ガイド｜使い方・ChatGPTとの違い・無料で始める方法
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             本記事は「Geminiをこれから使う初心者」の方向けに、まず何を理解して、どんな順番で触れば業務で使えるようになるかを整理した入門ガイドです。
             なお、機能や料金、提供条件は変更される可能性があるため、実際の画面・公式案内もあわせて確認してください。
@@ -203,7 +203,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: どれが正解というより「あなたの業務タスク」と「利用環境」に合うかで選ぶのが正解です。まずは同じ依頼文で出力を比較すると判断が早くなります。
           </p>
-          <p className="mt-4 text-sm leading-7 text-gray-700">比較情報の更新日: 2026年2月18日（提供条件は変動します）</p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">比較情報の更新日: 2026年2月17日（提供条件は変動します）</p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>

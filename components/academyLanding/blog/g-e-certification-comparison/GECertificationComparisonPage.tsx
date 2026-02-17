@@ -100,7 +100,7 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             結論: G検定は「ビジネス活用の共通知識」を広く固めたい人向け、E検定は「深層学習の理解」を証明したいエンジニア志向の人向けです。
             迷う場合は、全体像を掴めるG検定から始めると学習コストを抑えやすくなります。
@@ -228,14 +228,6 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           <p className="mt-5 text-sm leading-7 text-gray-700">
             受験料や実施形式、E検定の受験資格（認定プログラム修了など）は更新される可能性があります。申込前に必ず公式情報を確認し、学習計画は試験日から逆算して立てましょう。
           </p>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">
-              受験料の目安（2026年2月時点の公式公表値）: G検定は一般13,200円/学生5,500円、E資格（E検定）は一般33,000円/学生22,000円/会員27,500円
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              試験日程の目安（2026年2月時点の公式公表値）: G検定（2026#1: 3/6-7、#2: 7/3-4、#3: 11/6-7）、E資格（2026#1: 2/20-23、#2: 8/28-31）
-            </li>
-          </ul>
         </motion.section>
 
         <motion.section
@@ -319,3 +311,4 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
     </main>
   );
 }
+

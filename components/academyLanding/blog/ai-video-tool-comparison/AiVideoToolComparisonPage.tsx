@@ -202,7 +202,7 @@ export default function AiVideoToolComparisonPage({ faqItems }: AiVideoToolCompa
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI動画生成ツールおすすめ比較｜用途別の選び方と始め方
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             結論から言うと、AI動画生成は<strong className="font-semibold text-gray-900">「素材を作る（生成）」</strong>と
             <strong className="font-semibold text-gray-900">「仕上げる（編集）」</strong>を分けると失敗しにくいです。

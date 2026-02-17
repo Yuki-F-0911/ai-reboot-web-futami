@@ -134,7 +134,7 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI業務効率化事例集｜営業・マーケ・管理部門の活用ポイント
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AI活用は、派手な技術導入よりも日々の業務改善で成果が見えやすい傾向があります。本記事では、部門別の一般的な活用パターンを整理し、導入前に押さえるべき設計と失敗回避策をまとめます。
           </p>

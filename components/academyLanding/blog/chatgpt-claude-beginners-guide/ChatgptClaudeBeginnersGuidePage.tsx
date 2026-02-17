@@ -151,7 +151,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             ChatGPT・Claude初心者ガイド｜最初の1週間でできること
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             生成AIを初めて使うなら、最初の1週間で「基本操作」と「実務に使える型」を作ることが重要です。本記事では、ChatGPTとClaudeを比較しながら、初心者がつまずきにくい進め方を解説します。
           </p>
@@ -220,7 +220,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             結論: 最初から有料を前提にせず、無料範囲で利用目的を固めるのが堅実です。用途と利用頻度が明確になった段階で、各プランを比較して選びましょう。
-            例として、ChatGPT（Go/Plus/Proなど）やClaude（Pro/Maxなど）のように、個人向けにも複数の有料プランが用意されることがあります（2026年2月時点の公式公表値の例: ChatGPT Plusは月額$20、ChatGPT Proは月額$200、Claude Proは月額$20。国/税で変動。名称/提供内容は更新されます）。
+            例として、ChatGPT（Go/Plus/Proなど）やClaude（Pro/Maxなど）のように、個人向けにも複数の有料プランが用意されることがあります（2026年2月時点、名称/料金/提供内容は更新されます）。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">

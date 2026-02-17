@@ -8,7 +8,8 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-presentation-workflow";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-18T12:00:00+09:00";
+const modifiedTime = "2026-02-17T09:00:00+09:00";
+
 const faqItems = [
   {
     question: "AIでプレゼン資料を作るとき、最初に何から始めればいいですか？",
