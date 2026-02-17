@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで31記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで32記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -173,6 +173,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "ChatGPT・Claude初心者ガイド｜最初の1週間でできること",
     summary:
       "アカウント作成から最初の質問まで、無料プランと有料プランの違い、1週間で試すべき使い方を整理した入門記事です。",
+    category: "AI基礎知識",
+  },
+  {
+    slug: "chatgpt-start-guide-smartphone",
+    title: "ChatGPTをスマホで始める方法｜iPhone・Android対応の初期設定ガイド",
+    summary:
+      "公式アプリの入れ方、アカウント作成・ログイン、初期設定、便利機能、無料/有料の違いまでをiPhone/Android別に整理したスマホ入門ガイドです。",
     category: "AI基礎知識",
   },
   {
