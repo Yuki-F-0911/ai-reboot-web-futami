@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ | AIリブート";
 const pageDescription =
-  "「生成AI 学び方」「生成AI 勉強」をテーマに、社会人向けの100日ロードマップを解説。基礎理解→実践応用→業務統合の順で、実務活用レベルを目指します。";
+  "社会人向け生成AIの学び方を100日ロードマップで解説。基礎理解→実践→業務統合の順に、毎日30〜60分で実務活用レベルへ。つまずきやすいポイントとツールの選び方も整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/how-to-learn-generative-ai";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2025-09-12T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

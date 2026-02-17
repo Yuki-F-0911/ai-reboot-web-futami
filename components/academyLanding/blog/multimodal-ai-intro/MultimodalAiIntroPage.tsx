@@ -193,9 +193,11 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             マルチモーダルAIとは？テキスト・画像・音声を横断する次世代AIを解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            マルチモーダルAIは、テキスト・画像・音声など複数の情報をまとめて扱い、理解と生成を統合して行うAIです。現場の写真やスクリーンショット、会議音声などを起点に、説明文・要約・次アクションまでつなげられます。
+            マルチモーダルAIは便利そうに見える一方で、「結局何ができるのか」「どの業務に効くのか」が掴みにくい概念です。
+            この記事では、定義・仕組み・活用シーン・始め方・注意点まで、導入判断に必要なポイントを結論先出しで整理します。
+            筆者はまず、スクリーンショットや資料画像の説明/要約など“入力が明確な業務”から試すのが最短だと感じています。
           </p>
         </motion.header>
 

@@ -135,10 +135,11 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月に更新されました</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            忙しい社会人でも、生成AIは正しい順序で学べば100日で実務レベルに到達できます。ここでは、基礎理解から業務統合までの具体的な学習手順を、
-            週単位で迷わず進められる形に整理しました。
+            生成AIは「何から手を付ければいいか」が曖昧だと、触って終わりになりやすい分野です。
+            この記事では、基礎理解→実践→業務統合の3フェーズを100日で回すロードマップと、つまずきやすいポイントを結論先出しで整理します。
+            筆者はまず、日々の文章業務を1つ選んでテンプレ化するところから始めるのが最短だと感じています。
           </p>
         </motion.header>
 
@@ -172,8 +173,8 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="learning-phases" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学習の3フェーズ（0→100日）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            100日を「基礎理解 → 実践応用 → 業務統合」に分けると、学習が点ではなく線になります。各フェーズで達成すべき目標を明確にしましょう。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 100日を「基礎理解 → 実践応用 → 業務統合」に分けると、学習が点ではなく線になります。各フェーズのゴールを先に固定しましょう。
           </p>
           <div className="mt-8 space-y-8">
             {phaseItems.map((phase, index) => (
@@ -237,8 +238,8 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="self-study-vs-school" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             独学 vs スクールの比較
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            どちらが正解かではなく、現在の制約に合う方法を選ぶことが重要です。講座選びを具体化したい方は
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: どちらが正解かではなく、現在の制約に合う方法を選ぶことが重要です。講座選びを具体化したい方は
             <Link
               href="/academy/ai-training-for-individuals"
               className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
@@ -282,6 +283,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 大事なのは「ツール」より「順序」と「検証」です。よくある疑問をQ&Aで整理します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">

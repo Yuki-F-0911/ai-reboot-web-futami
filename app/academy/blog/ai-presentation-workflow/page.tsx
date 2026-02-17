@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AIでプレゼン資料を効率的に作る方法｜構成・デザイン・推敲まで | AIリブート";
 const pageDescription =
-  "AIを使ってプレゼン資料作成（構成→スライド原稿→デザイン→推敲）を効率化する手順を解説。ChatGPT/Claudeのアウトライン作成、Gamma/Canva/Beautiful.aiの活用、プロンプト例、よくある質問までまとめます。";
+  "AIでプレゼン資料を効率化する手順を、構成→原稿→デザイン→推敲まで解説。ChatGPT/Claudeのアウトライン作成、Gamma/Canva等の使い分け、プロンプト例と注意点をまとめ、手戻りを減らせます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-presentation-workflow";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {
@@ -99,4 +99,3 @@ export default function AiPresentationWorkflowRoute() {
     </>
   );
 }
-

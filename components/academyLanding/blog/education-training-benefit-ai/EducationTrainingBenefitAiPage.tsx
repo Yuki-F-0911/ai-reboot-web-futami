@@ -146,6 +146,7 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           <p className="mt-6 text-base leading-8 text-gray-700">
             AI講座の費用を考えるときは、価格の安さだけでなく制度活用後の実質負担まで含めて判断することが重要です。
             本記事では教育訓練給付金の基本と、リスキリング補助金との違いを整理します。
+            筆者は申し込み前に「対象講座か」「申請タイミングが間に合うか」の2点を最初に確認するのが最も重要だと感じています。
           </p>
         </motion.header>
 

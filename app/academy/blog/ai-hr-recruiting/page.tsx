@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AI × 人事・採用｜業務効率化から戦略的活用までの実践ガイド | AIリブート";
 const pageDescription =
-  "「AI 人事 採用」「AI 採用活動 活用」「生成AI 人事部門」をテーマに、求人票作成・スクリーニング・面接調整・候補者対応から、評価分析・離職予測・研修設計まで、人事/採用領域でのAI活用方法と導入ステップ、注意点、すぐ使えるプロンプト例をまとめます。";
+  "人事・採用でのAI活用を、求人票作成・候補者対応・面接設計などの業務別に整理。導入ステップ、偏り/公平性などの注意点、すぐ使えるプロンプト例までまとめ、現場で安全に始められます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-hr-recruiting";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {
