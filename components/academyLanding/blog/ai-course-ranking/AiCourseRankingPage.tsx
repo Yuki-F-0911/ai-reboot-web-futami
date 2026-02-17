@@ -334,23 +334,40 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link
+                href="/academy/blog/ai-school-for-working-adults"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                社会人向けAIスクールの選び方ガイド｜失敗しない比較ポイントを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/dx-reskilling-subsidy-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                DXリスキリング助成金ガイド｜対象条件・申請手順・併用可否を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/education-training-benefit-ai"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                教育訓練給付金でAI講座を受講するガイド｜制度比較と費用の考え方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/how-to-learn-generative-ai"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                受講者レビュー
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
               </Link>
             </li>
           </ul>

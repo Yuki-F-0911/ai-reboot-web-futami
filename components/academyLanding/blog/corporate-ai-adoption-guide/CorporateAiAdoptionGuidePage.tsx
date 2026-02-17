@@ -400,23 +400,34 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           </h2>
           <ul className="space-y-2">
             <li>
-              <Link href="/corporate" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                法人向けAI研修プラン
+              <Link href="/academy/blog/corporate-ai-training" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                法人向けAI研修サービス｜社内定着・研修設計・導入相談 | AIリブート
               </Link>
             </li>
             <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
+              <Link
+                href="/academy/blog/corporate-ai-training-internal"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                社内AI研修の始め方と定着の進め方｜DX人材を育てる実務ガイド | AIリブート
               </Link>
             </li>
             <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
+              <Link
+                href="/academy/blog/ai-business-efficiency-cases"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI業務効率化事例集｜営業・マーケ・管理部門の活用ポイントを解説 | AIリブート
               </Link>
             </li>
             <li>
-              <Link href="/briefing" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                法人向け導入相談（無料）
+              <Link href="/academy/blog/prompt-template-for-work" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIリブートアカデミー TOP
               </Link>
             </li>
           </ul>

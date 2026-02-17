@@ -410,23 +410,34 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link href="/academy/blog/what-is-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/multimodal-ai-intro" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                マルチモーダルAIとは？テキスト・画像・音声を横断する次世代AIを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-video-tool-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI動画生成ツールおすすめ比較｜用途別の選び方と始め方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-presentation-workflow"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIでプレゼン資料を効率的に作る方法｜構成・デザイン・推敲まで | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                受講生の評判・口コミ
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
               </Link>
             </li>
           </ul>
@@ -467,4 +478,3 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
     </main>
   );
 }
-
