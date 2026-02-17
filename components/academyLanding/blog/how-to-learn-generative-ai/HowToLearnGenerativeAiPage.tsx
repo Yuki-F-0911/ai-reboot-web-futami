@@ -35,12 +35,12 @@ const phaseItems = [
   {
     phase: "実践応用（31-70日）",
     week: "Week 5-10",
-    heading: "画像生成AI・コード生成・ドキュメント自動化に拡張する",
+    heading: "画像生成AI・AIコーディング（Cursor等）・ドキュメント自動化に拡張する",
     summary:
       "次の40日は、複数用途に広げる実践期間です。単発利用から、業務で再現できる活用パターンを作る段階に入ります。",
     tasks: [
       "画像生成AIで提案資料やSNS素材の初稿を作る",
-      "コード生成で小さな自動化スクリプトや関数を試作する",
+      "コード生成（Cursorなど）で小さな自動化スクリプトや関数を試作する",
       "議事録、報告書、FAQ作成などの文書業務をテンプレート化する",
     ],
   },
@@ -53,6 +53,7 @@ const phaseItems = [
     tasks: [
       "自社業務の1プロセスを選び、AI活用フローを設計する",
       "品質チェック項目と最終判断者を明確化する",
+      "Claude Projectsなどのプロジェクト機能で、よく使う指示・資料・改善ログを整理する",
       "手順書を共有し、チームで再現できる運用を構築する",
     ],
   },
@@ -212,6 +213,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="pitfalls" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくあるつまずきポイントと対策
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: つまずきの原因は「順序がない」「検証がない」「実務とつながらない」の3つに集約されます。先に落とし穴を知っておくと、学習が安定します。
+          </p>
           <div className="mt-6 space-y-4">
             {pitfallItems.map((item) => (
               <div key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -304,6 +308,22 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 ChatGPT・Claude初心者ガイド｜最初の1週間でできること | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-coding-for-beginners"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/python-ai-intro"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                Python × AI入門｜環境構築からはじめての機械学習までの学習ロードマップ | AIリブート
               </Link>
             </li>
             <li>

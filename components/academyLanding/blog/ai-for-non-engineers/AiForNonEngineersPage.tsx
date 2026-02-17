@@ -207,6 +207,9 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <h2 id="fit-areas" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             文系・非エンジニアに向いているAI活用領域
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 最初は「文章」「情報整理」など、入出力が見えやすい業務から始めるのが安全です。成果が見える領域を選ぶほど、改善サイクルが回りやすくなります。
+          </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {fitAreas.map((item) => (
               <section key={item.area} className="rounded-lg border border-gray-200 p-5">
@@ -229,6 +232,9 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <h2 id="learning-start" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学習の始め方（プログラミング不要のアプローチ）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 「目的を1つに絞る → テンプレ化 → 検証」の順で進めると挫折しにくくなります。テンプレや素材はClaude Projectsなどに集約すると、再利用しやすくなります。
+          </p>
           <div className="mt-6 space-y-4">
             {learningSteps.map((step) => (
               <section key={step.title} className="rounded-lg border border-gray-200 p-5">
@@ -250,6 +256,9 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <h2 id="misconceptions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくある誤解と事実
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            不安の多くは、誤解が混ざることで増幅します。ここでは、よくある誤解を「事実」と「運用の考え方」に分けて整理します。
+          </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -307,6 +316,22 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 ChatGPT・Claude初心者ガイド｜最初の1週間でできること | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-coding-for-beginners"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/python-ai-intro"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                Python × AI入門｜環境構築からはじめての機械学習までの学習ロードマップ | AIリブート
               </Link>
             </li>
             <li>

@@ -113,7 +113,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
             ))}
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            AI時代のキャリアチェンジ事例集｜受講生が語る転換と成長のリアル
+            AI時代のキャリアチェンジ事例（構成例）｜転換と成長のパターンを解説
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月に更新されました</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
@@ -135,8 +135,6 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           <p className="text-sm leading-7 text-amber-900">
             注意: ここで紹介する事例は構成例です。実在の受講生データではありません。
           </p>
-          {/* TODO: 実データに置換 */}
-          {/* TODO: 要ファクト確認 */}
         </motion.section>
 
         <motion.section
@@ -150,9 +148,11 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           <h2 id="career-change-cases" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             キャリアチェンジ事例（構成例）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: キャリア転換は「ツール名」ではなく「目的→試作→検証→運用」の順序が成果を左右します。たとえばChatGPT/Claudeに加え、CursorやClaude Projectsなどを使い、
+            学習とアウトプットを一体で積み上げるのが現実的です。
+          </p>
           <div className="mt-8 space-y-8">
-            {/* TODO: 実データに置換 */}
-            {/* TODO: 要ファクト確認 */}
             {caseStudies.map((caseStudy, index) => (
               <motion.section
                 key={caseStudy.title}
@@ -189,8 +189,6 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
             各ケースの変化を、役割の視点で一覧化しました。
           </p>
           <p className="mt-2 text-sm font-semibold text-gray-500">※この事例は構成例です</p>
-          {/* TODO: 実データに置換 */}
-          {/* TODO: 要ファクト確認 */}
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[620px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -224,6 +222,9 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           <h2 id="success-factors" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             共通する成功要因
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            どのケースでも、学習の量より「実務課題に紐づくアウトプット」と「振り返り」が重要です。以下のポイントを満たすと、キャリア転換を現実的に進めやすくなります。
+          </p>
           <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-7 text-gray-700">
             {successFactors.map((factor) => (
               <li key={factor} className="pl-1 marker:text-gray-500">
@@ -265,8 +266,24 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
               </Link>
             </li>
             <li>
+              <Link
+                href="/academy/blog/ai-coding-for-beginners"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy/blog/reskilling-over-40" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 40代・50代からのAIリスキリング完全ガイド｜経験を強みに学び直す方法 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/g-e-certification-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説 | AIリブート
               </Link>
             </li>
             <li>

@@ -184,6 +184,10 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
           <h2 id="selection-criteria" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             社会人がAIスクールを選ぶ際の5つの基準
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 料金の比較より先に「学習の継続性」と「修了後に実務へつなげられるか」を確認するのが安全です。2026年はAIエージェントやマルチモーダル前提の実務が増える傾向があるため、
+            ツール操作だけで終わらない演習設計になっているかを見ておきましょう。
+          </p>
           <div className="mt-6 space-y-4">
             {selectionCriteria.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -323,6 +327,22 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
             </li>
             <li>
               <Link
+                href="/academy/blog/g-e-certification-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-coding-for-beginners"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/academy/blog/dx-reskilling-subsidy-guide"
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
@@ -344,7 +364,7 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
             </li>
             <li>
               <Link href="/academy/blog/ai-career-change-cases" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AI時代のキャリアチェンジ事例集｜受講生が語る転換と成長のリアル | AIリブート
+                AI時代のキャリアチェンジ事例（構成例）｜転換と成長のパターンを解説 | AIリブート
               </Link>
             </li>
             <li>

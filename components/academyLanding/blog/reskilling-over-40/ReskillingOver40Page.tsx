@@ -247,6 +247,9 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
           <h2 id="dropoff-and-continuation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             独学で挫折しやすいポイントと継続のコツ
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 挫折は「計画の曖昧さ」と「判断の孤独」で起きやすくなります。失敗パターンを先に知り、学習を続けるための仕組みを用意しましょう。
+          </p>
           <dl className="mt-6 space-y-4">
             {dropoffPatterns.map((item) => (
               <div key={item.point} className="rounded-lg border border-gray-200 p-5">
@@ -268,6 +271,9 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
           <h2 id="method-comparison" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学習手段の比較（独学・オンライン講座・通学）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 続けやすさは「自走できるか」より「支援導線があるか」で決まることが多いです。自分のつまずきポイントに合う手段を選びましょう。
+          </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -325,7 +331,15 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
             </li>
             <li>
               <Link href="/academy/blog/ai-career-change-cases" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AI時代のキャリアチェンジ事例集｜受講生が語る転換と成長のリアル | AIリブート
+                AI時代のキャリアチェンジ事例（構成例）｜転換と成長のパターンを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-coding-for-beginners"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
               </Link>
             </li>
             <li>
@@ -334,6 +348,14 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 社会人向けAIスクールの選び方ガイド｜失敗しない比較ポイントを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/g-e-certification-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説 | AIリブート
               </Link>
             </li>
             <li>
