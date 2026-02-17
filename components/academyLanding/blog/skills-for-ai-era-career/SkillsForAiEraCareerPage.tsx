@@ -142,8 +142,8 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="what-changes" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AI時代に変わること / 変わらないこと
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 変わるのは「初動の速度」、変わらないのは「課題設定と最終判断の責任」です。だからこそ“判断をAIで拡張する力”が重要になります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            変わるのは「初動の速度」、変わらないのは「課題設定と最終判断の責任」です。だからこそ“判断をAIで拡張する力”が重要になります。
           </p>
           <div className="mt-6 space-y-5 text-base leading-8 text-gray-700">
             <p>変わることは、情報収集や下書き作成の初動速度です。AIで検討サイクルを増やせます。</p>
@@ -163,8 +163,8 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="role-based-skills" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             職種別に必須のAIスキル
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 共通基礎を押さえたら、職種ごとに「成果に直結する業務」からAI活用を組み込みます。抽象論より、現場のタスク単位に落とすほど習得が早くなります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            共通基礎を押さえたら、職種ごとに「成果に直結する業務」からAI活用を組み込みます。抽象論より、現場のタスク単位に落とすほど習得が早くなります。
           </p>
           <div className="mt-8 space-y-9">
             {roleSkillSections.map((section, index) => (
@@ -202,8 +202,8 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="career-expansion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             「AIに奪われる仕事」ではなく「AIで拡張される仕事」へ
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: AIの価値は代替だけではなく「提案力・判断力へ時間を振り向ける」ことです。職種を問わず、価値の出し方を拡張できます。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            AIの価値は代替だけではなく「提案力・判断力へ時間を振り向ける」ことです。職種を問わず、価値の出し方を拡張できます。
           </p>
         </motion.section>
 
@@ -218,8 +218,8 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="learning-order" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学習順序の提案
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 「共通基礎 → 職種別スキル → 効果測定」の順で進めると、学習が実務成果につながりやすくなります。ツールを増やす前に、検証と改善の型を作りましょう。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            「共通基礎 → 職種別スキル → 効果測定」の順で進めると、学習が実務成果につながりやすくなります。ツールを増やす前に、検証と改善の型を作りましょう。
           </p>
           <ol className="mt-7 space-y-7">
             {learnOrder.map((item, index) => (
@@ -331,8 +331,8 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="personalized-learning-strategy" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             職種に合う学習戦略を設計したい方へ
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 実務で使えるスキルから着実に積み上げるのが最短です。無料セミナー/個別相談で、あなたの職種に合う学習順序を整理できます。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            実務で使えるスキルから着実に積み上げるのが最短です。無料セミナー/個別相談で、あなたの職種に合う学習順序を整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

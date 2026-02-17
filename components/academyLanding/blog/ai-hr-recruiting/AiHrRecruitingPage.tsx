@@ -221,6 +221,9 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            人事・採用のAI活用は、定型業務の削減と判断材料の整理に寄せると、安全に成果が出やすいです。
+          </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               採用では「求人票作成」「定型連絡」「要約・比較」が始めやすく、候補者対応の品質を保ちながら工数を削減しやすい傾向があります。
@@ -245,8 +248,11 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           <h2 id="background" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             人事・採用領域でAIが注目される背景
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            人事・採用の現場では、業務量が増える一方で、候補者体験の品質も求められます。ここでは、AI活用が進む理由を実務目線で整理します。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            採用スピードと候補者体験を両立するには、まず「文章作成」と「情報整理」のボトルネックにAIを当てるのが近道です。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            人事・採用の現場では、業務量が増える一方で、候補者体験の品質も求められます。AIを使うと、定型文の作成や要約・比較が早くなり、連絡の遅延や抜け漏れが起きにくくなります。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {backgroundItems.map((item) => (
@@ -269,8 +275,11 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           <h2 id="recruiting-use" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             採用活動でのAI活用（求人票/スクリーニング/面接調整/候補者対応）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            採用プロセスは「情報を作る（求人票）」「情報を整理する（スクリーニング）」「やり取りする（調整・連絡）」が多く、AIが補助しやすい領域です。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            採用では、求人票のたたき台、候補者情報の要約・比較、面接/連絡文のテンプレ化が最短で効果が出やすいです。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            採用プロセスは「情報を作る（求人票）」「情報を整理する（スクリーニング）」「やり取りする（調整・連絡）」が多く、AIを入れる場所を見つけやすいのが特徴です。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {recruitingUseCases.map((item) => (
@@ -293,7 +302,10 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           <h2 id="hr-management-use" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             人事管理でのAI活用（評価分析/離職予測/エンゲージメント/研修最適化）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium text-gray-900">
+            人事管理では、評価コメントや面談メモなどのテキストを「要約・分類・比較」できると、意思決定が一気に進みます。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
             人事領域では、テキスト情報（評価コメント・面談メモ・サーベイ自由記述など）の比率が高く、要約・分類・比較で効果が出やすい傾向があります。
           </p>
           <div className="mt-6 space-y-4">
@@ -317,8 +329,11 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           <h2 id="tools" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             主要AI人事ツール紹介（ChatGPT/Claude活用 + 専用ツール）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            ツール選定は「文章作成/要約/案出し」なのか、「システム連携を含む業務自動化」なのかで考えると整理しやすくなります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            まずは汎用LLMで「文章作成/要約/比較」の型を作り、次に必要に応じて専用ツールや連携に広げるのが失敗しにくいです。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            ツール選定は「文章作成/要約/案出し」なのか、「システム連携を含む業務自動化」なのかで分けて考えると整理しやすくなります。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {toolGuidance.map((item) => (
@@ -348,7 +363,10 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           <h2 id="prompt-examples" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             すぐ使えるプロンプト例（求人票/面接質問/評価コメント/研修計画）
           </h2>
-          <p className="mt-3 text-sm leading-7 text-gray-700">
+          <p className="mt-5 text-base font-medium text-gray-900">
+            プロンプトは「評価軸・制約・出力形式」を固定すると安定します。テンプレを埋めるだけで、チームで再現できる状態に近づきます。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
             そのままコピペして使える形にしています。まずは括弧内（{"{...}"}）を自社の情報に置き換えてください。
           </p>
           <div className="mt-6 space-y-6">
@@ -378,8 +396,8 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           <h2 id="cautions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AI導入時の注意点（バイアス対策、プライバシー、法的配慮）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 採用・人事でAIを使うときは、バイアス/個人情報/責任分界（最終判断は誰が持つか）を先に決め、AIは補助に限定する運用が安全です。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            採用・人事でAIを使うときは、バイアス/個人情報/責任分界（最終判断は誰が持つか）を先に決め、AIは補助に限定する運用が安全です。
           </p>
           <div className="mt-6 space-y-4">
             {cautionItems.map((item) => (
@@ -402,8 +420,11 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           <h2 id="steps" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             導入ステップ（小さく始める→効果測定→拡大）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            ツール導入を先に決めるより、業務単位で「型」を作ってから仕組み化すると、現場で定着しやすくなります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            ツール選定より先に、業務単位で「入力→出力→レビュー」の型を作ると、現場で定着しやすくなります。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            ツール導入を先に決めるより、業務単位で「型」を作ってから仕組み化すると、運用ルールや効果測定まで一緒に整えやすくなります。
           </p>
           <div className="mt-6 space-y-4">
             {rolloutSteps.map((step, index) => (
@@ -496,8 +517,11 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             次のアクション：AIリブートアカデミーで体系的に学ぶ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            人事・採用でAIを定着させるには、プロンプトの型、運用ルール、効果測定をセットで整えることが重要です。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            人事・採用でAIを定着させるには、プロンプトの型、運用ルール、効果測定をセットで整えることが重要です。体系的に学びたい方は、アカデミーで全体像を確認できます。
+            体系的に学びたい方は、アカデミーで全体像を確認できます。採用・人事のユースケースに合わせて、手戻りしない進め方を一緒に設計します。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

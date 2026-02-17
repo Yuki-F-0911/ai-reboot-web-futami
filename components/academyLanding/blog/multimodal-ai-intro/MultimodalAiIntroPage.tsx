@@ -214,6 +214,9 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            マルチモーダルAIは、テキストだけでは扱いにくい「画像・音声・動画」を業務に取り込めるようにする技術です。
+          </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               マルチモーダルAIは、テキスト・画像・音声など複数の入力を統合して理解・生成するAIで、業務データの“現実の形”に近い入力を扱えます。
@@ -238,8 +241,8 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <h2 id="definition" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             マルチモーダルAIとは？（定義、従来のAIとの違い）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: マルチモーダルAIは、複数の情報（モダリティ）をまとめて扱い、文脈を統合して推論・生成するAIです。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            マルチモーダルAIは、複数の情報（モダリティ）をまとめて扱い、文脈を統合して推論・生成するAIです。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             これまでのAIは「テキストだけ」「画像だけ」といった単一モダリティが中心でした。一方、実務の入力は写真・スクショ・音声・資料が混ざります。ここを横断して扱えるのがマルチモーダルAIです。
@@ -284,8 +287,8 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <h2 id="mechanism" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             マルチモーダルAIの仕組み（テキスト+画像+音声の統合処理）
           </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
-            結論: 仕組みは「入力を同じ形式に変換 → 統合して推論 → 目的の形式で出力」という流れです。実装はモデルやプロダクトにより異なりますが、基本の考え方は共通します。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            仕組みは「入力を同じ形式に変換 → 統合して推論 → 目的の形式で出力」という流れです。実装はモデルやプロダクトにより異なりますが、基本の考え方は共通します。
           </p>
           <div className="mt-6 space-y-4">
             {mechanismSteps.map((step) => (
@@ -315,8 +318,8 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <h2 id="models" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             代表的なマルチモーダルAIモデル（GPT-5/Gemini 2.5 Pro/Claude 4.5 Sonnet など）
           </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
-            結論: 代表例としてよく挙がるモデルを、選び方の観点で整理します。実際の対応モダリティや提供形態はプラン/製品により変わるため、導入前に必ず最新の仕様を確認してください。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            代表例としてよく挙がるモデルを、選び方の観点で整理します。実際の対応モダリティや提供形態はプラン/製品により変わるため、導入前に必ず最新の仕様を確認してください。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {modelCards.map((card) => (
@@ -341,8 +344,8 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <h2 id="business-use" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             ビジネス活用シーン（画像分析×テキスト生成/音声→議事録/動画要約）
           </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
-            結論: キーワードは「入力（現場のデータ）→説明→次アクション」です。画像認識AIとテキスト生成をつなげることで、判断と作業の前後が一気に短縮されます。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            キーワードは「入力（現場のデータ）→説明→次アクション」です。画像認識とテキスト生成をつなげると、判断と作業の前後が一気に短縮されます。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {useCaseCards.map((card) => (
@@ -377,8 +380,8 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <h2 id="workflow-change" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             マルチモーダルAIで変わる業務（営業/マーケ/カスタマーサポート/製造業）
           </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
-            結論: “文章で指示して、画像や音声の内容を整理させる”だけでも、作業の入口が大きく変わります。部門別に、変化しやすいポイントを整理します。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            “文章で指示して、画像や音声の内容を整理させる”だけでも、作業の入口が大きく変わります。部門別に、変化しやすいポイントを整理します。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -413,8 +416,8 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <h2 id="getting-started" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             始め方と実践ステップ（無料で試す→業務適用→本格導入）
           </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
-            結論: 導入のコツは「最初から万能にしない」ことです。1ユースケースで成功パターンを作り、横展開します。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            導入のコツは「最初から万能にしない」ことです。1ユースケースで成功パターンを作り、横展開します。
           </p>
           <div className="mt-6 space-y-4">
             {practiceSteps.map((step) => (
@@ -444,8 +447,8 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <h2 id="future-and-cautions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             今後の展望と注意点（技術進化/プライバシー/精度限界）
           </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
-            結論: マルチモーダルは体験が分かりやすい一方、入力がリッチになるほどリスクも増えます。運用設計まで含めて考えるのが実務のポイントです。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            マルチモーダルは体験が分かりやすい一方、入力がリッチになるほどリスクも増えます。運用設計まで含めて考えるのが実務のポイントです。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {cautionItems.map((item) => (
@@ -523,8 +526,11 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <h2 id="academy-cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIリブートアカデミーで「使える活用」まで落とし込む
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            マルチモーダルAIは、試して終わりではなく「入力ルール」「確認ポイント」「評価指標」を決めて運用に落とすことで成果が出ます。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            マルチモーダルAIは、試して終わりではなく「入力ルール」「確認ポイント」「評価指標」を決めて運用に落とすことで成果が出ます。AIリブートアカデミーでは、非エンジニアでも実務に接続できる学び方と、社内展開の進め方を体系的に整理できます。
+            AIリブートアカデミーでは、非エンジニアでも実務に接続できる学び方と、社内展開の進め方を体系的に整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

@@ -144,9 +144,9 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI講座の費用を考えるときは、価格の安さだけでなく制度活用後の実質負担まで含めて判断することが重要です。
-            本記事では教育訓練給付金の基本と、リスキリング補助金との違いを整理します。
-            筆者は申し込み前に「対象講座か」「申請タイミングが間に合うか」の2点を最初に確認するのが最も重要だと感じています。
+            AI講座の費用で迷っているなら、価格の安さだけでなく「制度活用後の実質負担」で判断すると後悔しにくくなります。
+            この記事では、教育訓練給付金の区分（一般/特定一般/専門実践）の違い、リスキリング補助金との住み分け、実質負担の考え方、講座選びのチェックポイントまでを結論先出しで整理します。
+            筆者は申し込み前に「対象講座か」「申請タイミングが間に合うか」の2点を最初に確認するのが最重要だと感じています。
           </p>
         </motion.header>
 
@@ -163,6 +163,9 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            最初に「講座が指定講座か」「自分が要件を満たすか」を確認し、次に制度の住み分けと実質負担で比較すると迷いが減ります。
+          </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               教育訓練給付金には3種類があり、AI講座で活用できるかは講座指定と受給要件の確認が前提です。
@@ -187,9 +190,11 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           <h2 id="what-is-training-benefit" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             教育訓練給付金とは（一般・特定一般・専門実践の概要）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            教育訓練給付金は、学び直しを支援する制度として広く利用されています。区分ごとに対象講座や受給条件が異なるため、
-            まず自分がどの区分に該当する可能性があるかを確認することが重要です。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            まずは「どの区分の給付金が対象になりそうか」を当たりをつけると、講座選びの無駄打ちが減ります。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            教育訓練給付金は、学び直しを支援する制度として広く利用されています。区分ごとに対象講座や受給条件が異なるため、まず自分がどの区分に該当する可能性があるかを確認しましょう。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {trainingBenefitTypes.map((item) => (
@@ -215,9 +220,11 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           <h2 id="difference-from-reskilling-subsidy" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             リスキリング補助金との違い（制度比較表）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            /academy/subsidy-guide は個人向けリスキリング補助金を中心に整理したページです。本記事では教育訓練給付金の観点から、
-            制度の住み分けが分かるように比較します。例として、リスキリングを通じたキャリアアップ支援事業（在職者向け）では、受講費用の1/2（上限40万円）に加え、転職後に条件を満たすと追加で1/5（上限16万円）が支援され、最大56万円となる場合があります（時期・要件により変動します）。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            両制度は「誰が申請するか」「要件は何か」が違うため、まず申請主体と対象条件を分けて確認するのが安全です。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            /academy/subsidy-guide は個人向けリスキリング補助金を中心に整理したページです。教育訓練給付金の観点から制度の住み分けが分かるように比較します。例として、リスキリングを通じたキャリアアップ支援事業（在職者向け）では、受講費用の1/2（上限40万円）に加え、転職後に条件を満たすと追加で1/5（上限16万円）が支援され、最大56万円となる場合があります（時期・要件により変動します）。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -252,8 +259,11 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           <h2 id="cost-and-effective-burden" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AI講座の費用相場と給付金活用後の実質負担
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            AI講座の費用は講座の深さとサポート範囲で変わります。ここでは具体額を断定せず、一般的な価格帯の傾向として整理します。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            重要なのは、受講料そのものではなく「給付後にいくら残るか」です。実質負担で見れば、印象が逆転するケースもあります。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            AI講座の費用は講座の深さとサポート範囲で変わります。具体額を断定せず、一般的な価格帯の傾向として整理します。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[920px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -290,6 +300,9 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           <h2 id="cost-performance-criteria" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             コスパの良い講座を選ぶ基準
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            コスパは「安いか」より「受講後に仕事で再現できるか」で決まります。成果物とフィードバックの有無を最優先で見ましょう。
+          </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {selectionCriteria.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -384,8 +397,11 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           <h2 id="next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             制度活用を含めて講座選定したい方へ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            制度要件と学習目的を同時に満たすには、先に「目的→講座候補→制度適合」の順で確認するのが手戻りしにくいです。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            無料セミナーで学習全体像を整理し、個別相談で制度活用を踏まえた受講計画を確認できます。制度要件と学習目的を同時に満たす設計が重要です。
+            無料セミナーで学習全体像を整理し、個別相談で制度活用を踏まえた受講計画を確認できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

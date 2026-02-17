@@ -156,9 +156,11 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            生成AIは、正しい順序で学べば100日で実務レベルに到達可能です。ツールを増やすより、1つの業務を確実に改善できる使い方を段階的に増やすのが近道です。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            生成AIは正しい順序で学べば100日で実務レベルに到達可能です。重要なのは、ツールを増やすことよりも、
-            1つの業務を確実に改善できる使い方を段階的に増やすことです。
+            「学習→試す→振り返る」を短いサイクルで回し、成果物（議事録テンプレ、営業メール、分析メモなど）を残すと、継続しやすくなります。
           </p>
         </motion.section>
 
@@ -173,8 +175,8 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="learning-phases" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学習の3フェーズ（0→100日）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 100日を「基礎理解 → 実践応用 → 業務統合」に分けると、学習が点ではなく線になります。各フェーズのゴールを先に固定しましょう。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            100日を「基礎理解 → 実践応用 → 業務統合」に分けると、学習が点ではなく線になります。各フェーズのゴールを先に固定しましょう。
           </p>
           <div className="mt-8 space-y-8">
             {phaseItems.map((phase, index) => (
@@ -214,8 +216,8 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="pitfalls" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくあるつまずきポイントと対策
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: つまずきの原因は「順序がない」「検証がない」「実務とつながらない」の3つに集約されます。先に落とし穴を知っておくと、学習が安定します。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            つまずきの原因は「順序がない」「検証がない」「実務とつながらない」の3つに集約されます。先に落とし穴を知っておくと、学習が安定します。
           </p>
           <div className="mt-6 space-y-4">
             {pitfallItems.map((item) => (
@@ -238,8 +240,8 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="self-study-vs-school" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             独学 vs スクールの比較
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: どちらが正解かではなく、現在の制約に合う方法を選ぶことが重要です。講座選びを具体化したい方は
+          <p className="mt-5 text-base font-medium text-gray-900">
+            どちらが正解かではなく、現在の制約に合う方法を選ぶことが重要です。講座選びを具体化したい方は
             <Link
               href="/academy/ai-training-for-individuals"
               className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
@@ -364,6 +366,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             次の一歩を決めたい方へ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            迷ったら「どの業務を改善するか」を1つだけ決めて、学習計画をそこに合わせるのが一番早いです。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             ひとりで学習計画を作るのが難しい場合は、無料セミナーと個別相談を使って現在地を確認するのが近道です。無理なく続く学習ルートを一緒に設計できます。
           </p>

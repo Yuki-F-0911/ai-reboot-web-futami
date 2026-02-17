@@ -205,9 +205,11 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            成果が出る法人研修は、受講前に「対象者レベル分け」「業務KPI」「研修後フォロー」をセットで設計します。単発研修より、伴走型で運用定着まで見る設計が有効です。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            成果が出る法人研修は、受講前に「対象者レベル分け」「業務KPI」「研修後フォロー」をセットで設計しています。単発研修より、
-            伴走型で運用定着まで見る設計が有効です。
+            研修を「学び」で終わらせず、現場の業務フローに戻すところまでをスコープに含めると、投資対効果を説明しやすくなります。
           </p>
         </motion.section>
 
@@ -222,8 +224,8 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="training-types" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             法人研修の種類（オンライン / 対面 / ハイブリッド）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 研修形式は「実施しやすさ」と「定着しやすさ」のバランスで選びます。目的に応じて形式を使い分けるのが現実的です。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            研修形式は「実施しやすさ」と「定着しやすさ」のバランスで選びます。目的に応じて形式を使い分けるのが現実的です。
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {trainingTypes.map((item, index) => (
@@ -261,8 +263,8 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="training-design-points" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             研修設計のポイント（レベル分け / KPI / フォロー）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 研修効果を左右するのは講義内容より設計です。「レベル分け / KPI / フォロー」を先に決めると、研修後の現場活用率が上がります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            研修効果を左右するのは講義内容より設計です。「レベル分け / KPI / フォロー」を先に決めると、研修後の現場活用率が上がります。
           </p>
           <div className="mt-6 space-y-4">
             {designPoints.map((point) => (
@@ -286,8 +288,8 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="academy-plan" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIリブートアカデミーの法人プラン
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 人数・時間・形式を明確化したうえで、研修→定着までを一気通貫で設計すると成果が出やすくなります。法人プランは導入しやすい条件で整理しています。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            人数・時間・形式を明確化したうえで、研修→定着までを一気通貫で設計すると成果が出やすくなります。法人プランは導入しやすい条件で整理しています。
           </p>
           <ul className="mt-5 space-y-3 text-sm leading-7 text-gray-700">
             {academyPlanPoints.map((item) => (
@@ -321,8 +323,8 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="comparison-table" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             比較時の確認項目（一般講座 vs AIリブート法人研修）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 比較は価格だけでなく、研修条件・成果設計・助成金対応の具体性まで確認することが重要です。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            比較は価格だけでなく、研修条件・成果設計・助成金対応の具体性まで確認することが重要です。
           </p>
           <div className="mt-7 overflow-x-auto">
             <table className="w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -357,8 +359,8 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="case-studies" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             導入事例（想定ケーススタディ）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 部門ごとに課題が違うため、ユースケースと成果指標を分けて設計するのが安全です。想定ケースをベースに検討してください。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            部門ごとに課題が違うため、ユースケースと成果指標を分けて設計するのが安全です。想定ケースをベースに検討してください。
           </p>
           <div className="mt-6 space-y-4">
             {caseStudies.map((caseItem) => (
@@ -460,8 +462,8 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="request-materials" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             まず資料請求
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 研修形式や対象人数が未確定でも問題ありません。まず現状課題を共有し、プラン確認→要件整理の順で進めるとスムーズです。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            研修形式や対象人数が未確定でも問題ありません。まず現状課題を共有し、プラン確認→要件整理の順で進めるとスムーズです。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

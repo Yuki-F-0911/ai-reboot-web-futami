@@ -159,6 +159,9 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            AIエージェントは「計画→実行→振り返り」を回して目標に近づく仕組みで、まずは小さく始めるほど失敗しにくいです。
+          </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               AIエージェントは、目標に対して複数ステップを自律的に進めるAIシステムです。
@@ -183,8 +186,8 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="definition-and-difference" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIエージェントの定義と従来AIとの違い
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: AIエージェントは、目標達成のために「計画し、実行し、結果を見て修正する」流れを持つAIです。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            AIエージェントは、目標達成のために「計画し、実行し、結果を見て修正する」流れを持つAIです。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             従来型AIが単発の判定や生成を担当するのに対し、AIエージェントは連続処理のオーケストレーションを担います。ここが運用上の最大の違いです。
@@ -222,8 +225,8 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="types-and-use-cases" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             代表的なAIエージェントの種類と活用例
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まずは「役割が明確で、成果が測れる」タイプを選ぶと、導入と改善が回りやすくなります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            まずは「役割が明確で、成果が測れる」タイプを選ぶと、導入と改善が回りやすくなります。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             業務に合うタイプを選ぶことが導入成功の起点です。最初は役割が明確なユースケースから始めると、効果測定がしやすくなります。
@@ -261,8 +264,8 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="how-to-build-ai-agent" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             企業での導入ステップ（小規模から始める方法）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: AIエージェントの作り方は、最初から大規模化せず、1ユースケースで仮説検証する流れが最も現実的です。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            AIエージェントの作り方は、最初から大規模化せず、1ユースケースで仮説検証する流れが最も現実的です。
           </p>
           <div className="mt-6 space-y-4">
             {introductionSteps.map((step) => (
@@ -285,8 +288,8 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="implementation-cautions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             導入時の注意点（セキュリティ、コスト、運用体制）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 成否は実装よりも「入力ルール」「権限」「ログ」「人の確認ポイント」を先に決められるかで決まります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            成否は実装よりも「入力ルール」「権限」「ログ」「人の確認ポイント」を先に決められるかで決まります。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {cautionItems.map((item) => (
@@ -363,6 +366,9 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             無料セミナー / 個別相談
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            まずは「どの業務を、どこまで自動化するか」を言語化し、権限とログの設計から始めるのが安全です。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             AIエージェントを自社でどう設計すべきか迷う場合は、無料セミナーで全体像を整理し、個別相談で導入優先順位を確認する進め方が実践的です。
           </p>

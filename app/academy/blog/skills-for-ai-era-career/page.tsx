@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AI時代に必要なスキルを職種別に解説｜2026年版キャリア戦略 | AIリブート";
 const pageDescription =
-  "AI時代に必要なスキルを職種別（営業/マーケ/管理職/事務/クリエイティブ）に整理。共通基礎→職種別活用→成果物づくりの順で、今の仕事で価値を上げる学習順序がわかります。";
+  "AI時代に必要なスキルを職種別（営業/マーケ/管理職/事務/クリエイティブ）に整理。共通基礎→職種別活用→成果物づくりの順で、今の仕事で価値を上げる学習順序と具体例を解説。何から始めるか迷う人向けチェック付き。無料セミナー/個別相談の案内付き。";
 const pageUrl = "https://ai-reboot.io/academy/blog/skills-for-ai-era-career";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2025-10-04T09:00:00+09:00";

@@ -187,6 +187,9 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            最短で品質を上げるコツは、1回で完成を狙わず「構成→原稿→デザイン→推敲」を順番に回すことです。
+          </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">まずはアウトラインをAIで作り、各スライドの主張（Key Message）を固定します。</li>
             <li className="pl-1 marker:text-gray-500">次に、スライド本文と話す原稿（Speaker notes）を分けて生成すると情報量が整います。</li>
@@ -206,8 +209,8 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="workflow-overview" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIプレゼン資料作成の全体ワークフロー（構成→スライド→デザイン→推敲）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最短で品質を上げるには、1回で完成を狙わず「4工程を順番に回す」ことが重要です。構成→原稿→デザイン→推敲の順で精度を上げます。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            最短で品質を上げるには、1回で完成を狙わず「4工程を順番に回す」ことが重要です。構成→原稿→デザイン→推敲の順で精度を上げます。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {workflowSteps.map((item) => (
@@ -241,8 +244,8 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="step1-outline" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             Step 1 – AIで構成案を作る（ChatGPT/Claudeでのアウトライン生成）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まず「目的・聞き手・時間・枚数」を揃えてからアウトラインを出すと、後工程の手戻りが減ります。アウトラインができれば、スライドは半分できたも同然です。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            まず「目的・聞き手・時間・枚数」を揃えてからアウトラインを出すと、後工程の手戻りが減ります。アウトラインができれば、スライドは半分できたも同然です。
           </p>
           <ul className="mt-6 space-y-3 text-sm leading-7 text-gray-700">
             <li className="rounded-lg border border-gray-200 p-4">
@@ -271,8 +274,8 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="step2-script" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             Step 2 – スライド原稿を生成する（各スライドのテキスト作成）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: スライド原稿は「見せる文章」と「話す文章」に分けると、文字量の暴走を防げます。スライドは短く、話す原稿で補足する設計が分かりやすさに直結します。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            スライド原稿は「見せる文章」と「話す文章」に分けると、文字量の暴走を防げます。スライドは短く、話す原稿で補足する設計が分かりやすさに直結します。
           </p>
           <div className="mt-6 rounded-lg border border-gray-200 p-5">
             <h3 className="text-base font-semibold text-gray-900">スライド原稿生成の指示例</h3>
@@ -296,8 +299,8 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="step3-design" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             Step 3 – デザインに落とし込む（Gamma, Canva AI, Beautiful.ai等）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: デザイン工程は「見栄え」よりも「読みやすさ」と「統一感」を優先すると失敗しにくいです。AIツールは叩き台に使い、最終調整はPowerPoint / Google Slidesで行うと運用しやすくなります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            デザイン工程は「見栄え」よりも「読みやすさ」と「統一感」を優先すると失敗しにくいです。AIツールは叩き台に使い、最終調整はPowerPoint / Google Slidesで行うと運用しやすくなります。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <section className="rounded-lg border border-gray-200 p-5">
@@ -339,8 +342,8 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="step4-review" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             Step 4 – AIで推敲・改善する（論理チェック、冗長表現の除去）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最後にAIで「論理の飛躍」「表記ゆれ」「詰め込みすぎ」をチェックすると、短時間で読みやすさが上がります。最終判断は人が行い、事実関係は必ず確認してください。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            最後にAIで「論理の飛躍」「表記ゆれ」「詰め込みすぎ」をチェックすると、短時間で読みやすさが上がります。最終判断は人が行い、事実関係は必ず確認してください。
           </p>
           <div className="mt-6 rounded-lg border border-gray-200 p-5">
             <h3 className="text-base font-semibold text-gray-900">推敲プロンプト（コピペ用）</h3>
@@ -361,8 +364,8 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="tool-comparison" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             用途別おすすめツール比較（ビジネス提案/社内報告/セミナー）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: ツール選定は「見栄え」より「運用・共有・テンプレート」の相性で決めると失敗しにくいです。無理のない組み合わせから始めましょう。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            ツール選定は「見栄え」より「運用・共有・テンプレート」の相性で決めると失敗しにくいです。無理のない組み合わせから始めましょう。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[920px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -399,8 +402,8 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="prompt-examples" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             プレゼン資料作成で使えるプロンプト例
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: プロンプトは「工程ごと」に分けてテンプレ化すると再現性が上がります。まずアウトライン→原稿→推敲の3点を揃えると、どのツールでも使い回しやすくなります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            プロンプトは「工程ごと」に分けてテンプレ化すると再現性が上がります。まずアウトライン→原稿→推敲の3点を揃えると、どのツールでも使い回しやすくなります。
           </p>
           <div className="mt-6 space-y-6">
             <section className="rounded-lg border border-gray-100 bg-gray-50 p-5">
@@ -469,8 +472,8 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             プロンプト設計を体系的に学ぶなら
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: ツール名より「入力の設計（前提・制約・出力形式）」で成果が決まります。AIリブートアカデミーでは、業務別テンプレートの作り方と再現性のあるプロンプト設計を体系的に学べます。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            ツール名より「入力の設計（前提・制約・出力形式）」で成果が決まります。AIリブートアカデミーでは、業務別テンプレートの作り方と再現性のあるプロンプト設計を体系的に学べます。
           </p>
           <ul className="mt-6 space-y-2 text-sm leading-7 text-gray-700">
             <li>

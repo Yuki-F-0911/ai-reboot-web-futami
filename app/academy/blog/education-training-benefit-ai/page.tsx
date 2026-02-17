@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "教育訓練給付金でAI講座を受講するガイド｜制度比較と費用の考え方 | AIリブート";
 const pageDescription =
-  "教育訓練給付金でAI講座を受講したい方向けに、制度概要、区分（一般/特定一般/専門実践）の違い、リスキリング補助金との比較、実質負担の考え方を整理。申込前に確認すべきポイントもまとめます。";
+  "教育訓練給付金でAI講座を受講したい方向けに、制度概要と区分（一般/特定一般/専門実践）の違い、リスキリング補助金との比較、実質負担の考え方を解説。申込前チェック、申請タイミングの注意点、講座選びのコツまで整理。無料セミナー/個別相談の案内付き。";
 const pageUrl = "https://ai-reboot.io/academy/blog/education-training-benefit-ai";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";

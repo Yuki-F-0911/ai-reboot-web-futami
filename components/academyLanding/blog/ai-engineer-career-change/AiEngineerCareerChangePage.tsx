@@ -188,6 +188,9 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            未経験転職は、基礎→実践→転職準備を切り分け、成果物を軸に応募へ接続すると成功確率が上がります。
+          </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               未経験転職では、Python基礎、データ処理、AI活用実装、開発運用の4領域をバランスよく押さえることが重要です。
@@ -212,8 +215,8 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           <h2 id="required-skill-sets" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             未経験からAIエンジニアになるために必要なスキルセット
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 「高度な理論を網羅する」より「実務で再現できる基礎を固める」ほうが、転職成功につながりやすくなります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            「高度な理論を網羅する」より「実務で再現できる基礎を固める」ほうが、転職成功につながりやすくなります。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -248,8 +251,8 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           <h2 id="learning-roadmap" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学習ロードマップ（基礎→実践→転職準備）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 学習はフェーズを区切り、各フェーズで成果物を1つ作ると、転職準備（職務経歴書/面接での説明）に接続しやすくなります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            学習はフェーズを区切り、各フェーズで成果物を1つ作ると、転職準備（職務経歴書/面接での説明）に接続しやすくなります。
           </p>
           <div className="mt-6 space-y-4">
             {roadmapPhases.map((phase) => (
@@ -274,8 +277,11 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           <h2 id="learning-method-comparison" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             未経験者が選ぶべき学習手段の比較（独学/スクール/OJT）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            最適解は1つではありません。使える時間、予算、現在の職場環境によって、最適な学習手段は変わります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            独学/スクール/OJTは「学習時間」「フィードバック速度」「強制力」のどれを優先するかで選ぶと迷いにくいです。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            使える時間、予算、現在の職場環境によって、最適な学習手段は変わります。自分の状況でボトルネックになっている要素を1つだけ決めて選ぶと、途中で迷いにくくなります。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[900px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -312,8 +318,8 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           <h2 id="portfolio-building" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             転職活動で評価されるポートフォリオの作り方
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: モデル精度の高さだけでなく、課題設定と改善プロセスを説明できる構成が評価につながります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            モデル精度の高さだけでなく、課題設定と改善プロセスを説明できる構成が評価につながります。
           </p>
           <div className="mt-6 space-y-4">
             {portfolioSteps.map((step) => (
@@ -336,8 +342,8 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           <h2 id="career-path-by-age" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             年代別の現実的なキャリアパス（20代/30代/40代）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 年代によって戦い方は変わりますが、重要なのは「前職経験×AIスキル」で勝てるポジションを定義することです。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            年代によって戦い方は変わりますが、重要なのは「前職経験×AIスキル」で勝てるポジションを定義することです。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {careerPathByAge.map((path) => (
@@ -431,6 +437,9 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             無料セミナー / 個別相談
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            迷ったら「現状の経験をどうAI文脈に翻訳するか」を先に決めると、学習と応募の両方が前に進みます。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             転職戦略を一人で組み立てるのが難しい場合は、無料セミナーで全体像を整理し、個別相談で現職経験を活かしたキャリア設計を確認する進め方が有効です。
           </p>

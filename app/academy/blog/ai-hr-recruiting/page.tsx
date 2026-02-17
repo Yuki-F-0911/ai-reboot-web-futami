@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AI × 人事・採用｜業務効率化から戦略的活用までの実践ガイド | AIリブート";
 const pageDescription =
-  "人事・採用でのAI活用を、求人票作成・候補者対応・面接設計などの業務別に整理。導入ステップ、偏り/公平性などの注意点、すぐ使えるプロンプト例までまとめ、現場で安全に始められます。";
+  "人事・採用でのAI活用を、求人票作成・スクリーニング・面接設計・候補者対応など業務別に整理。導入ステップ、偏り/公平性・個人情報の注意点、コピペOKのプロンプト例まで網羅。運用ルールとレビュー手順の作り方もわかる。始める前のチェックリスト付き。無料相談の案内付き。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-hr-recruiting";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";

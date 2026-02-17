@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AIでプレゼン資料を効率的に作る方法｜構成・デザイン・推敲まで | AIリブート";
 const pageDescription =
-  "AIでプレゼン資料を効率化する手順を、構成→原稿→デザイン→推敲まで解説。ChatGPT/Claudeのアウトライン作成、Gamma/Canva等の使い分け、プロンプト例と注意点をまとめ、手戻りを減らせます。";
+  "AIでプレゼン資料を効率化する手順を、構成→原稿→デザイン→推敲まで解説。ChatGPT/Claudeのアウトライン作成、Gamma/Canva等の使い分け、テンプレ化できるプロンプト例を掲載。用途別ツール比較と推敲チェックもまとまり、今日から試せます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-presentation-workflow";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";

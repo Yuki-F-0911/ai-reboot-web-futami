@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "マルチモーダルAIとは？テキスト・画像・音声を横断する次世代AIを解説 | AIリブート";
 const pageDescription =
-  "マルチモーダルAIの定義、従来AIとの違い、仕組み（テキスト/画像/音声の統合処理）、活用シーン、始め方、注意点を初心者向けに整理。画像や音声も扱うAIの実務での使いどころがわかります。";
+  "マルチモーダルAIの定義、従来AIとの違い、仕組み（テキスト/画像/音声の統合処理）、活用シーン、始め方、注意点を初心者向けに整理。営業/マーケ/CS/製造など部門別の具体例と、無料で試す導入ステップがわかる。導入判断の注意点もまとめました。";
 const pageUrl = "https://ai-reboot.io/academy/blog/multimodal-ai-intro";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
