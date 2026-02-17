@@ -8,7 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-certification-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-16T09:00:00+09:00";
-const modifiedTime = "2026-02-18T12:00:00+09:00";
+const modifiedTime = "2026-02-18T18:00:00+09:00";
 
 const faqItems = [
   {
@@ -34,7 +34,7 @@ const faqItems = [
   {
     question: "G検定の合格率は？",
     answer:
-      "回ごとに変動します。JDLA公表値では、2026年第1回は受験者8,529名・合格者6,718名で、合格率は約78.8%でした。",
+      "回ごとに変動します。JDLA公表値では、2026年第1回は受験者8,529名・合格者6,718名で、合格率は78.77%でした。",
   },
   {
     question: "受験費用を抑える方法はありますか？",
