@@ -58,14 +58,14 @@
 ### B. 生成AI業務活用
 | キーワード | 検索意図 | 優先度 | 対応状況 | 対応ページ/施策 |
 |---|---|---|---|---|
-| AI 業務効率化 事例 | 実務での改善例を知りたい | A | 部分対応 | `/academy/blog/skills-for-ai-era-career` |
+| AI 業務効率化 事例 | 実務での改善例を知りたい | A | 対応済み | `/academy/blog/ai-business-efficiency-cases` |
 | ChatGPT 仕事 活用 | 仕事での使い方を知りたい | A | 対応済み | `/academy/blog/prompt-template-for-work` |
-| 生成AI ビジネス 活用 | ビジネス適用の全体像を知りたい | A | 部分対応 | `/academy`（事例導線の強化） |
+| 生成AI ビジネス 活用 | ビジネス適用の全体像を知りたい | A | 対応済み | `/academy/blog/ai-business-efficiency-cases` |
 | AI メール作成 | 定型文作成を効率化したい | B | 対応済み | `/academy/blog/prompt-template-for-work` |
 | AI 議事録 作成 | 会議業務を効率化したい | B | 対応済み | `/academy/blog/prompt-template-for-work` |
 | AI プレゼン資料 作成 | 資料作成工数を削減したい | B | 未対応 | 新規: `/academy/blog/ai-presentation-workflow` |
 | AI データ分析 Excel | Excel分析を高度化したい | B | 未対応 | 新規: `/academy/blog/ai-data-analysis-excel` |
-| AI マーケティング 活用 | マーケ施策に活かしたい | A | 部分対応 | `/academy/blog/skills-for-ai-era-career`（マーケ職章） |
+| AI マーケティング 活用 | マーケ施策に活かしたい | A | 対応済み | `/academy/blog/ai-business-efficiency-cases` |
 | 生成AI 導入 企業 | 導入プロセスを知りたい | S | 対応済み | `/academy/blog/corporate-ai-adoption-guide` |
 | 中小企業 生成AI 活用 | SME向け導入パターンを知りたい | A | 対応済み | `/academy/blog/corporate-ai-adoption-guide` |
 
@@ -105,10 +105,10 @@
 | AI時代 仕事 なくなる | 将来不安を解消したい | A | 対応済み | `/academy/blog/skills-for-ai-era-career` |
 | AI時代 必要なスキル | 必須スキルを把握したい | S | 対応済み | `/academy/blog/skills-for-ai-era-career` |
 | DX人材 リスキリング | DX文脈の学び直しを知りたい | A | 部分対応 | `/academy/meti-reskilling-comparison` |
-| 40代 リスキリング | 年代別に現実的な学習法を知りたい | A | 部分対応 | `/academy/blog/ai-career-change-cases` |
-| 50代 学び直し | 年代不安を解消したい | A | 部分対応 | `/academy/blog/ai-career-change-cases` |
+| 40代 リスキリング | 年代別に現実的な学習法を知りたい | A | 対応済み | `/academy/blog/reskilling-over-40` |
+| 50代 学び直し | 年代不安を解消したい | A | 対応済み | `/academy/blog/reskilling-over-40` |
 | AI キャリアチェンジ | 職種転換ルートを知りたい | S | 対応済み | `/academy/blog/ai-career-change-cases` |
-| 副業 AI 始め方 | 副業導線を作りたい | A | 部分対応 | `/academy/reskilling-course-recommendation`（副業目的章） |
+| 副業 AI 始め方 | 副業導線を作りたい | A | 対応済み | `/academy/blog/ai-for-non-engineers`（副業向け章あり） |
 | フリーランス AI 仕事 | 独立系の活用法を知りたい | B | 部分対応 | `/academy/reviews`（属性別の声） |
 
 ### F. 補助金・費用
@@ -116,12 +116,12 @@
 |---|---|---|---|---|
 | リスキリング補助金 個人 | 対象可否を知りたい | S | 対応済み | `/academy/subsidy-guide` |
 | リスキリング補助金 2026 | 最新制度を確認したい | S | 対応済み | `/academy/subsidy-guide` |
-| 教育訓練給付金 AI講座 | 制度差分を比較したい | A | 部分対応 | `/academy/subsidy-eligible-courses`（FAQ） |
+| 教育訓練給付金 AI講座 | 制度差分を比較したい | A | 対応済み | `/academy/blog/education-training-benefit-ai` |
 | DXリスキリング 助成金 | 企業向け助成制度を知りたい | A | 対応済み | `/academy/blog/dx-reskilling-subsidy-guide` |
-| AI講座 費用 相場 | 価格妥当性を判断したい | A | 部分対応 | `/academy/ai-course-comparison` |
+| AI講座 費用 相場 | 価格妥当性を判断したい | A | 対応済み | `/academy/blog/education-training-benefit-ai` |
 | AI講座 料金 比較 | 料金軸で比較したい | S | 対応済み | `/academy/ai-course-comparison` |
-| AIスクール 安い | 低価格候補を探したい | A | 部分対応 | `/academy/ai-course-comparison`（価格軸拡張） |
-| AIスクール コスパ | 費用対効果で選びたい | A | 部分対応 | `/academy/ai-course-comparison`（ROI軸追加） |
+| AIスクール 安い | 低価格候補を探したい | A | 対応済み | `/academy/blog/education-training-benefit-ai` |
+| AIスクール コスパ | 費用対効果で選びたい | A | 対応済み | `/academy/blog/education-training-benefit-ai` |
 | 経産省 リスキリング 対象講座 一覧 | 公式対象講座を確認したい | S | 部分対応 | `/academy/subsidy-eligible-courses` |
 | AI研修 補助金 申し込み | 申請フローを知りたい | S | 対応済み | `/academy/subsidy-guide` |
 
@@ -156,7 +156,7 @@
 ### I. 業種特化
 | キーワード | 検索意図 | 優先度 | 対応状況 | 対応ページ/施策 |
 |---|---|---|---|---|
-| AI 営業 活用 | 営業生産性を上げたい | A | 部分対応 | `/academy/blog/skills-for-ai-era-career`（営業職章） |
+| AI 営業 活用 | 営業生産性を上げたい | A | 対応済み | `/academy/blog/ai-business-efficiency-cases` |
 | 営業支援AI ツール | 営業ツールを選びたい | B | 部分対応 | `/academy/blog/skills-for-ai-era-career`（営業職章） |
 | AI 人事 採用 | 採用業務に活かしたい | B | 未対応 | 新規: `/academy/blog/ai-hr-recruiting` |
 | AI 経理 自動化 | 経理業務を効率化したい | B | 未対応 | 新規: `/academy/blog/ai-accounting-automation` |
@@ -171,20 +171,20 @@
 | キーワード | 検索意図 | 優先度 | 対応状況 | 対応ページ/施策 |
 |---|---|---|---|---|
 | AIに仕事を奪われる 対策 | 将来不安を解消したい | S | 対応済み | `/academy/blog/skills-for-ai-era-career` |
-| AI 怖い | 心理的不安を言語化したい | A | 部分対応 | `/academy/message` |
-| AI 不安 解消 | 行動に移す方法を知りたい | A | 部分対応 | `/academy/message` + `/academy/seminars` |
+| AI 怖い | 心理的不安を言語化したい | A | 対応済み | `/academy/blog/ai-for-non-engineers` |
+| AI 不安 解消 | 行動に移す方法を知りたい | A | 対応済み | `/academy/blog/ai-for-non-engineers` |
 | プログラミング できなくても AI | 非エンジニア可否を知りたい | S | 対応済み | `/academy/blog/how-to-learn-generative-ai` |
-| 文系 AI 学び方 | 文系向けロードマップを知りたい | A | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（文系向け章追加） |
-| 非エンジニア AI 活用 | 現場導入の方法を知りたい | A | 部分対応 | `/academy/ai-training-for-individuals` |
+| 文系 AI 学び方 | 文系向けロードマップを知りたい | A | 対応済み | `/academy/blog/ai-for-non-engineers` |
+| 非エンジニア AI 活用 | 現場導入の方法を知りたい | A | 対応済み | `/academy/blog/ai-for-non-engineers` |
 | AI 何から始める | 最初の行動を知りたい | S | 対応済み | `/academy/blog/how-to-learn-generative-ai` |
 | AI 最初の一歩 | 小さく始めたい | A | 対応済み | `/academy/seminars` + `/academy/blog/how-to-learn-generative-ai` |
-| AI 独学 挫折 | 継続方法を知りたい | A | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（つまずき対策章） |
+| AI 独学 挫折 | 継続方法を知りたい | A | 対応済み | `/academy/blog/reskilling-over-40` |
 | AI 学ぶ意味 | キャリア意義を確認したい | B | 部分対応 | `/academy/message` |
 
 ## サマリー
 
 ### 対応済みキーワード数 / 全キーワード数
-- **38 / 100**
+- **54 / 100**
 
 ### 優先度S/Aで未対応のキーワード（次に作るべき候補）
 

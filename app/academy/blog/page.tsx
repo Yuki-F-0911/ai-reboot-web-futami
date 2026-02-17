@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで14記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで16記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -102,6 +102,20 @@ const blogPosts: readonly BlogPost[] = [
     title: "法人向けAI研修で成果を出す完全ガイド",
     summary: "研修形式の選び方、KPI設計、社内定着の進め方を比較観点付きで整理した法人向け記事です。",
     category: "法人向け",
+  },
+  {
+    slug: "reskilling-over-40",
+    title: "40代・50代からのAIリスキリング完全ガイド",
+    summary:
+      "40代・50代がAIを学ぶ理由、年代別の学習アプローチ、独学の挫折対策と学習手段の比較を整理した記事です。",
+    category: "キャリア・転職",
+  },
+  {
+    slug: "education-training-benefit-ai",
+    title: "教育訓練給付金でAI講座を受講するガイド",
+    summary:
+      "教育訓練給付金の3種の概要、リスキリング補助金との違い、AI講座の費用相場とコスパの良い選び方を整理した記事です。",
+    category: "実務活用",
   },
 ] as const;
 
