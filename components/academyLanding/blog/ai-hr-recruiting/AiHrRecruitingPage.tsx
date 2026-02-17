@@ -377,6 +377,9 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           <h2 id="cautions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AI導入時の注意点（バイアス対策、プライバシー、法的配慮）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 採用・人事でAIを使うときは、バイアス/個人情報/責任分界（最終判断は誰が持つか）を先に決め、AIは補助に限定する運用が安全です。
+          </p>
           <div className="mt-6 space-y-4">
             {cautionItems.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -423,6 +426,9 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくある質問（FAQ）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            導入初期に迷いやすいポイントをQ&A形式で整理します。社内ルールや扱うデータの種類によって最適解は変わるため、自社の状況に合わせて読み替えてください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -500,6 +506,12 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
               AIリブートアカデミーを見る
             </Link>
             <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
               href="/academy/blog"
               className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
             >
@@ -511,4 +523,3 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
     </main>
   );
 }
-

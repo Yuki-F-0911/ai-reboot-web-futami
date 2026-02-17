@@ -286,6 +286,9 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           <h2 id="cautions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             注意点（就業規則、確定申告、クライアントとの期待値調整）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: トラブル回避の鍵は、就業規則（副業可否）、税務（確定申告の準備）、クライアントとの期待値（AI活用範囲と品質担保）の3点を先に揃えることです。
+          </p>
           <div className="mt-6 space-y-4">
             {cautions.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -307,6 +310,9 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            副業開始前に不安が出やすい論点（未経験からの始め方、説明責任、社内ルール、税務）をまとめます。まずは「避けるべき地雷」を先に潰すのが安全です。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -330,6 +336,14 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             <li>
               <Link href="/academy/blog/ai-coding-for-beginners" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-course-ranking"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI講座ランキング2026｜選び方の基準と目的別おすすめを解説 | AIリブート
               </Link>
             </li>
             <li>

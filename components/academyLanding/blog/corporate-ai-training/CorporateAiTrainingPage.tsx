@@ -74,7 +74,7 @@ const academyPlanPoints = [
   },
   {
     title: "3日間集中研修の3プラン",
-    body: "Plan A（スタンダード・集中研修プラン）210万円・実質31.5万円、Plan B（動画アーカイブ付き・定着強化プラン）252万円・実質42万円、Plan C（複数講師・徹底サポートプラン）300万円・実質54万円。",
+    body: "Plan A（スタンダード・集中研修プラン）210万円、Plan B（動画アーカイブ付き・定着強化プラン）252万円、Plan C（複数講師・徹底サポートプラン）300万円。※価格・提供範囲は変更される可能性があるため、最新情報は資料請求でご確認ください。",
   },
   {
     title: "研修で得られる3つの力",
@@ -82,7 +82,7 @@ const academyPlanPoints = [
   },
   {
     title: "助成金活用で実質負担を軽減",
-    body: "人材開発支援助成金（リスキリング）を活用し、経費助成は最大75%、賃金助成は研修中の賃金が対象です。実質負担額は中小企業を対象に3日間10人開催した場合の助成金を差し引いた金額です。",
+    body: "人材開発支援助成金（事業展開等リスキリング支援コース等）など、条件により研修費用の一部が助成対象になる可能性があります。助成率・助成額・対象経費は企業規模や訓練内容、年度の制度改定で変わるため、必ず最新の公的資料で確認してください。",
   },
   {
     title: "その他のプログラム（カスタム対応）",
@@ -99,7 +99,7 @@ const comparisonRows = [
   {
     axis: "プラン構成",
     general: "料金体系と支援範囲はサービスごとに要確認",
-    academy: "Plan A: 210万円（実質31.5万円）/ Plan B: 252万円（実質42万円）/ Plan C: 300万円（実質54万円）",
+    academy: "Plan A: 210万円 / Plan B: 252万円 / Plan C: 300万円（※最新は要確認）",
   },
   {
     axis: "研修成果の設計",
@@ -109,7 +109,7 @@ const comparisonRows = [
   {
     axis: "助成金活用",
     general: "制度適用可否と申請支援範囲は要確認",
-    academy: "人材開発支援助成金（リスキリング）対応。経費助成最大75% + 賃金助成（研修中の賃金）",
+    academy: "人材開発支援助成金（事業展開等リスキリング支援コース等）などの活用を前提に要件整理を支援（助成率・対象経費は要確認）",
   },
   {
     axis: "カスタム対応",
@@ -184,7 +184,7 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             法人向けAI研修で成果を出すための完全ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月16日に更新されました</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月17日に更新されました</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             法人向けAI研修は、受講人数より「研修設計」と「社内定着設計」で成果が決まります。本記事では、研修形式の選び方、KPI設計、
             フォロー体制、比較検討時の視点を担当者向けに整理しました。
@@ -388,6 +388,9 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            よくある疑問をQ&Aで整理します。研修の最適な形は企業規模・対象者・目的で変わるため、自社の前提条件に合わせて読み替えてください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -430,6 +433,14 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
               </Link>
             </li>
             <li>
+              <Link
+                href="/academy/blog/dx-reskilling-subsidy-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                DXリスキリング助成金ガイド｜対象条件・申請手順・併用可否を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
               </Link>
@@ -457,6 +468,12 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
               className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
             >
               法人向け研修プランを見る
+            </Link>
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              無料セミナーを見る
             </Link>
             <Link
               href="/briefing"

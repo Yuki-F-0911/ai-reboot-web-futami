@@ -246,6 +246,9 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           <h2 id="learning-roadmap" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学習ロードマップ（基礎→実践→転職準備）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 学習はフェーズを区切り、各フェーズで成果物を1つ作ると、転職準備（職務経歴書/面接での説明）に接続しやすくなります。
+          </p>
           <div className="mt-6 space-y-4">
             {roadmapPhases.map((phase) => (
               <section key={phase.phase} className="rounded-lg border border-gray-200 p-5">
@@ -331,6 +334,9 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           <h2 id="career-path-by-age" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             年代別の現実的なキャリアパス（20代/30代/40代）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 年代によって戦い方は変わりますが、重要なのは「前職経験×AIスキル」で勝てるポジションを定義することです。
+          </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {careerPathByAge.map((path) => (
               <section key={path.ageBand} className="rounded-lg border border-gray-200 p-5">
@@ -353,6 +359,9 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            よくある疑問をQ&Aで整理します。学習環境（独学/スクール/OJT）や希望職種によって最適な進め方は変わるため、前提条件に合わせて調整してください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -386,6 +395,19 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
             <li>
               <Link href="/academy/blog/ai-coding-for-beginners" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-course-ranking" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI講座ランキング2026｜選び方の基準と目的別おすすめを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-side-business-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                副業でAIを活用する始め方ガイド｜学習から案件獲得までの現実的な進め方 | AIリブート
               </Link>
             </li>
             <li>

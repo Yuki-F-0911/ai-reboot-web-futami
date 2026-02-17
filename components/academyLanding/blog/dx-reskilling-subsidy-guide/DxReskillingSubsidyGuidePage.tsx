@@ -263,6 +263,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <h2 id="eligible-training-conditions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             対象となる研修・講座の条件
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 「講座の内容」だけでなく「実施体制」と「記録・証憑の残し方」まで含めて要件になることがあります。申込み前に制度ごとの公募要領を確認してください。
+          </p>
           <div className="mt-6 space-y-4">
             {eligibleConditions.map((condition) => (
               <section key={condition.title} className="rounded-lg border border-gray-200 p-5">
@@ -284,6 +287,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <h2 id="application-flow-and-documents" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             申請の流れと必要書類
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 申請は「事前準備→実施→実績報告」の順で詰まりやすいポイントが変わります。最初に書類の全体像を把握し、証憑管理の運用を決めておくと安全です。
+          </p>
           <div className="mt-6 space-y-4">
             {applicationFlow.map((item) => (
               <section key={item.step} className="rounded-lg border border-gray-200 p-5">
@@ -330,6 +336,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            よくある疑問をQ&Aで整理します。制度は年度や自治体で条件が変わる可能性があるため、最終判断は必ず最新の公募要領で確認してください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -369,6 +378,14 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             <li>
               <Link href="/academy/blog/reskilling-over-40" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 40代・50代からのAIリスキリング完全ガイド｜経験を強みに学び直す方法 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/corporate-ai-training"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                法人向けAI研修サービス｜社内定着・研修設計・導入相談 | AIリブート
               </Link>
             </li>
             <li>

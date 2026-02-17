@@ -255,6 +255,9 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="recommended-by-purpose" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             目的別おすすめ（転職・副業・業務効率化）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 目的が違えば「必要な講座タイプ」も変わります。まずは転職/副業/業務効率化のどれを優先するかを1つに固定してください。
+          </p>
           <div className="mt-6 space-y-4">
             {purposeRecommendations.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -276,6 +279,9 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="selection-points" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             選び方のポイント（補助金対応・受講形式・期間）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 比較で迷ったら「補助金/給付金の要件」「学習継続しやすい形式」「実務適用に必要な期間」の3点を先に確認すると判断が早くなります。
+          </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {selectionPoints.map((point) => (
               <section key={point.title} className="rounded-lg border border-gray-200 p-5">
@@ -297,6 +303,9 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="failure-patterns" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくある失敗パターンと回避法
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 失敗の多くは「目的が曖昧なまま申込む」「受講後の実務適用計画がない」ことから起きます。回避の視点を先に押さえましょう。
+          </p>
           <dl className="mt-6 space-y-4">
             {failurePatterns.map((item) => (
               <div key={item.pattern} className="rounded-lg border border-gray-200 p-5">
@@ -318,6 +327,9 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            よくある疑問をQ&Aで整理します。講座の内容や価格は変動するため、最終判断は公式情報での確認を前提にしてください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -363,6 +375,22 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-engineer-career-change"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                未経験からAIエンジニアへの転職ロードマップ｜学習手順と準備を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-side-business-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                副業でAIを活用する始め方ガイド｜学習から案件獲得までの現実的な進め方 | AIリブート
               </Link>
             </li>
             <li>
