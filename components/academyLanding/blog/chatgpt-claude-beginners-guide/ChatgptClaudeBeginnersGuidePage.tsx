@@ -59,7 +59,7 @@ const planComparison = [
 const firstWeekUseCases = [
   {
     title: "1. 記事・資料の要約",
-    detail: "長文を短く整理し、会議前のインプット時間を短縮します。",
+    detail: "社内資料（数〜10ページ程度）を「結論/根拠/論点」の形で要約し、会議前のインプット時間を短縮します。",
   },
   {
     title: "2. メール下書き作成",
@@ -75,7 +75,7 @@ const firstWeekUseCases = [
   },
   {
     title: "5. 議事録の整理",
-    detail: "メモを要点、決定事項、次アクションに分解します。",
+    detail: "箇条書きメモを貼り付け、「要点/決定事項/未決/次アクション」に分解して整理します。",
   },
   {
     title: "6. 文章の言い換え",
@@ -151,9 +151,10 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             ChatGPT・Claude初心者ガイド｜最初の1週間でできること
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            生成AIを初めて使うなら、最初の1週間で「基本操作」と「実務に使える型」を作ることが重要です。本記事では、ChatGPTとClaudeを比較しながら、初心者がつまずきにくい進め方を解説します。
+            初めての生成AIは、何を聞けばいいか・何が正解かでつまずきがちです。最初の1週間で「基本操作」と「実務に使える型」を作ると、迷いが一気に減ります。
+            筆者はまず議事録要約とメール下書きから試し、同じ質問をChatGPT/Claudeに投げて違いを掴みました。
           </p>
         </motion.header>
 
@@ -194,6 +195,9 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           <h2 id="getting-started-flow" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             アカウント作成から最初の質問までの手順（ChatGPT / Claude共通）
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 最初は「アカウント作成 → 1つの用途で試す → 同じ質問で比較」の順に進めると、最短で使い分けの感覚が掴めます。
+          </p>
           <div className="mt-6 space-y-4">
             {gettingStartedFlow.map((item) => (
               <section key={item.step} className="rounded-lg border border-gray-200 p-5">
@@ -216,7 +220,8 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             無料プランでできること・有料プランとの違い
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            最初から有料を前提にせず、無料範囲で利用目的を固めるのが堅実です。用途と利用頻度が明確になった段階で、各プランを比較して選びましょう。
+            結論: 最初から有料を前提にせず、無料範囲で利用目的を固めるのが堅実です。用途と利用頻度が明確になった段階で、各プランを比較して選びましょう。
+            例として、ChatGPT（Plus/Pro、地域によってはGoなど）やClaude（Pro/Maxなど）のように、個人向けにも複数の有料プランが用意されることがあります（2026年2月時点、名称/料金/提供内容は更新されます）。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -252,7 +257,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             最初の1週間で試すべき7つの使い方
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            1週間で幅広く試しておくと、自分の業務に合う活用パターンが見つけやすくなります。以下の7つは初心者でも着手しやすい基本用途です。
+            結論: 1週間で幅広く試しておくと、自分の業務に合う活用パターンが見つけやすくなります。以下の7つは初心者でも着手しやすい基本用途です。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {firstWeekUseCases.map((item) => (
@@ -275,6 +280,9 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           <h2 id="beginner-mistakes" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくある初心者の失敗と対策
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 失敗の多くは「曖昧な質問」と「1回で終わらせようとする運用」から起きます。型（目的・前提・出力形式）と追質問を前提にすると、安定して成果が出ます。
+          </p>
           <div className="mt-6 space-y-4">
             {beginnerMistakes.map((item) => (
               <section key={item.mistake} className="rounded-lg border border-gray-200 p-5">
@@ -312,23 +320,41 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link href="/academy/blog/what-is-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/gpt-vs-claude-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/gemini-beginners-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                Google Gemini完全入門ガイド｜使い方・ChatGPTとの違い・無料で始める方法【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/how-to-learn-generative-ai"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-coding-for-beginners" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIコーディング入門｜非エンジニアでも始められる開発の基本と進め方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/what-is-rag" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                RAGとは？検索拡張生成の仕組みと活用例をわかりやすく解説 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                受講者レビュー
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
               </Link>
             </li>
           </ul>

@@ -74,7 +74,7 @@ const academyPlanPoints = [
   },
   {
     title: "3日間集中研修の3プラン",
-    body: "Plan A（スタンダード・集中研修プラン）210万円・実質31.5万円、Plan B（動画アーカイブ付き・定着強化プラン）252万円・実質42万円、Plan C（複数講師・徹底サポートプラン）300万円・実質54万円。",
+    body: "Plan A（スタンダード・集中研修プラン）210万円、Plan B（動画アーカイブ付き・定着強化プラン）252万円、Plan C（複数講師・徹底サポートプラン）300万円。※価格・提供範囲は変更される可能性があるため、最新情報は資料請求でご確認ください。",
   },
   {
     title: "研修で得られる3つの力",
@@ -82,7 +82,7 @@ const academyPlanPoints = [
   },
   {
     title: "助成金活用で実質負担を軽減",
-    body: "人材開発支援助成金（リスキリング）を活用し、経費助成は最大75%、賃金助成は研修中の賃金が対象です。実質負担額は中小企業を対象に3日間10人開催した場合の助成金を差し引いた金額です。",
+    body: "人材開発支援助成金（事業展開等リスキリング支援コース等）など、条件により研修費用の一部が助成対象になる可能性があります。助成率・助成額・対象経費は企業規模や訓練内容、年度の制度改定で変わるため、必ず最新の公的資料で確認してください。",
   },
   {
     title: "その他のプログラム（カスタム対応）",
@@ -99,7 +99,7 @@ const comparisonRows = [
   {
     axis: "プラン構成",
     general: "料金体系と支援範囲はサービスごとに要確認",
-    academy: "Plan A: 210万円（実質31.5万円）/ Plan B: 252万円（実質42万円）/ Plan C: 300万円（実質54万円）",
+    academy: "Plan A: 210万円 / Plan B: 252万円 / Plan C: 300万円（※最新は要確認）",
   },
   {
     axis: "研修成果の設計",
@@ -109,7 +109,7 @@ const comparisonRows = [
   {
     axis: "助成金活用",
     general: "制度適用可否と申請支援範囲は要確認",
-    academy: "人材開発支援助成金（リスキリング）対応。経費助成最大75% + 賃金助成（研修中の賃金）",
+    academy: "人材開発支援助成金（事業展開等リスキリング支援コース等）などの活用を前提に要件整理を支援（助成率・対象経費は要確認）",
   },
   {
     axis: "カスタム対応",
@@ -184,10 +184,11 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             法人向けAI研修で成果を出すための完全ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月16日に更新されました</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            法人向けAI研修は、受講人数より「研修設計」と「社内定着設計」で成果が決まります。本記事では、研修形式の選び方、KPI設計、
-            フォロー体制、比較検討時の視点を担当者向けに整理しました。
+            法人向けAI研修は、受講人数より「研修設計」と「社内定着設計」で成果が決まります。
+            本記事では、研修形式の選び方、KPI設計、フォロー体制、比較検討時の視点を結論先出しで整理します。
+            筆者は研修の前に「どの業務が何分短くなるか」を1つだけ決めてから設計すると、定着しやすいと感じています。
           </p>
         </motion.header>
 
@@ -204,9 +205,11 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            成果が出る法人研修は、受講前に「対象者レベル分け」「業務KPI」「研修後フォロー」をセットで設計します。単発研修より、伴走型で運用定着まで見る設計が有効です。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            成果が出る法人研修は、受講前に「対象者レベル分け」「業務KPI」「研修後フォロー」をセットで設計しています。単発研修より、
-            伴走型で運用定着まで見る設計が有効です。
+            研修を「学び」で終わらせず、現場の業務フローに戻すところまでをスコープに含めると、投資対効果を説明しやすくなります。
           </p>
         </motion.section>
 
@@ -221,7 +224,7 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="training-types" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             法人研修の種類（オンライン / 対面 / ハイブリッド）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium text-gray-900">
             研修形式は「実施しやすさ」と「定着しやすさ」のバランスで選びます。目的に応じて形式を使い分けるのが現実的です。
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
@@ -260,8 +263,8 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="training-design-points" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             研修設計のポイント（レベル分け / KPI / フォロー）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            研修効果を左右するのは講義内容より設計です。事前設計の3要素を押さえると、研修後の現場活用率が上がります。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            研修効果を左右するのは講義内容より設計です。「レベル分け / KPI / フォロー」を先に決めると、研修後の現場活用率が上がります。
           </p>
           <div className="mt-6 space-y-4">
             {designPoints.map((point) => (
@@ -285,8 +288,8 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="academy-plan" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIリブートアカデミーの法人プラン
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            法人プランは3日間集中研修を軸に、人数・時間・形式を明確化した上で、助成金活用まで含めて導入しやすい設計になっています。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            人数・時間・形式を明確化したうえで、研修→定着までを一気通貫で設計すると成果が出やすくなります。法人プランは導入しやすい条件で整理しています。
           </p>
           <ul className="mt-5 space-y-3 text-sm leading-7 text-gray-700">
             {academyPlanPoints.map((item) => (
@@ -320,8 +323,8 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="comparison-table" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             比較時の確認項目（一般講座 vs AIリブート法人研修）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            法人研修は価格だけでなく、公開されている研修条件・成果設計・助成金対応の具体性まで確認することが重要です。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            比較は価格だけでなく、研修条件・成果設計・助成金対応の具体性まで確認することが重要です。
           </p>
           <div className="mt-7 overflow-x-auto">
             <table className="w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -356,8 +359,8 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="case-studies" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             導入事例（想定ケーススタディ）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            実際の導入では、部門ごとに課題が異なります。以下のケースをベースに、自社に近い進め方を検討してください。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            部門ごとに課題が違うため、ユースケースと成果指標を分けて設計するのが安全です。想定ケースをベースに検討してください。
           </p>
           <div className="mt-6 space-y-4">
             {caseStudies.map((caseItem) => (
@@ -388,6 +391,9 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 研修の最適な形は企業規模・対象者・目的で変わります。よくある疑問をQ&Aで整理します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -404,18 +410,42 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           </h2>
           <ul className="space-y-2">
             <li>
-              <Link href="/corporate" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                法人向け研修プラン詳細
+              <Link
+                href="/academy/blog/corporate-ai-training-internal"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                社内AI研修の始め方と定着の進め方｜DX人材を育てる実務ガイド | AIリブート
               </Link>
             </li>
             <li>
-              <Link href="/briefing" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                法人向け資料請求・相談
+              <Link href="/academy/blog/corporate-ai-adoption-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                中小企業の生成AI導入ガイド｜失敗しない進め方と費用感 | AIリブート
               </Link>
             </li>
             <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
+              <Link
+                href="/academy/blog/ai-business-efficiency-cases"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI業務効率化事例集｜営業・マーケ・管理部門の活用ポイントを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/prompt-template-for-work" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/dx-reskilling-subsidy-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                DXリスキリング助成金ガイド｜対象条件・申請手順・併用可否を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIリブートアカデミー TOP
               </Link>
             </li>
           </ul>
@@ -432,8 +462,8 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h2 id="request-materials" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             まず資料請求
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            研修形式や対象人数が未確定でも問題ありません。法人向け研修ページでプランを確認した上で、資料請求時に現状課題をご共有ください。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            研修形式や対象人数が未確定でも問題ありません。まず現状課題を共有し、プラン確認→要件整理の順で進めるとスムーズです。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -441,6 +471,12 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
               className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
             >
               法人向け研修プランを見る
+            </Link>
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              無料セミナーを見る
             </Link>
             <Link
               href="/briefing"

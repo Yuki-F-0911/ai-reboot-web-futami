@@ -12,7 +12,7 @@ type MetiReskillingComparisonPageProps = {
 
 const selectionCriteria = [
   {
-    title: "認定要件の確認",
+    title: "制度要件の確認",
     points: ["対象制度名が明記されているか", "対象者条件が説明されているか", "申請手順の案内があるか"],
   },
   {
@@ -35,7 +35,7 @@ const checklistItems = [
 ] as const;
 
 const rebootFacts = [
-  "経産省リスキリング関連制度の対象講座として案内している",
+  "経済産業省『リスキリングを通じたキャリアアップ支援事業』の対象講座として案内している",
   "100日伴走の学習設計を採用している",
   "実務直結のアウトプットを重視している",
 ] as const;
@@ -43,6 +43,8 @@ const rebootFacts = [
 const internalLinks = [
   { href: "/academy", label: "AIリブートアカデミーTOP" },
   { href: "/academy/subsidy-guide", label: "補助金ガイド" },
+  { href: "/academy/subsidy-eligible-courses", label: "補助金対象講座の見分け方" },
+  { href: "/academy/ai-course-comparison", label: "AI講座比較" },
   { href: "/academy/reviews", label: "受講生の評判・口コミ" },
   { href: "/academy/seminars", label: "セミナー一覧" },
 ] as const;
@@ -58,23 +60,22 @@ export default function MetiReskillingComparisonPage({
           items={[
             { label: "ホーム", href: "/" },
             { label: "アカデミー", href: "/academy" },
-            { label: "経産省認定比較" },
+            { label: "制度対象講座比較" },
           ]}
         />
         <h1 className="text-3xl font-bold leading-tight text-slate-900 md:text-5xl">
-          経産省認定リスキリング講座を比較する視点｜選び方のポイント
+          経産省のリスキリング支援制度対象講座を比較する視点｜選び方のポイント
         </h1>
         <p className="mt-5 text-base leading-relaxed text-slate-700 md:text-lg">
-          結論として、認定の有無だけでなく、実績の透明性とサポート運用を合わせて確認すると講座選びの精度が上がります。
+          結論として、制度対象であることに加え、実績の透明性とサポート運用を合わせて確認すると講座選びの精度が上がります。
         </p>
       </section>
 
       <section className="border-y border-slate-100 bg-slate-50 py-12 md:py-16">
         <div className="mx-auto max-w-5xl px-4 md:px-6">
-          <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">経産省認定の意味と信頼性</h2>
+          <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">制度対象の意味と信頼性</h2>
           <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
-            経産省認定は制度要件を満たしているかを判断する重要な材料です。ただし、認定だけで受講成果が決まるわけではないため、
-            講座内容との一致も確認が必要です。
+            制度対象であることは、制度要件を満たしているかを判断する重要な材料です。ただし、制度対象だけで受講成果が決まるわけではないため、講座内容との一致も確認が必要です。
           </p>
           <p className="mt-3 text-sm leading-relaxed text-slate-700 md:text-base">
             制度の一次情報は
@@ -92,7 +93,7 @@ export default function MetiReskillingComparisonPage({
       </section>
 
       <section className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
-        <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">認定講座の選定基準</h2>
+        <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">対象講座の選定基準</h2>
         <div className="mt-6 space-y-5">
           {selectionCriteria.map((criterion, index) => (
             <article key={criterion.title} className="border border-slate-200 bg-white p-5">
@@ -124,7 +125,7 @@ export default function MetiReskillingComparisonPage({
       </section>
 
       <section className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
-        <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">AIリブートアカデミーの認定情報</h2>
+          <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">AIリブートアカデミーの制度対象情報</h2>
         <ul className="mt-6 space-y-3">
           {rebootFacts.map((fact) => (
             <li key={fact} className="border border-slate-200 bg-white p-4 text-sm leading-relaxed text-slate-700 md:text-base">

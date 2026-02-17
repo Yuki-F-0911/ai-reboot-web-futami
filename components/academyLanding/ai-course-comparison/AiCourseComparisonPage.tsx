@@ -119,7 +119,7 @@ const differentiationPoints = [
     body: "学習の初速だけでなく、途中のつまずきにも対応しやすい伴走体制を重視しています。",
   },
   {
-    title: "経産省認定に関する情報を明確化",
+    title: "制度対象に関する情報を明確化",
     body: "制度情報の参照先と確認手順を明示し、受講前に判断できる状態をつくっています。",
   },
   {
@@ -163,8 +163,9 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
             AI講座比較｜失敗しない選び方（価格・期間・伴走・実践性）
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-700 sm:text-lg">
-            結論として、価格だけでなく「伴走の深さ」と「実践課題の質」を同時に比較すると、受講後のミスマッチを減らせます。
-            このページでは、事実確認しながら比較するための軸とテンプレートを整理しています。
+            AIスクールは情報が多く、価格だけで選ぶと後悔しがちです。
+            結論: 価格だけでなく「伴走の深さ」と「実践課題の質」を同時に比較すると、受講後のミスマッチを減らせます。
+            筆者は比較時に「週の面談頻度」と「課題レビューの有無」を最優先で見て、判断がブレにくくなりました。
           </p>
         </motion.div>
       </section>
@@ -180,6 +181,9 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
         >
           <p className={sectionLabelClass}>AXES</p>
           <h2 className={sectionHeadingClass}>比較前に揃える5つの比較軸</h2>
+          <p className="mt-4 max-w-4xl text-sm sm:text-base font-semibold text-slate-900">
+            結論: 5軸（価格・期間・伴走度・実践性・補助金対応）を同じ粒度で揃えると、比較の抜け漏れを防げます。
+          </p>
 
           <motion.ol
             className="mt-8 border-t border-slate-200"
@@ -215,7 +219,10 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
         >
           <p className={sectionLabelClass}>TABLE</p>
           <h2 className={sectionHeadingClass}>匿名比較表（A社〜C社 + 自社）</h2>
-          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
+          <p className="mt-4 max-w-4xl text-sm sm:text-base font-semibold text-slate-900">
+            結論: 比較表は「確認できる事実だけ」で埋め、推測は混ぜないのが安全です（A社〜C社は入力欄として利用してください）。
+          </p>
+          <p className="mt-3 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
             競合名は匿名化し、確認できる事実のみを記載しています。A社〜C社は公開情報の精査前のため、入力欄として利用してください。
           </p>
           {/* TODO: 要ファクト確認 - A社/B社/C社の項目は一次情報確認後に更新 */}
@@ -260,6 +267,9 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
         >
           <p className={sectionLabelClass}>DIFFERENTIATION</p>
           <h2 className={sectionHeadingClass}>AIリブートアカデミーの差別化ポイント</h2>
+          <p className="mt-4 max-w-4xl text-sm sm:text-base font-semibold text-slate-900">
+            結論: 継続できる伴走と、実務に直結するアウトプット設計がある講座ほど、受講後に使える形で残りやすいです。
+          </p>
 
           <motion.ul
             className="mt-8 border-t border-slate-200"
@@ -281,6 +291,9 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
       <section className="border-t border-slate-200 py-12">
         <div className="container mx-auto max-w-5xl px-4 md:px-6 lg:px-8">
           <h2 className="text-lg font-bold text-slate-900">関連ページ</h2>
+          <p className="mt-3 max-w-4xl text-sm sm:text-base text-slate-700">
+            <span className="font-semibold text-slate-900">結論:</span> 補助金や評判も含めて判断したい場合は、関連ページも合わせて確認してください。
+          </p>
           <ul className="mt-4 space-y-2 text-sm sm:text-base">
             {internalLinks.map((item) => (
               <li key={item.href}>
@@ -304,6 +317,9 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
         >
           <p className={sectionLabelClass}>FAQ</p>
           <h2 className={sectionHeadingClass}>よくある質問</h2>
+          <p className="mt-4 max-w-4xl text-sm sm:text-base font-semibold text-slate-900">
+            結論: 迷ったら「目的の一致度」「伴走」「実践課題」の3点から先に絞ると、比較が早くなります。
+          </p>
 
           <motion.div
             className="mt-8 border-t border-slate-200"

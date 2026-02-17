@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AI業務効率化事例集｜営業・マーケ・管理部門の活用ポイントを解説 | AIリブート";
 const pageDescription =
-  "「AI 業務効率化 事例」「生成AI ビジネス 活用」をテーマに、営業・マーケティング・経理総務・カスタマーサポートでの一般的な活用パターンを整理。導入前の設計ポイントと失敗回避策も解説します。";
+  "生成AIの業務効率化事例を、営業・マーケ・経理総務・サポート別に整理。始めどころ、導入前の設計ポイント（KPI/ルール/権限）と失敗回避策をまとめ、現場で再現できる形にします。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-business-efficiency-cases";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

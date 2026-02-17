@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "社内AI研修の始め方と定着の進め方｜DX人材を育てる実務ガイド | AIリブート";
 const pageDescription =
-  "「AI 研修 社内」「DX人材 リスキリング」を検討する法人担当者向けに、社内研修の立ち上げ手順、外部研修との違い、定着施策を整理したガイドです。";
+  "社内AI研修を立ち上げたい法人担当者向けに、目的設定→対象者→プログラム設計→研修後の定着施策までを実務順に解説。外部研修との使い分けや効果測定の指標も整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/corporate-ai-training-internal";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

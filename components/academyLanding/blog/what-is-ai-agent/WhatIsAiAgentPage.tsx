@@ -138,10 +138,11 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AIエージェントとは？定義・種類・作り方を初心者向けに解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AIエージェントは、単に回答を返すAIではなく、目標達成までの作業を段階的に進める仕組みです。本記事では「AIエージェント
-            とは」の基本から、実務で使える導入ステップまで整理します。
+            AIエージェントは、単に回答を返すAIではなく、目標達成までの作業を段階的に進める仕組みです。
+            本記事では定義・種類・活用例・作り方の基本と、導入時の注意点までを結論先出しで整理します。
+            筆者はまず「読み取り専用の業務」から始め、権限とログを固めてから自動化範囲を広げるのが安全だと感じています。
           </p>
         </motion.header>
 
@@ -158,6 +159,9 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            AIエージェントは「計画→実行→振り返り」を回して目標に近づく仕組みで、まずは小さく始めるほど失敗しにくいです。
+          </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               AIエージェントは、目標に対して複数ステップを自律的に進めるAIシステムです。
@@ -182,8 +186,8 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="definition-and-difference" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIエージェントの定義と従来AIとの違い
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: AIエージェントは、目標達成のために「計画し、実行し、結果を見て修正する」流れを持つAIです。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            AIエージェントは、目標達成のために「計画し、実行し、結果を見て修正する」流れを持つAIです。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             従来型AIが単発の判定や生成を担当するのに対し、AIエージェントは連続処理のオーケストレーションを担います。ここが運用上の最大の違いです。
@@ -221,7 +225,10 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="types-and-use-cases" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             代表的なAIエージェントの種類と活用例
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium text-gray-900">
+            まずは「役割が明確で、成果が測れる」タイプを選ぶと、導入と改善が回りやすくなります。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
             業務に合うタイプを選ぶことが導入成功の起点です。最初は役割が明確なユースケースから始めると、効果測定がしやすくなります。
           </p>
           <div className="mt-6 overflow-x-auto">
@@ -257,8 +264,8 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="how-to-build-ai-agent" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             企業での導入ステップ（小規模から始める方法）
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: AIエージェントの作り方は、最初から大規模化せず、1ユースケースで仮説検証する流れが最も現実的です。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            AIエージェントの作り方は、最初から大規模化せず、1ユースケースで仮説検証する流れが最も現実的です。
           </p>
           <div className="mt-6 space-y-4">
             {introductionSteps.map((step) => (
@@ -281,6 +288,9 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="implementation-cautions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             導入時の注意点（セキュリティ、コスト、運用体制）
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            成否は実装よりも「入力ルール」「権限」「ログ」「人の確認ポイント」を先に決められるかで決まります。
+          </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {cautionItems.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -318,23 +328,28 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link href="/academy/blog/ai-agent-build-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIエージェントの作り方｜仕組み・開発手順・活用パターンを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/what-is-rag" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                RAG（検索拡張生成）とは？仕組み・メリット・活用事例をわかりやすく解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/rag-use-cases" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                RAG（検索拡張生成）の活用事例8選｜業種・業務別に解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/multimodal-ai-intro" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                マルチモーダルAIとは？テキスト・画像・音声を横断する次世代AIを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                受講者レビュー
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
               </Link>
             </li>
           </ul>
@@ -351,10 +366,19 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             無料セミナー / 個別相談
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            まずは「どの業務を、どこまで自動化するか」を言語化し、権限とログの設計から始めるのが安全です。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             AIエージェントを自社でどう設計すべきか迷う場合は、無料セミナーで全体像を整理し、個別相談で導入優先順位を確認する進め方が実践的です。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーを見る
+            </Link>
             <Link
               href="/academy/seminars"
               className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"

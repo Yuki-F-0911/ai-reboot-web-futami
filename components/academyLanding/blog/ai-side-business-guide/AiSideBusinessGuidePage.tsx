@@ -155,10 +155,11 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             副業でAIを活用する始め方ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月17日に更新されました</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI活用の副業は、短期的な収益化だけを狙うより、既存スキルとの組み合わせで継続案件を作る視点が重要です。本記事では、
-            現実的な学習と実務準備の進め方を整理します。
+            AI副業は「何を売ればいいか」「どこまでAIに任せていいか」で迷うと、準備が長引きがちです。
+            この記事では、副業タイプ・学習ステップ・必要スキルの目安・実務上の注意点を結論先出しで整理します。
+            筆者はまず「現職の経験に近い領域」で小さな成果物を作り、提案文とセットで実績化するのが近道だと感じています。
           </p>
         </motion.header>
 
@@ -192,8 +193,8 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           <h2 id="side-business-types" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIスキルで始められる副業の種類（ライティング支援、データ分析、自動化構築、コンサル等）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            AI活用の副業は職種によって必要スキルが異なります。自分の経験に近い領域から始めると、提案と納品の精度を上げやすくなります。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 最初は「自分の経験に近い領域」から始めるのが安全です。提案と納品の精度が上がり、継続案件につながりやすくなります。
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {sideBusinessTypes.map((item, index) => (
@@ -225,8 +226,8 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           <h2 id="learning-steps" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             副業を始めるまでの学習ステップ
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            学習を長期化させないためには、実務化を前提に段階を区切ることが有効です。次の流れで進めると、準備と実践を両立しやすくなります。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 学習を長期化させないために、最初から「実務化」を前提に段階を区切りましょう。準備と実践を並行すると進みやすくなります。
           </p>
           <div className="mt-7 space-y-4">
             {learningSteps.map((item) => (
@@ -250,8 +251,8 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           <h2 id="skill-level" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             必要なスキルレベルの目安（職種別）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            ここでの目安は一般的な傾向です。実際の案件要件はクライアントごとに異なるため、募集内容を確認しながら調整してください。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 必要スキルは「AI操作」よりも、納品品質を担保するための業務スキル（前提整理・修正対応・例外処理）で決まります。目安として整理します。
           </p>
           <div className="mt-7 overflow-x-auto">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -286,6 +287,9 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           <h2 id="cautions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             注意点（就業規則、確定申告、クライアントとの期待値調整）
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: トラブル回避の鍵は、就業規則（副業可否）、税務（確定申告の準備）、クライアントとの期待値（AI活用範囲と品質担保）の3点を先に揃えることです。
+          </p>
           <div className="mt-6 space-y-4">
             {cautions.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -307,6 +311,9 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: まずは「避けるべき地雷」を先に潰すのが安全です。未経験からの始め方、説明責任、社内ルール、税務をQ&Aで整理します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -323,23 +330,39 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link href="/academy/blog/prompt-template-for-work" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-coding-for-beginners" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-course-ranking"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI講座ランキング2026｜選び方の基準と目的別おすすめを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-certification-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/g-e-certification-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                受講生の評判・口コミ
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
               </Link>
             </li>
           </ul>
@@ -356,8 +379,8 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           <h2 id="next-career-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             副業の第一歩を具体化したい方へ
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            まずは無料セミナーで全体像を整理し、必要に応じて個別相談であなたの経験に合う進め方を確認できます。無理のない範囲で継続できる計画を作ることが重要です。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 無理のない範囲で継続できる計画を作るのが最優先です。無料セミナー/個別相談で、あなたの経験に合う進め方を整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

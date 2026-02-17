@@ -155,9 +155,11 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             生成AIとは？初心者向けにわかりやすく解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月16日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            このページは、非技術者の方向けに「生成AIとは何か」を短時間でつかむ入門記事です。質問ごとに結論を先に示し、その後に根拠を整理しています。
+            生成AIという言葉は聞くけれど、仕組みや違いがぼんやりして不安…という方向けです。
+            このページでは、質問ごとに結論を先に示し、ChatGPT/Claude/Geminiの違いと始め方まで一気に整理します。
+            筆者はまず「メール下書き→要点抽出→チェックリスト化」の順で試し、仕事に落とす感覚が掴めました。
           </p>
         </motion.header>
 
@@ -381,6 +383,21 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 社会人のための生成AI学習ロードマップ
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/what-is-rag" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                RAGとは？検索拡張生成の仕組みと活用例をわかりやすく解説
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-agent-build-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIエージェントの作り方ガイド（業務で使える設計と導入手順）
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-coding-for-beginners" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIコーディング入門（非エンジニア向け）
               </Link>
             </li>
             <li>

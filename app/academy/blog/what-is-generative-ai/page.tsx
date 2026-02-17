@@ -5,11 +5,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 const pageTitle =
   "生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】 | AIリブート";
 const pageDescription =
-  "「生成AI とは わかりやすく」を知りたい方向けに、非技術者でも理解できる定義、ChatGPT・Claude・Geminiの違い、AIチャットおすすめ比較、プロンプトの基本を整理しました。";
+  "生成AIとは何かを初心者向けにやさしく解説。ChatGPT/Claude/Geminiの違いと選び方、失敗しないプロンプトの基本、仕事で使う前に決めるルールまで1ページで整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/what-is-generative-ai";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-16T09:00:00+09:00";
-const modifiedTime = "2026-02-16T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

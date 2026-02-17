@@ -6,6 +6,9 @@ import BlogListClient from '@/components/blog/BlogListClient'
 import { categoryMatchesAny } from '@/lib/category-helper'
 import { News } from '@/lib/microcms'
 
+const siteUrl = 'https://ai-reboot.io'
+const defaultOgImageUrl = `${siteUrl}/images/ogp-default.webp`
+
 export const metadata: Metadata = {
   title: 'AIリブートジャーナル | AI活用の最前線から',
   description: 'AI活用の実践的なノウハウ、成功事例、最新トレンドをお届けする、AIリブートのオウンドメディア。生成AI時代のビジネス変革について深く掘り下げます。',
@@ -13,13 +16,23 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AIリブートジャーナル | AI活用の最前線から',
     description: 'AI活用の実践的なノウハウ、成功事例、最新トレンドをお届けする、AIリブートのオウンドメディア。',
+    url: `${siteUrl}/blog`,
     type: 'website',
     siteName: 'AI REBOOT',
+    images: [
+      {
+        url: defaultOgImageUrl,
+        width: 1200,
+        height: 630,
+        alt: 'AIリブートジャーナル',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'AIリブートジャーナル',
     description: 'AI活用の実践的なノウハウ、成功事例、最新トレンドをお届け',
+    images: [defaultOgImageUrl],
   },
   alternates: {
     canonical: 'https://ai-reboot.io/blog',

@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "40代・50代からのAIリスキリング完全ガイド｜経験を強みに学び直す方法 | AIリブート";
 const pageDescription =
-  "「40代 リスキリング」「50代 学び直し」「AI 独学 挫折」をテーマに、年代別の現実的な学習アプローチ、挫折回避のコツ、学習手段の比較までを整理した実践ガイドです。";
+  "40代・50代のAIリスキリングを、経験を強みにする学び方として整理。現実的な学習計画、挫折回避、学習手段の選び方、現職で価値を上げる活用例まで解説します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/reskilling-over-40";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

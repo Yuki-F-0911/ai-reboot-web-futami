@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "法人向けAI研修サービス｜社内定着・研修設計・導入相談 | AIリブート";
 const pageDescription =
-  "「AI研修 法人向け」の比較検討向けに、研修形式の選び方、研修設計の要点、社内定着の進め方、法人プラン比較を整理した完全ガイド。";
+  "法人向けAI研修を検討する担当者向けに、研修形式の選び方、研修設計（レベル分け/KPI/フォロー）、社内定着の進め方を整理。比較ポイント、助成金対応の確認項目、成果測定の考え方までわかる。稟議で使える比較観点も整理。資料請求・相談の案内付き。";
 const pageUrl = "https://ai-reboot.io/academy/blog/corporate-ai-training";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-16T09:00:00+09:00";
-const modifiedTime = "2026-02-16T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

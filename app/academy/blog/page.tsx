@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで22記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで37記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -32,6 +32,19 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
   },
   {
+    slug: "ai-agent-build-guide",
+    title: "AIエージェントの作り方｜仕組み・開発手順・活用パターンを解説",
+    summary:
+      "AIエージェントの基本構造、開発5ステップ、主要フレームワーク比較、ノーコード実装、実務の活用例と注意点までをまとめた実装ガイドです。",
+    category: "実務活用",
+  },
+  {
+    slug: "multimodal-ai-intro",
+    title: "マルチモーダルAIとは？テキスト・画像・音声を横断する次世代AIを解説",
+    summary: "マルチモーダルAIの定義、仕組み、代表モデル、業務活用と導入ステップを初心者向けに整理した入門記事です。",
+    category: "AI基礎知識",
+  },
+  {
     slug: "how-to-learn-generative-ai",
     title: "社会人のための生成AI学習ロードマップ",
     summary: "0〜100日で実務活用まで到達するための学習フェーズと、つまずき回避のポイントを解説します。",
@@ -44,15 +57,61 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
   },
   {
+    slug: "ai-coding-for-beginners",
+    title: "AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方",
+    summary:
+      "AIコーディングの基本、代表ツール、非エンジニアができること、始め方5ステップとプロンプト例、注意点までを整理した入門ガイドです。",
+    category: "AI基礎知識",
+  },
+  {
+    slug: "github-copilot-guide",
+    title: "GitHub Copilotの使い方｜導入・設定・効率化のコツを初心者向けに解説",
+    summary:
+      "導入（VS Code等）から指示の出し方、レビュー・テストの流れ、チーム導入時の情報管理/運用ルールまでを手順化したガイドです。",
+    category: "実務活用",
+  },
+  {
+    slug: "python-ai-intro",
+    title: "Python×AI入門｜環境構築からはじめての機械学習までの学習ロードマップ",
+    summary:
+      "PythonでAI開発を始めるための環境構築、基礎文法、主要ライブラリ、最初の機械学習プロジェクト、0→3ヶ月の学習ロードマップを整理した入門記事です。",
+    category: "AI基礎知識",
+  },
+  {
     slug: "prompt-template-for-work",
     title: "仕事で使えるプロンプトテンプレート集",
     summary: "メール・議事録・資料作成など、業務で再利用できる実践テンプレートをカテゴリ別にまとめました。",
     category: "実務活用",
   },
   {
+    slug: "ai-presentation-workflow",
+    title: "AIでプレゼン資料を効率的に作る方法",
+    summary: "構成案作成からスライド原稿、デザイン、推敲まで、AIを使った資料作成ワークフローを段階別に解説します。",
+    category: "実務活用",
+  },
+  {
     slug: "ai-business-efficiency-cases",
     title: "AI業務効率化事例集",
     summary: "営業・マーケ・管理部門の一般的な活用傾向と、導入前に押さえる設計ポイントや失敗対策を整理した記事です。",
+    category: "実務活用",
+  },
+  {
+    slug: "what-is-rag",
+    title: "RAG（検索拡張生成）とは？仕組み・メリット・活用事例をわかりやすく解説",
+    summary:
+      "RAG（Retrieval-Augmented Generation）の定義、仕組み、メリットと限界、活用事例、始め方、ファインチューニングとの違いを整理した入門記事です。",
+    category: "AI基礎知識",
+  },
+  {
+    slug: "rag-use-cases",
+    title: "RAG（検索拡張生成）の活用事例8選｜業種・業務別に解説",
+    summary: "RAGの実務ユースケース8選と、導入ステップ・注意点を要点から整理した記事です。",
+    category: "実務活用",
+  },
+  {
+    slug: "ai-data-analysis-excel",
+    title: "AIでExcelデータ分析を効率化する方法",
+    summary: "関数生成、データ整理、可視化、レポート作成まで、ChatGPT/Claude/Copilotでの実践手順とプロンプト例をまとめます。",
     category: "実務活用",
   },
   {
@@ -65,6 +124,12 @@ const blogPosts: readonly BlogPost[] = [
     slug: "ai-certification-guide",
     title: "AI資格おすすめ一覧｜難易度・費用を比較",
     summary: "G検定やE検定を含む主要資格を、目的・難易度・費用で比較して選び方を整理します。",
+    category: "資格・スキル",
+  },
+  {
+    slug: "g-e-certification-comparison",
+    title: "G検定とE検定の違いを徹底比較｜難易度・費用・向いている人",
+    summary: "G検定とE検定（JDLA認定）の違いを比較表で整理し、目的別にどちらを選ぶべきかを解説します。",
     category: "資格・スキル",
   },
   {
@@ -132,10 +197,31 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
   },
   {
+    slug: "chatgpt-start-guide-smartphone",
+    title: "ChatGPTをスマホで始める方法｜iPhone・Android対応の初期設定ガイド",
+    summary:
+      "公式アプリの入れ方、アカウント作成・ログイン、初期設定、便利機能、無料/有料の違いまでをiPhone/Android別に整理したスマホ入門ガイドです。",
+    category: "AI基礎知識",
+  },
+  {
+    slug: "gpt-vs-claude-comparison",
+    title: "GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説【2026年版】",
+    summary:
+      "GPT-4系とClaudeの違いを性能比較（文章/コード/分析/要約/創造性）で整理し、料金の考え方と用途別おすすめ、併用のコツまでまとめた比較記事です。",
+    category: "AI基礎知識",
+  },
+  {
     slug: "corporate-ai-training-internal",
     title: "社内AI研修の始め方と定着の進め方",
     summary:
       "社内AI研修の設計ステップ、外部研修との比較、定着施策と効果測定の進め方を整理した法人向け記事です。",
+    category: "法人向け",
+  },
+  {
+    slug: "ai-hr-recruiting",
+    title: "AI × 人事・採用｜業務効率化から戦略的活用までの実践ガイド",
+    summary:
+      "採用・人事領域でのAI活用（求人票作成〜候補者対応、評価分析など）と導入ステップ、注意点、プロンプト例をまとめた実践ガイドです。",
     category: "法人向け",
   },
   {
@@ -152,10 +238,24 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
   },
   {
+    slug: "notebooklm-guide",
+    title: "NotebookLMの使い方完全ガイド｜AIで情報整理・学習を効率化する方法",
+    summary:
+      "ソース取り込み→要約・質問の基本操作から、リサーチ/報告書整理/学習ノートへの活用、Audio Overviewの使い方までを整理した入門ガイドです。",
+    category: "実務活用",
+  },
+  {
     slug: "ai-image-generation-guide",
     title: "AI画像生成おすすめツール比較｜Nano Banana・Midjourney・DALL-Eの使い方と選び方",
     summary:
       "Gemini Nano Banana、Midjourney、DALL-E、Stable Diffusionの特徴比較、始め方、業務活用パターン、著作権の注意点を整理した記事です。",
+    category: "実務活用",
+  },
+  {
+    slug: "ai-video-tool-comparison",
+    title: "AI動画生成ツールおすすめ比較｜用途別の選び方と始め方",
+    summary:
+      "Sora/Runway/Pika/Kling/Veo/Luma Dream Machineの比較、用途別おすすめ、無料で試す始め方、著作権・商用利用の注意点を整理した記事です。",
     category: "実務活用",
   },
 ] as const;

@@ -134,9 +134,11 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI業務効率化事例集｜営業・マーケ・管理部門の活用ポイント
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI活用は、派手な技術導入よりも日々の業務改善で成果が見えやすい傾向があります。本記事では、部門別の一般的な活用パターンを整理し、導入前に押さえるべき設計と失敗回避策をまとめます。
+            AI導入は「何から始めるか」を間違えると、PoCで止まってしまいがちです。
+            本記事では、部門別の一般的な活用パターンと、導入前の設計ポイント（目的/KPI/ルール）を結論先出しで整理します。
+            筆者はまず、改善前後を比較しやすい定型業務を1つ選び、テンプレとレビュー手順まで作るのが効くと感じています。
           </p>
         </motion.header>
 
@@ -177,8 +179,8 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
           <h2 id="cases-by-department" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             業務別AI活用事例
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            ここでは、実在企業の固有事例ではなく、現場でよく見られる一般的な活用傾向を部門別に整理します。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 最初は「改善前後を比較しやすい定型業務」から始めると成果が見えやすくなります。ここでは一般的な活用傾向を部門別に整理します。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {useCases.map((item) => (
@@ -203,6 +205,9 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
           <h2 id="preparation-points" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             導入前に整理すべきポイント
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: ツール選定より先に「目的」「対象業務」「効果測定」「ルール」を決めると、導入が目的化する失敗を防げます。
+          </p>
           <div className="mt-6 space-y-4">
             {preparationPoints.map((point) => (
               <section key={point.title} className="rounded-lg border border-gray-200 p-5">
@@ -224,6 +229,9 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
           <h2 id="failure-patterns" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくある失敗パターンと対策
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 失敗の多くは「対象業務が未固定」「ルールとレビューがない」「全社一斉で広げる」ことから起きます。先にパターンを押さえましょう。
+          </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[780px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -255,6 +263,9 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: まずは「小さく検証して、運用ルールを固めてから展開」が安全です。よくある疑問をQ&Aで整理します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -271,23 +282,50 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link
+                href="/academy/blog/corporate-ai-adoption-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                中小企業の生成AI導入ガイド｜失敗しない進め方と費用感 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/corporate-ai-training" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                法人向けAI研修サービス｜社内定着・研修設計・導入相談 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/corporate-ai-training-internal"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                社内AI研修の始め方と定着の進め方｜DX人材を育てる実務ガイド | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/prompt-template-for-work" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-coding-for-beginners"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/github-copilot-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                GitHub Copilotの使い方｜導入・設定・効率化のコツを初心者向けに解説 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                受講生の評判・口コミ
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
               </Link>
             </li>
           </ul>
@@ -304,8 +342,8 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
           <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             無料セミナー / 個別相談
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            業務改善の進め方を具体化したい方は、無料セミナーで全体像を確認し、個別相談で自社業務に合わせた導入順序を整理できます。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 自社の業務に合わせて「導入順序」と「ルール」まで具体化すると、定着が一気に進みます。無料セミナー/個別相談で整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

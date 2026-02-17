@@ -35,12 +35,12 @@ const phaseItems = [
   {
     phase: "実践応用（31-70日）",
     week: "Week 5-10",
-    heading: "画像生成AI・コード生成・ドキュメント自動化に拡張する",
+    heading: "画像生成AI・AIコーディング（Cursor等）・ドキュメント自動化に拡張する",
     summary:
       "次の40日は、複数用途に広げる実践期間です。単発利用から、業務で再現できる活用パターンを作る段階に入ります。",
     tasks: [
       "画像生成AIで提案資料やSNS素材の初稿を作る",
-      "コード生成で小さな自動化スクリプトや関数を試作する",
+      "コード生成（Cursorなど）で小さな自動化スクリプトや関数を試作する",
       "議事録、報告書、FAQ作成などの文書業務をテンプレート化する",
     ],
   },
@@ -53,6 +53,7 @@ const phaseItems = [
     tasks: [
       "自社業務の1プロセスを選び、AI活用フローを設計する",
       "品質チェック項目と最終判断者を明確化する",
+      "Claude Projectsなどのプロジェクト機能で、よく使う指示・資料・改善ログを整理する",
       "手順書を共有し、チームで再現できる運用を構築する",
     ],
   },
@@ -134,10 +135,11 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月に更新されました</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            忙しい社会人でも、生成AIは正しい順序で学べば100日で実務レベルに到達できます。ここでは、基礎理解から業務統合までの具体的な学習手順を、
-            週単位で迷わず進められる形に整理しました。
+            生成AIは「何から手を付ければいいか」が曖昧だと、触って終わりになりやすい分野です。
+            この記事では、基礎理解→実践→業務統合の3フェーズを100日で回すロードマップと、つまずきやすいポイントを結論先出しで整理します。
+            筆者はまず、日々の文章業務を1つ選んでテンプレ化するところから始めるのが最短だと感じています。
           </p>
         </motion.header>
 
@@ -154,9 +156,11 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            生成AIは、正しい順序で学べば100日で実務レベルに到達可能です。ツールを増やすより、1つの業務を確実に改善できる使い方を段階的に増やすのが近道です。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            生成AIは正しい順序で学べば100日で実務レベルに到達可能です。重要なのは、ツールを増やすことよりも、
-            1つの業務を確実に改善できる使い方を段階的に増やすことです。
+            「学習→試す→振り返る」を短いサイクルで回し、成果物（議事録テンプレ、営業メール、分析メモなど）を残すと、継続しやすくなります。
           </p>
         </motion.section>
 
@@ -171,8 +175,8 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="learning-phases" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学習の3フェーズ（0→100日）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            100日を「基礎理解 → 実践応用 → 業務統合」に分けると、学習が点ではなく線になります。各フェーズで達成すべき目標を明確にしましょう。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            100日を「基礎理解 → 実践応用 → 業務統合」に分けると、学習が点ではなく線になります。各フェーズのゴールを先に固定しましょう。
           </p>
           <div className="mt-8 space-y-8">
             {phaseItems.map((phase, index) => (
@@ -212,6 +216,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="pitfalls" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくあるつまずきポイントと対策
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            つまずきの原因は「順序がない」「検証がない」「実務とつながらない」の3つに集約されます。先に落とし穴を知っておくと、学習が安定します。
+          </p>
           <div className="mt-6 space-y-4">
             {pitfallItems.map((item) => (
               <div key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -233,7 +240,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="self-study-vs-school" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             独学 vs スクールの比較
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium text-gray-900">
             どちらが正解かではなく、現在の制約に合う方法を選ぶことが重要です。講座選びを具体化したい方は
             <Link
               href="/academy/ai-training-for-individuals"
@@ -278,6 +285,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 大事なのは「ツール」より「順序」と「検証」です。よくある疑問をQ&Aで整理します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -294,23 +304,52 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link href="/academy/blog/what-is-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/chatgpt-claude-beginners-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                ChatGPT・Claude初心者ガイド｜最初の1週間でできること | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-coding-for-beginners"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/python-ai-intro"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                Python × AI入門｜環境構築からはじめての機械学習までの学習ロードマップ | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-for-non-engineers" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                文系・非エンジニアのAI活用ガイド｜不安を解消して学び始める方法 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/prompt-template-for-work" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-course-ranking" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI講座ランキング2026｜選び方の基準と目的別おすすめを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                受講生の評判・口コミ
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
               </Link>
             </li>
           </ul>
@@ -327,6 +366,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h2 id="next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             次の一歩を決めたい方へ
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            迷ったら「どの業務を改善するか」を1つだけ決めて、学習計画をそこに合わせるのが一番早いです。
+          </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             ひとりで学習計画を作るのが難しい場合は、無料セミナーと個別相談を使って現在地を確認するのが近道です。無理なく続く学習ルートを一緒に設計できます。
           </p>

@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "社会人向けAIスクールの選び方ガイド｜失敗しない比較ポイントを解説 | AIリブート";
 const pageDescription =
-  "「AIスクール 社会人 おすすめ」「オンライン AI講座」を検討する方向けに、受講形式・カリキュラム・サポート・費用・修了後活用の5基準で選び方を整理します。";
+  "社会人向けAIスクールを比較する5基準（形式・カリキュラム・サポート・費用・修了後活用）を整理。オンライン/通学の違い、目的別の選び方、補助金・給付金の見分け方まで、失敗しないチェック順を解説。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-school-for-working-adults";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

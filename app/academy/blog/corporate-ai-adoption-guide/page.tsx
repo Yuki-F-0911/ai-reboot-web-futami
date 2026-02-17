@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "中小企業の生成AI導入ガイド｜失敗しない進め方と費用感 | AIリブート";
 const pageDescription =
-  "「生成AI 導入 企業」「中小企業 生成AI 活用」をテーマに、5段階ロードマップ、費用目安、部門別活用事例、失敗回避策を法人担当者向けに解説。";
+  "中小企業の生成AI導入を失敗しない順番で進める5段階ロードマップ。費用感（無料検証〜有料SaaS〜研修）、部門別の活用例、ガバナンス/セキュリティの要点をまとめ、稟議に使える形で整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/corporate-ai-adoption-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-16T09:00:00+09:00";
-const modifiedTime = "2026-02-16T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

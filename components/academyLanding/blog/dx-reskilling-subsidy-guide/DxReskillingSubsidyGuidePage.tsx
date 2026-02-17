@@ -30,7 +30,7 @@ const subsidyDefinitionPoints = [
   },
   {
     title: "支援額の考え方",
-    body: "制度ごとに「経費の一定割合」や「上限額（最大◯◯万円の形式）」で定義されます。実際の上限額は必ず公募要領で確認してください。",
+    body: "制度ごとに「経費の一定割合」や「上限額（最大◯◯万円の形式）」で定義されます。例として、人材開発支援助成金（事業展開等リスキリング支援コース）では、2026年2月時点の公表資料で経費助成率が中小企業75%/大企業60%として案内されています（年度・要件により変動します）。実際の上限額は必ず公募要領で確認してください。",
   },
 ] as const;
 
@@ -156,9 +156,11 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             DXリスキリング助成金ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            DX人材育成を進めるうえで、助成金の活用は有効な選択肢です。ただし制度ごとに対象要件や申請タイミングが異なるため、要点を整理してから申請準備に入る必要があります。
+            助成金は有効な選択肢ですが、「申請の順番」を間違えると使えないケースがあります。
+            この記事では、制度の概要・個人向け補助金との違い・対象条件・申請フロー・併用可否まで、法人担当者が迷いやすい論点を結論先出しで整理します。
+            筆者はまず、公募要領で「事前申請が必要か」を最初に確認するのが最も重要だと感じています。
           </p>
         </motion.header>
 
@@ -199,9 +201,12 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <h2 id="what-is-dx-reskilling-subsidy" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             DXリスキリング助成金とは（制度の概要）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            DXリスキリング助成金は、企業のデジタル人材育成を後押しするために、研修費や関連費用の一部を支援する制度の総称として使われることが多い言葉です。制度全体の整理は
-            <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 「DXリスキリング助成金」は、企業のデジタル人材育成に関する助成制度群を指して使われることが多い言葉です。制度は要件が多いため、必ず公募要領で確認しましょう。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            制度全体の整理は
+            <Link href="/academy/subsidy-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               補助金ガイド
             </Link>
             もあわせて確認してください。
@@ -263,6 +268,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <h2 id="eligible-training-conditions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             対象となる研修・講座の条件
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 「講座の内容」だけでなく「実施体制」と「記録・証憑の残し方」まで含めて要件になることがあります。申込み前に制度ごとの公募要領を確認してください。
+          </p>
           <div className="mt-6 space-y-4">
             {eligibleConditions.map((condition) => (
               <section key={condition.title} className="rounded-lg border border-gray-200 p-5">
@@ -284,6 +292,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <h2 id="application-flow-and-documents" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             申請の流れと必要書類
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 申請は「事前準備→実施→実績報告」の順で詰まりやすいポイントが変わります。最初に書類の全体像を把握し、証憑管理の運用を決めておくと安全です。
+          </p>
           <div className="mt-6 space-y-4">
             {applicationFlow.map((item) => (
               <section key={item.step} className="rounded-lg border border-gray-200 p-5">
@@ -330,6 +341,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            よくある疑問をQ&Aで整理します。制度は年度や自治体で条件が変わる可能性があるため、最終判断は必ず最新の公募要領で確認してください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -346,23 +360,42 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link
+                href="/academy/blog/education-training-benefit-ai"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                教育訓練給付金でAI講座を受講するガイド｜制度比較と費用の考え方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-course-ranking" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI講座ランキング2026｜選び方の基準と目的別おすすめを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-school-for-working-adults"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                社会人向けAIスクールの選び方ガイド｜失敗しない比較ポイントを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/reskilling-over-40" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                40代・50代からのAIリスキリング完全ガイド｜経験を強みに学び直す方法 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/corporate-ai-training"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                法人向けAI研修サービス｜社内定着・研修設計・導入相談 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                受講者レビュー
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
               </Link>
             </li>
           </ul>

@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AIエージェントとは？定義・種類・作り方を初心者向けに解説【2026年版】 | AIリブート";
 const pageDescription =
-  "「AIエージェント とは」を知りたい方向けに、定義、従来AIとの違い、代表的な活用例、AIエージェントの作り方、導入時の注意点をわかりやすく整理しました。";
+  "AIエージェントの定義とチャットボットとの違い、種類、活用例、作り方の基本、導入時の注意点を初心者向けに解説。まず何を自動化すべきか、PoCの進め方、権限/ログ設計のポイントがわかる。ユースケース選定の基準も紹介。導入チェックリスト付き。無料相談の案内付き。";
 const pageUrl = "https://ai-reboot.io/academy/blog/what-is-ai-agent";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

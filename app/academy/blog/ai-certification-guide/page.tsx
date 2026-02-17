@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】 | AIリブート";
 const pageDescription =
-  "「AI資格 おすすめ」「AI資格 一覧」「AI資格 難易度」を1記事で比較。G検定・E検定・AI実装検定・DS検定・AWS/GCP・Python試験を目的別に整理します。";
+  "AI資格を目的別に比較し、G検定・E検定・AI実装検定・DS検定・AWS/GCP・Python試験の選び方を整理。難易度・費用・活かせる仕事の観点で、最短で遠回りしない選択ができます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-certification-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-16T09:00:00+09:00";
-const modifiedTime = "2026-02-16T09:00:00+09:00";
+const modifiedTime = "2026-02-18T18:00:00+09:00";
 
 const faqItems = [
   {
@@ -34,7 +34,7 @@ const faqItems = [
   {
     question: "G検定の合格率は？",
     answer:
-      "回ごとに変動します。JDLA公表値では、2026年第1回は受験者8,529名・合格者6,718名で、合格率は約78.8%でした。",
+      "回ごとに変動します。JDLA公表値では、2026年第1回は受験者8,529名・合格者6,718名で、合格率は78.77%でした。",
   },
   {
     question: "受験費用を抑える方法はありますか？",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     "AI資格 おすすめ",
     "AI資格 一覧",
     "AI資格 難易度",
-    "G検定 E検定 違い",
+    "G検定 E資格 違い",
     "AI資格 比較 2026",
   ],
   alternates: {

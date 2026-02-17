@@ -142,10 +142,11 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             40代・50代からのAIリスキリング完全ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             40代・50代のAI学習は、年齢を不利と捉えるより、経験を活かした学び方へ設計することが重要です。
             本記事では、年代別の進め方、独学で挫折しやすいポイント、学習手段の選び方を整理します。
+            筆者は「今の仕事の改善テーマ」を1つ決めてから学ぶと、学習がブレにくいと感じています。
           </p>
         </motion.header>
 
@@ -247,6 +248,9 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
           <h2 id="dropoff-and-continuation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             独学で挫折しやすいポイントと継続のコツ
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 挫折は「計画の曖昧さ」と「判断の孤独」で起きやすくなります。失敗パターンを先に知り、学習を続けるための仕組みを用意しましょう。
+          </p>
           <dl className="mt-6 space-y-4">
             {dropoffPatterns.map((item) => (
               <div key={item.point} className="rounded-lg border border-gray-200 p-5">
@@ -268,6 +272,9 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
           <h2 id="method-comparison" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学習手段の比較（独学・オンライン講座・通学）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 続けやすさは「自走できるか」より「支援導線があるか」で決まることが多いです。自分のつまずきポイントに合う手段を選びましょう。
+          </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -319,23 +326,50 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link href="/academy/blog/skills-for-ai-era-career" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI時代に必要なスキルを職種別に解説｜2026年版キャリア戦略 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-career-change-cases" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI時代のキャリアチェンジ事例（構成例）｜転換と成長のパターンを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-coding-for-beginners"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-school-for-working-adults"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                社会人向けAIスクールの選び方ガイド｜失敗しない比較ポイントを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/g-e-certification-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/dx-reskilling-subsidy-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                DXリスキリング助成金ガイド｜対象条件・申請手順・併用可否を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                受講者レビュー
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
               </Link>
             </li>
           </ul>

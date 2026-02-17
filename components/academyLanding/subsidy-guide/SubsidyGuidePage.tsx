@@ -73,14 +73,14 @@ const ineligibleItems = [
 const simulationRows = [
   {
     caseLabel: "受講修了まで完了",
-    subsidyRate: "50%",
+    subsidyRate: "1/2",
     subsidyAmount: "¥150,000",
     outOfPocket: "¥180,000",
     condition: "講座修了",
   },
   {
     caseLabel: "追加補助まで達成",
-    subsidyRate: "最大70%",
+    subsidyRate: "最大70%相当",
     subsidyAmount: "¥210,000",
     outOfPocket: "¥120,000",
     condition: "転職後1年継続就業",
@@ -102,11 +102,11 @@ const flowSteps = [
   },
   {
     title: "受講修了で一次補助",
-    description: "受講修了要件を満たすと、受講費用の50%が補助対象になります。",
+    description: "受講修了要件を満たすと、受講費用の1/2（上限40万円）が補助対象になります。",
   },
   {
     title: "転職後1年継続で追加補助",
-    description: "追加20%の条件を満たすと、合計で最大70%まで補助されます。",
+    description: "転職先で1年継続就業などの要件を満たすと、追加1/5（上限16万円）が補助対象になります。",
   },
 ] as const;
 
@@ -165,8 +165,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
             2026年版 リスキリング補助金を個人で活用する完全ガイド
           </h1>
           <p className="mt-5 max-w-3xl text-base sm:text-lg leading-relaxed text-slate-700">
-            リスキリング補助金 個人向けの制度は、条件を理解すれば難しくありません。対象者条件、補助金額、
-            AI研修 補助金 申し込みの流れを、順番にわかりやすく整理しました。
+            リスキリング補助金は、対象条件と締切（書類）さえ先に押さえれば、流れ自体はシンプルです。
+            この記事では、対象者チェック、補助額の計算例、AI研修 補助金 申し込みの手順を“迷わない順番”で整理しました。
+            筆者は「書類準備の逆算」でつまずく相談が多いと感じるので、最初に全体像を掴める構成にしています。
           </p>
           <p className="mt-3 inline-flex rounded-full border border-orange-300 bg-white/80 px-4 py-1.5 text-xs font-semibold text-slate-700">
             2026年2月時点の情報です
@@ -175,7 +176,7 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
           <div className="mt-6 rounded-2xl border border-orange-300 bg-white p-5 shadow-sm">
             <h2 className="text-lg sm:text-xl font-bold text-slate-900">結論: まず押さえるポイント</h2>
             <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-700">
-              経済産業省公式情報の補助率は、受講修了で50% + 条件達成で追加20%（合計最大70%、上限56万円）です。
+              経済産業省公式情報では、受講修了で受講費用の1/2（上限40万円）、転職先で1年継続就業で追加1/5（上限16万円）など段階要件があり、合計で最大70%相当（上限56万円）となります。
               AIリブートアカデミー受講料¥330,000（税込、税抜¥300,000）の計算例では、実質負担は¥120,000〜¥180,000が目安です。
             </p>
           </div>
@@ -221,12 +222,15 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
         >
           <p className={sectionLabelClass}>ABOUT</p>
           <h2 className={sectionHeadingClass}>制度の概要</h2>
-          <p className="mt-5 max-w-4xl text-base sm:text-lg leading-relaxed text-slate-700">
+          <p className="mt-5 max-w-4xl text-base sm:text-lg font-semibold leading-relaxed text-slate-900">
+            結論: 本制度は「在職者が転職（転職先での就業）を目指して学ぶ」ことを支援する枠組みで、キャリア相談・学習・転職支援が一体で設計されています。
+          </p>
+          <p className="mt-4 max-w-4xl text-base sm:text-lg leading-relaxed text-slate-700">
             本制度の正式名称は、経済産業省「リスキリングを通じたキャリアアップ支援事業」です。キャリア相談、
             リスキリング、転職支援を一体で提供する講座を通じて、在職者のキャリアアップを支援する枠組みです。
           </p>
           <p className="mt-4 max-w-4xl text-base sm:text-lg leading-relaxed text-slate-700">
-            補助は2段階で、受講修了時に50%、転職後1年間の継続就業で追加20%が適用されます。リスキリング補助金
+            補助は段階要件で、受講修了で受講費用の1/2（上限40万円）、転職先で1年間の継続就業で追加1/5（上限16万円）などが適用されます。リスキリング補助金
             対象講座を選ぶ際は、制度対象であることに加え、申請サポート体制の有無も重要です。
           </p>
 
@@ -265,8 +269,11 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
         >
           <p className={sectionLabelClass}>ELIGIBILITY CHECK</p>
           <h2 className={sectionHeadingClass}>対象者チェックリスト</h2>
-          <p className="mt-4 max-w-4xl text-sm sm:text-base text-slate-700">
-            「自分は対象か分からない」という方は、下のチェックで判断できます。該当が多いほど申請を進めやすくなります。
+          <p className="mt-4 max-w-4xl text-sm sm:text-base font-semibold text-slate-900">
+            結論: 「在職中」「転職意向あり」「期限内に書類を揃えられる」が満たせるほど、申請を進めやすくなります。
+          </p>
+          <p className="mt-3 max-w-4xl text-sm sm:text-base text-slate-700">
+            「自分は対象か分からない」という方は、下のチェックで判断できます。該当が多いほど、手続きの見通しが立てやすくなります。
           </p>
           {/* TODO: 要ファクト確認 - 「雇用保険被保険者等」の詳細要件は募集回ごとの最新要項で確認 */}
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
@@ -326,6 +333,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
         >
           <p className={sectionLabelClass}>SIMULATION</p>
           <h2 className={sectionHeadingClass}>補助金額のシミュレーション</h2>
+          <p className="mt-5 max-w-4xl text-base sm:text-lg font-semibold leading-relaxed text-slate-900">
+            結論: 受講修了までで「実質負担¥180,000目安」、追加補助まで達成すると「¥120,000目安」のケースがあります（条件で変動）。
+          </p>
           <div className="mt-8 overflow-hidden rounded-2xl border border-orange-200">
             <table className="w-full border-collapse bg-white text-left text-sm sm:text-base">
               <thead className="bg-orange-50">
@@ -352,7 +362,10 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
           </div>
           <div className="mt-5 space-y-2 text-sm text-slate-600">
             <p>※ AIリブートアカデミー受講料¥330,000（税込、税抜¥300,000）を基準にした計算例です。</p>
-            <p>※ 補助率の上限は受講修了時50% + 条件達成時20%で、合計最大70%です。</p>
+            <p>※ 補助の上限は受講修了で受講費用の1/2（上限40万円）、条件達成で追加1/5（上限16万円）など、合計最大70%相当（上限56万円）です。</p>
+            <p>
+              ※ 補助は補助事業者へ交付され、受講者は受講費用の軽減として受ける形が一般的です。適用タイミングや手続きは募集回・事業者により異なる場合があります。
+            </p>
             {/* TODO: 要ファクト確認 - 税込総額ベースの「約¥99,000〜¥165,000」表記を使う場合は公式根拠の明示が必要 */}
             <p>※ 制度は年度ごとに変更される可能性があります。最新条件は説明会で確認してください。</p>
           </div>
@@ -370,6 +383,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
         >
           <p className={sectionLabelClass}>HOW TO APPLY</p>
           <h2 className={sectionHeadingClass}>AI研修 補助金 申し込みの流れ</h2>
+          <p className="mt-5 max-w-4xl text-base sm:text-lg font-semibold leading-relaxed text-slate-900">
+            結論: 「説明会で条件確認→個別相談で対象判定→申し込み→受講→転職支援」の順で進めると、手戻りが減ります。
+          </p>
 
           <motion.ol
             className="mt-8 space-y-5"
@@ -407,6 +423,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
         >
           <p className={sectionLabelClass}>COMMON MISTAKES</p>
           <h2 className={sectionHeadingClass}>よくある失敗パターン</h2>
+          <p className="mt-5 max-w-4xl text-base sm:text-lg font-semibold leading-relaxed text-slate-900">
+            結論: 失敗の多くは「締切」「書類不備」「対象講座の取り違え」です。最初に締切の逆算とチェックリストを作ると防げます。
+          </p>
           <motion.div
             className="mt-8 grid gap-4 md:grid-cols-3"
             variants={listReveal}
@@ -442,6 +461,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
         >
           <p className={sectionLabelClass}>FAQ</p>
           <h2 className={sectionHeadingClass}>補助金に関するよくある質問</h2>
+          <p className="mt-5 max-w-4xl text-base sm:text-lg font-semibold leading-relaxed text-slate-900">
+            結論: 最終判定は募集回の要項・事務局審査になります。迷う項目は「説明会→個別相談」で早めに確認するのが安全です。
+          </p>
 
           <motion.div
             className="mt-8 space-y-4"
@@ -469,6 +491,9 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
       <section className="border-t border-slate-200 pt-12 pb-4">
         <div className="container mx-auto max-w-5xl px-4 md:px-6 lg:px-8">
           <h2 className="mb-4 text-lg font-bold text-slate-900">関連コンテンツ</h2>
+          <p className="mb-4 max-w-4xl text-sm sm:text-base text-slate-700">
+            <span className="font-semibold text-slate-900">結論:</span> 補助金と講座選びはセットで考えると失敗しにくいです。必要な順に関連ページも確認してください。
+          </p>
           <ul className="space-y-2">
             <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -499,6 +524,24 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
                 リスキリング補助金 対象講座の見分け方
               </Link>
             </li>
+            <li>
+              <Link href="/academy/meti-reskilling-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                経産省制度対象講座の比較ポイント
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/ai-course-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI講座比較｜失敗しない選び方
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/education-training-benefit-ai"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                教育訓練給付金でAI講座を受講するガイド
+              </Link>
+            </li>
           </ul>
         </div>
       </section>
@@ -517,7 +560,7 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
             補助金活用の個別相談と無料セミナーはこちら
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-orange-50">
-            「難しそう」を「自分にもできそう」に変えるために、対象可否と申し込み手順を一緒に整理します。
+            <span className="font-semibold">結論:</span> 「難しそう」を「自分にもできそう」に変えるために、対象可否と申し込み手順を一緒に整理します。
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

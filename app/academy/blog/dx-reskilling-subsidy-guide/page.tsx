@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "DXリスキリング助成金ガイド｜対象条件・申請手順・併用可否を解説 | AIリブート";
 const pageDescription =
-  "「DXリスキリング 助成金」を調べている方向けに、制度の概要、個人向け補助金との違い、対象講座の条件、申請フロー、併用可否を整理したガイドです。";
+  "DXリスキリング助成金を検討する法人担当者向けに、制度概要、個人向け補助金との違い、対象講座の要件、申請フロー、併用可否を整理。申請で詰まりやすいポイントもチェックできます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/dx-reskilling-subsidy-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T18:00:00+09:00";
 
 const faqItems = [
   {

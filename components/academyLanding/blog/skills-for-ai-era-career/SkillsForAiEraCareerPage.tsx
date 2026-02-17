@@ -50,6 +50,7 @@ const roleSkillSections = [
     skills: [
       "RPA×AI自動化: 入力・集計・報告作成の流れを半自動化する",
       "ドキュメントAI活用: 議事録や申請書作成の時間を短縮する",
+      "運用設計: 手順とチェック項目を標準化し、チームで再現できる形に落とし込む",
     ],
   },
   {
@@ -65,7 +66,7 @@ const roleSkillSections = [
 const learnOrder = [
   {
     title: "共通基礎を固める",
-    body: "課題の言語化、プロンプト設計、出力検証の基本を身につけます。",
+    body: "課題の言語化、プロンプト設計、出力検証の基本を身につけます。ClaudeのProjectsなどで業務テーマごとに指示・素材を整理すると、定着しやすくなります。",
   },
   {
     title: "職種別スキルを深める",
@@ -120,10 +121,11 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI時代に必要なスキルを職種別に解説｜2026年版キャリア戦略
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月に更新されました</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI活用が進む中で、求められるのはツール操作だけではありません。職種ごとに必要なスキルを整理し、
-            どこから学べばキャリアに直結するのかを実務目線で解説します。
+            AI時代は「何を学べばいいか」を間違えると、ツール収集だけが増えて成果につながりません。
+            この記事では、職種別に必要なスキルと、共通基礎→職種別活用→成果物づくりの学習順序を結論先出しで整理します。
+            筆者はまず「今の仕事で改善したい業務」を1つ選んで、そこから必要スキルを逆算するのが最短だと感じています。
           </p>
         </motion.header>
 
@@ -140,6 +142,9 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="what-changes" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AI時代に変わること / 変わらないこと
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            変わるのは「初動の速度」、変わらないのは「課題設定と最終判断の責任」です。だからこそ“判断をAIで拡張する力”が重要になります。
+          </p>
           <div className="mt-6 space-y-5 text-base leading-8 text-gray-700">
             <p>変わることは、情報収集や下書き作成の初動速度です。AIで検討サイクルを増やせます。</p>
             <p>変わらないことは、課題設定と最終判断の責任です。成果を左右するのは人の判断です。</p>
@@ -158,6 +163,9 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="role-based-skills" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             職種別に必須のAIスキル
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            共通基礎を押さえたら、職種ごとに「成果に直結する業務」からAI活用を組み込みます。抽象論より、現場のタスク単位に落とすほど習得が早くなります。
+          </p>
           <div className="mt-8 space-y-9">
             {roleSkillSections.map((section, index) => (
               <motion.section
@@ -194,8 +202,8 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="career-expansion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             「AIに奪われる仕事」ではなく「AIで拡張される仕事」へ
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            AIの価値は代替だけではありません。単純作業を減らし、提案力や判断力へ時間を振り向けることで、職種を問わず仕事の価値を拡張できます。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            AIの価値は代替だけではなく「提案力・判断力へ時間を振り向ける」ことです。職種を問わず、価値の出し方を拡張できます。
           </p>
         </motion.section>
 
@@ -210,6 +218,9 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="learning-order" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学習順序の提案
           </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            「共通基礎 → 職種別スキル → 効果測定」の順で進めると、学習が実務成果につながりやすくなります。ツールを増やす前に、検証と改善の型を作りましょう。
+          </p>
           <ol className="mt-7 space-y-7">
             {learnOrder.map((item, index) => (
               <li key={item.title} className="border-t border-gray-200 pt-5">
@@ -233,6 +244,9 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: まずは共通基礎と「自分の職種の始めどころ」を押さえるのが近道です。よくある疑問をQ&Aで整理します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -249,23 +263,58 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link href="/academy/blog/ai-career-change-cases" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI時代のキャリアチェンジ事例（構成例）｜転換と成長のパターンを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/g-e-certification-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-coding-for-beginners"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-engineer-career-change"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                未経験からAIエンジニアへの転職ロードマップ｜学習手順と準備を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/reskilling-over-40" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                40代・50代からのAIリスキリング完全ガイド｜経験を強みに学び直す方法 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/how-to-learn-generative-ai"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-school-for-working-adults"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                社会人向けAIスクールの選び方ガイド｜失敗しない比較ポイントを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                受講生の評判・口コミ
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
               </Link>
             </li>
           </ul>
@@ -282,8 +331,8 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="personalized-learning-strategy" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             職種に合う学習戦略を設計したい方へ
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            無料セミナーで全体像を把握し、個別相談であなたの職種に合う学習順序を整理できます。実務で使えるスキルから着実に積み上げましょう。
+          <p className="mt-5 text-base font-medium text-gray-900">
+            実務で使えるスキルから着実に積み上げるのが最短です。無料セミナー/個別相談で、あなたの職種に合う学習順序を整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

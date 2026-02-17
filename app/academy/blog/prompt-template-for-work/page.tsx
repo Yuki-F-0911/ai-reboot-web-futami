@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化 | AIリブート";
 const pageDescription =
-  "「プロンプト テンプレート 仕事」を軸に、メール作成・議事録・資料作成・データ分析・アイデア出しで使える実務テンプレート20選を紹介。Before/After付きで、すぐ現場で使える形に整理しています。";
+  "仕事で使えるプロンプトテンプレートを業務別に20選。メール・議事録・資料作成・分析・アイデア出しを、Role/Task/Context/Formatで再現性高く回すコツとBefore/Afterを解説。コピペで実務に適用できます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/prompt-template-for-work";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-16T09:00:00+09:00";
-const modifiedTime = "2026-02-16T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 const howToSteps = [
   {
     name: "業務カテゴリを選ぶ",

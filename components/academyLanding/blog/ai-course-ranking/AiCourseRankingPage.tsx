@@ -165,10 +165,11 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI講座ランキング2026｜選び方の基準と目的別おすすめ
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI講座を比較するときは、知名度ではなく「目的適合」で選ぶことが重要です。本記事では、他社名を挙げずに評価基準と選び方を整理し、
-            失敗しやすいポイントまで解説します。
+            AI講座は数が多く、比較軸がぶれると「調べたのに決められない」状態になりがちです。
+            この記事では、評価5軸・目的別のおすすめタイプ・失敗回避のチェック順がわかります。
+            筆者は比較相談では、最初に「受講後に何を作れる状態にするか」を1文で固定するところから始めます。
           </p>
         </motion.header>
 
@@ -209,8 +210,11 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="ranking-criteria" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             ランキングの評価基準
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            本ランキングは、講座タイプを比較するための編集部基準です。特定サービス名ではなく、受講成果につながりやすい評価観点で整理しています。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 講座の良し悪しは「目的に合う設計か」で決まります。カリキュラム・実務接続・サポート・コスパ・受講者評価の5軸で比較すると判断が早くなります。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            ここでのランキングは、講座タイプを比較するための編集部基準です。特定サービス名ではなく、受講成果につながりやすい評価観点で整理しています。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {rankingCriteria.map((item) => (
@@ -255,6 +259,9 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="recommended-by-purpose" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             目的別おすすめ（転職・副業・業務効率化）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 目的が違えば「必要な講座タイプ」も変わります。まずは転職/副業/業務効率化のどれを優先するかを1つに固定してください。
+          </p>
           <div className="mt-6 space-y-4">
             {purposeRecommendations.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -276,6 +283,9 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="selection-points" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             選び方のポイント（補助金対応・受講形式・期間）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 比較で迷ったら「補助金/給付金の要件」「学習継続しやすい形式」「実務適用に必要な期間」の3点を先に確認すると判断が早くなります。
+          </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {selectionPoints.map((point) => (
               <section key={point.title} className="rounded-lg border border-gray-200 p-5">
@@ -297,6 +307,9 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="failure-patterns" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくある失敗パターンと回避法
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            結論: 失敗の多くは「目的が曖昧なまま申込む」「受講後の実務適用計画がない」ことから起きます。回避の視点を先に押さえましょう。
+          </p>
           <dl className="mt-6 space-y-4">
             {failurePatterns.map((item) => (
               <div key={item.pattern} className="rounded-lg border border-gray-200 p-5">
@@ -318,6 +331,9 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 最終判断は公式情報の確認が前提です。そのうえで、比較で迷いやすい論点をQ&Aで整理します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -334,23 +350,56 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link
+                href="/academy/blog/ai-school-for-working-adults"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                社会人向けAIスクールの選び方ガイド｜失敗しない比較ポイントを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/dx-reskilling-subsidy-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                DXリスキリング助成金ガイド｜対象条件・申請手順・併用可否を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/education-training-benefit-ai"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                教育訓練給付金でAI講座を受講するガイド｜制度比較と費用の考え方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/how-to-learn-generative-ai"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-engineer-career-change"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                未経験からAIエンジニアへの転職ロードマップ｜学習手順と準備を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-side-business-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                副業でAIを活用する始め方ガイド｜学習から案件獲得までの現実的な進め方 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                受講者レビュー
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
               </Link>
             </li>
           </ul>
@@ -367,8 +416,8 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             無料セミナー / 個別相談
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            AI講座選びで迷う場合は、無料セミナーで学習計画を整理し、個別相談であなたの目的に合う受講戦略を確認できます。比較で止まらず、実行できる計画まで落とし込むことが重要です。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 比較で止まらず、実行できる計画まで落とし込むのが最短です。無料セミナーで全体像を掴み、個別相談で目的に合う受講戦略を確認できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

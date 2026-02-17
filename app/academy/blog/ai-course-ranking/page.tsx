@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AI講座ランキング2026｜選び方の基準と目的別おすすめを解説 | AIリブート";
 const pageDescription =
-  "「AI講座 ランキング」で比較したい方向けに、評価基準、目的別おすすめ、失敗パターン、補助金対応の確認ポイントまでを整理したガイドです。";
+  "AI講座を「目的適合」で比較したい方向けに、評価5軸と目的別の選び方、失敗パターン、補助金確認ポイントを整理。転職・副業・業務効率化のどれを優先すべきかが1枚でわかります。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-course-ranking";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

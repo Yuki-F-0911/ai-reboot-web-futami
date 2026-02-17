@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "未経験からAIエンジニアへの転職ロードマップ｜学習手順と準備を解説 | AIリブート";
 const pageDescription =
-  "「AIエンジニア 転職 未経験」で情報収集している方向けに、必要スキル、学習ロードマップ、学習手段の比較、評価されるポートフォリオの作り方までを整理しました。";
+  "未経験からAIエンジニア転職を目指す方向けに、必要スキル、学習ロードマップ、学習手段の選び方、評価されるポートフォリオ設計、応募準備の順番を解説。職務経歴書/面接での見せ方と、よくある落とし穴も整理。転職準備のチェックリスト付き。無料セミナー/個別相談の案内付き。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-engineer-career-change";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

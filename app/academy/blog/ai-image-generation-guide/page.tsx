@@ -3,29 +3,29 @@ import AiImageGenerationGuidePage from "@/components/academyLanding/blog/ai-imag
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle =
-  "AI画像生成おすすめツール比較｜Gemini Nano Banana・Midjourney・DALL-Eの使い方と選び方【2026年版】 | AIリブート";
+  "AI画像生成おすすめツール比較｜Google Gemini・Midjourney・ChatGPT画像生成の使い方と選び方【2026年版】 | AIリブート";
 const pageDescription =
-  "Nano Banana（Gemini）・Midjourney・DALL-E・Stable Diffusionを比較し、AI画像生成の使い方を初心者向けに整理。仕事での活用パターン、注意点（著作権・商用利用）までまとめました。";
+  "AI画像生成ツール（Gemini/Midjourney/ChatGPT/Stable Diffusion/Firefly）を用途別に比較。始め方、仕事での使いどころ、著作権・商用利用の注意点、失敗しないプロンプトの考え方を初心者向けにまとめます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-image-generation-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T18:00:00+09:00";
 
 const faqItems = [
   {
-    question: "Nano Banana（Gemini）の画像生成は無料で使えますか？",
+    question: "Geminiの画像生成は無料で使えますか？",
     answer:
-      "無料プランでも試せる場合がありますが、利用回数や機能に制限があることが一般的です。仕様は更新されるため、最新の利用条件は公式情報で確認してください。",
+      "無料で試せる場合がありますが、利用回数や機能に制限があることが一般的です。仕様は更新されるため、最新の利用条件は公式情報で確認してください（「Nano Banana（Pro）」は画像生成機能の呼称として紹介されることがあります）。",
   },
   {
     question: "Midjourneyはどこから使えばよいですか？",
     answer:
-      "基本はDiscord経由で利用します。提供UIや導線は変更される可能性があるため、開始手順は公式の案内に沿って設定してください。",
+      "Discordまたは公式UIから利用できます。提供UIや導線は変更される可能性があるため、開始手順は公式の案内に沿って設定してください。",
   },
   {
-    question: "DALL-EはChatGPTで使えますか？",
+    question: "ChatGPTで画像生成は使えますか？",
     answer:
-      "ChatGPT上で画像生成機能が提供される場合があり、会話の流れで指示しやすいのが特徴です。利用可否や回数は契約プランや提供状況で異なるため、公式情報で確認してください。",
+      "ChatGPT上で画像生成機能が提供される場合があり、会話の流れで指示しやすいのが特徴です。GPT Image / DALL·E 3等の提供状況を含め、利用可否や回数は契約プランや提供状況で異なるため、公式情報で確認してください。",
   },
   {
     question: "Stable Diffusionは初心者でも扱えますか？",
@@ -55,6 +55,7 @@ export const metadata: Metadata = {
     "Gemini 画像生成",
     "DALL-E 使い方",
     "Stable Diffusion 使い方",
+    "Adobe Firefly",
   ],
   alternates: {
     canonical: pageUrl,
@@ -108,4 +109,3 @@ export default function AiImageGenerationGuideRoute() {
     </>
   );
 }
-

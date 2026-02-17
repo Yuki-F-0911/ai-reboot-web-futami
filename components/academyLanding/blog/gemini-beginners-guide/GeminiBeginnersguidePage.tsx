@@ -82,8 +82,8 @@ const gettingStartedFlow = [
     body: "出力が安定するのは「目的・前提・制約・出力形式」を分ける書き方です。短い質問 → 追質問で改善、の順に進めると学習コストが下がります。",
   },
   {
-    step: "Step 4. 必要なら上位プラン（例: Gemini Advanced）を検討する",
-    body: "上位プランが提供される場合、より高性能なモデルや追加機能が含まれることがあります。名称・料金・提供形態は変わり得るため、契約前に公式のプラン情報を確認してください。",
+    step: "Step 4. 必要なら上位プラン（例: Google AI Pro / Ultra）を検討する",
+    body: "上位プランが提供される場合、より高性能なモデルや追加機能が含まれることがあります（名称は更新されることがあります）。契約前に、あなたの地域/契約での最新のプラン名・料金・提供範囲を公式案内で確認してください。",
   },
 ] as const;
 
@@ -136,10 +136,11 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             Google Gemini完全入門ガイド｜使い方・ChatGPTとの違い・無料で始める方法
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            本記事は「Geminiをこれから使う初心者」の方向けに、まず何を理解して、どんな順番で触れば業務で使えるようになるかを整理した入門ガイドです。
-            なお、機能や料金、提供条件は変更される可能性があるため、実際の画面・公式案内もあわせて確認してください。
+            Geminiを触ってみたものの、どこから始めるか・何ができるかが分かりにくいのが最初の壁です。
+            このガイドでは、無料で始める手順、ChatGPT/Claudeとの違い、仕事で再現しやすい使い方を結論先出しで整理します。
+            筆者はまず「社内FAQの下書き→チェックリスト化」で試し、Googleサービス連携の強みが出る場面を掴みました（機能/料金/提供条件は更新されるため、実際の画面・公式案内もあわせて確認してください）。
           </p>
         </motion.header>
 
@@ -250,7 +251,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             Geminiの始め方（ステップバイステップ）
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            注: 画面構成や提供条件は変更されます。ここでは、初心者が「何から始めれば迷わないか」という手順の考え方を示します。
+            結論: 初心者は「Googleアカウントで触る → 1タスクで試す → 型を作る → 必要なら上位プラン検討」の順に進めると迷いません。注: 画面構成や提供条件は変更されます。
           </p>
           <div className="mt-6 space-y-4">
             {gettingStartedFlow.map((item) => (
@@ -320,23 +321,41 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           </h2>
           <ul className="space-y-2">
             <li>
+              <Link href="/academy/blog/what-is-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/chatgpt-claude-beginners-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                ChatGPT・Claude初心者ガイド｜最初の1週間でできること | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/gpt-vs-claude-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/notebooklm-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                NotebookLMの使い方完全ガイド｜AIで情報整理・学習を効率化する方法 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/what-is-rag" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                RAGとは？検索拡張生成の仕組みと活用例をわかりやすく解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-agent-build-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIエージェントの作り方ガイド｜業務で使える設計と導入手順 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/reviews" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                受講者レビュー
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
               </Link>
             </li>
           </ul>
@@ -377,4 +396,3 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
     </main>
   );
 }
-

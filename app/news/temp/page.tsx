@@ -5,6 +5,10 @@ import { isBlogCategory, isNewsCategory, getCategoryLabel } from '@/lib/microcms
 export const metadata: Metadata = {
   title: 'お知らせ（テスト） | AI REBOOT',
   description: 'テスト用ページ - カテゴリー分析',
+  robots: {
+    index: false,
+    follow: false,
+  },
 }
 
 export default async function NewsTempPage() {

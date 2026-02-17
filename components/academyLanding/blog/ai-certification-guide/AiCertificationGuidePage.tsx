@@ -28,7 +28,7 @@ const mapAxes = [
   {
     axis: "技術系",
     summary: "機械学習・深層学習の理論と設計を扱い、AIエンジニアとしての基礎体力を高める領域です。",
-    certifications: "E検定 / Google Cloud Professional ML Engineer",
+    certifications: "E資格 / Google Cloud Professional ML Engineer",
   },
   {
     axis: "実装系",
@@ -50,7 +50,7 @@ const difficultyLevels = [
   },
   {
     level: "上級",
-    items: "E検定、AWS Certified Machine Learning - Specialty、Google Cloud Professional ML Engineer、AI実装検定S級",
+    items: "E資格、AWS Certified Machine Learning - Specialty、Google Cloud Professional ML Engineer、AI実装検定S級",
     note: "理論理解と実務経験を求められやすい層。",
   },
 ] as const;
@@ -65,7 +65,7 @@ const comparisonRows = [
     fit: "非エンジニア、企画・営業、社内DX推進担当",
   },
   {
-    name: "E検定",
+    name: "E資格",
     organizer: "JDLA",
     difficulty: "上級",
     fee: "一般33,000円 / 学生22,000円 / 会員27,500円",
@@ -82,7 +82,7 @@ const comparisonRows = [
   },
   {
     name: "データサイエンティスト検定（DS検定）",
-    organizer: "DS協会",
+    organizer: "一般社団法人データサイエンティスト協会",
     difficulty: "入門〜中級",
     fee: "一般10,000円（税抜） / 学生5,000円（税抜）",
     period: "1〜3か月",
@@ -125,7 +125,7 @@ const recommendationItems = [
   },
   {
     title: "AIエンジニアを目指す人",
-    body: "E検定で理論を固めた上で、AWSまたはGCPのML系資格で運用スキルを補強すると実務に接続しやすくなります。",
+    body: "E資格で理論を固めた上で、AWSまたはGCPのML系資格で運用スキルを補強すると実務に接続しやすくなります。",
   },
   {
     title: "非エンジニアの第一歩",
@@ -136,7 +136,7 @@ const recommendationItems = [
 const selfStudySteps = [
   "1か月目: G検定またはDS検定の公式シラバスと問題集で基礎固め",
   "2か月目: Python演習やミニ課題で実装・分析の体験を追加",
-  "3か月目以降: 目標職種に合わせてE検定/AWS/GCPへ拡張",
+  "3か月目以降: 目標職種に合わせてE資格/AWS/GCPへ拡張",
 ] as const;
 
 const schoolBenefits = [
@@ -189,10 +189,11 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月16日に更新されました</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI資格選びで迷う人向けに、主要資格を「難易度」「費用」「活かせる仕事」で整理しました。結論として、AI資格は目的で選ぶのが正解です。
-            ビジネス活用ならG検定、技術職ならE検定、実装力ならAI実装検定が有力候補です。
+            AI資格は種類が多く、目的が曖昧だと「勉強したのに活かせない」状態になりがちです。
+            この記事では、主要資格を難易度・費用・活かせる仕事で比較し、目的別のおすすめと学習ロードマップまで整理します。
+            筆者は最初に「資格を取ったあと、どの業務で何をできるようにしたいか」を1文で決めるのが最も効くと感じています。
           </p>
         </motion.header>
 
@@ -210,7 +211,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
             要点まとめ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            AI資格は目的で選ぶのが正解です。ビジネス活用ならG検定、技術職ならE検定、実装力ならAI実装検定がおすすめです。
+            AI資格は目的で選ぶのが正解です。ビジネス活用ならG検定、技術職ならE資格、実装力ならAI実装検定がおすすめです。
           </p>
         </motion.section>
 
@@ -225,9 +226,8 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           <h2 id="ai-certification-map" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AI資格の全体マップ
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            AI資格は「ビジネス系」「技術系」「実装系」の3軸で見ると、選ぶべき順序が明確になります。まず現在の業務と目標職種を決めた上で、
-            軸と難易度を合わせるのが失敗しにくい選び方です。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: AI資格は「ビジネス系」「技術系」「実装系」の3軸で見ると、選ぶべき順序が明確になります。現在の業務と目標職種に合わせて軸を決めましょう。
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {mapAxes.map((item, index) => (
@@ -301,14 +301,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
             </table>
           </div>
           <p className="mt-4 text-xs leading-6 text-gray-500">
-            受験費用と制度情報は2026年2月16日時点の公式公表値です。学習期間目安は公式の固定値ではなく、受験者の一般的な準備期間に基づく編集部目安です。
-            {/* TODO: 要ファクト確認 - G検定公式サイトで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - E検定公式サイトで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - AI実装検定公式サイトで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - DS検定公式サイトで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - AWS Certified Machine Learning - Specialty公式ページで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - Google Cloud Professional ML Engineer公式ページで最新情報を確認 */}
-            {/* TODO: 要ファクト確認 - Python 3 エンジニア認定データ分析試験公式ページで最新情報を確認 */}
+            受験費用と制度情報は2026年2月時点の公式公表値です。学習期間目安は公式の固定値ではなく、受験者の一般的な準備期間に基づく編集部目安です。
           </p>
           <div className="mt-7 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm leading-7 text-gray-700">
             <h3 className="text-base font-semibold text-gray-900">比較表の出典（公式）</h3>
@@ -329,7 +322,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
                 </a>
               </li>
               <li>
-                <a href="https://www.datascientist.or.jp/dss/" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                <a href="https://www.datascientist.or.jp/dscertification/" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                   データサイエンティスト検定（DS検定）
                 </a>
               </li>
@@ -440,6 +433,9 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 資格は「目的」と「実務での使いどころ」がセットです。迷いやすい論点をQ&Aで整理します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -477,8 +473,45 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
               </Link>
             </li>
             <li>
+              <Link
+                href="/academy/blog/g-e-certification-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-course-ranking"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI講座ランキング2026｜選び方の基準と目的別おすすめを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/education-training-benefit-ai"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                教育訓練給付金でAI講座を受講するガイド｜制度比較と費用の考え方 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 補助金ガイド
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/ai-course-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI講座比較｜失敗しない選び方
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/ai-training-for-individuals"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                個人向けAI研修の選び方（独学 vs スクール）
               </Link>
             </li>
             <li>
@@ -500,8 +533,8 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             無料セミナー / 個別相談
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            資格の勉強で得た知識を「現場で使える形」に落とし込みたい方は、無料セミナーで学習戦略を整理できます。受講前の個別相談では、現職・目標に合わせた実務ロードマップを確認できます。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 資格で得た知識を「現場で使える形」へ落とし込むには、業務テーマと実行計画まで落とすのが近道です。無料セミナー/個別相談で整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

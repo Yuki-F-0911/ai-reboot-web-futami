@@ -63,14 +63,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     keywords: article.tags?.join(', ') || 'AI, 生成AI, ChatGPT, Claude, AI活用',
-    authors: [{ name: 'AI REBOOT編集部' }],
+    authors: [{ name: 'AIリブート編集部' }],
     openGraph: {
       title,
       description,
       type: 'article',
       publishedTime,
       modifiedTime,
-      authors: ['AI REBOOT編集部'],
+      authors: ['AIリブート編集部'],
       url: canonicalUrl,
       siteName: 'AI REBOOT',
       images: [
