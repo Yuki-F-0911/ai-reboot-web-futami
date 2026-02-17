@@ -19,15 +19,15 @@ const sectionReveal = {
   visible: { opacity: 1, y: 0 },
 };
 
-const keywordTags = ["AI画像生成 おすすめ", "Nano Banana 使い方", "Midjourney 使い方"] as const;
+const keywordTags = ["AI画像生成 おすすめ", "Gemini 画像生成", "Midjourney 使い方"] as const;
 
 const tocItems = [
   { id: "conclusion", label: "要点まとめ" },
   { id: "what-is-ai-image-generation", label: "AI画像生成とは？（概要と用途）" },
   { id: "tool-comparison", label: "主要ツール比較表" },
-  { id: "gemini-nano-banana", label: "Gemini（Nano Banana）の使い方" },
+  { id: "gemini-nano-banana", label: "Google Gemini（画像生成）の使い方" },
   { id: "midjourney", label: "Midjourneyの使い方" },
-  { id: "dalle", label: "DALL-E（ChatGPT）の使い方" },
+  { id: "dalle", label: "ChatGPT（画像生成）の使い方" },
   { id: "stable-diffusion", label: "Stable Diffusionの使い方" },
   { id: "business-use", label: "業務での活用パターン" },
   { id: "copyright", label: "注意点（著作権・商用利用）" },
@@ -38,7 +38,7 @@ const tocItems = [
 
 const toolComparisonRows = [
   {
-    tool: "Gemini（Nano Banana）",
+    tool: "Google Gemini（画像生成）",
     strengths: "Googleアカウントで始めやすく、文章指示から画像生成まで一気通貫で進めやすい。",
     howToStart: "Geminiで画像生成機能を開き、用途・構図・サイズを日本語で指定する。",
     caution: "提供範囲や制限はプラン・地域で変わることがあるため公式で確認する。",
@@ -47,15 +47,15 @@ const toolComparisonRows = [
   {
     tool: "Midjourney",
     strengths: "アート寄りの高品質な表現に強く、雰囲気づくりの再現性が高い。",
-    howToStart: "基本はDiscordでプロンプトを送って生成し、候補から選ぶ。",
+    howToStart: "Discordまたは公式UIでプロンプトを送って生成し、候補から選ぶ。",
     caution: "料金・商用利用条件・運用導線は更新されるため公式で確認する。",
     fit: "ブランド表現や世界観が重要なクリエイティブを作りたい人。",
   },
   {
-    tool: "DALL-E（ChatGPT）",
+    tool: "ChatGPT（画像生成）",
     strengths: "会話の文脈を踏まえて指示を調整しやすく、修正依頼が自然言語でできる。",
     howToStart: "ChatGPTで画像生成が利用できる環境で、目的と禁止事項を文章で伝える。",
-    caution: "利用可否・回数・出力仕様はプランや提供状況で変わるため公式で確認する。",
+    caution: "利用可否・回数・出力仕様（DALL·E等の提供状況含む）はプランや提供状況で変わるため公式で確認する。",
     fit: "文章とセットで、提案資料やSNS素材を効率よく作りたい人。",
   },
   {
@@ -64,6 +64,13 @@ const toolComparisonRows = [
     howToStart: "クラウドやGUIツールで試し、必要ならローカル環境へ移行する。",
     caution: "設定が複雑になりやすく、モデルや素材のライセンス確認が必須。",
     fit: "自由度を優先し、社内ワークフローに合わせて作り込みたい人。",
+  },
+  {
+    tool: "Adobe Firefly",
+    strengths: "Adobe製品との連携や商用利用前提の素材づくりで検討されやすく、業務導入の説明がしやすい。",
+    howToStart: "Fireflyで生成機能を試し、必要ならPhotoshop/Illustrator等の制作フローに接続する。",
+    caution: "利用条件や出力の扱いは契約・プランで変わるため、最新の規約と公式情報で確認する。",
+    fit: "既存のデザイン制作フロー（Adobe）に組み込みたい人。",
   },
 ] as const;
 
@@ -132,12 +139,12 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
             ))}
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            AI画像生成おすすめツール比較｜Gemini Nano Banana・Midjourney・DALL-Eの使い方と選び方【2026年版】
+            AI画像生成おすすめツール比較｜Google Gemini・Midjourney・ChatGPT画像生成の使い方と選び方【2026年版】
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AI画像生成は「まず試す」までのハードルが下がり、SNS素材や提案資料の初稿づくりに活用しやすくなりました。一方で、ツールごとに得意分野や操作導線、商用利用の注意点が異なります。
-            ここでは、Nano Banana（Gemini）・Midjourney・DALL-E（ChatGPT）・Stable Diffusionを比較し、用途別の選び方と基本手順を整理します。
+            ここでは、Google Gemini（画像生成）・Midjourney・ChatGPT（画像生成）・Stable Diffusion・Adobe Fireflyを比較し、用途別の選び方と基本手順を整理します（「Nano Banana」はGeminiの通称として紹介されることがあります）。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-600">
             ※料金や提供機能は更新されるため、最新の条件は公式サイトで確認してください。
@@ -162,13 +169,13 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
               まずは<strong className="font-semibold text-gray-900">目的（何の素材を作るか）</strong>を決めると、ツール選びとプロンプトがブレにくくなります。
             </li>
             <li className="pl-1 marker:text-gray-500">
-              <strong className="font-semibold text-gray-900">Nano Banana（Gemini）</strong>は日本語で始めやすく、まず試したい人向きです（無料でも利用できる場合がありますが制限あり）。
+              <strong className="font-semibold text-gray-900">Google Gemini（画像生成）</strong>は日本語で始めやすく、まず試したい人向きです（「Nano Banana」と呼ばれることもあります）。
             </li>
             <li className="pl-1 marker:text-gray-500">
-              <strong className="font-semibold text-gray-900">Midjourney</strong>は高品質なアート表現に強く、世界観づくりに向きます（基本はDiscord経由）。
+              <strong className="font-semibold text-gray-900">Midjourney</strong>は高品質なアート表現に強く、世界観づくりに向きます（Discord/公式UI）。
             </li>
             <li className="pl-1 marker:text-gray-500">
-              <strong className="font-semibold text-gray-900">DALL-E（ChatGPT）</strong>は会話の流れで修正しやすく、文章作成と相性が良い傾向です。
+              <strong className="font-semibold text-gray-900">ChatGPT（画像生成）</strong>は会話の流れで修正しやすく、文章作成と相性が良い傾向です。
             </li>
             <li className="pl-1 marker:text-gray-500">
               商用利用は<strong className="font-semibold text-gray-900">規約・著作権・商標・肖像権</strong>の確認が必須です。
@@ -249,10 +256,10 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="gemini-nano-banana" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            Gemini（Nano Banana）の使い方
+            Google Gemini（画像生成）の使い方
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            Nano Bananaは、Gemini上で利用できる画像生成機能（名称）として紹介されることがあります。文章で目的と制約を伝え、まずは小さく試すのが失敗しにくい方法です。
+            「Nano Banana」は、Geminiの画像生成機能の通称として紹介されることがあります。実務では、文章で目的と制約を伝え、まずは小さく試して当たりの型を作るのが失敗しにくい方法です。
           </p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">ステップ（初心者向け）</h3>
           <ol className="mt-5 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
@@ -281,7 +288,7 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
             Midjourneyの使い方
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            Midjourneyは高品質な表現が魅力で、雰囲気づくりの案出しに向きます。基本はDiscord上でプロンプトを送って生成し、候補からアップスケールやバリエーション作成を行います。
+            Midjourneyは高品質な表現が魅力で、雰囲気づくりの案出しに向きます。Discordまたは公式UIでプロンプトを送って生成し、候補からアップスケールやバリエーション作成を行います。
           </p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">ステップ（基本の流れ）</h3>
           <ol className="mt-5 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
@@ -301,7 +308,7 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="dalle" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            DALL-E（ChatGPT）の使い方
+            ChatGPT（画像生成）の使い方
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             ChatGPT上で画像生成が利用できる場合、会話しながら「どこを直すか」を詰めやすいのが利点です。資料文章と画像を同じ会話内で整えたいときに相性が良い傾向があります。
@@ -433,6 +440,14 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 AIでプレゼン資料を効率的に作る方法｜構成・デザイン・推敲まで | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/prompt-template-for-work"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化 | AIリブート
               </Link>
             </li>
             <li>

@@ -297,6 +297,22 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
               </Link>
             </li>
             <li>
+              <Link
+                href="/academy/blog/ai-coding-for-beginners"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/github-copilot-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                GitHub Copilotの使い方｜導入・設定・効率化のコツを初心者向けに解説 | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
               </Link>

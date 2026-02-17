@@ -482,10 +482,26 @@ export default function AiVideoToolComparisonPage({ faqItems }: AiVideoToolCompa
             </li>
             <li>
               <Link
+                href="/academy/blog/prompt-template-for-work"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                仕事で使えるプロンプトテンプレート集
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/academy/blog/ai-image-generation-guide"
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 AI画像生成おすすめツール比較
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-presentation-workflow"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIでプレゼン資料を効率的に作る方法
               </Link>
             </li>
           </ul>
@@ -526,4 +542,3 @@ export default function AiVideoToolComparisonPage({ faqItems }: AiVideoToolCompa
     </main>
   );
 }
-

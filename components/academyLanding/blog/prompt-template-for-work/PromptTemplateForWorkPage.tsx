@@ -41,6 +41,11 @@ const promptStructureItems = [
       "誰として回答するかを指定します。例: 「あなたは法人営業のマネージャーです」。判断基準が揃い、回答のぶれを減らせます。",
   },
   {
+    label: "目的・依頼内容（Task）",
+    detail:
+      "何を達成したいか（目的）と、何を出してほしいか（依頼内容）を1〜2文で固定します。例: 「打ち合わせ日程を再調整したい。候補日を3つ提示する返信メールを作る」。",
+  },
+  {
     label: "文脈（Context）",
     detail:
       "対象読者、期限、前提情報、制約を書きます。例: 「取締役会向け、3分で読める長さ、数値は3つまで」。実務で使える精度になります。",
@@ -380,7 +385,7 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
             プロンプトの基本原則
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            実務では「役割指定」「文脈」「出力形式指定」の3点を押さえると品質が安定します。以下の型を最初に入れてから、業務ごとの条件を足してください。
+            実務では「役割指定」「目的・依頼内容」「文脈」「出力形式指定」の4点を押さえると品質が安定します。以下の型を最初に入れてから、業務ごとの条件を足してください。
           </p>
           <ul className="mt-6 space-y-4 text-sm leading-7 text-gray-700">
             {promptStructureItems.map((item) => (
@@ -546,6 +551,22 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 社会人のための生成AI学習ロードマップ
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-coding-for-beginners"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/github-copilot-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                GitHub Copilotの使い方｜導入・設定・効率化のコツを初心者向けに解説 | AIリブート
               </Link>
             </li>
             <li>
