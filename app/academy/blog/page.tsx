@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで28記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで30記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -30,6 +30,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "AIエージェントとは？定義・種類・作り方を解説",
     summary: "AIエージェントの基礎、従来AIとの違い、導入ステップと注意点を実務目線で整理した記事です。",
     category: "AI基礎知識",
+  },
+  {
+    slug: "ai-agent-build-guide",
+    title: "AIエージェントの作り方｜仕組み・開発手順・活用パターンを解説",
+    summary:
+      "AIエージェントの基本構造、開発5ステップ、主要フレームワーク比較、ノーコード実装、実務の活用例と注意点までをまとめた実装ガイドです。",
+    category: "実務活用",
   },
   {
     slug: "multimodal-ai-intro",
@@ -75,6 +82,12 @@ const blogPosts: readonly BlogPost[] = [
     category: "実務活用",
   },
   {
+    slug: "rag-use-cases",
+    title: "RAG（検索拡張生成）の活用事例8選｜業種・業務別に解説",
+    summary: "RAGの実務ユースケース8選と、導入ステップ・注意点を要点から整理した記事です。",
+    category: "実務活用",
+  },
+  {
     slug: "ai-data-analysis-excel",
     title: "AIでExcelデータ分析を効率化する方法",
     summary: "関数生成、データ整理、可視化、レポート作成まで、ChatGPT/Claude/Copilotでの実践手順とプロンプト例をまとめます。",
@@ -90,6 +103,12 @@ const blogPosts: readonly BlogPost[] = [
     slug: "ai-certification-guide",
     title: "AI資格おすすめ一覧｜難易度・費用を比較",
     summary: "G検定やE検定を含む主要資格を、目的・難易度・費用で比較して選び方を整理します。",
+    category: "資格・スキル",
+  },
+  {
+    slug: "g-e-certification-comparison",
+    title: "G検定とE検定の違いを徹底比較｜難易度・費用・向いている人",
+    summary: "G検定とE検定（JDLA認定）の違いを比較表で整理し、目的別にどちらを選ぶべきかを解説します。",
     category: "資格・スキル",
   },
   {
