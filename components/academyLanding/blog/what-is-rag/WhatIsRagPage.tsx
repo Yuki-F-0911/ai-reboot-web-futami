@@ -606,7 +606,7 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
         <section className="mt-12 border-t border-slate-200 pb-4 pt-10">
           <h2 className="text-lg font-bold text-slate-900">監修・更新日</h2>
           <p className="mt-3 text-sm leading-7 text-slate-700">
-            監修: AI REBOOT編集部 / 最終更新日: 2026年2月17日
+            監修: AI REBOOT編集部 / 最終更新日: 2026年2月18日
           </p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
             参考: Lewis et al. (2020) Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks（RAG原論文）
