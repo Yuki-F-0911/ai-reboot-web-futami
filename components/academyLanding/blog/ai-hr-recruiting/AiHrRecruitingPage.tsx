@@ -200,7 +200,7 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI × 人事・採用｜業務効率化から戦略的活用までの実践ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             結論から言うと、人事・採用でAIが効くのは「候補者体験を損なわずに、定型作業の工数を減らし、判断の材料を整理する」領域です。本記事では、
             採用活動と人事管理の具体的な活用パターン、ツールの選び方、すぐ使えるプロンプト例、導入時の注意点と進め方をまとめます。

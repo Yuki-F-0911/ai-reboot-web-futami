@@ -155,7 +155,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             副業でAIを活用する始め方ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月17日に更新されました</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月18日に更新されました</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AI活用の副業は、短期的な収益化だけを狙うより、既存スキルとの組み合わせで継続案件を作る視点が重要です。本記事では、
             現実的な学習と実務準備の進め方を整理します。

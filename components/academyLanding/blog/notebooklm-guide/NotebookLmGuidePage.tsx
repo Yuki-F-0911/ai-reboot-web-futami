@@ -164,7 +164,7 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
           </div>
 
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">NotebookLMの使い方完全ガイド</h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             NotebookLMは、あなたの資料（ソース）を取り込み、根拠に基づいて要約・Q&A・論点整理を進めるGoogleのAIノート型ツールです。仕事の情報整理と学習の復習サイクルを、短時間で回しやすくなります。
           </p>
@@ -478,7 +478,7 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
             <span className="font-semibold text-gray-900">監修:</span> AIリブートアカデミー編集部
           </p>
           <p className="mt-2">
-            <span className="font-semibold text-gray-900">最終更新日:</span> 2026年2月17日
+            <span className="font-semibold text-gray-900">最終更新日:</span> 2026年2月18日
           </p>
         </section>
       </article>

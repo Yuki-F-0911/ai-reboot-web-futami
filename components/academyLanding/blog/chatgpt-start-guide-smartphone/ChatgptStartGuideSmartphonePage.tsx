@@ -155,7 +155,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             ChatGPTをスマホで始める方法｜iPhone・Android対応の初期設定ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             スマホでChatGPTを使い始めるなら、まずは「公式アプリの導入」と「最低限の初期設定（権限・通知・プライバシー）」を押さえると迷いません。本記事では、iPhone/Android別に始め方を整理し、スマホならではの使いどころまでまとめます。
           </p>

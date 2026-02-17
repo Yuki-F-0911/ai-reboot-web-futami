@@ -184,7 +184,7 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             法人向けAI研修で成果を出すための完全ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月17日に更新されました</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月18日に更新されました</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             法人向けAI研修は、受講人数より「研修設計」と「社内定着設計」で成果が決まります。本記事では、研修形式の選び方、KPI設計、
             フォロー体制、比較検討時の視点を担当者向けに整理しました。

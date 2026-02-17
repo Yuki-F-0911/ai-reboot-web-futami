@@ -22,15 +22,15 @@ const sectionReveal = {
 const trainingBenefitTypes = [
   {
     title: "一般教育訓練給付",
-    body: "比較的広い講座が対象となる区分です。AI講座でも指定対象に該当する場合がありますが、講座ごとに条件確認が必要です。",
+    body: "比較的広い講座が対象となる区分です。目安として受講費用の20%（上限10万円）が給付されます。AI講座でも指定対象に該当する場合がありますが、講座ごとに条件確認が必要です。",
   },
   {
     title: "特定一般教育訓練給付",
-    body: "実務性や職業能力向上に重点を置いた区分です。対象講座の要件や受給条件を事前に確認することが重要です。",
+    body: "実務性や職業能力向上に重点を置いた区分です。目安として受講費用の40%（上限20万円）で、条件を満たすと最大50%（上限25万円）となる場合があります。対象講座の要件や受給条件を事前に確認することが重要です。",
   },
   {
     title: "専門実践教育訓練給付",
-    body: "より専門性の高い学習を想定した区分です。受給要件や手続きが複雑になりやすいため、計画的な準備が必要です。",
+    body: "より専門性の高い学習を想定した区分です。目安として受講費用の50%（年間上限40万円）で、条件を満たすと最大70%（上限56万円）、さらに賃金要件で最大80%（上限64万円）となる場合があります。受給要件や手続きが複雑になりやすいため、計画的な準備が必要です。",
   },
 ] as const;
 
@@ -142,7 +142,7 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             教育訓練給付金でAI講座を受講するガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AI講座の費用を考えるときは、価格の安さだけでなく制度活用後の実質負担まで含めて判断することが重要です。
             本記事では教育訓練給付金の基本と、リスキリング補助金との違いを整理します。
@@ -216,7 +216,7 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             /academy/subsidy-guide は個人向けリスキリング補助金を中心に整理したページです。本記事では教育訓練給付金の観点から、
-            制度の住み分けが分かるように比較します。
+            制度の住み分けが分かるように比較します。例として、リスキリングを通じたキャリアアップ支援事業（在職者向け）では、受講費用の1/2（上限40万円）に加え、転職後に条件を満たすと追加で1/5（上限16万円）が支援され、最大56万円となる場合があります（時期・要件は更新されます）。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">

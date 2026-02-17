@@ -8,8 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-career-change-cases";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2025-11-01T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
-
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 const faqItems = [
   {
     question: "AIキャリアチェンジは未経験でも可能ですか？",

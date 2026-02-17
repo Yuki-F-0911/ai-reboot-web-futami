@@ -204,7 +204,7 @@ export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             RAG（検索拡張生成）の活用事例8選｜業種・業務別に解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             結論: RAGは「参照すべき資料がある業務」で効果が出やすく、社内ナレッジ検索やサポートの一次対応から小さく始めるのが実務的です。
             本記事では、業種・業務別の活用事例8選と、導入ステップ/注意点を要点から整理します。

@@ -8,13 +8,12 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/notebooklm-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
-
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 const faqItems = [
   {
     question: "NotebookLMとは何ですか？",
     answer:
-      "NotebookLMは、あなたが追加した資料（ソース）を根拠にして要約やQ&Aを行う、GoogleのAIノート型ツールです。一般的なチャットAIよりも「手元の資料に基づく整理・学習」に向いています。",
+      "NotebookLMは、あなたが追加した資料（ソース）を根拠にして要約やQ&Aを行う、GoogleのAIノート型ツールです。一般的なチャットAIよりも「手元の資料に基づく整理・学習」に向いています。無料で使える場合が多く、上位版（NotebookLM Plus）が提供されることもあります（例: 米国ではGoogle AI Pro（月額$19.99・2TB）に含まれる形で案内される場合があります。名称/価格は更新されます）。",
   },
   {
     question: "NotebookLMは何ができるのですか？",

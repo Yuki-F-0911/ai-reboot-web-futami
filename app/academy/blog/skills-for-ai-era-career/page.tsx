@@ -8,8 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/skills-for-ai-era-career";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2025-10-04T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
-
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 const faqItems = [
   {
     question: "AI時代に必要なスキルは何から学べばよいですか？",

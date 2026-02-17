@@ -140,7 +140,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             文系・非エンジニアのAI活用ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AIに不安を感じるのは自然な反応です。重要なのは、曖昧な不安を具体的な課題に分解し、無理のない順序で活用を始めることです。本記事では、非エンジニア向けに事実ベースで整理します。
           </p>

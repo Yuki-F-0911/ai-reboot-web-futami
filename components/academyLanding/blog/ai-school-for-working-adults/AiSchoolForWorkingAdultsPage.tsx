@@ -141,7 +141,7 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             社会人向けAIスクールの選び方ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             社会人がAIスクールを選ぶときは、費用だけでなく「学習継続できる設計」かどうかが重要です。本記事では、仕事と両立しながら成果につなげるための比較ポイントを整理します。
           </p>

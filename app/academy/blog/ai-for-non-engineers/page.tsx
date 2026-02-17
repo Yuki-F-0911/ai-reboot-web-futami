@@ -8,8 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-for-non-engineers";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
-
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 const faqItems = [
   {
     question: "文系・非エンジニアでもAIを仕事で使えますか？",

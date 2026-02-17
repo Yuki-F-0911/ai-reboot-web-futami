@@ -170,7 +170,7 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AIでExcelデータ分析を効率化する方法
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AIを使うと、Excelデータ分析の「関数作成・データ整理・可視化・レポート文章」の下書きを短時間で作れます。あなたは検算と意思決定に集中でき、
             分析のスピードと再現性が上がります。

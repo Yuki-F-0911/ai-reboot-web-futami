@@ -186,7 +186,7 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AIエージェントの作り方｜仕組み・開発手順・活用パターンを解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             結論: AIエージェント開発は「目的・境界を決める → 小さく作る → ログで改善する」が最短ルートです。まずは1つの業務で
             計画→実行→観察→修正のループを回し、安定したら権限と範囲を広げましょう。

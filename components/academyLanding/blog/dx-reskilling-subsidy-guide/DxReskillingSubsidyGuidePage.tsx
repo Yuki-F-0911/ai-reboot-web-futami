@@ -30,7 +30,7 @@ const subsidyDefinitionPoints = [
   },
   {
     title: "支援額の考え方",
-    body: "制度ごとに「経費の一定割合」や「上限額（最大◯◯万円の形式）」で定義されます。実際の上限額は必ず公募要領で確認してください。",
+    body: "制度ごとに「経費の一定割合」や「上限額（最大◯◯万円の形式）」で定義されます。例として、人材開発支援助成金（事業展開等リスキリング支援コース）では、経費助成が中小企業75%/大企業60%、賃金助成が中小企業1,000円/時・大企業500円/時（OFF-JT）と案内されることがあります（年度・要件で変動）。実際の上限額は必ず公募要領で確認してください。",
   },
 ] as const;
 
@@ -156,7 +156,7 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             DXリスキリング助成金ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             DX人材育成を進めるうえで、助成金の活用は有効な選択肢です。ただし制度ごとに対象要件や申請タイミングが異なるため、要点を整理してから申請準備に入る必要があります。
           </p>

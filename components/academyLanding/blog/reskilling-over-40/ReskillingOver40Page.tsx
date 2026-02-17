@@ -142,7 +142,7 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             40代・50代からのAIリスキリング完全ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             40代・50代のAI学習は、年齢を不利と捉えるより、経験を活かした学び方へ設計することが重要です。
             本記事では、年代別の進め方、独学で挫折しやすいポイント、学習手段の選び方を整理します。

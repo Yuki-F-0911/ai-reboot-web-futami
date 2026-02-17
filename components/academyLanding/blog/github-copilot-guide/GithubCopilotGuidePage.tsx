@@ -101,7 +101,7 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             GitHub Copilotの使い方｜導入・設定・効率化のコツを初心者向けに解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             結論: Copilotは「実装の下書きを速くする道具」です。品質を上げるには、制約を明文化し、テストとレビューで固定する運用が必須です。
             このページでは、導入の流れと、実務で事故を起こしにくい使い方を最短で整理します。
@@ -173,7 +173,7 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
             </li>
           </ol>
           <p className="mt-6 text-xs leading-6 text-gray-500">
-            ※ 料金・プラン・機能は変更される可能性があるため、最新情報は公式案内で確認してください。
+            ※ 料金・プラン・機能は変更される可能性があります（例: 2026年2月時点の公式表示ではCopilot Proは$10/月、Businessは$19/ユーザー/月、Enterpriseは$39/ユーザー/月。国/税で変動）。最新情報は公式案内で確認してください。
           </p>
         </motion.section>
 

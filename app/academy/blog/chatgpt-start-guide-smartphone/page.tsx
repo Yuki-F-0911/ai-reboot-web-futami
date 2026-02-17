@@ -8,8 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/chatgpt-start-guide-smartphone";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
-
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 const faqItems = [
   {
     question: "ChatGPTはスマホだけで使えますか？",
@@ -29,7 +28,7 @@ const faqItems = [
   {
     question: "無料プランだけでも十分に使えますか？",
     answer:
-      "はい。要約、買い物リスト作成、メール下書き、翻訳などの基本用途は無料でも試しやすいです。利用頻度や必要な機能が増えたら有料プランを比較すると無理がありません。",
+      "はい。要約、買い物リスト作成、メール下書き、翻訳などの基本用途は無料でも試しやすいです。利用頻度や必要な機能が増えたら有料プランを比較すると無理がありません（例: 2026年2月時点の公式公表値ではChatGPT Plusは月額$20、ChatGPT Proは月額$200。国/税で変動）。",
   },
   {
     question: "スマホから有料プランに課金できますか？",
