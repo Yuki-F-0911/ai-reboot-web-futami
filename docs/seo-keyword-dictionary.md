@@ -48,6 +48,8 @@
 | ChatGPT 始め方 スマホ | 端末別に始めたい | B | 未対応 | 新規: `/academy/blog/chatgpt-start-guide-smartphone` |
 | Claude 使い方 初心者 | Claudeの基礎を学びたい | A | 対応済み | `/academy/blog/chatgpt-claude-beginners-guide` |
 | ChatGPT Claude 違い | ツールを比較して選びたい | A | 対応済み | `/academy/blog/what-is-generative-ai` |
+| Gemini 使い方 初心者 | Google AIの始め方を知りたい | A | 部分対応 | `/academy/blog/what-is-generative-ai`（Gemini言及あり） |
+| Gemini ChatGPT 違い | ツール比較して選びたい | A | 部分対応 | `/academy/blog/what-is-generative-ai`（比較言及あり） |
 | プロンプト 書き方 コツ | 出力品質を上げたい | A | 対応済み | `/academy/blog/prompt-template-for-work` |
 | プロンプト テンプレート 仕事 | すぐ使える型が欲しい | A | 対応済み | `/academy/blog/prompt-template-for-work` |
 | プロンプトエンジニアリング 入門 | 体系的に学びたい | B | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（専用H2追加） |
@@ -74,6 +76,7 @@
 |---|---|---|---|---|
 | AI画像生成 おすすめ | 画像生成ツールを比較したい | B | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（用途紹介） |
 | AI画像生成 使い方 | 画像生成の始め方を知りたい | B | 部分対応 | `/academy/blog/how-to-learn-generative-ai`（実践章追加） |
+| Nano Banana 使い方 | Gemini画像生成機能の活用法を知りたい | B | 未対応 | 新規: `/academy/blog/gemini-image-generation-guide` |
 | Midjourney 使い方 | Midjourneyを始めたい | B | 未対応 | 新規: `/academy/blog/midjourney-beginner-guide` |
 | Stable Diffusion 入門 | ローカル生成を学びたい | C | 未対応 | 新規: `/academy/blog/stable-diffusion-intro` |
 | AI 動画生成 おすすめ | 動画生成ツールを知りたい | B | 未対応 | 新規: `/academy/blog/ai-video-tool-comparison` |
@@ -145,6 +148,8 @@
 | 最新 生成AI ニュース | 最新動向を追いたい | B | 未対応 | 新規: `/academy/blog/ai-news-monthly` |
 | GPT-5 できること | 新モデルの特徴を把握したい | B | 未対応 | 新規: `/academy/blog/gpt5-capabilities` |
 | Claude 4 使い方 | 新モデル活用法を知りたい | B | 未対応 | 新規: `/academy/blog/claude4-guide` |
+| NotebookLM 使い方 | Google学習・リサーチツールの活用法を知りたい | B | 未対応 | 新規: `/academy/blog/notebooklm-guide` |
+| Google AI ビジネス 活用 | Google系AIツールの業務活用法を知りたい | B | 未対応 | 新規: `/academy/blog/google-ai-business-guide` |
 | AIエージェント とは | 概念理解したい | A | 対応済み | `/academy/blog/what-is-ai-agent` |
 | AIエージェント 作り方 | 実装手順を知りたい | B | 未対応 | 新規: `/academy/blog/ai-agent-build-guide` |
 | RAG とは | 技術概要を知りたい | B | 未対応 | 新規: `/academy/blog/what-is-rag` |
@@ -184,7 +189,7 @@
 ## サマリー
 
 ### 対応済みキーワード数 / 全キーワード数
-- **61 / 100**
+- **61 / 105**
 
 ### 優先度S/Aで未対応のキーワード（次に作るべき候補）
 
