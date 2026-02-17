@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで26記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで27記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -148,6 +148,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "ChatGPT・Claude初心者ガイド｜最初の1週間でできること",
     summary:
       "アカウント作成から最初の質問まで、無料プランと有料プランの違い、1週間で試すべき使い方を整理した入門記事です。",
+    category: "AI基礎知識",
+  },
+  {
+    slug: "gpt-vs-claude-comparison",
+    title: "GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説【2026年版】",
+    summary:
+      "GPT-4系とClaudeの違いを性能比較（文章/コード/分析/要約/創造性）で整理し、料金の考え方と用途別おすすめ、併用のコツまでまとめた比較記事です。",
     category: "AI基礎知識",
   },
   {
