@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで10記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで12記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -44,6 +44,12 @@ const blogPosts: readonly BlogPost[] = [
     category: "実務活用",
   },
   {
+    slug: "dx-reskilling-subsidy-guide",
+    title: "DXリスキリング助成金ガイド｜対象条件・申請手順・併用可否を解説",
+    summary: "DXリスキリング助成金の概要、個人向け補助金との違い、申請の流れと実務上の注意点を整理した記事です。",
+    category: "実務活用",
+  },
+  {
     slug: "ai-certification-guide",
     title: "AI資格おすすめ一覧｜難易度・費用を比較",
     summary: "G検定やE検定を含む主要資格を、目的・難易度・費用で比較して選び方を整理します。",
@@ -65,6 +71,12 @@ const blogPosts: readonly BlogPost[] = [
     slug: "ai-career-change-cases",
     title: "AI時代のキャリアチェンジ事例集",
     summary: "職種転換の進め方をBefore/Afterの観点で整理し、学習と実務接続の共通ポイントを紹介します。",
+    category: "キャリア・転職",
+  },
+  {
+    slug: "ai-engineer-career-change",
+    title: "未経験からAIエンジニアへの転職ロードマップ",
+    summary: "未経験からAIエンジニアを目指すために必要なスキル、学習段階、ポートフォリオ設計を解説した記事です。",
     category: "キャリア・転職",
   },
   {
