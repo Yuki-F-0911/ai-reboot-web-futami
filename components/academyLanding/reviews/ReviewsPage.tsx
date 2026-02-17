@@ -16,19 +16,17 @@ type ReviewsPageProps = {
   faqItems: readonly FAQItem[];
 };
 
-type EvidenceMetric = {
-  label: string;
-  value: string;
-  note: string;
-};
-
 type VoiceItem = {
   attribute: string;
   heading: string;
   before: string;
   after: string;
   comment: string;
-  ratingLabel: string;
+};
+
+type VoiceSection = {
+  title: string;
+  items: readonly VoiceItem[];
 };
 
 const sectionReveal = {
@@ -49,29 +47,10 @@ const itemReveal = {
   visible: { opacity: 1, y: 0 },
 };
 
-/* TODO: 実データに置換 - この数値は仮です */
-const conclusionMetrics: readonly EvidenceMetric[] = [
-  {
-    label: "受講満足度",
-    value: "実データ確認中",
-    note: "※数値は一例です。公開前に実データへ置換します。",
-  },
-  {
-    label: "修了率",
-    value: "実データ確認中",
-    note: "※数値は一例です。公開前に実データへ置換します。",
-  },
-  {
-    label: "推奨意向",
-    value: "実データ確認中",
-    note: "※数値は一例です。公開前に実データへ置換します。",
-  },
-] as const;
-
 const conclusionReasons = [
-  "2日間の集中研修で、未経験でも最初の実践ハードルを越えやすい設計。",
-  "受講して終わりではなく、100日の伴走で実務適用まで支援。",
-  "メンターと受講生コミュニティが、継続と行動変容を後押し。",
+  "実務での活用・アウトプットのイメージが具体化しやすい",
+  "仲間と学べる環境があり、挫折しにくい",
+  "2日間で具体的な成果物まで形にできる",
 ] as const;
 
 const overviewItems = [
@@ -81,34 +60,78 @@ const overviewItems = [
   { label: "サポート", value: "メンター伴走 + キャリアコンサルティング3回" },
 ] as const;
 
-/* TODO: 実データに置換 - この数値は仮です */
-const voiceItems: readonly VoiceItem[] = [
+const voiceSections: readonly VoiceSection[] = [
   {
-    attribute: "30代・転職希望者（仮プロフィール）",
-    heading: "未経験から業務活用へ（仮ケース）",
-    before: "AI活用の経験がなく、何から始めるべきか分からなかった（仮）。",
-    after: "段階的な伴走で実務への適用イメージを持てた（仮）。",
-    comment:
-      "【仮コメント】一人学習では止まりがちでしたが、伴走があることで継続しやすかったです。",
-    ratingLabel: "5段階評価: 実データ確認中（※数値は一例です）",
+    title: "迷い・懐疑の払拭",
+    items: [
+      {
+        attribute: "第一期受講生",
+        heading:
+          "「単なる便利ツールだと思っていたAIが、自分の深層を掘り下げるパートナーに変わりました」",
+        before:
+          "正直、参加する前は「ChatGPTにコードを書いてもらうことの延長線上でしょ？」と思っていました。",
+        after:
+          "答えのない問いをAIと、そして仲間と共に探求していく過程で、「ここまで深められるのか」という衝撃を受けました。",
+        comment:
+          "正直、参加する前は「ChatGPTにコードを書いてもらうことの延長線上でしょ？」と思っていました。でも、全く違いました。\n答えのない問いをAIと、そして仲間と共に探求していく過程で、「ここまで深められるのか」という衝撃を受けました。単に学ぶだけでなく、その場でWebサイトなどの具体的な「成果物」まで形にできたのが大きな収穫です。",
+      },
+      {
+        attribute: "第一期受講生",
+        heading: "「AIを『使う』側から『共に創る』側へ。スイッチが入りました」",
+        before: "これまではAIを「向こう側にあるもの」として見ていました",
+        after:
+          "この2日間で「ここにある、触れられるもの」という感覚に変わりました。完全にスイッチが入りました。",
+        comment:
+          "これまではAIを「向こう側にあるもの」として見ていましたが、この2日間で「ここにある、触れられるもの」という感覚に変わりました。完全にスイッチが入りました。\n学んで終わりではなく、すぐにアウトプットしたくなる。この100日間、走り抜ける準備が整いました。",
+      },
+    ],
   },
   {
-    attribute: "40代・管理職（仮プロフィール）",
-    heading: "現場導入を見据えた学び（仮ケース）",
-    before: "AI導入の必要性は感じていたが、進め方が曖昧だった（仮）。",
-    after: "チーム運用に向けた活用方針を整理できた（仮）。",
-    comment:
-      "【仮コメント】概念だけで終わらず、実務に持ち帰る視点が得られました。",
-    ratingLabel: "5段階評価: 実データ確認中（※数値は一例です）",
+    title: "緊急性・行動喚起",
+    items: [
+      {
+        attribute: "第一期受講生",
+        heading:
+          "「今やらなければ、確実に置いていかれる。その健全な危機感が確信に変わりました」",
+        before: "参加するまでは迷いもありました",
+        after:
+          "圧倒的なスピードで進化するAIを前に、今ここで「思考OS」を入れ替えないと未来はないという危機感。",
+        comment:
+          "参加するまでは迷いもありましたが、本当に来てよかった。「もし今回見送っていたら」と思うとゾッとします。\n圧倒的なスピードで進化するAIを前に、今ここで「思考OS」を入れ替えないと未来はないという危機感。それは焦りではなく、前へ進むための良い原動力になりました。次は私たちがAIを活かしていく番です。",
+      },
+      {
+        attribute: "個人参加・第一期受講生",
+        heading: "「自腹での参加。でも、それ以上の未来への投資になりました」",
+        before: "決して安い金額ではありませんでした",
+        after:
+          "自分のキャリアや過去の経験が、AIという武器を得てどう花開くのか。自分にとって良い未来にしかならないという確信があります。",
+        comment:
+          "決して安い金額ではありませんでしたが、直感を信じて飛び込んで正解でした。「やっちゃうか！」というチャレンジ精神で集まったメンバーとの出会いは、何にも代えがたい資産です。\n自分のキャリアや過去の経験が、AIという武器を得てどう花開くのか。自分にとって良い未来にしかならないという確信があります。",
+      },
+    ],
   },
   {
-    attribute: "フリーランス（仮プロフィール）",
-    heading: "提案改善の手応え（仮ケース）",
-    before: "提案が作業ベースに寄りやすく、差別化しづらかった（仮）。",
-    after: "伴走で提案プロセスを見直し、改善の方向性が明確になった（仮）。",
-    comment:
-      "【仮コメント】思考の型を得られ、案件ごとの応用イメージが持てました。",
-    ratingLabel: "5段階評価: 実データ確認中（※数値は一例です）",
+    title: "コミュニティ・環境の価値",
+    items: [
+      {
+        attribute: "第一期受講生",
+        heading:
+          "「一人なら動画を1本見て終わっていた。仲間がいるから、限界を超えられる」",
+        before: "最初は「本当に自分にできるのか」と不安でした。",
+        after: "でも、ここに来て一番良かったのは「仲間」ができたことです。",
+        comment:
+          "最初は「本当に自分にできるのか」と不安でした。でも、ここに来て一番良かったのは「仲間」ができたことです。\nおそらく一人で独学していたら、途中で行き詰まって挫折していたと思います。励まし合い、知恵を出し合える環境があるからこそ、密度の濃い2日間を走り切れました。この後の100日間も、この仲間となら頑張れます。",
+      },
+      {
+        attribute: "会社員・第一期受講生",
+        heading:
+          "「できることが爆発的に増えた2日間。社畜の私でも、可能性が広がりました」",
+        before: "「AIを使えるようになったら何ができるか」と考えていた",
+        after: "今では「やりたいことが多すぎて選べない」状態です。",
+        comment:
+          "会社員として働きながらの参加ですが、「勉強させられている」感覚は皆無でした。できることがどんどん増えていくのが純粋に楽しい。\n「AIを使えるようになったら何ができるか」と考えていたのが、今では「やりたいことが多すぎて選べない」状態です。発想の枠が外れ、使える場面が一気に広がりました。",
+      },
+    ],
   },
 ] as const;
 
@@ -142,8 +165,8 @@ const ReviewsPage = ({ faqItems }: ReviewsPageProps) => {
               AIリブートアカデミーの評判・口コミ｜受講生の声と受講後の変化
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-700 sm:text-lg">
-              「未経験でも本当に変われるのか？」という疑問に向けて、先に結論と数値、その後に受講生の属性別レビューとBefore/Afterをまとめています。
-              受講して終わりではなく、100日の伴走でどう変化するかを確認できます。
+              第一回（第一期）2日間集中研修の参加者コメントをもとに、受講前の迷いと受講後の変化（Before/After）をまとめています。
+              受講して終わりではなく、100日の伴走のスタートとして何が起きるかを確認できます。
             </p>
             <div className="mt-6 flex flex-wrap gap-3 text-sm">
               <Link
@@ -187,35 +210,12 @@ const ReviewsPage = ({ faqItems }: ReviewsPageProps) => {
             AIリブートアカデミーの評判は？結論からお伝えします
           </h2>
           <p className="mt-3 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
-            結論として、「実務に落とし込める伴走支援がある点」が高く評価されています。特に、未経験層が最初の一歩を踏み出しやすいこと、学習後の定着までサポートが続くことが評判につながっています。
+            第一期参加者の声を整理すると、「行動に移すための環境が整っていること」が繰り返し語られています。具体的には、実務に近いアウトプット、仲間との学び、2日間での変化がポイントです。
           </p>
 
-          <p className="mt-2 text-xs leading-relaxed text-slate-500 sm:text-sm">
-            ※数値は一例です。公開前に実データへ置換します。
-          </p>
-
-          {/* TODO: 実データに置換 - この数値は仮です */}
-          <motion.dl
-            className="mt-8 grid gap-4 md:grid-cols-3"
-            variants={listReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {conclusionMetrics.map((item) => (
-              <motion.div
-                key={item.label}
-                variants={itemReveal}
-                className="border border-slate-200 bg-white p-5"
-              >
-                <dt className="text-sm font-semibold text-slate-600">{item.label}</dt>
-                <dd className="mt-2 text-3xl font-bold text-slate-900">{item.value}</dd>
-                <p className="mt-2 text-xs text-slate-500 sm:text-sm">{item.note}</p>
-              </motion.div>
-            ))}
-          </motion.dl>
-
-          <h3 className="mt-10 text-lg font-bold text-slate-900 sm:text-xl">評価の根拠</h3>
+          <h3 className="mt-10 text-lg font-bold text-slate-900 sm:text-xl">
+            第一期参加者の声から見えた評価ポイント
+          </h3>
           <ul className="mt-4 space-y-3">
             {conclusionReasons.map((reason) => (
               <li key={reason} className="flex gap-3 text-sm leading-relaxed text-slate-700 sm:text-base">
@@ -295,54 +295,67 @@ const ReviewsPage = ({ faqItems }: ReviewsPageProps) => {
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
           <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">
-            受講生の声（属性別）
+            第一期参加者の声（カテゴリ別）
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-            転職希望者、管理職、フリーランスなど立場ごとに、受講前後の変化をまとめました。
+            参加者コメントを、3つの切り口（カテゴリ）に整理し、受講前後の変化（Before/After）をまとめました。
           </p>
           <p className="mt-1 text-xs leading-relaxed text-slate-500 sm:text-sm">
-            ※ コメントは個人が特定されない形に編集・要約しています。
-          </p>
-          <p className="mt-1 text-xs leading-relaxed text-slate-500 sm:text-sm">
-            ※ 体験談・評価は掲載フォーマットを示す仮サンプルです。
+            ※ コメントは個人が特定されない形で掲載しています。
           </p>
 
-          {/* TODO: 実データに置換 - この数値は仮です */}
-          <motion.div
-            className="mt-8 grid gap-5 md:grid-cols-3"
-            variants={listReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {voiceItems.map((item) => (
-              <motion.article
-                key={item.heading}
-                variants={itemReveal}
-                className="border border-slate-200 bg-slate-50 p-5"
+          <div className="mt-8 space-y-10">
+            {voiceSections.map((section) => (
+              <motion.section
+                key={section.title}
+                variants={sectionReveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.55, ease: "easeOut" }}
               >
-                <p className="text-xs font-semibold tracking-wide text-slate-500">
-                  {item.attribute}
-                </p>
-                <h3 className="mt-2 text-lg font-bold leading-snug text-slate-900">
-                  {item.heading}
+                <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
+                  {section.title}
                 </h3>
-                <p className="mt-3 text-sm font-semibold text-orange-600">
-                  {item.ratingLabel}
-                </p>
+                <motion.div
+                  className="mt-4 grid gap-5 md:grid-cols-2"
+                  variants={listReveal}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                >
+                  {section.items.map((item) => (
+                    <motion.article
+                      key={item.heading}
+                      variants={itemReveal}
+                      className="border border-slate-200 bg-slate-50 p-5"
+                    >
+                      <p className="text-xs font-semibold tracking-wide text-slate-500">
+                        {item.attribute}
+                      </p>
+                      <h4 className="mt-2 text-lg font-bold leading-snug text-slate-900">
+                        {item.heading}
+                      </h4>
 
-                <div className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
-                  <p>
-                    <span className="font-bold text-slate-900">Before:</span> {item.before}
-                  </p>
-                  <p>
-                    <span className="font-bold text-slate-900">After:</span> {item.after}
-                  </p>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-slate-700">「{item.comment}」</p>
-              </motion.article>
+                      <div className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
+                        <p>
+                          <span className="font-bold text-slate-900">Before:</span>{" "}
+                          {item.before}
+                        </p>
+                        <p>
+                          <span className="font-bold text-slate-900">After:</span>{" "}
+                          {item.after}
+                        </p>
+                      </div>
+                      <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-slate-700">
+                        {item.comment}
+                      </p>
+                    </motion.article>
+                  ))}
+                </motion.div>
+              </motion.section>
             ))}
-          </motion.div>
+          </div>
         </motion.div>
       </section>
 
