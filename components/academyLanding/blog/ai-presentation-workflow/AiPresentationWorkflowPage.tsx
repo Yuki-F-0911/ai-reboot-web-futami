@@ -509,6 +509,56 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/prompt-template-for-work" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                仕事で使えるプロンプトテンプレート集 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-business-efficiency-cases"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI業務効率化事例集｜営業・マーケ・管理部門の活用ポイントを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-image-generation-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI画像生成おすすめツール比較｜Google Gemini・Midjourney・ChatGPT画像生成の使い方と選び方【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-video-tool-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI動画生成ツールおすすめ比較｜用途別の選び方と始め方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/chatgpt-claude-beginners-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                ChatGPT・Claude初心者ガイド｜最初の1週間でできること | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIリブートアカデミー TOP
+              </Link>
+            </li>
+          </ul>
+        </section>
+
+        <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
           <h2 id="editorial-notes" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
             監修・更新情報
           </h2>

@@ -1,0 +1,4 @@
+Valid slugs: 37
+Scan scope: app,components
+Invalid references: 0
+

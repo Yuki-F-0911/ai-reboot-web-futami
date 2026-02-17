@@ -308,6 +308,51 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
             </Link>
           </div>
         </motion.section>
+
+        <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="/academy/blog/ai-certification-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/skills-for-ai-era-career"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI時代に必要なスキルを職種別に解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-engineer-career-change"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                未経験からAIエンジニアへの転職ロードマップ｜学習手順と準備を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-course-ranking"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI講座ランキング2026｜選び方の基準と目的別おすすめを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIリブートアカデミー TOP
+              </Link>
+            </li>
+          </ul>
+        </section>
       </article>
     </main>
   );

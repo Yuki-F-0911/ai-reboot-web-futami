@@ -570,6 +570,22 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
             </li>
             <li>
               <Link
+                href="/academy/blog/corporate-ai-adoption-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                中小企業の生成AI導入ガイド｜失敗しない進め方と費用感 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-business-efficiency-cases"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI業務効率化事例集｜営業・マーケ・管理部門の活用ポイントを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/academy/blog/ai-coding-for-beginners"
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >

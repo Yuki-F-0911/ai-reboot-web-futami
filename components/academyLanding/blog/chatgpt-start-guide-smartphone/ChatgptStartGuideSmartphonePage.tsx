@@ -421,6 +421,22 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             </li>
             <li>
               <Link
+                href="/academy/blog/gpt-vs-claude-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                ChatGPTとClaudeの違いを比較｜性能・料金・使い分けのポイントを解説【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/gemini-beginners-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                Google Gemini完全入門ガイド｜使い方・ChatGPTとの違い・無料で始める方法【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/academy/blog/how-to-learn-generative-ai"
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >

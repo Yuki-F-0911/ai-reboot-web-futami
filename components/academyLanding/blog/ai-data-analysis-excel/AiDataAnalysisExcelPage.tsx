@@ -468,6 +468,45 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
             </Link>
           </div>
         </motion.section>
+
+        <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/prompt-template-for-work" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                仕事で使えるプロンプトテンプレート集 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-business-efficiency-cases"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI業務効率化事例集｜営業・マーケ・管理部門の活用ポイントを解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/corporate-ai-adoption-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                中小企業の生成AI導入ガイド｜失敗しない進め方と費用感 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/python-ai-intro" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                Python×AI入門｜最初に覚える概念と学習の進め方を解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIリブートアカデミー TOP
+              </Link>
+            </li>
+          </ul>
+        </section>
       </article>
     </main>
   );
