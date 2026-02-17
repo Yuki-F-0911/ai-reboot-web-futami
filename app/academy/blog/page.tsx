@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで25記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで26記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
