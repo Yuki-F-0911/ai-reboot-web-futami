@@ -158,7 +158,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            DX人材育成を進めるうえで、助成金の活用は有効な選択肢です。ただし制度ごとに対象要件や申請タイミングが異なるため、要点を整理してから申請準備に入る必要があります。
+            助成金は有効な選択肢ですが、「申請の順番」を間違えると使えないケースがあります。
+            この記事では、制度の概要・個人向け補助金との違い・対象条件・申請フロー・併用可否まで、法人担当者が迷いやすい論点を結論先出しで整理します。
+            筆者はまず、公募要領で「事前申請が必要か」を最初に確認するのが最も重要だと感じています。
           </p>
         </motion.header>
 
@@ -199,9 +201,12 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <h2 id="what-is-dx-reskilling-subsidy" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             DXリスキリング助成金とは（制度の概要）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            DXリスキリング助成金は、企業のデジタル人材育成を後押しするために、研修費や関連費用の一部を支援する制度の総称として使われることが多い言葉です。制度全体の整理は
-            <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 「DXリスキリング助成金」は、企業のデジタル人材育成に関する助成制度群を指して使われることが多い言葉です。制度は要件が多いため、必ず公募要領で確認しましょう。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            制度全体の整理は
+            <Link href="/academy/subsidy-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               補助金ガイド
             </Link>
             もあわせて確認してください。

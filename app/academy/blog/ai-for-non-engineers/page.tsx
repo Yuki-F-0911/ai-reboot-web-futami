@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "文系・非エンジニアのAI活用ガイド｜不安を解消して学び始める方法 | AIリブート";
 const pageDescription =
-  "「文系 AI 学び方」「非エンジニア AI 活用」をテーマに、AIが怖いと感じる理由を整理し、プログラミング不要で始める実践ステップを解説。誤解と事実もFAQ付きでまとめます。";
+  "文系・非エンジニア向けに、AIが怖いと感じる理由の整理から、プログラミング不要で始める実務ステップ（文章作成/情報整理/議事録/企画）まで解説。最初にやるべきことと注意点がわかります。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-for-non-engineers";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

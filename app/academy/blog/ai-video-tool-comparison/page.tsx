@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AI動画生成ツールおすすめ比較｜用途別の選び方と始め方 | AIリブート";
 const pageDescription =
-  "Sora/Runway/Pika/Kling/Veo/Luma Dream Machineなど主要AI動画生成ツールを比較し、SNS動画・プレゼン・プロモーション・教育コンテンツなど用途別の選び方と、無料で試す始め方、注意点（著作権・品質管理・商用利用条件）を初心者向けに整理します。";
+  "主要AI動画生成ツール（Sora/Runway/Pika/Kling/Veo/Luma等）を用途別に比較。ショート動画・プロモ・教育など目的別の選び方、無料で試す手順、著作権/商用利用/品質管理の注意点を解説します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-video-tool-comparison";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

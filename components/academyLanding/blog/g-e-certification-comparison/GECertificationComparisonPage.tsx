@@ -100,10 +100,11 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             結論: G検定は「ビジネス活用の共通知識」を広く固めたい人向け、E検定は「深層学習の理解」を証明したいエンジニア志向の人向けです。
-            迷う場合は、全体像を掴めるG検定から始めると学習コストを抑えやすくなります。
+            この記事では、対象者・範囲・難易度・費用・形式を比較し、どちらを先に取るべきかまで整理します。
+            筆者は迷う場合、全体像を掴めるG検定→必要ならE検定の順で積むのが最も自然だと感じています。
           </p>
         </motion.header>
 
@@ -311,4 +312,3 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
     </main>
   );
 }
-

@@ -140,9 +140,11 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             文系・非エンジニアのAI活用ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AIに不安を感じるのは自然な反応です。重要なのは、曖昧な不安を具体的な課題に分解し、無理のない順序で活用を始めることです。本記事では、非エンジニア向けに事実ベースで整理します。
+            AIに不安を感じるのは自然です。大事なのは、曖昧な不安を「何が怖いのか」に分解し、無理のない順序で小さく始めることです。
+            この記事では、文系・非エンジニアがまず成果を出しやすい業務（文章作成/情報整理/議事録/企画）と、学習の最短ルートを事実ベースで整理します。
+            筆者は最初の一歩として、毎週繰り返す文章業務を1つ選んでテンプレ化するのが最も効くと感じています。
           </p>
         </motion.header>
 
@@ -183,8 +185,8 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <h2 id="fear-structure" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             なぜ「AIは怖い」と感じるのか
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            不安をなくすには、原因を分解して順番に対処することが有効です。感情を否定せず、事実と運用で扱える状態にすることが重要です。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 不安を減らすには、原因を分解して「事実で確認できるもの」と「運用で対処できるもの」に分けるのが有効です。
           </p>
           <div className="mt-6 space-y-4">
             {fearStructureItems.map((item) => (
@@ -256,8 +258,8 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <h2 id="misconceptions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくある誤解と事実
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            不安の多くは、誤解が混ざることで増幅します。ここでは、よくある誤解を「事実」と「運用の考え方」に分けて整理します。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 不安は「誤解」が混ざると増幅します。誤解を事実に戻し、運用でコントロールできる形に整理しましょう。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -290,6 +292,9 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 不安は「何を避ければ安全か」と「最初の成功パターン」が見えると小さくなります。よくある疑問をQ&Aで整理します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -366,8 +371,8 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             無料セミナー / 個別相談
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            AI活用を自分の仕事にどうつなげるか迷う場合は、無料セミナーで全体像をつかみ、個別相談で現在の業務に合う学習順序を整理する方法が有効です。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 迷う場合は「今の業務に直結する1テーマ」を決め、学習順序まで落とし込むのが近道です。無料セミナー/個別相談で整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

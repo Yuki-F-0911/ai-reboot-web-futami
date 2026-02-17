@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説 | AIリブート";
 const pageDescription =
-  "G検定とE検定（JDLA認定）の違いを「対象者」「出題範囲」「難易度」「受験資格」「費用」「試験形式」で比較。結論：G検定はビジネス活用の共通知識、E検定はAIエンジニア向けの深層学習理解を証明したい人におすすめです。";
+  "G検定とE検定の違いを、対象者・範囲・難易度・受験資格・費用・形式で比較。結論先出しで「どちらを先に取るべきか」まで整理し、学習計画の立て方もわかります。";
 const pageUrl = "https://ai-reboot.io/academy/blog/g-e-certification-comparison";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {
@@ -99,4 +99,3 @@ export default function GECertificationComparisonRoute() {
     </>
   );
 }
-

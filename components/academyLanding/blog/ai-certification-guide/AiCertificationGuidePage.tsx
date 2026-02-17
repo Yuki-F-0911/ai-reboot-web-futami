@@ -189,10 +189,11 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI資格選びで迷う人向けに、主要資格を「難易度」「費用」「活かせる仕事」で整理しました。結論として、AI資格は目的で選ぶのが正解です。
-            ビジネス活用ならG検定、技術職ならE資格、実装力ならAI実装検定が有力候補です。
+            AI資格は種類が多く、目的が曖昧だと「勉強したのに活かせない」状態になりがちです。
+            この記事では、主要資格を難易度・費用・活かせる仕事で比較し、目的別のおすすめと学習ロードマップまで整理します。
+            筆者は最初に「資格を取ったあと、どの業務で何をできるようにしたいか」を1文で決めるのが最も効くと感じています。
           </p>
         </motion.header>
 
@@ -225,9 +226,8 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           <h2 id="ai-certification-map" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AI資格の全体マップ
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            AI資格は「ビジネス系」「技術系」「実装系」の3軸で見ると、選ぶべき順序が明確になります。まず現在の業務と目標職種を決めた上で、
-            軸と難易度を合わせるのが失敗しにくい選び方です。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: AI資格は「ビジネス系」「技術系」「実装系」の3軸で見ると、選ぶべき順序が明確になります。現在の業務と目標職種に合わせて軸を決めましょう。
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {mapAxes.map((item, index) => (
@@ -433,6 +433,9 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 資格は「目的」と「実務での使いどころ」がセットです。迷いやすい論点をQ&Aで整理します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -506,8 +509,8 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             無料セミナー / 個別相談
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            資格の勉強で得た知識を「現場で使える形」に落とし込みたい方は、無料セミナーで学習戦略を整理できます。受講前の個別相談では、現職・目標に合わせた実務ロードマップを確認できます。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 資格で得た知識を「現場で使える形」へ落とし込むには、業務テーマと実行計画まで落とすのが近道です。無料セミナー/個別相談で整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

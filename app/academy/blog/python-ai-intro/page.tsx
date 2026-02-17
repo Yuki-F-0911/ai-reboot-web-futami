@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "Python × AI入門｜環境構築からはじめての機械学習までの学習ロードマップ | AIリブート";
 const pageDescription =
-  "「Python AI 入門」「Python 機械学習 始め方」「Python AI プログラミング」で調べる方向けに、PythonがAI開発で選ばれる理由、環境構築（Anaconda/Colab/VS Code）、基礎文法、主要ライブラリ、はじめての機械学習プロジェクト、生成AI時代の活用までを、0→3ヶ月の学習ロードマップとして整理した入門ガイドです。";
+  "Python×AI入門の学習ロードマップを0→3か月で整理。環境構築（Colab/VS Code等）、基礎文法、主要ライブラリ、はじめての機械学習プロジェクトまでの順番を解説し、挫折しない進め方がわかります。";
 const pageUrl = "https://ai-reboot.io/academy/blog/python-ai-intro";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

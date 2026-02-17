@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AIでExcelデータ分析を効率化する方法｜関数・グラフ・レポート作成まで | AIリブート";
 const pageDescription =
-  "AIを使ってExcelのデータ分析を効率化する方法を解説。ChatGPT/Claudeでの関数生成、データ整理、可視化、レポート作成、Copilot in Excelの活用まで実践手順とプロンプト例でまとめます。";
+  "AIでExcel分析を効率化する手順を、関数生成→整形→可視化→レポート作成まで解説。ChatGPT/Claudeのプロンプト例と検算のポイント、Copilot in Excelの使いどころもまとめます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-data-analysis-excel";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

@@ -170,20 +170,14 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AIでExcelデータ分析を効率化する方法
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AIを使うと、Excelデータ分析の「関数作成・データ整理・可視化・レポート文章」の下書きを短時間で作れます。あなたは検算と意思決定に集中でき、
-            分析のスピードと再現性が上がります。
+            Excel分析は「関数」「整形」「グラフ」「レポート文章」のどこかで詰まると、検討の時間より作業の時間が増えがちです。
+            結論: AIに下書きを任せ、あなたは検算と示唆づくりに集中すると、スピードと再現性が上がります。
+            筆者はまず、定例レポートのコメント文をテンプレ化してから関数生成へ広げるのが効くと感じています。
           </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            まずは
-            <Link
-              href="/academy/blog/ai-business-efficiency-cases"
-              className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
-            >
-              AI業務効率化事例集
-            </Link>
-            で全体像を掴み、プロンプトの型は
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            プロンプトの型を先に押さえたい場合は{" "}
             <Link
               href="/academy/blog/prompt-template-for-work"
               className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
@@ -231,6 +225,9 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
           <h2 id="three-points" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIがExcel業務を変える3つのポイント
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: AIは「式を作る」「整える」「説明文に落とす」を高速化します。人は検算と意思決定の質を上げることに集中できます。
+          </p>
           <div className="mt-6 space-y-4">
             {threePoints.map((point) => (
               <section key={point.title} className="rounded-lg border border-gray-200 p-5">
@@ -252,9 +249,12 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
           <h2 id="formula-generation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             ChatGPT/ClaudeでExcel関数を生成する方法（VLOOKUP・IF・ピボット等）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            関数生成で重要なのは「列名（どの列）」「条件（いつ）」「戻り値（何を返す）」「例外（見つからない/空白）」を具体的に渡すことです。式は
-            必ずサンプルデータで検算し、参照範囲のズレや型の違い（数値/文字列）で崩れないかを確認しましょう。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 関数生成は「列名」「条件」「戻り値」「例外」を具体化できれば再現性が出ます。最後は必ず検算して採用しましょう。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            「列名（どの列）」「条件（いつ）」「戻り値（何を返す）」「例外（見つからない/空白）」を具体的に渡すのがコツです。式は必ずサンプルデータで検算し、
+            参照範囲のズレや型の違い（数値/文字列）で崩れないかを確認してください。
           </p>
           <div className="mt-8 space-y-6">
             {formulaPrompts.map((item) => (
@@ -422,6 +422,9 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくある質問（FAQ）
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: つまずきやすいのは「機密データ」「検算不足」「目的の曖昧さ」です。よくある疑問をQ&Aで整理します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -443,12 +446,12 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             次のアクション：実務に落とし込みたい方へ
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            Excel分析をAIで高速化するには、ツールの知識よりも「業務の問いの立て方」「検算の型」「チームで再利用できるテンプレート化」が重要です。体系的に学ぶなら
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: ツールの知識より「問いの立て方」「検算の型」「テンプレ化」で成果が出ます。体系的に学ぶなら
             <Link href="/academy" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               AIリブートアカデミー
             </Link>
-            で、実務フローに合わせた使い方を整理できます。
+            で実務フローに合わせて整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -469,4 +472,3 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
     </main>
   );
 }
-
