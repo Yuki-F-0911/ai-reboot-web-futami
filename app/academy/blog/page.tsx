@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで8記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで10記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -26,6 +26,12 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
   },
   {
+    slug: "what-is-ai-agent",
+    title: "AIエージェントとは？定義・種類・作り方を解説",
+    summary: "AIエージェントの基礎、従来AIとの違い、導入ステップと注意点を実務目線で整理した記事です。",
+    category: "AI基礎知識",
+  },
+  {
     slug: "how-to-learn-generative-ai",
     title: "社会人のための生成AI学習ロードマップ",
     summary: "0〜100日で実務活用まで到達するための学習フェーズと、つまずき回避のポイントを解説します。",
@@ -41,6 +47,12 @@ const blogPosts: readonly BlogPost[] = [
     slug: "ai-certification-guide",
     title: "AI資格おすすめ一覧｜難易度・費用を比較",
     summary: "G検定やE検定を含む主要資格を、目的・難易度・費用で比較して選び方を整理します。",
+    category: "資格・スキル",
+  },
+  {
+    slug: "ai-course-ranking",
+    title: "AI講座ランキング2026｜選び方の基準と目的別おすすめ",
+    summary: "AI講座を比較する評価基準、目的別の選び方、失敗回避のポイントを整理したガイド記事です。",
     category: "資格・スキル",
   },
   {
