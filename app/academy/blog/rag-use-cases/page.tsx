@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "RAG（検索拡張生成）の活用事例8選｜業種・業務別に解説 | AIリブート";
 const pageDescription =
-  "RAG（検索拡張生成）の実務ユースケースを知りたい方向けに、社内ナレッジ検索、サポート自動化、法務、営業、医療、教育、製造、金融の活用事例8選と、導入ステップ・注意点を要点から整理しました。";
+  "RAG（検索拡張生成）の活用事例を業種・業務別に8つ解説。社内ナレッジ検索やサポート一次対応など、効果が出やすい始めどころ、導入ステップ、運用上の注意点を要点から整理しました。";
 const pageUrl = "https://ai-reboot.io/academy/blog/rag-use-cases";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

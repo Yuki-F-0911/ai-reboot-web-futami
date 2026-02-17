@@ -165,10 +165,11 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI講座ランキング2026｜選び方の基準と目的別おすすめ
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI講座を比較するときは、知名度ではなく「目的適合」で選ぶことが重要です。本記事では、他社名を挙げずに評価基準と選び方を整理し、
-            失敗しやすいポイントまで解説します。
+            AI講座は数が多く、比較軸がぶれると「調べたのに決められない」状態になりがちです。
+            この記事では、評価5軸・目的別のおすすめタイプ・失敗回避のチェック順がわかります。
+            筆者は比較相談では、最初に「受講後に何を作れる状態にするか」を1文で固定するところから始めます。
           </p>
         </motion.header>
 
@@ -209,8 +210,11 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="ranking-criteria" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             ランキングの評価基準
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            本ランキングは、講座タイプを比較するための編集部基準です。特定サービス名ではなく、受講成果につながりやすい評価観点で整理しています。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 講座の良し悪しは「目的に合う設計か」で決まります。カリキュラム・実務接続・サポート・コスパ・受講者評価の5軸で比較すると判断が早くなります。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            ここでのランキングは、講座タイプを比較するための編集部基準です。特定サービス名ではなく、受講成果につながりやすい評価観点で整理しています。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {rankingCriteria.map((item) => (
@@ -327,8 +331,8 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            よくある疑問をQ&Aで整理します。講座の内容や価格は変動するため、最終判断は公式情報での確認を前提にしてください。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 最終判断は公式情報の確認が前提です。そのうえで、比較で迷いやすい論点をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -412,8 +416,8 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             無料セミナー / 個別相談
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            AI講座選びで迷う場合は、無料セミナーで学習計画を整理し、個別相談であなたの目的に合う受講戦略を確認できます。比較で止まらず、実行できる計画まで落とし込むことが重要です。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 比較で止まらず、実行できる計画まで落とし込むのが最短です。無料セミナーで全体像を掴み、個別相談で目的に合う受講戦略を確認できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

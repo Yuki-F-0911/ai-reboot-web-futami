@@ -336,10 +336,11 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成を最短で回す
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">この記事は2026年2月に更新されました</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            日常業務で生成AIを使いこなす鍵は、思いつきではなく再利用できる型です。この記事では、ChatGPTとClaudeのどちらでも使える
-            実務テンプレートを業務カテゴリ別にまとめました。基礎から学びたい方は
+            毎回プロンプトを考えていると、品質がぶれたり、修正指示が増えたりして「結局時間がかかる」状態になりがちです。
+            この記事では、業務カテゴリ別のテンプレートと、Role/Task/Context/Formatで最短で整えるコツをまとめました。
+            筆者はまず「日程調整メール」と「月次レポートのコメント下書き」を型にすると、手戻りが一気に減ると感じています。基礎から学びたい方は
             <Link href="/academy" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               AIリブートアカデミー
             </Link>
@@ -384,8 +385,11 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           <h2 id="prompt-basics" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             プロンプトの基本原則
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            実務では「役割指定」「目的・依頼内容」「文脈」「出力形式指定」の4点を押さえると品質が安定します。以下の型を最初に入れてから、業務ごとの条件を足してください。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 実務のプロンプトは「Role/Task/Context/Format」を先に固定すると、ツールが変わっても品質が安定します。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            まずは以下の4点を最初に入れ、そのうえで「期限」「文字数」「相手」「禁止事項」など業務ごとの条件を足してください。
           </p>
           <ul className="mt-6 space-y-4 text-sm leading-7 text-gray-700">
             {promptStructureItems.map((item) => (
@@ -424,6 +428,9 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
             <h2 id={group.id} className="scroll-mt-28 text-2xl font-bold text-gray-900">
               {group.title}
             </h2>
+            <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+              結論: まずはテンプレートをコピペして{`{変数}` }だけ差し替えるのが最短です。出力を1回見て不足条件を追記すると、すぐ実務で回せる形になります。
+            </p>
             <p className="mt-3 text-sm leading-7 text-gray-700">{group.description}</p>
             <div className="mt-6 space-y-6">
               {group.templates.map((template) => (
@@ -467,6 +474,9 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           <h2 id="improvement-tips" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             プロンプト改善のコツ5選
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: うまくいかないときは「条件が曖昧」「出力形式が未固定」「前提が不足」のどれかです。直し方を型で覚えると再現性が上がります。
+          </p>
           <ol className="mt-6 space-y-4 text-sm leading-7 text-gray-700">
             {improvementTips.map((tip, index) => (
               <li key={tip} className="rounded-lg border border-gray-200 p-4">
@@ -488,9 +498,11 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           <h2 id="advanced-usage" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             さらに効果的に使いこなすには
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            テンプレートを1人で使うだけでなく、チームで共通化すると効果が一気に上がります。アカデミーでは業務別テンプレートの設計、
-            評価観点の作り方、社内展開まで実務ベースで学べます。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 個人で完結させず、チームで「テンプレ・レビュー観点・禁止事項」を共通化すると効果が最大化します。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            アカデミーでは業務別テンプレートの設計、評価観点の作り方、社内展開まで実務ベースで学べます。
           </p>
           <ul className="mt-6 space-y-2 text-sm leading-7 text-gray-700">
             <li>
@@ -525,6 +537,9 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             FAQ
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: よくあるつまずきは「情報不足」と「出力条件の未固定」です。Q&Aで解決の近道を整理します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -588,9 +603,11 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           <h2 id="mastering-next" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             もっと使いこなしたい方へ
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            テンプレートを自分の業務に最適化したい場合は、無料説明会で実務フローに合わせた活用方法を確認するのが近道です。現場で定着させる
-            運用設計まで具体化できます。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 自分の業務フローに最適化するなら、テンプレを「入力フォーム化」して運用ルールまでセットで作るのが近道です。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            無料説明会では、実務フローに合わせた活用方法を確認し、現場で定着させる運用設計まで具体化できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

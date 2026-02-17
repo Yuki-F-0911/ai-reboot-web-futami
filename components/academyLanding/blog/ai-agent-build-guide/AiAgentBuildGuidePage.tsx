@@ -186,10 +186,11 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AIエージェントの作り方｜仕組み・開発手順・活用パターンを解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            結論: AIエージェント開発は「目的・境界を決める → 小さく作る → ログで改善する」が最短ルートです。まずは1つの業務で
-            計画→実行→観察→修正のループを回し、安定したら権限と範囲を広げましょう。
+            エージェント開発は「自動化したい」が先行すると、権限・評価・停止条件が抜けて事故りがちです。
+            この記事では、仕組み→開発5ステップ→フレームワーク比較→ノーコード実装→運用上の注意点まで、まず作るべき最小構成を結論先出しでまとめます。
+            筆者は最初の1号機を「読み取り専用」に固定し、ログと評価から始めるのをおすすめしています。
           </p>
         </motion.header>
 
@@ -231,7 +232,7 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
             AIエージェントとは？
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            復習: AIエージェントとは、目標を与えると「次の行動を決めて、実行し、結果を見て調整する」流れを自律的に回せるAIです。
+            結論: AIエージェントとは、目標を与えると「次の行動を決めて、実行し、結果を見て調整する」流れを自律的に回せるAIです。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             重要なのは「回答するAI」ではなく「仕事を前に進めるAI」という点です。情報取得が必要ならRAGを組み合わせ、実行が必要ならツール連携を

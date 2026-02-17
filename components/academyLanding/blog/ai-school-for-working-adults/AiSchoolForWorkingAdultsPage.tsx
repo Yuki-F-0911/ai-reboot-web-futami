@@ -141,9 +141,11 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             社会人向けAIスクールの選び方ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            社会人がAIスクールを選ぶときは、費用だけでなく「学習継続できる設計」かどうかが重要です。本記事では、仕事と両立しながら成果につなげるための比較ポイントを整理します。
+            講座は増え続けていますが、比較の順番を間違えると「受けたのに使えない」状態になりがちです。
+            この記事では、社会人が失敗しないための5基準・オンライン/通学の選び分け・目的別のチェック順を結論先出しで整理します。
+            筆者は迷ったら、まず「修了後に何を業務で再現できるか」を1つ決めてから比較するのをおすすめしています。
           </p>
         </motion.header>
 
@@ -209,8 +211,8 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
           <h2 id="online-vs-onsite" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             オンライン vs 通学の比較
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            どちらが優れているかではなく、生活リズムとの一致が継続性を左右します。以下の比較軸で、自分の制約に合う形式を選ぶのが一般的です。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: どちらが優れているかではなく、生活リズムとの一致が継続性を左右します。自分の制約（時間・場所・フィードバック頻度）に合う形式を選びましょう。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -386,8 +388,8 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
           <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             無料セミナー / 個別相談
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            自分に合う講座タイプを短時間で絞り込みたい場合は、無料セミナーで全体像を確認し、個別相談で目的に合わせた学習ルートを相談する進め方が有効です。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 比較で止まらず、目的に合う学習ルートまで落とし込むのが最短です。無料セミナー/個別相談で短時間で整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

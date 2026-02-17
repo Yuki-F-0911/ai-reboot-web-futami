@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "RAG（検索拡張生成）とは？仕組み・メリット・活用事例をわかりやすく解説 | AIリブート";
 const pageDescription =
-  "「RAG とは」「検索拡張生成」を知りたい方向けに、RAG（Retrieval-Augmented Generation）の定義、仕組み（検索→コンテキスト付与→生成）、メリットと限界、活用事例、始め方、ファインチューニングとの違いを事実ベースで整理しました。";
+  "RAG（検索拡張生成）を基礎から理解したい方向けに、定義・仕組み（検索→コンテキスト→生成）、メリットと限界、活用事例、始め方、ファインチューニングとの違いを整理。社内データ活用の入口と導入のチェックポイントがわかります。";
 const pageUrl = "https://ai-reboot.io/academy/blog/what-is-rag";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

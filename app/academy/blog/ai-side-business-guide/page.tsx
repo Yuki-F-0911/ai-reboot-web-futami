@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "副業でAIを活用する始め方ガイド｜学習から案件獲得までの現実的な進め方 | AIリブート";
 const pageDescription =
-  "「副業 AI 始め方」「フリーランス AI 仕事」を検討する方向けに、副業の種類、学習ステップ、必要スキル、実務上の注意点を現実的に整理したガイドです。";
+  "AIを活用した副業を始めたい方向けに、副業タイプ、学習ステップ、必要スキルの目安、就業規則・確定申告・期待値調整などの注意点を整理。まず「何を売るか」を決めて小さく実績を作る進め方がわかります。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-side-business-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

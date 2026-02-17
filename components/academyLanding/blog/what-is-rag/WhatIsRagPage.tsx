@@ -161,9 +161,11 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             RAG（検索拡張生成）とは？仕組み・メリット・活用事例をわかりやすく解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月17日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            RAG（検索拡張生成）は、回答を作る前に関連情報を検索し、その根拠をもとにLLMが生成する仕組みです。ハルシネーション対策や社内データ活用の入口として注目されています。
+            RAGは「社内データを使いたいが、LLMがもっともらしい誤りを言うのが不安」という場面で検討されがちです。
+            この記事では、RAGの定義・仕組み・メリットと限界・活用事例・始め方まで、導入判断に必要なポイントを結論先出しで整理します。
+            筆者はまず、検索対象となる“正本”の資料を決めるところから着手するのが最短だと感じています。
           </p>
         </motion.header>
 

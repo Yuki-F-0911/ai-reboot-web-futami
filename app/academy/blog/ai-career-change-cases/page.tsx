@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AI時代のキャリアチェンジ事例（構成例）｜転換と成長のパターンを解説 | AIリブート";
 const pageDescription =
-  "「AI キャリアチェンジ」「AI転職 事例」をテーマに、職種転換をイメージするための構成例を4つ紹介。Before/After比較と成功要因を実践的に解説します。";
+  "AI時代のキャリアチェンジを具体化するための構成例を4つ紹介。Before/Afterの変化、学習とアウトプットの積み上げ方、成功要因を整理します。未経験でも現職の強みを活かした移行ルートを描けます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-career-change-cases";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2025-11-01T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {

@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AIエージェントの作り方｜仕組み・開発手順・活用パターンを解説 | AIリブート";
 const pageDescription =
-  "「AIエージェント 作り方」「AIエージェント 開発」「自律型AI 構築」で調べる方向けに、AIエージェントの基本構造（計画→実行→観察→修正）、開発5ステップ、主要フレームワーク比較、ノーコード実装、実務の活用例と注意点までをまとめた実装ガイドです。";
+  "AIエージェントの作り方を、基本構造（計画→実行→観察→修正）から開発5ステップ、フレームワーク比較、ノーコード実装、実務の活用例と注意点までまとめて解説。まず何から作るべきかがわかります。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-agent-build-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T12:00:00+09:00";
+const modifiedTime = "2026-02-18T12:00:00+09:00";
 
 const faqItems = [
   {
