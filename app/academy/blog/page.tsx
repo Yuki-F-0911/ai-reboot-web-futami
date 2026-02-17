@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで33記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで37記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -64,6 +64,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
   },
   {
+    slug: "github-copilot-guide",
+    title: "GitHub Copilotの使い方｜導入・設定・効率化のコツを初心者向けに解説",
+    summary:
+      "導入（VS Code等）から指示の出し方、レビュー・テストの流れ、チーム導入時の情報管理/運用ルールまでを手順化したガイドです。",
+    category: "実務活用",
+  },
+  {
     slug: "python-ai-intro",
     title: "Python×AI入門｜環境構築からはじめての機械学習までの学習ロードマップ",
     summary:
@@ -87,6 +94,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "AI業務効率化事例集",
     summary: "営業・マーケ・管理部門の一般的な活用傾向と、導入前に押さえる設計ポイントや失敗対策を整理した記事です。",
     category: "実務活用",
+  },
+  {
+    slug: "what-is-rag",
+    title: "RAG（検索拡張生成）とは？仕組み・メリット・活用事例をわかりやすく解説",
+    summary:
+      "RAG（Retrieval-Augmented Generation）の定義、仕組み、メリットと限界、活用事例、始め方、ファインチューニングとの違いを整理した入門記事です。",
+    category: "AI基礎知識",
   },
   {
     slug: "rag-use-cases",
@@ -204,6 +218,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "法人向け",
   },
   {
+    slug: "ai-hr-recruiting",
+    title: "AI × 人事・採用｜業務効率化から戦略的活用までの実践ガイド",
+    summary:
+      "採用・人事領域でのAI活用（求人票作成〜候補者対応、評価分析など）と導入ステップ、注意点、プロンプト例をまとめた実践ガイドです。",
+    category: "法人向け",
+  },
+  {
     slug: "ai-side-business-guide",
     title: "副業でAIを活用する始め方ガイド",
     summary: "AIスキルで始められる副業の種類、学習ステップ、必要なスキルレベルと注意点を整理した記事です。",
@@ -215,6 +236,13 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "Google Geminiの基本操作、ChatGPT・Claudeとの違い、無料プランの始め方、業務活用パターンを整理した入門記事です。",
     category: "AI基礎知識",
+  },
+  {
+    slug: "notebooklm-guide",
+    title: "NotebookLMの使い方完全ガイド｜AIで情報整理・学習を効率化する方法",
+    summary:
+      "ソース取り込み→要約・質問の基本操作から、リサーチ/報告書整理/学習ノートへの活用、Audio Overviewの使い方までを整理した入門ガイドです。",
+    category: "実務活用",
   },
   {
     slug: "ai-image-generation-guide",
