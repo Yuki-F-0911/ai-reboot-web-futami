@@ -8,7 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-coding-for-beginners";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-17T12:00:00+09:00";
 
 const faqItems = [
   {
@@ -17,9 +17,9 @@ const faqItems = [
       "はい。まずは環境構築なしで使えるチャット型AI（ChatGPT/Claudeなど）で、短いスクリプトやHTMLの生成から試すのが始めやすいです。最初は「小さな自動化」を作り、動作確認と改善を繰り返すと習得が早くなります。",
   },
   {
-    question: "ChatGPTとGitHub Copilot（Cursor等）の違いは何ですか？",
+    question: "ChatGPTとGitHub Copilot（Cursor/Windsurf等）の違いは何ですか？",
     answer:
-      "ChatGPT/Claudeは「目的や仕様を文章で相談しながら」コードや手順を作りやすい一方、CopilotやCursorは「エディタ上で書きながら」補完・修正を高速化するのが得意です。初心者はまずチャットで理解を固め、慣れたらエディタ統合へ移行すると迷いにくくなります。",
+      "ChatGPT/Claudeは「目的や仕様を文章で相談しながら」コードや手順を作りやすい一方、CopilotやCursor/Windsurfは「エディタ上で書きながら」補完・修正を高速化するのが得意です。初心者はまずチャットで理解を固め、慣れたらエディタ統合へ移行すると迷いにくくなります。",
   },
   {
     question: "どの言語から始めるのがよいですか？",
@@ -46,7 +46,7 @@ const faqItems = [
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  keywords: ["AI コーディング 初心者", "AI プログラミング 始め方", "コード生成AI", "AI開発", "AI自動化", "ChatGPT", "Claude", "GitHub Copilot", "Cursor"],
+  keywords: ["AI コーディング 初心者", "AI プログラミング 始め方", "コード生成AI", "AI開発", "AI自動化", "ChatGPT", "Claude", "GitHub Copilot", "Cursor", "Windsurf"],
   alternates: {
     canonical: pageUrl,
   },
@@ -99,4 +99,3 @@ export default function AiCodingForBeginnersRoute() {
     </>
   );
 }
-

@@ -50,6 +50,10 @@ const toolCards = [
     detail: "AIエディタとして実装の反復を回しやすい。小さな機能追加→動作確認のループに強いです。",
   },
   {
+    title: "Windsurf",
+    detail: "AIエディタとして、実装→修正→動作確認の反復を回しやすい。プロジェクト単位の改善ループに強い選択肢です。",
+  },
+  {
     title: "Replit",
     detail: "ブラウザ上で動かして試せるため、環境構築が不安な初心者でも検証しやすい選択肢です。",
   },
@@ -249,7 +253,7 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="tools" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            代表的なAIコーディングツール（ChatGPT/Claude/Copilot/Cursor/Replit）
+            代表的なAIコーディングツール（ChatGPT/Claude/Copilot/Cursor/Windsurf/Replit）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             初心者はまず「チャット型」で理解と方針を固め、次に「エディタ統合」で速度を上げる順序が取り組みやすいです。各ツールの機能やプランは変わるため、必要に応じて公式情報も確認してください。
@@ -422,6 +426,11 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
               </Link>
             </li>
             <li>
+              <Link href="/academy/blog/github-copilot-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                GitHub Copilotの使い方（導入・設定・効率化のコツ）
+              </Link>
+            </li>
+            <li>
               <Link
                 href="/academy/blog/chatgpt-claude-beginners-guide"
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
@@ -430,8 +439,18 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
               </Link>
             </li>
             <li>
+              <Link href="/academy/blog/python-ai-intro" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                Python × AI入門（環境構築〜学習ロードマップ）
+              </Link>
+            </li>
+            <li>
               <Link href="/academy/blog/ai-career-change-cases" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AI時代のキャリアチェンジ事例集
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-agent-build-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIエージェントの作り方（実装ガイド）
               </Link>
             </li>
             <li>
@@ -468,10 +487,15 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
             >
               AIリブートアカデミーを見る
             </Link>
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              無料セミナーを見る
+            </Link>
           </div>
         </motion.section>
       </article>
     </main>
   );
 }
-

@@ -96,10 +96,10 @@ const frameworkRows = [
     cautions: "ツールと評価の設計が甘いと、出力品質が安定しない",
   },
   {
-    name: "OpenAI Assistants API",
+    name: "OpenAI Responses API",
     strengths: "実行基盤を任せつつ、アプリ側は体験設計に集中できる",
     bestFor: "チャット体験にエージェント動作を組み込みたいケース",
-    cautions: "要件次第で実装の自由度（状態/評価/ツール制御）に制約が出る",
+    cautions: "要件次第で実装の自由度（状態/評価/ツール制御）に制約が出る。旧Assistants APIは非推奨のため、新規はResponses API前提で検討する",
   },
 ] as const;
 
@@ -109,8 +109,8 @@ const noCodeCards = [
     body: "ワークフロー/ナレッジ/RAGを統合して、業務向けエージェントを組み立てやすい選択肢です。まずは「社内FAQ→回答生成」のように情報源が明確な領域から始めると安定します。",
   },
   {
-    name: "Zapier AI",
-    body: "既存SaaS連携の自動化に強く、営業/CS/バックオフィスの反復作業を短時間でつなげられます。誤操作防止のため、最初はドラフト作成や通知に限定するのが安全です。",
+    name: "Zapier",
+    body: "既存SaaS連携の自動化に強く、営業/CS/バックオフィスの反復作業を短時間でつなげられます（AI Actions等の機能を含む）。誤操作防止のため、最初はドラフト作成や通知に限定するのが安全です。",
   },
   {
     name: "GPTs",
@@ -257,7 +257,10 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           <h2 id="architecture" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIエージェントの基本アーキテクチャ（計画→実行→観察→修正のループ）
           </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: AIエージェントは「計画→実行→観察→修正」を回すループ構造で、状態・評価・ガードレールを足して運用品質を作ります。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
             基本形は「ループ」です。これに、ツール（外部システム操作）・状態（メモリ）・評価（検証）・ガードレール（安全境界）が加わります。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -323,10 +326,13 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="frameworks" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            主要フレームワーク比較（LangChain/AutoGen/CrewAI/OpenAI Assistants API）
+            主要フレームワーク比較（LangChain/AutoGen/CrewAI/OpenAI Responses API）
           </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
-            どれが正解というより、必要な「協調の型」と「運用のしやすさ」で選びます。まずは小さく作り、必要になった機能を足していくのが安全です。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 最初から複雑な協調にせず、ワークフロー型で小さく作り、必要になった「状態管理・評価・再試行・役割分担」を足していくのが安全です。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            どれが正解というより、必要な「協調の型」と「運用のしやすさ」で選びます。なお、AutoGPTのような“自律実行”系のプロジェクトもありますが、実務では権限と停止条件（どこで止めるか）を前提に設計するのが基本です。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[980px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -361,11 +367,13 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="no-code" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            ノーコードで作るAIエージェント（Dify/Zapier AI/GPTs）
+            ノーコードで作るAIエージェント（Dify/Zapier/GPTs）
           </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
-            実務で成果を出す最短ルートは、ノーコードで仮説検証→必要な部分だけコード化です。まずは「入力が決まっている」「出力の正解がある」
-            タスクから始めると、運用が安定しやすくなります。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 実務で成果を出す最短ルートは、ノーコードで仮説検証し、必要な部分だけコード化する進め方です。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            まずは「入力が決まっている」「出力の正解がある」タスクから始めると、運用が安定しやすくなります。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {noCodeCards.map((card) => (
@@ -388,8 +396,11 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           <h2 id="use-cases" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             実務での活用パターン（リサーチ自動化/カスタマーサポート/データ分析/ワークフロー自動化）
           </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
-            最初は「品質が測れる」「失敗しても被害が小さい」領域から始めるのが安全です。特に、情報収集やドラフト作成は導入効果が出やすいです。
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 最初は「品質が測れる」「失敗しても被害が小さい」領域から始めると安全です。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            特に、情報収集やドラフト作成は導入効果が出やすいです。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {useCaseCards.map((item) => (
@@ -422,6 +433,9 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           <h2 id="cautions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             開発時の注意点（安全性、コスト管理、ハルシネーション対策）
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 事故を防ぐ鍵は「危険操作のブロック」「上限（コスト/回数/権限）」「検証（テスト/バリデーション）」を最初に組み込むことです。
+          </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {cautionItems.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -529,4 +543,3 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
     </main>
   );
 }
-

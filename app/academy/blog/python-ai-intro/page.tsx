@@ -8,7 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/python-ai-intro";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-17T12:00:00+09:00";
 
 const faqItems = [
   {
@@ -19,7 +19,7 @@ const faqItems = [
   {
     question: "Pythonはどのバージョンを選べばよいですか？",
     answer:
-      "基本はPython 3.10以上を選べば十分です。機械学習ライブラリの対応状況は変わるため、困ったら「利用するライブラリが推奨するPythonバージョン」に合わせるのが安全です。",
+      "基本はPython 3.11以上を選ぶのが無難です（新しすぎる版はライブラリ対応が追いつかない場合があります）。困ったら「利用するライブラリが推奨するPythonバージョン」に合わせるのが安全です。",
   },
   {
     question: "Anacondaと通常のPython（venv）はどちらがよいですか？",
@@ -99,4 +99,3 @@ export default function PythonAiIntroRoute() {
     </>
   );
 }
-

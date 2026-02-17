@@ -415,6 +415,22 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
             ))}
           </ul>
 
+          <h3 className="mt-8 text-xl font-semibold text-gray-900">実務でよく使う設計ポイント（2026年の定番）</h3>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">
+              <span className="font-semibold text-gray-900">検索はハイブリッドが基本:</span> キーワード（BM25等）+ ベクトル検索を組み合わせ、必要なら再ランキング（reranking）で根拠の質を上げます。
+            </li>
+            <li className="pl-1 marker:text-gray-500">
+              <span className="font-semibold text-gray-900">ベクトルDBは要件で選ぶ:</span> まずはPostgres（pgvector）で小さく始め、スケールや運用要件でPinecone / Weaviate / Qdrant / Milvusなどを検討します。
+            </li>
+            <li className="pl-1 marker:text-gray-500">
+              <span className="font-semibold text-gray-900">チャンキングは「見出し+意味のまとまり」重視:</span> 固定長だけでなく、見出し/段落で分割し、必要に応じて重なり（overlap）を入れると文脈欠けが減ります。
+            </li>
+            <li className="pl-1 marker:text-gray-500">
+              <span className="font-semibold text-gray-900">評価は「検索」と「回答」を分ける:</span> まず検索のRecall@k等で根拠取得を検証し、その上で回答の根拠一致（faithfulness）や再質問率など運用指標で改善します。
+            </li>
+          </ul>
+
           <h3 className="mt-8 text-xl font-semibold text-gray-900">主要フレームワーク / 検索基盤</h3>
           <div className="mt-4 overflow-x-auto">
             <table className="w-full min-w-[720px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -516,6 +532,39 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
           </dl>
         </motion.section>
 
+        <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/rag-use-cases" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                RAG（検索拡張生成）の活用事例8選｜業種・業務別に解説
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/what-is-ai-agent" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIエージェントとは？定義・種類・作り方を初心者向けに解説
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-agent-build-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIエージェントの作り方（実装ガイド）
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/python-ai-intro" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                Python × AI入門（学習ロードマップ）
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIリブートアカデミー TOP
+              </Link>
+            </li>
+          </ul>
+        </section>
+
         <motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
@@ -536,6 +585,12 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
               className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
             >
               AIリブートアカデミーを見る
+            </Link>
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              無料セミナーを見る
             </Link>
             <Link
               href="/academy/blog"
@@ -569,4 +624,3 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
     </main>
   );
 }
-

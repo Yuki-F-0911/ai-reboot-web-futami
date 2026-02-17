@@ -221,7 +221,10 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="types-and-use-cases" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             代表的なAIエージェントの種類と活用例
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: まずは「役割が明確で、成果が測れる」タイプを選ぶと、導入と改善が回りやすくなります。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
             業務に合うタイプを選ぶことが導入成功の起点です。最初は役割が明確なユースケースから始めると、効果測定がしやすくなります。
           </p>
           <div className="mt-6 overflow-x-auto">
@@ -281,6 +284,9 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="implementation-cautions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             導入時の注意点（セキュリティ、コスト、運用体制）
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 成否は実装よりも「入力ルール」「権限」「ログ」「人の確認ポイント」を先に決められるかで決まります。
+          </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {cautionItems.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -360,6 +366,12 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
             AIエージェントを自社でどう設計すべきか迷う場合は、無料セミナーで全体像を整理し、個別相談で導入優先順位を確認する進め方が実践的です。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーを見る
+            </Link>
             <Link
               href="/academy/seminars"
               className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"

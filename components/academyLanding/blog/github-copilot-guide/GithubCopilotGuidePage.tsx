@@ -350,6 +350,12 @@ export function normalizeEmail(input: string) {
               アカデミーを見る
             </Link>
             <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-will-primary/40"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
               href="/academy/blog"
               className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-will-primary/40"
             >

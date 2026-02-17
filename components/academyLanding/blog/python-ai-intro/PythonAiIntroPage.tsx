@@ -122,7 +122,7 @@ const libraryCards = [
   },
   {
     name: "PyTorch",
-    role: "研究・開発で広く使われる深層学習フレームワーク。",
+    role: "研究・開発で広く使われる深層学習フレームワーク（PyTorch 2.x系）。",
     useCases: ["カスタムモデル実装", "Transformer系の学習/微調整", "実験の高速化"],
   },
 ] as const;
@@ -175,7 +175,7 @@ const genAiUseCases = [
   },
   {
     title: "ローカルLLM（機密性を重視する）",
-    body: "機密情報を扱う場合は、ローカル実行や閉域環境での運用を検討します。最初は「小さな検証（安全なダミーデータ）」から始め、運用ルールを作ってから広げるのが安全です。",
+    body: "機密情報を扱う場合は、ローカル実行や閉域環境での運用を検討します。推論基盤（例: Transformers / vLLM等）は状況により選び分けます。最初は「小さな検証（安全なダミーデータ）」から始め、運用ルールを作ってから広げるのが安全です。",
   },
 ] as const;
 
@@ -442,7 +442,10 @@ export default function PythonAiIntroPage({ faqItems }: PythonAiIntroPageProps) 
           <h2 id="python-for-genai" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             生成AI時代のPython活用（LangChain/OpenAI API/ローカルLLM）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 生成AIの実務は「API連携」か「RAG」が入口で、Pythonは周辺ライブラリが揃っているため実装と検証を回しやすいです。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
             生成AI（LLM）は、機械学習とは違って「既存モデルを使う」比重が大きくなります。実務では、(1)API連携でプロダクトに組み込む、(2)自分のデータに基づいて回答する（RAG）、の2パターンが入口になりやすいです。
           </p>
           <div className="mt-6 space-y-4">
@@ -580,10 +583,15 @@ export default function PythonAiIntroPage({ faqItems }: PythonAiIntroPageProps) 
             >
               AIリブートアカデミーを見る
             </Link>
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              無料セミナーを見る
+            </Link>
           </div>
         </motion.section>
       </article>
     </main>
   );
 }
-
