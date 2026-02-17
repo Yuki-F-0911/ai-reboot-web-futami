@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import AiCertificationGuidePage from "@/components/academyLanding/blog/ai-certification-guide/AiCertificationGuidePage";
-import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
+import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】 | AIリブート";
 const pageDescription =
@@ -91,6 +91,14 @@ export default function AiCertificationGuideRoute() {
         modifiedTime={modifiedTime}
         imageUrl={pageOgImageUrl}
         articleType="BlogPosting"
+      />
+      <BreadcrumbStructuredData
+        items={[
+          { name: "ホーム", url: "https://ai-reboot.io" },
+          { name: "アカデミー", url: "https://ai-reboot.io/academy" },
+          { name: "ブログ", url: "https://ai-reboot.io/academy/blog" },
+          { name: "AI資格ガイド", url: pageUrl },
+        ]}
       />
       <FAQStructuredData items={[...faqItems]} />
       <AiCertificationGuidePage faqItems={[...faqItems]} />

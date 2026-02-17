@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SkillsForAiEraCareerPage from "@/components/academyLanding/blog/skills-for-ai-era-career/SkillsForAiEraCareerPage";
-import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
+import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "AI時代に必要なスキルを職種別に解説｜2026年版キャリア戦略 | AIリブート";
 const pageDescription =
@@ -81,6 +81,14 @@ export default function SkillsForAiEraCareerRoute() {
         modifiedTime={modifiedTime}
         imageUrl={pageOgImageUrl}
         articleType="BlogPosting"
+      />
+      <BreadcrumbStructuredData
+        items={[
+          { name: "ホーム", url: "https://ai-reboot.io" },
+          { name: "アカデミー", url: "https://ai-reboot.io/academy" },
+          { name: "ブログ", url: "https://ai-reboot.io/academy/blog" },
+          { name: "AI時代の必須スキル", url: pageUrl },
+        ]}
       />
       <FAQStructuredData items={[...faqItems]} />
       <SkillsForAiEraCareerPage faqItems={[...faqItems]} />

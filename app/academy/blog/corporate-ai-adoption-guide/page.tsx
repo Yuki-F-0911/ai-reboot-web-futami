@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CorporateAiAdoptionGuidePage from "@/components/academyLanding/blog/corporate-ai-adoption-guide/CorporateAiAdoptionGuidePage";
-import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
+import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "中小企業の生成AI導入ガイド｜失敗しない進め方と費用感 | AIリブート";
 const pageDescription =
@@ -86,6 +86,14 @@ export default function CorporateAiAdoptionGuideRoute() {
         modifiedTime={modifiedTime}
         imageUrl={pageOgImageUrl}
         articleType="BlogPosting"
+      />
+      <BreadcrumbStructuredData
+        items={[
+          { name: "ホーム", url: "https://ai-reboot.io" },
+          { name: "アカデミー", url: "https://ai-reboot.io/academy" },
+          { name: "ブログ", url: "https://ai-reboot.io/academy/blog" },
+          { name: "企業AI導入ガイド", url: pageUrl },
+        ]}
       />
       <FAQStructuredData items={[...faqItems]} />
       <CorporateAiAdoptionGuidePage faqItems={[...faqItems]} />

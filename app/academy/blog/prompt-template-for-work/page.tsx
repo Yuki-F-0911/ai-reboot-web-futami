@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PromptTemplateForWorkPage from "@/components/academyLanding/blog/prompt-template-for-work/PromptTemplateForWorkPage";
-import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
+import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化 | AIリブート";
 const pageDescription =
@@ -125,6 +125,14 @@ export default function PromptTemplateForWorkRoute() {
         modifiedTime={modifiedTime}
         imageUrl={pageOgImageUrl}
         articleType="BlogPosting"
+      />
+      <BreadcrumbStructuredData
+        items={[
+          { name: "ホーム", url: "https://ai-reboot.io" },
+          { name: "アカデミー", url: "https://ai-reboot.io/academy" },
+          { name: "ブログ", url: "https://ai-reboot.io/academy/blog" },
+          { name: "仕事用プロンプト", url: pageUrl },
+        ]}
       />
       <FAQStructuredData items={[...faqItems]} />
       <script

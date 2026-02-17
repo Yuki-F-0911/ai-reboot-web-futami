@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CorporateAiTrainingPage from "@/components/academyLanding/blog/corporate-ai-training/CorporateAiTrainingPage";
-import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
+import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "法人向けAI研修サービス｜社内定着・研修設計・導入相談 | AIリブート";
 const pageDescription =
@@ -86,6 +86,14 @@ export default function CorporateAiTrainingRoute() {
         modifiedTime={modifiedTime}
         imageUrl={pageOgImageUrl}
         articleType="BlogPosting"
+      />
+      <BreadcrumbStructuredData
+        items={[
+          { name: "ホーム", url: "https://ai-reboot.io" },
+          { name: "アカデミー", url: "https://ai-reboot.io/academy" },
+          { name: "ブログ", url: "https://ai-reboot.io/academy/blog" },
+          { name: "法人向けAI研修", url: pageUrl },
+        ]}
       />
       <FAQStructuredData items={[...faqItems]} />
       <CorporateAiTrainingPage faqItems={[...faqItems]} />

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 
 type FAQItem = {
   question: string;
@@ -75,6 +76,15 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
       <article className="mx-auto max-w-3xl px-5 sm:px-6">
+        <AcademyBreadcrumb
+          className="mb-6"
+          items={[
+            { label: "ホーム", href: "/" },
+            { label: "アカデミー", href: "/academy" },
+            { label: "ブログ", href: "/academy/blog" },
+            { label: "AI転職事例" },
+          ]}
+        />
         <motion.header
           initial="hidden"
           whileInView="visible"

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import HowToLearnGenerativeAiPage from "@/components/academyLanding/blog/how-to-learn-generative-ai/HowToLearnGenerativeAiPage";
-import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
+import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ | AIリブート";
 const pageDescription =
@@ -81,6 +81,14 @@ export default function HowToLearnGenerativeAiRoute() {
         modifiedTime={modifiedTime}
         imageUrl={pageOgImageUrl}
         articleType="BlogPosting"
+      />
+      <BreadcrumbStructuredData
+        items={[
+          { name: "ホーム", url: "https://ai-reboot.io" },
+          { name: "アカデミー", url: "https://ai-reboot.io/academy" },
+          { name: "ブログ", url: "https://ai-reboot.io/academy/blog" },
+          { name: "生成AI学習法", url: pageUrl },
+        ]}
       />
       <FAQStructuredData items={[...faqItems]} />
       <HowToLearnGenerativeAiPage faqItems={[...faqItems]} />

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import AiCareerChangeCasesPage from "@/components/academyLanding/blog/ai-career-change-cases/AiCareerChangeCasesPage";
-import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
+import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "AI時代のキャリアチェンジ事例集｜受講生が語る転換と成長のリアル | AIリブート";
 const pageDescription =
@@ -81,6 +81,14 @@ export default function AiCareerChangeCasesRoute() {
         modifiedTime={modifiedTime}
         imageUrl={pageOgImageUrl}
         articleType="BlogPosting"
+      />
+      <BreadcrumbStructuredData
+        items={[
+          { name: "ホーム", url: "https://ai-reboot.io" },
+          { name: "アカデミー", url: "https://ai-reboot.io/academy" },
+          { name: "ブログ", url: "https://ai-reboot.io/academy/blog" },
+          { name: "AI転職事例", url: pageUrl },
+        ]}
       />
       <FAQStructuredData items={[...faqItems]} />
       <AiCareerChangeCasesPage faqItems={[...faqItems]} />

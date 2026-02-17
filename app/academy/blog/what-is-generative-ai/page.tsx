@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import WhatIsGenerativeAiPage from "@/components/academyLanding/blog/what-is-generative-ai/WhatIsGenerativeAiPage";
-import { ArticleStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
+import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle =
   "生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】 | AIリブート";
@@ -93,6 +93,14 @@ export default function WhatIsGenerativeAiRoute() {
         modifiedTime={modifiedTime}
         imageUrl={pageOgImageUrl}
         articleType="BlogPosting"
+      />
+      <BreadcrumbStructuredData
+        items={[
+          { name: "ホーム", url: "https://ai-reboot.io" },
+          { name: "アカデミー", url: "https://ai-reboot.io/academy" },
+          { name: "ブログ", url: "https://ai-reboot.io/academy/blog" },
+          { name: "生成AIとは？", url: pageUrl },
+        ]}
       />
       <FAQStructuredData items={[...faqItems]} />
       <WhatIsGenerativeAiPage faqItems={[...faqItems]} />
