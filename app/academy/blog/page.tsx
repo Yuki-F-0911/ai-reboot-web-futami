@@ -64,6 +64,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
   },
   {
+    slug: "python-ai-intro",
+    title: "Python×AI入門｜環境構築からはじめての機械学習までの学習ロードマップ",
+    summary:
+      "PythonでAI開発を始めるための環境構築、基礎文法、主要ライブラリ、最初の機械学習プロジェクト、0→3ヶ月の学習ロードマップを整理した入門記事です。",
+    category: "AI基礎知識",
+  },
+  {
     slug: "prompt-template-for-work",
     title: "仕事で使えるプロンプトテンプレート集",
     summary: "メール・議事録・資料作成など、業務で再利用できる実践テンプレートをカテゴリ別にまとめました。",
@@ -80,13 +87,6 @@ const blogPosts: readonly BlogPost[] = [
     title: "AI業務効率化事例集",
     summary: "営業・マーケ・管理部門の一般的な活用傾向と、導入前に押さえる設計ポイントや失敗対策を整理した記事です。",
     category: "実務活用",
-  },
-  {
-    slug: "ai-hr-recruiting",
-    title: "AI × 人事・採用の実践ガイド",
-    summary:
-      "求人票作成、スクリーニング補助、面接調整、評価コメント作成まで、人事・採用領域でのAI活用方法と導入の注意点をまとめたガイドです。",
-    category: "法人向け",
   },
   {
     slug: "rag-use-cases",
