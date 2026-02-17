@@ -1,8 +1,46 @@
 import { MetadataRoute } from "next";
 import { News } from "@/lib/microcms";
 import { getBlogArticles, getNewsArticles } from "@/lib/microcms-helper";
+import type { Dirent } from "node:fs";
+import { readdir, stat } from "node:fs/promises";
+import path from "node:path";
 
 const baseUrl = "https://ai-reboot.io";
+
+export const runtime = "nodejs";
+
+async function getAppRouteSlugs(routeDirFromAppRoot: string): Promise<string[]> {
+  const absoluteRouteDir = path.join(process.cwd(), "app", routeDirFromAppRoot);
+
+  let dirents: Dirent[];
+  try {
+    dirents = await readdir(absoluteRouteDir, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+
+  const candidates = dirents
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name)
+    .filter((name) => !/^\\[.*\\]$/.test(name))
+    .filter((name) => !/^\\(.*\\)$/.test(name))
+    .filter((name) => !name.startsWith("_"))
+    .filter((name) => !["temp", "debug"].includes(name))
+    .sort((a, b) => a.localeCompare(b));
+
+  const slugs: string[] = [];
+  for (const slug of candidates) {
+    try {
+      const pagePath = path.join(absoluteRouteDir, slug, "page.tsx");
+      const s = await stat(pagePath);
+      if (s.isFile()) slugs.push(slug);
+    } catch {
+      // ignore
+    }
+  }
+
+  return slugs;
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
@@ -64,54 +102,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.7,
     },
-    {
-      url: `${baseUrl}/academy/blog/what-is-generative-ai`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/academy/blog/how-to-learn-generative-ai`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/academy/blog/corporate-ai-training`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/academy/blog/corporate-ai-adoption-guide`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/academy/blog/ai-career-change-cases`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/academy/blog/skills-for-ai-era-career`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/academy/blog/ai-certification-guide`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/academy/blog/prompt-template-for-work`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
+    { url: `${baseUrl}/academy/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/corporate`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/company`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
@@ -140,6 +131,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
+  const academyBlogSlugs = await getAppRouteSlugs("academy/blog");
+  const academyBlogPages: MetadataRoute.Sitemap = academyBlogSlugs.map((slug) => ({
+    url: `${baseUrl}/academy/blog/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   const [newsResult, blogResult] = await Promise.all([
     getNewsArticles(1000, 0),
     getBlogArticles(1000, 0),
@@ -159,5 +158,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...newsPages, ...blogPages];
+  return [...staticPages, ...academyBlogPages, ...newsPages, ...blogPages];
 }
