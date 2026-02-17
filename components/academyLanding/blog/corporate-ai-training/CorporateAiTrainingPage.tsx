@@ -69,39 +69,52 @@ const designPoints = [
 
 const academyPlanPoints = [
   {
-    title: "100日伴走プログラム",
-    body: "導入初期のPoC設計から部門展開まで、100日単位で進捗を可視化しながら伴走します。",
+    title: "研修概要（法人向け）",
+    body: "対象人数は10〜30名程度、研修時間は10時間以上、形式は集合研修です。",
   },
   {
-    title: "経産省認定講座に準拠した設計",
-    body: "制度要件を意識した研修設計で、社内説明時の信頼性を高めやすい構成です。",
+    title: "3日間集中研修の3プラン",
+    body: "Plan A（スタンダード・集中研修プラン）210万円・実質31.5万円、Plan B（動画アーカイブ付き・定着強化プラン）252万円・実質42万円、Plan C（複数講師・徹底サポートプラン）300万円・実質54万円。",
   },
   {
-    title: "補助金対応サポート",
-    body: "対象可否の確認から申請準備まで、制度活用を見据えた計画づくりを支援します。",
+    title: "研修で得られる3つの力",
+    body: "思考のOS書き換え（マインドセット変革）、実務への即時適用（スキル習得 × 業務変革）、組織全体の自走化（チーム構築 × 内製化）。",
+  },
+  {
+    title: "助成金活用で実質負担を軽減",
+    body: "人材開発支援助成金（リスキリング）を活用し、経費助成は最大75%、賃金助成は研修中の賃金が対象です。実質負担額は中小企業を対象に3日間10人開催した場合の助成金を差し引いた金額です。",
+  },
+  {
+    title: "その他のプログラム（カスタム対応）",
+    body: "AI活用力強化研修、組織変革DX研修、AI活用型新規事業開発研修、採用DX研修、営業DX研修にも対応しています。",
   },
 ] as const;
 
 const comparisonRows = [
   {
-    axis: "研修設計",
-    general: "汎用カリキュラム中心",
-    academy: "業務課題別に設計し、部門ごとに最適化",
+    axis: "研修概要",
+    general: "対象人数・研修時間・形式の公開内容はサービスごとに要確認",
+    academy: "対象人数10〜30名程度 / 研修時間10時間以上 / 集合研修",
   },
   {
-    axis: "定着支援",
-    general: "受講後フォローは限定的",
-    academy: "100日伴走で運用レビューと改善を実施",
+    axis: "プラン構成",
+    general: "料金体系と支援範囲はサービスごとに要確認",
+    academy: "Plan A: 210万円（実質31.5万円）/ Plan B: 252万円（実質42万円）/ Plan C: 300万円（実質54万円）",
   },
   {
-    axis: "成果測定",
-    general: "受講満足度の確認が中心",
-    academy: "業務KPIまで落とし込み、効果検証を支援",
+    axis: "研修成果の設計",
+    general: "学習到達点や組織定着までの設計範囲は要確認",
+    academy: "思考のOS書き換え / 実務への即時適用 / 組織全体の自走化の3つの力を重視",
   },
   {
-    axis: "制度活用",
-    general: "補助制度対応は個別確認が必要",
-    academy: "補助金活用を前提にした導入計画を設計",
+    axis: "助成金活用",
+    general: "制度適用可否と申請支援範囲は要確認",
+    academy: "人材開発支援助成金（リスキリング）対応。経費助成最大75% + 賃金助成（研修中の賃金）",
+  },
+  {
+    axis: "カスタム対応",
+    general: "業務別の特化プログラム有無は要確認",
+    academy: "AI活用力強化 / 組織変革DX / AI活用型新規事業開発 / 採用DX / 営業DX研修を提供",
   },
 ] as const;
 
@@ -129,11 +142,11 @@ const caseStudies = [
 const keywordTags = ["AI研修 法人向け", "企業向け 生成AI研修", "研修KPI設計"] as const;
 
 const tocItems = [
-  { id: "conclusion", label: "結論先出し" },
+  { id: "conclusion", label: "要点まとめ" },
   { id: "training-types", label: "法人研修の種類（オンライン / 対面 / ハイブリッド）" },
   { id: "training-design-points", label: "研修設計のポイント（レベル分け / KPI / フォロー）" },
-  { id: "academy-plan", label: "AIリブートアカデミーの法人プラン" },
-  { id: "comparison-table", label: "他社比較表（AI講座一般 vs アカデミー）" },
+  { id: "academy-plan", label: "AIリブート法人研修プラン（3日間集中）" },
+  { id: "comparison-table", label: "比較時の確認項目（一般講座 vs AIリブート法人研修）" },
   { id: "case-studies", label: "導入事例（想定ケーススタディ）" },
   { id: "faq", label: "FAQ" },
 ] as const;
@@ -189,7 +202,7 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            結論先出し
+            要点まとめ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             成果が出る法人研修は、受講前に「対象者レベル分け」「業務KPI」「研修後フォロー」をセットで設計しています。単発研修より、
@@ -273,7 +286,7 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
             AIリブートアカデミーの法人プラン
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            法人プランは、単発研修ではなく「設計から定着まで」を一体で支援します。比較検討時は、研修後の運用支援範囲まで確認してください。
+            法人プランは3日間集中研修を軸に、人数・時間・形式を明確化した上で、助成金活用まで含めて導入しやすい設計になっています。
           </p>
           <ul className="mt-5 space-y-3 text-sm leading-7 text-gray-700">
             {academyPlanPoints.map((item) => (
@@ -284,11 +297,15 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
             ))}
           </ul>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            補助制度の確認は
-            <Link href="/academy/subsidy-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              補助金ガイド
+            詳細な法人プランは
+            <Link href="/corporate" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              法人向け研修ページ
             </Link>
-            で確認できます。
+            、個別相談は
+            <Link href="/briefing" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              資料請求・導入相談
+            </Link>
+            から確認できます。
           </p>
         </motion.section>
 
@@ -301,10 +318,10 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="comparison-table" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            他社比較表（AI講座一般 vs アカデミー）
+            比較時の確認項目（一般講座 vs AIリブート法人研修）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            価格だけで比較すると、導入後の定着コストが見えにくくなります。比較時は「運用支援」と「成果測定」まで確認することが重要です。
+            法人研修は価格だけでなく、公開されている研修条件・成果設計・助成金対応の具体性まで確認することが重要です。
           </p>
           <div className="mt-7 overflow-x-auto">
             <table className="w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -312,7 +329,7 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">比較軸</th>
                   <th className="py-3 px-4 font-semibold text-gray-900">AI講座一般</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">AIリブートアカデミー</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">AIリブート法人研修</th>
                 </tr>
               </thead>
               <tbody>
@@ -387,18 +404,18 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           </h2>
           <ul className="space-y-2">
             <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                無料セミナー一覧
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                補助金ガイド
+              <Link href="/corporate" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                法人向け研修プラン詳細
               </Link>
             </li>
             <li>
               <Link href="/briefing" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 法人向け資料請求・相談
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/subsidy-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                補助金ガイド
               </Link>
             </li>
           </ul>
@@ -416,20 +433,20 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
             まず資料請求
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            研修形式や対象人数が未確定でも問題ありません。資料請求時に現状課題を共有いただければ、御社の課題に合った進め方をご提案します。
+            研修形式や対象人数が未確定でも問題ありません。法人向け研修ページでプランを確認した上で、資料請求時に現状課題をご共有ください。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/briefing"
+              href="/corporate"
               className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
             >
-              資料請求・導入相談をする
+              法人向け研修プランを見る
             </Link>
             <Link
-              href="/academy/seminars"
+              href="/briefing"
               className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
             >
-              無料セミナーを見る
+              資料請求・導入相談をする
             </Link>
           </div>
         </motion.section>
