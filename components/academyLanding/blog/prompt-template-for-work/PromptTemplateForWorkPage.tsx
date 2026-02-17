@@ -287,7 +287,7 @@ const improvementTips = [
 const keywordTags = ["仕事用プロンプト", "AIメール作成", "AI議事録作成", "資料作成テンプレート"] as const;
 
 const tocItems = [
-  { id: "conclusion", label: "結論先出し" },
+  { id: "conclusion", label: "要点まとめ" },
   { id: "prompt-basics", label: "プロンプトの基本原則" },
   { id: "email-templates", label: "メール作成テンプレート" },
   { id: "minutes-summary-templates", label: "議事録・要約テンプレート" },
@@ -360,7 +360,7 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            結論先出し
+            要点まとめ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             まずは自分の業務で頻度が高いカテゴリから1つ選び、テンプレートをそのままコピーして使ってみてください。1回使って不足点を追記するだけで、

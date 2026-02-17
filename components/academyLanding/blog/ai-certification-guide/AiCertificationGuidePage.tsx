@@ -148,7 +148,7 @@ const schoolBenefits = [
 const keywordTags = ["AI資格おすすめ", "AI資格一覧", "AI資格難易度"] as const;
 
 const tocItems = [
-  { id: "conclusion", label: "結論先出し" },
+  { id: "conclusion", label: "要点まとめ" },
   { id: "ai-certification-map", label: "AI資格の全体マップ" },
   { id: "certification-comparison", label: "主要AI資格の詳細比較表" },
   { id: "recommended-by-goal", label: "目的別おすすめ" },
@@ -207,7 +207,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            結論先出し
+            要点まとめ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             AI資格は目的で選ぶのが正解です。ビジネス活用ならG検定、技術職ならE検定、実装力ならAI実装検定がおすすめです。

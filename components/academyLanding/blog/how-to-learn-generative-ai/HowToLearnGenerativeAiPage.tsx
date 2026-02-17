@@ -94,7 +94,7 @@ const comparisonRows = [
 const keywordTags = ["生成AI 学び方", "100日ロードマップ", "独学とスクール比較"] as const;
 
 const tocItems = [
-  { id: "conclusion", label: "結論先出し" },
+  { id: "conclusion", label: "要点まとめ" },
   { id: "learning-phases", label: "学習の3フェーズ（0→100日）" },
   { id: "pitfalls", label: "よくあるつまずきポイントと対策" },
   { id: "self-study-vs-school", label: "独学 vs スクールの比較" },
@@ -152,7 +152,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            結論先出し
+            要点まとめ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             生成AIは正しい順序で学べば100日で実務レベルに到達可能です。重要なのは、ツールを増やすことよりも、

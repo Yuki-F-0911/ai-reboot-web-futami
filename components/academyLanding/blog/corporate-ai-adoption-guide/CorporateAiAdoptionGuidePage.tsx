@@ -137,7 +137,7 @@ const failurePatterns = [
 const keywordTags = ["生成AI導入 企業", "中小企業 生成AI活用", "法人AI導入ロードマップ"] as const;
 
 const tocItems = [
-  { id: "conclusion", label: "結論先出し" },
+  { id: "conclusion", label: "要点まとめ" },
   { id: "adoption-roadmap", label: "導入ステップ（5段階ロードマップ）" },
   { id: "cost-estimate", label: "費用感の目安（無料ツール〜有料SaaS〜研修）" },
   { id: "department-use-cases", label: "業種別活用事例（営業 / 人事 / 経理 / マーケ）" },
@@ -195,7 +195,7 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            結論先出し
+            要点まとめ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             成果が出る企業は「業務を1つに絞る小規模PoC」から始めています。最初の2〜3か月で効果測定まで回し、成功パターンを部門展開する進め方が安全です。
