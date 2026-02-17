@@ -235,7 +235,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
             学習の始め方（プログラミング不要のアプローチ）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 「目的を1つに絞る → テンプレ化 → 検証」の順で進めると挫折しにくくなります。テンプレや素材はClaude Projectsなどに集約すると、再利用しやすくなります。
+            結論: 「目的を1つに絞る → テンプレ化 → 検証」の順で進めると挫折しにくくなります。テンプレや素材はClaudeのProjectsなどに集約すると、再利用しやすくなります。
           </p>
           <div className="mt-6 space-y-4">
             {learningSteps.map((step) => (

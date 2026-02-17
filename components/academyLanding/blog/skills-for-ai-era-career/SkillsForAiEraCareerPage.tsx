@@ -66,7 +66,7 @@ const roleSkillSections = [
 const learnOrder = [
   {
     title: "共通基礎を固める",
-    body: "課題の言語化、プロンプト設計、出力検証の基本を身につけます。Claude Projectsなどで業務テーマごとに指示・素材を整理すると、定着しやすくなります。",
+    body: "課題の言語化、プロンプト設計、出力検証の基本を身につけます。ClaudeのProjectsなどで業務テーマごとに指示・素材を整理すると、定着しやすくなります。",
   },
   {
     title: "職種別スキルを深める",

@@ -150,7 +150,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
             キャリアチェンジ事例（構成例）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: キャリア転換は「ツール名」ではなく「目的→試作→検証→運用」の順序が成果を左右します。たとえばChatGPT/Claudeに加え、CursorやClaude Projectsなどを使い、
+            結論: キャリア転換は「ツール名」ではなく「目的→試作→検証→運用」の順序が成果を左右します。たとえばChatGPT/Claudeに加え、CursorやClaudeのProjectsなどを使い、
             学習とアウトプットを一体で積み上げるのが現実的です。
           </p>
           <div className="mt-8 space-y-8">
