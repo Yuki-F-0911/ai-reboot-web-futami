@@ -93,7 +93,8 @@ const planComparison = [
   {
     axis: "課金/管理（スマホ）",
     freePlan: "登録だけで開始できる。",
-    paidPlan: "多くはアプリ内課金。解約はApp Store/Google Playのサブスク設定から行うのが一般的。",
+    paidPlan:
+      "アプリ内課金になることがあります。Webで契約した場合はWeb側で解約が必要なこともあるため、契約経路（どこで支払ったか）を確認して手続きします。",
   },
 ] as const;
 
@@ -198,7 +199,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             ChatGPTスマホアプリとは？（公式アプリの概要、Web版との違い）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            スマホでは、公式アプリを使ってチャットを行えます。ブラウザ版（Web）でも利用できますが、アプリは音声やカメラ連携などスマホ向け機能が使いやすいのが特徴です。一方で、権限（マイク/カメラ）や通知設定を適切に管理する必要があります。
+            結論: スマホでは公式アプリでチャットできます。ブラウザ版（Web）でも利用できますが、アプリは音声やカメラ連携などスマホ向け機能が使いやすいのが特徴です。一方で、権限（マイク/カメラ）や通知設定を適切に管理する必要があります。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             仕事での利用を想定する場合は、まず{" "}
@@ -220,6 +221,9 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           <h2 id="iphone-setup" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             iPhone版の始め方（App Store→アカウント作成→初期設定）
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: App Storeで公式アプリを入れたら、ログイン→権限（マイク/カメラ/通知）を必要最小限に整えるだけで、すぐ使い始められます。
+          </p>
           <div className="mt-6 space-y-4">
             {iphoneSteps.map((item) => (
               <section key={item.step} className="rounded-lg border border-gray-200 p-5">
@@ -241,6 +245,9 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           <h2 id="android-setup" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             Android版の始め方（Google Play→設定）
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: Google Playで公式アプリを入れたら、ログイン→権限と通知を調整し、まずは1つの用途（要約/下書きなど）で試すのが最短です。
+          </p>
           <div className="mt-6 space-y-4">
             {androidSteps.map((item) => (
               <section key={item.step} className="rounded-lg border border-gray-200 p-5">
@@ -263,7 +270,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             スマホ版ならではの便利機能（音声入力、カメラ連携、ウィジェット）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            スマホは「入力の手間」を減らすほど、継続利用しやすくなります。まずは音声とカメラ連携を試し、よく使うパターンをテンプレ化しておくのがおすすめです。
+            結論: スマホは「入力の手間」を減らすほど継続利用しやすくなります。まずは音声とカメラ連携を試し、よく使うパターンをテンプレ化しておくのがおすすめです。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {smartphoneFeatures.map((item) => (
@@ -287,7 +294,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             無料プランと有料プランの違い（スマホでの課金方法）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            最初は無料で「使いどころ」を固めてから、有料プランを比較するのが堅実です。業務で毎日使う/上限や追加機能が必要、という条件が揃った段階で検討するとミスマッチを減らせます。
+            結論: 最初は無料で「使いどころ」を固めてから、有料プランを比較するのが堅実です。業務で毎日使う/上限や追加機能が必要、という条件が揃った段階で検討するとミスマッチを減らせます。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             仕事用のプロンプトは{" "}
@@ -330,7 +337,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             スマホでの活用シーン5選（通勤中の要約/買い物リスト/メール下書き/翻訳/調べもの）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            「すぐ使えて、すぐ効果が出る」用途から始めると、スマホでも継続しやすくなります。迷ったら、要約・リスト化・下書きの3つから試すのがおすすめです。
+            結論: 「すぐ使えて、すぐ効果が出る」用途から始めると、スマホでも継続しやすくなります。迷ったら、要約・リスト化・下書きの3つから試すのがおすすめです。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {useCases.map((item) => (
@@ -375,7 +382,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             次に学ぶ：スマホからでも実務に繋げる
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            スマホで使い方に慣れたら、次は「プロンプトの型」と「学習ロードマップ」を押さえると、実務での再現性が上がります。まずは{" "}
+            結論: スマホで使い方に慣れたら、次は「プロンプトの型」と「学習ロードマップ」を押さえると、実務での再現性が上がります。まずは{" "}
             <Link href="/academy/blog/how-to-learn-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
               生成AI学習ロードマップ
             </Link>{" "}
@@ -427,6 +434,11 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
               </Link>
             </li>
             <li>
+              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                無料セミナー一覧（アカデミー） | AIリブート
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
               </Link>
@@ -437,4 +449,3 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
     </main>
   );
 }
-

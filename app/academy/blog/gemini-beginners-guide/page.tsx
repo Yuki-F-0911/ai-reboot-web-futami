@@ -8,7 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/gemini-beginners-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-17T09:00:00+09:00";
+const modifiedTime = "2026-02-17T12:00:00+09:00";
 
 const faqItems = [
   {
@@ -22,9 +22,9 @@ const faqItems = [
       "どちらも文章生成や要約などを行えるAIチャットですが、GeminiはGoogleアカウント・Googleサービスと組み合わせた運用を前提にしやすい点が特徴です。一方で、最終的には「自分の業務タスクで試して出力品質を比較する」方法が最も確実です。",
   },
   {
-    question: "Gemini Advancedとは何ですか？",
+    question: "Google AI Pro（旧: Gemini Advanced）とは何ですか？",
     answer:
-      "Geminiには有料の上位プラン（例: Gemini Advanced）が提供される場合があります。名称や提供形態は変更されることがあるため、利用できる地域・契約・機能は公式のプラン情報で確認してください。",
+      "Geminiには有料の上位プランが提供される場合があります（例: Google AI Pro）。名称や提供形態は更新されることがあるため、利用できる地域・契約・機能は公式のプラン情報で確認してください。",
   },
   {
     question: "Google Workspaceの仕事で使えますか？",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     "Gemini ChatGPT 違い",
     "Google Gemini 使い方",
     "Gemini 無料",
-    "Gemini Advanced",
+    "Google AI Pro",
     "AIチャット 比較",
   ],
   alternates: {
@@ -106,4 +106,3 @@ export default function GeminiBeginnersGuideRoute() {
     </>
   );
 }
-

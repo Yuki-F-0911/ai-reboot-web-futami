@@ -41,13 +41,13 @@ const basicInfoRows = [
   },
   {
     label: "代表的なモデル系統（例）",
-    gpt: "GPT-4系（提供名や選択肢は時期により変動）",
-    claude: "Claude 3系/3.5系（提供名や選択肢は時期により変動）",
+    gpt: "GPT系（例: GPT-5.2 / GPT-4.1 / GPT-4o など。提供名や選択肢は時期により変動）",
+    claude: "Claude系（例: Claude Sonnet 4 / Claude 3.7 Sonnet など。提供名や選択肢は時期により変動）",
   },
   {
     label: "リリース時期（目安）",
-    gpt: "GPT-4は2023年以降に一般向けで広く利用が進んだ系統",
-    claude: "Claude 3系は2024年以降に一般向けで広く利用が進んだ系統",
+    gpt: "GPT-4は2023年以降に一般向けで広く利用が進んだ系統（その後も継続的にモデル更新）",
+    claude: "Claude 3は2024年以降に一般向けで広く利用が進んだ系統（その後も継続的にモデル更新）",
   },
   {
     label: "注意点",
@@ -253,7 +253,10 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           <h2 id="basics" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             GPT-4とClaudeの基本情報（開発元、モデル、リリース時期）
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 「モデル名そのもの」よりも、プロダクト（ChatGPT/Claude）とAPI、選べるモデル、利用上限/機能の組み合わせで体験が変わります。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
             「GPT-4 vs Claude」と言っても、実際はプロダクト（ChatGPT/Claude）とAPI、選択できるモデル、利用上限や機能の組み合わせで体験が変わります。ここでは“系統”としての違いを整理します。
           </p>
           <div className="mt-6 overflow-x-auto">
@@ -290,7 +293,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             性能比較（文章生成/コード生成/分析/要約/創造性）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            どちらが“上”かではなく、「あなたのタスクで勝つか」を見るのが正解です。同じ入力（プロンプト・素材）を渡し、出力の再現性と修正指示への追従で判断しましょう。
+            結論: どちらが“上”かではなく、「あなたのタスクで勝つか」を見るのが正解です。同じ入力（プロンプト・素材）を渡し、出力の再現性と修正指示への追従で判断しましょう。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[920px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -325,6 +328,9 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           <h2 id="strengths" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             得意分野の違い（GPT-4が強い領域 vs Claudeが強い領域）
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: 速度が必要な工程（発散/試作/実装）にGPT系、文章の最終品質に影響する工程（推敲/トーン調整/レビュー）にClaudeを置くと、強みを活かしやすいです。
+          </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {strengths.map((block) => (
               <section key={block.title} className="rounded-lg border border-gray-200 p-5">
@@ -356,7 +362,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             料金プラン比較（無料枠/個人プラン/API料金）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            料金は頻繁に更新されるため、ここでは「比較の考え方」を中心に整理します。個人はサブスク、APIは従量という前提で、あなたの利用量で試算するのが安全です。
+            結論: 料金は頻繁に更新されるため、ここでは「比較の考え方」を中心に整理します。個人はサブスク、APIは従量という前提で、あなたの利用量で試算するのが安全です。
           </p>
           <div className="mt-6 space-y-4">
             {pricingRows.map((row) => (
@@ -379,6 +385,9 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           <h2 id="recommendations" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             用途別おすすめ（ビジネス文書/プログラミング/学習/クリエイティブ）
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            結論: まずは最重要の1タスクで両方を比較し、「修正指示への追従」と「再現性」が高い方を主軸に置くのが失敗しにくいです。
+          </p>
           <div className="mt-6 space-y-4">
             {useCaseRecommendations.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -401,7 +410,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             両方使いこなすコツ（併用の実践パターン）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            併用のポイントは「工程で分ける」「同じ入力で比較できる状態を作る」「長文は分割する」の3つです。以下のパターンをベースに、あなたの業務フローへ落とし込みましょう。
+            結論: 併用のポイントは「工程で分ける」「同じ入力で比較できる状態を作る」「長文は分割する」の3つです。以下のパターンをベースに、あなたの業務フローへ落とし込みましょう。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {combinePatterns.map((item) => (
@@ -472,6 +481,16 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
               </Link>
             </li>
             <li>
+              <Link href="/academy/blog/ai-agent-build-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIエージェントの作り方ガイド
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-coding-for-beginners" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIコーディング入門（非エンジニア向け）
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
               </Link>
@@ -512,4 +531,3 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
     </main>
   );
 }
-

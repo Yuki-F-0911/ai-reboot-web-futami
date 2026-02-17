@@ -56,19 +56,19 @@ const modelCards = [
   {
     name: "GPT-4o",
     description:
-      "テキストだけでなく画像や音声を扱えるマルチモーダルモデル群の代表例として知られ、会話・要約・画像理解などを1つの体験で扱いやすい傾向があります。",
+      "テキストだけでなく画像や音声を扱えるマルチモーダルモデルの代表例として知られ、会話・要約・画像理解などを1つの体験で扱いやすい傾向があります（対応範囲はプロダクト/プランで変わります）。",
     fit: "会話型UIで「見せて・聞かせて・まとめる」を一気通貫したいケース",
   },
   {
-    name: "Gemini",
+    name: "Gemini 2.5 Pro（例）",
     description:
-      "マルチモーダル入力を前提にしたモデルとして語られることが多く、画像・テキストの理解や要約などで活用されます。",
+      "マルチモーダル入力を前提にしたモデルとして語られることが多く、画像・テキストの理解や要約などで活用されます。提供モデルや名称は更新されるため、利用中の画面で選択肢を確認してください。",
     fit: "Google Workspaceと合わせて情報整理・要約を進めたいケース",
   },
   {
-    name: "Claude 3.5",
+    name: "Claude Sonnet 4（例）",
     description:
-      "文章理解と指示追従の強みで選ばれることがあり、画像を含む入力からの要約・整理で活用されることがあります。",
+      "文章理解と指示追従の強みで選ばれることがあり、画像を含む入力からの要約・整理で活用されることがあります（対応範囲はプラン/製品により異なります）。",
     fit: "長文・資料の要点抽出や、説明文の品質を重視したいケース",
   },
 ] as const;
@@ -283,7 +283,7 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
             マルチモーダルAIの仕組み（テキスト+画像+音声の統合処理）
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            イメージとしては「入力を同じ形式に変換 → 統合して推論 → 目的の形式で出力」という流れです。実装はモデルやプロダクトにより異なりますが、基本の考え方は共通します。
+            結論: 仕組みは「入力を同じ形式に変換 → 統合して推論 → 目的の形式で出力」という流れです。実装はモデルやプロダクトにより異なりますが、基本の考え方は共通します。
           </p>
           <div className="mt-6 space-y-4">
             {mechanismSteps.map((step) => (
@@ -311,10 +311,10 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="models" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            代表的なマルチモーダルAIモデル（GPT-4o/Gemini/Claude 3.5）
+            代表的なマルチモーダルAIモデル（GPT-4o/Gemini 2.5 Pro/Claude Sonnet 4 など）
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            ここでは「マルチモーダルAIの代表例としてよく挙がるモデル」を、選び方の観点で整理します。実際の対応モダリティや提供形態はプラン/製品により変わるため、導入前に必ず最新の仕様を確認してください。
+            結論: 代表例としてよく挙がるモデルを、選び方の観点で整理します。実際の対応モダリティや提供形態はプラン/製品により変わるため、導入前に必ず最新の仕様を確認してください。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {modelCards.map((card) => (
@@ -340,7 +340,7 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
             ビジネス活用シーン（画像分析×テキスト生成/音声→議事録/動画要約）
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            キーワードは「入力（現場のデータ）→説明→次アクション」です。画像認識AIとテキスト生成をつなげることで、判断と作業の前後が一気に短縮されます。
+            結論: キーワードは「入力（現場のデータ）→説明→次アクション」です。画像認識AIとテキスト生成をつなげることで、判断と作業の前後が一気に短縮されます。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {useCaseCards.map((card) => (
@@ -376,7 +376,7 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
             マルチモーダルAIで変わる業務（営業/マーケ/カスタマーサポート/製造業）
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            “文章で指示して、画像や音声の内容を整理させる”だけでも、作業の入口が大きく変わります。部門別に、変化しやすいポイントを整理します。
+            結論: “文章で指示して、画像や音声の内容を整理させる”だけでも、作業の入口が大きく変わります。部門別に、変化しやすいポイントを整理します。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -412,7 +412,7 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
             始め方と実践ステップ（無料で試す→業務適用→本格導入）
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            導入のコツは「最初から万能にしない」ことです。1ユースケースで成功パターンを作り、横展開します。
+            結論: 導入のコツは「最初から万能にしない」ことです。1ユースケースで成功パターンを作り、横展開します。
           </p>
           <div className="mt-6 space-y-4">
             {practiceSteps.map((step) => (
@@ -443,7 +443,7 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
             今後の展望と注意点（技術進化/プライバシー/精度限界）
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            マルチモーダルは体験が分かりやすい一方、入力がリッチになるほどリスクも増えます。運用設計まで含めて考えるのが実務のポイントです。
+            結論: マルチモーダルは体験が分かりやすい一方、入力がリッチになるほどリスクも増えます。運用設計まで含めて考えるのが実務のポイントです。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {cautionItems.map((item) => (
@@ -543,4 +543,3 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
     </main>
   );
 }
-

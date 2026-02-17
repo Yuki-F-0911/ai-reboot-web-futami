@@ -384,6 +384,21 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
               </Link>
             </li>
             <li>
+              <Link href="/academy/blog/what-is-rag" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                RAGとは？検索拡張生成の仕組みと活用例をわかりやすく解説
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-agent-build-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIエージェントの作り方ガイド（業務で使える設計と導入手順）
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-coding-for-beginners" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIコーディング入門（非エンジニア向け）
+              </Link>
+            </li>
+            <li>
               <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 無料セミナー一覧
               </Link>

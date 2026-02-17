@@ -82,8 +82,8 @@ const gettingStartedFlow = [
     body: "出力が安定するのは「目的・前提・制約・出力形式」を分ける書き方です。短い質問 → 追質問で改善、の順に進めると学習コストが下がります。",
   },
   {
-    step: "Step 4. 必要なら上位プラン（例: Gemini Advanced）を検討する",
-    body: "上位プランが提供される場合、より高性能なモデルや追加機能が含まれることがあります。名称・料金・提供形態は変わり得るため、契約前に公式のプラン情報を確認してください。",
+    step: "Step 4. 必要なら上位プラン（例: Google AI Pro）を検討する",
+    body: "上位プランが提供される場合、より高性能なモデルや追加機能が含まれることがあります（名称は更新されることがあります）。契約前に、あなたの地域/契約での最新のプラン名・料金・提供範囲を公式案内で確認してください。",
   },
 ] as const;
 
@@ -250,7 +250,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             Geminiの始め方（ステップバイステップ）
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            注: 画面構成や提供条件は変更されます。ここでは、初心者が「何から始めれば迷わないか」という手順の考え方を示します。
+            結論: 初心者は「Googleアカウントで触る → 1タスクで試す → 型を作る → 必要なら上位プラン検討」の順に進めると迷いません。注: 画面構成や提供条件は変更されます。
           </p>
           <div className="mt-6 space-y-4">
             {gettingStartedFlow.map((item) => (
@@ -340,6 +340,16 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             <li>
               <Link href="/academy/blog/notebooklm-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 NotebookLMの使い方完全ガイド｜AIで情報整理・学習を効率化する方法 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/what-is-rag" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                RAGとは？検索拡張生成の仕組みと活用例をわかりやすく解説 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-agent-build-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIエージェントの作り方ガイド｜業務で使える設計と導入手順 | AIリブート
               </Link>
             </li>
             <li>
