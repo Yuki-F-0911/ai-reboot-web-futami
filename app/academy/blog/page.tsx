@@ -185,6 +185,12 @@ const blogPosts: readonly BlogPost[] = [
     category: "法人向け",
   },
   {
+    slug: "ai-copyright-commercial-guide",
+    title: "生成AIの著作権・商用利用ガイド（画像/動画/文章）｜現場で迷う論点を整理",
+    summary: "AI生成物の著作権と商用利用の論点を網羅整理。権利チェックリスト付き。",
+    category: "法人向け",
+  },
+  {
     slug: "corporate-ai-training",
     title: "法人向けAI研修で成果を出す完全ガイド",
     summary: "研修形式の選び方、KPI設計、社内定着の進め方を比較観点付きで整理した法人向け記事です。",
