@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで37記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで39記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -171,6 +171,20 @@ const blogPosts: readonly BlogPost[] = [
     category: "法人向け",
   },
   {
+    slug: "ai-guideline-template",
+    title: "生成AIの社内ガイドライン雛形｜禁止事項・権限・ログまで1枚で設計",
+    summary:
+      "生成AI（ChatGPT・Claude・Copilot等）の社内利用ガイドラインをコピペ可能な1枚雛形で設計。禁止事項・入力ルール・権限・ログ・例外申請・インシデント対応まで30日導入ステップ付き。",
+    category: "法人向け",
+  },
+  {
+    slug: "shadow-ai-countermeasures",
+    title: "シャドーAI対策の進め方｜\"禁止\"せず安全に使わせる統制設計",
+    summary:
+      "社員の無断AI利用を禁止ではなく統制で解決する方法。発見・可視化・ルール設計・監査の4段階フレームワーク。",
+    category: "法人向け",
+  },
+  {
     slug: "corporate-ai-training",
     title: "法人向けAI研修で成果を出す完全ガイド",
     summary: "研修形式の選び方、KPI設計、社内定着の進め方を比較観点付きで整理した法人向け記事です。",
@@ -223,6 +237,12 @@ const blogPosts: readonly BlogPost[] = [
     title: "社内AI研修の始め方と定着の進め方",
     summary:
       "社内AI研修の設計ステップ、外部研修との比較、定着施策と効果測定の進め方を整理した法人向け記事です。",
+    category: "法人向け",
+  },
+  {
+    slug: "ai-data-leak-patterns",
+    title: "生成AIで情報漏えいが起きるパターン10選｜現場のNG例とルール",
+    summary: "ChatGPT・Claude等で情報漏えいが起きる10パターンを現場のNG例で解説。入力ルールと防止策を整理。",
     category: "法人向け",
   },
   {
