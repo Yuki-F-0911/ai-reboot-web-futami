@@ -208,8 +208,9 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            比較記事を読んでも「結局どれが自分に合うのか」が決めきれないのが普通です。結論: 汎用性とワークフロー化を重視するならGPT-4系、長文の推敲や丁寧な説明を重視するならClaudeが相性良いことが多いです。
-            筆者は短い仕様メモを両方に渡し、出力の再現性と修正への追従で判断しました（モデル名・機能・料金は更新されるため、最終判断は用途での同一条件比較が確実です）。
+            比較は「文章/コード/分析/要約/創造性」の5軸で見ると、得意不得意が整理しやすいです。
+            汎用性とワークフロー化を重視するならGPT-4系、長文の推敲や丁寧な説明を重視するならClaudeが相性良いことが多いです。
+            比較記事を読んでも「結局どれが自分に合うのか」が決めきれないのが普通です。
           </p>
         </motion.header>
 

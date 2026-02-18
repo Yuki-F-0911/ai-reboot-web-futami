@@ -163,9 +163,9 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            RAGは「社内データを使いたいが、LLMがもっともらしい誤りを言うのが不安」という場面で検討されがちです。
+            RAGは、検索で根拠を取り出し、その情報を参照しながらLLMが回答を生成するアーキテクチャです。
             この記事では、RAGの定義・仕組み・メリットと限界・活用事例・始め方まで、導入判断に必要なポイントを結論先出しで整理します。
-            筆者はまず、検索対象となる“正本”の資料を決めるところから着手するのが最短だと感じています。
+            RAGとは、「社内データを使いたいが、LLMがもっともらしい誤りを言うのが不安」という場面で検討されがちです。
           </p>
         </motion.header>
 

@@ -8,7 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/corporate-ai-adoption-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-16T09:00:00+09:00";
-const modifiedTime = "2026-02-18T12:00:00+09:00";
+const modifiedTime = "2026-02-18T18:00:00+09:00";
 
 const faqItems = [
   {

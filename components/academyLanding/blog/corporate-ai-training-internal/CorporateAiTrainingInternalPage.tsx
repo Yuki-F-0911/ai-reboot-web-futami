@@ -165,9 +165,9 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            研修を実施しても「現場で使われない」「研修後に止まる」といった悩みは、設計順と運用責任の置き方で起きやすくなります。
+            社内AI研修で成果を出すには、研修そのものより「目的設定」「対象者設計」「研修後運用」の3点を一体で設計することが重要です。
             本記事では、社内AI研修を立ち上げて定着させるための手順（目的→対象→プログラム→フォロー）を結論先出しで整理します。
-            筆者は研修設計では、最初に「研修後にどの業務が何分短くなるか」を1つだけ決めるのが効くと感じています。
+            研修を実施しても「現場で使われない」「研修後に止まる」といった悩みは、設計順と運用責任の置き方で起きやすくなります。
           </p>
         </motion.header>
 

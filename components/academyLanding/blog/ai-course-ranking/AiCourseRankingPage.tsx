@@ -167,9 +167,9 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI講座は数が多く、比較軸がぶれると「調べたのに決められない」状態になりがちです。
+            AI講座ランキングは、カリキュラム・実務接続・サポート・コスパ・受講者評価の5軸で比較するのが実践的です。
             この記事では、評価5軸・目的別のおすすめタイプ・失敗回避のチェック順がわかります。
-            筆者は比較相談では、最初に「受講後に何を作れる状態にするか」を1文で固定するところから始めます。
+            AI講座は数が多く、比較軸がぶれると「調べたのに決められない」状態になりがちです。
           </p>
         </motion.header>
 

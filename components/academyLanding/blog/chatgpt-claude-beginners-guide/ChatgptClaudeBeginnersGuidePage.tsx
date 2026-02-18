@@ -153,8 +153,9 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            初めての生成AIは、何を聞けばいいか・何が正解かでつまずきがちです。最初の1週間で「基本操作」と「実務に使える型」を作ると、迷いが一気に減ります。
-            筆者はまず議事録要約とメール下書きから試し、同じ質問をChatGPT/Claudeに投げて違いを掴みました。
+            初心者は、アカウント作成後に用途を1つ決めて、短い質問と追質問で使い方を習得するのが効果的です。
+            初めての生成AIとは、何を聞けばいいか・何が正解かでつまずきがちです。
+            最初の1週間で「基本操作」と「実務に使える型」を作ると、迷いが一気に減ります。
           </p>
         </motion.header>
 

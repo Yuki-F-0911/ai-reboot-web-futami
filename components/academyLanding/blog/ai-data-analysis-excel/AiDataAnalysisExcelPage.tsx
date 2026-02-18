@@ -172,9 +172,9 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
+            AIは「式の下書き」「整理手順の提案」「見せ方の候補」「文章要約」を高速化し、人は検算と意思決定に集中できます。
+            AIに下書きを任せ、あなたは検算と示唆づくりに集中すると、スピードと再現性が上がります。
             Excel分析は「関数」「整形」「グラフ」「レポート文章」のどこかで詰まると、検討の時間より作業の時間が増えがちです。
-            結論: AIに下書きを任せ、あなたは検算と示唆づくりに集中すると、スピードと再現性が上がります。
-            筆者はまず、定例レポートのコメント文をテンプレ化してから関数生成へ広げるのが効くと感じています。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             プロンプトの型を先に押さえたい場合は{" "}

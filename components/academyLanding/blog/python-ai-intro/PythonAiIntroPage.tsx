@@ -239,9 +239,9 @@ export default function PythonAiIntroPage({ faqItems }: PythonAiIntroPageProps) 
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            PythonでAI開発を始めるときに迷いやすいのは「環境構築」「何から学ぶべきか」「ライブラリの順番」です。
+            生成AIの学習全体の進め方も合わせて知りたい方は 社会人のための生成AI学習ロードマップも参考になります。
             この記事では、最短で1本作って学習を線にするために、環境選びから機械学習の実践、生成AI時代の活用までをロードマップ形式で整理します。
-            筆者は最初の一歩として、Colabでサンプルを動かして「データ→学習→予測」の流れを体験してから環境を固めるのが効くと感じています。
+            PythonでAI開発を始めるときに迷いやすいのは「環境構築」「何から学ぶべきか」「ライブラリの順番」です。
           </p>
         </motion.header>
 

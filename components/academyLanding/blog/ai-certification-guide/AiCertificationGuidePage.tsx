@@ -191,9 +191,9 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI資格は種類が多く、目的が曖昧だと「勉強したのに活かせない」状態になりがちです。
+            AI資格は目的で選ぶのが正解です。
             この記事では、主要資格を難易度・費用・活かせる仕事で比較し、目的別のおすすめと学習ロードマップまで整理します。
-            筆者は最初に「資格を取ったあと、どの業務で何をできるようにしたいか」を1文で決めるのが最も効くと感じています。
+            AI資格は種類が多く、目的が曖昧だと「勉強したのに活かせない」状態になりがちです。
           </p>
         </motion.header>
 

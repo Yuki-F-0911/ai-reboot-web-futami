@@ -142,9 +142,9 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AIに不安を感じるのは自然です。大事なのは、曖昧な不安を「何が怖いのか」に分解し、無理のない順序で小さく始めることです。
-            この記事では、文系・非エンジニアがまず成果を出しやすい業務（文章作成/情報整理/議事録/企画）と、学習の最短ルートを事実ベースで整理します。
-            筆者は最初の一歩として、毎週繰り返す文章業務を1つ選んでテンプレ化するのが最も効くと感じています。
+            「AIは怖い」という感覚は、未知・役割変化・誤情報への懸念が重なって生まれます。
+            AIに不安を感じるのは自然です。
+            大事なのは、曖昧な不安を「何が怖いのか」に分解し、無理のない順序で小さく始めることです。
           </p>
         </motion.header>
 

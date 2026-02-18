@@ -166,7 +166,7 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">NotebookLMの使い方完全ガイド</h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            NotebookLMは「資料を根拠に整理する」タイプなので、使い始めにソースの入れ方で迷いがちです。
+            NotebookLMとは、「資料を根拠に整理する」タイプなので、使い始めにソースの入れ方で迷いがちです。
             このガイドでは、取り込み→要約→質問→アウトプットまでの手順と、仕事/学習での使い分けを結論先出しでまとめます。
             筆者はまず社内の議事メモと要件メモを入れ、報告書の骨子を作る用途で効果を実感しました。
           </p>

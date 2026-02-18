@@ -202,8 +202,8 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
+            AIコーディングとは、「環境構築なしで小さく試す」→「1つの自動化を完成させる」→「ツールを選び、レビュー手順を作って実務に乗せる」が最短ルートです。
             AIでコードを書けると聞くとワクワクしますが、最初は「何を作ればいいか」で止まりがちです。
-            結論: AIコーディングは「環境構築なしで小さく試す」→「1つの自動化を完成させる」→「ツールを選び、レビュー手順を作って実務に乗せる」が最短ルートです。
             筆者はまず「CSVを整形して、そのままSlackに貼れる文章にする」小さな自動化から始め、プロンプトの型を掴みました。
           </p>
         </motion.header>

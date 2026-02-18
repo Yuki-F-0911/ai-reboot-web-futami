@@ -206,9 +206,9 @@ export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
+            RAGは「検索で根拠を取り出し、その根拠を参照して回答を生成する」方式で、文書参照が多い業務と相性が良いです。
+            RAGとは、「参照すべき資料がある業務」で効果が出やすく、社内ナレッジ検索やサポートの一次対応から小さく始めるのが実務的です。
             「RAGを作れば何でも解決する」というより、向いている業務を選べるかが成果を左右します。
-            結論: RAGは「参照すべき資料がある業務」で効果が出やすく、社内ナレッジ検索やサポートの一次対応から小さく始めるのが実務的です。
-            筆者はまず“正本”の文書を決め、権限とログ方針を固めてから実装に入るのをおすすめしています。
           </p>
         </motion.header>
 

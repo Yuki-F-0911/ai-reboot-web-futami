@@ -195,9 +195,9 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            マルチモーダルAIは便利そうに見える一方で、「結局何ができるのか」「どの業務に効くのか」が掴みにくい概念です。
+            マルチモーダルAIは、テキストだけでは扱いにくい「画像・音声・動画」を業務に取り込めるようにする技術です。
             この記事では、定義・仕組み・活用シーン・始め方・注意点まで、導入判断に必要なポイントを結論先出しで整理します。
-            筆者はまず、スクリーンショットや資料画像の説明/要約など“入力が明確な業務”から試すのが最短だと感じています。
+            マルチモーダルAIは便利そうに見える一方で、「結局何ができるのか」「どの業務に効くのか」が掴みにくい概念です。
           </p>
         </motion.header>
 

@@ -179,9 +179,9 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">中小企業の生成AI導入ガイド</h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            生成AIは「ツールを入れたのに使われない」「セキュリティが怖くて止まる」といった壁に当たりやすい分野です。
+            成果が出る企業は「業務を1つに絞る小規模PoC」から始めています。
             この記事では、導入の順番（5段階ロードマップ）と、費用感・部門別活用・失敗回避の要点を結論先出しで整理します。
-            筆者は最初のPoCでは、対象業務を1つに絞って「工数と品質」を前後比較できる形にするのが最も効くと感じています。
+            生成AIとは、「ツールを入れたのに使われない」「セキュリティが怖くて止まる」といった壁に当たりやすい分野です。
           </p>
         </motion.header>
 

@@ -123,7 +123,7 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI時代は「何を学べばいいか」を間違えると、ツール収集だけが増えて成果につながりません。
+            AI時代とは、「何を学べばいいか」を間違えると、ツール収集だけが増えて成果につながりません。
             この記事では、職種別に必要なスキルと、共通基礎→職種別活用→成果物づくりの学習順序を結論先出しで整理します。
             筆者はまず「今の仕事で改善したい業務」を1つ選んで、そこから必要スキルを逆算するのが最短だと感じています。
           </p>

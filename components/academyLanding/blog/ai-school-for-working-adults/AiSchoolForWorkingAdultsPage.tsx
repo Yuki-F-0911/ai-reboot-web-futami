@@ -143,9 +143,9 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            講座は増え続けていますが、比較の順番を間違えると「受けたのに使えない」状態になりがちです。
+            社会人の講座選びは、受講形式・カリキュラム・サポート・費用・修了後活用の5基準で比較するのが基本です。
             この記事では、社会人が失敗しないための5基準・オンライン/通学の選び分け・目的別のチェック順を結論先出しで整理します。
-            筆者は迷ったら、まず「修了後に何を業務で再現できるか」を1つ決めてから比較するのをおすすめしています。
+            講座は増え続けていますが、比較の順番を間違えると「受けたのに使えない」状態になりがちです。
           </p>
         </motion.header>
 

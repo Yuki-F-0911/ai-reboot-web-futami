@@ -143,9 +143,9 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI画像生成は手軽になった一方で、「どのツールを選ぶべきか」「商用利用は大丈夫か」で迷いやすくなりました。
+            まずは目的（何の素材を作るか）を決めると、ツール選びとプロンプトがブレにくくなります。
             この記事では、Gemini/Midjourney/ChatGPT/Stable Diffusion/Fireflyを用途別に比較し、始め方・使いどころ・注意点を結論先出しで整理します（「Nano Banana（Pro）」はGeminiの画像生成機能の呼称として紹介されることがあります）。
-            筆者はまず「作りたい素材の目的（SNS/提案/広告など）」を1つ決めてからツールを選ぶのが最短だと感じています。
+            AI画像生成は手軽になった一方で、「どのツールを選ぶべきか」「商用利用は大丈夫か」で迷いやすくなりました。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-600">
             ※料金や提供機能は更新されるため、最新の条件は公式サイトで確認してください。

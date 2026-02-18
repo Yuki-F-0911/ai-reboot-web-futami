@@ -137,9 +137,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            生成AIは「何から手を付ければいいか」が曖昧だと、触って終わりになりやすい分野です。
+            生成AIは、正しい順序で学べば100日で実務レベルに到達可能です。
             この記事では、基礎理解→実践→業務統合の3フェーズを100日で回すロードマップと、つまずきやすいポイントを結論先出しで整理します。
-            筆者はまず、日々の文章業務を1つ選んでテンプレ化するところから始めるのが最短だと感じています。
+            生成AIとは、「何から手を付ければいいか」が曖昧だと、触って終わりになりやすい分野です。
           </p>
         </motion.header>
 

@@ -169,9 +169,9 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            未経験からAIエンジニアを目指す場合は、学習範囲を広げすぎず、基礎→実践→転職準備を段階的に進めることが重要です。
+            未経験転職は、基礎→実践→転職準備を切り分け、成果物を軸に応募へ接続すると成功確率が上がります。
             本記事では、必要スキル、学習ロードマップ、学習手段の比較、評価されるポートフォリオの作り方までを結論先出しで整理します。
-            筆者はまず、APIを使った小さな成果物を1つ作り、説明できる形にしてから学習範囲を広げるのが効くと感じています。
+            未経験からAIエンジニアを目指す場合とは、学習範囲を広げすぎず、基礎→実践→転職準備を段階的に進めることが重要です。
           </p>
         </motion.header>
 

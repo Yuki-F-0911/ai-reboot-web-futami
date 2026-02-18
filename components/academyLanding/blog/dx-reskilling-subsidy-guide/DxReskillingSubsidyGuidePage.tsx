@@ -158,9 +158,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            助成金は有効な選択肢ですが、「申請の順番」を間違えると使えないケースがあります。
+            DXリスキリング助成金は、企業がDX研修を実施する際の費用負担を軽減する制度群であり、要件確認が最重要です。
             この記事では、制度の概要・個人向け補助金との違い・対象条件・申請フロー・併用可否まで、法人担当者が迷いやすい論点を結論先出しで整理します。
-            筆者はまず、公募要領で「事前申請が必要か」を最初に確認するのが最も重要だと感じています。
+            助成金は有効な選択肢ですが、「申請の順番」を間違えると使えないケースがあります。
           </p>
         </motion.header>
 

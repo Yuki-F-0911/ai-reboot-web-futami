@@ -103,9 +103,9 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
+            導入は「拡張機能→サインイン→有効化」で完了します（IDEにより手順は多少異なります）。
+            Copilotとは、「実装の下書きを速くする道具」で、品質は制約の明文化＋テスト＋レビューで守ります。
             Copilotを入れてみたけど、提案がブレる/レビューが不安…という悩みがよく出ます。
-            結論: Copilotは「実装の下書きを速くする道具」で、品質は制約の明文化＋テスト＋レビューで守ります。
-            筆者はまず小さなDTOとユニットテストから試し、チームルールを先に決めるほど事故が減ると感じました。
           </p>
         </motion.header>
 

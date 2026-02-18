@@ -140,9 +140,9 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AIエージェントは、単に回答を返すAIではなく、目標達成までの作業を段階的に進める仕組みです。
+            AIエージェントは「計画→実行→振り返り」を回して目標に近づく仕組みで、まずは小さく始めるほど失敗しにくいです。
             本記事では定義・種類・活用例・作り方の基本と、導入時の注意点までを結論先出しで整理します。
-            筆者はまず「読み取り専用の業務」から始め、権限とログを固めてから自動化範囲を広げるのが安全だと感じています。
+            AIエージェントとは、単に回答を返すAIではなく、目標達成までの作業を段階的に進める仕組みです。
           </p>
         </motion.header>
 

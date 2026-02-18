@@ -8,7 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/how-to-learn-generative-ai";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2025-09-12T09:00:00+09:00";
-const modifiedTime = "2026-02-18T12:00:00+09:00";
+const modifiedTime = "2026-02-18T18:00:00+09:00";
 
 const faqItems = [
   {

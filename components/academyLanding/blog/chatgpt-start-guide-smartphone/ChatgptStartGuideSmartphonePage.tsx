@@ -157,9 +157,9 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            スマホで始めると、公式アプリの見分け方・権限設定・通知あたりで迷いがちです。
+            iPhone/Androidともに、アプリストアで公式アプリを選び、アカウント作成（またはログイン）→初期設定の順で始めます。
             この記事では、iPhone/Android別に「インストール→ログイン→初期設定」を最短手順で整理し、スマホならではの使いどころまで具体例つきでまとめます。
-            筆者は通勤中の音声入力で「メール返信の下書き」を試し、短い質問→追質問の型が最も失敗しにくいと感じました。
+            スマホで始めると、公式アプリの見分け方・権限設定・通知あたりで迷いがちです。
           </p>
         </motion.header>
 

@@ -117,7 +117,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            キャリア転換は「何から始めればいいか」が曖昧だと、学習が空回りしやすくなります。
+            キャリア転換とは、「何から始めればいいか」が曖昧だと、学習が空回りしやすくなります。
             本記事では、職種別の構成例4つと、Before/Afterの変化、共通する成功要因がわかります。
             筆者はまず「現職で作れる小さな成果物」を1つ決め、そこから学習テーマを逆算するのをおすすめしています。
           </p>

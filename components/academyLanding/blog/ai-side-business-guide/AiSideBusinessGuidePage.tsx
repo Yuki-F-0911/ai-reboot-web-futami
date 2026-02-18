@@ -157,9 +157,9 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI副業は「何を売ればいいか」「どこまでAIに任せていいか」で迷うと、準備が長引きがちです。
+            副業でAIを活用する際は、まず対象領域を絞り、成果物の品質を担保できる運用を作ることが重要です。
             この記事では、副業タイプ・学習ステップ・必要スキルの目安・実務上の注意点を結論先出しで整理します。
-            筆者はまず「現職の経験に近い領域」で小さな成果物を作り、提案文とセットで実績化するのが近道だと感じています。
+            AI副業とは、「何を売ればいいか」「どこまでAIに任せていいか」で迷うと、準備が長引きがちです。
           </p>
         </motion.header>
 

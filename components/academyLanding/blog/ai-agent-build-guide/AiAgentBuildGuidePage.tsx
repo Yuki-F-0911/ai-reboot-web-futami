@@ -189,9 +189,9 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            エージェント開発は「自動化したい」が先行すると、権限・評価・停止条件が抜けて事故りがちです。
+            AIエージェントは、目標達成に向けて「計画→実行→観察→修正」を反復するAIシステムです。
             この記事では、仕組み→開発5ステップ→フレームワーク比較→ノーコード実装→運用上の注意点まで、まず作るべき最小構成を結論先出しでまとめます。
-            筆者は最初の1号機を「読み取り専用」に固定し、ログと評価から始めるのをおすすめしています。
+            エージェント開発とは、「自動化したい」が先行すると、権限・評価・停止条件が抜けて事故りがちです。
           </p>
         </motion.header>
 

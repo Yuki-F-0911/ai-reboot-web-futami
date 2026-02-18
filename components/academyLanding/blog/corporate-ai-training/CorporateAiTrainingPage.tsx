@@ -186,9 +186,9 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            法人向けAI研修は、受講人数より「研修設計」と「社内定着設計」で成果が決まります。
+            成果が出る法人研修は、受講前に「対象者レベル分け」「業務KPI」「研修後フォロー」をセットで設計します。
             本記事では、研修形式の選び方、KPI設計、フォロー体制、比較検討時の視点を結論先出しで整理します。
-            筆者は研修の前に「どの業務が何分短くなるか」を1つだけ決めてから設計すると、定着しやすいと感じています。
+            法人向けAI研修とは、受講人数より「研修設計」と「社内定着設計」で成果が決まります。
           </p>
         </motion.header>
 

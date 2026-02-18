@@ -102,9 +102,9 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            結論: G検定は「ビジネス活用の共通知識」を広く固めたい人向け、E検定は「深層学習の理解」を証明したいエンジニア志向の人向けです。
+            G検定は「AIの全体像を広く」、E検定は「深層学習を深く」学ぶ位置づけです。
             この記事では、対象者・範囲・難易度・費用・形式を比較し、どちらを先に取るべきかまで整理します。
-            筆者は迷う場合、全体像を掴めるG検定→必要ならE検定の順で積むのが最も自然だと感じています。
+            G検定とは、「ビジネス活用の共通知識」を広く固めたい人向け、E検定は「深層学習の理解」を証明したいエンジニア志向の人向けです。
           </p>
         </motion.header>
 

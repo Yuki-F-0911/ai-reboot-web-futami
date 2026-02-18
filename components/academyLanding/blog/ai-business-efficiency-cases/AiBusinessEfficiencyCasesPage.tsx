@@ -136,9 +136,9 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI導入は「何から始めるか」を間違えると、PoCで止まってしまいがちです。
+            一般的には、営業・マーケティング・管理部門の定型業務でAI活用を始めると、改善前後を比較しやすくなります。
             本記事では、部門別の一般的な活用パターンと、導入前の設計ポイント（目的/KPI/ルール）を結論先出しで整理します。
-            筆者はまず、改善前後を比較しやすい定型業務を1つ選び、テンプレとレビュー手順まで作るのが効くと感じています。
+            AI導入とは、「何から始めるか」を間違えると、PoCで止まってしまいがちです。
           </p>
         </motion.header>
 
