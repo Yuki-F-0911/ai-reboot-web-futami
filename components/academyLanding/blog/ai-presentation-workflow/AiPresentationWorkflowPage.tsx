@@ -30,7 +30,7 @@ const tocItems = [
   { id: "step4-review", label: "Step 4: 推敲・改善" },
   { id: "tool-comparison", label: "用途別ツール比較" },
   { id: "prompt-examples", label: "プロンプト例" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "cta", label: "学び方" },
 ] as const;
 

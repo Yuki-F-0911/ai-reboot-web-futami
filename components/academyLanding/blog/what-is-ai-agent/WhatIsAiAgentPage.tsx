@@ -101,7 +101,7 @@ const tocItems = [
   { id: "types-and-use-cases", label: "代表的な種類と活用例" },
   { id: "how-to-build-ai-agent", label: "企業での導入ステップ（小規模から始める方法）" },
   { id: "implementation-cautions", label: "導入時の注意点" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) {
@@ -310,7 +310,7 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

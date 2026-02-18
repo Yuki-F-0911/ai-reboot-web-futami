@@ -31,7 +31,7 @@ const tocItems = [
   { id: "stable-diffusion", label: "Stable Diffusionの使い方" },
   { id: "business-use", label: "業務での活用パターン" },
   { id: "copyright", label: "注意点（著作権・商用利用）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "related-links", label: "関連リンク" },
   { id: "next-step", label: "次の一歩を決めたい方へ" },
 ] as const;
@@ -400,7 +400,7 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

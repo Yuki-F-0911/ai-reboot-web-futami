@@ -119,7 +119,7 @@ const tocItems = [
   { id: "eligible-training-conditions", label: "対象となる研修・講座の条件" },
   { id: "application-flow-and-documents", label: "申請の流れと必要書類" },
   { id: "combination-with-other-subsidies", label: "他制度との併用可否" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingSubsidyGuidePageProps) {
@@ -339,7 +339,7 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             よくある疑問をQ&Aで整理します。制度は年度や自治体で条件が変わる可能性があるため、最終判断は必ず最新の公募要領で確認してください。

@@ -130,7 +130,7 @@ const tocItems = [
   { id: "learning-method-comparison", label: "学習手段の比較（独学/スクール/OJT）" },
   { id: "portfolio-building", label: "評価されるポートフォリオの作り方" },
   { id: "career-path-by-age", label: "年代別の現実的なキャリアパス" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCareerChangePageProps) {
@@ -365,7 +365,7 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             よくある疑問をQ&Aで整理します。学習環境（独学/スクール/OJT）や希望職種によって最適な進め方は変わるため、前提条件に合わせて調整してください。

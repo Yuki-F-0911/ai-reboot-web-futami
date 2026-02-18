@@ -143,7 +143,7 @@ const tocItems = [
   { id: "department-use-cases", label: "業種別活用事例（営業 / 人事 / 経理 / マーケ）" },
   { id: "failure-patterns", label: "失敗パターンと回避策" },
   { id: "subsidy", label: "補助金・助成金を活用して導入負担を下げる" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAdoptionGuidePageProps) {
@@ -383,7 +383,7 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 導入の最適解は企業規模・業種・ガバナンス要件で変わります。よくある疑問をQ&Aで整理します。

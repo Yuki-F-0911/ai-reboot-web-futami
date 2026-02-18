@@ -105,7 +105,7 @@ const tocItems = [
   { id: "approach-by-age", label: "年代別の現実的な学習アプローチ" },
   { id: "dropoff-and-continuation", label: "独学で挫折しやすいポイントと継続のコツ" },
   { id: "method-comparison", label: "学習手段の比較" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageProps) {
@@ -308,7 +308,7 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

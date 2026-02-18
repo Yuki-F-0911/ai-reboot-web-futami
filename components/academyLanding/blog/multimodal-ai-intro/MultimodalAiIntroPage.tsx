@@ -155,7 +155,7 @@ const tocItems = [
   { id: "workflow-change", label: "マルチモーダルAIで変わる業務" },
   { id: "getting-started", label: "始め方と実践ステップ" },
   { id: "future-and-cautions", label: "今後の展望と注意点" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "academy-cta", label: "AIリブートアカデミー" },
 ] as const;
 

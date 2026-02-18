@@ -79,7 +79,7 @@ const tocItems = [
   { id: "career-change-cases", label: "キャリアチェンジ事例（構成例）" },
   { id: "before-after-table", label: "Before / After 比較表（構成例）" },
   { id: "success-factors", label: "共通する成功要因" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCasesPageProps) {
@@ -244,7 +244,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 「未経験でもできるか」「学習期間はどれくらいか」で迷いやすいポイントをQ&Aで整理します。

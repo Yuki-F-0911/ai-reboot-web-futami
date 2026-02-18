@@ -29,7 +29,7 @@ const tocItems = [
   { id: "work-study-use-cases", label: "仕事・学習での活用シーン" },
   { id: "audio-overview", label: "音声概要（Audio Overview）の活用法" },
   { id: "tool-comparison", label: "NotebookLMと他のAIツールの使い分け" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "related-links", label: "関連リンク" },
   { id: "cta", label: "AIリブートアカデミーへ" },
 ] as const;

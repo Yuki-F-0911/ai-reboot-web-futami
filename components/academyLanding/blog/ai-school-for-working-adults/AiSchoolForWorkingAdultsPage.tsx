@@ -104,7 +104,7 @@ const tocItems = [
   { id: "online-vs-onsite", label: "オンライン vs 通学の比較" },
   { id: "goal-based-selection", label: "目的別の選び方" },
   { id: "subsidy-benefit-check", label: "補助金・給付金を使える講座の見分け方" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWorkingAdultsPageProps) {
@@ -305,7 +305,7 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

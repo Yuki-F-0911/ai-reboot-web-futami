@@ -114,7 +114,7 @@ const tocItems = [
   { id: "free-vs-paid", label: "無料プランと有料プランの違い" },
   { id: "first-week-usage", label: "最初の1週間で試す7つの使い方" },
   { id: "beginner-mistakes", label: "初心者の失敗と対策" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptClaudeBeginnersGuidePageProps) {
@@ -303,7 +303,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

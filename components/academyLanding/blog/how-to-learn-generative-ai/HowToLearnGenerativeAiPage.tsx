@@ -99,7 +99,7 @@ const tocItems = [
   { id: "learning-phases", label: "学習の3フェーズ（0→100日）" },
   { id: "pitfalls", label: "よくあるつまずきポイントと対策" },
   { id: "self-study-vs-school", label: "独学 vs スクールの比較" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGenerativeAiPageProps) {
@@ -283,7 +283,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 大事なのは「ツール」より「順序」と「検証」です。よくある疑問をQ&Aで整理します。

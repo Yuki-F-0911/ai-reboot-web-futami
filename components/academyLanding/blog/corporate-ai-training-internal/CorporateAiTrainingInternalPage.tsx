@@ -127,7 +127,7 @@ const tocItems = [
   { id: "design-steps", label: "研修設計の3ステップ（目的設定、対象者選定、プログラム構築）" },
   { id: "external-vs-internal", label: "外部研修 vs 社内研修の比較" },
   { id: "retention", label: "研修後の定着施策（OJT連携、社内勉強会、効果測定）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateAiTrainingInternalPageProps) {
@@ -330,7 +330,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 社内研修の最適解は、対象業務・受講者層・運用体制で変わります。よくある疑問をQ&Aで整理します。

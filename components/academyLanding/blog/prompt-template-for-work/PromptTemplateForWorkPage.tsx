@@ -300,7 +300,7 @@ const tocItems = [
   { id: "data-analysis-templates", label: "データ分析テンプレート" },
   { id: "idea-generation-templates", label: "アイデア出しテンプレート" },
   { id: "improvement-tips", label: "プロンプト改善のコツ5選" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateForWorkPageProps) {
@@ -535,7 +535,7 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: よくあるつまずきは「情報不足」と「出力条件の未固定」です。Q&Aで解決の近道を整理します。

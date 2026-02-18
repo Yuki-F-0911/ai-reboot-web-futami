@@ -31,7 +31,7 @@ const tocItems = [
   { id: "cases-by-department", label: "業務別AI活用事例" },
   { id: "preparation-points", label: "導入前に整理すべきポイント" },
   { id: "failure-patterns", label: "よくある失敗パターンと対策" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 const useCases = [
@@ -261,7 +261,7 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: まずは「小さく検証して、運用ルールを固めてから展開」が安全です。よくある疑問をQ&Aで整理します。

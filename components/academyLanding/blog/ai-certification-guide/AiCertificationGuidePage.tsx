@@ -153,7 +153,7 @@ const tocItems = [
   { id: "certification-comparison", label: "主要AI資格の詳細比較表" },
   { id: "recommended-by-goal", label: "目的別おすすめ" },
   { id: "learning-roadmap", label: "学習方法とロードマップ" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function AiCertificationGuidePage({ faqItems }: AiCertificationGuidePageProps) {
@@ -431,7 +431,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 資格は「目的」と「実務での使いどころ」がセットです。迷いやすい論点をQ&Aで整理します。

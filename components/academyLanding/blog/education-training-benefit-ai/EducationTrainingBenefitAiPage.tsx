@@ -105,7 +105,7 @@ const tocItems = [
   { id: "difference-from-reskilling-subsidy", label: "リスキリング補助金との違い" },
   { id: "cost-and-effective-burden", label: "費用相場と実質負担の考え方" },
   { id: "cost-performance-criteria", label: "コスパの良い講座を選ぶ基準" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTrainingBenefitAiPageProps) {
@@ -322,7 +322,7 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

@@ -30,7 +30,7 @@ const tocItems = [
   { id: "no-code", label: "ノーコードで作る方法" },
   { id: "use-cases", label: "実務での活用パターン" },
   { id: "cautions", label: "開発時の注意点" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "cta", label: "AIリブートで学ぶ" },
 ] as const;
 

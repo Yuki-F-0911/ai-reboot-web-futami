@@ -28,7 +28,7 @@ const tocItems = [
   { id: "difficulty", label: "難易度と学習の考え方" },
   { id: "cost", label: "費用と受験条件の注意点" },
   { id: "recommendations", label: "向いている人（結論）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "cta", label: "AIリブートで学ぶ" },
 ] as const;
 
@@ -267,7 +267,7 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

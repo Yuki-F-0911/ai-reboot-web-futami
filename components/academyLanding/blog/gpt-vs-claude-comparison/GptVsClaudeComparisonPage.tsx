@@ -29,7 +29,7 @@ const tocItems = [
   { id: "pricing", label: "料金プラン比較（無料/個人/API）" },
   { id: "recommendations", label: "用途別おすすめ" },
   { id: "combine", label: "両方使いこなすコツ" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "cta", label: "AIリブートで学ぶ" },
 ] as const;
 

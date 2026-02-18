@@ -128,7 +128,7 @@ const tocItems = [
   { id: "recommended-by-purpose", label: "目的別おすすめ" },
   { id: "selection-points", label: "選び方のポイント" },
   { id: "failure-patterns", label: "よくある失敗パターンと回避法" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPageProps) {
@@ -329,7 +329,7 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 最終判断は公式情報の確認が前提です。そのうえで、比較で迷いやすい論点をQ&Aで整理します。

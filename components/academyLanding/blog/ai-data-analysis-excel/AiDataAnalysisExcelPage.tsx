@@ -30,7 +30,7 @@ const tocItems = [
   { id: "copilot-excel", label: "Copilot in Excelの活用" },
   { id: "prompt-examples", label: "すぐ使えるプロンプト例5選" },
   { id: "pitfalls", label: "注意点（セキュリティ/確認）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "cta", label: "次のアクション" },
 ] as const;
 

@@ -27,7 +27,7 @@ const tocItems = [
   { id: "fit-areas", label: "文系・非エンジニアに向いている活用領域" },
   { id: "learning-start", label: "学習の始め方（プログラミング不要）" },
   { id: "misconceptions", label: "よくある誤解と事実" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 const fearStructureItems = [
@@ -290,7 +290,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 不安は「何を避ければ安全か」と「最初の成功パターン」が見えると小さくなります。よくある疑問をQ&Aで整理します。

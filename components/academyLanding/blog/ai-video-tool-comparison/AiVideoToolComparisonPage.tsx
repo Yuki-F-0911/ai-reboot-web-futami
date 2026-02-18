@@ -30,7 +30,7 @@ const tocItems = [
   { id: "ai-video-editing", label: "AI動画編集ツールの活用" },
   { id: "business-use", label: "ビジネスでのAI動画活用シーン" },
   { id: "cautions", label: "注意点（著作権・品質管理・商用利用）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "related-links", label: "関連リンク" },
   { id: "next-step", label: "次の一歩を決めたい方へ" },
 ] as const;
@@ -435,7 +435,7 @@ export default function AiVideoToolComparisonPage({ faqItems }: AiVideoToolCompa
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

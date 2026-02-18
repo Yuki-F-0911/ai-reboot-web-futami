@@ -119,7 +119,7 @@ const tocItems = [
   { id: "q3-ai-chat-tool-comparison", label: "Q3. AIチャットのおすすめ比較を知りたいです" },
   { id: "q4-prompt-writing", label: "Q4. プロンプトはどう書けばいいですか？" },
   { id: "q5-next-step", label: "Q5. 次に何をすれば実務活用につながりますか？" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiPageProps) {
@@ -355,7 +355,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

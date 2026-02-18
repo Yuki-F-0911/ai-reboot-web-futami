@@ -85,7 +85,7 @@ const tocItems = [
   { id: "role-based-skills", label: "職種別に必須のAIスキル" },
   { id: "career-expansion", label: "「AIに奪われる仕事」ではなく「AIで拡張される仕事」へ" },
   { id: "learning-order", label: "学習順序の提案" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCareerPageProps) {
@@ -242,7 +242,7 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: まずは共通基礎と「自分の職種の始めどころ」を押さえるのが近道です。よくある疑問をQ&Aで整理します。

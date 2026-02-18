@@ -119,7 +119,7 @@ const tocItems = [
   { id: "learning-steps", label: "副業を始めるまでの学習ステップ" },
   { id: "skill-level", label: "必要なスキルレベルの目安（職種別）" },
   { id: "cautions", label: "注意点（就業規則、確定申告、期待値調整）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuidePageProps) {
@@ -309,7 +309,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: まずは「避けるべき地雷」を先に潰すのが安全です。未経験からの始め方、説明責任、社内ルール、税務をQ&Aで整理します。

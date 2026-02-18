@@ -148,7 +148,7 @@ const tocItems = [
   { id: "academy-plan", label: "AIリブート法人研修プラン（3日間集中）" },
   { id: "comparison-table", label: "比較時の確認項目（一般講座 vs AIリブート法人研修）" },
   { id: "case-studies", label: "導入事例（想定ケーススタディ）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainingPageProps) {
@@ -389,7 +389,7 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 研修の最適な形は企業規模・対象者・目的で変わります。よくある疑問をQ&Aで整理します。

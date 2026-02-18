@@ -27,7 +27,7 @@ const tocItems = [
   { id: "gemini-vs-chatgpt-claude", label: "Gemini vs ChatGPT vs Claude（比較表）" },
   { id: "getting-started", label: "Geminiの始め方（ステップバイステップ）" },
   { id: "work-use-cases", label: "業務での活用パターン" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "related-links", label: "関連リンク" },
   { id: "free-seminar-consultation", label: "無料セミナー / 個別相談" },
 ] as const;
@@ -303,7 +303,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

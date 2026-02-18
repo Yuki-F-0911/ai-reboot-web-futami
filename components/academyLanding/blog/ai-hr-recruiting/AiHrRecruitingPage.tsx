@@ -36,7 +36,7 @@ const tocItems = [
   { id: "prompt-examples", label: "すぐ使えるプロンプト例" },
   { id: "cautions", label: "導入時の注意点" },
   { id: "steps", label: "導入ステップ" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "cta", label: "次のアクション" },
 ] as const;
 
