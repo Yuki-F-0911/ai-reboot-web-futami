@@ -4,6 +4,7 @@ import { News } from '@/lib/microcms'
 import { Marked, Tokens } from 'marked'
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from '@/components/seo/StructuredData'
 import ArticleShareButtons from '@/components/blog/ArticleShareButtons'
+import CopyAsMarkdownButton from '@/components/blog/CopyAsMarkdownButton'
 
 interface BlogArticleProps {
   article: News
@@ -255,6 +256,12 @@ export default async function BlogArticle({
               <span className="text-gray-400">•</span>
               <span className="text-gray-500 text-sm">{readTime}分で読了</span>
             </div>
+
+            <div className="mb-6 flex">
+              <div className="ml-auto w-full sm:w-auto">
+                <CopyAsMarkdownButton title={article.title} sourceSelector="[data-blog-article-body]" />
+              </div>
+            </div>
             
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
               {article.title}
@@ -309,6 +316,7 @@ export default async function BlogArticle({
                   prose-thead:border-b-2 prose-thead:border-gray-200
                   prose-th:text-left prose-th:font-bold prose-th:p-3
                   prose-td:p-3 prose-td:border-b prose-td:border-gray-100"
+                data-blog-article-body
                 dangerouslySetInnerHTML={{ __html: htmlContent }}
               />
 
