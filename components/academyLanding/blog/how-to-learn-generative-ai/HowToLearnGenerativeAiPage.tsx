@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
@@ -152,6 +153,16 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           </p>
         </motion.header>
 
+        <figure className="my-8">
+          <Image
+            src="/images/blog/how-to-learn-generative-ai/slide-1.png"
+            alt="社会人のための生成AI学習ロードマップ - タイトルスライド"
+            width={800}
+            height={450}
+            className="rounded-lg"
+          />
+        </figure>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section
@@ -187,30 +198,105 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <p className="mt-5 text-base font-medium text-gray-900">
             100日を「基礎理解 → 実践応用 → 業務統合」に分けると、学習が点ではなく線になります。各フェーズのゴールを先に固定しましょう。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/how-to-learn-generative-ai/slide-2.png"
+              alt="学習は点ではなく線で捉える - 3フェーズ概要"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-8 space-y-8">
-            {phaseItems.map((phase, index) => (
-              <motion.section
-                key={phase.phase}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={sectionReveal}
-                transition={{ duration: 0.45, delay: index * 0.04, ease: "easeOut" }}
-                className="rounded-lg border border-gray-200 p-6"
-              >
-                <h3 className="text-xl font-semibold leading-8 text-gray-900">{phase.phase}</h3>
-                <p className="mt-1 text-sm font-medium text-gray-500">{phase.week}</p>
-                <p className="mt-4 text-base font-medium leading-8 text-gray-900">{phase.heading}</p>
-                <p className="mt-3 text-sm leading-7 text-gray-700">{phase.summary}</p>
-                <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-                  {phase.tasks.map((task) => (
-                    <li key={task} className="pl-1 marker:text-gray-500">
-                      {task}
-                    </li>
-                  ))}
-                </ul>
-              </motion.section>
-            ))}
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={sectionReveal}
+              transition={{ duration: 0.45, delay: 0 * 0.04, ease: "easeOut" }}
+              className="rounded-lg border border-gray-200 p-6"
+            >
+              <h3 className="text-xl font-semibold leading-8 text-gray-900">{phaseItems[0].phase}</h3>
+              <p className="mt-1 text-sm font-medium text-gray-500">{phaseItems[0].week}</p>
+              <p className="mt-4 text-base font-medium leading-8 text-gray-900">{phaseItems[0].heading}</p>
+              <p className="mt-3 text-sm leading-7 text-gray-700">{phaseItems[0].summary}</p>
+              <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+                {phaseItems[0].tasks.map((task) => (
+                  <li key={task} className="pl-1 marker:text-gray-500">
+                    {task}
+                  </li>
+                ))}
+              </ul>
+            </motion.section>
+            <figure className="my-8">
+              <Image
+                src="/images/blog/how-to-learn-generative-ai/slide-3.png"
+                alt="Phase 1: 型をインストールする（Day 1-30）"
+                width={800}
+                height={450}
+                className="rounded-lg"
+              />
+            </figure>
+
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={sectionReveal}
+              transition={{ duration: 0.45, delay: 1 * 0.04, ease: "easeOut" }}
+              className="rounded-lg border border-gray-200 p-6"
+            >
+              <h3 className="text-xl font-semibold leading-8 text-gray-900">{phaseItems[1].phase}</h3>
+              <p className="mt-1 text-sm font-medium text-gray-500">{phaseItems[1].week}</p>
+              <p className="mt-4 text-base font-medium leading-8 text-gray-900">{phaseItems[1].heading}</p>
+              <p className="mt-3 text-sm leading-7 text-gray-700">{phaseItems[1].summary}</p>
+              <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+                {phaseItems[1].tasks.map((task) => (
+                  <li key={task} className="pl-1 marker:text-gray-500">
+                    {task}
+                  </li>
+                ))}
+              </ul>
+            </motion.section>
+            <figure className="my-8">
+              <Image
+                src="/images/blog/how-to-learn-generative-ai/slide-4.png"
+                alt="Phase 2: 武器を増やす（Day 31-70）"
+                width={800}
+                height={450}
+                className="rounded-lg"
+              />
+            </figure>
+
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={sectionReveal}
+              transition={{ duration: 0.45, delay: 2 * 0.04, ease: "easeOut" }}
+              className="rounded-lg border border-gray-200 p-6"
+            >
+              <h3 className="text-xl font-semibold leading-8 text-gray-900">{phaseItems[2].phase}</h3>
+              <p className="mt-1 text-sm font-medium text-gray-500">{phaseItems[2].week}</p>
+              <p className="mt-4 text-base font-medium leading-8 text-gray-900">{phaseItems[2].heading}</p>
+              <p className="mt-3 text-sm leading-7 text-gray-700">{phaseItems[2].summary}</p>
+              <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+                {phaseItems[2].tasks.map((task) => (
+                  <li key={task} className="pl-1 marker:text-gray-500">
+                    {task}
+                  </li>
+                ))}
+              </ul>
+            </motion.section>
+            <figure className="my-8">
+              <Image
+                src="/images/blog/how-to-learn-generative-ai/slide-5.png"
+                alt="Phase 3: 仕組みを変える（Day 71-100）"
+                width={800}
+                height={450}
+                className="rounded-lg"
+              />
+            </figure>
           </div>
         </motion.section>
 
@@ -228,6 +314,15 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <p className="mt-5 text-base font-medium text-gray-900">
             つまずきの原因は「順序がない」「検証がない」「実務とつながらない」の3つに集約されます。先に落とし穴を知っておくと、学習が安定します。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/how-to-learn-generative-ai/slide-6.png"
+              alt="よくあるエラーとデバッグ方法"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 space-y-4">
             {pitfallItems.map((item) => (
               <div key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -259,6 +354,15 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
             </Link>
             も確認してください。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/how-to-learn-generative-ai/slide-7.png"
+              alt="独学 vs スクール比較"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[600px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -399,6 +503,17 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <p className="mt-4 text-base leading-8 text-gray-700">
             ひとりで学習計画を作るのが難しい場合は、無料セミナーと個別相談を使って現在地を確認するのが近道です。無理なく続く学習ルートを一緒に設計できます。
           </p>
+          <figure className="my-8">
+            <Link href="/academy/seminars">
+              <Image
+                src="/images/blog/how-to-learn-generative-ai/slide-8.png"
+                alt="まずは1つの業務から - 無料セミナーに参加する"
+                width={800}
+                height={450}
+                className="rounded-lg"
+              />
+            </Link>
+          </figure>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy/seminars"
