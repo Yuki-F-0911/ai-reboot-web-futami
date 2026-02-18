@@ -70,6 +70,7 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "AIコーディングの基本、代表ツール、非エンジニアができること、始め方5ステップとプロンプト例、注意点までを整理した入門ガイドです。",
     category: "AI基礎知識",
+    thumbnail: "/images/blog/ai-coding-for-beginners/slide-1.png",
   },
   {
     slug: "github-copilot-guide",
@@ -77,6 +78,7 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "導入（VS Code等）から指示の出し方、レビュー・テストの流れ、チーム導入時の情報管理/運用ルールまでを手順化したガイドです。",
     category: "実務活用",
+    thumbnail: "/images/blog/github-copilot-guide/slide-1.png",
   },
   {
     slug: "python-ai-intro",
@@ -90,6 +92,7 @@ const blogPosts: readonly BlogPost[] = [
     title: "仕事で使えるプロンプトテンプレート集",
     summary: "メール・議事録・資料作成など、業務で再利用できる実践テンプレートをカテゴリ別にまとめました。",
     category: "実務活用",
+    thumbnail: "/images/blog/prompt-template-for-work/slide-1.png",
   },
   {
     slug: "ai-presentation-workflow",
@@ -109,6 +112,7 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "RAG（Retrieval-Augmented Generation）の定義、仕組み、メリットと限界、活用事例、始め方、ファインチューニングとの違いを整理した入門記事です。",
     category: "AI基礎知識",
+    thumbnail: "/images/blog/what-is-rag/slide-1.png",
   },
   {
     slug: "rag-use-cases",
@@ -127,6 +131,7 @@ const blogPosts: readonly BlogPost[] = [
     title: "DXリスキリング助成金ガイド｜対象条件・申請手順・併用可否を解説",
     summary: "DXリスキリング助成金の概要、個人向け補助金との違い、申請の流れと実務上の注意点を整理した記事です。",
     category: "実務活用",
+    thumbnail: "/images/blog/dx-reskilling-subsidy-guide/slide-1.png",
   },
   {
     slug: "ai-certification-guide",
@@ -145,6 +150,7 @@ const blogPosts: readonly BlogPost[] = [
     title: "AI講座ランキング2026｜選び方の基準と目的別おすすめ",
     summary: "AI講座を比較する評価基準、目的別の選び方、失敗回避のポイントを整理したガイド記事です。",
     category: "資格・スキル",
+    thumbnail: "/images/blog/ai-course-ranking/slide-1.png",
   },
   {
     slug: "skills-for-ai-era-career",
