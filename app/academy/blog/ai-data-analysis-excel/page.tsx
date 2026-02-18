@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AIでExcelデータ分析を効率化する方法｜関数・グラフ・レポート作成まで | AIリブート";
 const pageDescription =
-  "AIでExcel分析を効率化する手順を、関数生成→整形→可視化→レポート作成まで解説。ChatGPT/Claudeのプロンプト例と検算のポイント、Copilot in Excelの使いどころもまとめます。";
+  "AIでExcel分析を効率化する手順を、関数生成→整形→可視化→レポート作成まで解説。ChatGPT/Claudeのプロンプト例と検算のポイントに加え、Claude in Excel / Copilot in Excel / ChatGPT Advanced Data Analysis / Claude Coworkの使い分けも整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-data-analysis-excel";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
@@ -19,7 +19,17 @@ const faqItems = [
   {
     question: "ChatGPTとClaudeはどちらがExcel分析に向いていますか？",
     answer:
-      "どちらでも可能です。重要なのは、目的（集計/可視化/レポート）・前提（列名、期間、粒度）・出力形式（関数/手順/表）を明確にすることです。同じ入力で両方を試し、品質が安定する方を選ぶのが実務的です。",
+      "どちらでも可能です。重要なのは、目的（集計/可視化/レポート）・前提（列名、期間、粒度）・出力形式（関数/手順/表）を明確にすることです。同じ入力で両方を試し、品質が安定する方を選ぶのが実務的です。Excel内で完結させたい場合は、Claude in ExcelやCopilot in Excelなど“Excel上で動くAI”も選択肢になります。",
+  },
+  {
+    question: "Claude in ExcelとCopilot in Excelの違いは？",
+    answer:
+      "大きな違いは「ファイル要件」と「得意領域」です。CopilotはOneDrive/SharePoint保存やテナント設定など環境要件が出やすい一方、Microsoft 365にネイティブ統合されています。Claude in Excelはアドイン型で、ローカルファイルやマルチシート理解、Power Query（Mコード生成/最適化）に強い傾向があります。どちらも最終的な数値の確定は検算が必須です。",
+  },
+  {
+    question: "結局どのツールがおすすめですか？",
+    answer:
+      "目的で選ぶのが最短です。Excel上で社内データを直接扱いたいならClaude in Excel、Microsoft 365環境が整っていて手軽に始めたいならCopilot、ファイルをアップロードして可視化・レポートまで作りたいならChatGPT Advanced Data Analysis、PC上のファイルをまとめて“投げて分析”したいならClaude Coworkが候補です。",
   },
   {
     question: "機密データをAIに貼っても問題ありませんか？",
@@ -46,7 +56,17 @@ const faqItems = [
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  keywords: ["AI データ分析 Excel", "ChatGPT Excel 活用", "生成AI データ分析", "Excel 関数 生成AI", "Copilot in Excel"],
+  keywords: [
+    "AI データ分析 Excel",
+    "ChatGPT Excel 活用",
+    "生成AI データ分析",
+    "Excel 関数 生成AI",
+    "Claude in Excel",
+    "Copilot in Excel",
+    "Claude Cowork",
+    "AI Excel ツール比較",
+    "ChatGPT Advanced Data Analysis",
+  ],
   alternates: {
     canonical: pageUrl,
   },

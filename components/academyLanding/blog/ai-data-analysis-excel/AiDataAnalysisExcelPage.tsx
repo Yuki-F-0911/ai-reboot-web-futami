@@ -20,7 +20,7 @@ const sectionReveal = {
   visible: { opacity: 1, y: 0 },
 };
 
-const keywordTags = ["AI データ分析 Excel", "ChatGPT Excel 活用", "生成AI データ分析", "Excel 関数"] as const;
+const keywordTags = ["AI データ分析 Excel", "Claude in Excel", "AI Excel ツール比較", "ChatGPT データ分析"] as const;
 
 const tocItems = [
   { id: "conclusion", label: "要点まとめ" },
@@ -28,7 +28,7 @@ const tocItems = [
   { id: "formula-generation", label: "関数生成のやり方" },
   { id: "practical-steps", label: "実践ステップ（整理→分析→可視化→レポート）" },
   { id: "use-cases", label: "シーン別ガイド" },
-  { id: "copilot-excel", label: "Copilot in Excelの活用" },
+  { id: "ai-excel-tools", label: "AI×Excelツールの比較と使い分け" },
   { id: "prompt-examples", label: "すぐ使えるプロンプト例5選" },
   { id: "pitfalls", label: "注意点（セキュリティ/確認）" },
   { id: "faq", label: "よくある質問（FAQ）" },
@@ -262,6 +262,10 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
             「列名（どの列）」「条件（いつ）」「戻り値（何を返す）」「例外（見つからない/空白）」を具体的に渡すのがコツです。式は必ずサンプルデータで検算し、
             参照範囲のズレや型の違い（数値/文字列）で崩れないかを確認してください。
           </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            なお、Claude in ExcelのようにExcelアドイン型のAIを使える場合は、この「プロンプトの型」をそのままシート上で実行し、対象セルに貼れる形で式や手順を
+            生成できます（最終的な検算は必須です）。
+          </p>
           <div className="mt-8 space-y-6">
             {formulaPrompts.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -350,18 +354,177 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="copilot-excel" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            Microsoft Copilot in Excelの活用法
+          <h2 id="ai-excel-tools" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            AI×Excelツールの比較と使い分け（2026年2月版）
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            Copilot in Excelを使える環境なら、シート上のデータを前提に「集計」「可視化」「要約」を進めやすくなります。ポイントは、AIに任せる範囲を
-            “提案/下書き”に限定し、最終的な数値の確定はあなたが行うことです。
+            「AIでExcel分析を速くする」と言っても、ツールによって“どこでAIが動くか”が違います。まずは{" "}
+            <span className="font-semibold text-gray-900">（1）Excelの中で完結させたいか</span>、{" "}
+            <span className="font-semibold text-gray-900">（2）ローカルファイルを扱いたいか</span>を決めると、選定がブレません。
           </p>
-          <ul className="mt-6 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">目的を明確にする: 「月別推移を見たい」「カテゴリ別の構成比を出したい」</li>
-            <li className="pl-1 marker:text-gray-500">前提を渡す: 「日付列はA列」「売上は税込」「欠損は0扱い」</li>
-            <li className="pl-1 marker:text-gray-500">出力を指定する: 「ピボットテーブルの配置」「推奨グラフ」「要約箇条書き」</li>
-          </ul>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            仕様や提供範囲は、ロールアウト/契約プラン/テナント設定で変わります。ここでは「実務で選ぶ観点」を揃えた上で、公平に整理します（重要データは必ず検算）。
+          </p>
+
+          <div className="mt-6 overflow-x-auto rounded-lg border border-indigo-200 bg-white">
+            <table className="min-w-[840px] table-auto border-collapse text-left text-sm">
+              <thead className="bg-indigo-50">
+                <tr className="border-b border-indigo-200">
+                  <th className="px-4 py-3 font-semibold text-gray-900">項目</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">Claude in Excel</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">Copilot in Excel</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">ChatGPT（Advanced Data Analysis）</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">Claude Cowork</th>
+                </tr>
+              </thead>
+              <tbody className="[&>tr:nth-child(even)]:bg-gray-50">
+                <tr className="border-b border-gray-200">
+                  <th className="px-4 py-3 font-semibold text-gray-900">動作場所</th>
+                  <td className="px-4 py-3 text-gray-700">Excelアドイン</td>
+                  <td className="px-4 py-3 text-gray-700">Excel内蔵</td>
+                  <td className="px-4 py-3 text-gray-700">ブラウザ/アプリ</td>
+                  <td className="px-4 py-3 text-gray-700">デスクトップアプリ</td>
+                </tr>
+                <tr className="border-b border-gray-200">
+                  <th className="px-4 py-3 font-semibold text-gray-900">ローカルファイル</th>
+                  <td className="px-4 py-3 text-gray-700">対応（OneDrive不要）</td>
+                  <td className="px-4 py-3 text-gray-700">非対応（OneDrive/SharePointが前提になりやすい）</td>
+                  <td className="px-4 py-3 text-gray-700">アップロード/クラウド連携</td>
+                  <td className="px-4 py-3 text-gray-700">対応</td>
+                </tr>
+                <tr className="border-b border-gray-200">
+                  <th className="px-4 py-3 font-semibold text-gray-900">複数シート理解</th>
+                  <td className="px-4 py-3 text-gray-700">強い（引用つき説明が得意）</td>
+                  <td className="px-4 py-3 text-gray-700">弱い（前提を言語で補うと安定）</td>
+                  <td className="px-4 py-3 text-gray-700">アップロードした範囲内</td>
+                  <td className="px-4 py-3 text-gray-700">対応</td>
+                </tr>
+                <tr className="border-b border-gray-200">
+                  <th className="px-4 py-3 font-semibold text-gray-900">Power Query</th>
+                  <td className="px-4 py-3 text-gray-700">対応（Mコード生成/最適化）</td>
+                  <td className="px-4 py-3 text-gray-700">非対応（手順提案は可能）</td>
+                  <td className="px-4 py-3 text-gray-700">非対応</td>
+                  <td className="px-4 py-3 text-gray-700">—</td>
+                </tr>
+                <tr className="border-b border-gray-200">
+                  <th className="px-4 py-3 font-semibold text-gray-900">料金目安</th>
+                  <td className="px-4 py-3 text-gray-700">Claude Pro〜</td>
+                  <td className="px-4 py-3 text-gray-700">Microsoft 365 Copilot</td>
+                  <td className="px-4 py-3 text-gray-700">ChatGPT Plus〜</td>
+                  <td className="px-4 py-3 text-gray-700">Claude Pro〜</td>
+                </tr>
+                <tr>
+                  <th className="px-4 py-3 font-semibold text-gray-900">成熟度</th>
+                  <td className="px-4 py-3 text-gray-700">プレビュー</td>
+                  <td className="px-4 py-3 text-gray-700">GA（制約が多い）</td>
+                  <td className="px-4 py-3 text-gray-700">GA</td>
+                  <td className="px-4 py-3 text-gray-700">プレビュー</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-8 grid gap-4 lg:grid-cols-2">
+            <section className="rounded-lg border border-indigo-200 bg-white p-5">
+              <h3 className="text-lg font-semibold text-gray-900">Claude in Excel（Anthropic）</h3>
+              <p className="mt-2 text-sm leading-7 text-gray-700">
+                2025年10月頃からプレビュー提供が進み、2026年1月頃にProプラン以上（Pro/Max/Team/Enterprise）での利用が広がったとされます。Excelアドインとして動作し、
+                分析はOpus 4.6系モデルで行う構成が目安です。
+              </p>
+              <p className="mt-2 text-sm leading-7 text-gray-700">
+                料金はClaude Pro（月額20ドル程度）からが目安です（プラン/契約形態で変動）。
+              </p>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+                <li className="pl-1 marker:text-gray-500">
+                  強み: ローカルファイルでも動作しやすい（OneDrive保存が前提になりにくい）
+                </li>
+                <li className="pl-1 marker:text-gray-500">強み: 複数タブのワークブック理解＋セル参照つきの説明が得意</li>
+                <li className="pl-1 marker:text-gray-500">強み: Power QueryのMコード生成/最適化が可能</li>
+                <li className="pl-1 marker:text-gray-500">強み: 「Ask before edits」で編集前確認の運用に寄せられる</li>
+                <li className="pl-1 marker:text-gray-500">
+                  強み: 応答速度がCopilotより速いと感じる人もいる（体感差・環境差あり）
+                </li>
+                <li className="pl-1 marker:text-gray-500">
+                  弱み: まだプレビュー段階。複雑な金融モデル等は手動検証が必須
+                </li>
+                <li className="pl-1 marker:text-gray-500">弱み: 入力パラメータ変更時に関連計算が追随しないケースがある</li>
+                <li className="pl-1 marker:text-gray-500">
+                  弱み: 基本タスク（重複削除、フォーマット統一、数式デバッグ）は得意だが、文脈理解が必要な複雑なデータクリーニングは苦手な傾向
+                </li>
+              </ul>
+            </section>
+
+            <section className="rounded-lg border border-indigo-200 bg-white p-5">
+              <h3 className="text-lg font-semibold text-gray-900">Copilot in Excel（Microsoft）</h3>
+              <p className="mt-2 text-sm leading-7 text-gray-700">
+                Microsoft 365にネイティブ統合されているため、環境が揃っていれば“いつものExcelの延長”で使えます。一方で、組織設定や保存場所の要件など、制約が出やすいのも特徴です。
+              </p>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+                <li className="pl-1 marker:text-gray-500">強み: Microsoft 365内での即時性（導入済みなら体験がシームレス）</li>
+                <li className="pl-1 marker:text-gray-500">前提: Microsoft 365の有料ライセンス（Copilot Pro等）が必要になりやすい</li>
+                <li className="pl-1 marker:text-gray-500">制約: OneDrive/SharePoint保存＋AutoSaveオンが前提になりやすい（ローカル不可になりがち）</li>
+                <li className="pl-1 marker:text-gray-500">
+                  制約: COPILOT関数はバージョン2510以上が必要とされ、テナントによって利用可否が分かれる
+                </li>
+                <li className="pl-1 marker:text-gray-500">制約: COPILOT関数は数値計算よりテキスト処理・アイデア生成向き</li>
+                <li className="pl-1 marker:text-gray-500">
+                  制約: 利用回数の上限が設定される場合がある（例: 10分で最大100回、1時間で最大300回など）
+                </li>
+                <li className="pl-1 marker:text-gray-500">
+                  注意: 機能（例: App Skillsなど）は提供状況が変動しやすく、2026年2月末にExcelから削除予定と案内されるケースもある
+                </li>
+                <li className="pl-1 marker:text-gray-500">注意: 長いスプレッドシートでクラッシュするという報告もあるため、大規模データは分割・検算が無難</li>
+              </ul>
+            </section>
+
+            <section className="rounded-lg border border-indigo-200 bg-white p-5">
+              <h3 className="text-lg font-semibold text-gray-900">ChatGPT（Advanced Data Analysis / Python）</h3>
+              <p className="mt-2 text-sm leading-7 text-gray-700">
+                CSV/Excelをアップロードして、内部でPython（pandas等）を使って分析・可視化できます。2026年はGoogle Drive/OneDriveから直接ファイル追加できる運用も増え、
+                「グラフ＋文章のレポート」まで一気通貫で作りやすいのが強みです。
+              </p>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+                <li className="pl-1 marker:text-gray-500">強み: 集計/統計/可視化/文章化まで“レポート生成”が速い</li>
+                <li className="pl-1 marker:text-gray-500">強み: 手順が残る（Pythonコードや前処理のログとして再利用できる）</li>
+                <li className="pl-1 marker:text-gray-500">注意: Excel内で直接動くわけではなく、チャット経由のワークフロー</li>
+                <li className="pl-1 marker:text-gray-500">注意: 機密データはアップロード可否・契約条件を必ず確認</li>
+              </ul>
+            </section>
+
+            <section className="rounded-lg border border-indigo-200 bg-white p-5">
+              <h3 className="text-lg font-semibold text-gray-900">Claude Cowork（Anthropic）</h3>
+              <p className="mt-2 text-sm leading-7 text-gray-700">
+                2026年1月に発表された、プログラミング不要のデスクトップエージェント（研究プレビュー）。キャッチコピーは「Claude Code for the rest of your work」。
+                CSVをドロップするだけで、サマリー・グラフ・インサイト込みのレポートが短時間で作れる方向性が注目されています。
+              </p>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+                <li className="pl-1 marker:text-gray-500">強み: 非エンジニアでも「ファイル投入→レポート」まで到達しやすい</li>
+                <li className="pl-1 marker:text-gray-500">強み: Excelレポート自動生成にも対応する構成が増えている</li>
+                <li className="pl-1 marker:text-gray-500">弱み: 研究プレビュー段階のため、業務運用は検証前提</li>
+              </ul>
+            </section>
+          </div>
+
+          <section className="mt-8 rounded-lg border border-indigo-200 bg-white p-5">
+            <h3 className="text-lg font-semibold text-gray-900">おすすめの使い分け（最短で成果が出る選び方）</h3>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+              <li className="pl-1 marker:text-gray-500">
+                社内データをExcel上で直接分析したい → <span className="font-semibold text-gray-900">Claude in Excel</span>（ローカルOK、マルチシート理解）
+              </li>
+              <li className="pl-1 marker:text-gray-500">
+                Microsoft 365環境が整っていて手軽に始めたい → <span className="font-semibold text-gray-900">Copilot in Excel</span>（ただし保存/テナント制約に注意）
+              </li>
+              <li className="pl-1 marker:text-gray-500">
+                CSVをアップロードして可視化・レポートを作りたい → <span className="font-semibold text-gray-900">ChatGPT Advanced Data Analysis</span>
+              </li>
+              <li className="pl-1 marker:text-gray-500">
+                プログラミング不要でPC上のファイルをまとめて分析したい → <span className="font-semibold text-gray-900">Claude Cowork</span>
+              </li>
+              <li className="pl-1 marker:text-gray-500">
+                本格的にPythonで分析を学びたい → <span className="font-semibold text-gray-900">pandas/scikit-learn</span>（中長期のスキル投資）
+              </li>
+            </ul>
+          </section>
         </motion.section>
 
         <motion.section
