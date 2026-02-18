@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
@@ -170,6 +171,10 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           </p>
         </motion.header>
 
+        <figure className="my-8">
+          <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-1.png" alt="DXリスキリング助成金活用ガイド（タイトルスライド）" width={800} height={450} className="rounded-lg" />
+        </figure>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section
@@ -194,6 +199,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
               申請では、事前準備、講座要件、証憑管理、併用ルールの4点を先に設計すると実務で詰まりにくくなります。
             </li>
           </ul>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-5.png" alt="申請フロー4ステップ（選定→事前準備・申請→研修実施→実績報告）" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -210,6 +218,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 「DXリスキリング助成金」は、企業のデジタル人材育成に関する助成制度群を指して使われることが多い言葉です。制度は要件が多いため、必ず公募要領で確認しましょう。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-2.png" alt="制度の概要（メリットと対象）" width={800} height={450} className="rounded-lg" />
+          </figure>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             制度全体の整理は
             <Link href="/academy/subsidy-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -217,6 +228,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             </Link>
             もあわせて確認してください。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-3.png" alt="主要3制度の比較表" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {subsidyDefinitionPoints.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -225,6 +239,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
               </section>
             ))}
           </div>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-7.png" alt="ROIの考え方（投資対効果の整理）" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -277,6 +294,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <p className="mt-5 text-base leading-8 text-gray-700">
             結論: 「講座の内容」だけでなく「実施体制」と「記録・証憑の残し方」まで含めて要件になることがあります。申込み前に制度ごとの公募要領を確認してください。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-6.png" alt="落とし穴チェックリスト（よくある失敗）" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 space-y-4">
             {eligibleConditions.map((condition) => (
               <section key={condition.title} className="rounded-lg border border-gray-200 p-5">
@@ -285,6 +305,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
               </section>
             ))}
           </div>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-8.png" alt="申請スケジュールのタイムライン" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -301,6 +324,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <p className="mt-5 text-base leading-8 text-gray-700">
             結論: 申請は「事前準備→実施→実績報告」の順で詰まりやすいポイントが変わります。最初に書類の全体像を把握し、証憑管理の運用を決めておくと安全です。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-4.png" alt="制度選定フローチャート（3問で最適な制度を選ぶ）" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 space-y-4">
             {applicationFlow.map((item) => (
               <section key={item.step} className="rounded-lg border border-gray-200 p-5">
@@ -455,6 +481,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             <li className="pl-1 marker:text-gray-500">個人向け補助金とは申請主体と手続きが異なるため、混同せずに制度を切り分けて確認する必要があります。</li>
             <li className="pl-1 marker:text-gray-500">申請では、事前準備、講座要件、証憑管理、併用ルールの4点を先に設計すると実務で詰まりにくくなります。</li>
           </ul>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-9.png" alt="まとめとチェックリスト" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -471,6 +500,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-10.png" alt="次のステップ（CTA）" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy/seminars"
