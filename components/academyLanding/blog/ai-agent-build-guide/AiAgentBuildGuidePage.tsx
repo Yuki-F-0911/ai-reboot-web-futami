@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
@@ -206,6 +207,10 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
 
         <ArticleTOC items={tocItems} />
 
+        <figure className="my-8">
+          <Image src="/images/blog/ai-agent-build-guide/slide-01.png" alt="AIエージェント開発ガイド" width={800} height={450} className="rounded-lg" />
+        </figure>
+
         <motion.section
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
@@ -248,6 +253,9 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
             重要なのは「回答するAI」ではなく「仕事を前に進めるAI」という点です。情報取得が必要ならRAGを組み合わせ、実行が必要ならツール連携を
             組み込むことで、実務で使える品質に近づきます。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-02.png" alt="ChatbotとAgentの比較" width={800} height={450} className="rounded-lg" />
+          </figure>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             まず概念を整理したい場合は{" "}
             <Link href="/academy/blog/what-is-ai-agent" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -274,6 +282,12 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           <p className="mt-4 text-sm leading-7 text-gray-700">
             基本形は「ループ」です。これに、ツール（外部システム操作）・状態（メモリ）・評価（検証）・ガードレール（安全境界）が加わります。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-03.png" alt="自律駆動の4ステップ（Plan/Act/Observe/Reflect）" width={800} height={450} className="rounded-lg" />
+          </figure>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-04.png" alt="エージェントを構成する4コンポーネント（Planner/Tooling/Memory/Evaluator）" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {loopSteps.map((step) => (
               <section key={step.title} className="rounded-lg border border-gray-200 p-5">
@@ -308,6 +322,9 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 最初から「自律」を目指さず、境界を決めたワークフローから始めると成功率が上がります。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-05.png" alt="AIエージェント開発の5ステップ" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 space-y-4">
             {fiveSteps.map((step) => (
               <section key={step.title} className="rounded-lg border border-gray-200 p-5">
@@ -345,6 +362,9 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           <p className="mt-4 text-sm leading-7 text-gray-700">
             どれが正解というより、必要な「協調の型」と「運用のしやすさ」で選びます。なお、AutoGPTのような“自律実行”系のプロジェクトもありますが、実務では権限と停止条件（どこで止めるか）を前提に設計するのが基本です。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-06.png" alt="No-Codeとコードフレームワークの比較" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[980px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -413,6 +433,9 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           <p className="mt-4 text-sm leading-7 text-gray-700">
             特に、情報収集やドラフト作成は導入効果が出やすいです。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-09.png" alt="実務での活用パターン（リサーチ自動化/CS/データ分析/ワークフロー）" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {useCaseCards.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -447,6 +470,12 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 事故を防ぐ鍵は「危険操作のブロック」「上限（コスト/回数/権限）」「検証（テスト/バリデーション）」を最初に組み込むことです。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-07.png" alt="安全性（権限と境界・コスト管理・ログ設計）" width={800} height={450} className="rounded-lg" />
+          </figure>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-08.png" alt="ハルシネーション対策と人間の役割" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {cautionItems.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -553,6 +582,11 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
             AIエージェントは作るだけではなく、業務に合わせた境界設計・運用・改善が成果の差になります。AIリブートアカデミーでは、実務に直結する
             ユースケースから、設計と改善サイクルまで体系的に学べます。
           </p>
+          <figure className="my-8">
+            <Link href="/academy">
+              <Image src="/images/blog/ai-agent-build-guide/slide-10.png" alt="AIリブートアカデミーで体系的に学ぶ" width={800} height={450} className="rounded-lg" />
+            </Link>
+          </figure>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"
