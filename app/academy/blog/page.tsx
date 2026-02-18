@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
@@ -16,6 +17,7 @@ type BlogPost = {
   title: string;
   summary: string;
   category: BlogCategory;
+  thumbnail?: string;
 };
 
 const blogPosts: readonly BlogPost[] = [
@@ -24,12 +26,14 @@ const blogPosts: readonly BlogPost[] = [
     title: "生成AIとは？初心者向けにわかりやすく解説",
     summary: "生成AIの定義、主要ツールの違い、最初の使い方を非技術者向けに整理した入門記事です。",
     category: "AI基礎知識",
+    thumbnail: "/images/blog/what-is-generative-ai/slide-1.png",
   },
   {
     slug: "what-is-ai-agent",
     title: "AIエージェントとは？定義・種類・作り方を解説",
     summary: "AIエージェントの基礎、従来AIとの違い、導入ステップと注意点を実務目線で整理した記事です。",
     category: "AI基礎知識",
+    thumbnail: "/images/blog/what-is-ai-agent/slide-1.png",
   },
   {
     slug: "ai-agent-build-guide",
@@ -37,18 +41,21 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "AIエージェントの基本構造、開発5ステップ、主要フレームワーク比較、ノーコード実装、実務の活用例と注意点までをまとめた実装ガイドです。",
     category: "実務活用",
+    thumbnail: "/images/blog/ai-agent-build-guide/slide-01.png",
   },
   {
     slug: "multimodal-ai-intro",
     title: "マルチモーダルAIとは？テキスト・画像・音声を横断する次世代AIを解説",
     summary: "マルチモーダルAIの定義、仕組み、代表モデル、業務活用と導入ステップを初心者向けに整理した入門記事です。",
     category: "AI基礎知識",
+    thumbnail: "/images/blog/multimodal-ai-intro/slide-01.png",
   },
   {
     slug: "how-to-learn-generative-ai",
     title: "社会人のための生成AI学習ロードマップ",
     summary: "0〜100日で実務活用まで到達するための学習フェーズと、つまずき回避のポイントを解説します。",
     category: "AI基礎知識",
+    thumbnail: "/images/blog/how-to-learn-generative-ai/slide-1.png",
   },
   {
     slug: "ai-for-non-engineers",
@@ -334,21 +341,36 @@ export default function AcademyBlogPage() {
             {blogPosts.map((post) => (
               <article
                 key={post.slug}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-subtle transition-all duration-300 hover:-translate-y-0.5 hover:border-will-primary/25 hover:shadow-soft"
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-subtle transition-all duration-300 hover:-translate-y-0.5 hover:border-will-primary/25 hover:shadow-soft"
               >
-                <p
-                  className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold tracking-wide ${categoryClassName[post.category]}`}
-                >
-                  {post.category}
-                </p>
-                <h2 className="mt-4 text-xl font-bold leading-tight text-slate-900">{post.title}</h2>
-                <p className="mt-3 text-sm leading-7 text-slate-700">{post.summary}</p>
-                <Link
-                  href={`/academy/blog/${post.slug}`}
-                  className="mt-5 inline-flex items-center text-sm font-semibold text-will-primary transition-colors group-hover:text-growth"
-                >
-                  記事を読む
-                </Link>
+                {post.thumbnail && (
+                  <Link href={`/academy/blog/${post.slug}`}>
+                    <div className="relative aspect-[16/9] w-full overflow-hidden">
+                      <Image
+                        src={post.thumbnail}
+                        alt={post.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                  </Link>
+                )}
+                <div className="p-6">
+                  <p
+                    className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold tracking-wide ${categoryClassName[post.category]}`}
+                  >
+                    {post.category}
+                  </p>
+                  <h2 className="mt-4 text-xl font-bold leading-tight text-slate-900">{post.title}</h2>
+                  <p className="mt-3 text-sm leading-7 text-slate-700">{post.summary}</p>
+                  <Link
+                    href={`/academy/blog/${post.slug}`}
+                    className="mt-5 inline-flex items-center text-sm font-semibold text-will-primary transition-colors group-hover:text-growth"
+                  >
+                    記事を読む
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
