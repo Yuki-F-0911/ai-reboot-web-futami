@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -130,7 +131,7 @@ const frameworkRows = [
 export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -157,6 +158,14 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
                 {tag}
               </span>
             ))}
+          </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="RAG（検索拡張生成）とは？仕組み・メリット・活用事例をわかりやすく解説"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             RAG（検索拡張生成）とは？仕組み・メリット・活用事例をわかりやすく解説

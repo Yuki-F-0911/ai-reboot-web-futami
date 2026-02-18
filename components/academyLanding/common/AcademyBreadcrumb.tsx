@@ -18,7 +18,7 @@ export default function AcademyBreadcrumb({ items, className = "" }: AcademyBrea
   }
 
   return (
-    <nav aria-label="パンくず" className={className}>
+    <nav aria-label="パンくず" className={className} data-copy-exclude>
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-500 sm:text-sm">
         {items.map((item, index) => (
           <li key={`${item.label}-${index}`} className="flex items-center gap-2">

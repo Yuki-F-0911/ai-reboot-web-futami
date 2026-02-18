@@ -46,6 +46,10 @@ async function copyTextToClipboard(text: string): Promise<void> {
 function getMarkdownFromHtml(title: string, htmlRoot: HTMLElement, turndown: TurndownService): string {
   const clonedRoot = htmlRoot.cloneNode(true) as HTMLElement
 
+  clonedRoot.querySelectorAll('[data-copy-exclude]').forEach((node) => {
+    node.remove()
+  })
+
   const firstHeading = clonedRoot.querySelector('h1')
   if (firstHeading?.textContent?.trim() === title.trim()) {
     firstHeading.remove()
