@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで39記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで40記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -183,6 +183,12 @@ const blogPosts: readonly BlogPost[] = [
     category: "法人向け",
   },
   {
+    slug: "ai-agent-deployment-checklist",
+    title: "AIエージェント導入チェックリスト｜権限・ログ・承認フローの作り方",
+    summary: "AIエージェントの安全な導入に必要な権限・ログ・承認フローの設計チェックリスト。",
+    category: "法人向け",
+  },
+  {
     slug: "ai-guideline-template",
     title: "生成AIの社内ガイドライン雛形｜禁止事項・権限・ログまで1枚で設計",
     summary:
@@ -261,6 +267,12 @@ const blogPosts: readonly BlogPost[] = [
     title: "社内AI研修の始め方と定着の進め方",
     summary:
       "社内AI研修の設計ステップ、外部研修との比較、定着施策と効果測定の進め方を整理した法人向け記事です。",
+    category: "法人向け",
+  },
+  {
+    slug: "ai-training-kpi",
+    title: "研修が\"やりっぱなし\"で終わる理由｜KPI設計と現場タスク化のコツ",
+    summary: "AI研修が定着しない原因とKPI設計方法。KPIシートテンプレート付き。",
     category: "法人向け",
   },
   {
