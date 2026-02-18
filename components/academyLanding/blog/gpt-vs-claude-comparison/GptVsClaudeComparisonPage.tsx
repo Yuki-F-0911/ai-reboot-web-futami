@@ -536,10 +536,10 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで「使い分け」を実務に落とす
+            AIリブートアカデミーで、AIの使い分けを「成果が出る運用」へ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            GPT-4とClaudeの比較は、結局「あなたの業務にどう組み込むか」で成果が決まります。AIリブートアカデミーでは、目的設定からプロンプトの型、運用ルールまで、実務で再現できる形に落とし込みます。
+            GPTとClaudeの比較は、結局「何の価値を出すか」を言語化する思考OSと、あなたの業務にどう組み込むかで成果が決まります。AIリブートアカデミーでは、目的設定から運用ルールまで、100日間の伴走で仲間と一緒に実務アウトプットへ落とし込みます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
