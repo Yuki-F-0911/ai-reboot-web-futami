@@ -32,7 +32,7 @@ const tocItems = [
   { id: "faq", label: "FAQ" },
   { id: "related-links", label: "関連リンク" },
   { id: "summary", label: "まとめ" },
-  { id: "cta", label: "CTA" },
+  { id: "cta", label: "社内統制の整備" },
 ] as const;
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
@@ -434,7 +434,7 @@ export default function ShadowAiCountermeasuresPage({ faqItems }: ShadowAiCounte
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            CTA
+            社内統制の整備を一緒に進めましょう
           </h2>
           <p className="mt-3 text-sm leading-7 text-gray-700">
             社内統制の叩き台づくり、研修、運用設計まで一気に進めたい方向けに、無料セミナーと相談窓口を用意しています。

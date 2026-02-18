@@ -33,7 +33,7 @@ const tocItems = [
   { id: "faq", label: "FAQ" },
   { id: "related-links", label: "関連リンク" },
   { id: "summary", label: "まとめ" },
-  { id: "cta", label: "CTA" },
+  { id: "cta", label: "導入の相談" },
 ] as const;
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
@@ -545,7 +545,7 @@ export default function WhatIsMcpPage({ faqItems }: WhatIsMcpPageProps) {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            CTA
+            AIエージェント導入のガバナンス設計を一緒に整えます
           </h2>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             MCPを含むAIエージェント導入は、技術だけでなくガバナンス設計が重要です。無料セミナーと相談窓口を用意しています。

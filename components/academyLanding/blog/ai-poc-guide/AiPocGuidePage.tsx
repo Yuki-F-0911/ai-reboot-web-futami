@@ -33,7 +33,7 @@ const tocItems = [
   { id: "faq", label: "FAQ" },
   { id: "related-links", label: "関連リンク" },
   { id: "summary", label: "まとめ" },
-  { id: "cta", label: "CTA" },
+  { id: "cta", label: "PoCの相談" },
 ] as const;
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
@@ -563,7 +563,7 @@ export default function AiPocGuidePage({ faqItems }: AiPocGuidePageProps) {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            CTA
+            PoCの設計から業務選定まで、一緒に進めます
           </h2>
           <p className="mt-3 text-sm leading-7 text-gray-700">
             PoCの設計（成功基準/KPI）、業務選定、ガイドライン整備までまとめて進めたい方向けに、無料セミナーと相談窓口を用意しています。

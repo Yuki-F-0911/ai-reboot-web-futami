@@ -34,7 +34,7 @@ const tocItems = [
   { id: "faq", label: "FAQ" },
   { id: "related-links", label: "関連リンク" },
   { id: "summary", label: "まとめ" },
-  { id: "cta", label: "CTA" },
+  { id: "cta", label: "社内ルール設計" },
 ] as const;
 
 const lineUrl = "https://bexn9pao.autosns.app/line";

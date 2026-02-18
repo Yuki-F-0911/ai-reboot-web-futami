@@ -31,7 +31,7 @@ const tocItems = [
   { id: "faq", label: "FAQ" },
   { id: "related-links", label: "関連リンク" },
   { id: "summary", label: "まとめ" },
-  { id: "cta", label: "CTA" },
+  { id: "cta", label: "ルール整備の相談" },
 ] as const;
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
@@ -376,7 +376,7 @@ export default function AiDataLeakPatternsPage({ faqItems }: AiDataLeakPatternsP
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            CTA
+            ルール整備・研修・導入設計まで一緒に整えます
           </h2>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             ルール整備・研修・導入設計までまとめて進めたい方向けに、無料セミナーと相談窓口を用意しています。

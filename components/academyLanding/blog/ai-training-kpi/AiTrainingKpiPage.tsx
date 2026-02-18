@@ -33,7 +33,7 @@ const tocItems = [
   { id: "faq", label: "FAQ" },
   { id: "related-links", label: "関連リンク" },
   { id: "summary", label: "まとめ" },
-  { id: "cta", label: "CTA" },
+  { id: "cta", label: "研修KPIの相談" },
 ] as const;
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
@@ -562,7 +562,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            CTA
+            研修設計・KPI設計・現場定着まで支援します
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             研修設計・KPI設計・現場定着までまとめて進めたい方向けに、無料セミナーとLINE相談の導線を用意しています。

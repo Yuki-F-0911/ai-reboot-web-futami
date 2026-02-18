@@ -31,7 +31,7 @@ const tocItems = [
   { id: "free-vs-paid", label: "無料と有料の違い" },
   { id: "use-cases", label: "活用シーン5選" },
   { id: "faq", label: "よくある質問（FAQ）" },
-  { id: "academy-cta", label: "次に学ぶ（CTA）" },
+  { id: "academy-cta", label: "次に学ぶ" },
   { id: "related-links", label: "関連リンク" },
 ] as const;
 
