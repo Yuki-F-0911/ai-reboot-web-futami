@@ -62,6 +62,7 @@ const blogPosts: readonly BlogPost[] = [
     title: "文系・非エンジニアのAI活用ガイド",
     summary: "AIが怖いと感じる理由を整理し、プログラミング不要で始める学習と実務活用の進め方を解説します。",
     category: "AI基礎知識",
+    thumbnail: "/images/blog/ai-for-non-engineers/slide-01.png",
   },
   {
     slug: "ai-coding-for-beginners",

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
@@ -154,6 +155,16 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           </p>
         </motion.header>
 
+        <figure className="my-8">
+          <Image
+            src="/images/blog/ai-for-non-engineers/slide-01.png"
+            alt="文系・非エンジニアのためのAI活用ガイド - タイトル"
+            width={800}
+            height={450}
+            className="rounded-lg"
+          />
+        </figure>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section
@@ -194,6 +205,15 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 不安を減らすには、原因を分解して「事実で確認できるもの」と「運用で対処できるもの」に分けるのが有効です。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-for-non-engineers/slide-02.png"
+              alt="なぜAIが怖いと感じるのか？ - 未知・役割変化・誤情報"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 space-y-4">
             {fearStructureItems.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -202,6 +222,15 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
               </section>
             ))}
           </div>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-for-non-engineers/slide-03.png"
+              alt="曖昧な不安を対処できる課題へ"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -218,6 +247,15 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <p className="mt-5 text-base leading-8 text-gray-700">
             結論: 最初は「文章」「情報整理」など、入出力が見えやすい業務から始めるのが安全です。成果が見える領域を選ぶほど、改善サイクルが回りやすくなります。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-for-non-engineers/slide-04.png"
+              alt="プログラミングではなく文脈を操る - ベン図"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {fitAreas.map((item) => (
               <section key={item.area} className="rounded-lg border border-gray-200 p-5">
@@ -227,6 +265,24 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
               </section>
             ))}
           </div>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-for-non-engineers/slide-05.png"
+              alt="おすすめ活用領域①：文章作成・編集"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-for-non-engineers/slide-06.png"
+              alt="おすすめ活用領域②：情報整理・アイデア出し"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -243,6 +299,15 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <p className="mt-5 text-base leading-8 text-gray-700">
             結論: 「目的を1つに絞る → テンプレ化 → 検証」の順で進めると挫折しにくくなります。テンプレや素材はClaudeのProjectsなどに集約すると、再利用しやすくなります。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-for-non-engineers/slide-07.png"
+              alt="挫折しない4ステップ学習サイクル"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 space-y-4">
             {learningSteps.map((step) => (
               <section key={step.title} className="rounded-lg border border-gray-200 p-5">
@@ -267,6 +332,15 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 不安は「誤解」が混ざると増幅します。誤解を事実に戻し、運用でコントロールできる形に整理しましょう。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-for-non-engineers/slide-08.png"
+              alt="よくある誤解と事実 - Myth vs Fact"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -285,6 +359,15 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
               </tbody>
             </table>
           </div>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-for-non-engineers/slide-09.png"
+              alt="最後に残るのは人の判断"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -430,6 +513,17 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
           </p>
+          <figure className="my-8">
+            <Link href="/academy/seminars">
+              <Image
+                src="/images/blog/ai-for-non-engineers/slide-10.png"
+                alt="まずは1つの業務から始めましょう - 無料セミナーに参加する"
+                width={800}
+                height={450}
+                className="rounded-lg"
+              />
+            </Link>
+          </figure>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy/seminars"
