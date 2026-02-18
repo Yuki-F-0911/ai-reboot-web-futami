@@ -425,7 +425,25 @@ export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">RAGは「検索で根拠を取り出し、その根拠を参照して回答を生成する」方式で、文書参照が多い業務と相性が良いです。</li>
+            <li className="pl-1 marker:text-gray-500">成果は検索品質とデータ整備に強く依存します。正本管理、権限、ログ、評価を先に設計するのが近道です。</li>
+            <li className="pl-1 marker:text-gray-500">最初は「参照中心（根拠提示）」のユースケースから始め、運用が固まってから生成（下書き）へ拡張すると安全です。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"

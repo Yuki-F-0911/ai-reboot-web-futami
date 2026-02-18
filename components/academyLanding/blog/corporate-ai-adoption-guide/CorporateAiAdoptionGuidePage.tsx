@@ -466,7 +466,57 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
             </Link>
           </div>
         </motion.section>
-      </article>
+      
+        
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">成果が出る企業は「業務を1つに絞る小規模PoC」から始めています。</li>
+            <li className="pl-1 marker:text-gray-500">最初の2〜3か月で効果測定まで回し、成功パターンを部門展開する進め方が安全です。</li>
+            <li className="pl-1 marker:text-gray-500">成功の鍵は、全社一斉ではなく段階導入です。</li>
+            <li className="pl-1 marker:text-gray-500">最初は無料ツールで「効果検証」、次に有料SaaSで「管理・監査」を整える流れが現実的です。</li>
+            <li className="pl-1 marker:text-gray-500">部門ごとに期待効果が違うため、同じ使い方を横展開すると失敗しがちです。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

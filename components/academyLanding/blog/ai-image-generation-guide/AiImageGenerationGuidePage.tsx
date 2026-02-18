@@ -459,7 +459,27 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">まずは目的（何の素材を作るか）を決めると、ツール選びとプロンプトがブレにくくなります。</li>
+            <li className="pl-1 marker:text-gray-500">Google Gemini（画像生成）は日本語で始めやすく、まず試したい人向きです（「Nano Banana（Pro）」と呼ばれることもあります）。</li>
+            <li className="pl-1 marker:text-gray-500">Midjourneyは高品質なアート表現に強く、世界観づくりに向きます（Discord/公式UI）。</li>
+            <li className="pl-1 marker:text-gray-500">ChatGPT（画像生成）は会話の流れで修正しやすく、文章作成と相性が良い傾向です。</li>
+            <li className="pl-1 marker:text-gray-500">商用利用は規約・著作権・商標・肖像権の確認が必須です。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -467,7 +487,7 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             次に画像生成を業務に組み込みたい方へ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">

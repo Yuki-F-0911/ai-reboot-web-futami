@@ -392,7 +392,56 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             </a>
           </div>
         </motion.section>
-      </article>
+      
+        
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">Geminiは、文章生成や要約などを自然文で依頼できるGoogleの生成AIの一つです。</li>
+            <li className="pl-1 marker:text-gray-500">どれが正解というより「あなたの業務タスク」と「利用環境」に合うかで選ぶのが正解です。</li>
+            <li className="pl-1 marker:text-gray-500">初心者は「Googleアカウントで触る → 1タスクで試す → 型を作る → 必要なら上位プラン検討」の順に進めると迷いません。</li>
+            <li className="pl-1 marker:text-gray-500">生成AIは「考える時間」を増やすために、前処理（要約・整理・下書き）を肩代わりさせるのが最も効果的です。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

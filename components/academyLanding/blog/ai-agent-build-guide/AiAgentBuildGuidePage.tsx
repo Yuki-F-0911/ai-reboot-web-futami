@@ -511,7 +511,25 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">AIエージェントは、目標達成に向けて「計画→実行→観察→修正」を反復するAIシステムです。</li>
+            <li className="pl-1 marker:text-gray-500">開発は「目的定義 → ツール選定 → プロンプト設計 → テスト → 運用」の5ステップで進めると迷いにくくなります。</li>
+            <li className="pl-1 marker:text-gray-500">成否は実装よりも「安全性（権限と境界）」「コスト上限」「ログ設計」で決まります。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"

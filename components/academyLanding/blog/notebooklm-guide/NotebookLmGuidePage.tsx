@@ -446,7 +446,27 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">NotebookLMは「自分の資料を前提にして学ぶ/整理する」ためのAIツールです。</li>
+            <li className="pl-1 marker:text-gray-500">まず「ノートブックを作り、少数の信頼できるソースを入れる」だけで始められます。</li>
+            <li className="pl-1 marker:text-gray-500">NotebookLMは「ソースを入れてから質問する」順番を守ると成果が安定します。</li>
+            <li className="pl-1 marker:text-gray-500">NotebookLMは「資料がある」業務・学習で真価が出ます。</li>
+            <li className="pl-1 marker:text-gray-500">音声概要は「復習の入口」を作るのに向いています。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"

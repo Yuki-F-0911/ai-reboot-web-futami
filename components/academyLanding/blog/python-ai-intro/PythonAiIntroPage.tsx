@@ -564,7 +564,25 @@ export default function PythonAiIntroPage({ faqItems }: PythonAiIntroPageProps) 
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">生成AIの学習全体の進め方も合わせて知りたい方は 社会人のための生成AI学習ロードマップ も参考になります。</li>
+            <li className="pl-1 marker:text-gray-500">生成AIの実務は「API連携」か「RAG」が入口で、Pythonは周辺ライブラリが揃っているため実装と検証を回しやすいです。</li>
+            <li className="pl-1 marker:text-gray-500">要点まとめ（結論）のポイントを振り返る。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"

@@ -372,40 +372,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           </dl>
         </motion.section>
 
-        <motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="academy-cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            次に学ぶ：スマホからでも実務に繋げる
-          </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            結論: スマホで使い方に慣れたら、次は「プロンプトの型」と「学習ロードマップ」を押さえると、実務での再現性が上がります。まずは{" "}
-            <Link href="/academy/blog/how-to-learn-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              生成AI学習ロードマップ
-            </Link>{" "}
-            を読み、続けてアカデミー全体像を確認するのがおすすめです。
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/academy"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
-            >
-              AIリブートアカデミーを見る
-            </Link>
-            <Link
-              href="/academy/blog"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
-            >
-              他の記事も読む
-            </Link>
-          </div>
-        </motion.section>
-
+        
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
           <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
             関連リンク
@@ -463,6 +430,59 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             </li>
           </ul>
         </section>
+
+<motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">iPhone/Androidともに、アプリストアで公式アプリを選び、アカウント作成（またはログイン）→初期設定の順で始めます。</li>
+            <li className="pl-1 marker:text-gray-500">初期設定は「通知」「音声（マイク権限）」「履歴/プライバシー」を最優先で確認すると安全です。</li>
+            <li className="pl-1 marker:text-gray-500">スマホは音声入力やカメラ連携で時短しやすいので、短い質問→追質問で精度を上げる使い方が相性良いです。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次に学ぶ：スマホからでも実務に繋げる
+          </h2>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            結論: スマホで使い方に慣れたら、次は「プロンプトの型」と「学習ロードマップ」を押さえると、実務での再現性が上がります。まずは{" "}
+            <Link href="/academy/blog/how-to-learn-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              生成AI学習ロードマップ
+            </Link>{" "}
+            を読み、続けてアカデミー全体像を確認するのがおすすめです。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              AIリブートアカデミーを見る
+            </Link>
+            <Link
+              href="/academy/blog"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              他の記事も読む
+            </Link>
+          </div>
+        </motion.section>
+
+        
       </article>
     </main>
   );

@@ -355,7 +355,25 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">生成AIは、正しい順序で学べば100日で実務レベルに到達可能です。</li>
+            <li className="pl-1 marker:text-gray-500">ツールを増やすより、1つの業務を確実に改善できる使い方を段階的に増やすのが近道です。</li>
+            <li className="pl-1 marker:text-gray-500">「学習→試す→振り返る」を短いサイクルで回し、成果物（議事録テンプレ、営業メール、分析メモなど）を残すと、継続しやすくなります。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -363,7 +381,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             次の一歩を決めたい方へ
           </h2>
           <p className="mt-5 text-base font-medium text-gray-900">

@@ -436,7 +436,55 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             </a>
           </div>
         </motion.section>
-      </article>
+      
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">AI講座ランキングは、カリキュラム・実務接続・サポート・コスパ・受講者評価の5軸で比較するのが実践的です。</li>
+            <li className="pl-1 marker:text-gray-500">転職、副業、業務効率化では最適な講座タイプが異なるため、目的を先に固定してから選ぶ必要があります。</li>
+            <li className="pl-1 marker:text-gray-500">失敗を防ぐ鍵は、受講前に補助金条件・受講形式・受講後の実務適用計画を確認することです。</li>
+          </ul>
+        </motion.section>
+
+        <motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

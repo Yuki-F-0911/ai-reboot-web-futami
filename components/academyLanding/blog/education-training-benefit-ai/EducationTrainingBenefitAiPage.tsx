@@ -152,32 +152,7 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
 
         <ArticleTOC items={tocItems} />
 
-        <motion.section
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            要点まとめ
-          </h2>
-          <p className="mt-5 text-base font-medium text-gray-900">
-            最初に「講座が指定講座か」「自分が要件を満たすか」を確認し、次に制度の住み分けと実質負担で比較すると迷いが減ります。
-          </p>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">
-              教育訓練給付金には3種類があり、AI講座で活用できるかは講座指定と受給要件の確認が前提です。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              リスキリング補助金とは制度設計が異なるため、申請主体と要件を分けて確認する必要があります。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              給付率や上限額などの詳細条件は年度や制度改定で変わる可能性があるため、必ず最新の公的情報で確認してください。
-            </li>
-          </ul>
-        </motion.section>
+        
 
         <motion.section
           className="mt-14"
@@ -387,6 +362,33 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
         </section>
 
         <motion.section
+          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            要点まとめ
+          </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            最初に「講座が指定講座か」「自分が要件を満たすか」を確認し、次に制度の住み分けと実質負担で比較すると迷いが減ります。
+          </p>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">
+              教育訓練給付金には3種類があり、AI講座で活用できるかは講座指定と受給要件の確認が前提です。
+            </li>
+            <li className="pl-1 marker:text-gray-500">
+              リスキリング補助金とは制度設計が異なるため、申請主体と要件を分けて確認する必要があります。
+            </li>
+            <li className="pl-1 marker:text-gray-500">
+              給付率や上限額などの詳細条件は年度や制度改定で変わる可能性があるため、必ず最新の公的情報で確認してください。
+            </li>
+          </ul>
+        </motion.section>
+
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -394,7 +396,7 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             制度活用を含めて講座選定したい方へ
           </h2>
           <p className="mt-5 text-base font-medium text-gray-900">

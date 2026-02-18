@@ -152,29 +152,7 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
 
         <ArticleTOC items={tocItems} />
 
-        <motion.section
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            要点まとめ
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">
-              40代・50代のAIリスキリングは、年齢よりも「既存経験をどうAI活用へ接続するか」で成果が決まります。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              40代は役割拡張、50代は経験知の体系化というように、目標に合わせて学習設計を変えると進みやすくなります。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              独学で挫折しやすい場面は事前に予防できるため、学習手段ごとの特徴を理解して継続可能な方法を選ぶことが重要です。
-            </li>
-          </ul>
-        </motion.section>
+        
 
         <motion.section
           className="mt-14"
@@ -376,6 +354,30 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
         </section>
 
         <motion.section
+          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            要点まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">
+              40代・50代のAIリスキリングは、年齢よりも「既存経験をどうAI活用へ接続するか」で成果が決まります。
+            </li>
+            <li className="pl-1 marker:text-gray-500">
+              40代は役割拡張、50代は経験知の体系化というように、目標に合わせて学習設計を変えると進みやすくなります。
+            </li>
+            <li className="pl-1 marker:text-gray-500">
+              独学で挫折しやすい場面は事前に予防できるため、学習手段ごとの特徴を理解して継続可能な方法を選ぶことが重要です。
+            </li>
+          </ul>
+        </motion.section>
+
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -383,7 +385,7 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学び直しを具体化したい方へ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">

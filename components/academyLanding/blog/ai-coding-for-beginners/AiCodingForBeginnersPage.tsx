@@ -486,7 +486,27 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">AIコーディングは、目的と条件を日本語で指定してコードの叩き台を作り、検証と修正を反復して完成度を上げる進め方です。</li>
+            <li className="pl-1 marker:text-gray-500">初心者はまず「チャット型」で理解と方針を固め、次に「エディタ統合」で速度を上げる順序が取り組みやすいです。</li>
+            <li className="pl-1 marker:text-gray-500">非エンジニアは「影響範囲が小さく、成果が見えやすい作業」をAIで自動化すると、学びが実務につながりやすいです。</li>
+            <li className="pl-1 marker:text-gray-500">5ステップで「小さく作る→動かす→テスト/レビューで固定」を回すと、最短で実務に乗ります。</li>
+            <li className="pl-1 marker:text-gray-500">プロンプトは「目的/前提/要件/出力形式」を先に固定すると、コードのブレが減ります。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"

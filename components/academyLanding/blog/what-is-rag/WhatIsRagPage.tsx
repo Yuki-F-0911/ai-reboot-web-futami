@@ -567,7 +567,25 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">RAGは、検索で根拠を取り出し、その情報を参照しながらLLMが回答を生成するアーキテクチャです。</li>
+            <li className="pl-1 marker:text-gray-500">効果は「検索品質」と「データ整備」に強く依存するため、運用設計（権限・更新・ログ）が成功の鍵になります。</li>
+            <li className="pl-1 marker:text-gray-500">知識の更新が頻繁な領域ではRAGが有利で、文章トーンや手順の型を固定したい場合はファインチューニングが有利になり得ます。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"

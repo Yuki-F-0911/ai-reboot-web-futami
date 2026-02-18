@@ -314,7 +314,27 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">キャリア転換は「ツール名」ではなく「目的→試作→検証→運用」の順序が成果を左右します。</li>
+            <li className="pl-1 marker:text-gray-500">キャリア転換は「役割（仕事の任され方）」が変わると加速します。</li>
+            <li className="pl-1 marker:text-gray-500">学習量より「実務課題に紐づくアウトプット」と「振り返り」が重要です。</li>
+            <li className="pl-1 marker:text-gray-500">「未経験でもできるか」「学習期間はどれくらいか」で迷いやすいポイントをQ&Aで整理します。</li>
+            <li className="pl-1 marker:text-gray-500">焦って学習範囲を広げるより、現実的に実行できる一歩を決めるのが近道です。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -322,7 +342,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="next-career-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             キャリアチェンジを具体化したい方へ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">

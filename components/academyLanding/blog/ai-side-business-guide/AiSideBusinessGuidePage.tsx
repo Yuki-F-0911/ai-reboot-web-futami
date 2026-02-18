@@ -368,7 +368,27 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">副業でAIを活用する際は、まず対象領域を絞り、成果物の品質を担保できる運用を作ることが重要です。</li>
+            <li className="pl-1 marker:text-gray-500">一般的には、学習と小規模実績の蓄積を並行するほど、 継続案件へつながりやすい傾向があります。</li>
+            <li className="pl-1 marker:text-gray-500">最初は「自分の経験に近い領域」から始めるのが安全です。</li>
+            <li className="pl-1 marker:text-gray-500">学習を長期化させないために、最初から「実務化」を前提に段階を区切りましょう。</li>
+            <li className="pl-1 marker:text-gray-500">必要スキルは「AI操作」よりも、納品品質を担保するための業務スキル（前提整理・修正対応・例外処理）で決まります。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -376,7 +396,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="next-career-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             副業の第一歩を具体化したい方へ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">

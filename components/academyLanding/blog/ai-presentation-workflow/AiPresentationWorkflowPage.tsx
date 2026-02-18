@@ -461,53 +461,7 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           </dl>
         </motion.section>
 
-        <motion.section
-          className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            プロンプト設計を体系的に学ぶなら
-          </h2>
-          <p className="mt-5 text-base font-medium text-gray-900">
-            ツール名より「入力の設計（前提・制約・出力形式）」で成果が決まります。AIリブートアカデミーでは、業務別テンプレートの作り方と再現性のあるプロンプト設計を体系的に学べます。
-          </p>
-          <ul className="mt-6 space-y-2 text-sm leading-7 text-gray-700">
-            <li>
-              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AIリブートアカデミーを見る
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/academy/blog/prompt-template-for-work"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                仕事で使えるプロンプトテンプレート集を読む
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/academy/blog/ai-business-efficiency-cases"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                AI業務効率化事例集を読む
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/academy/blog/how-to-learn-generative-ai"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                生成AI学習ロードマップを読む
-              </Link>
-            </li>
-          </ul>
-        </motion.section>
-
+        
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
           <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
             関連リンク
@@ -566,6 +520,73 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
             監修: AIリブートアカデミー 編集部 / 最終更新日: 2026年2月18日
           </p>
         </section>
+
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">まずはアウトラインをAIで作り、各スライドの主張（Key Message）を固定します。</li>
+            <li className="pl-1 marker:text-gray-500">次に、スライド本文と話す原稿（Speaker notes）を分けて生成すると情報量が整います。</li>
+            <li className="pl-1 marker:text-gray-500">デザインはAIツールで叩き台を作り、最終的にPowerPoint / Google Slidesで整えます。</li>
+            <li className="pl-1 marker:text-gray-500">推敲はAIにチェックさせつつ、数値・固有名詞・条件は人が最終確認します。</li>
+          </ul>
+        </motion.section>
+
+        <motion.section
+          className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            プロンプト設計を体系的に学ぶなら
+          </h2>
+          <p className="mt-5 text-base font-medium text-gray-900">
+            ツール名より「入力の設計（前提・制約・出力形式）」で成果が決まります。AIリブートアカデミーでは、業務別テンプレートの作り方と再現性のあるプロンプト設計を体系的に学べます。
+          </p>
+          <ul className="mt-6 space-y-2 text-sm leading-7 text-gray-700">
+            <li>
+              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIリブートアカデミーを見る
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/prompt-template-for-work"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                仕事で使えるプロンプトテンプレート集を読む
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-business-efficiency-cases"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI業務効率化事例集を読む
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/how-to-learn-generative-ai"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                生成AI学習ロードマップを読む
+              </Link>
+            </li>
+          </ul>
+        </motion.section>
+
       </article>
     </main>
   );

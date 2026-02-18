@@ -515,7 +515,25 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">マルチモーダルAIは、テキスト・画像・音声など複数の入力を統合して理解・生成するAIで、業務データの“現実の形”に近い入力を扱えます。</li>
+            <li className="pl-1 marker:text-gray-500">効果が出やすいのは「画像分析×テキスト生成」「音声→議事録」「動画要約」など、情報の行き来が多い仕事です。</li>
+            <li className="pl-1 marker:text-gray-500">導入は無料トライアル→限定業務で運用→ガバナンス整備の順で、小さく始めると失敗しにくくなります。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -523,7 +541,7 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="academy-cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIリブートアカデミーで「使える活用」まで落とし込む
           </h2>
           <p className="mt-5 text-base font-medium text-gray-900">

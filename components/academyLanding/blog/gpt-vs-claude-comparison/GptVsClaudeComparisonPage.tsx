@@ -499,7 +499,26 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">比較は「文章/コード/分析/要約/創造性」の5軸で見ると、得意不得意が整理しやすいです。</li>
+            <li className="pl-1 marker:text-gray-500">料金は「個人（サブスク）」と「API（従量）」で考え方が違うため、用途別に評価します。</li>
+            <li className="pl-1 marker:text-gray-500">実務では、工程で切り替える併用（下書き→推敲、実装→レビュー）が最も成果につながりやすいです。</li>
+            <li className="pl-1 marker:text-gray-500">最終判断は、同じ短い仕様メモ（目的/入力例/出力形式）で両方を試し、「再現性」と「修正への追従」をチェックするのが確実です。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
