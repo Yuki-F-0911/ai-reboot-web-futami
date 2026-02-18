@@ -540,16 +540,16 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            次のアクション：AIリブートアカデミーで体系的に学ぶ
-          </h2>
-          <p className="mt-5 text-base font-medium text-gray-900">
-            人事・採用でAIを定着させるには、プロンプトの型、運用ルール、効果測定をセットで整えることが重要です。
-          </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            体系的に学びたい方は、アカデミーで全体像を確認できます。採用・人事のユースケースに合わせて、手戻りしない進め方を一緒に設計します。
-          </p>
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            次のアクション：AIリブートアカデミーで、採用を「運用」と「価値」へつなげる
+	          </h2>
+	          <p className="mt-5 text-base font-medium text-gray-900">
+	            人事・採用でAIを定着させるには、プロンプトの型、運用ルール、効果測定をセットで整えることが重要です。
+	          </p>
+	          <p className="mt-4 text-base leading-8 text-gray-700">
+	            ツールの使い方だけで終わらせず、「自分（チーム）の強みをどう伸ばすか」まで含めて設計したい方は、アカデミーで全体像を確認できます。採用・人事のユースケースに合わせて、100日間の伴走で手戻りしない進め方を一緒に設計します。
+	          </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"

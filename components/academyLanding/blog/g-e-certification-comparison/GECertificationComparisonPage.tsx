@@ -360,10 +360,11 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで「学習計画」を実務に接続する
+            AIリブートアカデミーで、資格学習を「キャリアの武器」へつなげる
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            資格はゴールではなく、業務で成果を出すための手段です。AIリブートアカデミーでは、学習ロードマップと実務活用をつなぎ、学んだ内容を仕事で再現できる形に落とし込みます。
+            資格はゴールではなく、「生成AI活用力」を実務で再現できる形に落とし込み、AIを鏡に自己理解を深めながらキャリアを再設計するための手段です。
+            AIリブートアカデミーでは、学習ロードマップを実務アウトプットとキャリアデザインにつなぎ、仲間との対話・協働で変化を加速させます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

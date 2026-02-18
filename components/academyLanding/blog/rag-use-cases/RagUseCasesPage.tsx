@@ -459,13 +459,13 @@ export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで学ぶ（体系化して実務へつなげる）
-          </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            RAGは「ユースケース選定」「データ整備」「評価」「運用」まで含めて設計すると成果が出やすくなります。学習から実務適用までを体系的に進めたい方は、アカデミーの案内もご覧ください。
-          </p>
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            AIリブートアカデミーで学ぶ（RAGを「成果が出る運用」へ）
+	          </h2>
+	          <p className="mt-4 text-base leading-8 text-gray-700">
+	            RAGは設計だけでなく、「何の価値を出すか」を言語化する思考OSと、運用・改善まで含めて考えると成果が出やすくなります。AIスキルだけで終わらせず、100日間の伴走で仲間と一緒に実務アウトプットへ落とし込みたい方は、アカデミーの案内もご覧ください。
+	          </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"

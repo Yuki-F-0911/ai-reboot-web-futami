@@ -598,16 +598,16 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで、AIを「実務で使える型」へ
-          </h2>
-          <p className="mt-4 text-base font-medium leading-8 text-gray-900">
-            結論: 成果を分けるのはツール名よりも「入力の設計（前提・制約・出力形式）」「レビュー手順」「小さく回す運用」です。
-          </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            体系的に学び、実務へつなげたい方はアカデミーの講座一覧をご覧ください。
-          </p>
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            AIリブートアカデミーで、AIを「実務で使える型」＋キャリアの武器へ
+	          </h2>
+	          <p className="mt-4 text-base font-medium leading-8 text-gray-900">
+	            結論: 成果を分けるのはツール名よりも「入力の設計（前提・制約・出力形式）」「レビュー手順」「小さく回す運用」です。
+	          </p>
+	          <p className="mt-4 text-base leading-8 text-gray-700">
+	            型を覚えるだけで終わらせず、「自分の強みをどう伸ばすか」まで整理しながら100日間の伴走で実務に定着させたい方は、アカデミーの講座一覧をご覧ください。
+	          </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"

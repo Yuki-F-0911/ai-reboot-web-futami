@@ -578,16 +578,16 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで「使える活用」まで落とし込む
-          </h2>
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            AIリブートアカデミーで「使える活用」まで落とし込む
+	          </h2>
           <p className="mt-5 text-base font-medium text-gray-900">
             マルチモーダルAIは、試して終わりではなく「入力ルール」「確認ポイント」「評価指標」を決めて運用に落とすことで成果が出ます。
           </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            AIリブートアカデミーでは、非エンジニアでも実務に接続できる学び方と、社内展開の進め方を体系的に整理できます。
-          </p>
+	          <p className="mt-4 text-base leading-8 text-gray-700">
+	            AIリブートアカデミーでは、非エンジニアでも実務に接続できる学び方に加えて、100日間の伴走で仲間と一緒に社内展開まで走り切れる環境があります。
+	          </p>
           <figure className="my-8">
             <Link href="/academy/seminars">
               <Image src="/images/blog/multimodal-ai-intro/slide-10.png" alt="マルチモーダルAI活用を始める" width={800} height={450} className="rounded-lg" />

@@ -574,14 +574,14 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで「実務で動く」エージェント設計を学ぶ
-          </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            AIエージェントは作るだけではなく、業務に合わせた境界設計・運用・改善が成果の差になります。AIリブートアカデミーでは、実務に直結する
-            ユースケースから、設計と改善サイクルまで体系的に学べます。
-          </p>
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            AIリブートアカデミーで、AIエージェントを「実務で回る仕組み」へ
+	          </h2>
+	          <p className="mt-4 text-base leading-8 text-gray-700">
+	            AIエージェントは作るだけではなく、「何の価値を出すか（思考OS）」まで含めた目的設計と、境界設計・運用・改善までが成果を分けます。
+	            AIリブートアカデミーでは、2日間の集中研修＋100日間の伴走で、仲間と一緒に実務アウトプットまで落とし込みます。
+	          </p>
           <figure className="my-8">
             <Link href="/academy">
               <Image src="/images/blog/ai-agent-build-guide/slide-10.png" alt="AIリブートアカデミーで体系的に学ぶ" width={800} height={450} className="rounded-lg" />

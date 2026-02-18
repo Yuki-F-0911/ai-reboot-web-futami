@@ -472,23 +472,24 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
             <li className="pl-1 marker:text-gray-500">音声概要は「復習の入口」を作るのに向いています。</li>
           </ul>
         </motion.section>
-<motion.section
+
+        <motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで、情報整理を「学びの型」へ定着させる
-          </h2>
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            AIリブートアカデミーで、情報整理を「学びの型」へ定着させる
+	          </h2>
           <p className="mt-4 text-base font-medium leading-8 text-gray-900">
             結論: NotebookLMを「触って終わり」にせず、業務の情報整理・学習の型として定着させるには、対象業務と資料体系に合わせた運用設計が重要です。
           </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            無料セミナーで全体像を整理し、必要なら個別相談や100日間の伴走で、仲間と一緒にあなたの業務に合う運用とアウトプットまで形にできます。
-          </p>
+	          <p className="mt-4 text-base leading-8 text-gray-700">
+	            無料セミナーで全体像を整理し、必要なら個別相談や100日間の伴走で、仲間と一緒にあなたの業務に合う運用とアウトプットまで形にできます。
+	          </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy/seminars"

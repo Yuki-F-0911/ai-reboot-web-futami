@@ -594,7 +594,8 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
             <li className="pl-1 marker:text-gray-500">知識の更新が頻繁な領域ではRAGが有利で、文章トーンや手順の型を固定したい場合はファインチューニングが有利になり得ます。</li>
           </ul>
         </motion.section>
-<motion.section
+
+        <motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -603,10 +604,10 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで学ぶ（体系化して実務へつなげる）
+            AIリブートアカデミーで学ぶ（RAGを「成果が出る運用」へ）
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            RAGは「検索」「データ整備」「評価」「運用」の設計まで含めて考えると、成果が出やすくなります。AIを体系的に学び、実務に落とし込む全体像を整理したい方はアカデミーの案内もご覧ください。
+            RAGは設計だけでなく、「何の価値を出すか」を言語化する思考OSと、運用・改善まで含めて考えると成果が出やすくなります。生成AI活用力だけで終わらせず、AIを鏡に自己理解・キャリアデザインを深め、100日間の伴走で仲間と一緒に実務アウトプットへ落とし込みたい方は、アカデミーの案内もご覧ください。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

@@ -611,9 +611,9 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 個人で完結させず、チームで「テンプレ・レビュー観点・禁止事項」を共通化すると効果が最大化します。
           </p>
-          <p className="mt-4 text-sm leading-7 text-gray-700">
-            アカデミーでは業務別テンプレートの設計、評価観点の作り方、社内展開まで実務ベースで学べます。
-          </p>
+	          <p className="mt-4 text-sm leading-7 text-gray-700">
+	            アカデミーではテンプレート設計に加えて、「自分の価値×AI」を伸ばす視点と、仲間と伴走しながら社内展開まで走り切る進め方を実務ベースで学べます。
+	          </p>
           <ul className="mt-6 space-y-2 text-sm leading-7 text-gray-700">
             <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">

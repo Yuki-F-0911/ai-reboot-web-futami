@@ -668,17 +668,17 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            次のアクション：実務に落とし込みたい方へ
-          </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: ツールの知識より「問いの立て方」「検算の型」「テンプレ化」で成果が出ます。体系的に学ぶなら
-            <Link href="/academy" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              AIリブートアカデミー
-            </Link>
-            で実務フローに合わせて整理できます。
-          </p>
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            次のアクション：実務に落とし込みたい方へ
+	          </h2>
+	          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+	            結論: ツールの知識より「何を判断したいか」を言語化する思考OSで成果が出ます。仲間と100日間の伴走で、あなたの業務データを使った実務アウトプットまで落とし込むなら
+	            <Link href="/academy" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+	              AIリブートアカデミー
+	            </Link>
+	            で実務フローに合わせて整理できます。
+	          </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"

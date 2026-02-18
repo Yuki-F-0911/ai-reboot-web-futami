@@ -623,13 +623,13 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            プロンプト設計を体系的に学ぶなら
-          </h2>
-          <p className="mt-5 text-base font-medium text-gray-900">
-            ツール名より「入力の設計（前提・制約・出力形式）」で成果が決まります。AIリブートアカデミーでは、業務別テンプレートの作り方と再現性のあるプロンプト設計を体系的に学べます。
-          </p>
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            AIリブートアカデミーで、資料作成を「再現できる仕事の型」へ
+	          </h2>
+	          <p className="mt-5 text-base font-medium text-gray-900">
+	            ツール名より「何を伝えて、相手にどう動いてほしいか」を言語化する思考OSで成果が決まります。AIリブートアカデミーでは、2日間の集中研修＋100日間の伴走で、仲間と一緒に資料作成を実務アウトプットへ落とし込みます。
+	          </p>
           <ul className="mt-6 space-y-2 text-sm leading-7 text-gray-700">
             <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">

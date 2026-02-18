@@ -698,13 +698,13 @@ export default function PythonAiIntroPage({ faqItems }: PythonAiIntroPageProps) 
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで、Python×AIを「実務で使える型」へ
-          </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            AI開発は、ライブラリ名よりも「目的の言語化」「検証の回し方」「品質の確認」が成果を分けます。体系的に学び、実務へつなげたい方はアカデミーの講座一覧をご覧ください。
-          </p>
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            AIリブートアカデミーで、Python×AIを「実務で使える型」＋キャリアの武器へ
+	          </h2>
+	          <p className="mt-4 text-base leading-8 text-gray-700">
+	            AI開発は、ライブラリ名よりも「何の価値を出すか」を言語化する思考OSと、「検証→改善」を回す運用が成果を分けます。型の習得だけでなく、自分の強みをどう伸ばすかまで整理しながら100日間の伴走で実務に定着させたい方は、アカデミーの講座一覧をご覧ください。
+	          </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"

@@ -401,7 +401,8 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           </ul>
           <h3 className="mt-8 text-xl font-semibold text-gray-900">スクールを活用する場合</h3>
           <p className="mt-4 text-sm leading-7 text-gray-700">
-            AIリブートアカデミーは資格取得特化ではなく、現場で使える実務活用力を伸ばす設計です。資格学習で得た知識を実務成果へ変える補助線として使うと効果的です。
+            AIリブートアカデミーは資格取得のためのスクールではなく、学びを「自分の価値×AI」で実務アウトプットとキャリア再構築につなげる設計です。
+            資格学習で得た知識も、Will（やりたいこと）と結びつけて現場で再現できる形に落とし込み、仲間との対話・協働で学習を加速させると効果的です。
           </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {schoolBenefits.map((benefit) => (
