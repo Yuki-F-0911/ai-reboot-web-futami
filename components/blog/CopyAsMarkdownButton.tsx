@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Check, Copy } from 'lucide-react'
 import TurndownService from 'turndown'
 import { gfm } from 'turndown-plugin-gfm'
@@ -61,6 +61,14 @@ function getMarkdownFromHtml(title: string, htmlRoot: HTMLElement, turndown: Tur
 export default function CopyAsMarkdownButton({ title, sourceSelector }: CopyAsMarkdownButtonProps) {
   const [status, setStatus] = useState<CopyStatus>('idle')
   const resetTimerRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current) {
+        window.clearTimeout(resetTimerRef.current)
+      }
+    }
+  }, [])
 
   const turndown = useMemo(() => {
     const service = new TurndownService({
@@ -143,7 +151,7 @@ export default function CopyAsMarkdownButton({ title, sourceSelector }: CopyAsMa
     <button
       type="button"
       onClick={handleCopy}
-      className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-200 bg-white/80 px-4 py-2 text-sm font-medium text-gray-700 shadow-sm backdrop-blur transition hover:bg-white hover:text-gray-900 hover:shadow md:w-auto"
+      className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-200 bg-white/80 px-4 py-2 text-sm font-medium text-gray-700 shadow-sm backdrop-blur transition hover:bg-white hover:text-gray-900 hover:shadow sm:w-auto"
       aria-label="記事本文をマークダウンでコピー"
       data-copy-exclude
     >
@@ -156,4 +164,3 @@ export default function CopyAsMarkdownButton({ title, sourceSelector }: CopyAsMa
     </button>
   )
 }
-
