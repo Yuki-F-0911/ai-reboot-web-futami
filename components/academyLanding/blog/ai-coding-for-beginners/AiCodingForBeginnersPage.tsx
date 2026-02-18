@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
@@ -217,6 +218,17 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           </p>
         </motion.header>
 
+        <figure className="my-8">
+          <Image
+            src="/images/blog/ai-coding-for-beginners/slide-1.png"
+            alt="AIコーディング入門（非エンジニア向け）タイトルスライド"
+            width={800}
+            height={450}
+            className="rounded-lg"
+            priority
+          />
+        </figure>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section
@@ -246,6 +258,15 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
               <span className="font-semibold text-gray-900">AIコーディング:</span> 目的・前提・出力形式を言語で固定し、AIに叩き台を作らせて検証/改善する
             </li>
           </ul>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-coding-for-beginners/slide-2.png"
+              alt="「書く」から「指示する」へ：従来のプログラミングとAIコーディングの違い"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <p className="mt-6 text-sm leading-7 text-gray-700">
             まずは
             <Link
@@ -283,6 +304,15 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
               </section>
             ))}
           </div>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-coding-for-beginners/slide-3.png"
+              alt="AIコーディングの相棒選び：チャット型／エディタ統合／Web完結の比較"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -317,6 +347,15 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
               </section>
             ))}
           </div>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-coding-for-beginners/slide-4.png"
+              alt="非エンジニアが実現できる小さな自動化（業務自動化／Web制作／データ処理・集計）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <p className="mt-6 text-sm leading-7 text-gray-700">
             取り組みの目的が「仕事の成果」や「キャリアの選択肢拡大」に繋がるか不安な方は、
             <Link
@@ -346,6 +385,15 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           <p className="mt-4 text-base leading-8 text-gray-700">
             初心者がつまずきやすいのは「最初から大きく作る」「ツールを先に固定する」「レビューなしで本番に当てる」です。以下の順序で、検証しながら段階的に広げましょう。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-coding-for-beginners/slide-5.png"
+              alt="最短で実務に乗せる5つのステップ（環境不要→小さく動かす→完成→ツール選定→実務適用）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 space-y-4">
             {gettingStartedSteps.map((item) => (
               <section key={item.step} className="rounded-lg border border-gray-200 p-5">
@@ -380,6 +428,24 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
             </Link>
             も合わせて使うと再現性が上がります。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-coding-for-beginners/slide-7.png"
+              alt="プロンプトの型：目的／前提／要件／出力形式を固定してコードのブレを減らす"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-coding-for-beginners/slide-6.png"
+              alt="実践例：Excel VBAとHTML LPを「言葉の指示」で作るイメージ"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 space-y-5">
             {promptExamples.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 bg-gray-50 p-5">
@@ -515,7 +581,17 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
             <li className="pl-1 marker:text-gray-500">プロンプトは「目的/前提/要件/出力形式」を先に固定すると、コードのブレが減ります。</li>
           </ul>
         </motion.section>
-<motion.section
+        <figure className="my-8">
+          <Image
+            src="/images/blog/ai-coding-for-beginners/slide-8.png"
+            alt="まずは環境構築なしで始める：小さな業務自動化を今日から試す"
+            width={800}
+            height={450}
+            className="rounded-lg"
+          />
+        </figure>
+
+        <motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
