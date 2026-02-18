@@ -24,11 +24,11 @@ const keywordTags = ["AI研修 KPI", "研修 定着", "効果測定", "現場タ
 
 const tocItems = [
   { id: "conclusion", label: "要点まとめ" },
-  { id: "why-fails", label: "なぜ研修は\"やりっぱなし\"になるのか" },
+  { id: "why-fails", label: "AI研修が\"やりっぱなし\"になる理由" },
   { id: "kpi-framework", label: "KPI設計の3段階フレームワーク" },
-  { id: "task-design", label: "現場タスク化のコツ" },
-  { id: "manager-involvement", label: "上長の巻き込み戦略" },
-  { id: "measurement", label: "効果測定とレポーティング" },
+  { id: "task-design", label: "AI研修の現場タスク化のコツ" },
+  { id: "manager-involvement", label: "AI研修の上長巻き込み戦略" },
+  { id: "measurement", label: "AI研修の効果測定とレポーティング" },
   { id: "kpi-template", label: "KPIシートテンプレート" },
   { id: "faq", label: "FAQ" },
   { id: "related-links", label: "関連リンク" },
@@ -40,19 +40,19 @@ const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const kpiExampleRows = [
   {
-    level: "Level 1: 理解度",
+    level: "段階1: 理解度",
     kpi: "理解度テストの正答率 / 自己評価（できる・できない）",
     method: "小テスト、演習課題、自己評価フォーム",
     timing: "研修直後",
   },
   {
-    level: "Level 2: 行動変容",
+    level: "段階2: 行動変容",
     kpi: "業務適用率 / 週あたりのAI利用回数 / 成果物の提出率",
     method: "OJTタスク提出、利用ログ、上長レビュー",
     timing: "1ヶ月後",
   },
   {
-    level: "Level 3: 成果",
+    level: "段階3: 成果",
     kpi: "作業時間削減率 / エラー削減率 / 生産性（処理件数など）",
     method: "業績データ、工数計測、品質指標",
     timing: "3ヶ月後",
@@ -189,7 +189,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="why-fails" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            なぜ研修は&quot;やりっぱなし&quot;になるのか
+            AI研修が&quot;やりっぱなし&quot;になる理由
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 研修は「学ぶイベント」になりやすく、業務に落とす設計がないと日常業務に負けます。研修前に「研修後30日で何をやるか」まで決めると、定着率が大きく変わります。
@@ -230,22 +230,22 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
           </p>
           <div className="mt-7 grid gap-4 md:grid-cols-3">
             <section className="rounded-lg border border-gray-200 bg-white p-5">
-              <h3 className="text-sm font-semibold tracking-wide text-gray-900">Level 1: 理解度</h3>
+              <h3 className="text-sm font-semibold tracking-wide text-gray-900">段階1: 理解度</h3>
               <p className="mt-2 text-sm leading-7 text-gray-700">研修直後のテスト、自己評価で「最低限できる」を確認。</p>
             </section>
             <section className="rounded-lg border border-gray-200 bg-white p-5">
-              <h3 className="text-sm font-semibold tracking-wide text-gray-900">Level 2: 行動変容</h3>
+              <h3 className="text-sm font-semibold tracking-wide text-gray-900">段階2: 行動変容</h3>
               <p className="mt-2 text-sm leading-7 text-gray-700">1ヶ月後の業務適用率、利用頻度、提出物で「使った」を測る。</p>
             </section>
             <section className="rounded-lg border border-gray-200 bg-white p-5">
-              <h3 className="text-sm font-semibold tracking-wide text-gray-900">Level 3: 成果</h3>
+              <h3 className="text-sm font-semibold tracking-wide text-gray-900">段階3: 成果</h3>
               <p className="mt-2 text-sm leading-7 text-gray-700">3ヶ月後の生産性、品質、コストで「効いた」を測る。</p>
             </section>
           </div>
 
           <h3 className="mt-10 text-lg font-semibold text-gray-900">カークパトリックモデルとの対応</h3>
           <p className="mt-3 text-sm leading-7 text-gray-700">
-            研修評価の有名モデル（Reaction / Learning / Behavior / Results）に当てはめると、Level 1がLearning、Level 2がBehavior、Level 3がResultsに相当します。
+            研修評価の有名モデル（Reaction / Learning / Behavior / Results）に当てはめると、本記事の「段階1〜3」はそれぞれLearning / Behavior / Resultsに相当します（カークパトリックのLevelで言うと2〜4）。
             Reaction（満足度）は参考指標として扱い、「満足した＝業務で使える」ではない点に注意します。
           </p>
 
@@ -283,7 +283,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="task-design" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            現場タスク化のコツ
+            AI研修の現場タスク化のコツ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 定着は「タスクの設計」で決まります。研修直後に、SMART基準でOJTタスクを用意し、提出物と上長レビューまでセットにすると実務で回りやすくなります。
@@ -349,7 +349,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="manager-involvement" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            上長の巻き込み戦略
+            AI研修の上長巻き込み戦略
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 上長の関与を「お願い」ではなく「設計」で作ります。15分ブリーフィングで役割を明確にし、部下KPIを上長の評価項目に連動させると回りやすくなります。
@@ -392,7 +392,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="measurement" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            効果測定とレポーティング
+            AI研修の効果測定とレポーティング
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 測定は「直後/1ヶ月/3ヶ月」の3回が基本です。直後は理解度、1ヶ月後は行動、3ヶ月後は成果・ROIを見ます。
@@ -447,7 +447,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="kpi-template" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            KPIシートテンプレート
+            AI研修KPIシートテンプレート
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 迷うポイントは「誰が、いつ、どう測るか」です。以下の表をそのまま自社用に置き換えると、運用が崩れにくくなります。
@@ -487,7 +487,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            AI研修KPIのFAQ
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

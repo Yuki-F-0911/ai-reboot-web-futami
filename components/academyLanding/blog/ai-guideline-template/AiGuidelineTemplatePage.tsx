@@ -105,6 +105,7 @@ export default function AiGuidelineTemplatePage({ faqItems }: AiGuidelineTemplat
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             生成AIの社内ガイドライン雛形｜禁止事項・権限・ログまで1枚で設計（2026年版）
           </h1>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             「現場がChatGPT/Claude/Copilotを使い始めたが、情シス・法務の不安が強く稟議が止まる」——中小企業では、この状態が最も多いです。
             重要なのは、禁止で止めることではありません。<span className="font-semibold text-gray-900">安全に使える状態を作り、統制しながら広げる</span>ことです。
@@ -568,7 +569,14 @@ export default function AiGuidelineTemplatePage({ faqItems }: AiGuidelineTemplat
           </motion.section>
         </motion.section>
 
-        <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
+        <motion.section
+          className="mt-14 border-t border-slate-200 pb-4 pt-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <h3 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
             関連リンク
           </h3>
@@ -637,7 +645,7 @@ export default function AiGuidelineTemplatePage({ faqItems }: AiGuidelineTemplat
               </Link>
             </li>
           </ul>
-        </section>
+        </motion.section>
       </article>
     </main>
   );

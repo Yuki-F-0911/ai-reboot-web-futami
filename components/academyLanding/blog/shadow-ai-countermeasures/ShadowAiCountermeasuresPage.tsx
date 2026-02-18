@@ -94,6 +94,7 @@ export default function ShadowAiCountermeasuresPage({ faqItems }: ShadowAiCounte
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             シャドーAI対策の進め方｜&quot;禁止&quot;せず安全に使わせる統制設計【2026年版】
           </h1>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             「社内でAI利用を止めたい。でも、止めても現場は使い続ける」——この矛盾が、シャドーAI対策の本質です。
             現実的な答えは、全面禁止ではなく<span className="font-semibold text-gray-900">利用を認めた上で統制する</span>ことです。
@@ -146,7 +147,7 @@ export default function ShadowAiCountermeasuresPage({ faqItems }: ShadowAiCounte
             シャドーAIとは何か？なぜ生まれるのか
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            シャドーAIとは、<span className="font-semibold">組織未承認のAIツールが業務で使われている状態</span>です。個人アカウントのChatGPTやBing AIなどが代表例です。
+            シャドーAIとは、<span className="font-semibold">組織未承認のAIツールが業務で使われている状態</span>です。個人アカウントのChatGPTやMicrosoft Copilot（旧Bing Chat/Bing AI）などが代表例です。
           </p>
 
           <h3 className="mt-8 text-lg font-semibold text-gray-900">発生原因：ツール未整備／代替策なし／便利さが勝つ</h3>

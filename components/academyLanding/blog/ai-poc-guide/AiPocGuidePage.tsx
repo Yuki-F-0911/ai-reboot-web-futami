@@ -64,7 +64,7 @@ const planTemplateRows = [
   {
     item: "期間",
     content: "開始日〜終了日（30日以内推奨）",
-    example: "2/18〜3/19（4週間）",
+    example: "4週間（開始日から28日）",
   },
   {
     item: "予算",
@@ -589,4 +589,3 @@ export default function AiPocGuidePage({ faqItems }: AiPocGuidePageProps) {
     </main>
   );
 }
-

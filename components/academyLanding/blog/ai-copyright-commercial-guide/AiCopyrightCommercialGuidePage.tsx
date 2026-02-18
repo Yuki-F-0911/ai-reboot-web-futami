@@ -146,14 +146,14 @@ export default function AiCopyrightCommercialGuidePage({ faqItems }: AiCopyright
 
           <h3 className="mt-10 text-lg font-semibold text-gray-900">AI生成物と著作権の関係（日本の現行整理）</h3>
           <p className="mt-3 text-sm leading-7 text-gray-700">
-            実務上は「AIが自律生成した部分は原則として著作権が発生しない」「人が創作的に関与した部分は著作物になりうる」と整理しておくと運用が安定します。
+            実務上は「人間の創作的表現が認められないAI生成部分は、著作物に当たらない可能性が高い」「人が創作的に関与した部分は著作物になりうる」と整理しておくと運用が安定します。
             外部公開や商用利用では、著作権だけでなく<span className="font-semibold text-gray-900">契約（利用規約）</span>の制約も同時に見る必要があります。
           </p>
 
           <h3 className="mt-10 text-lg font-semibold text-gray-900">著作権法30条の4（情報解析の例外規定）</h3>
           <p className="mt-3 text-sm leading-7 text-gray-700">
-            学習データに著作物が含まれている場合でも、日本では著作権法30条の4により「情報解析」を目的とする利用は原則として適法の範囲が広いとされています。
-            ただし、生成物が特定作品に似すぎる場合や、別の権利（商標、パブリシティ、肖像等）が絡む場合は別論点になります。
+            学習（情報解析）に著作物が含まれる場合でも、日本では著作権法30条の4により、一定の要件のもとで情報解析のための複製等が権利制限される整理があります。
+            ただし、個別の適法性は利用態様で変わり得ます。また、生成物が特定作品に似すぎる場合や、別の権利（商標、パブリシティ、肖像等）が絡む場合は別論点になります。
           </p>
         </motion.section>
 
@@ -305,14 +305,14 @@ export default function AiCopyrightCommercialGuidePage({ faqItems }: AiCopyright
               <h3 className="text-lg font-semibold text-gray-900">日本</h3>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
                 <li className="pl-1 marker:text-gray-500">著作権法30条の4（情報解析の例外）</li>
-                <li className="pl-1 marker:text-gray-500">文化庁の整理・ガイドラインの参照</li>
+                <li className="pl-1 marker:text-gray-500">文化庁「AIと著作権に関する考え方」（令和6年3月）等を参照</li>
                 <li className="pl-1 marker:text-gray-500">実務は「規約＋類似性＋権利（商標/肖像）」で統制</li>
               </ul>
             </section>
             <section className="rounded-lg border border-gray-200 p-5">
               <h3 className="text-lg font-semibold text-gray-900">EU</h3>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-                <li className="pl-1 marker:text-gray-500">AI Act：生成物への表示義務など</li>
+                <li className="pl-1 marker:text-gray-500">AI Act：透明性義務（ディープフェイク等の表示など。透明性義務は2026年8月から段階適用）</li>
                 <li className="pl-1 marker:text-gray-500">著作権指令（DSM指令）との整合</li>
                 <li className="pl-1 marker:text-gray-500">広告/プラットフォーム要件も含めた運用が必要</li>
               </ul>
@@ -321,7 +321,7 @@ export default function AiCopyrightCommercialGuidePage({ faqItems }: AiCopyright
               <h3 className="text-lg font-semibold text-gray-900">米国</h3>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
                 <li className="pl-1 marker:text-gray-500">米国著作権局：人間の創作性を重視</li>
-                <li className="pl-1 marker:text-gray-500">登録時にAI利用の開示が求められる場合</li>
+                <li className="pl-1 marker:text-gray-500">登録は人間の創作部分が対象（AI生成要素は開示・除外が必要になる場合）</li>
                 <li className="pl-1 marker:text-gray-500">判例・係争動向は変動が大きい</li>
               </ul>
             </section>
@@ -565,4 +565,3 @@ export default function AiCopyrightCommercialGuidePage({ faqItems }: AiCopyright
     </main>
   );
 }
-

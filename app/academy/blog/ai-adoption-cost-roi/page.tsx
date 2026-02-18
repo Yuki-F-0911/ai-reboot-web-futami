@@ -29,7 +29,7 @@ const faqItems = [
   {
     question: "APIコストはどう見積もりますか？",
     answer:
-      "トークン単価×想定利用量で試算します。GPT-4oは入力$2.50/100万トークン、Claude 3.5 Sonnetは入力$3/100万トークンが目安です（2026年2月時点）。",
+      "トークン単価×想定利用量で試算します。例として、GPT-4oは入力$2.50/100万トークン・出力$10/100万トークン、Claude 3.5 Sonnetは入力$3/100万トークン・出力$15/100万トークンが目安です（2026年2月時点の公式価格）。料金は改定されるため、稟議資料には参照日も併記しましょう。",
   },
   {
     question: "投資回収までどれくらいかかりますか？",
@@ -43,7 +43,7 @@ const faqItems = [
   {
     question: "小規模に始めるならどの方法がおすすめですか？",
     answer:
-      "まずSaaS型ツール（ChatGPT Team, Claude for Business等）で月額1〜3万円/人から始め、効果を実証してからAPI開発に移行するのが低リスクです。",
+      "まずSaaS型ツール（ChatGPT Business（旧Team）, Claude Team, Microsoft 365 Copilot等）で月額1〜3万円/人から始め、効果を実証してからAPI開発に移行するのが低リスクです。",
   },
 ] as const;
 
@@ -103,4 +103,3 @@ export default function AiAdoptionCostRoiRoute() {
     </>
   );
 }
-

@@ -313,7 +313,14 @@ export default function AiDataLeakPatternsPage({ faqItems }: AiDataLeakPatternsP
           </dl>
         </motion.section>
 
-        <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
+        <motion.section
+          className="mt-14 border-t border-slate-200 pb-4 pt-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <h2 id="related-links" className="scroll-mt-28 mb-4 text-2xl font-bold text-gray-900">
             関連リンク
           </h2>
@@ -339,7 +346,7 @@ export default function AiDataLeakPatternsPage({ faqItems }: AiDataLeakPatternsP
               </Link>
             </li>
           </ul>
-        </section>
+        </motion.section>
 
         <motion.section
           className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
@@ -395,4 +402,3 @@ export default function AiDataLeakPatternsPage({ faqItems }: AiDataLeakPatternsP
     </main>
   );
 }
-

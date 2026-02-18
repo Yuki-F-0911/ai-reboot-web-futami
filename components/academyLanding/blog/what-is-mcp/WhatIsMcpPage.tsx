@@ -130,13 +130,18 @@ export default function WhatIsMcpPage({ faqItems }: WhatIsMcpPageProps) {
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             MCP（Model Context Protocol）は、AIモデル（またはAIエージェント）が、外部のツールやデータソースにアクセスするための標準プロトコルです。
             例えるなら、AIにとっての「USBポート」です。
+            Anthropicが提唱し、仕様とSDKがオープンに公開されています。
           </p>
 
           <h3 className="mt-8 text-lg font-semibold text-gray-900">アーキテクチャ（Client / Server / Tool / Resource）</h3>
+          <p className="mt-3 text-sm leading-7 text-gray-700">
+            実際の利用では、Claude Desktop / Claude Code などのAIアプリや、Visual Studio Code などのIDEが<span className="font-semibold text-gray-900">Host（ホスト）</span>として動き、
+            その中のClientがMCPサーバーに接続します。
+          </p>
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             <section className="rounded-lg border border-gray-200 bg-white p-5">
               <h4 className="text-sm font-semibold tracking-wide text-gray-900">Client</h4>
-              <p className="mt-2 text-sm leading-7 text-gray-700">AIエージェント側。MCPサーバーへ接続し、ツール利用をオーケストレーションします。</p>
+              <p className="mt-2 text-sm leading-7 text-gray-700">ホスト内でMCPサーバーへ接続し、ツール利用や参照をオーケストレーションします。</p>
             </section>
             <section className="rounded-lg border border-gray-200 bg-white p-5">
               <h4 className="text-sm font-semibold tracking-wide text-gray-900">Server</h4>
@@ -151,11 +156,21 @@ export default function WhatIsMcpPage({ faqItems }: WhatIsMcpPageProps) {
               <p className="mt-2 text-sm leading-7 text-gray-700">参照系のデータ（例: ドキュメント、ナレッジ、設定、レポート）。安全に“読む”ための設計が重要です。</p>
             </section>
           </div>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            なおMCPサーバーは、Tool/Resourceに加えて<span className="font-semibold text-gray-900">Prompt（再利用できる指示テンプレート）</span>なども公開できます。
+          </p>
 
           <h3 className="mt-10 text-lg font-semibold text-gray-900">従来のAPI連携との違い</h3>
           <p className="mt-3 text-sm leading-7 text-gray-700">
             APIは「特定サービスの機能を呼ぶ」ための1対1の接続です。一方MCPは、AIが多様なツール群を“同じ作法”で呼べるようにする標準化レイヤーです。
             その分、便利になりますが「勝手に実行される可能性」が上がるため、権限と監査が必須になります。
+          </p>
+
+          <h3 className="mt-10 text-lg font-semibold text-gray-900">通信方式（stdio / Streamable HTTP）</h3>
+          <p className="mt-3 text-sm leading-7 text-gray-700">
+            ローカル接続は<span className="font-semibold text-gray-900">stdio</span>（アプリがローカルプロセスを起動して連携）、
+            リモート接続は<span className="font-semibold text-gray-900">Streamable HTTP</span>（HTTP経由で連携）という形が基本です。
+            リモート公開する場合は、認証・認可（例: OAuth）やアクセス制御を前提に設計します。
           </p>
         </motion.section>
 

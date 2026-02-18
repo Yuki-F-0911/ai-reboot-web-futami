@@ -14,7 +14,7 @@ const faqItems = [
   {
     question: "シャドーAIとは何ですか？",
     answer:
-      "組織が把握・承認していないAIツールを社員が業務で使用している状態です。個人アカウントのChatGPTやBing AIなどが代表例です。",
+      "組織が把握・承認していないAIツールを社員が業務で使用している状態です。個人アカウントのChatGPTやMicrosoft Copilot（旧Bing Chat/Bing AI）などが代表例です。",
   },
   {
     question: "なぜ「全面禁止」では解決しないのですか？",
@@ -104,4 +104,3 @@ export default function ShadowAiCountermeasuresRoute() {
     </>
   );
 }
-

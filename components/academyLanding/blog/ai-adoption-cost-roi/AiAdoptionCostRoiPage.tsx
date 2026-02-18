@@ -181,7 +181,9 @@ export default function AiAdoptionCostRoiPage({ faqItems }: AiAdoptionCostRoiPag
                 <tr className="border-b border-gray-200 align-top">
                   <th className="py-4 pr-4 font-semibold text-gray-900">SaaS型</th>
                   <td className="py-4 px-4">月額1〜10万円/人</td>
-                  <td className="py-4 pl-4">すぐに使い始めたい、全社で標準化したい（ChatGPT Team, Claude for Business, Copilot等）</td>
+                  <td className="py-4 pl-4">
+                    すぐに使い始めたい、全社で標準化したい（ChatGPT Business（旧Team）, Claude Team, Microsoft 365 Copilot等）
+                  </td>
                 </tr>
                 <tr className="border-b border-gray-200 align-top">
                   <th className="py-4 pr-4 font-semibold text-gray-900">API開発型</th>
@@ -624,4 +626,3 @@ export default function AiAdoptionCostRoiPage({ faqItems }: AiAdoptionCostRoiPag
     </main>
   );
 }
-
