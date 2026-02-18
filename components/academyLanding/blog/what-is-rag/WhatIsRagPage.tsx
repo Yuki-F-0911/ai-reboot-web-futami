@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
@@ -176,6 +177,15 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
             この記事では、RAGの定義・仕組み・メリットと限界・活用事例・始め方まで、導入判断に必要なポイントを結論先出しで整理します。
             RAGとは、「社内データを使いたいが、LLMがもっともらしい誤りを言うのが不安」という場面で検討されがちです。
           </p>
+          <div className="mt-8">
+            <Image
+              src="/images/blog/what-is-rag/slide-1.png"
+              alt="RAG（検索拡張生成）活用ガイドのタイトルスライド"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </div>
         </motion.header>
 
         <ArticleTOC items={tocItems} />
@@ -266,6 +276,15 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
           <p className="mt-4 text-sm leading-7 text-gray-700">
             図解風に言うと、LLMにいきなり回答を作らせるのではなく、先に「材料（根拠）」を集めてから文章化させる流れです。これにより、社内ルールや製品仕様のような外部知識を回答へ織り込めます。
           </p>
+          <div className="mt-6">
+            <Image
+              src="/images/blog/what-is-rag/slide-2.png"
+              alt="RAGの全体像（ユーザー→検索→LLM→チャットUI）の図"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </div>
 
           <div className="mt-7 rounded-xl border border-slate-200 bg-white p-5">
             <div className="grid gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-stretch">
@@ -284,6 +303,16 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className="mt-8">
+            <Image
+              src="/images/blog/what-is-rag/slide-4.png"
+              alt="RAGの仕組み（チャンク分割・ベクトル検索・プロンプト合成）の図"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
           </div>
 
           <h3 className="mt-8 text-xl font-semibold text-gray-900">実装の勘所（よく出る用語）</h3>
@@ -314,6 +343,15 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: RAGが注目される理由は、(1) 根拠を参照させて誤りを減らす、(2) 社内データを安全に使う入口になる、の2点です。
           </p>
+          <div className="mt-6">
+            <Image
+              src="/images/blog/what-is-rag/slide-3.png"
+              alt="RAGが解決する課題（ハルシネーション・情報鮮度・社内データ活用）のまとめ"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </div>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             <section className="rounded-lg border border-gray-200 p-5">
               <h3 className="text-lg font-semibold text-gray-900">ハルシネーション（もっともらしい誤り）対策</h3>
@@ -376,6 +414,15 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
               </ul>
             </section>
           </div>
+          <div className="mt-8">
+            <Image
+              src="/images/blog/what-is-rag/slide-7.png"
+              alt="RAGでよくある失敗と対策のまとめ"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </div>
         </motion.section>
 
         <motion.section
@@ -392,6 +439,15 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: RAGは「参照すべき資料がある業務」で効果が出やすく、問い合わせ対応・検索・下書き作成のような反復作業と相性が良いです。
           </p>
+          <div className="mt-6">
+            <Image
+              src="/images/blog/what-is-rag/slide-6.png"
+              alt="RAGの業務活用事例（社内FAQ・契約書レビュー・技術ドキュメント等）のまとめ"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </div>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {useCaseCards.map((card) => (
               <section key={card.title} className="rounded-lg border border-gray-200 p-5">
@@ -416,6 +472,15 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 最初は「対象データ」「権限」「評価」を決め、検索の小さな成功（答えられる質問が増える）を積み上げるのが安全です。
           </p>
+          <div className="mt-6">
+            <Image
+              src="/images/blog/what-is-rag/slide-5.png"
+              alt="RAG導入ロードマップ（ユースケース→データ監査→権限→評価→ガードレール→PoC）の6ステップ"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </div>
 
           <h3 className="mt-7 text-xl font-semibold text-gray-900">最小チェックリスト</h3>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
@@ -606,6 +671,15 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIリブートアカデミーで学ぶ（RAGを「成果が出る運用」へ）
           </h2>
+          <div className="mt-6">
+            <Image
+              src="/images/blog/what-is-rag/slide-8.png"
+              alt="RAGのまとめと次アクション（CTA）のスライド"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </div>
           <p className="mt-4 text-base leading-8 text-gray-700">
             RAGは設計だけでなく、「何の価値を出すか」を言語化する思考OSと、運用・改善まで含めて考えると成果が出やすくなります。生成AI活用力だけで終わらせず、AIを鏡に自己理解・キャリアデザインを深め、100日間の伴走で仲間と一緒に実務アウトプットへ落とし込みたい方は、アカデミーの案内もご覧ください。
           </p>
