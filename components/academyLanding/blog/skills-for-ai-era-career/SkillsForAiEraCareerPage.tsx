@@ -391,7 +391,8 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
             次のアクション
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+            AIスキルだけでなく、自分のWill（やりたいこと）や強みを整理しながら、AI時代のキャリアを再設計したい方へ。
+            AIリブートアカデミーの2日間の集中研修＋100日間の伴走の全体像は、無料セミナーから確認できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

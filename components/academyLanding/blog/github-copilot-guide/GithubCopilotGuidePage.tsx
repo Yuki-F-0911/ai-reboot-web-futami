@@ -459,15 +459,15 @@ export function normalizeEmail(input: string) {
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
 	        >
-	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-	            AIリブートアカデミーで、Copilot活用を「仕事の型」へ
-	          </h2>
-	          <p className="mt-4 text-base font-medium leading-8 text-gray-900">
-	            結論: Copilot活用は「知識」だけでなく、「自分の価値×AI」として仕事の型に落とし込めるかが勝負です。
-	          </p>
-	          <p className="mt-4 text-sm leading-7 text-gray-700">
-	            まずは全体像と優先順位を整理し、100日間の伴走で仲間と一緒に現場へ定着させましょう。
-	          </p>
+		          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+		            AIリブートアカデミーで、Copilot活用を「仕事の型」へ
+		          </h2>
+		          <p className="mt-4 text-base font-medium leading-8 text-gray-900">
+		            結論: Copilot活用は「知識」だけでなく、AIを鏡に自分の強みとWill（やりたいこと）を整理し、「自分の価値×AI」として仕事の型に落とし込めるかが勝負です。
+		          </p>
+		          <p className="mt-4 text-sm leading-7 text-gray-700">
+		            まずは全体像と優先順位を整理し、100日間の伴走で仲間と一緒に現場へ定着させましょう。
+		          </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"
