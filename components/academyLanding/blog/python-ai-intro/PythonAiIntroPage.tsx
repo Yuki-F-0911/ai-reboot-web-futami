@@ -66,12 +66,40 @@ const environmentOptions = [
   {
     title: "Anaconda（データ分析をまとめて入れたい人向け）",
     bestFor: "データ分析寄り／配布済みパッケージをまとめて使いたい",
-    notes: ["科学計算系が揃っていて導入が楽な場合が多い", "環境が重くなりやすいので用途を絞ると良い"],
+    notes: [
+      "科学計算系が揃っていて導入が楽な場合が多い",
+      "会社で使う場合、Anacondaのdefault channelは利用条件（TOS）の対象になるため注意（厳しいならvenv運用か、conda系ならチャンネル設計まで検討）",
+      "環境が重くなりやすいので用途を絞ると良い",
+    ],
   },
   {
     title: "VS Code（エディタはこれでOK）",
     bestFor: "ローカルで快適に書く／補完・デバッグを使いたい",
     notes: ["Python拡張機能を入れる", "仮想環境を選択して実行できる", "ノートブックも扱える（Jupyter連携）"],
+  },
+] as const;
+
+const routeCards = [
+  {
+    id: "A",
+    title: "機械学習ルート（予測モデルを作りたい）",
+    steps: ["NumPy/Pandas", "scikit-learn", "（必要なら）PyTorch/TensorFlow"],
+    href: "#first-ml-project",
+    linkLabel: "機械学習の実践へ",
+  },
+  {
+    id: "B",
+    title: "生成AIルート（LLMを使ってアプリを作りたい）",
+    steps: ["Python基礎", "API呼び出し", "プロンプト設計", "RAG", "評価/運用"],
+    href: "#python-for-genai",
+    linkLabel: "生成AIの入口へ",
+  },
+  {
+    id: "C",
+    title: "深層学習ルート（画像/音声/学習・微調整）",
+    steps: ["scikit-learnで型を掴む", "PyTorch（主流） or TF/Keras"],
+    href: "#ai-libraries",
+    linkLabel: "主要ライブラリへ",
   },
 ] as const;
 
@@ -203,6 +231,24 @@ const roadmapPhases = [
   },
 ] as const;
 
+const genAiFirstProjects = [
+  {
+    duration: "半日",
+    title: "APIで小ツール（入力→整形→JSON出力）",
+    body: "出力形式を固定して、失敗時のリトライ/バリデーションまで入れると「実務っぽい完成形」になります。",
+  },
+  {
+    duration: "1日",
+    title: "自分のPDF数本でRAG（引用付き回答）",
+    body: "根拠（引用）を必須にして、回答の品質と安全性を担保する練習に向きます。",
+  },
+  {
+    duration: "2日",
+    title: "簡単なWeb UIで社内デモ（FastAPI/Streamlit等）",
+    body: "入力フォーム→回答→ログ保存まで作ると、運用の論点（機密/監査/評価）が見えてきます。",
+  },
+] as const;
+
 export default function PythonAiIntroPage({ faqItems }: PythonAiIntroPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -274,6 +320,36 @@ export default function PythonAiIntroPage({ faqItems }: PythonAiIntroPageProps) 
               </li>
             ))}
           </ul>
+          <div className="mt-6">
+            <p className="text-sm font-semibold text-gray-900">あなたはA/B/Cどれ？最短ルートはこれ</p>
+            <div className="mt-4 grid gap-4 sm:grid-cols-3">
+              {routeCards.map((route) => (
+                <section key={route.id} className="rounded-lg border border-orange-200 bg-white p-4">
+                  <div className="flex items-start gap-3">
+                    <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-100 text-xs font-bold text-orange-700">
+                      {route.id}
+                    </span>
+                    <div>
+                      <h3 className="text-sm font-semibold leading-6 text-gray-900">{route.title}</h3>
+                      <ul className="mt-2 list-disc space-y-1 pl-5 text-xs leading-6 text-gray-700">
+                        {route.steps.map((step) => (
+                          <li key={step} className="pl-1 marker:text-gray-400">
+                            {step}
+                          </li>
+                        ))}
+                      </ul>
+                      <Link
+                        href={route.href}
+                        className="mt-3 inline-flex text-xs font-semibold text-orange-700 underline underline-offset-4 hover:text-orange-800"
+                      >
+                        {route.linkLabel}
+                      </Link>
+                    </div>
+                  </div>
+                </section>
+              ))}
+            </div>
+          </div>
           <p className="mt-5 text-sm leading-7 text-gray-700">
             生成AIの学習全体の進め方も合わせて知りたい方は
             <Link href="/academy/blog/how-to-learn-generative-ai" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -320,6 +396,18 @@ export default function PythonAiIntroPage({ faqItems }: PythonAiIntroPageProps) 
           <p className="mt-5 text-base leading-8 text-gray-700">
             迷う場合は「今すぐ動かしたいならColab」「継続して開発するならローカル（venv + VS Code）」が基本です。最初は環境に時間を使いすぎず、動く状態を作ってから改善していきましょう。
           </p>
+
+          <section className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5">
+            <h3 className="text-base font-semibold text-gray-900">Pythonの推奨バージョン（目的別の安全帯）</h3>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+              <li className="pl-1 marker:text-gray-500">
+                機械学習（scikit-learn中心）: Python 3.11〜3.14でOK（ただしプロジェクトのPython/依存は固定推奨）
+              </li>
+              <li className="pl-1 marker:text-gray-500">
+                TensorFlowを触る予定がある: 公式の対応状況を確認。迷うなら3.12（「とりあえず最新」が地雷になりやすい）
+              </li>
+            </ul>
+          </section>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {environmentOptions.map((option) => (
@@ -459,6 +547,18 @@ export default function PythonAiIntroPage({ faqItems }: PythonAiIntroPageProps) 
           <p className="mt-4 text-base leading-8 text-gray-700">
             生成AI（LLM）は、機械学習とは違って「既存モデルを使う」比重が大きくなります。実務では、(1)API連携でプロダクトに組み込む、(2)自分のデータに基づいて回答する（RAG）、の2パターンが入口になりやすいです。
           </p>
+          <section className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5">
+            <h3 className="text-base font-semibold text-gray-900">最初の1本（最小の完成形イメージ）</h3>
+            <div className="mt-4 grid gap-4 sm:grid-cols-3">
+              {genAiFirstProjects.map((project) => (
+                <section key={project.title} className="rounded-lg border border-gray-200 bg-white p-4">
+                  <p className="text-xs font-semibold text-gray-500">{project.duration}</p>
+                  <h4 className="mt-1 text-sm font-semibold text-gray-900">{project.title}</h4>
+                  <p className="mt-2 text-xs leading-6 text-gray-700">{project.body}</p>
+                </section>
+              ))}
+            </div>
+          </section>
           <div className="mt-6 space-y-4">
             {genAiUseCases.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
