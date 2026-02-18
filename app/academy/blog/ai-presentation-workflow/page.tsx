@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AIでプレゼン資料を効率的に作る方法｜構成・デザイン・推敲まで | AIリブート";
 const pageDescription =
-  "AIでプレゼン資料を効率化する手順を、構成→原稿→デザイン→推敲まで解説。ChatGPT/Claudeのアウトライン作成、Gamma/Canva等の使い分け、テンプレ化できるプロンプト例を掲載。用途別ツール比較と推敲チェックもまとまり、今日から試せます。";
+  "AIでプレゼン資料を効率化する手順を、構成→原稿→デザイン→推敲まで解説。NotebookLMで既存資料をソースから要約・論点整理し、ChatGPT/Claudeでアウトラインと原稿を作成、Gamma/Canva等でデザインに落とし込みます。用途別ツール比較とテンプレ化できるプロンプト例も掲載。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-presentation-workflow";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
@@ -15,6 +15,11 @@ const faqItems = [
     question: "AIでプレゼン資料を作るとき、最初に何から始めればいいですか？",
     answer:
       "最初は「目的・聞き手・制約（時間/分量/トーン）」を明文化し、アウトライン（章立て）をAIで作るのが最短です。構成が固まると、各スライド原稿・デザイン・推敲の工程が一気に進めやすくなります。",
+  },
+  {
+    question: "NotebookLMはプレゼン作成のどの工程で使うのが効果的ですか？",
+    answer:
+      "既存資料（会議資料・調査レポートなど）がある場合の「ソース整理→要点抽出→構成の叩き台づくり」で効果が出やすいです。要約、論点、想定Q&Aを先に揃えると、ChatGPT/Claudeでアウトラインや原稿を作る工程がスムーズになります。重要な数値や固有名詞は必ず元ソースで確認してください。",
   },
   {
     question: "ChatGPTとClaudeはプレゼン作成でどう使い分ければよいですか？",
@@ -32,9 +37,14 @@ const faqItems = [
       "レイアウト案や配色のたたき台はAIツールで作れますが、ブランド/社内テンプレートの整合や読みやすさ（文字量・余白・強調）は人の判断が重要です。最終的にはPowerPointやGoogle Slidesで整える前提にすると品質が安定します。",
   },
   {
+    question: "NotebookLMのAudio Overviewはプレゼン練習に使えますか？",
+    answer:
+      "ブリーフィング用途として有効です。耳で聞くと、論理の飛躍・前提の抜け・言い換え不足に気づきやすくなります。一方で音声の内容も誤りを含みうるため、重要事項は元ソースや一次情報で照合したうえで使うのが安全です。",
+  },
+  {
     question: "おすすめのAIスライド作成ツールはどれですか？",
     answer:
-      "用途で選ぶのが確実です。短時間で見栄え良く作るならGamma、テンプレートと素材の幅ならCanva、構成から自動生成したいならBeautiful.aiなどが候補になります。企業の定型フォーマット運用ならPowerPoint/Google Slidesも相性が良いです。",
+      "用途で選ぶのが確実です。既存資料の要約・論点整理から始めるならNotebookLM、短時間で見栄え良く作るならGamma、テンプレートと素材の幅ならCanva、構成から自動生成したいならBeautiful.aiなどが候補になります。企業の定型フォーマット運用ならPowerPoint/Google Slidesも相性が良いです。",
   },
   {
     question: "プレゼン作成を効率化するプロンプトのコツはありますか？",
