@@ -201,6 +201,7 @@ export default async function BlogArticle({
   const faqItems = extractFaqItemsFromMarkdown(article['md-content'])
   const { htmlContent, toc } = await renderContent(article)
   const readTime = calculateReadTime(htmlContent)
+  const modifiedTime = article.revisedAt || article.updatedAt || article.publishedAt
 
   return (
     <>
@@ -210,7 +211,7 @@ export default async function BlogArticle({
         description={articleDescription}
         url={articleUrl}
         publishedTime={article.publishedAt}
-        modifiedTime={article.updatedAt}
+        modifiedTime={modifiedTime}
         imageUrl={articleImageUrl}
         articleType="BlogPosting"
       />
@@ -327,7 +328,7 @@ export default async function BlogArticle({
                     {article.tags.map((tag) => (
                       <Link
                         key={tag}
-                        href={`/blog/tag/${tag}`}
+                        href={`/blog/tag/${encodeURIComponent(tag)}`}
                         className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors"
                       >
                         #{tag}
@@ -340,6 +341,30 @@ export default async function BlogArticle({
               {/* シェアボタン */}
               <div className="mt-12 pt-8 border-t border-gray-200">
                 <ArticleShareButtons title={article.title} />
+              </div>
+
+              {/* CTA */}
+              <div className="mt-12 pt-8 border-t border-gray-200">
+                <div className="rounded-2xl border border-gray-200 bg-gradient-to-br from-will-primary/5 via-white to-will-secondary/5 p-6">
+                  <h2 className="text-xl font-bold text-gray-900">次の一手</h2>
+                  <p className="mt-2 text-gray-700">
+                    この記事の内容を、自社のAI活用に落とし込みたい方へ。状況に合わせて最短ルートをご提案します。
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center justify-center rounded-full bg-will-primary px-5 py-2 text-sm font-medium text-white hover:bg-will-primary/90 transition-colors"
+                    >
+                      相談する（お問い合わせ）
+                    </Link>
+                    <Link
+                      href="/briefing"
+                      className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-5 py-2 text-sm font-medium text-gray-800 hover:border-will-primary hover:bg-will-primary/5 transition-colors"
+                    >
+                      ブリーフィングを見る
+                    </Link>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -392,26 +417,26 @@ export default async function BlogArticle({
                 </div>
               )}
 
-              {/* ニュースレター登録 */}
+              {/* CTA */}
               <div className="bg-gradient-to-br from-will-primary/10 to-will-secondary/10 rounded-xl p-6">
-                <h3 className="font-bold text-gray-900 mb-2">ニュースレター</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  最新のAI情報をお届けします
+                <h3 className="font-bold text-gray-900 mb-2">AI活用を前に進める</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  課題整理から社内展開まで、状況に合わせて伴走します。
                 </p>
-                <form className="space-y-3">
-                  <input
-                    type="email"
-                    placeholder="メールアドレス"
-                    className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-will-primary text-sm"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="w-full px-4 py-2 bg-will-primary text-white rounded-lg hover:bg-will-primary/90 transition-colors text-sm font-medium"
+                <div className="space-y-3">
+                  <Link
+                    href="/contact"
+                    className="block text-center px-4 py-2 bg-will-primary text-white rounded-lg hover:bg-will-primary/90 transition-colors text-sm font-medium"
                   >
-                    登録する
-                  </button>
-                </form>
+                    お問い合わせ
+                  </Link>
+                  <Link
+                    href="/academy"
+                    className="block text-center px-4 py-2 bg-white/70 border border-white/40 text-gray-900 rounded-lg hover:bg-white transition-colors text-sm font-medium"
+                  >
+                    学習コンテンツを見る
+                  </Link>
+                </div>
               </div>
             </aside>
           </div>

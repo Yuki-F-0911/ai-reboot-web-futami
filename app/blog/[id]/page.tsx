@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getNewsDetail, News } from '@/lib/microcms'
-import { getBlogArticles, isBlogCategory } from '@/lib/microcms-helper'
+import { getAllBlogArticles, getBlogArticles, isBlogCategory } from '@/lib/microcms-helper'
 import BlogArticle from '@/components/blog/BlogArticle'
 
 interface PageProps {
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const imageUrl = article.thumbnail?.url ?? defaultOgImageUrl
   const canonicalUrl = `${siteUrl}/blog/${id}`
   const publishedTime = article.publishedAt
-  const modifiedTime = article.updatedAt || article.publishedAt
+  const modifiedTime = article.revisedAt || article.updatedAt || article.publishedAt
 
   return {
     title,
@@ -96,9 +96,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 // 静的パスの生成
 export async function generateStaticParams() {
-  const { contents } = await getBlogArticles(100, 0)
-  
-  // ブログカテゴリーの記事のみ
+  const contents = await getAllBlogArticles()
+
   return contents.map((article: News) => ({
     id: article.id,
   }))

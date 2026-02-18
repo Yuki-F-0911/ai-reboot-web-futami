@@ -1,4 +1,4 @@
-import { getNewsList, News } from './microcms'
+import { getAllNewsContents, getNewsList, News } from './microcms'
 import { 
   isBlogCategoryJa, 
   isNewsCategoryJa,
@@ -55,62 +55,90 @@ export function isNewsCategory(category: string | string[]): boolean {
   return NEWS_CATEGORIES.includes(categoryEn as NewsCategory)
 }
 
-// ブログ記事のみを取得
-export async function getBlogArticles(limit = 12, offset = 0) {
-  const result = await getNewsList(limit * 2, offset) // 多めに取得
-  
-  // リスト形式のレスポンスかチェック
-  if (!('contents' in result)) {
+function sanitizePaging(limit: number, offset: number) {
+  return {
+    safeLimit: Math.max(0, Math.floor(limit)),
+    safeOffset: Math.max(0, Math.floor(offset)),
+  }
+}
+
+async function getCategoryArticles(
+  isTarget: (category: string | string[]) => boolean,
+  limit = 12,
+  offset = 0
+) {
+  const { safeLimit, safeOffset } = sanitizePaging(limit, offset)
+
+  if (safeLimit === 0) {
     return {
       contents: [],
       totalCount: 0,
-      offset,
-      limit
+      offset: safeOffset,
+      limit: safeLimit,
     }
   }
-  
-  const { contents } = result
-  
-  // ブログカテゴリーの記事のみフィルタリング
-  const blogArticles = contents.filter((item: News) => 
-    isBlogCategory(item.category)
-  ).slice(0, limit)
-  
-  return {
-    contents: blogArticles,
-    totalCount: blogArticles.length,
-    offset,
-    limit
+
+  const needed = safeOffset + safeLimit
+  let fetchSize = Math.max(needed, 50)
+  let total = 0
+
+  while (true) {
+    const result = await getNewsList(fetchSize, 0)
+
+    if (!('contents' in result)) {
+      return {
+        contents: [],
+        totalCount: 0,
+        offset: safeOffset,
+        limit: safeLimit,
+      }
+    }
+
+    const pool = result.contents as News[]
+    total = result.totalCount
+    const filtered = pool.filter((item: News) => isTarget(item.category))
+
+    const fetchedAll = pool.length >= total || fetchSize >= total
+    if (filtered.length >= needed || fetchedAll) {
+      return {
+        contents: filtered.slice(safeOffset, safeOffset + safeLimit),
+        totalCount: fetchedAll ? filtered.length : Math.max(filtered.length, needed),
+        offset: safeOffset,
+        limit: safeLimit,
+      }
+    }
+
+    const nextFetchSize = Math.min(fetchSize * 2, total)
+    if (nextFetchSize === fetchSize) {
+      return {
+        contents: filtered.slice(safeOffset, safeOffset + safeLimit),
+        totalCount: Math.max(filtered.length, needed),
+        offset: safeOffset,
+        limit: safeLimit,
+      }
+    }
+    fetchSize = nextFetchSize
   }
+}
+
+// ブログ記事のみを取得
+export async function getBlogArticles(limit = 12, offset = 0) {
+  return getCategoryArticles(isBlogCategory, limit, offset)
 }
 
 // お知らせ記事のみを取得
 export async function getNewsArticles(limit = 12, offset = 0) {
-  const result = await getNewsList(limit * 2, offset) // 多めに取得
-  
-  // リスト形式のレスポンスかチェック
-  if (!('contents' in result)) {
-    return {
-      contents: [],
-      totalCount: 0,
-      offset,
-      limit
-    }
-  }
-  
-  const { contents } = result
-  
-  // お知らせカテゴリーの記事のみフィルタリング
-  const newsArticles = contents.filter((item: News) => 
-    isNewsCategory(item.category)
-  ).slice(0, limit)
-  
-  return {
-    contents: newsArticles,
-    totalCount: newsArticles.length,
-    offset,
-    limit
-  }
+  return getCategoryArticles(isNewsCategory, limit, offset)
+}
+
+export async function getAllBlogArticles(): Promise<News[]> {
+  const all = await getAllNewsContents()
+  return all.filter((item: News) => isBlogCategory(item.category))
+}
+
+export async function getAllNewsArticles(): Promise<News[]> {
+  const all = await getAllNewsContents()
+  return all.filter((item: News) => isNewsCategory(item.category))
 }
 
 // カテゴリーのラベルを取得（日本語・英語両対応）

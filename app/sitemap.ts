@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { News } from "@/lib/microcms";
-import { getBlogArticles, getNewsArticles } from "@/lib/microcms-helper";
+import { getAllBlogArticles, getAllNewsArticles } from "@/lib/microcms-helper";
 import type { Dirent } from "node:fs";
 import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
@@ -165,21 +165,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   );
 
-  const [newsResult, blogResult] = await Promise.all([
-    getNewsArticles(1000, 0),
-    getBlogArticles(1000, 0),
-  ]);
+  const [newsArticles, blogArticles] = await Promise.all([getAllNewsArticles(), getAllBlogArticles()]);
 
-  const newsPages = newsResult.contents.map((article: News) => ({
+  const newsPages = newsArticles.map((article: News) => ({
     url: `${baseUrl}/news/${article.id}`,
-    lastModified: new Date(article.updatedAt || article.publishedAt),
+    lastModified: new Date(article.revisedAt || article.updatedAt || article.publishedAt),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
-  const blogPages = blogResult.contents.map((article: News) => ({
+  const blogPages = blogArticles.map((article: News) => ({
     url: `${baseUrl}/blog/${article.id}`,
-    lastModified: new Date(article.updatedAt || article.publishedAt),
+    lastModified: new Date(article.revisedAt || article.updatedAt || article.publishedAt),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));

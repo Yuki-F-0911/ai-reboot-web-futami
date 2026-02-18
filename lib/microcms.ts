@@ -1,6 +1,8 @@
 import { createClient } from 'microcms-js-sdk'
 import { staticNews, getStaticNewsById, isStaticNews, mergeWithStaticNews } from '@/data/static-news'
 
+const MICROCMS_LIST_MAX_LIMIT = 100
+
 // カテゴリーの型定義（英語で統一）
 export type Category = 
   // ブログカテゴリー
@@ -69,76 +71,119 @@ function getClient() {
 
 export const client = getClient()
 
+function isMicroCmsConfigured(): boolean {
+  const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN
+  const apiKey = process.env.MICROCMS_API_KEY
+  return Boolean(serviceDomain && apiKey && client?.get && typeof client.get === 'function')
+}
+
+function getSortedStaticNews(): News[] {
+  return [...staticNews].sort((a, b) =>
+    new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  )
+}
+
+async function fetchMicroCmsNewsPage(limit: number, offset: number) {
+  const safeLimit = Math.min(MICROCMS_LIST_MAX_LIMIT, Math.max(0, limit))
+  const safeOffset = Math.max(0, offset)
+
+  const data = await client.get({
+    endpoint: 'news',
+    queries: {
+      limit: safeLimit,
+      offset: safeOffset,
+      orders: '-publishedAt',
+    },
+  })
+
+  return data as { contents?: News[]; totalCount?: number; offset?: number; limit?: number }
+}
+
+async function fetchMicroCmsNewsUpTo(count: number): Promise<{ contents: News[]; totalCount: number }> {
+  const safeCount = Math.max(0, Math.floor(count))
+  if (safeCount === 0) {
+    return { contents: [], totalCount: 0 }
+  }
+
+  const contents: News[] = []
+  let offset = 0
+  let totalCount = 0
+
+  while (contents.length < safeCount) {
+    const remaining = safeCount - contents.length
+    const pageLimit = Math.min(MICROCMS_LIST_MAX_LIMIT, remaining)
+    const data = await fetchMicroCmsNewsPage(pageLimit, offset)
+
+    if (typeof data.totalCount === 'number') {
+      totalCount = data.totalCount
+    }
+
+    const pageContents = (data.contents ?? []) as News[]
+    if (pageContents.length === 0) break
+
+    contents.push(...pageContents)
+    offset += pageContents.length
+
+    if (totalCount && offset >= totalCount) break
+    if (!totalCount && pageContents.length < pageLimit) break
+  }
+
+  return { contents, totalCount }
+}
+
+async function fetchMicroCmsNewsAll(): Promise<{ contents: News[]; totalCount: number }> {
+  const first = await fetchMicroCmsNewsPage(MICROCMS_LIST_MAX_LIMIT, 0)
+  const totalCount = typeof first.totalCount === 'number' ? first.totalCount : 0
+  const contents: News[] = [...((first.contents ?? []) as News[])]
+
+  let offset = contents.length
+  while (totalCount && offset < totalCount) {
+    const data = await fetchMicroCmsNewsPage(MICROCMS_LIST_MAX_LIMIT, offset)
+    const pageContents = (data.contents ?? []) as News[]
+    if (pageContents.length === 0) break
+    contents.push(...pageContents)
+    offset += pageContents.length
+  }
+
+  return { contents, totalCount }
+}
+
+export async function getAllNewsContents(): Promise<News[]> {
+  if (!isMicroCmsConfigured()) {
+    return getSortedStaticNews()
+  }
+
+  const microCms = await fetchMicroCmsNewsAll()
+  return mergeWithStaticNews(microCms.contents)
+}
+
 // お知らせ一覧を取得（静的ニュースを含む）
 export const getNewsList = async (limit = 10, offset = 0) => {
   try {
-    // 環境変数チェック
-    const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN
-    const apiKey = process.env.MICROCMS_API_KEY
-    
-    // microCMSが設定されていない場合は静的ニュースのみ返す
-    if (!serviceDomain || !apiKey) {
-      console.warn('MicroCMS環境変数が設定されていません。静的ニュースのみ使用します。')
-      const sortedStatic = [...staticNews].sort((a, b) => 
-        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-      )
-      const paginatedStatic = sortedStatic.slice(offset, offset + limit)
-      return { 
-        contents: paginatedStatic, 
-        totalCount: staticNews.length, 
-        offset, 
-        limit 
+    const safeLimit = Math.max(0, Math.floor(limit))
+    const safeOffset = Math.max(0, Math.floor(offset))
+
+    if (!isMicroCmsConfigured()) {
+      const sortedStatic = getSortedStaticNews()
+      const paginatedStatic = sortedStatic.slice(safeOffset, safeOffset + safeLimit)
+      return {
+        contents: paginatedStatic,
+        totalCount: staticNews.length,
+        offset: safeOffset,
+        limit: safeLimit,
       }
     }
-    
-    console.log('Fetching news from microCMS:', {
-      endpoint: 'news',
-      limit,
-      offset,
-      domain: serviceDomain,
-      hasApiKey: !!apiKey
-    })
-    
-    // clientがダミークライアントの場合の処理
-    if (!client.get || typeof client.get !== 'function') {
-      console.warn('MicroCMS client is not properly initialized。静的ニュースのみ使用します。')
-      const sortedStatic = [...staticNews].sort((a, b) => 
-        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-      )
-      const paginatedStatic = sortedStatic.slice(offset, offset + limit)
-      return { 
-        contents: paginatedStatic, 
-        totalCount: staticNews.length, 
-        offset, 
-        limit 
-      }
-    }
-    
-    const data = await client.get({
-      endpoint: 'news',
-      queries: {
-        limit: limit + staticNews.length, // 静的ニュース分を考慮して多めに取得
-        offset: 0, // マージ後にページネーション
-        orders: '-publishedAt',
-      },
-    })
-    
-    // 静的ニュースとマージ
-    const mergedContents = mergeWithStaticNews(data.contents || [])
-    const paginatedContents = mergedContents.slice(offset, offset + limit)
-    
-    console.log('microCMS response (merged with static):', {
-      microCmsCount: data.contents?.length || 0,
-      staticCount: staticNews.length,
-      totalMerged: mergedContents.length,
-      returned: paginatedContents.length
-    })
-    
+
+    const fetchCount = safeOffset + safeLimit
+    const microCms = await fetchMicroCmsNewsUpTo(fetchCount)
+    const mergedContents = mergeWithStaticNews(microCms.contents)
+    const paginatedContents = mergedContents.slice(safeOffset, safeOffset + safeLimit)
+
     return {
       contents: paginatedContents,
-      totalCount: mergedContents.length,
-      offset,
-      limit
+      totalCount: (microCms.totalCount || microCms.contents.length) + staticNews.length,
+      offset: safeOffset,
+      limit: safeLimit,
     }
   } catch (error) {
     console.error('Failed to fetch news list:', error)
@@ -149,10 +194,7 @@ export const getNewsList = async (limit = 10, offset = 0) => {
     })
     
     // エラー時は静的ニュースのみ返す
-    console.log('Falling back to static news only')
-    const sortedStatic = [...staticNews].sort((a, b) => 
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-    )
+    const sortedStatic = getSortedStaticNews()
     const paginatedStatic = sortedStatic.slice(offset, offset + limit)
     return { 
       contents: paginatedStatic, 
@@ -178,17 +220,7 @@ export const getNewsDetail = async (contentId: string) => {
     }
     
     // 環境変数チェック
-    const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN
-    const apiKey = process.env.MICROCMS_API_KEY
-    
-    if (!serviceDomain || !apiKey) {
-      console.warn('MicroCMS環境変数が設定されていません（getNewsDetail）')
-      return null
-    }
-    
-    // clientがダミークライアントの場合の処理
-    if (!client.get || typeof client.get !== 'function') {
-      console.warn('MicroCMS client is not properly initialized（getNewsDetail）')
+    if (!isMicroCmsConfigured()) {
       return null
     }
     
