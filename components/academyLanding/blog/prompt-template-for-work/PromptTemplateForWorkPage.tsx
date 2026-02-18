@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
@@ -377,10 +378,28 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/prompt-template-for-work/slide-1.png"
+              alt="仕事で使えるプロンプトテンプレート集（Work Speedrun）タイトル"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <p className="mt-4 text-base leading-8 text-gray-700">
             まずは自分の業務で頻度が高いカテゴリから1つ選び、テンプレートをそのままコピーして使ってみてください。1回使って不足点を追記するだけで、
             明日から使える自分専用テンプレートに育てられます。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/prompt-template-for-work/slide-10.png"
+              alt="まずは頻度の高い業務から1つだけ選び、テンプレートを育てる"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -397,6 +416,15 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: 実務のプロンプトは「Role/Task/Context/Format」を先に固定すると、ツールが変わっても品質が安定します。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/prompt-template-for-work/slide-2.png"
+              alt="プロンプトの黄金則: Role / Task / Context / Format"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             まずは以下の4点を最初に入れ、そのうえで「期限」「文字数」「相手」「禁止事項」など業務ごとの条件を足してください。
           </p>
@@ -408,6 +436,15 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
               </li>
             ))}
           </ul>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/prompt-template-for-work/slide-3.png"
+              alt="プロンプトの型で品質が安定する（テンプレート活用と自己流の比較）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <section className="rounded-lg border border-rose-200 bg-rose-50 p-4">
               <h3 className="text-sm font-semibold text-rose-900">Before（曖昧な指示）</h3>
@@ -441,6 +478,61 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
               結論: まずはテンプレートをコピペして{`{変数}` }だけ差し替えるのが最短です。出力を1回見て不足条件を追記すると、すぐ実務で回せる形になります。
             </p>
             <p className="mt-3 text-sm leading-7 text-gray-700">{group.description}</p>
+            {group.id === "email-templates" && (
+              <>
+                <figure className="my-8">
+                  <Image
+                    src="/images/blog/prompt-template-for-work/slide-5.png"
+                    alt="コピペして{変数}を埋めるだけで、依頼・お詫び・日程調整を素早く作る"
+                    width={800}
+                    height={450}
+                    className="rounded-lg"
+                  />
+                </figure>
+                <figure className="my-8">
+                  <Image
+                    src="/images/blog/prompt-template-for-work/slide-7.png"
+                    alt="コピペ→出力→追記の2回転で実務品質に近づける"
+                    width={800}
+                    height={450}
+                    className="rounded-lg"
+                  />
+                </figure>
+              </>
+            )}
+            {group.id === "minutes-summary-templates" && (
+              <figure className="my-8">
+                <Image
+                  src="/images/blog/prompt-template-for-work/slide-4.png"
+                  alt="議事録は「決定事項」と「アクション」に整理する"
+                  width={800}
+                  height={450}
+                  className="rounded-lg"
+                />
+              </figure>
+            )}
+            {group.id === "document-templates" && (
+              <figure className="my-8">
+                <Image
+                  src="/images/blog/prompt-template-for-work/slide-6.png"
+                  alt="企画書やプレゼンはまず骨子（Skeleton）から作る"
+                  width={800}
+                  height={450}
+                  className="rounded-lg"
+                />
+              </figure>
+            )}
+            {group.id === "data-analysis-templates" && (
+              <figure className="my-8">
+                <Image
+                  src="/images/blog/prompt-template-for-work/slide-8.png"
+                  alt="数値の傾向を読み解き、アイデアを発散させる（Excel傾向分析・SWOT・アイデア発散）"
+                  width={800}
+                  height={450}
+                  className="rounded-lg"
+                />
+              </figure>
+            )}
             <div className="mt-6 space-y-6">
               {group.templates.map((template) => (
                 <section key={template.title} className="rounded-lg border border-gray-100 bg-gray-50 p-5">
@@ -486,6 +578,15 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: うまくいかないときは「条件が曖昧」「出力形式が未固定」「前提が不足」のどれかです。直し方を型で覚えると再現性が上がります。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/prompt-template-for-work/slide-9.png"
+              alt="うまくいかない時は条件と形式を見直すチェックリスト"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <ol className="mt-6 space-y-4 text-sm leading-7 text-gray-700">
             {improvementTips.map((tip, index) => (
               <li key={tip} className="rounded-lg border border-gray-200 p-4">
