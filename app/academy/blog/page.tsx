@@ -171,10 +171,28 @@ const blogPosts: readonly BlogPost[] = [
     category: "法人向け",
   },
   {
+    slug: "ai-poc-guide",
+    title: "生成AI PoCの進め方（30日テンプレ）｜成功条件と失敗パターンを先に潰す",
+    summary: "30日でPoCを完了するテンプレートと失敗パターン対策。PoC計画書テンプレート付き。",
+    category: "法人向け",
+  },
+  {
+    slug: "ai-training-curriculum",
+    title: "AI研修カリキュラム例（職種別）｜社内定着まで見据えた設計",
+    summary: "職種別AI研修カリキュラムの設計方法。研修企画書テンプレート付き。",
+    category: "法人向け",
+  },
+  {
     slug: "ai-guideline-template",
     title: "生成AIの社内ガイドライン雛形｜禁止事項・権限・ログまで1枚で設計",
     summary:
       "生成AI（ChatGPT・Claude・Copilot等）の社内利用ガイドラインをコピペ可能な1枚雛形で設計。禁止事項・入力ルール・権限・ログ・例外申請・インシデント対応まで30日導入ステップ付き。",
+    category: "法人向け",
+  },
+  {
+    slug: "ai-adoption-cost-roi",
+    title: "生成AI導入の費用相場とROIの考え方｜PoC予算の決め方まで",
+    summary: "生成AI導入にかかる費用の相場とROI算出方法。PoC予算の決め方とROI試算シート付き。",
     category: "法人向け",
   },
   {
