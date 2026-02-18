@@ -196,12 +196,6 @@ const blogPosts: readonly BlogPost[] = [
     category: "法人向け",
   },
   {
-    slug: "ai-adoption-cost-roi",
-    title: "生成AI導入の費用相場とROIの考え方｜PoC予算の決め方まで",
-    summary: "生成AI導入にかかる費用の相場とROI算出方法。PoC予算の決め方とROI試算シート付き。",
-    category: "法人向け",
-  },
-  {
     slug: "shadow-ai-countermeasures",
     title: "シャドーAI対策の進め方｜\"禁止\"せず安全に使わせる統制設計",
     summary:
@@ -212,6 +206,12 @@ const blogPosts: readonly BlogPost[] = [
     slug: "ai-copyright-commercial-guide",
     title: "生成AIの著作権・商用利用ガイド（画像/動画/文章）｜現場で迷う論点を整理",
     summary: "AI生成物の著作権と商用利用の論点を網羅整理。権利チェックリスト付き。",
+    category: "法人向け",
+  },
+  {
+    slug: "ai-adoption-cost-roi",
+    title: "生成AI導入の費用相場とROIの考え方｜PoC予算の決め方まで",
+    summary: "生成AI導入にかかる費用の相場とROI算出方法。PoC予算の決め方とROI試算シート付き。",
     category: "法人向け",
   },
   {
