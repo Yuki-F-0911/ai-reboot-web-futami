@@ -171,7 +171,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
         </motion.header>
 
         <figure className="my-8">
-          <Image src="/images/blog/what-is-generative-ai/slide-1.png" alt="生成AIスタートガイド タイトル" width={800} height={450} className="rounded-lg border border-gray-200" />
+          <Image src="/images/blog/what-is-generative-ai/slide-1.png" alt="生成AIスタートガイド タイトル" width={800} height={450} className="rounded-lg" />
         </figure>
 
         <ArticleTOC items={tocItems} />
@@ -202,7 +202,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             ))}
           </ul>
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-2.png" alt="従来AIと生成AIの違い比較図" width={800} height={450} className="rounded-lg border border-gray-200" />
+            <Image src="/images/blog/what-is-generative-ai/slide-2.png" alt="従来AIと生成AIの違い比較図" width={800} height={450} className="rounded-lg" />
           </figure>
         </motion.section>
 
@@ -245,7 +245,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             </table>
           </div>
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-3.png" alt="ChatGPT・Claude・Geminiの特徴比較カード" width={800} height={450} className="rounded-lg border border-gray-200" />
+            <Image src="/images/blog/what-is-generative-ai/slide-3.png" alt="ChatGPT・Claude・Geminiの特徴比較カード" width={800} height={450} className="rounded-lg" />
           </figure>
         </motion.section>
 
@@ -290,7 +290,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             </table>
           </div>
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-4.png" alt="AIツール選定フローチャート" width={800} height={450} className="rounded-lg border border-gray-200" />
+            <Image src="/images/blog/what-is-generative-ai/slide-4.png" alt="AIツール選定フローチャート" width={800} height={450} className="rounded-lg" />
           </figure>
         </motion.section>
 
@@ -316,7 +316,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
 出力形式: 箇条書き、表、見出し付き文書 など
           </pre>
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-5.png" alt="プロンプトの書き方 4つの要素" width={800} height={450} className="rounded-lg border border-gray-200" />
+            <Image src="/images/blog/what-is-generative-ai/slide-5.png" alt="プロンプトの書き方 4つの要素" width={800} height={450} className="rounded-lg" />
           </figure>
           <div className="mt-7 space-y-6">
             {promptExamples.map((example) => (
@@ -330,7 +330,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             ))}
           </div>
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-6.png" alt="生成AIの日常業務活用例" width={800} height={450} className="rounded-lg border border-gray-200" />
+            <Image src="/images/blog/what-is-generative-ai/slide-6.png" alt="生成AIの日常業務活用例" width={800} height={450} className="rounded-lg" />
           </figure>
         </motion.section>
 
@@ -357,7 +357,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             ))}
           </ol>
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-7.png" alt="AI活用ロードマップ 3つのステップ" width={800} height={450} className="rounded-lg border border-gray-200" />
+            <Image src="/images/blog/what-is-generative-ai/slide-7.png" alt="AI活用ロードマップ 3つのステップ" width={800} height={450} className="rounded-lg" />
           </figure>
           <p className="mt-5 text-sm leading-7 text-gray-700">
             次は
@@ -385,7 +385,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
         >
           <h2 className="text-2xl font-bold text-gray-900">AI利用時の注意点</h2>
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-8.png" alt="AI利用時の安全ルール" width={800} height={450} className="rounded-lg border border-gray-200" />
+            <Image src="/images/blog/what-is-generative-ai/slide-8.png" alt="AI利用時の安全ルール" width={800} height={450} className="rounded-lg" />
           </figure>
         </motion.section>
 
@@ -471,7 +471,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             <li className="pl-1 marker:text-gray-500">まずは小さく使い始め、1つの業務で成果を出してから範囲を広げると失敗しにくくなります。</li>
           </ul>
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-9.png" alt="生成AI活用まとめ" width={800} height={450} className="rounded-lg border border-gray-200" />
+            <Link href="/academy/seminars">
+              <Image src="/images/blog/what-is-generative-ai/slide-9.png" alt="生成AI活用まとめ" width={800} height={450} className="rounded-lg" />
+            </Link>
           </figure>
         </motion.section>
 <motion.section
