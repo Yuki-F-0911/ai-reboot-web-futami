@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
@@ -157,6 +158,10 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
 
         <ArticleTOC items={tocItems} />
 
+        <figure className="my-8">
+          <Image src="/images/blog/what-is-ai-agent/slide-1.png" alt="AIエージェント入門" width={800} height={450} className="rounded-lg" />
+        </figure>
+
         <motion.section
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
@@ -201,6 +206,14 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <p className="mt-4 text-sm leading-7 text-gray-700">
             従来型AIが単発の判定や生成を担当するのに対し、AIエージェントは連続処理のオーケストレーションを担います。ここが運用上の最大の違いです。
           </p>
+
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-2.png" alt="計画・実行・振り返りループ" width={800} height={450} className="rounded-lg" />
+          </figure>
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-3.png" alt="従来AI「点」vs エージェント「線」" width={800} height={450} className="rounded-lg" />
+          </figure>
+
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -240,6 +253,11 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <p className="mt-4 text-base leading-8 text-gray-700">
             業務に合うタイプを選ぶことが導入成功の起点です。最初は役割が明確なユースケースから始めると、効果測定がしやすくなります。
           </p>
+
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-4.png" alt="定型作業の3領域" width={800} height={450} className="rounded-lg" />
+          </figure>
+
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -276,6 +294,11 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <p className="mt-5 text-base font-medium text-gray-900">
             AIエージェントの作り方は、最初から大規模化せず、1ユースケースで仮説検証する流れが最も現実的です。
           </p>
+
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-5.png" alt="小さく始める" width={800} height={450} className="rounded-lg" />
+          </figure>
+
           <div className="mt-6 space-y-4">
             {introductionSteps.map((step) => (
               <section key={step.title} className="rounded-lg border border-gray-200 p-5">
@@ -284,6 +307,10 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
               </section>
             ))}
           </div>
+
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-6.png" alt="5ステップロードマップ" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -300,6 +327,11 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <p className="mt-5 text-base font-medium text-gray-900">
             成否は実装よりも「入力ルール」「権限」「ログ」「人の確認ポイント」を先に決められるかで決まります。
           </p>
+
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-7.png" alt="ルール作り先決" width={800} height={450} className="rounded-lg" />
+          </figure>
+
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {cautionItems.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -416,6 +448,11 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             まとめ
           </h2>
+
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-8.png" alt="まとめ" width={800} height={450} className="rounded-lg" />
+          </figure>
+
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">AIエージェントは、目標に対して複数ステップを自律的に進めるAIシステムです。</li>
             <li className="pl-1 marker:text-gray-500">業務自動化、カスタマーサポート、開発支援など、定型作業が多い領域で効果が出やすくなります。</li>
@@ -437,6 +474,13 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
           </p>
+
+          <figure className="my-8">
+            <Link href="/academy/seminars">
+              <Image src="/images/blog/what-is-ai-agent/slide-9.png" alt="無料セミナー・個別相談のご案内" width={800} height={450} className="rounded-lg" />
+            </Link>
+          </figure>
+
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy/seminars"
