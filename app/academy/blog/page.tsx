@@ -189,10 +189,22 @@ const blogPosts: readonly BlogPost[] = [
     category: "法人向け",
   },
   {
+    slug: "what-is-mcp",
+    title: "MCP（Model Context Protocol）とは？できることと危険な落とし穴",
+    summary: "MCPの仕組みとセキュリティリスクをわかりやすく解説。安全な連携チェックポイント付き。",
+    category: "法人向け",
+  },
+  {
     slug: "ai-guideline-template",
     title: "生成AIの社内ガイドライン雛形｜禁止事項・権限・ログまで1枚で設計",
     summary:
       "生成AI（ChatGPT・Claude・Copilot等）の社内利用ガイドラインをコピペ可能な1枚雛形で設計。禁止事項・入力ルール・権限・ログ・例外申請・インシデント対応まで30日導入ステップ付き。",
+    category: "法人向け",
+  },
+  {
+    slug: "ai-adoption-cost-roi",
+    title: "生成AI導入の費用相場とROIの考え方｜PoC予算の決め方まで",
+    summary: "生成AI導入にかかる費用の相場とROI算出方法。PoC予算の決め方とROI試算シート付き。",
     category: "法人向け",
   },
   {
@@ -206,12 +218,6 @@ const blogPosts: readonly BlogPost[] = [
     slug: "ai-copyright-commercial-guide",
     title: "生成AIの著作権・商用利用ガイド（画像/動画/文章）｜現場で迷う論点を整理",
     summary: "AI生成物の著作権と商用利用の論点を網羅整理。権利チェックリスト付き。",
-    category: "法人向け",
-  },
-  {
-    slug: "ai-adoption-cost-roi",
-    title: "生成AI導入の費用相場とROIの考え方｜PoC予算の決め方まで",
-    summary: "生成AI導入にかかる費用の相場とROI算出方法。PoC予算の決め方とROI試算シート付き。",
     category: "法人向け",
   },
   {
