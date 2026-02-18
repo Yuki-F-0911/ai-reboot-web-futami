@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
@@ -118,6 +119,17 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
           </p>
         </motion.header>
 
+        <figure className="my-8">
+          <Image
+            src="/images/blog/github-copilot-guide/slide-1.png"
+            alt="GitHub Copilot導入・活用ガイド タイトルスライド"
+            width={800}
+            height={450}
+            className="rounded-lg"
+            priority
+          />
+        </figure>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section
@@ -157,6 +169,15 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
             GitHub Copilotは、コード補完やチャットを通じて、実装・リファクタ・テスト作成などを支援する開発者向けAIです。強いのは「手を動かす」
             部分で、要件や制約が曖昧なまま使うと、見た目は動くが意図と違うコードが混ざりやすくなります。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-2.png"
+              alt="Copilotは実装の下書きを加速する道具（手を動かす作業に向く）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 rounded-lg border border-slate-200 bg-slate-50 p-5 text-sm leading-7 text-slate-700">
             <p className="font-semibold text-slate-800">向いている使い方</p>
             <ul className="mt-3 list-disc space-y-2 pl-5">
@@ -181,6 +202,15 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: まずは拡張機能を入れてサインインし、小さな関数で提案の癖を掴むところまでやればOKです。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-3.png"
+              alt="導入は拡張機能の追加→サインイン&有効化→小さな関数で試す"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <ol className="mt-5 list-decimal space-y-3 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">VS Codeに拡張機能（Copilot/Copilot Chat等）を追加します。</li>
             <li className="pl-1 marker:text-gray-500">GitHubアカウントでサインインし、利用が有効になっているか確認します。</li>
@@ -215,10 +245,19 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
               </div>
             ))}
           </div>
-            <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-sm font-semibold text-slate-800">例: 「コメントで仕様を書く」だけでも効果が出ます</p>
-              <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-4 text-xs leading-6 text-slate-100">
-                {`// 要件:
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-4.png"
+              alt="精度を上げる鍵は制約の明文化（曖昧な指示を減らす）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
+          <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5">
+            <p className="text-sm font-semibold text-slate-800">例: 「コメントで仕様を書く」だけでも効果が出ます</p>
+            <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-4 text-xs leading-6 text-slate-100">
+              {`// 要件:
 // - 入力はメールアドレス
 // - 不正なら例外ではなく Result 型で返す
 // - 正規化（小文字化/前後空白除去）を行う
@@ -228,11 +267,20 @@ export function normalizeEmail(input: string) {
   // ...
 }
 `}
-              </pre>
+            </pre>
             <p className="mt-3 text-xs leading-6 text-slate-600">
               先に制約を書くと、提案が「チームのやり方」に寄りやすくなります。
             </p>
           </div>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-5.png"
+              alt="例（サンプル）と分割で文脈を伝える（理解してから採用）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -252,6 +300,15 @@ export function normalizeEmail(input: string) {
           <p className="mt-4 text-sm leading-7 text-gray-700">
             Copilotをうまく使うチームほど、生成したコードを「自動テスト」と「レビュー」で守る運用になっています。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-6.png"
+              alt="生成コードはテストとレビューで守る（Generate→Test→Reviewの循環）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {workflowSteps.map((step) => (
               <div key={step.title} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -276,6 +333,15 @@ export function normalizeEmail(input: string) {
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             結論: チーム導入は、入力データ・レビュー基準・責任の所在を「先に決める」ほど安全です。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-7.png"
+              alt="チーム導入はルールが先（安全とセキュリティ／責任と運用）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               <span className="font-semibold text-gray-900">入力データ:</span> APIキー、顧客情報、未公開仕様などを入力しない運用にします。
@@ -368,6 +434,15 @@ export function normalizeEmail(input: string) {
           <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             まとめ
           </h2>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-8.png"
+              alt="まとめ：AIと賢く付き合うために（制約・例・分割、テストとレビュー、機密情報の扱い）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">導入は「拡張機能→サインイン→有効化」で完了します（IDEにより手順は多少異なります）。</li>
             <li className="pl-1 marker:text-gray-500">精度を上げる鍵は「制約・例・分割」。一度に大きく生成しないこと。</li>
