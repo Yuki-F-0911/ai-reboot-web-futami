@@ -146,6 +146,37 @@ const checksheetItems = [
   "チームで再利用できるテンプレートとして保存できる",
 ] as const;
 
+const failurePatterns = [
+  {
+    title: "失敗1: 役割が曖昧で判断軸がぶれる",
+    detail:
+      "「専門家として回答して」とだけ書くと、どの専門領域の専門家かが不明です。業務、職種、経験年数などを指定しない場合、AIは一般論の平均値に寄ります。",
+  },
+  {
+    title: "失敗2: 背景情報が不足し、優先順位が逆転する",
+    detail:
+      "同じ依頼でも、対象読者が経営層か実務担当者かで必要な情報は変わります。背景がないと、読む相手に合わない詳細度で出力されます。",
+  },
+  {
+    title: "失敗3: 制約が後出しになり、修正往復が増える",
+    detail:
+      "初回に「短く」とだけ伝え、2回目で文字数、3回目でトーンを追加する流れは手戻りの典型です。最初に制約を固定する方が速く安定します。",
+  },
+  {
+    title: "失敗4: 出力形式を決めず、レビュー観点が散らばる",
+    detail:
+      "担当者Aは箇条書き、担当者Bは長文で依頼すると、レビュー方法も保存形式も揃いません。運用では出力形式の統一が品質管理の起点になります。",
+  },
+] as const;
+
+const implementationSteps = [
+  "Step 1. 高頻度で短時間の業務を1つ選ぶ（例: 会議要約、メール返信）",
+  "Step 2. 4要素テンプレートを作り、既存の依頼文を分解して再配置する",
+  "Step 3. 初回出力を評価し、不足した要素だけを1つ追加して再実行する",
+  "Step 4. 良い出力が出た版を「業務テンプレートv1」として保存する",
+  "Step 5. チームで同じテンプレートを使い、週1で改善差分を反映する",
+] as const;
+
 type LineCtaBoxProps = {
   className: string;
   titleClassName: string;
@@ -245,6 +276,10 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
               チェックシートで運用を標準化すると、個人差を抑えながらチーム全体のAI活用精度を引き上げられます。
             </li>
           </ul>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            現場では「便利だけれど品質が読めない」という理由でAI活用が止まることがあります。コンテキストエンジニアリングは、この不安を設計で解消するアプローチです。
+            入力を定義し、検証し、更新する流れを作れば、担当者の経験値に依存しない形で運用を継続できます。
+          </p>
         </motion.section>
 
         <motion.section
@@ -274,6 +309,11 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
             </Link>
             のように型を持つことが有効ですが、次の段階では型に流し込む「前提情報の粒度」を上げる必要があります。
           </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            重要なのは、うまい表現を探すことではなく、判断材料を不足なく渡すことです。
+            AIは受け取った情報をもとに次の単語を予測して文章を組み立てるため、入力が曖昧なら結論も曖昧になります。
+            非エンジニアが成果を出している現場ほど、プロンプトの小手先よりも、背景情報と制約条件の定義に時間を使っています。
+          </p>
           <div className="mt-7 rounded-lg border border-gray-200 bg-gray-50 p-5">
             <h3 className="text-lg font-semibold text-gray-900">現場で起きやすい3つの限界</h3>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
@@ -281,6 +321,14 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
               <li className="pl-1 marker:text-gray-500">制約条件を後から追加するため、修正回数が増える</li>
               <li className="pl-1 marker:text-gray-500">出力形式が毎回違い、レビューと転記の工数が増える</li>
             </ul>
+          </div>
+          <div className="mt-6 space-y-4">
+            {failurePatterns.map((pattern) => (
+              <div key={pattern.title} className="rounded-lg border border-gray-200 p-5">
+                <h3 className="text-base font-semibold text-gray-900">{pattern.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-gray-700">{pattern.detail}</p>
+              </div>
+            ))}
           </div>
         </motion.section>
 
@@ -381,6 +429,18 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
               </tbody>
             </table>
           </div>
+          <div className="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5">
+            <h3 className="text-lg font-semibold text-gray-900">実務での使い分け基準</h3>
+            <p className="mt-2 text-sm leading-7 text-gray-700">
+              単発で終わるタスクなら、プロンプトエンジニアリング中心でも十分です。例えば、1回だけのアイデア出しや下書き生成は、指示文の工夫だけで短時間に成果を出せます。
+            </p>
+            <p className="mt-3 text-sm leading-7 text-gray-700">
+              一方、毎週繰り返す業務や、複数人で回す業務ではコンテキストエンジニアリングが有効です。誰が担当しても同じ品質で出力できる状態を作るには、役割・背景・制約・出力形式を固定する必要があります。
+            </p>
+            <p className="mt-3 text-sm leading-7 text-gray-700">
+              現場で迷ったら「この業務は個人作業か、チーム運用か」で判断してください。チーム運用なら、最初からコンテキスト設計まで含めて進める方が総工数を下げられます。
+            </p>
+          </div>
         </motion.section>
 
         <motion.section
@@ -408,6 +468,11 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
               ChatGPTを仕事で使いこなす実践テクニック集
             </Link>
             の「1回で決めない運用」が参考になります。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            あわせて、出力の良し悪しだけでなく「修正回数」と「最終化までの時間」も記録してください。
+            品質だけで判断すると、見た目は良いが運用コストの高いテンプレートを選んでしまうことがあります。
+            コンテキストエンジニアリングの目的は、文章を整えることではなく、業務判断を短時間で行える状態を作ることです。
           </p>
           <div className="mt-7 space-y-6">
             {businessExamples.map((example) => (
@@ -438,6 +503,20 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
                 </p>
               </section>
             ))}
+          </div>
+          <div className="mt-7 rounded-lg border border-gray-200 bg-gray-50 p-5">
+            <h3 className="text-lg font-semibold text-gray-900">導入を定着させる5ステップ</h3>
+            <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
+              {implementationSteps.map((step) => (
+                <li key={step} className="pl-1 marker:text-gray-500">
+                  {step}
+                </li>
+              ))}
+            </ol>
+            <p className="mt-4 text-sm leading-7 text-gray-700">
+              5ステップの中で重要なのは、最後の「定期更新」です。AIモデルや業務要件は変化するため、最初に作ったテンプレートを固定すると精度は下がります。
+              月1回でもよいので、実際の出力ログを見ながら改善差分を反映してください。
+            </p>
           </div>
         </motion.section>
 
@@ -478,6 +557,16 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
               </li>
             ))}
           </ol>
+          <div className="mt-7 rounded-lg border border-gray-200 bg-gray-50 p-5">
+            <h3 className="text-lg font-semibold text-gray-900">チェックシート運用の評価方法</h3>
+            <p className="mt-2 text-sm leading-7 text-gray-700">
+              運用を形だけで終わらせないために、3つの指標を記録してください。1つ目は初回出力の採用率、2つ目は修正往復回数、3つ目は最終化までの所要時間です。
+              この3指標を見れば、チェックシートが実際に生産性へ効いているかを判断できます。
+            </p>
+            <p className="mt-3 text-sm leading-7 text-gray-700">
+              数値が改善しない場合は、10項目を一度に見直す必要はありません。欠損しやすい「背景情報」と「出力形式」の2項目から修正すると、改善幅が出やすくなります。
+            </p>
+          </div>
           <div className="mt-7">
             <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" titleClassName="text-base font-semibold text-green-800" />
           </div>
