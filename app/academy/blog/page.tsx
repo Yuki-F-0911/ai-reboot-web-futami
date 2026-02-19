@@ -366,6 +366,14 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
     thumbnail: "/images/blog/new-employee-ai-starter-guide/slide-01.png",
   },
+  {
+    slug: "ai-meeting-tools-comparison",
+    title: "AI議事録ツール比較2026｜Fireflies・Otter・Notion AIの選び方と会議効率化",
+    summary:
+      "Fireflies.ai・Otter.ai・Notion AI・tl;dv・Nottaを日本語精度・Zoom/Teams/Meet対応・料金・要約品質の4軸で比較。シーン別おすすめと導入後のワークフロー設計を解説します。",
+    category: "実務活用",
+    thumbnail: "/images/blog/ai-meeting-tools-comparison/slide-01.png",
+  },
 ] as const;
 
 const categoryClassName: Record<BlogCategory, string> = {
