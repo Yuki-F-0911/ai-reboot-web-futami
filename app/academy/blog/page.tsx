@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで68記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで69記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -102,6 +102,13 @@ const blogPosts: readonly BlogPost[] = [
       "AIコーディングの基本、代表ツール、非エンジニアができること、始め方5ステップとプロンプト例、注意点までを整理した入門ガイドです。",
     category: "AI基礎知識",
     thumbnail: "/images/blog/ai-coding-for-beginners/slide-1.png",
+  },
+  {
+    slug: "cursor-ai-coding-guide",
+    title: "Cursor × AIコーディング入門｜非エンジニアでも使える実践ガイド",
+    summary:
+      "Cursorとは何か、インストール方法、AIと対話しながらLPを作る具体手順、1日で形にした実例、GitHub Copilotとの違いまでを実務目線で整理した入門記事です。",
+    category: "実務活用",
   },
   {
     slug: "github-copilot-guide",
