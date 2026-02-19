@@ -1,4 +1,4 @@
-"use client";
+import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "./academyDesignTokens";
 
 const voices = [
     {
@@ -35,48 +35,53 @@ const voices = [
 
 const VoicesSection = () => {
     return (
-        <section className="py-20 md:py-32 bg-slate-50 relative overflow-hidden">
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-10 left-10 w-72 h-72 bg-orange-100/40 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 right-10 w-80 h-80 bg-amber-100/30 rounded-full blur-3xl" />
-            </div>
-
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative z-10">
-                <div className="text-center mb-10 md:mb-16">
-                    <p className="text-orange-500 font-bold text-sm tracking-wider mb-2">
-                        VOICES
-                    </p>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900">
+        <section 
+            className="py-24 lg:py-32"
+            style={{ backgroundColor: ACADEMY_COLORS.bgSection }}
+        >
+            <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+                {/* Section Header */}
+                <div className="mb-16 lg:mb-20">
+                    <span 
+                        className="inline-block text-[10px] tracking-[0.2em] font-bold text-orange-500 uppercase mb-4"
+                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                    >
+                        Voices
+                    </span>
+                    <h2 
+                        className="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-6"
+                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
+                    >
                         参加者の声
                     </h2>
-                    <p className="mt-4 text-lg sm:text-lg text-slate-600">
-                        たった2日間で、ここまで変わった。では、100日後は？
+                    <p className="text-slate-600 max-w-2xl leading-relaxed">
+                        たった2日間のキャンプでも、多くの「リブート」が生まれました。<br className="hidden lg:block" />
+                        その変化の兆しが、100日間の伴走を通じて確信へと変わります。
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
-                    {voices.map((voice) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                    {voices.map((voice, index) => (
                         <article
-                            key={voice.title}
-                            className="h-full bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col relative overflow-hidden"
+                            key={index}
+                            className="bg-white p-8 lg:p-10 border border-slate-200 rounded-sm shadow-sm transition-all hover:shadow-md"
                         >
-                            <span className="absolute top-3 right-4 text-7xl text-orange-200 font-serif leading-none pointer-events-none select-none z-0">
-                                &ldquo;
-                            </span>
-
-                            <h3 className="relative z-10 text-lg md:text-xl font-bold text-slate-900 leading-snug mb-4">
-                                {voice.title}
+                            <h3 
+                                className="text-lg lg:text-xl font-bold text-slate-900 leading-snug mb-6"
+                                style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
+                            >
+                                &ldquo;{voice.title}&rdquo;
                             </h3>
 
-                            <p className="relative z-10 text-sm md:text-base text-slate-600 leading-relaxed flex-1">
+                            <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-8">
                                 {voice.body}
                             </p>
 
-                            <div className="relative z-10 mt-4 flex items-center gap-2">
-                                <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 font-bold text-xs flex items-center justify-center">
-                                    {voice.initial}
-                                </div>
-                                <p className="text-xs text-slate-400">
+                            <div className="pt-6 border-t border-slate-100">
+                                <p 
+                                    className="text-[10px] font-bold text-slate-400 tracking-widest"
+                                    style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                                >
                                     {voice.attribute}
                                 </p>
                             </div>
