@@ -94,52 +94,62 @@ const ConceptSection = () => {
                     </div>
                 </div>
 
-                {/* Pillars with List Structure */}
-                <ol 
+                {/* Pillars with 2-column Layout */}
+                <ol
                     className="space-y-0 border-t"
                     style={{ borderColor: ACADEMY_COLORS.lineSoft }}
                 >
                     {pillars.map((pillar) => (
                         <li
                             key={pillar.id}
-                            className="group grid lg:grid-cols-12 gap-4 lg:gap-6 py-12 border-b hover:bg-stone-50/50 transition-colors border-l-4 pl-4 lg:pl-6"
+                            className="group grid lg:grid-cols-2 gap-6 lg:gap-12 py-12 border-b border-l-4 pl-4 lg:pl-6 hover:bg-stone-50/50 transition-colors"
                             style={{
                                 borderColor: ACADEMY_COLORS.lineSoft,
                                 borderLeftColor: ACADEMY_COLORS.accentMain
                             }}
                         >
-                            <div className="lg:col-span-3 flex flex-row lg:flex-col items-center lg:items-start gap-4">
+                            {/* Left: Illustration */}
+                            <div className="flex justify-center lg:justify-start items-center">
                                 <Image
                                     src={pillar.illustration}
                                     alt={pillar.title}
-                                    width={180}
-                                    height={180}
+                                    width={220}
+                                    height={220}
                                     className="object-contain"
                                 />
+                            </div>
+
+                            {/* Right: Content */}
+                            <div className="flex flex-col justify-center gap-3">
+                                {/* PILLAR label — badge style */}
                                 <span
-                                    className="text-xs font-bold tracking-widest border-l-2 pl-2"
-                                    style={{ 
+                                    className="inline-flex items-center self-start text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded-sm"
+                                    style={{
                                         fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                                        color: ACADEMY_COLORS.textMuted,
-                                        borderLeftColor: ACADEMY_COLORS.accentMain
+                                        backgroundColor: ACADEMY_COLORS.accentSoft,
+                                        color: ACADEMY_COLORS.accentDeep
                                     }}
                                 >
                                     {pillar.label}
                                 </span>
-                            </div>
-                            <div className="lg:col-span-4">
-                                <h3 
-                                    className="text-xl lg:text-2xl font-bold mb-4"
+                                <h3
+                                    className="text-xl lg:text-2xl font-bold"
                                     style={{ color: ACADEMY_COLORS.textStrong }}
                                 >
                                     {pillar.title}
                                 </h3>
+                                <p
+                                    className="leading-relaxed"
+                                    style={{ color: ACADEMY_COLORS.textBody }}
+                                >
+                                    {pillar.description}
+                                </p>
                                 <div className="flex flex-wrap gap-2">
                                     {pillar.elements.map(el => (
-                                        <span 
-                                            key={el} 
+                                        <span
+                                            key={el}
                                             className="text-[10px] px-2 py-0.5 border rounded-sm"
-                                            style={{ 
+                                            style={{
                                                 backgroundColor: ACADEMY_COLORS.bgPanel,
                                                 borderColor: ACADEMY_COLORS.lineSoft,
                                                 color: ACADEMY_COLORS.textMuted
@@ -149,14 +159,6 @@ const ConceptSection = () => {
                                         </span>
                                     ))}
                                 </div>
-                            </div>
-                            <div className="lg:col-span-5">
-                                <p 
-                                    className="leading-loose"
-                                    style={{ color: ACADEMY_COLORS.textBody }}
-                                >
-                                    {pillar.description}
-                                </p>
                             </div>
                         </li>
                     ))}
