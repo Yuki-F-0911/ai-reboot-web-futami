@@ -255,6 +255,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "法人向け",
   },
   {
+    slug: "ai-accounting-guide",
+    title: "経理・財務部門のAI活用ガイド2026｜仕訳・レポート・予算管理の自動化事例",
+    summary:
+      "経理・財務でのAI活用を仕訳確認・月次レポート・予算差異分析・ExcelマクロAI生成の4業務で解説。機密データのリスク管理3原則と3段階導入ステップ付き。",
+    category: "法人向け",
+  },
+  {
     slug: "llm-evaluation-guide",
     title: "生成AIの評価（LLM評価）入門｜“任せていい品質”を測る指標と運用",
     summary: "LLM評価を品質・安全性・運用性の3軸で設計する実務ガイド。週次運用できる評価シート付き。",
