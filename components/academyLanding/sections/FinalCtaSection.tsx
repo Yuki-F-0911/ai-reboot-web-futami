@@ -6,39 +6,28 @@ const FinalCtaSection = () => {
             className="py-24 lg:py-40"
             style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}
         >
-            <div className="container mx-auto px-6 lg:px-12 max-w-5xl">
-                <div className="max-w-3xl">
-                    <span 
-                        className="inline-block text-[10px] tracking-[0.2em] font-bold uppercase mb-8"
-                        style={{ 
-                            fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                            color: ACADEMY_COLORS.accentMain 
-                        }}
-                    >
-                        Conclusion
-                    </span>
-                    
-                    <h2 
+            <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
+                <div className="text-center">
+                    <h2
                         className="text-4xl lg:text-7xl font-bold leading-tight mb-12"
-                        style={{ 
+                        style={{
                             fontFamily: ACADEMY_TYPOGRAPHY.serif,
                             color: ACADEMY_COLORS.textStrong
                         }}
                     >
-                        人生を、<br className="lg:hidden" />
-                        <span style={{ color: ACADEMY_COLORS.accentMain }}>リブートする。</span>
+                        人生を、<span style={{ color: ACADEMY_COLORS.accentMain }}>リブートする。</span>
                     </h2>
-                    
-                    <p 
-                        className="text-lg lg:text-2xl leading-loose mb-16 font-medium"
+
+                    <p
+                        className="text-lg lg:text-xl leading-loose mb-16 font-medium"
                         style={{ color: ACADEMY_COLORS.textBody }}
                     >
-                        生成AI活用 × 自己理解 × 共創コミュニティ。<br className="hidden lg:block" />
-                        100日間で、AI時代に自らの価値を再定義し、<br className="sm:hidden" />
+                        生成AI活用 × 自己理解 × 共創コミュニティ。<br />
+                        100日間で、AI時代に自らの価値を再定義し、<br />
                         新しい未来へ踏み出す準備はできましたか？
                     </p>
-                    
-                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-12">
+
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
                         <a
                             href="https://bexn9pao.autosns.app/line"
                             target="_blank"
@@ -64,7 +53,7 @@ const FinalCtaSection = () => {
                         </a>
                     </div>
                     
-                    <p 
+                    <p
                         className="text-xs leading-loose"
                         style={{ color: ACADEMY_COLORS.textMuted }}
                     >
