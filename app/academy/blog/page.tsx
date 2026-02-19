@@ -177,6 +177,13 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/what-is-rag/slide-1.png",
   },
   {
+    slug: "rag-vs-finetuning-guide",
+    title: "RAGとファインチューニング、どちらを選ぶ？社内データ活用の判断フレーム",
+    summary:
+      "社内データ活用で迷うRAGとファインチューニングを、コスト・用途・更新頻度・精度・実装難易度で比較し、3ステップ判断フローで選び方を整理した実務ガイドです。",
+    category: "AI基礎知識",
+  },
+  {
     slug: "rag-use-cases",
     title: "RAG（検索拡張生成）の活用事例8選｜業種・業務別に解説",
     summary: "RAGの実務ユースケース8選と、導入ステップ・注意点を要点から整理した記事です。",
