@@ -25,7 +25,8 @@ const FinalCtaSection = () => {
                             color: ACADEMY_COLORS.textStrong
                         }}
                     >
-                        人生を、<br className="lg:hidden" />リブートする。
+                        人生を、<br className="lg:hidden" />
+                        <span style={{ color: ACADEMY_COLORS.accentMain }}>リブートする。</span>
                     </h2>
                     
                     <p 

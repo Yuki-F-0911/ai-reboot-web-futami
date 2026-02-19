@@ -128,10 +128,11 @@ const SkillLevelSection = () => {
 
                             {/* Right: Program & Action */}
                             <div 
-                                className="lg:col-span-7 p-8 lg:p-10 border rounded-sm shadow-sm"
+                                className="lg:col-span-7 p-8 lg:p-10 border-l-4 border rounded-sm shadow-sm"
                                 style={{ 
                                     backgroundColor: ACADEMY_COLORS.bgPanel,
-                                    borderColor: ACADEMY_COLORS.lineSoft
+                                    borderColor: ACADEMY_COLORS.lineSoft,
+                                    borderLeftColor: ACADEMY_COLORS.accentMain
                                 }}
                             >
                                 <div className="mb-8">

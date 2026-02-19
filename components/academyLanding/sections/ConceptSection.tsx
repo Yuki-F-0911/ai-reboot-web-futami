@@ -102,8 +102,11 @@ const ConceptSection = () => {
                     {pillars.map((pillar) => (
                         <li
                             key={pillar.id}
-                            className="group grid lg:grid-cols-12 gap-8 py-12 border-b hover:bg-stone-50/50 transition-colors"
-                            style={{ borderColor: ACADEMY_COLORS.lineSoft }}
+                            className="group grid lg:grid-cols-12 gap-8 py-12 border-b hover:bg-stone-50/50 transition-colors border-l-4 pl-4 lg:pl-6"
+                            style={{ 
+                                borderColor: ACADEMY_COLORS.lineSoft,
+                                borderLeftColor: ACADEMY_COLORS.accentMain
+                            }}
                         >
                             <div className="lg:col-span-3 flex flex-row lg:flex-col items-center lg:items-start gap-4">
                                 <Image
@@ -114,10 +117,11 @@ const ConceptSection = () => {
                                     className="object-contain"
                                 />
                                 <span
-                                    className="text-xs font-bold tracking-widest"
+                                    className="text-xs font-bold tracking-widest border-l-2 pl-2"
                                     style={{ 
                                         fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                                        color: ACADEMY_COLORS.textMuted
+                                        color: ACADEMY_COLORS.textMuted,
+                                        borderLeftColor: ACADEMY_COLORS.accentMain
                                     }}
                                 >
                                     {pillar.label}

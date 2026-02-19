@@ -75,7 +75,7 @@ const TargetAudienceSection = () => {
                                     className="text-sm font-bold tracking-widest"
                                     style={{ 
                                         fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                                        color: ACADEMY_COLORS.textMuted
+                                        color: ACADEMY_COLORS.accentMain
                                     }}
                                 >
                                     {String(index + 1).padStart(2, '0')}

@@ -76,7 +76,7 @@ const ProgramFlowSection = () => {
                             {/* Horizontal Line for Desktop */}
                             <div 
                                 className="hidden lg:block w-full h-px mb-8 group-hover:opacity-60 transition-opacity" 
-                                style={{ backgroundColor: ACADEMY_COLORS.lineStrong }}
+                                style={{ backgroundColor: ACADEMY_COLORS.accentMain }}
                             />
 
                             {/* Dot/Marker */}

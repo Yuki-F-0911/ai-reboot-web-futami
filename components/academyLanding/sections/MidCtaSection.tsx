@@ -3,10 +3,9 @@ import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "./academyDesignTokens";
 const MidCtaSection = () => {
     return (
         <section 
-            className="py-24 lg:py-32 border-y"
+            className="py-24 lg:py-32"
             style={{ 
-                backgroundColor: ACADEMY_COLORS.bgCanvas,
-                borderColor: ACADEMY_COLORS.lineSoft
+                backgroundColor: ACADEMY_COLORS.accentMain
             }}
         >
             <div className="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
@@ -14,7 +13,7 @@ const MidCtaSection = () => {
                     className="inline-block text-[10px] tracking-[0.2em] font-bold uppercase mb-8"
                     style={{ 
                         fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                        color: ACADEMY_COLORS.accentMain 
+                        color: 'rgba(255,255,255,0.7)' 
                     }}
                 >
                     Inquiry
@@ -24,7 +23,7 @@ const MidCtaSection = () => {
                     className="text-3xl lg:text-4xl font-bold leading-tight mb-8"
                     style={{ 
                         fontFamily: ACADEMY_TYPOGRAPHY.serif,
-                        color: ACADEMY_COLORS.textStrong
+                        color: '#ffffff'
                     }}
                 >
                     一歩踏み出すことに、<br className="sm:hidden" />
@@ -33,7 +32,7 @@ const MidCtaSection = () => {
                 
                 <p 
                     className="leading-loose mb-12 max-w-2xl mx-auto"
-                    style={{ color: ACADEMY_COLORS.textBody }}
+                    style={{ color: 'rgba(255,255,255,0.85)' }}
                 >
                     AI時代は、立ち止まっていること自体が最大のリスクかもしれません。<br className="hidden lg:block" />
                     あなたのキャリアの可能性を、一度専門家と棚卸ししてみませんか？
@@ -57,8 +56,8 @@ const MidCtaSection = () => {
                         href="/academy/seminars"
                         className="font-bold border-b pb-1 transition-opacity hover:opacity-70 group flex items-center gap-2"
                         style={{ 
-                            color: ACADEMY_COLORS.textStrong,
-                            borderColor: ACADEMY_COLORS.textStrong
+                            color: '#ffffff',
+                            borderColor: 'rgba(255,255,255,0.5)'
                         }}
                     >
                         <span>オンライン説明会に参加</span>
