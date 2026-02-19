@@ -25,15 +25,6 @@ const SubsidyBanner = () => {
                                 height={80}
                                 className="h-14 md:h-16 w-auto object-contain"
                             />
-                            <span 
-                                className="text-[10px] font-bold tracking-widest uppercase"
-                                style={{ 
-                                    fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                                    color: ACADEMY_COLORS.textMuted
-                                }}
-                            >
-                                Official Subsidy Program
-                            </span>
                         </div>
                         
                         <h2 
@@ -97,16 +88,6 @@ const SubsidyBanner = () => {
                         }}
                     >
                         <div className="flex flex-col items-center text-center">
-                            <span 
-                                className="text-[10px] font-bold tracking-widest uppercase mb-6"
-                                style={{ 
-                                    fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                                    color: ACADEMY_COLORS.textMuted
-                                }}
-                            >
-                                Estimated Cost
-                            </span>
-                            
                             <div className="mb-6">
                                 <p 
                                     className="text-xs line-through mb-1"
@@ -139,15 +120,6 @@ const SubsidyBanner = () => {
                                 </div>
                             </div>
 
-                            <div 
-                                className="text-[10px] font-bold px-3 py-1 rounded-sm uppercase tracking-wider mb-4"
-                                style={{ 
-                                    backgroundColor: ACADEMY_COLORS.accentSoft,
-                                    color: ACADEMY_COLORS.accentMain
-                                }}
-                            >
-                                Max 70% Subsidized
-                            </div>
                             
                             <p 
                                 className="text-[10px] leading-relaxed italic"
