@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
@@ -235,6 +236,20 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="workflow-overview" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AIプレゼン資料作成の全体ワークフロー（構成→スライド→デザイン→推敲）
           </h2>
+          <Image
+            src="/images/blog/ai-presentation-workflow/slide-1.png"
+            alt="AIプレゼン資料作成 2026 - 構成・原稿・デザイン・推敲の「分業」システム全体像"
+            width={800}
+            height={450}
+            className="mt-6 rounded-lg"
+          />
+          <Image
+            src="/images/blog/ai-presentation-workflow/slide-2.png"
+            alt="「手戻り」はプロセスを分けるだけで消滅する - 構成→原稿→デザイン→推敲の4工程パイプライン"
+            width={800}
+            height={450}
+            className="mt-4 rounded-lg"
+          />
           <p className="mt-5 text-base font-medium text-gray-900">
             最短で品質を上げるには、1回で完成を狙わず「4工程を順番に回す」ことが重要です。構成→原稿→デザイン→推敲の順で精度を上げます。
           </p>
@@ -270,6 +285,13 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="step1-outline" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             Step 1 – 構成案を作る（NotebookLMでソース整理 → ChatGPT/Claudeでアウトライン）
           </h2>
+          <Image
+            src="/images/blog/ai-presentation-workflow/slide-3.png"
+            alt="Step 1: 構成。NotebookLMで既存資料（PDF/Docs）を入力し、論点整理・キーメッセージ抽出を行う"
+            width={800}
+            height={450}
+            className="mt-6 rounded-lg"
+          />
           <p className="mt-5 text-base font-medium text-gray-900">
             まず「目的・聞き手・時間・枚数」を揃え、アウトラインを出すと後工程の手戻りが減ります。特に既存資料（会議資料・調査レポートなど）をベースに作る場合は、
             先にNotebookLMでソースを整理してからアウトライン化すると速いです。
@@ -318,6 +340,13 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="step2-script" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             Step 2 – スライド原稿を生成する（各スライドのテキスト作成）
           </h2>
+          <Image
+            src="/images/blog/ai-presentation-workflow/slide-4.png"
+            alt="Step 2: 原稿。スライド本文（箇条書き最大5行）とスピーカーノート（話す言葉）を分けて生成する"
+            width={800}
+            height={450}
+            className="mt-6 rounded-lg"
+          />
           <p className="mt-5 text-base font-medium text-gray-900">
             スライド原稿は「見せる文章」と「話す文章」に分けると、文字量の暴走を防げます。スライドは短く、話す原稿で補足する設計が分かりやすさに直結します。
           </p>
@@ -343,6 +372,13 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="step3-design" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             Step 3 – デザインに落とし込む（Gamma, Canva AI, Beautiful.ai等）
           </h2>
+          <Image
+            src="/images/blog/ai-presentation-workflow/slide-5.png"
+            alt="Step 3: デザイン。Gamma/Canva/Beautiful.aiで叩き台を作り、PowerPoint/Google Slidesで仕上げるワークフロー"
+            width={800}
+            height={450}
+            className="mt-6 rounded-lg"
+          />
           <p className="mt-5 text-base font-medium text-gray-900">
             デザイン工程は「見栄え」よりも「読みやすさ」と「統一感」を優先すると失敗しにくいです。AIツールは叩き台に使い、最終調整はPowerPoint / Google Slidesで行うと運用しやすくなります。
           </p>
@@ -393,6 +429,13 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="step4-review" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             Step 4 – AIで推敲・改善する（論理チェック、冗長表現の除去）
           </h2>
+          <Image
+            src="/images/blog/ai-presentation-workflow/slide-6.png"
+            alt="Step 4: 推敲。AIが論理フローと冗長表現を指摘し、数値・固有名詞は人間が元ソースと照合する"
+            width={800}
+            height={450}
+            className="mt-6 rounded-lg"
+          />
           <p className="mt-5 text-base font-medium text-gray-900">
             最後にAIで「論理の飛躍」「表記ゆれ」「詰め込みすぎ」をチェックすると、短時間で読みやすさが上がります。最終判断は人が行い、事実関係は必ず確認してください。
           </p>
@@ -429,6 +472,13 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="tool-comparison" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             用途別おすすめツール比較（既存資料起点/ビジネス提案/社内報告/セミナー）
           </h2>
+          <Image
+            src="/images/blog/ai-presentation-workflow/slide-7.png"
+            alt="適材適所のツールエコシステム - NotebookLM（ソース整理）、ChatGPT/Claude（原稿作成）、Gamma/Canva（デザイン）、PowerPoint/Google Slides（仕上げ）"
+            width={800}
+            height={450}
+            className="mt-6 rounded-lg"
+          />
           <p className="mt-5 text-base font-medium text-gray-900">
             ツール選定は「見栄え」より「運用・共有・テンプレート」の相性で決めると失敗しにくいです。無理のない組み合わせから始めましょう。
           </p>
@@ -470,6 +520,13 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="prompt-examples" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             プレゼン資料作成で使えるプロンプト例
           </h2>
+          <Image
+            src="/images/blog/ai-presentation-workflow/slide-8.png"
+            alt="再現性を高めるプロンプトの変数を固定する - 目的・聞き手・制約・出力形式の4要素を定義する"
+            width={800}
+            height={450}
+            className="mt-6 rounded-lg"
+          />
           <p className="mt-5 text-base font-medium text-gray-900">
             プロンプトは「工程ごと」に分けてテンプレ化すると再現性が上がります。まずアウトライン→原稿→推敲の3点を揃えると、どのツールでも使い回しやすくなります。
           </p>
@@ -605,6 +662,13 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
           <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             まとめ
           </h2>
+          <Image
+            src="/images/blog/ai-presentation-workflow/slide-9.png"
+            alt="完璧を目指さずこのサイクルを回す - NotebookLMで構成→原稿とノートの分離→AIでデザイン土台→人が事実を推敲"
+            width={800}
+            height={450}
+            className="mt-6 rounded-lg"
+          />
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               既存資料がある場合は、NotebookLMでソースを整理してからアウトライン化すると速いです。
