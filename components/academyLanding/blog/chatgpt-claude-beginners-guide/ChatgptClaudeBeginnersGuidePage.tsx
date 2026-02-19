@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -114,13 +115,13 @@ const tocItems = [
   { id: "free-vs-paid", label: "無料プランと有料プランの違い" },
   { id: "first-week-usage", label: "最初の1週間で試す7つの使い方" },
   { id: "beginner-mistakes", label: "初心者の失敗と対策" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptClaudeBeginnersGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -148,13 +149,19 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton title="ChatGPT・Claude初心者ガイド｜最初の1週間でできること" sourceSelector="[data-blog-article-body]" />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             ChatGPT・Claude初心者ガイド｜最初の1週間でできること
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            初めての生成AIは、何を聞けばいいか・何が正解かでつまずきがちです。最初の1週間で「基本操作」と「実務に使える型」を作ると、迷いが一気に減ります。
-            筆者はまず議事録要約とメール下書きから試し、同じ質問をChatGPT/Claudeに投げて違いを掴みました。
+            初心者は、アカウント作成後に用途を1つ決めて、短い質問と追質問で使い方を習得するのが効果的です。
+            初めての生成AIとは、何を聞けばいいか・何が正解かでつまずきがちです。
+            最初の1週間で「基本操作」と「実務に使える型」を作ると、迷いが一気に減ります。
           </p>
         </motion.header>
 
@@ -196,7 +203,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             アカウント作成から最初の質問までの手順（ChatGPT / Claude共通）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最初は「アカウント作成 → 1つの用途で試す → 同じ質問で比較」の順に進めると、最短で使い分けの感覚が掴めます。
+            最初は「アカウント作成 → 1つの用途で試す → 同じ質問で比較」の順に進めると、最短で使い分けの感覚が掴めます。
           </p>
           <div className="mt-6 space-y-4">
             {gettingStartedFlow.map((item) => (
@@ -220,7 +227,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             無料プランでできること・有料プランとの違い
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 最初から有料を前提にせず、無料範囲で利用目的を固めるのが堅実です。用途と利用頻度が明確になった段階で、各プランを比較して選びましょう。
+            最初から有料を前提にせず、無料範囲で利用目的を固めるのが堅実です。用途と利用頻度が明確になった段階で、各プランを比較して選びましょう。
             例として、ChatGPT（Plus/Pro、地域によってはGoなど）やClaude（Pro/Maxなど）のように、個人向けにも複数の有料プランが用意されることがあります（2026年2月時点、名称/料金/提供内容は更新されます）。
           </p>
           <div className="mt-6 overflow-x-auto">
@@ -257,7 +264,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             最初の1週間で試すべき7つの使い方
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 1週間で幅広く試しておくと、自分の業務に合う活用パターンが見つけやすくなります。以下の7つは初心者でも着手しやすい基本用途です。
+            1週間で幅広く試しておくと、自分の業務に合う活用パターンが見つけやすくなります。以下の7つは初心者でも着手しやすい基本用途です。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {firstWeekUseCases.map((item) => (
@@ -281,7 +288,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             よくある初心者の失敗と対策
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 失敗の多くは「曖昧な質問」と「1回で終わらせようとする運用」から起きます。型（目的・前提・出力形式）と追質問を前提にすると、安定して成果が出ます。
+            失敗の多くは「曖昧な質問」と「1回で終わらせようとする運用」から起きます。型（目的・前提・出力形式）と追質問を前提にすると、安定して成果が出ます。
           </p>
           <div className="mt-6 space-y-4">
             {beginnerMistakes.map((item) => (
@@ -302,7 +309,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -391,7 +398,66 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             </a>
           </div>
         </motion.section>
-      </article>
+      
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">初心者は、アカウント作成後に用途を1つ決めて、短い質問と追質問で使い方を習得するのが効果的です。</li>
+            <li className="pl-1 marker:text-gray-500">無料プランで基本運用を試し、必要機能が明確になってから有料プランを比較する流れが一般的です。</li>
+            <li className="pl-1 marker:text-gray-500">ChatGPTとClaudeは同じ質問で比較し、目的に合う出力を選ぶスタンスが実務で使いやすくなります。</li>
+          </ul>
+        </motion.section>
+
+        <motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+
+        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/chatgpt-advanced-tips" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPTを仕事で使いこなす実践テクニック集｜基本から応用まで50のTips
+              </Link>
+            </li>
+          </ul>
+        </section>
+</article>
     </main>
   );
 }

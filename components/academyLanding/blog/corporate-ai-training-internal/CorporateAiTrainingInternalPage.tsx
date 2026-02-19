@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -127,13 +128,13 @@ const tocItems = [
   { id: "design-steps", label: "研修設計の3ステップ（目的設定、対象者選定、プログラム構築）" },
   { id: "external-vs-internal", label: "外部研修 vs 社内研修の比較" },
   { id: "retention", label: "研修後の定着施策（OJT連携、社内勉強会、効果測定）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateAiTrainingInternalPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -160,14 +161,19 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton title="社内AI研修の始め方と定着の進め方" sourceSelector="[data-blog-article-body]" />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             社内AI研修の始め方と定着の進め方
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            研修を実施しても「現場で使われない」「研修後に止まる」といった悩みは、設計順と運用責任の置き方で起きやすくなります。
+            社内AI研修で成果を出すには、研修そのものより「目的設定」「対象者設計」「研修後運用」の3点を一体で設計することが重要です。
             本記事では、社内AI研修を立ち上げて定着させるための手順（目的→対象→プログラム→フォロー）を結論先出しで整理します。
-            筆者は研修設計では、最初に「研修後にどの業務が何分短くなるか」を1つだけ決めるのが効くと感じています。
+            研修を実施しても「現場で使われない」「研修後に止まる」といった悩みは、設計順と運用責任の置き方で起きやすくなります。
           </p>
         </motion.header>
 
@@ -202,7 +208,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
             社内AI研修が必要な背景（DX推進と人材育成の関係）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: DX推進は「ツール導入＋現場で再現できる使い方の標準化」がセットです。社内AI研修は、その標準化と定着を進めるための土台になります。
+            DX推進は「ツール導入＋現場で再現できる使い方の標準化」がセットです。社内AI研修は、その標準化と定着を進めるための土台になります。
           </p>
           <div className="mt-7 space-y-4">
             {backgroundPoints.map((item) => (
@@ -226,7 +232,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
             研修設計の3ステップ（目的設定、対象者選定、プログラム構築）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 社内研修は「目的→対象→プログラム」の順番で設計すると、実務との接続を崩さずに進められます。
+            社内研修は「目的→対象→プログラム」の順番で設計すると、実務との接続を崩さずに進められます。
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {designSteps.map((item, index) => (
@@ -266,7 +272,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
             外部研修 vs 社内研修の比較
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 外部研修は「短期で基礎を底上げ」、社内研修は「自社業務へ適用して定着」へ強みがあります。目的で使い分けるのが実務的です。
+            外部研修は「短期で基礎を底上げ」、社内研修は「自社業務へ適用して定着」へ強みがあります。目的で使い分けるのが実務的です。
           </p>
           <div className="mt-7 overflow-x-auto">
             <table className="w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -302,7 +308,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
             研修後の定着施策（OJT連携、社内勉強会、効果測定）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 研修の効果は「研修後の運用」で決まります。OJT連携・社内勉強会・効果測定を、研修計画の時点で組み込みましょう。
+            研修の効果は「研修後の運用」で決まります。OJT連携・社内勉強会・効果測定を、研修計画の時点で組み込みましょう。
           </p>
           <div className="mt-6 space-y-4">
             {retentionMeasures.map((item) => (
@@ -330,10 +336,10 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 社内研修の最適解は、対象業務・受講者層・運用体制で変わります。よくある疑問をQ&Aで整理します。
+            社内研修の最適解は、対象業務・受講者層・運用体制で変わります。よくある疑問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -401,7 +407,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
             社内AI研修の立ち上げを具体化したい方へ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まずは「対象業務」と「研修後の運用責任」を決めてから、研修設計へ落とし込むのが最短です。必要に応じて
+            まずは「対象業務」と「研修後の運用責任」を決めてから、研修設計へ落とし込むのが最短です。必要に応じて
             <Link href="/corporate" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               法人向けページ
             </Link>
@@ -424,7 +430,57 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
             </a>
           </div>
         </motion.section>
-      </article>
+      
+        
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">社内AI研修で成果を出すには、研修そのものより「目的設定」「対象者設計」「研修後運用」の3点を一体で設計することが重要です。</li>
+            <li className="pl-1 marker:text-gray-500">一般的には、段階導入と継続フォローを組み合わせるほど定着しやすい傾向があります。</li>
+            <li className="pl-1 marker:text-gray-500">DX推進は「ツール導入＋現場で再現できる使い方の標準化」がセットです。</li>
+            <li className="pl-1 marker:text-gray-500">社内研修は「目的→対象→プログラム」の順番で設計すると、実務との接続を崩さずに進められます。</li>
+            <li className="pl-1 marker:text-gray-500">外部研修は「短期で基礎を底上げ」、社内研修は「自社業務へ適用して定着」へ強みがあります。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -30,7 +32,7 @@ const tocItems = [
   { id: "no-code", label: "ノーコードで作る方法" },
   { id: "use-cases", label: "実務での活用パターン" },
   { id: "cautions", label: "開発時の注意点" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "cta", label: "AIリブートで学ぶ" },
 ] as const;
 
@@ -156,7 +158,7 @@ const cautionItems = [
 export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -184,18 +186,30 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="AIエージェントの作り方｜仕組み・開発手順・活用パターンを解説"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AIエージェントの作り方｜仕組み・開発手順・活用パターンを解説
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            エージェント開発は「自動化したい」が先行すると、権限・評価・停止条件が抜けて事故りがちです。
+            AIエージェントは、目標達成に向けて「計画→実行→観察→修正」を反復するAIシステムです。
             この記事では、仕組み→開発5ステップ→フレームワーク比較→ノーコード実装→運用上の注意点まで、まず作るべき最小構成を結論先出しでまとめます。
-            筆者は最初の1号機を「読み取り専用」に固定し、ログと評価から始めるのをおすすめしています。
+            エージェント開発とは、「自動化したい」が先行すると、権限・評価・停止条件が抜けて事故りがちです。
           </p>
         </motion.header>
 
         <ArticleTOC items={tocItems} />
+
+        <figure className="my-8">
+          <Image src="/images/blog/ai-agent-build-guide/slide-01.png" alt="AIエージェント開発ガイド" width={800} height={450} className="rounded-lg" />
+        </figure>
 
         <motion.section
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
@@ -233,12 +247,15 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
             AIエージェントとは？
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: AIエージェントとは、目標を与えると「次の行動を決めて、実行し、結果を見て調整する」流れを自律的に回せるAIです。
+            AIエージェントとは、目標を与えると「次の行動を決めて、実行し、結果を見て調整する」流れを自律的に回せるAIです。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             重要なのは「回答するAI」ではなく「仕事を前に進めるAI」という点です。情報取得が必要ならRAGを組み合わせ、実行が必要ならツール連携を
             組み込むことで、実務で使える品質に近づきます。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-02.png" alt="ChatbotとAgentの比較" width={800} height={450} className="rounded-lg" />
+          </figure>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             まず概念を整理したい場合は{" "}
             <Link href="/academy/blog/what-is-ai-agent" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -260,11 +277,17 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
             AIエージェントの基本アーキテクチャ（計画→実行→観察→修正のループ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: AIエージェントは「計画→実行→観察→修正」を回すループ構造で、状態・評価・ガードレールを足して運用品質を作ります。
+            AIエージェントは「計画→実行→観察→修正」を回すループ構造で、状態・評価・ガードレールを足して運用品質を作ります。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             基本形は「ループ」です。これに、ツール（外部システム操作）・状態（メモリ）・評価（検証）・ガードレール（安全境界）が加わります。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-03.png" alt="自律駆動の4ステップ（Plan/Act/Observe/Reflect）" width={800} height={450} className="rounded-lg" />
+          </figure>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-04.png" alt="エージェントを構成する4コンポーネント（Planner/Tooling/Memory/Evaluator）" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {loopSteps.map((step) => (
               <section key={step.title} className="rounded-lg border border-gray-200 p-5">
@@ -297,8 +320,11 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
             AIエージェント開発の5ステップ（目的定義→ツール選定→プロンプト設計→テスト→運用）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最初から「自律」を目指さず、境界を決めたワークフローから始めると成功率が上がります。
+            最初から「自律」を目指さず、境界を決めたワークフローから始めると成功率が上がります。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-05.png" alt="AIエージェント開発の5ステップ" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 space-y-4">
             {fiveSteps.map((step) => (
               <section key={step.title} className="rounded-lg border border-gray-200 p-5">
@@ -331,11 +357,14 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
             主要フレームワーク比較（LangChain/AutoGen/CrewAI/OpenAI Responses API）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最初から複雑な協調にせず、ワークフロー型で小さく作り、必要になった「状態管理・評価・再試行・役割分担」を足していくのが安全です。
+            最初から複雑な協調にせず、ワークフロー型で小さく作り、必要になった「状態管理・評価・再試行・役割分担」を足していくのが安全です。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             どれが正解というより、必要な「協調の型」と「運用のしやすさ」で選びます。なお、AutoGPTのような“自律実行”系のプロジェクトもありますが、実務では権限と停止条件（どこで止めるか）を前提に設計するのが基本です。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-06.png" alt="No-Codeとコードフレームワークの比較" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[980px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -372,7 +401,7 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
             ノーコードで作るAIエージェント（Dify/Zapier/GPTs）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 実務で成果を出す最短ルートは、ノーコードで仮説検証し、必要な部分だけコード化する進め方です。
+            実務で成果を出す最短ルートは、ノーコードで仮説検証し、必要な部分だけコード化する進め方です。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             まずは「入力が決まっている」「出力の正解がある」タスクから始めると、運用が安定しやすくなります。
@@ -399,11 +428,14 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
             実務での活用パターン（リサーチ自動化/カスタマーサポート/データ分析/ワークフロー自動化）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最初は「品質が測れる」「失敗しても被害が小さい」領域から始めると安全です。
+            最初は「品質が測れる」「失敗しても被害が小さい」領域から始めると安全です。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             特に、情報収集やドラフト作成は導入効果が出やすいです。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-09.png" alt="実務での活用パターン（リサーチ自動化/CS/データ分析/ワークフロー）" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {useCaseCards.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -436,8 +468,14 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
             開発時の注意点（安全性、コスト管理、ハルシネーション対策）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 事故を防ぐ鍵は「危険操作のブロック」「上限（コスト/回数/権限）」「検証（テスト/バリデーション）」を最初に組み込むことです。
+            事故を防ぐ鍵は「危険操作のブロック」「上限（コスト/回数/権限）」「検証（テスト/バリデーション）」を最初に組み込むことです。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-07.png" alt="安全性（権限と境界・コスト管理・ログ設計）" width={800} height={450} className="rounded-lg" />
+          </figure>
+          <figure className="my-8">
+            <Image src="/images/blog/ai-agent-build-guide/slide-08.png" alt="ハルシネーション対策と人間の役割" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {cautionItems.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -511,21 +549,44 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           </ul>
         </section>
 
+        
         <motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで「実務で動く」エージェント設計を学ぶ
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            AIエージェントは作るだけではなく、業務に合わせた境界設計・運用・改善が成果の差になります。AIリブートアカデミーでは、実務に直結する
-            ユースケースから、設計と改善サイクルまで体系的に学べます。
-          </p>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">AIエージェントは、目標達成に向けて「計画→実行→観察→修正」を反復するAIシステムです。</li>
+            <li className="pl-1 marker:text-gray-500">開発は「目的定義 → ツール選定 → プロンプト設計 → テスト → 運用」の5ステップで進めると迷いにくくなります。</li>
+            <li className="pl-1 marker:text-gray-500">成否は実装よりも「安全性（権限と境界）」「コスト上限」「ログ設計」で決まります。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            AIリブートアカデミーで、AIエージェントを「実務で回る仕組み」へ
+	          </h2>
+	          <p className="mt-4 text-base leading-8 text-gray-700">
+	            AIエージェントは作るだけではなく、「何の価値を出すか（思考OS）」まで含めた目的設計と、境界設計・運用・改善までが成果を分けます。
+	            AIリブートアカデミーでは、2日間の集中研修＋100日間の伴走で、仲間と一緒に実務アウトプットまで落とし込みます。
+	          </p>
+          <figure className="my-8">
+            <Link href="/academy">
+              <Image src="/images/blog/ai-agent-build-guide/slide-10.png" alt="AIリブートアカデミーで体系的に学ぶ" width={800} height={450} className="rounded-lg" />
+            </Link>
+          </figure>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"

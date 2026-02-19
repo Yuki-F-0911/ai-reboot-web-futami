@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -31,7 +32,7 @@ const tocItems = [
   { id: "stable-diffusion", label: "Stable Diffusionの使い方" },
   { id: "business-use", label: "業務での活用パターン" },
   { id: "copyright", label: "注意点（著作権・商用利用）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "related-links", label: "関連リンク" },
   { id: "next-step", label: "次の一歩を決めたい方へ" },
 ] as const;
@@ -110,7 +111,7 @@ const promptStarter = [
 export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerationGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-3xl px-5 sm:px-6">
+      <article className="mx-auto max-w-3xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -138,14 +139,22 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="AI画像生成おすすめツール比較｜Google Gemini・Midjourney・ChatGPT画像生成の使い方と選び方【2026年版】"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI画像生成おすすめツール比較｜Google Gemini・Midjourney・ChatGPT画像生成の使い方と選び方【2026年版】
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI画像生成は手軽になった一方で、「どのツールを選ぶべきか」「商用利用は大丈夫か」で迷いやすくなりました。
+            まずは目的（何の素材を作るか）を決めると、ツール選びとプロンプトがブレにくくなります。
             この記事では、Gemini/Midjourney/ChatGPT/Stable Diffusion/Fireflyを用途別に比較し、始め方・使いどころ・注意点を結論先出しで整理します（「Nano Banana（Pro）」はGeminiの画像生成機能の呼称として紹介されることがあります）。
-            筆者はまず「作りたい素材の目的（SNS/提案/広告など）」を1つ決めてからツールを選ぶのが最短だと感じています。
+            AI画像生成は手軽になった一方で、「どのツールを選ぶべきか」「商用利用は大丈夫か」で迷いやすくなりました。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-600">
             ※料金や提供機能は更新されるため、最新の条件は公式サイトで確認してください。
@@ -400,7 +409,7 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -459,7 +468,27 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">まずは目的（何の素材を作るか）を決めると、ツール選びとプロンプトがブレにくくなります。</li>
+            <li className="pl-1 marker:text-gray-500">Google Gemini（画像生成）は日本語で始めやすく、まず試したい人向きです（「Nano Banana（Pro）」と呼ばれることもあります）。</li>
+            <li className="pl-1 marker:text-gray-500">Midjourneyは高品質なアート表現に強く、世界観づくりに向きます（Discord/公式UI）。</li>
+            <li className="pl-1 marker:text-gray-500">ChatGPT（画像生成）は会話の流れで修正しやすく、文章作成と相性が良い傾向です。</li>
+            <li className="pl-1 marker:text-gray-500">商用利用は規約・著作権・商標・肖像権の確認が必須です。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -467,7 +496,7 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             次に画像生成を業務に組み込みたい方へ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">

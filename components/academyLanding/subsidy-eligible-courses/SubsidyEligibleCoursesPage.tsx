@@ -213,7 +213,7 @@ const SubsidyEligibleCoursesPage = ({ faqItems }: SubsidyEligibleCoursesPageProp
           <p className={sectionLabelClass}>CHECKLIST</p>
           <h2 className={sectionHeadingClass}>対象講座の見分け方チェックリスト</h2>
           <p className="mt-4 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
-            結論として、公式情報・事業者の最新案内・更新日の3点を揃えると、誤認を避けやすくなります。
+            公式情報・事業者の最新案内・更新日の3点を揃えると、誤認を避けやすくなります。
           </p>
           <motion.dl
             className="mt-8 border-t border-slate-200"
@@ -348,7 +348,7 @@ const SubsidyEligibleCoursesPage = ({ faqItems }: SubsidyEligibleCoursesPageProp
                 href="/academy/ai-course-comparison"
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
-                AI講座の選び方 7つの比較ポイント
+                AI講座の選び方 5つのチェックポイント
               </Link>
             </li>
             <li>

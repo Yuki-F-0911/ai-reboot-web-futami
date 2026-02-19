@@ -29,7 +29,11 @@ export default function ArticleTOC({ items, className = "" }: ArticleTOCProps) {
   };
 
   return (
-    <nav aria-label="記事目次" className={`mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5 ${className}`.trim()}>
+    <nav
+      aria-label="記事目次"
+      className={`mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5 ${className}`.trim()}
+      data-copy-exclude
+    >
       <p className="text-xs font-semibold tracking-wide text-slate-500">この記事の内容</p>
       <ol className="mt-3 space-y-2">
         {items.map((item, index) => (

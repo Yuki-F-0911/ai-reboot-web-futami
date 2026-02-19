@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -130,13 +131,13 @@ const tocItems = [
   { id: "learning-method-comparison", label: "学習手段の比較（独学/スクール/OJT）" },
   { id: "portfolio-building", label: "評価されるポートフォリオの作り方" },
   { id: "career-path-by-age", label: "年代別の現実的なキャリアパス" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCareerChangePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -164,14 +165,19 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton title="未経験からAIエンジニアへの転職ロードマップ" sourceSelector="[data-blog-article-body]" />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             未経験からAIエンジニアへの転職ロードマップ
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            未経験からAIエンジニアを目指す場合は、学習範囲を広げすぎず、基礎→実践→転職準備を段階的に進めることが重要です。
+            未経験転職は、基礎→実践→転職準備を切り分け、成果物を軸に応募へ接続すると成功確率が上がります。
             本記事では、必要スキル、学習ロードマップ、学習手段の比較、評価されるポートフォリオの作り方までを結論先出しで整理します。
-            筆者はまず、APIを使った小さな成果物を1つ作り、説明できる形にしてから学習範囲を広げるのが効くと感じています。
+            未経験からAIエンジニアを目指す場合とは、学習範囲を広げすぎず、基礎→実践→転職準備を段階的に進めることが重要です。
           </p>
         </motion.header>
 
@@ -365,7 +371,7 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             よくある疑問をQ&Aで整理します。学習環境（独学/スクール/OJT）や希望職種によって最適な進め方は変わるため、前提条件に合わせて調整してください。
@@ -460,7 +466,66 @@ export default function AiEngineerCareerChangePage({ faqItems }: AiEngineerCaree
             </a>
           </div>
         </motion.section>
-      </article>
+      
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">未経験転職では、Python基礎、データ処理、AI活用実装、開発運用の4領域をバランスよく押さえることが重要です。</li>
+            <li className="pl-1 marker:text-gray-500">学習は「基礎→実践→転職準備」の順で進め、成果物を軸に応募準備へ接続すると、選考で説明しやすくなります。</li>
+            <li className="pl-1 marker:text-gray-500">年代を問わず、前職の業務経験とAIスキルを掛け合わせたポジション設計が現実的なキャリア戦略になります。</li>
+          </ul>
+        </motion.section>
+
+        <motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+
+        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/ai-job-hunting-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI×転職完全ガイド｜職務経歴書・面接対策・企業研究の実践テクニック
+              </Link>
+            </li>
+          </ul>
+        </section>
+</article>
     </main>
   );
 }

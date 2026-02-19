@@ -8,7 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-course-ranking";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-17T09:00:00+09:00";
-const modifiedTime = "2026-02-18T12:00:00+09:00";
+const modifiedTime = "2026-02-18T18:00:00+09:00";
 
 const faqItems = [
   {
@@ -39,7 +39,7 @@ const faqItems = [
   {
     question: "AIリブートアカデミーはどんな人に向いていますか？",
     answer:
-      "資格取得だけでなく、現場で使える運用までつなげたい方に向いています。講義の理解だけで終わらせず、実務への定着を重視したい場合に適しています。",
+      "AIスキルを身につけるだけでなく、自分のWill（やりたいこと）や強みを整理しながら、2日間の集中研修＋100日間の伴走で仲間と一緒に実務アウトプットへ落とし込みたい方に向いています。",
   },
 ] as const;
 

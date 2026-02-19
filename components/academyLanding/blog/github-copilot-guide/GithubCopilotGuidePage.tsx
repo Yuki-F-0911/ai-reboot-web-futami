@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -70,7 +72,7 @@ const workflowSteps = [
 export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -98,16 +100,35 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="GitHub Copilotの使い方｜導入・設定・効率化のコツを初心者向けに解説"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             GitHub Copilotの使い方｜導入・設定・効率化のコツを初心者向けに解説
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
+            導入は「拡張機能→サインイン→有効化」で完了します（IDEにより手順は多少異なります）。
+            Copilotとは、「実装の下書きを速くする道具」で、品質は制約の明文化＋テスト＋レビューで守ります。
             Copilotを入れてみたけど、提案がブレる/レビューが不安…という悩みがよく出ます。
-            結論: Copilotは「実装の下書きを速くする道具」で、品質は制約の明文化＋テスト＋レビューで守ります。
-            筆者はまず小さなDTOとユニットテストから試し、チームルールを先に決めるほど事故が減ると感じました。
           </p>
         </motion.header>
+
+        <figure className="my-8">
+          <Image
+            src="/images/blog/github-copilot-guide/slide-1.png"
+            alt="GitHub Copilot導入・活用ガイド タイトルスライド"
+            width={800}
+            height={450}
+            className="rounded-lg"
+            priority
+          />
+        </figure>
 
         <ArticleTOC items={tocItems} />
 
@@ -142,12 +163,21 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
             GitHub Copilotとは
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: Copilotは「IDE上で書く/読む/直す」を加速する開発者向けAIで、曖昧な要件のまま使うと意図と違う実装が混ざりやすいです。
+            Copilotは「IDE上で書く/読む/直す」を加速する開発者向けAIで、曖昧な要件のまま使うと意図と違う実装が混ざりやすいです。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             GitHub Copilotは、コード補完やチャットを通じて、実装・リファクタ・テスト作成などを支援する開発者向けAIです。強いのは「手を動かす」
             部分で、要件や制約が曖昧なまま使うと、見た目は動くが意図と違うコードが混ざりやすくなります。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-2.png"
+              alt="Copilotは実装の下書きを加速する道具（手を動かす作業に向く）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 rounded-lg border border-slate-200 bg-slate-50 p-5 text-sm leading-7 text-slate-700">
             <p className="font-semibold text-slate-800">向いている使い方</p>
             <ul className="mt-3 list-disc space-y-2 pl-5">
@@ -170,8 +200,17 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
             導入（VS Codeの例）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まずは拡張機能を入れてサインインし、小さな関数で提案の癖を掴むところまでやればOKです。
+            まずは拡張機能を入れてサインインし、小さな関数で提案の癖を掴むところまでやればOKです。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-3.png"
+              alt="導入は拡張機能の追加→サインイン&有効化→小さな関数で試す"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <ol className="mt-5 list-decimal space-y-3 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">VS Codeに拡張機能（Copilot/Copilot Chat等）を追加します。</li>
             <li className="pl-1 marker:text-gray-500">GitHubアカウントでサインインし、利用が有効になっているか確認します。</li>
@@ -196,7 +235,7 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
             使い方：精度を上げるコツ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 精度を上げる鍵は「制約・例・分割」。先にチームの方針を書くほど、提案がブレにくくなります。
+            精度を上げる鍵は「制約・例・分割」。先にチームの方針を書くほど、提案がブレにくくなります。
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {tips.map((tip) => (
@@ -206,10 +245,19 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
               </div>
             ))}
           </div>
-            <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-sm font-semibold text-slate-800">例: 「コメントで仕様を書く」だけでも効果が出ます</p>
-              <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-4 text-xs leading-6 text-slate-100">
-                {`// 要件:
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-4.png"
+              alt="精度を上げる鍵は制約の明文化（曖昧な指示を減らす）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
+          <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5">
+            <p className="text-sm font-semibold text-slate-800">例: 「コメントで仕様を書く」だけでも効果が出ます</p>
+            <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-4 text-xs leading-6 text-slate-100">
+              {`// 要件:
 // - 入力はメールアドレス
 // - 不正なら例外ではなく Result 型で返す
 // - 正規化（小文字化/前後空白除去）を行う
@@ -219,11 +267,20 @@ export function normalizeEmail(input: string) {
   // ...
 }
 `}
-              </pre>
+            </pre>
             <p className="mt-3 text-xs leading-6 text-slate-600">
               先に制約を書くと、提案が「チームのやり方」に寄りやすくなります。
             </p>
           </div>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-5.png"
+              alt="例（サンプル）と分割で文脈を伝える（理解してから採用）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -238,11 +295,20 @@ export function normalizeEmail(input: string) {
             実務フロー：テストとレビュー
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 生成コードは「テストで固定→レビューで担保」が前提。速度が上がるほど、担保の仕組みが重要になります。
+            生成コードは「テストで固定→レビューで担保」が前提。速度が上がるほど、担保の仕組みが重要になります。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             Copilotをうまく使うチームほど、生成したコードを「自動テスト」と「レビュー」で守る運用になっています。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-6.png"
+              alt="生成コードはテストとレビューで守る（Generate→Test→Reviewの循環）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {workflowSteps.map((step) => (
               <div key={step.title} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -265,8 +331,17 @@ export function normalizeEmail(input: string) {
             チーム導入の注意点
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: チーム導入は、入力データ・レビュー基準・責任の所在を「先に決める」ほど安全です。
+            チーム導入は、入力データ・レビュー基準・責任の所在を「先に決める」ほど安全です。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-7.png"
+              alt="チーム導入はルールが先（安全とセキュリティ／責任と運用）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               <span className="font-semibold text-gray-900">入力データ:</span> APIキー、顧客情報、未公開仕様などを入力しない運用にします。
@@ -313,7 +388,7 @@ export function normalizeEmail(input: string) {
             関連記事（内部リンク）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まずは「AIコーディング入門」→「プロンプトの型」→「初心者ガイド」の順で読むと迷いにくいです。
+            まずは「AIコーディング入門」→「プロンプトの型」→「初心者ガイド」の順で読むと迷いにくいです。
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <Link
@@ -347,6 +422,35 @@ export function normalizeEmail(input: string) {
           </div>
         </motion.section>
 
+        
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/github-copilot-guide/slide-8.png"
+              alt="まとめ：AIと賢く付き合うために（制約・例・分割、テストとレビュー、機密情報の扱い）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">導入は「拡張機能→サインイン→有効化」で完了します（IDEにより手順は多少異なります）。</li>
+            <li className="pl-1 marker:text-gray-500">精度を上げる鍵は「制約・例・分割」。一度に大きく生成しないこと。</li>
+            <li className="pl-1 marker:text-gray-500">生成コードは必ずテストで固定し、レビューで意図と安全性を担保します。</li>
+            <li className="pl-1 marker:text-gray-500">チーム導入は、機密情報の扱い・ログ・ポリシーを先に決めると失敗しにくいです。</li>
+          </ul>
+        </motion.section>
+
         <motion.section
           className="mt-14 rounded-xl border border-slate-200 bg-slate-50 p-8"
           initial="hidden"
@@ -354,16 +458,16 @@ export function normalizeEmail(input: string) {
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで学ぶ
-          </h2>
-          <p className="mt-4 text-base font-medium leading-8 text-gray-900">
-            結論: Copilot活用は「知識」だけでなく、「仕事の型」に落とし込めるかが勝負です。
-          </p>
-          <p className="mt-4 text-sm leading-7 text-gray-700">
-            まずは、業務別のテンプレや学び方の全体像から整理していきましょう。
-          </p>
+	        >
+		          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+		            AIリブートアカデミーで、Copilot活用を「仕事の型」へ
+		          </h2>
+		          <p className="mt-4 text-base font-medium leading-8 text-gray-900">
+		            Copilot活用は「知識」だけでなく、AIを鏡に自分の強みとWill（やりたいこと）を整理し、「自分の価値×AI」として仕事の型に落とし込めるかが勝負です。
+		          </p>
+		          <p className="mt-4 text-sm leading-7 text-gray-700">
+		            まずは全体像と優先順位を整理し、100日間の伴走で仲間と一緒に現場へ定着させましょう。
+		          </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"

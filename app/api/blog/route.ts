@@ -1,33 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getNewsList, News } from '@/lib/microcms'
+import { News } from '@/lib/microcms'
+import { getBlogArticles } from '@/lib/microcms-helper'
+import { categoryMatchesAny } from '@/lib/category-helper'
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
-  const category = searchParams.get('category')
+  const rawCategory = searchParams.get('category')
+  const category = rawCategory && !['undefined', 'null', ''].includes(rawCategory) ? rawCategory : null
   const offset = parseInt(searchParams.get('offset') || '0')
   const limit = parseInt(searchParams.get('limit') || '6')
 
   try {
-    const result = await getNewsList(limit, offset)
-    
-    // 単一記事の場合はエラーを返す（リスト取得エンドポイントなので）
-    if (!('contents' in result)) {
-      return NextResponse.json(
-        { error: 'Invalid response from API' },
-        { status: 500 }
-      )
+    if (category) {
+      const { contents: pool } = await getBlogArticles(200, 0)
+      const allFiltered = pool.filter((item: News) => categoryMatchesAny(item.category, [category]))
+      const filteredContents = allFiltered.slice(offset, offset + limit)
+
+      return NextResponse.json({
+        contents: filteredContents,
+        totalCount: allFiltered.length,
+      })
     }
-    
-    const { contents, totalCount } = result
-    
-    // カテゴリーでフィルタリング
-    const filteredContents = category 
-      ? contents.filter((item: News) => item.category === category)
-      : contents
+
+    const result = await getBlogArticles(limit, offset)
 
     return NextResponse.json({
-      contents: filteredContents,
-      totalCount: totalCount,
+      contents: result.contents,
+      totalCount: result.totalCount,
     })
   } catch (error) {
     console.error('Failed to fetch blog articles:', error)

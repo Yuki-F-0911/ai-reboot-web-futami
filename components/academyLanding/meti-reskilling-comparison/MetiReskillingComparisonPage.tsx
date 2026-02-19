@@ -67,7 +67,7 @@ export default function MetiReskillingComparisonPage({
           経産省のリスキリング支援制度対象講座を比較する視点｜選び方のポイント
         </h1>
         <p className="mt-5 text-base leading-relaxed text-slate-700 md:text-lg">
-          結論として、制度対象であることに加え、実績の透明性とサポート運用を合わせて確認すると講座選びの精度が上がります。
+          制度対象であることに加え、実績の透明性とサポート運用を合わせて確認すると講座選びの精度が上がります。
         </p>
       </section>
 
@@ -133,7 +133,6 @@ export default function MetiReskillingComparisonPage({
             </li>
           ))}
         </ul>
-        {/* TODO: 要ファクト確認 - 制度要件や公式表現の変更時に更新 */}
       </section>
 
       <section className="border-y border-slate-100 bg-slate-50 py-12 md:py-16">

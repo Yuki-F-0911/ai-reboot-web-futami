@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -29,7 +30,7 @@ const tocItems = [
   { id: "pricing", label: "料金プラン比較（無料/個人/API）" },
   { id: "recommendations", label: "用途別おすすめ" },
   { id: "combine", label: "両方使いこなすコツ" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "cta", label: "AIリブートで学ぶ" },
 ] as const;
 
@@ -175,7 +176,7 @@ const combinePatterns = [
 export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeComparisonPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -203,13 +204,22 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            比較記事を読んでも「結局どれが自分に合うのか」が決めきれないのが普通です。結論: 汎用性とワークフロー化を重視するならGPT-4系、長文の推敲や丁寧な説明を重視するならClaudeが相性良いことが多いです。
-            筆者は短い仕様メモを両方に渡し、出力の再現性と修正への追従で判断しました（モデル名・機能・料金は更新されるため、最終判断は用途での同一条件比較が確実です）。
+            比較は「文章/コード/分析/要約/創造性」の5軸で見ると、得意不得意が整理しやすいです。
+            汎用性とワークフロー化を重視するならGPT-4系、長文の推敲や丁寧な説明を重視するならClaudeが相性良いことが多いです。
+            比較記事を読んでも「結局どれが自分に合うのか」が決めきれないのが普通です。
           </p>
         </motion.header>
 
@@ -254,7 +264,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             GPT-4とClaudeの基本情報（開発元、モデル、リリース時期）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 「モデル名そのもの」よりも、プロダクト（ChatGPT/Claude）とAPI、選べるモデル、利用上限/機能の組み合わせで体験が変わります。
+            「モデル名そのもの」よりも、プロダクト（ChatGPT/Claude）とAPI、選べるモデル、利用上限/機能の組み合わせで体験が変わります。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             「GPT-4 vs Claude」と言っても、実際はプロダクト（ChatGPT/Claude）とAPI、選択できるモデル、利用上限や機能の組み合わせで体験が変わります。ここでは“系統”としての違いを整理します。
@@ -293,7 +303,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             性能比較（文章生成/コード生成/分析/要約/創造性）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: どちらが“上”かではなく、「あなたのタスクで勝つか」を見るのが正解です。同じ入力（プロンプト・素材）を渡し、出力の再現性と修正指示への追従で判断しましょう。
+            どちらが“上”かではなく、「あなたのタスクで勝つか」を見るのが正解です。同じ入力（プロンプト・素材）を渡し、出力の再現性と修正指示への追従で判断しましょう。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[920px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -329,7 +339,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             得意分野の違い（GPT-4が強い領域 vs Claudeが強い領域）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 速度が必要な工程（発散/試作/実装）にGPT系、文章の最終品質に影響する工程（推敲/トーン調整/レビュー）にClaudeを置くと、強みを活かしやすいです。
+            速度が必要な工程（発散/試作/実装）にGPT系、文章の最終品質に影響する工程（推敲/トーン調整/レビュー）にClaudeを置くと、強みを活かしやすいです。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {strengths.map((block) => (
@@ -362,7 +372,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             料金プラン比較（無料枠/個人プラン/API料金）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 料金は頻繁に更新されるため、ここでは「比較の考え方」を中心に整理します。個人はサブスク、APIは従量という前提で、あなたの利用量で試算するのが安全です。
+            料金は頻繁に更新されるため、ここでは「比較の考え方」を中心に整理します。個人はサブスク、APIは従量という前提で、あなたの利用量で試算するのが安全です。
           </p>
           <div className="mt-6 space-y-4">
             {pricingRows.map((row) => (
@@ -386,7 +396,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             用途別おすすめ（ビジネス文書/プログラミング/学習/クリエイティブ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まずは最重要の1タスクで両方を比較し、「修正指示への追従」と「再現性」が高い方を主軸に置くのが失敗しにくいです。
+            まずは最重要の1タスクで両方を比較し、「修正指示への追従」と「再現性」が高い方を主軸に置くのが失敗しにくいです。
           </p>
           <div className="mt-6 space-y-4">
             {useCaseRecommendations.map((item) => (
@@ -410,7 +420,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             両方使いこなすコツ（併用の実践パターン）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 併用のポイントは「工程で分ける」「同じ入力で比較できる状態を作る」「長文は分割する」の3つです。以下のパターンをベースに、あなたの業務フローへ落とし込みましょう。
+            併用のポイントは「工程で分ける」「同じ入力で比較できる状態を作る」「長文は分割する」の3つです。以下のパターンをベースに、あなたの業務フローへ落とし込みましょう。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {combinePatterns.map((item) => (
@@ -498,20 +508,39 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           </ul>
         </section>
 
+        
         <motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで「使い分け」を実務に落とす
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            GPT-4とClaudeの比較は、結局「あなたの業務にどう組み込むか」で成果が決まります。AIリブートアカデミーでは、目的設定からプロンプトの型、運用ルールまで、実務で再現できる形に落とし込みます。
-          </p>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">比較は「文章/コード/分析/要約/創造性」の5軸で見ると、得意不得意が整理しやすいです。</li>
+            <li className="pl-1 marker:text-gray-500">料金は「個人（サブスク）」と「API（従量）」で考え方が違うため、用途別に評価します。</li>
+            <li className="pl-1 marker:text-gray-500">実務では、工程で切り替える併用（下書き→推敲、実装→レビュー）が最も成果につながりやすいです。</li>
+            <li className="pl-1 marker:text-gray-500">最終判断は、同じ短い仕様メモ（目的/入力例/出力形式）で両方を試し、「再現性」と「修正への追従」をチェックするのが確実です。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+	        >
+		          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+		            AIリブートアカデミーで、AIの使い分けを「成果が出る運用」へ
+		          </h2>
+		          <p className="mt-4 text-base leading-8 text-gray-700">
+		            GPT（ChatGPT）とClaudeの比較は、結局「何の価値を出すか」を言語化する思考OSと、Will（やりたいこと）に沿って業務にどう組み込むかで成果が決まります。AIリブートアカデミーでは、目的設定から運用ルールまで、100日間の伴走で仲間と一緒に実務アウトプットとキャリアの次の一歩へ落とし込みます。
+		          </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"

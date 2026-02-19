@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -27,7 +28,7 @@ const tocItems = [
   { id: "gemini-vs-chatgpt-claude", label: "Gemini vs ChatGPT vs Claude（比較表）" },
   { id: "getting-started", label: "Geminiの始め方（ステップバイステップ）" },
   { id: "work-use-cases", label: "業務での活用パターン" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "related-links", label: "関連リンク" },
   { id: "free-seminar-consultation", label: "無料セミナー / 個別相談" },
 ] as const;
@@ -105,7 +106,7 @@ const workUseCases = [
 export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersguidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -133,6 +134,14 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="Google Gemini完全入門ガイド｜使い方・ChatGPTとの違い・無料で始める方法"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             Google Gemini完全入門ガイド｜使い方・ChatGPTとの違い・無料で始める方法
           </h1>
@@ -140,7 +149,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           <p className="mt-6 text-base leading-8 text-gray-700">
             Geminiを触ってみたものの、どこから始めるか・何ができるかが分かりにくいのが最初の壁です。
             このガイドでは、無料で始める手順、ChatGPT/Claudeとの違い、仕事で再現しやすい使い方を結論先出しで整理します。
-            筆者はまず「社内FAQの下書き→チェックリスト化」で試し、Googleサービス連携の強みが出る場面を掴みました（機能/料金/提供条件は更新されるため、実際の画面・公式案内もあわせて確認してください）。
+            まず「社内FAQの下書き→チェックリスト化」で試すと、Googleサービス連携の強みが出る場面を掴みやすいです（機能/料金/提供条件は更新されるため、実際の画面・公式案内もあわせて確認してください）。
           </p>
         </motion.header>
 
@@ -178,7 +187,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             Geminiとは？（Google AI概要）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: Geminiは、文章生成や要約などを自然文で依頼できるGoogleの生成AIの一つです。Googleアカウントで試しやすく、Googleのサービスを使う人ほど運用に組み込みやすい傾向があります。
+            Geminiは、文章生成や要約などを自然文で依頼できるGoogleの生成AIの一つです。Googleアカウントで試しやすく、Googleのサービスを使う人ほど運用に組み込みやすい傾向があります。
           </p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">初心者が押さえるポイント</h3>
           <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
@@ -202,7 +211,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             Gemini vs ChatGPT vs Claude（比較表）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: どれが正解というより「あなたの業務タスク」と「利用環境」に合うかで選ぶのが正解です。まずは同じ依頼文で出力を比較すると判断が早くなります。
+            どれが正解というより「あなたの業務タスク」と「利用環境」に合うかで選ぶのが正解です。まずは同じ依頼文で出力を比較すると判断が早くなります。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">比較情報の更新日: 2026年2月17日（提供条件は変動します）</p>
           <div className="mt-6 overflow-x-auto">
@@ -251,7 +260,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             Geminiの始め方（ステップバイステップ）
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            結論: 初心者は「Googleアカウントで触る → 1タスクで試す → 型を作る → 必要なら上位プラン検討」の順に進めると迷いません。注: 画面構成や提供条件は変更されます。
+            初心者は「Googleアカウントで触る → 1タスクで試す → 型を作る → 必要なら上位プラン検討」の順に進めると迷いません。注: 画面構成や提供条件は変更されます。
           </p>
           <div className="mt-6 space-y-4">
             {gettingStartedFlow.map((item) => (
@@ -282,7 +291,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             業務での活用パターン
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 生成AIは「考える時間」を増やすために、前処理（要約・整理・下書き）を肩代わりさせるのが最も効果的です。最初は小さく始め、うまくいった型を横展開します。
+            生成AIは「考える時間」を増やすために、前処理（要約・整理・下書き）を肩代わりさせるのが最も効果的です。最初は小さく始め、うまくいった型を横展開します。
           </p>
           <div className="mt-6 space-y-4">
             {workUseCases.map((item) => (
@@ -303,7 +312,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -392,7 +401,67 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             </a>
           </div>
         </motion.section>
-      </article>
+      
+        
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">Geminiは、文章生成や要約などを自然文で依頼できるGoogleの生成AIの一つです。</li>
+            <li className="pl-1 marker:text-gray-500">どれが正解というより「あなたの業務タスク」と「利用環境」に合うかで選ぶのが正解です。</li>
+            <li className="pl-1 marker:text-gray-500">初心者は「Googleアカウントで触る → 1タスクで試す → 型を作る → 必要なら上位プラン検討」の順に進めると迷いません。</li>
+            <li className="pl-1 marker:text-gray-500">生成AIは「考える時間」を増やすために、前処理（要約・整理・下書き）を肩代わりさせるのが最も効果的です。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+
+        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/google-ai-studio-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                Google AI Studio使い方完全ガイド｜Geminiモデルをすぐ試せるAI開発環境
+              </Link>
+            </li>
+          </ul>
+        </section>
+</article>
     </main>
   );
 }

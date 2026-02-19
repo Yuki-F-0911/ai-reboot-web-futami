@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -300,13 +302,13 @@ const tocItems = [
   { id: "data-analysis-templates", label: "データ分析テンプレート" },
   { id: "idea-generation-templates", label: "アイデア出しテンプレート" },
   { id: "improvement-tips", label: "プロンプト改善のコツ5選" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateForWorkPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-4xl px-5 sm:px-6">
+      <article className="mx-auto max-w-4xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -333,6 +335,14 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成を最短で回す"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成を最短で回す
           </h1>
@@ -340,7 +350,7 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           <p className="mt-6 text-base leading-8 text-gray-700">
             毎回プロンプトを考えていると、品質がぶれたり、修正指示が増えたりして「結局時間がかかる」状態になりがちです。
             この記事では、業務カテゴリ別のテンプレートと、Role/Task/Context/Formatで最短で整えるコツをまとめました。
-            筆者はまず「日程調整メール」と「月次レポートのコメント下書き」を型にすると、手戻りが一気に減ると感じています。基礎から学びたい方は
+            まず「日程調整メール」と「月次レポートのコメント下書き」を型にすると、手戻りが一気に減りやすいです。基礎から学びたい方は
             <Link href="/academy" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               AIリブートアカデミー
             </Link>
@@ -368,10 +378,28 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/prompt-template-for-work/slide-1.png"
+              alt="仕事で使えるプロンプトテンプレート集（Work Speedrun）タイトル"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <p className="mt-4 text-base leading-8 text-gray-700">
             まずは自分の業務で頻度が高いカテゴリから1つ選び、テンプレートをそのままコピーして使ってみてください。1回使って不足点を追記するだけで、
             明日から使える自分専用テンプレートに育てられます。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/prompt-template-for-work/slide-10.png"
+              alt="まずは頻度の高い業務から1つだけ選び、テンプレートを育てる"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -386,8 +414,17 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
             プロンプトの基本原則
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 実務のプロンプトは「Role/Task/Context/Format」を先に固定すると、ツールが変わっても品質が安定します。
+            実務のプロンプトは「Role/Task/Context/Format」を先に固定すると、ツールが変わっても品質が安定します。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/prompt-template-for-work/slide-2.png"
+              alt="プロンプトの黄金則: Role / Task / Context / Format"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             まずは以下の4点を最初に入れ、そのうえで「期限」「文字数」「相手」「禁止事項」など業務ごとの条件を足してください。
           </p>
@@ -399,6 +436,15 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
               </li>
             ))}
           </ul>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/prompt-template-for-work/slide-3.png"
+              alt="プロンプトの型で品質が安定する（テンプレート活用と自己流の比較）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <section className="rounded-lg border border-rose-200 bg-rose-50 p-4">
               <h3 className="text-sm font-semibold text-rose-900">Before（曖昧な指示）</h3>
@@ -429,9 +475,64 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
               {group.title}
             </h2>
             <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-              結論: まずはテンプレートをコピペして{`{変数}` }だけ差し替えるのが最短です。出力を1回見て不足条件を追記すると、すぐ実務で回せる形になります。
+              まずはテンプレートをコピペして{`{変数}` }だけ差し替えるのが最短です。出力を1回見て不足条件を追記すると、すぐ実務で回せる形になります。
             </p>
             <p className="mt-3 text-sm leading-7 text-gray-700">{group.description}</p>
+            {group.id === "email-templates" && (
+              <>
+                <figure className="my-8">
+                  <Image
+                    src="/images/blog/prompt-template-for-work/slide-5.png"
+                    alt="コピペして{変数}を埋めるだけで、依頼・お詫び・日程調整を素早く作る"
+                    width={800}
+                    height={450}
+                    className="rounded-lg"
+                  />
+                </figure>
+                <figure className="my-8">
+                  <Image
+                    src="/images/blog/prompt-template-for-work/slide-7.png"
+                    alt="コピペ→出力→追記の2回転で実務品質に近づける"
+                    width={800}
+                    height={450}
+                    className="rounded-lg"
+                  />
+                </figure>
+              </>
+            )}
+            {group.id === "minutes-summary-templates" && (
+              <figure className="my-8">
+                <Image
+                  src="/images/blog/prompt-template-for-work/slide-4.png"
+                  alt="議事録は「決定事項」と「アクション」に整理する"
+                  width={800}
+                  height={450}
+                  className="rounded-lg"
+                />
+              </figure>
+            )}
+            {group.id === "document-templates" && (
+              <figure className="my-8">
+                <Image
+                  src="/images/blog/prompt-template-for-work/slide-6.png"
+                  alt="企画書やプレゼンはまず骨子（Skeleton）から作る"
+                  width={800}
+                  height={450}
+                  className="rounded-lg"
+                />
+              </figure>
+            )}
+            {group.id === "data-analysis-templates" && (
+              <figure className="my-8">
+                <Image
+                  src="/images/blog/prompt-template-for-work/slide-8.png"
+                  alt="数値の傾向を読み解き、アイデアを発散させる（Excel傾向分析・SWOT・アイデア発散）"
+                  width={800}
+                  height={450}
+                  className="rounded-lg"
+                />
+              </figure>
+            )}
             <div className="mt-6 space-y-6">
               {group.templates.map((template) => (
                 <section key={template.title} className="rounded-lg border border-gray-100 bg-gray-50 p-5">
@@ -475,8 +576,17 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
             プロンプト改善のコツ5選
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: うまくいかないときは「条件が曖昧」「出力形式が未固定」「前提が不足」のどれかです。直し方を型で覚えると再現性が上がります。
+            うまくいかないときは「条件が曖昧」「出力形式が未固定」「前提が不足」のどれかです。直し方を型で覚えると再現性が上がります。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/prompt-template-for-work/slide-9.png"
+              alt="うまくいかない時は条件と形式を見直すチェックリスト"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <ol className="mt-6 space-y-4 text-sm leading-7 text-gray-700">
             {improvementTips.map((tip, index) => (
               <li key={tip} className="rounded-lg border border-gray-200 p-4">
@@ -499,11 +609,11 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
             さらに効果的に使いこなすには
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 個人で完結させず、チームで「テンプレ・レビュー観点・禁止事項」を共通化すると効果が最大化します。
+            個人で完結させず、チームで「テンプレ・レビュー観点・禁止事項」を共通化すると効果が最大化します。
           </p>
-          <p className="mt-4 text-sm leading-7 text-gray-700">
-            アカデミーでは業務別テンプレートの設計、評価観点の作り方、社内展開まで実務ベースで学べます。
-          </p>
+	          <p className="mt-4 text-sm leading-7 text-gray-700">
+	            アカデミーではテンプレート設計に加えて、「自分の価値×AI」を伸ばす視点と、仲間と伴走しながら社内展開まで走り切る進め方を実務ベースで学べます。
+	          </p>
           <ul className="mt-6 space-y-2 text-sm leading-7 text-gray-700">
             <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -535,10 +645,10 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: よくあるつまずきは「情報不足」と「出力条件の未固定」です。Q&Aで解決の近道を整理します。
+            よくあるつまずきは「情報不足」と「出力条件の未固定」です。Q&Aで解決の近道を整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -620,7 +730,7 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
             もっと使いこなしたい方へ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 自分の業務フローに最適化するなら、テンプレを「入力フォーム化」して運用ルールまでセットで作るのが近道です。
+            自分の業務フローに最適化するなら、テンプレを「入力フォーム化」して運用ルールまでセットで作るのが近道です。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             無料説明会では、実務フローに合わせた活用方法を確認し、現場で定着させる運用設計まで具体化できます。
@@ -640,7 +750,57 @@ export default function PromptTemplateForWorkPage({ faqItems }: PromptTemplateFo
             </Link>
           </div>
         </motion.section>
-      </article>
+      
+        
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">まずは自分の業務で頻度が高いカテゴリから1つ選び、テンプレートをそのままコピーして使ってみてください。</li>
+            <li className="pl-1 marker:text-gray-500">1回使って不足点を追記するだけで、 明日から使える自分専用テンプレートに育てられます。</li>
+            <li className="pl-1 marker:text-gray-500">実務のプロンプトは「Role/Task/Context/Format」を先に固定すると、ツールが変わっても品質が安定します。</li>
+            <li className="pl-1 marker:text-gray-500">まずはテンプレートをコピペして{`{変数}` }だけ差し替えるのが最短です。</li>
+            <li className="pl-1 marker:text-gray-500">うまくいかないときは「条件が曖昧」「出力形式が未固定」「前提が不足」のどれかです。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

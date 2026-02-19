@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -79,13 +80,13 @@ const tocItems = [
   { id: "career-change-cases", label: "キャリアチェンジ事例（構成例）" },
   { id: "before-after-table", label: "Before / After 比較表（構成例）" },
   { id: "success-factors", label: "共通する成功要因" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCasesPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-3xl px-5 sm:px-6">
+      <article className="mx-auto max-w-3xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -112,14 +113,22 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="AI時代のキャリアチェンジ事例（構成例）｜転換と成長のパターンを解説"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI時代のキャリアチェンジ事例（構成例）｜転換と成長のパターンを解説
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            キャリア転換は「何から始めればいいか」が曖昧だと、学習が空回りしやすくなります。
+            キャリア転換とは、「何から始めればいいか」が曖昧だと、学習が空回りしやすくなります。
             本記事では、職種別の構成例4つと、Before/Afterの変化、共通する成功要因がわかります。
-            筆者はまず「現職で作れる小さな成果物」を1つ決め、そこから学習テーマを逆算するのをおすすめしています。
+            まず「現職で作れる小さな成果物」を1つ決め、そこから学習テーマを逆算するのがおすすめです。
           </p>
         </motion.header>
 
@@ -150,7 +159,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
             キャリアチェンジ事例（構成例）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: キャリア転換は「ツール名」ではなく「目的→試作→検証→運用」の順序が成果を左右します。たとえばChatGPT/Claudeに加え、CursorやClaudeのProjectsなどを使い、
+            キャリア転換は「ツール名」ではなく「目的→試作→検証→運用」の順序が成果を左右します。たとえばChatGPT/Claudeに加え、CursorやClaudeのProjectsなどを使い、
             学習とアウトプットを一体で積み上げるのが現実的です。
           </p>
           <div className="mt-8 space-y-8">
@@ -187,7 +196,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
             Before / After 比較表（構成例）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: キャリア転換は「役割（仕事の任され方）」が変わると加速します。Before/Afterを役割の視点で一覧化しました。
+            キャリア転換は「役割（仕事の任され方）」が変わると加速します。Before/Afterを役割の視点で一覧化しました。
           </p>
           <p className="mt-2 text-sm font-semibold text-gray-500">※この事例は構成例です</p>
           <div className="mt-6 overflow-x-auto">
@@ -224,7 +233,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
             共通する成功要因
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 学習量より「実務課題に紐づくアウトプット」と「振り返り」が重要です。以下を満たすと、キャリア転換を現実的に進めやすくなります。
+            学習量より「実務課題に紐づくアウトプット」と「振り返り」が重要です。以下を満たすと、キャリア転換を現実的に進めやすくなります。
           </p>
           <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-7 text-gray-700">
             {successFactors.map((factor) => (
@@ -244,10 +253,10 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 「未経験でもできるか」「学習期間はどれくらいか」で迷いやすいポイントをQ&Aで整理します。
+            「未経験でもできるか」「学習期間はどれくらいか」で迷いやすいポイントをQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -314,7 +323,27 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">キャリア転換は「ツール名」ではなく「目的→試作→検証→運用」の順序が成果を左右します。</li>
+            <li className="pl-1 marker:text-gray-500">キャリア転換は「役割（仕事の任され方）」が変わると加速します。</li>
+            <li className="pl-1 marker:text-gray-500">学習量より「実務課題に紐づくアウトプット」と「振り返り」が重要です。</li>
+            <li className="pl-1 marker:text-gray-500">「未経験でもできるか」「学習期間はどれくらいか」で迷いやすいポイントをQ&Aで整理します。</li>
+            <li className="pl-1 marker:text-gray-500">焦って学習範囲を広げるより、現実的に実行できる一歩を決めるのが近道です。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -322,11 +351,11 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="next-career-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             キャリアチェンジを具体化したい方へ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 焦って学習範囲を広げるより、現実的に実行できる一歩を決めるのが近道です。無料セミナー/個別相談で移行ルートを整理できます。
+            焦って学習範囲を広げるより、現実的に実行できる一歩を決めるのが近道です。無料セミナー/個別相談で移行ルートを整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

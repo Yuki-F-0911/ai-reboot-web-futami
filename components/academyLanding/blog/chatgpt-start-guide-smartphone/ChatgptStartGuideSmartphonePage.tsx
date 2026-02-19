@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -29,8 +30,8 @@ const tocItems = [
   { id: "smartphone-features", label: "スマホ版の便利機能" },
   { id: "free-vs-paid", label: "無料と有料の違い" },
   { id: "use-cases", label: "活用シーン5選" },
-  { id: "faq", label: "FAQ" },
-  { id: "academy-cta", label: "次に学ぶ（CTA）" },
+  { id: "faq", label: "よくある質問（FAQ）" },
+  { id: "academy-cta", label: "次に学ぶ" },
   { id: "related-links", label: "関連リンク" },
 ] as const;
 
@@ -124,7 +125,7 @@ const useCases = [
 export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptStartGuideSmartphonePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -152,14 +153,22 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="ChatGPTをスマホで始める方法｜iPhone・Android対応の初期設定ガイド"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             ChatGPTをスマホで始める方法｜iPhone・Android対応の初期設定ガイド
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            スマホで始めると、公式アプリの見分け方・権限設定・通知あたりで迷いがちです。
+            iPhone/Androidともに、アプリストアで公式アプリを選び、アカウント作成（またはログイン）→初期設定の順で始めます。
             この記事では、iPhone/Android別に「インストール→ログイン→初期設定」を最短手順で整理し、スマホならではの使いどころまで具体例つきでまとめます。
-            筆者は通勤中の音声入力で「メール返信の下書き」を試し、短い質問→追質問の型が最も失敗しにくいと感じました。
+            スマホで始めると、公式アプリの見分け方・権限設定・通知あたりで迷いがちです。
           </p>
         </motion.header>
 
@@ -201,7 +210,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             ChatGPTスマホアプリとは？（公式アプリの概要、Web版との違い）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: スマホでは公式アプリでチャットできます。ブラウザ版（Web）でも利用できますが、アプリは音声やカメラ連携などスマホ向け機能が使いやすいのが特徴です。一方で、権限（マイク/カメラ）や通知設定を適切に管理する必要があります。
+            スマホでは公式アプリでチャットできます。ブラウザ版（Web）でも利用できますが、アプリは音声やカメラ連携などスマホ向け機能が使いやすいのが特徴です。一方で、権限（マイク/カメラ）や通知設定を適切に管理する必要があります。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             仕事での利用を想定する場合は、まず{" "}
@@ -224,7 +233,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             iPhone版の始め方（App Store→アカウント作成→初期設定）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: App Storeで公式アプリを入れたら、ログイン→権限（マイク/カメラ/通知）を必要最小限に整えるだけで、すぐ使い始められます。
+            App Storeで公式アプリを入れたら、ログイン→権限（マイク/カメラ/通知）を必要最小限に整えるだけで、すぐ使い始められます。
           </p>
           <div className="mt-6 space-y-4">
             {iphoneSteps.map((item) => (
@@ -248,7 +257,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             Android版の始め方（Google Play→設定）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: Google Playで公式アプリを入れたら、ログイン→権限と通知を調整し、まずは1つの用途（要約/下書きなど）で試すのが最短です。
+            Google Playで公式アプリを入れたら、ログイン→権限と通知を調整し、まずは1つの用途（要約/下書きなど）で試すのが最短です。
           </p>
           <div className="mt-6 space-y-4">
             {androidSteps.map((item) => (
@@ -272,7 +281,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             スマホ版ならではの便利機能（音声入力、カメラ連携、ウィジェット）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: スマホは「入力の手間」を減らすほど継続利用しやすくなります。まずは音声とカメラ連携を試し、よく使うパターンをテンプレ化しておくのがおすすめです。
+            スマホは「入力の手間」を減らすほど継続利用しやすくなります。まずは音声とカメラ連携を試し、よく使うパターンをテンプレ化しておくのがおすすめです。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {smartphoneFeatures.map((item) => (
@@ -296,7 +305,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             無料プランと有料プランの違い（スマホでの課金方法）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最初は無料で「使いどころ」を固めてから、有料プランを比較するのが堅実です。業務で毎日使う/上限や追加機能が必要、という条件が揃った段階で検討するとミスマッチを減らせます。
+            最初は無料で「使いどころ」を固めてから、有料プランを比較するのが堅実です。業務で毎日使う/上限や追加機能が必要、という条件が揃った段階で検討するとミスマッチを減らせます。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             仕事用のプロンプトは{" "}
@@ -339,7 +348,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             スマホでの活用シーン5選（通勤中の要約/買い物リスト/メール下書き/翻訳/調べもの）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 「すぐ使えて、すぐ効果が出る」用途から始めると、スマホでも継続しやすくなります。迷ったら、要約・リスト化・下書きの3つから試すのがおすすめです。
+            「すぐ使えて、すぐ効果が出る」用途から始めると、スマホでも継続しやすくなります。迷ったら、要約・リスト化・下書きの3つから試すのがおすすめです。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {useCases.map((item) => (
@@ -372,40 +381,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           </dl>
         </motion.section>
 
-        <motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="academy-cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            次に学ぶ：スマホからでも実務に繋げる
-          </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            結論: スマホで使い方に慣れたら、次は「プロンプトの型」と「学習ロードマップ」を押さえると、実務での再現性が上がります。まずは{" "}
-            <Link href="/academy/blog/how-to-learn-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              生成AI学習ロードマップ
-            </Link>{" "}
-            を読み、続けてアカデミー全体像を確認するのがおすすめです。
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/academy"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
-            >
-              AIリブートアカデミーを見る
-            </Link>
-            <Link
-              href="/academy/blog"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
-            >
-              他の記事も読む
-            </Link>
-          </div>
-        </motion.section>
-
+        
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
           <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
             関連リンク
@@ -459,6 +435,68 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
             <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
+              </Link>
+            </li>
+          </ul>
+        </section>
+
+<motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">iPhone/Androidともに、アプリストアで公式アプリを選び、アカウント作成（またはログイン）→初期設定の順で始めます。</li>
+            <li className="pl-1 marker:text-gray-500">初期設定は「通知」「音声（マイク権限）」「履歴/プライバシー」を最優先で確認すると安全です。</li>
+            <li className="pl-1 marker:text-gray-500">スマホは音声入力やカメラ連携で時短しやすいので、短い質問→追質問で精度を上げる使い方が相性良いです。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次に学ぶ：スマホからでも実務に繋げる
+          </h2>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            スマホで使い方に慣れたら、次は「プロンプトの型」と「学習ロードマップ」を押さえると、実務での再現性が上がります。まずは{" "}
+            <Link href="/academy/blog/how-to-learn-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              生成AI学習ロードマップ
+            </Link>{" "}
+            を読み、続けてアカデミー全体像を確認するのがおすすめです。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              AIリブートアカデミーを見る
+            </Link>
+            <Link
+              href="/academy/blog"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              他の記事も読む
+            </Link>
+          </div>
+        </motion.section>
+
+        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/chatgpt-advanced-tips" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPTを仕事で使いこなす実践テクニック集｜基本から応用まで50のTips
               </Link>
             </li>
           </ul>

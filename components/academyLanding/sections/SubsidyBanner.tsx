@@ -3,109 +3,133 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "./academyDesignTokens";
 
 const SubsidyBanner = () => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     return (
-        <section className="bg-gradient-to-r from-orange-500 to-amber-500 text-white relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0" style={{
-                    backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-                }} />
-            </div>
-
-            {/* Main Banner Content */}
-            <div className="py-10 md:py-16 relative z-10">
-                <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-                    <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
-                        {/* Left Content */}
-                        <div className="space-y-4 text-center lg:text-left">
-                            {/* ロゴに白背景を追加 */}
-                            <div className="mb-3 md:mb-4">
-                                <div className="bg-white rounded-lg px-3 py-1.5 md:px-4 md:py-2 inline-block">
-                                    <Image
-                                        src="/images/keisan-reskiling-logo.webp"
-                                        alt="経済産業省リスキリング補助金"
-                                        width={200}
-                                        height={70}
-                                        className="h-10 md:h-14 w-auto object-contain"
-                                    />
-                                </div>
-                            </div>
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black">
-                                リスキリング補助金<br className="sm:hidden" />対象講座
-                            </h2>
-                            <p className="text-orange-100 font-medium text-base sm:text-base md:text-lg">
-                                <span className="hidden sm:inline">経済産業省「リスキリングを通じたキャリアアップ支援事業」対象</span>
-                                <span className="sm:hidden">経済産業省<br />「リスキリングを通じた<br />キャリアアップ支援事業」対象</span>
-                            </p>
-                            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mt-4">
-                                <button
-                                    onClick={() => setIsExpanded(!isExpanded)}
-                                    className="bg-white text-orange-600 px-6 py-3 rounded-full font-bold hover:bg-orange-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
-                                >
-                                    補助金の詳細を見る
-                                    <svg
-                                        className={`w-5 h-5 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                {/* ボタンからテキストリンクに変更 */}
-                                <a
-                                    href="https://careerup.reskilling.go.jp/worker/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-white/90 text-sm underline underline-offset-4 hover:text-white transition-colors flex items-center gap-1"
-                                >
-                                    公式サイトはこちら
-                                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                    </svg>
-                                </a>
-                                <Link
-                                    href="/academy/subsidy-guide"
-                                    className="text-white text-sm font-bold underline underline-offset-4 hover:text-orange-100 transition-colors"
-                                >
-                                    補助金ガイド詳しくはこちら
-                                </Link>
-                            </div>
+        <section 
+            className="border-y py-12"
+            style={{ 
+                backgroundColor: ACADEMY_COLORS.bgPanel,
+                borderColor: ACADEMY_COLORS.lineSoft
+            }}
+        >
+            <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+                    {/* Left Content - System Summary */}
+                    <div className="flex-1 space-y-6">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+                            <Image
+                                src="/images/keisan-reskiling-logo.webp"
+                                alt="経済産業省リスキリング補助金"
+                                width={240}
+                                height={80}
+                                className="h-14 md:h-16 w-auto object-contain"
+                            />
                         </div>
+                        
+                        <h2 
+                            className="text-2xl lg:text-4xl font-bold leading-tight"
+                            style={{ 
+                                fontFamily: ACADEMY_TYPOGRAPHY.serif,
+                                color: ACADEMY_COLORS.textStrong
+                            }}
+                        >
+                            リスキリング補助金対象講座
+                        </h2>
+                        
+                        <p 
+                            className="leading-loose max-w-2xl"
+                            style={{ color: ACADEMY_COLORS.textBody }}
+                        >
+                            本講座は経済産業省「リスキリングを通じたキャリアアップ支援事業」に採択されています。<br className="hidden lg:block" />
+                            一定の要件を満たすことで、受講費用の最大70%（21万円）が国から補助されます。
+                        </p>
 
-                        {/* Right Content - Price Box */}
-                        <div className="bg-white rounded-2xl p-6 sm:p-8 text-slate-900 shadow-2xl w-full sm:min-w-[280px] sm:w-auto">
-                            <div className="flex flex-col items-center gap-4">
-                                {/* Original Price */}
-                                <div className="text-center">
-                                    <p className="text-sm text-slate-400 line-through">
-                                        通常価格 330,000円
-                                    </p>
-                                </div>
+                        <div className="flex flex-wrap items-center gap-6 pt-2">
+                            <button
+                                onClick={() => setIsExpanded(!isExpanded)}
+                                className="inline-flex items-center gap-2 text-sm font-bold border-b pb-1 transition-opacity hover:opacity-70"
+                                style={{ 
+                                    color: ACADEMY_COLORS.accentMain,
+                                    borderColor: ACADEMY_COLORS.accentMain 
+                                }}
+                            >
+                                制度の詳細と支給要件を確認
+                                <svg
+                                    className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <a
+                                href="https://careerup.reskilling.go.jp/worker/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-xs flex items-center gap-1 transition-colors"
+                                style={{ color: ACADEMY_COLORS.textMuted }}
+                            >
+                                事務局公式サイト
+                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
 
-                                {/* Discounted Price */}
-                                <div className="text-center">
-                                    <p className="text-sm text-slate-600 mb-1">実質</p>
-                                    <p className="text-4xl sm:text-4xl font-bold text-orange-500">
-                                        120,000<span className="text-lg sm:text-lg font-bold">円〜</span>
-                                    </p>
-                                </div>
-
-                                {/* Discount Badge */}
-                                <div className="bg-orange-50 border-2 border-orange-200 rounded-full px-6 py-2">
-                                    <p className="text-orange-600 font-bold text-lg">
-                                        最大70%OFF
-                                    </p>
-                                </div>
-
-                                <p className="text-xs text-slate-400">
-                                    ※支給要件あり（転職・継続就業が条件）
+                    {/* Right Content - Price Highlight */}
+                    <div 
+                        className="w-full lg:w-80 border rounded-sm p-8 lg:p-10"
+                        style={{
+                            backgroundColor: ACADEMY_COLORS.bgPanel,
+                            borderColor: ACADEMY_COLORS.lineStrong
+                        }}
+                    >
+                        <div className="flex flex-col items-center text-center">
+                            <div className="mb-6">
+                                <p
+                                    className="text-xs line-through mb-1"
+                                    style={{ color: ACADEMY_COLORS.textMuted }}
+                                >
+                                    通常価格 330,000円
                                 </p>
+                                <p
+                                    className="text-sm font-medium"
+                                    style={{ color: ACADEMY_COLORS.textBody }}
+                                >
+                                    実質負担額
+                                </p>
+                                <div className="flex items-baseline justify-center gap-1">
+                                    <span
+                                        className="text-4xl lg:text-5xl font-bold"
+                                        style={{
+                                            fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                                            color: ACADEMY_COLORS.accentMain
+                                        }}
+                                    >
+                                        120,000
+                                    </span>
+                                    <span
+                                        className="text-sm font-bold"
+                                        style={{ color: ACADEMY_COLORS.accentMain }}
+                                    >
+                                        円〜
+                                    </span>
+                                </div>
                             </div>
+
+                            <p
+                                className="text-[10px] leading-relaxed italic"
+                                style={{ color: ACADEMY_COLORS.textMuted }}
+                            >
+                                ※転職および1年間の継続就業が条件となります。<br />
+                                詳細は個別面談にてご説明いたします。
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -113,119 +137,228 @@ const SubsidyBanner = () => {
 
             {/* Expandable Detail Section */}
             <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
-                    }`}
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}
             >
-                <div className="bg-white text-slate-900 relative z-10">
-                    <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-5xl py-12">
-                        <div className="space-y-8">
-                            {/* What is this program */}
-                            <div>
-                                <h4 className="text-lg font-bold text-slate-800 mb-3 flex items-center gap-2">
-                                    <span className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600">
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                    </span>
-                                    <span className="hidden sm:inline">リスキリングを通じたキャリアアップ支援事業とは？</span><span className="sm:hidden">リスキリング支援事業とは？</span>
-                                </h4>
-                                <p className="text-slate-600 leading-relaxed">
-                                    経済産業省が実施する、在職者向けのキャリアアップ支援制度です。
-                                    「キャリア相談」「リスキリング講座」「転職支援」を一体的に受けられます。
-                                </p>
-                            </div>
+                <div 
+                    className="border-t"
+                    style={{ 
+                        backgroundColor: ACADEMY_COLORS.bgCanvas,
+                        borderColor: ACADEMY_COLORS.lineSoft
+                    }}
+                >
+                    <div className="container mx-auto px-6 lg:px-12 max-w-5xl py-16">
+                        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+                            {/* Left Col: System Intro */}
+                            <div className="space-y-12">
+                                <div>
+                                    <h4 
+                                        className="text-sm font-bold tracking-widest uppercase mb-6 flex items-center gap-3"
+                                        style={{ color: ACADEMY_COLORS.textStrong }}
+                                    >
+                                        <span 
+                                            className="w-1 h-4" 
+                                            style={{ backgroundColor: ACADEMY_COLORS.accentMain }}
+                                        />
+                                        制度の概要
+                                    </h4>
+                                    <p 
+                                        className="text-sm leading-loose mb-6"
+                                        style={{ color: ACADEMY_COLORS.textBody }}
+                                    >
+                                        「リスキリングを通じたキャリアアップ支援事業」は、経済産業省が実施する在職者のためのキャリア支援制度です。
+                                        専門家によるキャリア相談、スキルの習得、そして転職支援までを一気通貫で受けることができます。
+                                    </p>
+                                    <div className="space-y-4">
+                                        {[
+                                            { step: "01", title: "キャリア相談", body: "専門家とキャリアの棚卸し・目標設定" },
+                                            { step: "02", title: "リスキリング", body: "AIリブートアカデミーでの実践的学習" },
+                                            { step: "03", title: "転職支援・継続", body: "転職成功と1年間の継続就業" }
+                                        ].map(item => (
+                                            <div key={item.step} className="flex gap-4">
+                                                <span 
+                                                    className="text-[10px] font-bold pt-1" 
+                                                    style={{ 
+                                                        fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                                                        color: ACADEMY_COLORS.textMuted
+                                                    }}
+                                                >
+                                                    {item.step}
+                                                </span>
+                                                <div>
+                                                    <h5 
+                                                        className="text-sm font-bold"
+                                                        style={{ color: ACADEMY_COLORS.textStrong }}
+                                                    >
+                                                        {item.title}
+                                                    </h5>
+                                                    <p 
+                                                        className="text-xs leading-loose"
+                                                        style={{ color: ACADEMY_COLORS.textMuted }}
+                                                    >
+                                                        {item.body}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
 
-                            {/* 3 Support Steps - オレンジ系に統一 */}
-                            <div>
-                                <h4 className="text-lg font-bold text-slate-800 mb-4">3つのサポート</h4>
-                                <div className="grid md:grid-cols-3 gap-4">
-                                    <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-4 rounded-xl border border-orange-200">
-                                        <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold mb-3">1</div>
-                                        <h5 className="font-bold text-orange-800 mb-2">キャリア相談</h5>
-                                        <p className="text-sm text-orange-700/80">専門家とキャリアの棚卸し・ゴール設定</p>
-                                    </div>
-                                    <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-4 rounded-xl border border-orange-200">
-                                        <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white font-bold mb-3">2</div>
-                                        <h5 className="font-bold text-orange-800 mb-2">リスキリング</h5>
-                                        <p className="text-sm text-orange-700/80">AI活用スキルなど新しいスキルを習得</p>
-                                    </div>
-                                    <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-4 rounded-xl border border-amber-200">
-                                        <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold mb-3">3</div>
-                                        <h5 className="font-bold text-amber-800 mb-2">転職支援</h5>
-                                        <p className="text-sm text-amber-700/80">転職に向けた伴走支援・転職先紹介</p>
-                                    </div>
+                                <div>
+                                    <h4 
+                                        className="text-sm font-bold tracking-widest uppercase mb-6 flex items-center gap-3"
+                                        style={{ color: ACADEMY_COLORS.textStrong }}
+                                    >
+                                        <span 
+                                            className="w-1 h-4" 
+                                            style={{ backgroundColor: ACADEMY_COLORS.accentMain }}
+                                        />
+                                        こんな方におすすめ
+                                    </h4>
+                                    <ul className="space-y-3">
+                                        {[
+                                            "AIを武器に、今の市場価値を劇的に高めたい方",
+                                            "将来のキャリアに漠然とした不安がある方",
+                                            "スキルアップと転職を同時に実現したい方"
+                                        ].map(text => (
+                                            <li key={text} className="flex gap-3 text-sm">
+                                                <span 
+                                                    className="font-bold"
+                                                    style={{ color: ACADEMY_COLORS.accentMain }}
+                                                >
+                                                    ・
+                                                </span>
+                                                <span style={{ color: ACADEMY_COLORS.textBody }} className="leading-loose">{text}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
 
-                            {/* Subsidy Breakdown */}
+                            {/* Right Col: Calculation Table */}
                             <div>
-                                <h4 className="text-lg font-bold text-slate-800 mb-4">補助金の内訳</h4>
-                                <div className="bg-slate-50 rounded-xl p-5 space-y-4">
-                                    <div className="flex items-start gap-4">
-                                        <div className="bg-orange-500 text-white text-sm font-bold px-3 py-1 rounded shrink-0">受講終了時</div>
-                                        <div>
-                                            <p className="font-bold text-slate-800">受講費用の <span className="text-orange-500 text-xl">1/2</span>（上限40万円）</p>
-                                            <p className="text-sm text-slate-500">リスキリング講座の受講を終了した場合</p>
+                                <h4 
+                                    className="text-sm font-bold tracking-widest uppercase mb-6 flex items-center gap-3"
+                                    style={{ color: ACADEMY_COLORS.textStrong }}
+                                >
+                                    <span 
+                                        className="w-1 h-4" 
+                                        style={{ backgroundColor: ACADEMY_COLORS.accentMain }}
+                                    />
+                                    補助金の内訳
+                                </h4>
+                                <div 
+                                    className="border overflow-hidden"
+                                    style={{ 
+                                        backgroundColor: ACADEMY_COLORS.bgPanel,
+                                        borderColor: ACADEMY_COLORS.lineSoft 
+                                    }}
+                                >
+                                    <div className="grid grid-cols-12 border-b" style={{ borderColor: ACADEMY_COLORS.bgSection }}>
+                                        <div 
+                                            className="col-span-4 flex items-center p-4"
+                                            style={{ backgroundColor: ACADEMY_COLORS.bgSection }}
+                                        >
+                                            <span 
+                                                className="text-xs font-bold"
+                                                style={{ color: ACADEMY_COLORS.textBody }}
+                                            >
+                                                受講修了時
+                                            </span>
+                                        </div>
+                                        <div className="col-span-8 p-4">
+                                            <p 
+                                                className="text-sm font-bold"
+                                                style={{ color: ACADEMY_COLORS.textStrong }}
+                                            >
+                                                受講費用の <span 
+                                                    className="text-xl"
+                                                    style={{ color: ACADEMY_COLORS.accentMain }}
+                                                >
+                                                    1/2
+                                                </span>（上限40万円）
+                                            </p>
+                                            <p 
+                                                className="text-[10px] leading-loose"
+                                                style={{ color: ACADEMY_COLORS.textMuted }}
+                                            >
+                                                リスキリング講座の受講を終了した場合
+                                            </p>
                                         </div>
                                     </div>
-                                    <div className="border-t border-slate-200 my-2"></div>
-                                    <div className="flex items-start gap-4">
-                                        <div className="bg-amber-500 text-white text-sm font-bold px-3 py-1 rounded shrink-0">転職後1年継続</div>
-                                        <div>
-                                            <p className="font-bold text-slate-800">追加で <span className="text-amber-500 text-xl">1/5</span>（上限16万円）</p>
-                                            <p className="text-sm text-slate-500">転職して1年間継続就業した場合</p>
+                                    <div className="grid grid-cols-12 border-b" style={{ borderColor: ACADEMY_COLORS.bgSection }}>
+                                        <div 
+                                            className="col-span-4 flex items-center p-4"
+                                            style={{ backgroundColor: ACADEMY_COLORS.bgSection }}
+                                        >
+                                            <span 
+                                                className="text-xs font-bold"
+                                                style={{ color: ACADEMY_COLORS.textBody }}
+                                            >
+                                                転職後1年継続
+                                            </span>
+                                        </div>
+                                        <div className="col-span-8 p-4">
+                                            <p 
+                                                className="text-sm font-bold"
+                                                style={{ color: ACADEMY_COLORS.textStrong }}
+                                            >
+                                                追加で <span 
+                                                    className="text-xl"
+                                                    style={{ color: ACADEMY_COLORS.accentDeep }}
+                                                >
+                                                    1/5
+                                                </span>（上限16万円）
+                                            </p>
+                                            <p 
+                                                className="text-[10px] leading-loose"
+                                                style={{ color: ACADEMY_COLORS.textMuted }}
+                                            >
+                                                転職して1年間継続就業した場合
+                                            </p>
                                         </div>
                                     </div>
-                                    <div className="border-t-2 border-orange-300 my-2"></div>
-                                    <div className="text-center">
-                                        <p className="text-xl sm:text-2xl font-bold text-orange-600">
-                                            受講費用の最大<span className="text-3xl sm:text-4xl">70</span>%が補助！
+                                    <div 
+                                        className="border-t p-6 text-center"
+                                        style={{ 
+                                            backgroundColor: ACADEMY_COLORS.bgSection,
+                                            borderColor: ACADEMY_COLORS.lineSoft 
+                                        }}
+                                    >
+                                        <p 
+                                            className="text-xs uppercase tracking-widest mb-1"
+                                            style={{ color: ACADEMY_COLORS.textMuted }}
+                                        >
+                                            Total Support
                                         </p>
-                                        <p className="text-sm text-slate-500 mt-1">
+                                        <p 
+                                            className="text-xl font-bold"
+                                            style={{ color: ACADEMY_COLORS.accentMain }}
+                                        >
+                                            受講費用の最大<span className="text-3xl">70</span>%が補助！
+                                        </p>
+                                        <p 
+                                            className="text-xs mt-1 leading-loose"
+                                            style={{ color: ACADEMY_COLORS.textBody }}
+                                        >
                                             ※当講座の場合：330,000円 → 実質約120,000円〜
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-
-                            {/* Who is this for */}
-                            <div>
-                                <h4 className="text-lg font-bold text-slate-800 mb-3">こんな方におすすめ</h4>
-                                <ul className="space-y-2">
-                                    <li className="flex items-start gap-3">
-                                        <span className="text-orange-500 mt-1">✓</span>
-                                        <span className="text-slate-600">転職したいけど、今の経験やスキルで足りるか不安な方</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <span className="text-orange-500 mt-1">✓</span>
-                                        <span className="text-slate-600">足りないスキルが何か、どこで学べるかわからない方</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <span className="text-orange-500 mt-1">✓</span>
-                                        <span className="text-slate-600">経験やスキルを企業にどう伝えればいいかわからない方</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* CTA - テキストリンクと閉じるボタン */}
-                            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200">
-                                <a
-                                    href="https://careerup.reskilling.go.jp/worker/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-orange-600 font-medium underline underline-offset-4 hover:text-orange-700 transition-colors flex items-center gap-1"
-                                >
-                                    経産省公式サイトで詳細を確認
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                    </svg>
-                                </a>
-                                <button
-                                    onClick={() => setIsExpanded(false)}
-                                    className="text-slate-500 hover:text-slate-700 text-sm transition-colors"
-                                >
-                                    閉じる
-                                </button>
+                                <div className="mt-8">
+                                    <Link
+                                        href="/academy/subsidy-guide"
+                                        className="inline-flex items-center gap-2 text-sm font-bold border-b pb-1 hover:opacity-70 transition-opacity"
+                                        style={{ 
+                                            color: ACADEMY_COLORS.textStrong,
+                                            borderColor: ACADEMY_COLORS.textStrong
+                                        }}
+                                    >
+                                        補助金ガイドを詳しく見る
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                        </svg>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>

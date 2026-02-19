@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -128,13 +130,13 @@ const tocItems = [
   { id: "recommended-by-purpose", label: "目的別おすすめ" },
   { id: "selection-points", label: "選び方のポイント" },
   { id: "failure-patterns", label: "よくある失敗パターンと回避法" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -162,16 +164,34 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="AI講座ランキング2026｜選び方の基準と目的別おすすめ"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI講座ランキング2026｜選び方の基準と目的別おすすめ
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI講座は数が多く、比較軸がぶれると「調べたのに決められない」状態になりがちです。
+            AI講座ランキングは、カリキュラム・実務接続・サポート・コスパ・受講者評価の5軸で比較するのが実践的です。
             この記事では、評価5軸・目的別のおすすめタイプ・失敗回避のチェック順がわかります。
-            筆者は比較相談では、最初に「受講後に何を作れる状態にするか」を1文で固定するところから始めます。
+            AI講座は数が多く、比較軸がぶれると「調べたのに決められない」状態になりがちです。
           </p>
         </motion.header>
+
+        <figure className="my-8">
+          <Image
+            src="/images/blog/ai-course-ranking/slide-1.png"
+            alt="AI講座ランキング2026：失敗しない選び方と基準"
+            width={800}
+            height={450}
+            className="rounded-lg"
+          />
+        </figure>
 
         <ArticleTOC items={tocItems} />
 
@@ -186,6 +206,15 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             要点まとめ
           </h2>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-course-ranking/slide-2.png"
+              alt="情報が多いほど迷う：比較軸を決める重要性"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               AI講座ランキングは、カリキュラム・実務接続・サポート・コスパ・受講者評価の5軸で比較するのが実践的です。
@@ -211,8 +240,17 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             ランキングの評価基準
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 講座の良し悪しは「目的に合う設計か」で決まります。カリキュラム・実務接続・サポート・コスパ・受講者評価の5軸で比較すると判断が早くなります。
+            講座の良し悪しは「目的に合う設計か」で決まります。カリキュラム・実務接続・サポート・コスパ・受講者評価の5軸で比較すると判断が早くなります。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-course-ranking/slide-3.png"
+              alt="AI講座を比較する5つの評価軸"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             ここでのランキングは、講座タイプを比較するための編集部基準です。特定サービス名ではなく、受講成果につながりやすい評価観点で整理しています。
           </p>
@@ -224,6 +262,15 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
               </section>
             ))}
           </div>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-course-ranking/slide-5.png"
+              alt="講座タイプ別ランキング（編集部基準）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-8 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -260,8 +307,17 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             目的別おすすめ（転職・副業・業務効率化）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 目的が違えば「必要な講座タイプ」も変わります。まずは転職/副業/業務効率化のどれを優先するかを1つに固定してください。
+            目的が違えば「必要な講座タイプ」も変わります。まずは転職/副業/業務効率化のどれを優先するかを1つに固定してください。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-course-ranking/slide-4.png"
+              alt="目的別のゴール（業務効率・キャリア転換・社内DX）"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 space-y-4">
             {purposeRecommendations.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -284,7 +340,7 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             選び方のポイント（補助金対応・受講形式・期間）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 比較で迷ったら「補助金/給付金の要件」「学習継続しやすい形式」「実務適用に必要な期間」の3点を先に確認すると判断が早くなります。
+            比較で迷ったら「補助金/給付金の要件」「学習継続しやすい形式」「実務適用に必要な期間」の3点を先に確認すると判断が早くなります。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {selectionPoints.map((point) => (
@@ -308,7 +364,7 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             よくある失敗パターンと回避法
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 失敗の多くは「目的が曖昧なまま申込む」「受講後の実務適用計画がない」ことから起きます。回避の視点を先に押さえましょう。
+            失敗の多くは「目的が曖昧なまま申込む」「受講後の実務適用計画がない」ことから起きます。回避の視点を先に押さえましょう。
           </p>
           <dl className="mt-6 space-y-4">
             {failurePatterns.map((item) => (
@@ -329,10 +385,10 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最終判断は公式情報の確認が前提です。そのうえで、比較で迷いやすい論点をQ&Aで整理します。
+            最終判断は公式情報の確認が前提です。そのうえで、比較で迷いやすい論点をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -417,7 +473,7 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             無料セミナー / 個別相談
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 比較で止まらず、実行できる計画まで落とし込むのが最短です。無料セミナーで全体像を掴み、個別相談で目的に合う受講戦略を確認できます。
+            比較で止まらず、実行できる計画まで落とし込むのが最短です。無料セミナーで全体像を掴み、個別相談で目的に合う受講戦略を確認できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -436,7 +492,73 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             </a>
           </div>
         </motion.section>
-      </article>
+      
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-course-ranking/slide-9.png"
+              alt="まとめ：選ぶ前のチェックリスト"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">AI講座ランキングは、カリキュラム・実務接続・サポート・コスパ・受講者評価の5軸で比較するのが実践的です。</li>
+            <li className="pl-1 marker:text-gray-500">転職、副業、業務効率化では最適な講座タイプが異なるため、目的を先に固定してから選ぶ必要があります。</li>
+            <li className="pl-1 marker:text-gray-500">失敗を防ぐ鍵は、受講前に補助金条件・受講形式・受講後の実務適用計画を確認することです。</li>
+          </ul>
+        </motion.section>
+
+        <motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-course-ranking/slide-10.png"
+              alt="次のステップ：無料セミナー・個別相談へ"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

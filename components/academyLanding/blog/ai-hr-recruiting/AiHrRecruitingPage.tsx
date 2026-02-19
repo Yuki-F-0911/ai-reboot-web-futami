@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -36,7 +37,7 @@ const tocItems = [
   { id: "prompt-examples", label: "すぐ使えるプロンプト例" },
   { id: "cautions", label: "導入時の注意点" },
   { id: "steps", label: "導入ステップ" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "cta", label: "次のアクション" },
 ] as const;
 
@@ -169,7 +170,7 @@ const rolloutSteps = [
 export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -197,14 +198,22 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="AI × 人事・採用｜業務効率化から戦略的活用までの実践ガイド"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI × 人事・採用｜業務効率化から戦略的活用までの実践ガイド
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            結論から言うと、人事・採用でAIが効くのは「候補者体験を損なわずに、定型作業の工数を減らし、判断の材料を整理する」領域です。本記事では、
-            採用活動と人事管理の具体的な活用パターン、ツールの選び方、すぐ使えるプロンプト例、導入時の注意点と進め方をまとめます。
-            筆者はまず、求人票のたたき台と定型連絡文をテンプレ化し、レビュー手順を固定するところから始めるのが安全だと感じています。
+            人事・採用のAI活用は、定型業務の削減と判断材料の整理に寄せると、安全に成果が出やすいです。
+            本記事では、 採用活動と人事管理の具体的な活用パターン、ツールの選び方、すぐ使えるプロンプト例、導入時の注意点と進め方をまとめます。
+            結論から言うと、人事・採用でAIが効くのとは、「候補者体験を損なわずに、定型作業の工数を減らし、判断の材料を整理する」領域です。
           </p>
         </motion.header>
 
@@ -506,23 +515,41 @@ export default function AiHrRecruitingPage({ faqItems }: AiHrRecruitingPageProps
           </ul>
         </section>
 
+        
         <motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            次のアクション：AIリブートアカデミーで体系的に学ぶ
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
           </h2>
-          <p className="mt-5 text-base font-medium text-gray-900">
-            人事・採用でAIを定着させるには、プロンプトの型、運用ルール、効果測定をセットで整えることが重要です。
-          </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            体系的に学びたい方は、アカデミーで全体像を確認できます。採用・人事のユースケースに合わせて、手戻りしない進め方を一緒に設計します。
-          </p>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">採用では「求人票作成」「定型連絡」「要約・比較」が始めやすく、候補者対応の品質を保ちながら工数を削減しやすい傾向があります。</li>
+            <li className="pl-1 marker:text-gray-500">スクリーニングは自動採否ではなく「評価軸に沿った整理」に限定し、バイアスチェックと人の最終判断を組み込むのが基本です。</li>
+            <li className="pl-1 marker:text-gray-500">成功の鍵は、入力テンプレートとレビュー手順の明文化です。小さく始めて、指標で効果を確認し、段階的に拡大します。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            次のアクション：AIリブートアカデミーで、採用を「運用」と「価値」へつなげる
+	          </h2>
+	          <p className="mt-5 text-base font-medium text-gray-900">
+	            人事・採用でAIを定着させるには、プロンプトの型、運用ルール、効果測定をセットで整えることが重要です。
+	          </p>
+	          <p className="mt-4 text-base leading-8 text-gray-700">
+	            ツールの使い方だけで終わらせず、「自分（チーム）の強みをどう伸ばすか」まで含めて設計したい方は、アカデミーで全体像を確認できます。採用・人事のユースケースに合わせて、100日間の伴走で手戻りしない進め方を一緒に設計します。
+	          </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"

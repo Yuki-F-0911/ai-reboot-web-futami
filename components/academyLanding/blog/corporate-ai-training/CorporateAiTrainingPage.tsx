@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -148,13 +149,13 @@ const tocItems = [
   { id: "academy-plan", label: "AIリブート法人研修プラン（3日間集中）" },
   { id: "comparison-table", label: "比較時の確認項目（一般講座 vs AIリブート法人研修）" },
   { id: "case-studies", label: "導入事例（想定ケーススタディ）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainingPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -181,14 +182,19 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton title="法人向けAI研修で成果を出すための完全ガイド" sourceSelector="[data-blog-article-body]" />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             法人向けAI研修で成果を出すための完全ガイド
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            法人向けAI研修は、受講人数より「研修設計」と「社内定着設計」で成果が決まります。
+            成果が出る法人研修は、受講前に「対象者レベル分け」「業務KPI」「研修後フォロー」をセットで設計します。
             本記事では、研修形式の選び方、KPI設計、フォロー体制、比較検討時の視点を結論先出しで整理します。
-            筆者は研修の前に「どの業務が何分短くなるか」を1つだけ決めてから設計すると、定着しやすいと感じています。
+            法人向けAI研修とは、受講人数より「研修設計」と「社内定着設計」で成果が決まります。
           </p>
         </motion.header>
 
@@ -389,10 +395,10 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 研修の最適な形は企業規模・対象者・目的で変わります。よくある疑問をQ&Aで整理します。
+            研修の最適な形は企業規模・対象者・目的で変わります。よくある疑問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -486,7 +492,55 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
             </Link>
           </div>
         </motion.section>
-      </article>
+      
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">成果が出る法人研修は、受講前に「対象者レベル分け」「業務KPI」「研修後フォロー」をセットで設計します。</li>
+            <li className="pl-1 marker:text-gray-500">単発研修より、伴走型で運用定着まで見る設計が有効です。</li>
+            <li className="pl-1 marker:text-gray-500">研修を「学び」で終わらせず、現場の業務フローに戻すところまでをスコープに含めると、投資対効果を説明しやすくなります。</li>
+          </ul>
+        </motion.section>
+
+        <motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

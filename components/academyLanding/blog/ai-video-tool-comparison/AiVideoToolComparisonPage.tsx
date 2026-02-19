@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -30,7 +31,7 @@ const tocItems = [
   { id: "ai-video-editing", label: "AI動画編集ツールの活用" },
   { id: "business-use", label: "ビジネスでのAI動画活用シーン" },
   { id: "cautions", label: "注意点（著作権・品質管理・商用利用）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "related-links", label: "関連リンク" },
   { id: "next-step", label: "次の一歩を決めたい方へ" },
 ] as const;
@@ -171,7 +172,7 @@ const cautionChecklist = [
 export default function AiVideoToolComparisonPage({ faqItems }: AiVideoToolComparisonPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-3xl px-5 sm:px-6">
+      <article className="mx-auto max-w-3xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -199,6 +200,11 @@ export default function AiVideoToolComparisonPage({ faqItems }: AiVideoToolCompa
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton title="AI動画生成ツールおすすめ比較｜用途別の選び方と始め方" sourceSelector="[data-blog-article-body]" />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI動画生成ツールおすすめ比較｜用途別の選び方と始め方
           </h1>
@@ -207,7 +213,7 @@ export default function AiVideoToolComparisonPage({ faqItems }: AiVideoToolCompa
             結論から言うと、AI動画生成は<strong className="font-semibold text-gray-900">「素材を作る（生成）」</strong>と
             <strong className="font-semibold text-gray-900">「仕上げる（編集）」</strong>を分けると失敗しにくいです。
             SNSの短尺は編集AI、プロモや説明動画は生成AIでカットを作って編集で組み立てる、という使い分けが現実的です。
-            筆者はまず、用途（SNS/広告/教育）と合格ライン（尺・比率・品質）を決めてからツールを試すのが最短だと感じています。
+            まず、用途（SNS/広告/教育）と合格ライン（尺・比率・品質）を決めてからツールを試すのが最短ルートになりやすいです。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-600">
             ※料金や提供機能は更新されるため、最新の条件は公式サイトで確認してください。
@@ -435,7 +441,7 @@ export default function AiVideoToolComparisonPage({ faqItems }: AiVideoToolCompa
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -508,7 +514,26 @@ export default function AiVideoToolComparisonPage({ faqItems }: AiVideoToolCompa
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">ツール選びの前に用途（SNS/プレゼン/広告/教育）と 合格ライン（尺・比率・品質）を決めると迷いが減ります。</li>
+            <li className="pl-1 marker:text-gray-500">生成AIは「完成品を一発で作る」より、素材カットの初稿を増やす使い方で効果が出やすいです。</li>
+            <li className="pl-1 marker:text-gray-500">SNSの短尺は、CapCut AIやOpus Clipなどの編集AIを組み合わせると継続しやすくなります。</li>
+            <li className="pl-1 marker:text-gray-500">商用利用は規約・著作権・商標・肖像権の確認が必須です。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -516,7 +541,7 @@ export default function AiVideoToolComparisonPage({ faqItems }: AiVideoToolCompa
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             次にAI動画を業務に組み込みたい方へ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">

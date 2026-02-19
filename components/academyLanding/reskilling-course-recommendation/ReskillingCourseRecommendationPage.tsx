@@ -135,7 +135,7 @@ const ReskillingCourseRecommendationPage = ({ faqItems }: ReskillingCourseRecomm
             2026年おすすめリスキリング講座｜補助金対応・AI特化で選ぶ
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-700 sm:text-lg">
-            結論として、2026年の講座選びでは「目的一致」「AI実践性」「補助金確認導線」の3点を先に揃えると比較がぶれません。
+            2026年の講座選びでは「目的一致」「AI実践性」「補助金確認導線」の3点を先に揃えると比較がぶれません。
             このページでは、目的別の選び方と失敗を避ける確認手順を整理しています。
           </p>
         </motion.div>
@@ -153,7 +153,7 @@ const ReskillingCourseRecommendationPage = ({ faqItems }: ReskillingCourseRecomm
           <p className={sectionLabelClass}>CRITERIA</p>
           <h2 className={sectionHeadingClass}>おすすめ講座の選定基準</h2>
           <p className="mt-4 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
-            結論として、目的一致とAI実践性を先に揃え、最後に補助金対応を確認すると比較の精度が上がります。
+            目的一致とAI実践性を先に揃え、最後に補助金対応を確認すると比較の精度が上がります。
           </p>
 
           <motion.ol
@@ -228,7 +228,7 @@ const ReskillingCourseRecommendationPage = ({ faqItems }: ReskillingCourseRecomm
           <p className={sectionLabelClass}>SUBSIDY</p>
           <h2 className={sectionHeadingClass}>補助金が使える講座の見分け方</h2>
           <p className="mt-4 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
-            結論として、公式情報への導線があるかどうかで、制度適用の誤解を減らせます。
+            公式情報への導線があるかどうかで、制度適用の誤解を減らせます。
           </p>
           <ul className="mt-8 rounded-lg border border-slate-200">
             {subsidyCheckItems.map((item, index) => (
@@ -238,7 +238,6 @@ const ReskillingCourseRecommendationPage = ({ faqItems }: ReskillingCourseRecomm
               </li>
             ))}
           </ul>
-          {/* TODO: 要ファクト確認 - 制度条件変更時は手順文言を更新 */}
         </motion.div>
       </section>
 

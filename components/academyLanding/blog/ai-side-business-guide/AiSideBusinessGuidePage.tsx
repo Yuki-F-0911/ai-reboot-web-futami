@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -119,13 +120,13 @@ const tocItems = [
   { id: "learning-steps", label: "副業を始めるまでの学習ステップ" },
   { id: "skill-level", label: "必要なスキルレベルの目安（職種別）" },
   { id: "cautions", label: "注意点（就業規則、確定申告、期待値調整）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -152,14 +153,19 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton title="副業でAIを活用する始め方ガイド" sourceSelector="[data-blog-article-body]" />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             副業でAIを活用する始め方ガイド
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI副業は「何を売ればいいか」「どこまでAIに任せていいか」で迷うと、準備が長引きがちです。
+            副業でAIを活用する際は、まず対象領域を絞り、成果物の品質を担保できる運用を作ることが重要です。
             この記事では、副業タイプ・学習ステップ・必要スキルの目安・実務上の注意点を結論先出しで整理します。
-            筆者はまず「現職の経験に近い領域」で小さな成果物を作り、提案文とセットで実績化するのが近道だと感じています。
+            AI副業とは、「何を売ればいいか」「どこまでAIに任せていいか」で迷うと、準備が長引きがちです。
           </p>
         </motion.header>
 
@@ -194,7 +200,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             AIスキルで始められる副業の種類（ライティング支援、データ分析、自動化構築、コンサル等）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最初は「自分の経験に近い領域」から始めるのが安全です。提案と納品の精度が上がり、継続案件につながりやすくなります。
+            最初は「自分の経験に近い領域」から始めるのが安全です。提案と納品の精度が上がり、継続案件につながりやすくなります。
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {sideBusinessTypes.map((item, index) => (
@@ -227,7 +233,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             副業を始めるまでの学習ステップ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 学習を長期化させないために、最初から「実務化」を前提に段階を区切りましょう。準備と実践を並行すると進みやすくなります。
+            学習を長期化させないために、最初から「実務化」を前提に段階を区切りましょう。準備と実践を並行すると進みやすくなります。
           </p>
           <div className="mt-7 space-y-4">
             {learningSteps.map((item) => (
@@ -252,7 +258,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             必要なスキルレベルの目安（職種別）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 必要スキルは「AI操作」よりも、納品品質を担保するための業務スキル（前提整理・修正対応・例外処理）で決まります。目安として整理します。
+            必要スキルは「AI操作」よりも、納品品質を担保するための業務スキル（前提整理・修正対応・例外処理）で決まります。目安として整理します。
           </p>
           <div className="mt-7 overflow-x-auto">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -288,7 +294,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             注意点（就業規則、確定申告、クライアントとの期待値調整）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: トラブル回避の鍵は、就業規則（副業可否）、税務（確定申告の準備）、クライアントとの期待値（AI活用範囲と品質担保）の3点を先に揃えることです。
+            トラブル回避の鍵は、就業規則（副業可否）、税務（確定申告の準備）、クライアントとの期待値（AI活用範囲と品質担保）の3点を先に揃えることです。
           </p>
           <div className="mt-6 space-y-4">
             {cautions.map((item) => (
@@ -309,10 +315,10 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まずは「避けるべき地雷」を先に潰すのが安全です。未経験からの始め方、説明責任、社内ルール、税務をQ&Aで整理します。
+            まずは「避けるべき地雷」を先に潰すのが安全です。未経験からの始め方、説明責任、社内ルール、税務をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -368,7 +374,27 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           </ul>
         </section>
 
+        
         <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">副業でAIを活用する際は、まず対象領域を絞り、成果物の品質を担保できる運用を作ることが重要です。</li>
+            <li className="pl-1 marker:text-gray-500">一般的には、学習と小規模実績の蓄積を並行するほど、 継続案件へつながりやすい傾向があります。</li>
+            <li className="pl-1 marker:text-gray-500">最初は「自分の経験に近い領域」から始めるのが安全です。</li>
+            <li className="pl-1 marker:text-gray-500">学習を長期化させないために、最初から「実務化」を前提に段階を区切りましょう。</li>
+            <li className="pl-1 marker:text-gray-500">必要スキルは「AI操作」よりも、納品品質を担保するための業務スキル（前提整理・修正対応・例外処理）で決まります。</li>
+          </ul>
+        </motion.section>
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -376,11 +402,11 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="next-career-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             副業の第一歩を具体化したい方へ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 無理のない範囲で継続できる計画を作るのが最優先です。無料セミナー/個別相談で、あなたの経験に合う進め方を整理できます。
+            無理のない範囲で継続できる計画を作るのが最優先です。無料セミナー/個別相談で、あなたの経験に合う進め方を整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -399,6 +425,17 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             </a>
           </div>
         </motion.section>
+
+        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/ai-freelance-work-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                フリーランス・副業のAI活用術｜提案・作業・請求まで効率化する実践ガイド
+              </Link>
+            </li>
+          </ul>
+        </section>
       </article>
     </main>
   );

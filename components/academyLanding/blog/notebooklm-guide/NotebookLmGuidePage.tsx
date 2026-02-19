@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -29,7 +30,7 @@ const tocItems = [
   { id: "work-study-use-cases", label: "仕事・学習での活用シーン" },
   { id: "audio-overview", label: "音声概要（Audio Overview）の活用法" },
   { id: "tool-comparison", label: "NotebookLMと他のAIツールの使い分け" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "related-links", label: "関連リンク" },
   { id: "cta", label: "AIリブートアカデミーへ" },
 ] as const;
@@ -134,7 +135,7 @@ const toolComparisonRows = [
 export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -163,12 +164,17 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
             ))}
           </div>
 
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton title="NotebookLMの使い方完全ガイド" sourceSelector="[data-blog-article-body]" />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">NotebookLMの使い方完全ガイド</h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            NotebookLMは「資料を根拠に整理する」タイプなので、使い始めにソースの入れ方で迷いがちです。
+            NotebookLMとは、「資料を根拠に整理する」タイプなので、使い始めにソースの入れ方で迷いがちです。
             このガイドでは、取り込み→要約→質問→アウトプットまでの手順と、仕事/学習での使い分けを結論先出しでまとめます。
-            筆者はまず社内の議事メモと要件メモを入れ、報告書の骨子を作る用途で効果を実感しました。
+            まず社内の議事メモと要件メモを入れ、報告書の骨子を作る用途で使うと効果が出やすいです。
           </p>
         </motion.header>
 
@@ -206,7 +212,7 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
             NotebookLMとは？（概要、Googleの位置づけ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: NotebookLMは「自分の資料を前提にして学ぶ/整理する」ためのAIツールです。手元のソースを起点に会話とノート作成を回しやすい設計になっています。
+            NotebookLMは「自分の資料を前提にして学ぶ/整理する」ためのAIツールです。手元のソースを起点に会話とノート作成を回しやすい設計になっています。
           </p>
           <ul className="mt-6 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {notebookLmDefinitionPoints.map((point) => (
@@ -239,7 +245,7 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
             NotebookLMの始め方（アカウント作成、初期設定）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まず「ノートブックを作り、少数の信頼できるソースを入れる」だけで始められます。最初から大量に入れず、小さく検証するのが最短です。
+            まず「ノートブックを作り、少数の信頼できるソースを入れる」だけで始められます。最初から大量に入れず、小さく検証するのが最短です。
           </p>
           <div className="mt-6 space-y-4">
             {gettingStartedFlow.map((item) => (
@@ -273,7 +279,7 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
             基本的な使い方（ソースのアップロード、質問、要約）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: NotebookLMは「ソースを入れてから質問する」順番を守ると成果が安定します。最初に要約で全体像を作り、その後にQ&Aで論点を深掘りするのが基本です。
+            NotebookLMは「ソースを入れてから質問する」順番を守ると成果が安定します。最初に要約で全体像を作り、その後にQ&Aで論点を深掘りするのが基本です。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {basicUsagePatterns.map((pattern) => (
@@ -310,7 +316,7 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
             仕事・学習での活用シーン（リサーチ、報告書整理、学習ノート）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: NotebookLMは「資料がある」業務・学習で真価が出ます。資料が曖昧な段階では、先に論点整理や追加調査の設計をする使い方が向いています。
+            NotebookLMは「資料がある」業務・学習で真価が出ます。資料が曖昧な段階では、先に論点整理や追加調査の設計をする使い方が向いています。
           </p>
           <div className="mt-6 space-y-4">
             {workStudyUseCases.map((item) => (
@@ -334,7 +340,7 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
             音声概要（Audio Overview）の活用法
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 音声概要は「復習の入口」を作るのに向いています。あとから元資料で確認する運用にすると、学習効率が上がります。
+            音声概要は「復習の入口」を作るのに向いています。あとから元資料で確認する運用にすると、学習効率が上がります。
           </p>
           <ul className="mt-6 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {audioOverviewTips.map((tip) => (
@@ -357,7 +363,7 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
             NotebookLMと他のAIツールの使い分け（ChatGPT/Claude/Geminiとの違い）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: NotebookLMは「資料に基づく整理・学習」、チャットAIは「発想・文章作成・壁打ち」に強みがあります。出力の安定性と運用のしやすさで選ぶのが現実的です。
+            NotebookLMは「資料に基づく整理・学習」、チャットAIは「発想・文章作成・壁打ち」に強みがあります。出力の安定性と運用のしやすさで選ぶのが現実的です。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[920px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -419,7 +425,7 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
             関連リンク
           </h2>
           <p className="mb-4 text-sm leading-7 text-slate-700">
-            <span className="font-semibold text-slate-900">結論:</span> NotebookLMは「資料起点の整理」が得意なので、プロンプトの型と基礎知識を合わせて読むと定着が早くなります。
+            NotebookLMは「資料起点の整理」が得意なので、プロンプトの型と基礎知識を合わせて読むと定着が早くなります。
           </p>
           <ul className="space-y-2">
             <li>
@@ -446,6 +452,27 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
           </ul>
         </section>
 
+        
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">NotebookLMは「自分の資料を前提にして学ぶ/整理する」ためのAIツールです。</li>
+            <li className="pl-1 marker:text-gray-500">まず「ノートブックを作り、少数の信頼できるソースを入れる」だけで始められます。</li>
+            <li className="pl-1 marker:text-gray-500">NotebookLMは「ソースを入れてから質問する」順番を守ると成果が安定します。</li>
+            <li className="pl-1 marker:text-gray-500">NotebookLMは「資料がある」業務・学習で真価が出ます。</li>
+            <li className="pl-1 marker:text-gray-500">音声概要は「復習の入口」を作るのに向いています。</li>
+          </ul>
+        </motion.section>
+
         <motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
@@ -453,16 +480,16 @@ export default function NotebookLmGuidePage({ faqItems }: NotebookLmGuidePagePro
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで、業務に落とし込む
-          </h2>
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            AIリブートアカデミーで、情報整理を「学びの型」へ定着させる
+	          </h2>
           <p className="mt-4 text-base font-medium leading-8 text-gray-900">
-            結論: NotebookLMを「触って終わり」にせず、業務の情報整理・学習の型として定着させるには、対象業務と資料体系に合わせた運用設計が重要です。
+            NotebookLMを「触って終わり」にせず、業務の情報整理・学習の型として定着させるには、対象業務と資料体系に合わせた運用設計が重要です。
           </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            無料セミナーで全体像を整理し、必要なら個別相談で導入手順を具体化できます。
-          </p>
+		          <p className="mt-4 text-base leading-8 text-gray-700">
+		            無料セミナーで全体像を整理し、必要なら個別相談や100日間の伴走で、仲間と一緒にあなたの業務に合う運用とアウトプット、そしてキャリアの方向性まで形にできます。
+		          </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy/seminars"

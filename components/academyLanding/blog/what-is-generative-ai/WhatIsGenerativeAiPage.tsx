@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -119,13 +121,13 @@ const tocItems = [
   { id: "q3-ai-chat-tool-comparison", label: "Q3. AIチャットのおすすめ比較を知りたいです" },
   { id: "q4-prompt-writing", label: "Q4. プロンプトはどう書けばいいですか？" },
   { id: "q5-next-step", label: "Q5. 次に何をすれば実務活用につながりますか？" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-3xl px-5 sm:px-6">
+      <article className="mx-auto max-w-3xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -152,6 +154,11 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton title="生成AIとは？初心者向けにわかりやすく解説" sourceSelector="[data-blog-article-body]" />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             生成AIとは？初心者向けにわかりやすく解説
           </h1>
@@ -159,9 +166,13 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           <p className="mt-6 text-base leading-8 text-gray-700">
             生成AIという言葉は聞くけれど、仕組みや違いがぼんやりして不安…という方向けです。
             このページでは、質問ごとに結論を先に示し、ChatGPT/Claude/Geminiの違いと始め方まで一気に整理します。
-            筆者はまず「メール下書き→要点抽出→チェックリスト化」の順で試し、仕事に落とす感覚が掴めました。
+            まず「メール下書き→要点抽出→チェックリスト化」の順で試すと、仕事に落とす感覚を掴みやすいです。
           </p>
         </motion.header>
+
+        <figure className="my-8">
+          <Image src="/images/blog/what-is-generative-ai/slide-1.png" alt="生成AIスタートガイド タイトル" width={800} height={450} className="rounded-lg" />
+        </figure>
 
         <ArticleTOC items={tocItems} />
 
@@ -177,7 +188,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             Q1. 生成AIとは何ですか？
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 生成AIは、文章・画像・コードなどの新しいコンテンツを作るAIです。専門知識がなくても、自然文で指示すれば使い始められます。
+            生成AIは、文章・画像・コードなどの新しいコンテンツを作るAIです。専門知識がなくても、自然文で指示すれば使い始められます。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             「AI」と聞くと難しく感じますが、入門段階では「質問に対して下書きを作ってくれるアシスタント」と捉えると理解しやすくなります。
@@ -190,6 +201,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
               </li>
             ))}
           </ul>
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-generative-ai/slide-2.png" alt="従来AIと生成AIの違い比較図" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -204,7 +218,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             Q2. ChatGPT・Claude・Geminiは何が違いますか？
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: どれが絶対に正解というより、あなたの業務に合うかで選ぶのが正解です。最初は1つに絞って使い、必要に応じて比較すると定着しやすくなります。
+            どれが絶対に正解というより、あなたの業務に合うかで選ぶのが正解です。最初は1つに絞って使い、必要に応じて比較すると定着しやすくなります。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">比較情報の更新日: 2026年2月16日</p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: 主要3サービス比較表</h3>
@@ -230,6 +244,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
               </tbody>
             </table>
           </div>
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-generative-ai/slide-3.png" alt="ChatGPT・Claude・Geminiの特徴比較カード" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -244,7 +261,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             Q3. AIチャットのおすすめ比較を知りたいです
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 初心者は無料プランがある主要ツールから始めるのが安全です。選定基準は「使う環境との相性」と「日常業務に直結するか」の2点です。
+            初心者は無料プランがある主要ツールから始めるのが安全です。選定基準は「使う環境との相性」と「日常業務に直結するか」の2点です。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">比較情報の更新日: 2026年2月16日</p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: 主要AIチャットツール5選</h3>
@@ -272,6 +289,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
               </tbody>
             </table>
           </div>
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-generative-ai/slide-4.png" alt="AIツール選定フローチャート" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -286,7 +306,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             Q4. プロンプトはどう書けばいいですか？
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 「目的・前提・制約・出力形式」の4点を分けて書くと、出力の質が安定します。最初は短い業務タスクで反復するのが近道です。
+            「目的・前提・制約・出力形式」の4点を分けて書くと、出力の質が安定します。最初は短い業務タスクで反復するのが近道です。
           </p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: まずはこの型で書く</h3>
           <pre className="mt-4 overflow-x-auto rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm leading-7 text-gray-700">
@@ -295,6 +315,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
 制約: 文字数、トーン、NG事項
 出力形式: 箇条書き、表、見出し付き文書 など
           </pre>
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-generative-ai/slide-5.png" alt="プロンプトの書き方 4つの要素" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-7 space-y-6">
             {promptExamples.map((example) => (
               <div key={example.heading} className="rounded-lg border border-gray-200 p-5">
@@ -306,6 +329,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
               </div>
             ))}
           </div>
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-generative-ai/slide-6.png" alt="生成AIの日常業務活用例" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -320,7 +346,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             Q5. 次に何をすれば実務活用につながりますか？
           </h2>
           <p className="mt-4 text-base font-medium leading-8 text-gray-900">
-            結論: まずは小さく使い始め、1つの業務で成果を出してから範囲を広げると失敗しにくくなります。学習順序を決めるだけでも継続率は大きく変わります。
+            まずは小さく使い始め、1つの業務で成果を出してから範囲を広げると失敗しにくくなります。学習順序を決めるだけでも継続率は大きく変わります。
           </p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: 初心者向け3ステップ</h3>
           <ol className="mt-5 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
@@ -330,6 +356,9 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
               </li>
             ))}
           </ol>
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-generative-ai/slide-7.png" alt="AI活用ロードマップ 3つのステップ" width={800} height={450} className="rounded-lg" />
+          </figure>
           <p className="mt-5 text-sm leading-7 text-gray-700">
             次は
             <Link
@@ -354,8 +383,22 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
+          <h2 className="text-2xl font-bold text-gray-900">AI利用時の注意点</h2>
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-generative-ai/slide-8.png" alt="AI利用時の安全ルール" width={800} height={450} className="rounded-lg" />
+          </figure>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -407,7 +450,62 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             </li>
           </ul>
         </section>
-      </article>
+      
+        
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">生成AIは、文章・画像・コードなどの新しいコンテンツを作るAIです。</li>
+            <li className="pl-1 marker:text-gray-500">どれが絶対に正解というより、あなたの業務に合うかで選ぶのが正解です。</li>
+            <li className="pl-1 marker:text-gray-500">初心者は無料プランがある主要ツールから始めるのが安全です。</li>
+            <li className="pl-1 marker:text-gray-500">「目的・前提・制約・出力形式」の4点を分けて書くと、出力の質が安定します。</li>
+            <li className="pl-1 marker:text-gray-500">まずは小さく使い始め、1つの業務で成果を出してから範囲を広げると失敗しにくくなります。</li>
+          </ul>
+          <figure className="my-8">
+            <Link href="/academy/seminars">
+              <Image src="/images/blog/what-is-generative-ai/slide-9.png" alt="生成AI活用まとめ" width={800} height={450} className="rounded-lg" />
+            </Link>
+          </figure>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

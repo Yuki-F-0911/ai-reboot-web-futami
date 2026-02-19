@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -101,13 +103,13 @@ const tocItems = [
   { id: "types-and-use-cases", label: "代表的な種類と活用例" },
   { id: "how-to-build-ai-agent", label: "企業での導入ステップ（小規模から始める方法）" },
   { id: "implementation-cautions", label: "導入時の注意点" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -135,18 +137,30 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="AIエージェントとは？定義・種類・作り方を初心者向けに解説"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AIエージェントとは？定義・種類・作り方を初心者向けに解説
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AIエージェントは、単に回答を返すAIではなく、目標達成までの作業を段階的に進める仕組みです。
+            AIエージェントは「計画→実行→振り返り」を回して目標に近づく仕組みで、まずは小さく始めるほど失敗しにくいです。
             本記事では定義・種類・活用例・作り方の基本と、導入時の注意点までを結論先出しで整理します。
-            筆者はまず「読み取り専用の業務」から始め、権限とログを固めてから自動化範囲を広げるのが安全だと感じています。
+            AIエージェントとは、単に回答を返すAIではなく、目標達成までの作業を段階的に進める仕組みです。
           </p>
         </motion.header>
 
         <ArticleTOC items={tocItems} />
+
+        <figure className="my-8">
+          <Image src="/images/blog/what-is-ai-agent/slide-1.png" alt="AIエージェント入門" width={800} height={450} className="rounded-lg" />
+        </figure>
 
         <motion.section
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
@@ -192,6 +206,14 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <p className="mt-4 text-sm leading-7 text-gray-700">
             従来型AIが単発の判定や生成を担当するのに対し、AIエージェントは連続処理のオーケストレーションを担います。ここが運用上の最大の違いです。
           </p>
+
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-2.png" alt="計画・実行・振り返りループ" width={800} height={450} className="rounded-lg" />
+          </figure>
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-3.png" alt="従来AI「点」vs エージェント「線」" width={800} height={450} className="rounded-lg" />
+          </figure>
+
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -231,6 +253,11 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <p className="mt-4 text-base leading-8 text-gray-700">
             業務に合うタイプを選ぶことが導入成功の起点です。最初は役割が明確なユースケースから始めると、効果測定がしやすくなります。
           </p>
+
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-4.png" alt="定型作業の3領域" width={800} height={450} className="rounded-lg" />
+          </figure>
+
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -267,6 +294,11 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <p className="mt-5 text-base font-medium text-gray-900">
             AIエージェントの作り方は、最初から大規模化せず、1ユースケースで仮説検証する流れが最も現実的です。
           </p>
+
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-5.png" alt="小さく始める" width={800} height={450} className="rounded-lg" />
+          </figure>
+
           <div className="mt-6 space-y-4">
             {introductionSteps.map((step) => (
               <section key={step.title} className="rounded-lg border border-gray-200 p-5">
@@ -275,6 +307,10 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
               </section>
             ))}
           </div>
+
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-6.png" alt="5ステップロードマップ" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -291,6 +327,11 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           <p className="mt-5 text-base font-medium text-gray-900">
             成否は実装よりも「入力ルール」「権限」「ログ」「人の確認ポイント」を先に決められるかで決まります。
           </p>
+
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-7.png" alt="ルール作り先決" width={800} height={450} className="rounded-lg" />
+          </figure>
+
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {cautionItems.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -310,7 +351,7 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -395,7 +436,67 @@ export default function WhatIsAiAgentPage({ faqItems }: WhatIsAiAgentPageProps) 
             </a>
           </div>
         </motion.section>
-      </article>
+      
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+
+          <figure className="my-8">
+            <Image src="/images/blog/what-is-ai-agent/slide-8.png" alt="まとめ" width={800} height={450} className="rounded-lg" />
+          </figure>
+
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">AIエージェントは、目標に対して複数ステップを自律的に進めるAIシステムです。</li>
+            <li className="pl-1 marker:text-gray-500">業務自動化、カスタマーサポート、開発支援など、定型作業が多い領域で効果が出やすくなります。</li>
+            <li className="pl-1 marker:text-gray-500">導入は「1業務から小さく始める」のが基本で、セキュリティと運用体制を先に決めることが重要です。</li>
+          </ul>
+        </motion.section>
+
+        <motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+
+          <figure className="my-8">
+            <Link href="/academy/seminars">
+              <Image src="/images/blog/what-is-ai-agent/slide-9.png" alt="無料セミナー・個別相談のご案内" width={800} height={450} className="rounded-lg" />
+            </Link>
+          </figure>
+
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

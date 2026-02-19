@@ -1,6 +1,5 @@
-"use client";
-
 import Image from "next/image";
+import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "./academyDesignTokens";
 
 const instructors = [
     {
@@ -39,71 +38,105 @@ const instructors = [
 
 const InstructorsSection = () => {
     return (
-        <section className="py-12 md:py-28 bg-white relative overflow-hidden">
-            {/* Background Decoration */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2" />
-
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative z-10">
+        <section 
+            className="py-24 lg:py-32"
+            style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}
+        >
+            <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
                 {/* Section Header */}
-                <div className="text-center mb-10 md:mb-16">
-                    <p className="text-orange-500 font-bold text-sm tracking-wider mb-2">
-                        MENTORS
-                    </p>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900">
+                <div className="mb-16 lg:mb-24">
+                    <span 
+                        className="inline-block text-[10px] tracking-[0.2em] font-bold uppercase mb-4"
+                        style={{ 
+                            fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                            color: ACADEMY_COLORS.accentMain 
+                        }}
+                    >
+                        Mentors
+                    </span>
+                    <h2 
+                        className="text-3xl lg:text-4xl font-bold leading-tight mb-6"
+                        style={{ 
+                            fontFamily: ACADEMY_TYPOGRAPHY.serif,
+                            color: ACADEMY_COLORS.textStrong
+                        }}
+                    >
                         講師・メンター
                     </h2>
-                    <p className="mt-4 text-lg sm:text-lg text-slate-600">
-                        現役の実践者集団が<br className="sm:hidden" />あなたの成長を全力でサポート
+                    <p 
+                        className="max-w-2xl leading-loose"
+                        style={{ color: ACADEMY_COLORS.textBody }}
+                    >
+                        第一線でAIと向き合い、自らも変化し続ける実践者たちが、<br className="hidden lg:block" />
+                        あなたの100日間に伴走し、本質的な成長を支援します。
                     </p>
                 </div>
 
-                {/* Instructors Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                {/* Instructors List Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
                     {instructors.map((instructor, index) => (
                         <div
                             key={index}
-                            className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 flex flex-col md:flex-row group hover:shadow-xl transition-all duration-300"
+                            className="flex flex-col sm:flex-row gap-6 lg:gap-8 group"
                         >
-                            {/* Image Column */}
-                            <div className="relative w-full md:w-2/5 aspect-[4/3] md:aspect-auto shrink-0">
+                            {/* Portrait */}
+                            <div 
+                                className="relative w-full sm:w-40 lg:w-48 aspect-[3/4] shrink-0 overflow-hidden rounded-sm"
+                                style={{ backgroundColor: ACADEMY_COLORS.bgSection }}
+                            >
                                 <Image
                                     src={instructor.image}
                                     alt={instructor.name}
                                     fill
-                                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                                    className="object-cover object-top"
                                 />
-                                {/* Mobile Name Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent md:hidden" />
-                                <div className="absolute bottom-4 left-4 text-white md:hidden">
-                                    <p className="font-bold text-lg">{instructor.name}</p>
-                                    <p className="text-xs opacity-80">{instructor.nameEn}</p>
-                                </div>
                             </div>
 
-                            {/* Content Column */}
-                            <div className="p-4 md:p-8 flex flex-col justify-center">
-                                {/* Desktop Name */}
-                                <div className="hidden md:block mb-4">
-                                    <h3 className="text-2xl font-bold text-slate-900">
+                            {/* Info */}
+                            <div className="flex flex-col">
+                                <div className="mb-4">
+                                    <h3 
+                                        className="text-xl lg:text-2xl font-bold mb-1"
+                                        style={{ 
+                                            fontFamily: ACADEMY_TYPOGRAPHY.serif,
+                                            color: ACADEMY_COLORS.textStrong
+                                        }}
+                                    >
                                         {instructor.name}
                                     </h3>
-                                    <p className="text-sm font-bold text-orange-500 tracking-wide">
+                                    <p 
+                                        className="text-[10px] font-bold tracking-widest uppercase"
+                                        style={{ 
+                                            fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                                            color: ACADEMY_COLORS.accentDeep
+                                        }}
+                                    >
                                         {instructor.nameEn}
                                     </p>
                                 </div>
-
-                                {/* Role & Company */}
-                                <div className="mb-4">
-                                    <p className="text-xs font-bold text-slate-500 bg-white inline-block px-3 py-1 rounded-full border border-slate-200 mb-2">
+                                
+                                <div 
+                                    className="mb-4 pb-4 border-b"
+                                    style={{ borderColor: ACADEMY_COLORS.lineSoft }}
+                                >
+                                    <p 
+                                        className="text-xs font-bold mb-1"
+                                        style={{ color: ACADEMY_COLORS.textMuted }}
+                                    >
                                         {instructor.company}
                                     </p>
-                                    <p className="text-sm font-bold text-slate-700 leading-snug">
+                                    <p 
+                                        className="text-sm font-medium leading-snug"
+                                        style={{ color: ACADEMY_COLORS.textBody }}
+                                    >
                                         {instructor.role}
                                     </p>
                                 </div>
 
-                                {/* Profile */}
-                                <p className="text-sm sm:text-sm text-slate-600 leading-relaxed">
+                                <p 
+                                    className="text-sm leading-loose"
+                                    style={{ color: ACADEMY_COLORS.textBody }}
+                                >
                                     {instructor.profile}
                                 </p>
                             </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -28,7 +29,7 @@ const tocItems = [
   { id: "difficulty", label: "難易度と学習の考え方" },
   { id: "cost", label: "費用と受験条件の注意点" },
   { id: "recommendations", label: "向いている人（結論）" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "cta", label: "AIリブートで学ぶ" },
 ] as const;
 
@@ -69,7 +70,7 @@ const recommendationCards = [
 export default function GECertificationComparisonPage({ faqItems }: GECertificationComparisonPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -97,14 +98,22 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            結論: G検定は「ビジネス活用の共通知識」を広く固めたい人向け、E検定は「深層学習の理解」を証明したいエンジニア志向の人向けです。
+            G検定は「AIの全体像を広く」、E検定は「深層学習を深く」学ぶ位置づけです。
             この記事では、対象者・範囲・難易度・費用・形式を比較し、どちらを先に取るべきかまで整理します。
-            筆者は迷う場合、全体像を掴めるG検定→必要ならE検定の順で積むのが最も自然だと感じています。
+            G検定とは、「ビジネス活用の共通知識」を広く固めたい人向け、E検定は「深層学習の理解」を証明したいエンジニア志向の人向けです。
           </p>
         </motion.header>
 
@@ -240,7 +249,7 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="recommendations" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            向いている人（結論：どちらを先に取るべき？）
+            向いている人（どちらを先に取るべき？）
           </h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {recommendationCards.map((card) => (
@@ -267,7 +276,7 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -279,36 +288,7 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           </dl>
         </motion.section>
 
-        <motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで「学習計画」を実務に接続する
-          </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            資格はゴールではなく、業務で成果を出すための手段です。AIリブートアカデミーでは、学習ロードマップと実務活用をつなぎ、学んだ内容を仕事で再現できる形に落とし込みます。
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/academy"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
-            >
-              アカデミーを見る
-            </Link>
-            <Link
-              href="/academy/blog/how-to-learn-generative-ai"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
-            >
-              学習ロードマップを見る
-            </Link>
-          </div>
-        </motion.section>
-
+        
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
           <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
             関連リンク
@@ -353,6 +333,56 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
             </li>
           </ul>
         </section>
+
+<motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">G検定は「AIの全体像を広く」、E検定は「深層学習を深く」学ぶ位置づけです。</li>
+            <li className="pl-1 marker:text-gray-500">受験条件・費用・試験形式は更新されるため、最終確認は必ず公式情報で行いましょう。</li>
+            <li className="pl-1 marker:text-gray-500">迷う場合はG検定→E検定の順が、理解の積み上げとして自然です。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            AIリブートアカデミーで、資格学習を「キャリアの武器」へつなげる
+          </h2>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            資格はゴールではなく、「生成AI活用力」を実務で再現できる形に落とし込み、AIを鏡に自己理解を深めながらキャリアを再設計するための手段です。
+            AIリブートアカデミーでは、2日間の集中研修＋100日間の伴走で、学習ロードマップを実務アウトプットとキャリアデザインにつなぎ、仲間との対話・協働で変化を加速させます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              アカデミーを見る
+            </Link>
+            <Link
+              href="/academy/blog/how-to-learn-generative-ai"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              学習ロードマップを見る
+            </Link>
+          </div>
+        </motion.section>
+
+        
       </article>
     </main>
   );

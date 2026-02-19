@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -104,13 +105,13 @@ const tocItems = [
   { id: "online-vs-onsite", label: "オンライン vs 通学の比較" },
   { id: "goal-based-selection", label: "目的別の選び方" },
   { id: "subsidy-benefit-check", label: "補助金・給付金を使える講座の見分け方" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWorkingAdultsPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -138,14 +139,19 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton title="社会人向けAIスクールの選び方ガイド" sourceSelector="[data-blog-article-body]" />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             社会人向けAIスクールの選び方ガイド
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            講座は増え続けていますが、比較の順番を間違えると「受けたのに使えない」状態になりがちです。
+            社会人の講座選びは、受講形式・カリキュラム・サポート・費用・修了後活用の5基準で比較するのが基本です。
             この記事では、社会人が失敗しないための5基準・オンライン/通学の選び分け・目的別のチェック順を結論先出しで整理します。
-            筆者は迷ったら、まず「修了後に何を業務で再現できるか」を1つ決めてから比較するのをおすすめしています。
+            講座は増え続けていますが、比較の順番を間違えると「受けたのに使えない」状態になりがちです。
           </p>
         </motion.header>
 
@@ -187,7 +193,7 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
             社会人がAIスクールを選ぶ際の5つの基準
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 料金の比較より先に「学習の継続性」と「修了後に実務へつなげられるか」を確認するのが安全です。2026年はAIエージェントやマルチモーダル前提の実務が増える傾向があるため、
+            料金の比較より先に「学習の継続性」と「修了後に実務へつなげられるか」を確認するのが安全です。2026年はAIエージェントやマルチモーダル前提の実務が増える傾向があるため、
             ツール操作だけで終わらない演習設計になっているかを見ておきましょう。
           </p>
           <div className="mt-6 space-y-4">
@@ -212,7 +218,7 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
             オンライン vs 通学の比較
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: どちらが優れているかではなく、生活リズムとの一致が継続性を左右します。自分の制約（時間・場所・フィードバック頻度）に合う形式を選びましょう。
+            どちらが優れているかではなく、生活リズムとの一致が継続性を左右します。自分の制約（時間・場所・フィードバック頻度）に合う形式を選びましょう。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -305,7 +311,7 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -389,7 +395,7 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
             無料セミナー / 個別相談
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 比較で止まらず、目的に合う学習ルートまで落とし込むのが最短です。無料セミナー/個別相談で短時間で整理できます。
+            比較で止まらず、目的に合う学習ルートまで落とし込むのが最短です。無料セミナー/個別相談で短時間で整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -408,7 +414,55 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
             </a>
           </div>
         </motion.section>
-      </article>
+      
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">社会人の講座選びは、受講形式・カリキュラム・サポート・費用・修了後活用の5基準で比較するのが基本です。</li>
+            <li className="pl-1 marker:text-gray-500">オンラインは柔軟性、通学は習慣化に強みがあるため、勤務形態と学習スタイルの相性で選ぶのが現実的です。</li>
+            <li className="pl-1 marker:text-gray-500">補助金・給付金対象かどうかは、制度名、対象条件、申請フローの明示を確認し、最終的に窓口で最新条件を確認しましょう。</li>
+          </ul>
+        </motion.section>
+
+        <motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

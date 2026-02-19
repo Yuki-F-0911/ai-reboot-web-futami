@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -143,13 +144,13 @@ const tocItems = [
   { id: "department-use-cases", label: "業種別活用事例（営業 / 人事 / 経理 / マーケ）" },
   { id: "failure-patterns", label: "失敗パターンと回避策" },
   { id: "subsidy", label: "補助金・助成金を活用して導入負担を下げる" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAdoptionGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -176,12 +177,17 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton title="中小企業の生成AI導入ガイド" sourceSelector="[data-blog-article-body]" />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">中小企業の生成AI導入ガイド</h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            生成AIは「ツールを入れたのに使われない」「セキュリティが怖くて止まる」といった壁に当たりやすい分野です。
+            成果が出る企業は「業務を1つに絞る小規模PoC」から始めています。
             この記事では、導入の順番（5段階ロードマップ）と、費用感・部門別活用・失敗回避の要点を結論先出しで整理します。
-            筆者は最初のPoCでは、対象業務を1つに絞って「工数と品質」を前後比較できる形にするのが最も効くと感じています。
+            生成AIとは、「ツールを入れたのに使われない」「セキュリティが怖くて止まる」といった壁に当たりやすい分野です。
           </p>
         </motion.header>
 
@@ -215,7 +221,7 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
             導入ステップ（5段階ロードマップ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 成功の鍵は、全社一斉ではなく段階導入です。5ステップで「ルール→PoC→展開→運用」までつなげると失敗しにくくなります。
+            成功の鍵は、全社一斉ではなく段階導入です。5ステップで「ルール→PoC→展開→運用」までつなげると失敗しにくくなります。
           </p>
           <div className="mt-8 space-y-6">
             {roadmapSteps.map((item, index) => (
@@ -255,7 +261,7 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
             費用感の目安（無料ツール〜有料SaaS〜研修）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最初は無料ツールで「効果検証」、次に有料SaaSで「管理・監査」を整える流れが現実的です。研修は定着率を上げたい段階で効きます。
+            最初は無料ツールで「効果検証」、次に有料SaaSで「管理・監査」を整える流れが現実的です。研修は定着率を上げたい段階で効きます。
           </p>
           <div className="mt-7 overflow-x-auto">
             <table className="w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -296,7 +302,7 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
             業種別活用事例（営業 / 人事 / 経理 / マーケ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 部門ごとに期待効果が違うため、同じ使い方を横展開すると失敗しがちです。まずは部門別に「対象業務」と「成果指標」を決めましょう。
+            部門ごとに期待効果が違うため、同じ使い方を横展開すると失敗しがちです。まずは部門別に「対象業務」と「成果指標」を決めましょう。
           </p>
           <div className="mt-7 overflow-x-auto">
             <table className="w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -332,7 +338,7 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
             失敗パターンと回避策
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 失敗の多くは「対象業務が未固定」「運用ルールが後回し」「部門ごとにバラバラ」の3つです。回避策を先に押さえます。
+            失敗の多くは「対象業務が未固定」「運用ルールが後回し」「部門ごとにバラバラ」の3つです。回避策を先に押さえます。
           </p>
           <div className="mt-6 space-y-4">
             {failurePatterns.map((item) => (
@@ -356,7 +362,7 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
             補助金・助成金を活用して導入負担を下げる
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 制度活用は「対象条件」と「申請時期」を間違えると適用できないことがあります。導入スケジュールとセットで先に確認しましょう。
+            制度活用は「対象条件」と「申請時期」を間違えると適用できないことがあります。導入スケジュールとセットで先に確認しましょう。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             個人向けのリスキリング補助金と法人向けの助成金は制度が異なります。法人向けの研修プランと助成金の詳細は
@@ -383,10 +389,10 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 導入の最適解は企業規模・業種・ガバナンス要件で変わります。よくある疑問をQ&Aで整理します。
+            導入の最適解は企業規模・業種・ガバナンス要件で変わります。よくある疑問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -449,7 +455,7 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
             法人向け研修を検討する方へ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 全社導入は「研修設計＋実行支援＋運用ルール」をセットで考えると失敗しにくくなります。法人向けページでプランを確認し、必要に応じて導入相談をご予約ください。
+            全社導入は「研修設計＋実行支援＋運用ルール」をセットで考えると失敗しにくくなります。法人向けページでプランを確認し、必要に応じて導入相談をご予約ください。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -466,7 +472,57 @@ export default function CorporateAiAdoptionGuidePage({ faqItems }: CorporateAiAd
             </Link>
           </div>
         </motion.section>
-      </article>
+      
+        
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">成果が出る企業は「業務を1つに絞る小規模PoC」から始めています。</li>
+            <li className="pl-1 marker:text-gray-500">最初の2〜3か月で効果測定まで回し、成功パターンを部門展開する進め方が安全です。</li>
+            <li className="pl-1 marker:text-gray-500">成功の鍵は、全社一斉ではなく段階導入です。</li>
+            <li className="pl-1 marker:text-gray-500">最初は無料ツールで「効果検証」、次に有料SaaSで「管理・監査」を整える流れが現実的です。</li>
+            <li className="pl-1 marker:text-gray-500">部門ごとに期待効果が違うため、同じ使い方を横展開すると失敗しがちです。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

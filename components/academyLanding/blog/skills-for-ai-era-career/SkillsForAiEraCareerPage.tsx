@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -85,13 +87,13 @@ const tocItems = [
   { id: "role-based-skills", label: "職種別に必須のAIスキル" },
   { id: "career-expansion", label: "「AIに奪われる仕事」ではなく「AIで拡張される仕事」へ" },
   { id: "learning-order", label: "学習順序の提案" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCareerPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-3xl px-5 sm:px-6">
+      <article className="mx-auto max-w-3xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -118,18 +120,34 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="AI時代に必要なスキルを職種別に解説｜2026年版キャリア戦略"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI時代に必要なスキルを職種別に解説｜2026年版キャリア戦略
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI時代は「何を学べばいいか」を間違えると、ツール収集だけが増えて成果につながりません。
+            AI時代とは、「何を学べばいいか」を間違えると、ツール収集だけが増えて成果につながりません。
             この記事では、職種別に必要なスキルと、共通基礎→職種別活用→成果物づくりの学習順序を結論先出しで整理します。
-            筆者はまず「今の仕事で改善したい業務」を1つ選んで、そこから必要スキルを逆算するのが最短だと感じています。
+            まず「今の仕事で改善したい業務」を1つ選んで、そこから必要スキルを逆算するのが最短ルートになりやすいです。
           </p>
         </motion.header>
 
         <ArticleTOC items={tocItems} />
+
+        <Image
+          src="/images/blog/skills-for-ai-era-career/slide-01.png"
+          alt="AI時代に必要なスキルとキャリア戦略2026 — 職種に合わせた生存戦略"
+          width={800}
+          height={450}
+          className="mt-8 w-full rounded-lg"
+        />
 
         <motion.section
           className="mt-14"
@@ -142,6 +160,13 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="what-changes" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AI時代に変わること / 変わらないこと
           </h2>
+          <Image
+            src="/images/blog/skills-for-ai-era-career/slide-02.png"
+            alt="変わるのは「初動」、変わらないのは「責任」— AIで検討サイクルを増やし、判断の質を上げる"
+            width={800}
+            height={450}
+            className="mt-6 w-full rounded-lg"
+          />
           <p className="mt-5 text-base font-medium text-gray-900">
             変わるのは「初動の速度」、変わらないのは「課題設定と最終判断の責任」です。だからこそ“判断をAIで拡張する力”が重要になります。
           </p>
@@ -166,6 +191,13 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <p className="mt-5 text-base font-medium text-gray-900">
             共通基礎を押さえたら、職種ごとに「成果に直結する業務」からAI活用を組み込みます。抽象論より、現場のタスク単位に落とすほど習得が早くなります。
           </p>
+          <Image
+            src="/images/blog/skills-for-ai-era-career/slide-04.png"
+            alt="攻めの職種（営業・マーケ）の役割別AIスキルと実践アクション"
+            width={800}
+            height={450}
+            className="mt-6 w-full rounded-lg"
+          />
           <div className="mt-8 space-y-9">
             {roleSkillSections.map((section, index) => (
               <motion.section
@@ -189,6 +221,13 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
               </motion.section>
             ))}
           </div>
+          <Image
+            src="/images/blog/skills-for-ai-era-career/slide-05.png"
+            alt="守りと創造の職種（事務・管理・クリエイティブ）の役割別AIスキル"
+            width={800}
+            height={450}
+            className="mt-6 w-full rounded-lg"
+          />
         </motion.section>
 
         <motion.section
@@ -202,6 +241,13 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="career-expansion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             「AIに奪われる仕事」ではなく「AIで拡張される仕事」へ
           </h2>
+          <Image
+            src="/images/blog/skills-for-ai-era-career/slide-03.png"
+            alt="人の判断をAIで「拡張」する — 提案力・判断力に時間を振り向ける時代"
+            width={800}
+            height={450}
+            className="mt-6 w-full rounded-lg"
+          />
           <p className="mt-5 text-base font-medium text-gray-900">
             AIの価値は代替だけではなく「提案力・判断力へ時間を振り向ける」ことです。職種を問わず、価値の出し方を拡張できます。
           </p>
@@ -218,6 +264,20 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="learning-order" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学習順序の提案
           </h2>
+          <Image
+            src="/images/blog/skills-for-ai-era-career/slide-06.png"
+            alt="ツールコレクターにならないために — 課題特定から始める学習アプローチ"
+            width={800}
+            height={450}
+            className="mt-6 w-full rounded-lg"
+          />
+          <Image
+            src="/images/blog/skills-for-ai-era-career/slide-07.png"
+            alt="最短で成果を出す学習ロードマップ（前半）— 共通基礎から職種別スキルへ"
+            width={800}
+            height={450}
+            className="mt-4 w-full rounded-lg"
+          />
           <p className="mt-5 text-base font-medium text-gray-900">
             「共通基礎 → 職種別スキル → 効果測定」の順で進めると、学習が実務成果につながりやすくなります。ツールを増やす前に、検証と改善の型を作りましょう。
           </p>
@@ -231,6 +291,13 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
               </li>
             ))}
           </ol>
+          <Image
+            src="/images/blog/skills-for-ai-era-career/slide-08.png"
+            alt="定着させるための運用サイクル（後半）— 効果測定・検証・改善の継続ループ"
+            width={800}
+            height={450}
+            className="mt-6 w-full rounded-lg"
+          />
         </motion.section>
 
         <motion.section
@@ -242,10 +309,17 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
+          <Image
+            src="/images/blog/skills-for-ai-era-career/slide-09.png"
+            alt="AI活用に関するよくある懸念と回答（文系・仕事が奪われる・何から始めるか）"
+            width={800}
+            height={450}
+            className="mt-6 w-full rounded-lg"
+          />
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まずは共通基礎と「自分の職種の始めどころ」を押さえるのが近道です。よくある疑問をQ&Aで整理します。
+            まずは共通基礎と「自分の職種の始めどころ」を押さえるのが近道です。よくある疑問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -331,6 +405,13 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <h2 id="personalized-learning-strategy" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             職種に合う学習戦略を設計したい方へ
           </h2>
+          <Image
+            src="/images/blog/skills-for-ai-era-career/slide-10.png"
+            alt="あなたの職種に合った学習戦略 — 無料セミナー・個別相談でロードマップを整理"
+            width={800}
+            height={450}
+            className="mt-6 w-full rounded-lg"
+          />
           <p className="mt-5 text-base font-medium text-gray-900">
             実務で使えるスキルから着実に積み上げるのが最短です。無料セミナー/個別相談で、あなたの職種に合う学習順序を整理できます。
           </p>
@@ -351,7 +432,67 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
             </a>
           </div>
         </motion.section>
-      </article>
+      
+        
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">まずは共通基礎と「自分の職種の始めどころ」を押さえるのが近道です。</li>
+            <li className="pl-1 marker:text-gray-500">AI時代に変わること / 変わらないことのポイントを振り返る。</li>
+            <li className="pl-1 marker:text-gray-500">職種別に必須のAIスキルのポイントを振り返る。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AIスキルだけでなく、自分のWill（やりたいこと）や強みを整理しながら、AI時代のキャリアを再設計したい方へ。
+            AIリブートアカデミーの2日間の集中研修＋100日間の伴走の全体像は、無料セミナーから確認できます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+
+        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/ai-job-hunting-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI×転職完全ガイド｜職務経歴書・面接対策・企業研究の実践テクニック
+              </Link>
+            </li>
+          </ul>
+        </section>
+</article>
     </main>
   );
 }

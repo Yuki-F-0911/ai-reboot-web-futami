@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -173,7 +174,7 @@ const cautionCards = [
 export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -201,14 +202,22 @@ export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="RAG（検索拡張生成）の活用事例8選｜業種・業務別に解説"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             RAG（検索拡張生成）の活用事例8選｜業種・業務別に解説
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
+            RAGは「検索で根拠を取り出し、その根拠を参照して回答を生成する」方式で、文書参照が多い業務と相性が良いです。
+            RAGとは、「参照すべき資料がある業務」で効果が出やすく、社内ナレッジ検索やサポートの一次対応から小さく始めるのが実務的です。
             「RAGを作れば何でも解決する」というより、向いている業務を選べるかが成果を左右します。
-            結論: RAGは「参照すべき資料がある業務」で効果が出やすく、社内ナレッジ検索やサポートの一次対応から小さく始めるのが実務的です。
-            筆者はまず“正本”の文書を決め、権限とログ方針を固めてから実装に入るのをおすすめしています。
           </p>
         </motion.header>
 
@@ -250,7 +259,7 @@ export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
             RAGとは？（簡潔な復習）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: RAG（検索拡張生成）は「検索で関連文書を取り出し、その内容を根拠としてLLMが回答を生成する」仕組みです。
+            RAG（検索拡張生成）は「検索で関連文書を取り出し、その内容を根拠としてLLMが回答を生成する」仕組みです。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             仕組みの詳細やメリット/限界を先に整理したい場合は、{" "}
@@ -281,7 +290,7 @@ export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
             <h2 id={section.id} className="scroll-mt-28 text-2xl font-bold text-gray-900">
               {section.title}
             </h2>
-            <p className="mt-5 text-base font-medium leading-8 text-gray-900">結論: {section.fit}</p>
+            <p className="mt-5 text-base font-medium leading-8 text-gray-900">{section.fit}</p>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               <section className="rounded-lg border border-gray-200 p-5">
                 <h3 className="text-lg font-semibold text-gray-900">向いている業務</h3>
@@ -319,7 +328,7 @@ export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
             RAG導入のステップと注意点
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 先に「ユースケース」「正本（根拠）」「権限」「評価」を決め、検索が当たる状態を作ってから生成を広げるのが最短です。
+            先に「ユースケース」「正本（根拠）」「権限」「評価」を決め、検索が当たる状態を作ってから生成を広げるのが最短です。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             事例を見たあとに迷いやすいのが「何から手を付けるか」です。法人での進め方の全体像は{" "}
@@ -425,20 +434,38 @@ export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
           </ul>
         </section>
 
+        
         <motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで学ぶ（体系化して実務へつなげる）
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            RAGは「ユースケース選定」「データ整備」「評価」「運用」まで含めて設計すると成果が出やすくなります。学習から実務適用までを体系的に進めたい方は、アカデミーの案内もご覧ください。
-          </p>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">RAGは「検索で根拠を取り出し、その根拠を参照して回答を生成する」方式で、文書参照が多い業務と相性が良いです。</li>
+            <li className="pl-1 marker:text-gray-500">成果は検索品質とデータ整備に強く依存します。正本管理、権限、ログ、評価を先に設計するのが近道です。</li>
+            <li className="pl-1 marker:text-gray-500">最初は「参照中心（根拠提示）」のユースケースから始め、運用が固まってから生成（下書き）へ拡張すると安全です。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            AIリブートアカデミーで学ぶ（RAGを「成果が出る運用」へ）
+	          </h2>
+	          <p className="mt-4 text-base leading-8 text-gray-700">
+	            RAGは設計だけでなく、「何の価値を出すか」を言語化する思考OSと、運用・改善まで含めて考えると成果が出やすくなります。AIスキルだけで終わらせず、100日間の伴走で仲間と一緒に実務アウトプットへ落とし込みたい方は、アカデミーの案内もご覧ください。
+	          </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"

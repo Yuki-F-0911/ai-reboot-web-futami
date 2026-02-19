@@ -24,7 +24,12 @@ export default function BlogListClient({
   const loadMore = async () => {
     setLoading(true)
     try {
-      const response = await fetch(`/api/blog?category=${category}&offset=${articles.length}`)
+      const params = new URLSearchParams()
+      if (category) params.set('category', category)
+      params.set('offset', String(articles.length))
+      params.set('limit', '6')
+
+      const response = await fetch(`/api/blog?${params.toString()}`)
       const data = await response.json()
       
       if (data.contents.length > 0) {

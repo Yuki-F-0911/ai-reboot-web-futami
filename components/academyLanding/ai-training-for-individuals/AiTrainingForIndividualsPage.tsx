@@ -82,7 +82,7 @@ export default function AiTrainingForIndividualsPage({
           個人向けAI研修おすすめの選び方｜独学 vs スクール徹底比較
         </h1>
         <p className="mt-5 text-base leading-relaxed text-slate-700 md:text-lg">
-          結論として、短期で実務活用したい場合はスクール、自由度を重視する場合は独学が向いています。比較判断のための整理表をまとめました。
+          短期で実務活用したい場合はスクール、自由度を重視する場合は独学が向いています。比較判断のための整理表をまとめました。
         </p>
       </section>
 
@@ -122,7 +122,7 @@ export default function AiTrainingForIndividualsPage({
       <section className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
         <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">どんな人にスクールが向いているか</h2>
         <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
-          結論として、短期で実務活用したい人ほど、質問環境と伴走があるスクールが向きやすいです。
+          短期で実務活用したい人ほど、質問環境と伴走があるスクールが向きやすいです。
         </p>
         <ol className="mt-6 space-y-3">
           {fitChecklist.map((item, index) => (
@@ -138,7 +138,7 @@ export default function AiTrainingForIndividualsPage({
         <div className="mx-auto max-w-5xl px-4 md:px-6">
           <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">目的別おすすめ学習パス</h2>
           <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
-            結論として、目的に合わせて「学ぶ順番」と「アウトプット」を先に決めると、学習の迷いが減ります。
+            目的に合わせて「学ぶ順番」と「アウトプット」を先に決めると、学習の迷いが減ります。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {learningPaths.map((path) => (

@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -119,13 +121,13 @@ const tocItems = [
   { id: "eligible-training-conditions", label: "対象となる研修・講座の条件" },
   { id: "application-flow-and-documents", label: "申請の流れと必要書類" },
   { id: "combination-with-other-subsidies", label: "他制度との併用可否" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingSubsidyGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -153,16 +155,25 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton title="DXリスキリング助成金ガイド" sourceSelector="[data-blog-article-body]" />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             DXリスキリング助成金ガイド
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            助成金は有効な選択肢ですが、「申請の順番」を間違えると使えないケースがあります。
+            DXリスキリング助成金は、企業がDX研修を実施する際の費用負担を軽減する制度群であり、要件確認が最重要です。
             この記事では、制度の概要・個人向け補助金との違い・対象条件・申請フロー・併用可否まで、法人担当者が迷いやすい論点を結論先出しで整理します。
-            筆者はまず、公募要領で「事前申請が必要か」を最初に確認するのが最も重要だと感じています。
+            助成金は有効な選択肢ですが、「申請の順番」を間違えると使えないケースがあります。
           </p>
         </motion.header>
+
+        <figure className="my-8">
+          <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-1.png" alt="DXリスキリング助成金活用ガイド（タイトルスライド）" width={800} height={450} className="rounded-lg" />
+        </figure>
 
         <ArticleTOC items={tocItems} />
 
@@ -188,6 +199,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
               申請では、事前準備、講座要件、証憑管理、併用ルールの4点を先に設計すると実務で詰まりにくくなります。
             </li>
           </ul>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-5.png" alt="申請フロー4ステップ（選定→事前準備・申請→研修実施→実績報告）" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -202,8 +216,11 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             DXリスキリング助成金とは（制度の概要）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 「DXリスキリング助成金」は、企業のデジタル人材育成に関する助成制度群を指して使われることが多い言葉です。制度は要件が多いため、必ず公募要領で確認しましょう。
+            「DXリスキリング助成金」は、企業のデジタル人材育成に関する助成制度群を指して使われることが多い言葉です。制度は要件が多いため、必ず公募要領で確認しましょう。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-2.png" alt="制度の概要（メリットと対象）" width={800} height={450} className="rounded-lg" />
+          </figure>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             制度全体の整理は
             <Link href="/academy/subsidy-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -211,6 +228,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             </Link>
             もあわせて確認してください。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-3.png" alt="主要3制度の比較表" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {subsidyDefinitionPoints.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -219,6 +239,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
               </section>
             ))}
           </div>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-7.png" alt="ROIの考え方（投資対効果の整理）" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -233,7 +256,7 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             リスキリング補助金（個人向け）との違い
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 企業向けと個人向けは、申請主体と運用責任が異なります。まずはどちらの制度を使うべきかを明確にしてください。
+            企業向けと個人向けは、申請主体と運用責任が異なります。まずはどちらの制度を使うべきかを明確にしてください。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -269,8 +292,11 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             対象となる研修・講座の条件
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 「講座の内容」だけでなく「実施体制」と「記録・証憑の残し方」まで含めて要件になることがあります。申込み前に制度ごとの公募要領を確認してください。
+            「講座の内容」だけでなく「実施体制」と「記録・証憑の残し方」まで含めて要件になることがあります。申込み前に制度ごとの公募要領を確認してください。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-6.png" alt="落とし穴チェックリスト（よくある失敗）" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 space-y-4">
             {eligibleConditions.map((condition) => (
               <section key={condition.title} className="rounded-lg border border-gray-200 p-5">
@@ -279,6 +305,9 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
               </section>
             ))}
           </div>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-8.png" alt="申請スケジュールのタイムライン" width={800} height={450} className="rounded-lg" />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -293,8 +322,11 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             申請の流れと必要書類
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 申請は「事前準備→実施→実績報告」の順で詰まりやすいポイントが変わります。最初に書類の全体像を把握し、証憑管理の運用を決めておくと安全です。
+            申請は「事前準備→実施→実績報告」の順で詰まりやすいポイントが変わります。最初に書類の全体像を把握し、証憑管理の運用を決めておくと安全です。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-4.png" alt="制度選定フローチャート（3問で最適な制度を選ぶ）" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 space-y-4">
             {applicationFlow.map((item) => (
               <section key={item.step} className="rounded-lg border border-gray-200 p-5">
@@ -339,7 +371,7 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             よくある疑問をQ&Aで整理します。制度は年度や自治体で条件が変わる可能性があるため、最終判断は必ず最新の公募要領で確認してください。
@@ -432,7 +464,61 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             </a>
           </div>
         </motion.section>
-      </article>
+      
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">DXリスキリング助成金は、企業がDX研修を実施する際の費用負担を軽減する制度群であり、要件確認が最重要です。</li>
+            <li className="pl-1 marker:text-gray-500">個人向け補助金とは申請主体と手続きが異なるため、混同せずに制度を切り分けて確認する必要があります。</li>
+            <li className="pl-1 marker:text-gray-500">申請では、事前準備、講座要件、証憑管理、併用ルールの4点を先に設計すると実務で詰まりにくくなります。</li>
+          </ul>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-9.png" alt="まとめとチェックリスト" width={800} height={450} className="rounded-lg" />
+          </figure>
+        </motion.section>
+
+        <motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <figure className="my-8">
+            <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-10.png" alt="次のステップ（CTA）" width={800} height={450} className="rounded-lg" />
+          </figure>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

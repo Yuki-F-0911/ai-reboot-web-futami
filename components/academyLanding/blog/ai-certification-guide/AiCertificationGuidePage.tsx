@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -153,13 +154,13 @@ const tocItems = [
   { id: "certification-comparison", label: "主要AI資格の詳細比較表" },
   { id: "recommended-by-goal", label: "目的別おすすめ" },
   { id: "learning-roadmap", label: "学習方法とロードマップ" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function AiCertificationGuidePage({ faqItems }: AiCertificationGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -186,14 +187,22 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            AI資格は種類が多く、目的が曖昧だと「勉強したのに活かせない」状態になりがちです。
+            AI資格は目的で選ぶのが正解です。
             この記事では、主要資格を難易度・費用・活かせる仕事で比較し、目的別のおすすめと学習ロードマップまで整理します。
-            筆者は最初に「資格を取ったあと、どの業務で何をできるようにしたいか」を1文で決めるのが最も効くと感じています。
+            AI資格は種類が多く、目的が曖昧だと「勉強したのに活かせない」状態になりがちです。
           </p>
         </motion.header>
 
@@ -227,7 +236,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
             AI資格の全体マップ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: AI資格は「ビジネス系」「技術系」「実装系」の3軸で見ると、選ぶべき順序が明確になります。現在の業務と目標職種に合わせて軸を決めましょう。
+            AI資格は「ビジネス系」「技術系」「実装系」の3軸で見ると、選ぶべき順序が明確になります。現在の業務と目標職種に合わせて軸を決めましょう。
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {mapAxes.map((item, index) => (
@@ -392,7 +401,8 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           </ul>
           <h3 className="mt-8 text-xl font-semibold text-gray-900">スクールを活用する場合</h3>
           <p className="mt-4 text-sm leading-7 text-gray-700">
-            AIリブートアカデミーは資格取得特化ではなく、現場で使える実務活用力を伸ばす設計です。資格学習で得た知識を実務成果へ変える補助線として使うと効果的です。
+            AIリブートアカデミーは資格取得のためのスクールではなく、学びを「自分の価値×AI」で実務アウトプットとキャリア再構築につなげる設計です。
+            資格学習で得た知識も、Will（やりたいこと）と結びつけて現場で再現できる形に落とし込み、仲間との対話・協働で学習を加速させると効果的です。
           </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {schoolBenefits.map((benefit) => (
@@ -431,10 +441,10 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 資格は「目的」と「実務での使いどころ」がセットです。迷いやすい論点をQ&Aで整理します。
+            資格は「目的」と「実務での使いどころ」がセットです。迷いやすい論点をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -534,7 +544,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
             無料セミナー / 個別相談
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 資格で得た知識を「現場で使える形」へ落とし込むには、業務テーマと実行計画まで落とすのが近道です。無料セミナー/個別相談で整理できます。
+            資格で得た知識を「現場で使える形」へ落とし込むには、業務テーマと実行計画まで落とすのが近道です。無料セミナー/個別相談で整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -553,7 +563,57 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
             </a>
           </div>
         </motion.section>
-      </article>
+      
+        
+        <motion.section
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">AI資格は目的で選ぶのが正解です。</li>
+            <li className="pl-1 marker:text-gray-500">ビジネス活用ならG検定、技術職ならE資格、実装力ならAI実装検定がおすすめです。</li>
+            <li className="pl-1 marker:text-gray-500">AI資格は「ビジネス系」「技術系」「実装系」の3軸で見ると、選ぶべき順序が明確になります。</li>
+            <li className="pl-1 marker:text-gray-500">資格は「目的」と「実務での使いどころ」がセットです。</li>
+            <li className="pl-1 marker:text-gray-500">資格で得た知識を「現場で使える形」へ落とし込むには、業務テーマと実行計画まで落とすのが近道です。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            次のアクション
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            >
+              無料セミナーを見る
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+</article>
     </main>
   );
 }

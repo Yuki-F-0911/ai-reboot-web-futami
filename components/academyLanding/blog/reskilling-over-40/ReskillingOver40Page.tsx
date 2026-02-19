@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -105,13 +106,13 @@ const tocItems = [
   { id: "approach-by-age", label: "年代別の現実的な学習アプローチ" },
   { id: "dropoff-and-continuation", label: "独学で挫折しやすいポイントと継続のコツ" },
   { id: "method-comparison", label: "学習手段の比較" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -139,42 +140,25 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton title="40代・50代からのAIリスキリング完全ガイド" sourceSelector="[data-blog-article-body]" />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             40代・50代からのAIリスキリング完全ガイド
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            40代・50代のAI学習は、年齢を不利と捉えるより、経験を活かした学び方へ設計することが重要です。
+            40代・50代のAI学習とは、年齢を不利と捉えるより、経験を活かした学び方へ設計することが重要です。
             本記事では、年代別の進め方、独学で挫折しやすいポイント、学習手段の選び方を整理します。
-            筆者は「今の仕事の改善テーマ」を1つ決めてから学ぶと、学習がブレにくいと感じています。
+            「今の仕事の改善テーマ」を1つ決めてから学ぶと、学習がブレにくくなります。
           </p>
         </motion.header>
 
         <ArticleTOC items={tocItems} />
 
-        <motion.section
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            要点まとめ
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">
-              40代・50代のAIリスキリングは、年齢よりも「既存経験をどうAI活用へ接続するか」で成果が決まります。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              40代は役割拡張、50代は経験知の体系化というように、目標に合わせて学習設計を変えると進みやすくなります。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              独学で挫折しやすい場面は事前に予防できるため、学習手段ごとの特徴を理解して継続可能な方法を選ぶことが重要です。
-            </li>
-          </ul>
-        </motion.section>
+        
 
         <motion.section
           className="mt-14"
@@ -249,7 +233,7 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
             独学で挫折しやすいポイントと継続のコツ
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 挫折は「計画の曖昧さ」と「判断の孤独」で起きやすくなります。失敗パターンを先に知り、学習を続けるための仕組みを用意しましょう。
+            挫折は「計画の曖昧さ」と「判断の孤独」で起きやすくなります。失敗パターンを先に知り、学習を続けるための仕組みを用意しましょう。
           </p>
           <dl className="mt-6 space-y-4">
             {dropoffPatterns.map((item) => (
@@ -273,7 +257,7 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
             学習手段の比較（独学・オンライン講座・通学）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 続けやすさは「自走できるか」より「支援導線があるか」で決まることが多いです。自分のつまずきポイントに合う手段を選びましょう。
+            続けやすさは「自走できるか」より「支援導線があるか」で決まることが多いです。自分のつまずきポイントに合う手段を選びましょう。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -308,7 +292,7 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            FAQ
+            よくある質問（FAQ）
           </h2>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -376,6 +360,30 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
         </section>
 
         <motion.section
+          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            要点まとめ
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">
+              40代・50代のAIリスキリングは、年齢よりも「既存経験をどうAI活用へ接続するか」で成果が決まります。
+            </li>
+            <li className="pl-1 marker:text-gray-500">
+              40代は役割拡張、50代は経験知の体系化というように、目標に合わせて学習設計を変えると進みやすくなります。
+            </li>
+            <li className="pl-1 marker:text-gray-500">
+              独学で挫折しやすい場面は事前に予防できるため、学習手段ごとの特徴を理解して継続可能な方法を選ぶことが重要です。
+            </li>
+          </ul>
+        </motion.section>
+
+<motion.section
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
@@ -383,7 +391,7 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             学び直しを具体化したい方へ
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700">
@@ -406,6 +414,17 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
             </a>
           </div>
         </motion.section>
+
+        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/ai-study-learning-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI×勉強・資格・語学学習完全ガイド｜ChatGPTで最短合格する方法
+              </Link>
+            </li>
+          </ul>
+        </section>
       </article>
     </main>
   );

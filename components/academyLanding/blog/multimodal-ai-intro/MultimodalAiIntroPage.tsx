@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
   question: string;
@@ -155,14 +157,14 @@ const tocItems = [
   { id: "workflow-change", label: "マルチモーダルAIで変わる業務" },
   { id: "getting-started", label: "始め方と実践ステップ" },
   { id: "future-and-cautions", label: "今後の展望と注意点" },
-  { id: "faq", label: "FAQ" },
+  { id: "faq", label: "よくある質問（FAQ）" },
   { id: "academy-cta", label: "AIリブートアカデミー" },
 ] as const;
 
 export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-6"
           items={[
@@ -190,18 +192,30 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
               </span>
             ))}
           </div>
+          <div className="mt-6 flex">
+            <div className="ml-auto w-full sm:w-auto">
+              <CopyAsMarkdownButton
+                title="マルチモーダルAIとは？テキスト・画像・音声を横断する次世代AIを解説"
+                sourceSelector="[data-blog-article-body]"
+              />
+            </div>
+          </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             マルチモーダルAIとは？テキスト・画像・音声を横断する次世代AIを解説
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            マルチモーダルAIは便利そうに見える一方で、「結局何ができるのか」「どの業務に効くのか」が掴みにくい概念です。
+            マルチモーダルAIは、テキストだけでは扱いにくい「画像・音声・動画」を業務に取り込めるようにする技術です。
             この記事では、定義・仕組み・活用シーン・始め方・注意点まで、導入判断に必要なポイントを結論先出しで整理します。
-            筆者はまず、スクリーンショットや資料画像の説明/要約など“入力が明確な業務”から試すのが最短だと感じています。
+            マルチモーダルAIは便利そうに見える一方で、「結局何ができるのか」「どの業務に効くのか」が掴みにくい概念です。
           </p>
         </motion.header>
 
         <ArticleTOC items={tocItems} />
+
+        <figure className="my-8">
+          <Image src="/images/blog/multimodal-ai-intro/slide-01.png" alt="マルチモーダルAIとは？" width={800} height={450} className="rounded-lg" />
+        </figure>
 
         <motion.section
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
@@ -247,6 +261,9 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <p className="mt-4 text-sm leading-7 text-gray-700">
             これまでのAIは「テキストだけ」「画像だけ」といった単一モダリティが中心でした。一方、実務の入力は写真・スクショ・音声・資料が混ざります。ここを横断して扱えるのがマルチモーダルAIです。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/multimodal-ai-intro/slide-02.png" alt="従来AI（単一モーダル）からマルチモーダルAIへ" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -290,6 +307,12 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <p className="mt-5 text-base font-medium text-gray-900">
             仕組みは「入力を同じ形式に変換 → 統合して推論 → 目的の形式で出力」という流れです。実装はモデルやプロダクトにより異なりますが、基本の考え方は共通します。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/multimodal-ai-intro/slide-03.png" alt="仕組み: 入力→統合・推論→出力" width={800} height={450} className="rounded-lg" />
+          </figure>
+          <figure className="my-8">
+            <Image src="/images/blog/multimodal-ai-intro/slide-04.png" alt="視覚: 画像分析×テキスト生成" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 space-y-4">
             {mechanismSteps.map((step) => (
               <section key={step.title} className="rounded-lg border border-gray-200 p-5">
@@ -321,6 +344,9 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <p className="mt-5 text-base font-medium text-gray-900">
             代表例としてよく挙がるモデルを、選び方の観点で整理します。実際の対応モダリティや提供形態はプラン/製品により変わるため、導入前に必ず最新の仕様を確認してください。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/multimodal-ai-intro/slide-05.png" alt="聴覚: 音声・動画→要約・議事録" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {modelCards.map((card) => (
               <section key={card.name} className="rounded-lg border border-gray-200 p-5">
@@ -347,6 +373,9 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <p className="mt-5 text-base font-medium text-gray-900">
             キーワードは「入力（現場のデータ）→説明→次アクション」です。画像認識とテキスト生成をつなげると、判断と作業の前後が一気に短縮されます。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/multimodal-ai-intro/slide-06.png" alt="部門別: 営業/マーケ/CS/製造" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {useCaseCards.map((card) => (
               <section key={card.title} className="rounded-lg border border-gray-200 p-5">
@@ -419,6 +448,9 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <p className="mt-5 text-base font-medium text-gray-900">
             導入のコツは「最初から万能にしない」ことです。1ユースケースで成功パターンを作り、横展開します。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/multimodal-ai-intro/slide-07.png" alt="導入の3ステップ: 無料で試す→Pilot→Scale" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 space-y-4">
             {practiceSteps.map((step) => (
               <section key={step.title} className="rounded-lg border border-gray-200 p-5">
@@ -450,6 +482,9 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           <p className="mt-5 text-base font-medium text-gray-900">
             マルチモーダルは体験が分かりやすい一方、入力がリッチになるほどリスクも増えます。運用設計まで含めて考えるのが実務のポイントです。
           </p>
+          <figure className="my-8">
+            <Image src="/images/blog/multimodal-ai-intro/slide-08.png" alt="運用前の3チェックポイント: プライバシー/精度/コスト" width={800} height={450} className="rounded-lg" />
+          </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {cautionItems.map((item) => (
               <section key={item.title} className="rounded-lg border border-gray-200 p-5">
@@ -515,23 +550,49 @@ export default function MultimodalAiIntroPage({ faqItems }: MultimodalAiIntroPag
           </ul>
         </section>
 
+        
         <motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
+          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="academy-cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで「使える活用」まで落とし込む
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            まとめ
           </h2>
+          <figure className="my-8">
+            <Image src="/images/blog/multimodal-ai-intro/slide-09.png" alt="まとめ" width={800} height={450} className="rounded-lg" />
+          </figure>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">マルチモーダルAIは、テキスト・画像・音声など複数の入力を統合して理解・生成するAIで、業務データの“現実の形”に近い入力を扱えます。</li>
+            <li className="pl-1 marker:text-gray-500">効果が出やすいのは「画像分析×テキスト生成」「音声→議事録」「動画要約」など、情報の行き来が多い仕事です。</li>
+            <li className="pl-1 marker:text-gray-500">導入は無料トライアル→限定業務で運用→ガバナンス整備の順で、小さく始めると失敗しにくくなります。</li>
+          </ul>
+        </motion.section>
+<motion.section
+          className="mt-14 border-t border-gray-300 pt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+	        >
+	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+	            AIリブートアカデミーで「使える活用」まで落とし込む
+	          </h2>
           <p className="mt-5 text-base font-medium text-gray-900">
             マルチモーダルAIは、試して終わりではなく「入力ルール」「確認ポイント」「評価指標」を決めて運用に落とすことで成果が出ます。
           </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            AIリブートアカデミーでは、非エンジニアでも実務に接続できる学び方と、社内展開の進め方を体系的に整理できます。
-          </p>
+	          <p className="mt-4 text-base leading-8 text-gray-700">
+	            AIリブートアカデミーでは、非エンジニアでも実務に接続できる学び方に加えて、100日間の伴走で仲間と一緒に社内展開まで走り切れる環境があります。
+	          </p>
+          <figure className="my-8">
+            <Link href="/academy/seminars">
+              <Image src="/images/blog/multimodal-ai-intro/slide-10.png" alt="マルチモーダルAI活用を始める" width={800} height={450} className="rounded-lg" />
+            </Link>
+          </figure>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/academy"

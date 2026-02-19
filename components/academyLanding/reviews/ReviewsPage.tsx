@@ -24,6 +24,11 @@ type VoiceItem = {
   comment: string;
 };
 
+type SeminarVoiceItem = {
+  attribute: "経営者" | "フリーランス" | "正社員";
+  comment: string;
+};
+
 const sectionReveal = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
@@ -115,8 +120,91 @@ const voiceItems: readonly VoiceItem[] = [
   },
 ] as const;
 
+const seminarChallenges = [
+  {
+    rank: "TOP1",
+    label: "仕事や業務にどう役立つのか、具体的にイメージできなかった",
+    note: "最多",
+    width: "100%",
+  },
+  {
+    rank: "TOP2",
+    label: "情報が早すぎて、また多すぎて、何が重要か判断できなかった",
+    note: "次に多い",
+    width: "82%",
+  },
+  {
+    rank: "TOP3",
+    label: "何から学習・実践すれば良いか分からなかった",
+    note: "多い",
+    width: "68%",
+  },
+] as const;
+
+const seminarSatisfactionDistribution = [
+  { label: "5点", count: 7 },
+  { label: "4点", count: 9 },
+  { label: "3点", count: 1 },
+  { label: "1点", count: 1 },
+  { label: "未回答", count: 1 },
+] as const;
+
+const seminarVoiceItems: readonly SeminarVoiceItem[] = [
+  {
+    attribute: "経営者",
+    comment: "AIに対しての人側の意識など整理のヒントになった",
+  },
+  {
+    attribute: "フリーランス",
+    comment: "プロンプトの設定の巧拙は過去のものであることなど、アップデートできました",
+  },
+  {
+    attribute: "経営者",
+    comment:
+      "AIを使いこなす能力を高めるにはどうするかと課題が強かったが、クリエイティビティの重要性について改めて大切さを感じました",
+  },
+  {
+    attribute: "フリーランス",
+    comment: "AIの進化のスケールの大きさに驚きました。まさに光の速さのようでした",
+  },
+  {
+    attribute: "正社員",
+    comment:
+      "活用しまくっているお二人が今どんなことを考えてアクションされているのかを学べて良かった",
+  },
+  {
+    attribute: "フリーランス",
+    comment:
+      "2024年以降のAIをどう活用してきたのかの全体像や、どういった事が大切にしていくべきかの概念を知れた",
+  },
+  {
+    attribute: "フリーランス",
+    comment:
+      "確かに「AIの進化に驚いた。」そして「アンラーニング」と言う言葉が印象に残った",
+  },
+  {
+    attribute: "正社員",
+    comment:
+      "普段仕事ではChatGPT、Copilotをメインで使用していました。他も試そうと思いつつ中々時間取って試すことが出来なかったので、NanoBananaやGemini、Grokも試してみたいと思いました",
+  },
+  {
+    attribute: "フリーランス",
+    comment:
+      "今回のセミナーを通して今後はより一層、目的とする成果物に対してAIをとにかく活用してみようと思いました",
+  },
+  {
+    attribute: "フリーランス",
+    comment:
+      "「静観していることは、既に退化している」が一番に響いた。10年後に2026年を振り返った時に「あの時、静観せず、とりあえず動いてよかった！」と言える一年にしたい",
+  },
+] as const;
+
 const ReviewsPage = ({ faqItems }: ReviewsPageProps) => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const seminarTotalResponses = seminarSatisfactionDistribution.reduce(
+    (total, item) => total + item.count,
+    0,
+  );
 
   return (
     <main className="bg-white">
@@ -187,7 +275,7 @@ const ReviewsPage = ({ faqItems }: ReviewsPageProps) => {
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
           <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">
-            AIリブートアカデミーの評判は？結論からお伝えします
+            AIリブートアカデミーの評判は？第一期参加者の声
           </h2>
           <p className="mt-3 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
             第一期参加者の声を整理すると、「行動に移すための環境が整っていること」が繰り返し語られています。具体的には、実務に近いアウトプット、仲間との学び、2日間での変化がポイントです。
@@ -315,6 +403,117 @@ const ReviewsPage = ({ faqItems }: ReviewsPageProps) => {
                   </p>
                 </div>
                 <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-slate-700">
+                  {item.comment}
+                </p>
+              </motion.article>
+            ))}
+          </motion.div>
+        </motion.div>
+      </section>
+
+      <section className="bg-slate-50 py-14 md:py-20">
+        <motion.div
+          className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+        >
+          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">
+            無料セミナー参加者の声
+          </h2>
+          <p className="mt-3 max-w-4xl text-sm leading-relaxed text-slate-600 sm:text-base">
+            2026/1/2・2026/1/8に開催した無料セミナーのアンケート（19名回答）から、参加者の声を抜粋しました。有効回答18名（未回答1名を除く）の平均満足度は4.2 / 5です。
+          </p>
+          <p className="mt-1 text-xs leading-relaxed text-slate-500 sm:text-sm">
+            ※ コメントは個人が特定されない形で掲載しています。
+          </p>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            <div className="border border-slate-200 bg-white p-6">
+              <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
+                参加前の課題（TOP3）
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                ※ バーの長さは回答傾向の相対比較です（回答数は非公開）。
+              </p>
+              <div className="mt-5 space-y-5">
+                {seminarChallenges.map((item) => (
+                  <div key={item.label}>
+                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                      <p className="text-sm font-semibold text-slate-900">
+                        <span className="mr-2 text-xs font-bold tracking-wide text-orange-600">
+                          {item.rank}
+                        </span>
+                        {item.label}
+                      </p>
+                      <span className="rounded-full bg-orange-50 px-2 py-1 text-xs font-semibold text-orange-700">
+                        {item.note}
+                      </span>
+                    </div>
+                    <div className="mt-2 h-2 w-full rounded-full bg-slate-100">
+                      <div
+                        className="h-2 rounded-full bg-orange-500"
+                        style={{ width: item.width }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="border border-slate-200 bg-white p-6">
+              <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
+                満足度の分布（5点満点）
+              </h3>
+              <div className="mt-5 space-y-4">
+                {seminarSatisfactionDistribution.map((item) => {
+                  const ratio =
+                    seminarTotalResponses === 0 ? 0 : item.count / seminarTotalResponses;
+                  const percent = Math.round(ratio * 100);
+
+                  return (
+                    <div key={item.label}>
+                      <div className="flex items-baseline justify-between gap-3">
+                        <p className="text-sm font-semibold text-slate-900">{item.label}</p>
+                        <p className="text-xs text-slate-500">
+                          {item.count}名（{percent}%）
+                        </p>
+                      </div>
+                      <div className="mt-2 h-2 w-full rounded-full bg-slate-100">
+                        <div
+                          className="h-2 rounded-full bg-orange-500/90"
+                          style={{ width: `${percent}%` }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <h3 className="mt-12 text-lg font-bold text-slate-900 sm:text-xl">
+            参加者コメント（抜粋）
+          </h3>
+          <motion.div
+            className="mt-6 grid gap-5 md:grid-cols-2"
+            variants={listReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {seminarVoiceItems.map((item) => (
+              <motion.article
+                key={`${item.attribute}-${item.comment}`}
+                variants={itemReveal}
+                className="border border-slate-200 bg-slate-50 p-5"
+              >
+                <p className="text-xs font-semibold tracking-wide text-slate-500">
+                  {item.attribute}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-700">
                   {item.comment}
                 </p>
               </motion.article>
