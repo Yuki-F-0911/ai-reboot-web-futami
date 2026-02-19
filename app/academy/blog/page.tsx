@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで69記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで70記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -34,6 +34,13 @@ const blogPosts: readonly BlogPost[] = [
     summary: "生成AIの定義、主要ツールの違い、最初の使い方を非技術者向けに整理した入門記事です。",
     category: "AI基礎知識",
     thumbnail: "/images/blog/what-is-generative-ai/slide-1.png",
+  },
+  {
+    slug: "context-engineering-guide",
+    title: "コンテキストエンジニアリングとは？AIの出力品質を上げる設計思想を非エンジニアが解説",
+    summary:
+      "プロンプト改善だけでは品質が安定しない理由と、役割設定・背景情報・制約条件・出力形式の4要素でAI指示の再現性を上げる実践手順をまとめた記事です。",
+    category: "AI基礎知識",
   },
   {
     slug: "what-is-ai-agent",
