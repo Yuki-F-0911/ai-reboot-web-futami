@@ -90,10 +90,10 @@ const SubsidyBanner = () => {
 
                     {/* Right Content - Price Highlight */}
                     <div 
-                        className="w-full lg:w-80 border rounded-sm p-8 lg:p-10 shadow-sm"
-                        style={{ 
-                            backgroundColor: ACADEMY_COLORS.bgSection,
-                            borderColor: ACADEMY_COLORS.lineSoft 
+                        className="w-full lg:w-80 border rounded-sm p-8 lg:p-10"
+                        style={{
+                            backgroundColor: ACADEMY_COLORS.accentSoft,
+                            borderColor: ACADEMY_COLORS.accentMain + '40'
                         }}
                     >
                         <div className="flex flex-col items-center text-center">
