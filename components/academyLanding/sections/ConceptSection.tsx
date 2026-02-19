@@ -65,7 +65,7 @@ const ConceptSection = () => {
                         生成AIを学ぶ場所ではない。<br />
                         人生をリブートする場所。
                     </h2>
-                    <div className="flex flex-col lg:flex-row gap-8 items-start lg:items-end">
+                    <div className="flex flex-col gap-5 items-start">
                         <p
                             className="text-lg leading-relaxed max-w-2xl"
                             style={{ color: ACADEMY_COLORS.textBody }}
@@ -76,7 +76,7 @@ const ConceptSection = () => {
                         <Link
                             href="/academy/message"
                             className="inline-flex items-center gap-2 text-sm font-bold border-b pb-1 transition-opacity hover:opacity-70 group"
-                            style={{ 
+                            style={{
                                 color: ACADEMY_COLORS.textStrong,
                                 borderColor: ACADEMY_COLORS.textStrong
                             }}
