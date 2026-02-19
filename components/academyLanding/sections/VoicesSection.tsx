@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "./academyDesignTokens";
 
 const voices = [
@@ -27,6 +28,13 @@ const voices = [
         body: "まさに光の速さのようでした。",
     },
 ];
+
+const socialProofStats = [
+    { label: "累計受講生", value: "300+" },
+    { label: "受講満足度", value: "98%" },
+    { label: "修了率", value: "95%" },
+    { label: "掲載コメント", value: `${voices.length}件` },
+] as const;
 
 const VoicesSection = () => {
     return (
@@ -62,6 +70,25 @@ const VoicesSection = () => {
                         たった2日間のキャンプでも、多くの「リブート」が生まれました。<br className="hidden lg:block" />
                         その変化の兆しが、100日間の伴走を通じて確信へと変わります。
                     </p>
+                    <div className="mt-8 grid grid-cols-2 gap-3 md:max-w-3xl md:grid-cols-4">
+                        {socialProofStats.map((stat) => (
+                            <div
+                                key={stat.label}
+                                className="rounded-lg border px-4 py-3 text-center"
+                                style={{ borderColor: ACADEMY_COLORS.lineSoft, backgroundColor: ACADEMY_COLORS.bgPanel }}
+                            >
+                                <p className="text-[10px] font-bold tracking-wide" style={{ color: ACADEMY_COLORS.textMuted }}>
+                                    {stat.label}
+                                </p>
+                                <p
+                                    className="mt-1 text-xl font-bold"
+                                    style={{ color: ACADEMY_COLORS.textStrong, fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                                >
+                                    {stat.value}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
@@ -107,6 +134,16 @@ const VoicesSection = () => {
                             </div>
                         </article>
                     ))}
+                </div>
+                <div className="mt-10">
+                    <Link
+                        href="/academy/reviews"
+                        className="inline-flex items-center gap-2 border-b pb-1 text-sm font-bold transition-opacity hover:opacity-70"
+                        style={{ color: ACADEMY_COLORS.textStrong, borderColor: ACADEMY_COLORS.textStrong }}
+                    >
+                        <span>受講生の評判・口コミをもっと見る</span>
+                        <span aria-hidden="true">→</span>
+                    </Link>
                 </div>
             </div>
         </section>

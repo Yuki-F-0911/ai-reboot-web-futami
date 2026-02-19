@@ -29,6 +29,7 @@ const tocItems = [
   { id: "setup", label: "導入（VS Codeの例）" },
   { id: "how-to", label: "使い方：精度を上げるコツ" },
   { id: "workflow", label: "実務フロー：テストとレビュー" },
+  { id: "tool-comparison", label: "比較表：Copilot向きタスク" },
   { id: "team", label: "チーム導入の注意点" },
   { id: "faq", label: "よくある質問（FAQ）" },
   { id: "related", label: "関連記事（内部リンク）" },
@@ -66,6 +67,24 @@ const workflowSteps = [
   {
     title: "レビューで担保する（合意）",
     body: "意図・影響範囲・安全性をレビューで確認します。AI支援が入るほどレビューの重要性は上がります。",
+  },
+] as const;
+
+const comparisonRows = [
+  {
+    task: "定型実装の下書き",
+    copilot: "強い。雛形生成と補完で初速を上げやすい。",
+    notes: "入力・出力の制約を先に書くと精度が安定する。",
+  },
+  {
+    task: "既存コードの改修",
+    copilot: "中程度。文脈依存が強く、レビューが必須。",
+    notes: "変更範囲を小さく分割し、テストで差分を固定する。",
+  },
+  {
+    task: "設計判断・要件定義",
+    copilot: "弱い。案出しは可能だが最終判断には不向き。",
+    notes: "人が判断軸を持ち、AIは論点整理の補助に限定する。",
   },
 ] as const;
 
@@ -185,6 +204,42 @@ export default function GithubCopilotGuidePage({ faqItems }: GithubCopilotGuideP
               <li className="pl-1 marker:text-slate-400">既存コードの改善（命名・抽出・重複排除）</li>
               <li className="pl-1 marker:text-slate-400">ユニットテストの雛形作成（境界条件の洗い出し）</li>
             </ul>
+          </div>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="tool-comparison" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            比較表：Copilotが向くタスク / 向かないタスク
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            Copilotは「実装の初速」を上げる用途で強く、設計判断の最終決定は人が担うのが基本です。
+          </p>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
+              <thead>
+                <tr className="border-b border-gray-300">
+                  <th className="py-3 pr-4 font-semibold text-gray-900">タスク</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Copilot適性</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">運用ポイント</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonRows.map((row) => (
+                  <tr key={row.task} className="border-b border-gray-200 align-top">
+                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.task}</th>
+                    <td className="py-4 px-4">{row.copilot}</td>
+                    <td className="py-4 pl-4">{row.notes}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </motion.section>
 

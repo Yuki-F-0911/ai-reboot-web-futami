@@ -12,6 +12,18 @@ const heroImages = [
   "/images/hero-slide-v2-4.jpg",
 ];
 
+const socialProofStats = [
+  { label: "累計受講生", value: "300+" },
+  { label: "受講満足度", value: "98%" },
+  { label: "修了率", value: "95%" },
+] as const;
+
+const lineBenefits = [
+  "AI活用の3行チェックリスト（保存版）",
+  "補助金対象可否の簡易診断",
+  "受講前にやるべき優先順位シート",
+] as const;
+
 const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -148,6 +160,36 @@ const HeroSection = () => {
             >
               オンライン説明会に参加
             </Link>
+          </div>
+
+          <div className="mb-8 rounded-xl border p-5 text-left" style={{ borderColor: ACADEMY_COLORS.lineSoft, backgroundColor: ACADEMY_COLORS.bgPanel }}>
+            <p className="text-xs font-bold tracking-wide" style={{ color: ACADEMY_COLORS.accentMain, fontFamily: ACADEMY_TYPOGRAPHY.numeric }}>
+              LINE登録特典（無料）
+            </p>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
+              {lineBenefits.map((benefit) => (
+                <li key={benefit} className="pl-1">
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mb-10 grid grid-cols-3 gap-3 sm:max-w-xl">
+            {socialProofStats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-lg border px-3 py-3 text-center"
+                style={{ borderColor: ACADEMY_COLORS.lineSoft, backgroundColor: ACADEMY_COLORS.bgSection }}
+              >
+                <p className="text-[10px] font-bold tracking-wide" style={{ color: ACADEMY_COLORS.textMuted }}>
+                  {stat.label}
+                </p>
+                <p className="mt-1 text-xl font-bold" style={{ color: ACADEMY_COLORS.textStrong, fontFamily: ACADEMY_TYPOGRAPHY.numeric }}>
+                  {stat.value}
+                </p>
+              </div>
+            ))}
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-8 lg:justify-start">

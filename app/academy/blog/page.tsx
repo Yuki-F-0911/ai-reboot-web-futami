@@ -9,10 +9,12 @@ const pageDescription =
   "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで多数の記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
+const lineUrl = "https://bexn9pao.autosns.app/line";
 
 type BlogCategory =
   | "AI基礎知識"
   | "実務活用"
+  | "AIO/マーケ"
   | "最新AIツール"
   | "資格・スキル"
   | "キャリア・転職"
@@ -80,6 +82,13 @@ const blogPosts: readonly BlogPost[] = [
       "Make・Zapier・n8nを料金・機能・難易度・セキュリティの4軸で徹底比較。部門別おすすめ活用パターン5選と最初のフロー作成3ステップも解説。5業種対応スターターテンプレ配布中。",
     category: "実務活用",
     thumbnail: "/images/blog/workflow-automation-comparison/slide-01.png",
+  },
+  {
+    slug: "power-automate-ai-guide",
+    title: "Power Automate × 生成AI活用｜Microsoft環境の現場自動化レシピ集",
+    summary:
+      "Power AutomateとCopilot Studio・AI Builderを組み合わせ、Teams自動返信、Excel分析レポート自動生成、メール仕分け×ChatGPT要約まで実務直結で解説。Azure OpenAIとの選び方とIT連携の境界線も整理した実践ガイドです。",
+    category: "実務活用",
   },
   {
     slug: "claude-code-intro",
@@ -175,6 +184,13 @@ const blogPosts: readonly BlogPost[] = [
       "RAG（Retrieval-Augmented Generation）の定義、仕組み、メリットと限界、活用事例、始め方、ファインチューニングとの違いを整理した入門記事です。",
     category: "AI基礎知識",
     thumbnail: "/images/blog/what-is-rag/slide-1.png",
+  },
+  {
+    slug: "vector-db-intro",
+    title: "ベクターデータベース入門｜Pinecone・Weaviate・ChromaDBの比較と選び方",
+    summary:
+      "ベクターデータベースの仕組みを類似度検索から解説し、Pinecone・Weaviate・ChromaDBを運用形態・コスト・スケールで比較。RAG実装で迷わない選定フローを整理した記事です。",
+    category: "AI基礎知識",
   },
   {
     slug: "rag-vs-finetuning-guide",
@@ -586,11 +602,19 @@ const blogPosts: readonly BlogPost[] = [
     category: "実務活用",
     thumbnail: "/images/blog/ai-content-sns-guide/slide-01.png",
   },
+  {
+    slug: "aio-seo-strategy-guide",
+    title: "AI Overviews時代のSEO完全ガイド｜「AIに引用される」コンテンツ設計チェック",
+    summary:
+      "AIO SEOと従来SEOの違い、AI Overviews・Perplexity・ChatGPT Searchで引用される条件、3行要約・比較表・FAQSchemaの実装手順をまとめた実務ガイドです。",
+    category: "AIO/マーケ",
+  },
 ] as const;
 
 const categoryClassName: Record<BlogCategory, string> = {
   "AI基礎知識": "border border-harmony-light bg-harmony-lighter text-harmony",
   実務活用: "border border-orange-200 bg-orange-50 text-orange-700",
+  "AIO/マーケ": "border border-sky-200 bg-sky-50 text-sky-700",
   "最新AIツール": "border border-cyan-200 bg-cyan-50 text-cyan-700",
   "資格・スキル": "border border-wisdom-light bg-wisdom-lighter text-wisdom",
   "キャリア・転職": "border border-amber-200 bg-amber-50 text-amber-700",
@@ -659,6 +683,37 @@ export default function AcademyBlogPage() {
               生成AIの基礎知識から、実務活用、資格・スキル、キャリア、法人向け導入まで、目的別に記事を探せます。
             </p>
           </header>
+
+          <section className="mt-6 rounded-2xl border border-green-200 bg-gradient-to-r from-green-50 via-white to-emerald-50 p-6 shadow-subtle sm:p-8">
+            <p className="text-xs font-semibold tracking-wide text-green-700">LINE BONUS</p>
+            <h2 className="mt-2 text-2xl font-bold leading-tight text-slate-900 sm:text-3xl">
+              記事で学んだ内容を、LINEで実務アクションに落とし込む
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-slate-700 sm:text-base">
+              LINE登録で「3行要約テンプレート」「補助金対象の簡易診断」「次に読むべき記事の優先順位表」を無料配布しています。
+            </p>
+            <ul className="mt-4 list-disc space-y-1 pl-5 text-sm leading-7 text-slate-700">
+              <li className="pl-1 marker:text-slate-500">毎週1本、仕事で使えるAI活用の実践ヒント</li>
+              <li className="pl-1 marker:text-slate-500">受講前の不安を整理する個別相談（無料）</li>
+              <li className="pl-1 marker:text-slate-500">アカデミー受講判断のためのチェックリスト</li>
+            </ul>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#05b54d]"
+              >
+                LINEで無料特典を受け取る
+              </a>
+              <Link
+                href="/academy/seminars"
+                className="inline-flex items-center justify-center rounded-lg border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-900 hover:text-slate-900"
+              >
+                無料セミナーを見る
+              </Link>
+            </div>
+          </section>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {blogPosts.map((post) => (

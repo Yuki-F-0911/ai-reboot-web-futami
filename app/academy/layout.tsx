@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { EducationalOrganizationStructuredData } from "@/components/seo/StructuredData";
+import FloatingLineCta from "@/components/academyLanding/common/FloatingLineCta";
+import ArticleReadLineModal from "@/components/academyLanding/common/ArticleReadLineModal";
 
 const academyBaseUrl = "https://ai-reboot.io";
 const academyTopUrl = `${academyBaseUrl}/academy`;
@@ -45,6 +47,8 @@ export default function AcademyLayout({ children }: { children: ReactNode }) {
         parentOrganizationName="株式会社ウィルフォワード"
       />
       {children}
+      <FloatingLineCta />
+      <ArticleReadLineModal />
     </>
   );
 }
