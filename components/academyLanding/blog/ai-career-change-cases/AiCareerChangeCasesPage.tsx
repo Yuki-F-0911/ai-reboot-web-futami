@@ -128,7 +128,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           <p className="mt-6 text-base leading-8 text-gray-700">
             キャリア転換とは、「何から始めればいいか」が曖昧だと、学習が空回りしやすくなります。
             本記事では、職種別の構成例4つと、Before/Afterの変化、共通する成功要因がわかります。
-            筆者はまず「現職で作れる小さな成果物」を1つ決め、そこから学習テーマを逆算するのをおすすめしています。
+            まず「現職で作れる小さな成果物」を1つ決め、そこから学習テーマを逆算するのがおすすめです。
           </p>
         </motion.header>
 
@@ -159,7 +159,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
             キャリアチェンジ事例（構成例）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: キャリア転換は「ツール名」ではなく「目的→試作→検証→運用」の順序が成果を左右します。たとえばChatGPT/Claudeに加え、CursorやClaudeのProjectsなどを使い、
+            キャリア転換は「ツール名」ではなく「目的→試作→検証→運用」の順序が成果を左右します。たとえばChatGPT/Claudeに加え、CursorやClaudeのProjectsなどを使い、
             学習とアウトプットを一体で積み上げるのが現実的です。
           </p>
           <div className="mt-8 space-y-8">
@@ -196,7 +196,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
             Before / After 比較表（構成例）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: キャリア転換は「役割（仕事の任され方）」が変わると加速します。Before/Afterを役割の視点で一覧化しました。
+            キャリア転換は「役割（仕事の任され方）」が変わると加速します。Before/Afterを役割の視点で一覧化しました。
           </p>
           <p className="mt-2 text-sm font-semibold text-gray-500">※この事例は構成例です</p>
           <div className="mt-6 overflow-x-auto">
@@ -233,7 +233,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
             共通する成功要因
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 学習量より「実務課題に紐づくアウトプット」と「振り返り」が重要です。以下を満たすと、キャリア転換を現実的に進めやすくなります。
+            学習量より「実務課題に紐づくアウトプット」と「振り返り」が重要です。以下を満たすと、キャリア転換を現実的に進めやすくなります。
           </p>
           <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-7 text-gray-700">
             {successFactors.map((factor) => (
@@ -256,7 +256,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 「未経験でもできるか」「学習期間はどれくらいか」で迷いやすいポイントをQ&Aで整理します。
+            「未経験でもできるか」「学習期間はどれくらいか」で迷いやすいポイントをQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -355,7 +355,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
             キャリアチェンジを具体化したい方へ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 焦って学習範囲を広げるより、現実的に実行できる一歩を決めるのが近道です。無料セミナー/個別相談で移行ルートを整理できます。
+            焦って学習範囲を広げるより、現実的に実行できる一歩を決めるのが近道です。無料セミナー/個別相談で移行ルートを整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

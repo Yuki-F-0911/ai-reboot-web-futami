@@ -216,7 +216,7 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             DXリスキリング助成金とは（制度の概要）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 「DXリスキリング助成金」は、企業のデジタル人材育成に関する助成制度群を指して使われることが多い言葉です。制度は要件が多いため、必ず公募要領で確認しましょう。
+            「DXリスキリング助成金」は、企業のデジタル人材育成に関する助成制度群を指して使われることが多い言葉です。制度は要件が多いため、必ず公募要領で確認しましょう。
           </p>
           <figure className="my-8">
             <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-2.png" alt="制度の概要（メリットと対象）" width={800} height={450} className="rounded-lg" />
@@ -256,7 +256,7 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             リスキリング補助金（個人向け）との違い
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 企業向けと個人向けは、申請主体と運用責任が異なります。まずはどちらの制度を使うべきかを明確にしてください。
+            企業向けと個人向けは、申請主体と運用責任が異なります。まずはどちらの制度を使うべきかを明確にしてください。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -292,7 +292,7 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             対象となる研修・講座の条件
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 「講座の内容」だけでなく「実施体制」と「記録・証憑の残し方」まで含めて要件になることがあります。申込み前に制度ごとの公募要領を確認してください。
+            「講座の内容」だけでなく「実施体制」と「記録・証憑の残し方」まで含めて要件になることがあります。申込み前に制度ごとの公募要領を確認してください。
           </p>
           <figure className="my-8">
             <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-6.png" alt="落とし穴チェックリスト（よくある失敗）" width={800} height={450} className="rounded-lg" />
@@ -322,7 +322,7 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
             申請の流れと必要書類
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 申請は「事前準備→実施→実績報告」の順で詰まりやすいポイントが変わります。最初に書類の全体像を把握し、証憑管理の運用を決めておくと安全です。
+            申請は「事前準備→実施→実績報告」の順で詰まりやすいポイントが変わります。最初に書類の全体像を把握し、証憑管理の運用を決めておくと安全です。
           </p>
           <figure className="my-8">
             <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-4.png" alt="制度選定フローチャート（3問で最適な制度を選ぶ）" width={800} height={450} className="rounded-lg" />

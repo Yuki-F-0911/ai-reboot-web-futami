@@ -134,7 +134,7 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
           <p className="mt-6 text-base leading-8 text-gray-700">
             AI時代とは、「何を学べばいいか」を間違えると、ツール収集だけが増えて成果につながりません。
             この記事では、職種別に必要なスキルと、共通基礎→職種別活用→成果物づくりの学習順序を結論先出しで整理します。
-            筆者はまず「今の仕事で改善したい業務」を1つ選んで、そこから必要スキルを逆算するのが最短だと感じています。
+            まず「今の仕事で改善したい業務」を1つ選んで、そこから必要スキルを逆算するのが最短ルートになりやすいです。
           </p>
         </motion.header>
 
@@ -254,7 +254,7 @@ export default function SkillsForAiEraCareerPage({ faqItems }: SkillsForAiEraCar
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まずは共通基礎と「自分の職種の始めどころ」を押さえるのが近道です。よくある疑問をQ&Aで整理します。
+            まずは共通基礎と「自分の職種の始めどころ」を押さえるのが近道です。よくある疑問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

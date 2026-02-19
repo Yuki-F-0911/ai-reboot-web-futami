@@ -176,7 +176,7 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
             プレゼン資料は「構成が固まらない」「スライドが長文化する」「見た目が整わない」で手戻りが起きやすい作業です。
             この記事では、構成→原稿→デザイン→推敲の4工程を分けて回す手順と、各工程での入力・出力の型を結論先出しで整理します。2026年の現場では、
             まずNotebookLMで「既存資料（会議資料・調査レポート・議事録など）」をソースとして整理し、要点を固めてからアウトラインに進む流れが増えています。
-            筆者はまずアウトライン（章立て）を固定してから作り込むと、最終的な修正が激減すると感じています。プロンプトの型は
+            まずアウトライン（章立て）を固定してから作り込むと、最終的な修正が減りやすいです。プロンプトの型は
             <Link
               href="/academy/blog/prompt-template-for-work"
               className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
@@ -517,7 +517,7 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: つまずきやすいのは「目的/聞き手の未固定」「文字量」「事実確認」です。よくある質問をQ&Aで整理します。
+            つまずきやすいのは「目的/聞き手の未固定」「文字量」「事実確認」です。よくある質問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

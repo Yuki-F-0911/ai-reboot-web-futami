@@ -166,7 +166,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           <p className="mt-6 text-base leading-8 text-gray-700">
             生成AIという言葉は聞くけれど、仕組みや違いがぼんやりして不安…という方向けです。
             このページでは、質問ごとに結論を先に示し、ChatGPT/Claude/Geminiの違いと始め方まで一気に整理します。
-            筆者はまず「メール下書き→要点抽出→チェックリスト化」の順で試し、仕事に落とす感覚が掴めました。
+            まず「メール下書き→要点抽出→チェックリスト化」の順で試すと、仕事に落とす感覚を掴みやすいです。
           </p>
         </motion.header>
 
@@ -188,7 +188,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             Q1. 生成AIとは何ですか？
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 生成AIは、文章・画像・コードなどの新しいコンテンツを作るAIです。専門知識がなくても、自然文で指示すれば使い始められます。
+            生成AIは、文章・画像・コードなどの新しいコンテンツを作るAIです。専門知識がなくても、自然文で指示すれば使い始められます。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             「AI」と聞くと難しく感じますが、入門段階では「質問に対して下書きを作ってくれるアシスタント」と捉えると理解しやすくなります。
@@ -218,7 +218,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             Q2. ChatGPT・Claude・Geminiは何が違いますか？
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: どれが絶対に正解というより、あなたの業務に合うかで選ぶのが正解です。最初は1つに絞って使い、必要に応じて比較すると定着しやすくなります。
+            どれが絶対に正解というより、あなたの業務に合うかで選ぶのが正解です。最初は1つに絞って使い、必要に応じて比較すると定着しやすくなります。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">比較情報の更新日: 2026年2月16日</p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: 主要3サービス比較表</h3>
@@ -261,7 +261,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             Q3. AIチャットのおすすめ比較を知りたいです
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 初心者は無料プランがある主要ツールから始めるのが安全です。選定基準は「使う環境との相性」と「日常業務に直結するか」の2点です。
+            初心者は無料プランがある主要ツールから始めるのが安全です。選定基準は「使う環境との相性」と「日常業務に直結するか」の2点です。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">比較情報の更新日: 2026年2月16日</p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: 主要AIチャットツール5選</h3>
@@ -306,7 +306,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             Q4. プロンプトはどう書けばいいですか？
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 「目的・前提・制約・出力形式」の4点を分けて書くと、出力の質が安定します。最初は短い業務タスクで反復するのが近道です。
+            「目的・前提・制約・出力形式」の4点を分けて書くと、出力の質が安定します。最初は短い業務タスクで反復するのが近道です。
           </p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: まずはこの型で書く</h3>
           <pre className="mt-4 overflow-x-auto rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm leading-7 text-gray-700">
@@ -346,7 +346,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             Q5. 次に何をすれば実務活用につながりますか？
           </h2>
           <p className="mt-4 text-base font-medium leading-8 text-gray-900">
-            結論: まずは小さく使い始め、1つの業務で成果を出してから範囲を広げると失敗しにくくなります。学習順序を決めるだけでも継続率は大きく変わります。
+            まずは小さく使い始め、1つの業務で成果を出してから範囲を広げると失敗しにくくなります。学習順序を決めるだけでも継続率は大きく変わります。
           </p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: 初心者向け3ステップ</h3>
           <ol className="mt-5 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">

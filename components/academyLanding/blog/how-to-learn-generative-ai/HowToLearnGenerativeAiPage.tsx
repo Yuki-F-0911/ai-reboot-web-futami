@@ -399,7 +399,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 大事なのは「ツール」より「順序」と「検証」です。よくある疑問をQ&Aで整理します。
+            大事なのは「ツール」より「順序」と「検証」です。よくある疑問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

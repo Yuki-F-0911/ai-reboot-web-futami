@@ -189,7 +189,7 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
             業務別AI活用事例
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最初は「改善前後を比較しやすい定型業務」から始めると成果が見えやすくなります。ここでは一般的な活用傾向を部門別に整理します。
+            最初は「改善前後を比較しやすい定型業務」から始めると成果が見えやすくなります。ここでは一般的な活用傾向を部門別に整理します。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {useCases.map((item) => (
@@ -215,7 +215,7 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
             導入前に整理すべきポイント
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: ツール選定より先に「目的」「対象業務」「効果測定」「ルール」を決めると、導入が目的化する失敗を防げます。
+            ツール選定より先に「目的」「対象業務」「効果測定」「ルール」を決めると、導入が目的化する失敗を防げます。
           </p>
           <div className="mt-6 space-y-4">
             {preparationPoints.map((point) => (
@@ -239,7 +239,7 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
             よくある失敗パターンと対策
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 失敗の多くは「対象業務が未固定」「ルールとレビューがない」「全社一斉で広げる」ことから起きます。先にパターンを押さえましょう。
+            失敗の多くは「対象業務が未固定」「ルールとレビューがない」「全社一斉で広げる」ことから起きます。先にパターンを押さえましょう。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[780px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -273,7 +273,7 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まずは「小さく検証して、運用ルールを固めてから展開」が安全です。よくある疑問をQ&Aで整理します。
+            まずは「小さく検証して、運用ルールを固めてから展開」が安全です。よくある疑問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -352,7 +352,7 @@ export default function AiBusinessEfficiencyCasesPage({ faqItems }: AiBusinessEf
             無料セミナー / 個別相談
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 自社の業務に合わせて「導入順序」と「ルール」まで具体化すると、定着が一気に進みます。無料セミナー/個別相談で整理できます。
+            自社の業務に合わせて「導入順序」と「ルール」まで具体化すると、定着が一気に進みます。無料セミナー/個別相談で整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

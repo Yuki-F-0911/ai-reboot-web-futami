@@ -152,7 +152,7 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
           <p className="mt-6 text-base leading-8 text-gray-700">
             40代・50代のAI学習とは、年齢を不利と捉えるより、経験を活かした学び方へ設計することが重要です。
             本記事では、年代別の進め方、独学で挫折しやすいポイント、学習手段の選び方を整理します。
-            筆者は「今の仕事の改善テーマ」を1つ決めてから学ぶと、学習がブレにくいと感じています。
+            「今の仕事の改善テーマ」を1つ決めてから学ぶと、学習がブレにくくなります。
           </p>
         </motion.header>
 
@@ -233,7 +233,7 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
             独学で挫折しやすいポイントと継続のコツ
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 挫折は「計画の曖昧さ」と「判断の孤独」で起きやすくなります。失敗パターンを先に知り、学習を続けるための仕組みを用意しましょう。
+            挫折は「計画の曖昧さ」と「判断の孤独」で起きやすくなります。失敗パターンを先に知り、学習を続けるための仕組みを用意しましょう。
           </p>
           <dl className="mt-6 space-y-4">
             {dropoffPatterns.map((item) => (
@@ -257,7 +257,7 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
             学習手段の比較（独学・オンライン講座・通学）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 続けやすさは「自走できるか」より「支援導線があるか」で決まることが多いです。自分のつまずきポイントに合う手段を選びましょう。
+            続けやすさは「自走できるか」より「支援導線があるか」で決まることが多いです。自分のつまずきポイントに合う手段を選びましょう。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">

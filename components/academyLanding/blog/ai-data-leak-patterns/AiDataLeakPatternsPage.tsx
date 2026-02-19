@@ -180,7 +180,7 @@ export default function AiDataLeakPatternsPage({ faqItems }: AiDataLeakPatternsP
             なぜ生成AIで情報漏えいが起きるのか
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 漏えいは「個人の不注意」だけではなく、仕組みと誤解で起きます。まず“入力がどこへ送られるか”を正しく理解することが第一歩です。
+            漏えいは「個人の不注意」だけではなく、仕組みと誤解で起きます。まず“入力がどこへ送られるか”を正しく理解することが第一歩です。
           </p>
           <div className="mt-6 space-y-4 text-sm leading-7 text-gray-700">
             <p>

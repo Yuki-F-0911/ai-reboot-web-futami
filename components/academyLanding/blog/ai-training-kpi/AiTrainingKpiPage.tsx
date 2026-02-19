@@ -192,7 +192,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
             AI研修が&quot;やりっぱなし&quot;になる理由
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 研修は「学ぶイベント」になりやすく、業務に落とす設計がないと日常業務に負けます。研修前に「研修後30日で何をやるか」まで決めると、定着率が大きく変わります。
+            研修は「学ぶイベント」になりやすく、業務に落とす設計がないと日常業務に負けます。研修前に「研修後30日で何をやるか」まで決めると、定着率が大きく変わります。
           </p>
           <div className="mt-7 grid gap-4 md:grid-cols-2">
             <section className="rounded-lg border border-gray-200 p-5">
@@ -226,7 +226,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
             KPI設計の3段階フレームワーク
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 研修KPIは「理解できたか」だけで終わらせず、行動と成果まで追います。最低でも「直後/1ヶ月/3ヶ月」の3点で定点観測すると、定着の打ち手が作れます。
+            研修KPIは「理解できたか」だけで終わらせず、行動と成果まで追います。最低でも「直後/1ヶ月/3ヶ月」の3点で定点観測すると、定着の打ち手が作れます。
           </p>
           <div className="mt-7 grid gap-4 md:grid-cols-3">
             <section className="rounded-lg border border-gray-200 bg-white p-5">
@@ -286,7 +286,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
             AI研修の現場タスク化のコツ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 定着は「タスクの設計」で決まります。研修直後に、SMART基準でOJTタスクを用意し、提出物と上長レビューまでセットにすると実務で回りやすくなります。
+            定着は「タスクの設計」で決まります。研修直後に、SMART基準でOJTタスクを用意し、提出物と上長レビューまでセットにすると実務で回りやすくなります。
           </p>
 
           <h3 className="mt-10 text-lg font-semibold text-gray-900">OJTタスクの設計方法（SMART）</h3>
@@ -352,7 +352,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
             AI研修の上長巻き込み戦略
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 上長の関与を「お願い」ではなく「設計」で作ります。15分ブリーフィングで役割を明確にし、部下KPIを上長の評価項目に連動させると回りやすくなります。
+            上長の関与を「お願い」ではなく「設計」で作ります。15分ブリーフィングで役割を明確にし、部下KPIを上長の評価項目に連動させると回りやすくなります。
           </p>
 
           <h3 className="mt-10 text-lg font-semibold text-gray-900">上長向けブリーフィング（15分）の設計</h3>
@@ -395,7 +395,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
             AI研修の効果測定とレポーティング
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 測定は「直後/1ヶ月/3ヶ月」の3回が基本です。直後は理解度、1ヶ月後は行動、3ヶ月後は成果・ROIを見ます。
+            測定は「直後/1ヶ月/3ヶ月」の3回が基本です。直後は理解度、1ヶ月後は行動、3ヶ月後は成果・ROIを見ます。
           </p>
 
           <h3 className="mt-10 text-lg font-semibold text-gray-900">測定のタイミング（直後/1ヶ月/3ヶ月）</h3>
@@ -450,7 +450,7 @@ export default function AiTrainingKpiPage({ faqItems }: AiTrainingKpiPageProps) 
             AI研修KPIシートテンプレート
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 迷うポイントは「誰が、いつ、どう測るか」です。以下の表をそのまま自社用に置き換えると、運用が崩れにくくなります。
+            迷うポイントは「誰が、いつ、どう測るか」です。以下の表をそのまま自社用に置き換えると、運用が崩れにくくなります。
           </p>
           <div className="mt-7 overflow-x-auto">
             <table className="w-full min-w-[980px] border-collapse text-left text-sm leading-7 text-gray-700">

@@ -232,7 +232,7 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
             AIがExcel業務を変える3つのポイント
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: AIは「式を作る」「整える」「説明文に落とす」を高速化します。人は検算と意思決定の質を上げることに集中できます。
+            AIは「式を作る」「整える」「説明文に落とす」を高速化します。人は検算と意思決定の質を上げることに集中できます。
           </p>
           <div className="mt-6 space-y-4">
             {threePoints.map((point) => (
@@ -256,7 +256,7 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
             ChatGPT/ClaudeでExcel関数を生成する方法（VLOOKUP・IF・ピボット等）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 関数生成は「列名」「条件」「戻り値」「例外」を具体化できれば再現性が出ます。最後は必ず検算して採用しましょう。
+            関数生成は「列名」「条件」「戻り値」「例外」を具体化できれば再現性が出ます。最後は必ず検算して採用しましょう。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             「列名（どの列）」「条件（いつ）」「戻り値（何を返す）」「例外（見つからない/空白）」を具体的に渡すのがコツです。式は必ずサンプルデータで検算し、
@@ -592,7 +592,7 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: つまずきやすいのは「機密データ」「検算不足」「目的の曖昧さ」です。よくある疑問をQ&Aで整理します。
+            つまずきやすいのは「機密データ」「検算不足」「目的の曖昧さ」です。よくある疑問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -673,7 +673,7 @@ export default function AiDataAnalysisExcelPage({ faqItems }: AiDataAnalysisExce
 	            次のアクション：実務に落とし込みたい方へ
 	          </h2>
 	          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-	            結論: ツールの知識より「何を判断したいか」を言語化する思考OSで成果が出ます。仲間と100日間の伴走で、あなたの業務データを使った実務アウトプットまで落とし込むなら
+	            ツールの知識より「何を判断したいか」を言語化する思考OSで成果が出ます。仲間と100日間の伴走で、あなたの業務データを使った実務アウトプットまで落とし込むなら
 	            <Link href="/academy" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
 	              AIリブートアカデミー
 	            </Link>

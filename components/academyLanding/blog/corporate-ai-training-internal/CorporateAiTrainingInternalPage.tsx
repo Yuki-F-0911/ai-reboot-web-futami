@@ -208,7 +208,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
             社内AI研修が必要な背景（DX推進と人材育成の関係）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: DX推進は「ツール導入＋現場で再現できる使い方の標準化」がセットです。社内AI研修は、その標準化と定着を進めるための土台になります。
+            DX推進は「ツール導入＋現場で再現できる使い方の標準化」がセットです。社内AI研修は、その標準化と定着を進めるための土台になります。
           </p>
           <div className="mt-7 space-y-4">
             {backgroundPoints.map((item) => (
@@ -232,7 +232,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
             研修設計の3ステップ（目的設定、対象者選定、プログラム構築）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 社内研修は「目的→対象→プログラム」の順番で設計すると、実務との接続を崩さずに進められます。
+            社内研修は「目的→対象→プログラム」の順番で設計すると、実務との接続を崩さずに進められます。
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {designSteps.map((item, index) => (
@@ -272,7 +272,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
             外部研修 vs 社内研修の比較
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 外部研修は「短期で基礎を底上げ」、社内研修は「自社業務へ適用して定着」へ強みがあります。目的で使い分けるのが実務的です。
+            外部研修は「短期で基礎を底上げ」、社内研修は「自社業務へ適用して定着」へ強みがあります。目的で使い分けるのが実務的です。
           </p>
           <div className="mt-7 overflow-x-auto">
             <table className="w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -308,7 +308,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
             研修後の定着施策（OJT連携、社内勉強会、効果測定）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 研修の効果は「研修後の運用」で決まります。OJT連携・社内勉強会・効果測定を、研修計画の時点で組み込みましょう。
+            研修の効果は「研修後の運用」で決まります。OJT連携・社内勉強会・効果測定を、研修計画の時点で組み込みましょう。
           </p>
           <div className="mt-6 space-y-4">
             {retentionMeasures.map((item) => (
@@ -339,7 +339,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 社内研修の最適解は、対象業務・受講者層・運用体制で変わります。よくある疑問をQ&Aで整理します。
+            社内研修の最適解は、対象業務・受講者層・運用体制で変わります。よくある疑問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -407,7 +407,7 @@ export default function CorporateAiTrainingInternalPage({ faqItems }: CorporateA
             社内AI研修の立ち上げを具体化したい方へ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まずは「対象業務」と「研修後の運用責任」を決めてから、研修設計へ落とし込むのが最短です。必要に応じて
+            まずは「対象業務」と「研修後の運用責任」を決めてから、研修設計へ落とし込むのが最短です。必要に応じて
             <Link href="/corporate" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               法人向けページ
             </Link>

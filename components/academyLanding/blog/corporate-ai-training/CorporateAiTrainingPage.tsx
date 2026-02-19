@@ -398,7 +398,7 @@ export default function CorporateAiTrainingPage({ faqItems }: CorporateAiTrainin
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 研修の最適な形は企業規模・対象者・目的で変わります。よくある疑問をQ&Aで整理します。
+            研修の最適な形は企業規模・対象者・目的で変わります。よくある疑問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (

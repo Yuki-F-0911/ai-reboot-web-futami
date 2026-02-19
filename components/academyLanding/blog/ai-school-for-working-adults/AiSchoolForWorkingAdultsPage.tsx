@@ -193,7 +193,7 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
             社会人がAIスクールを選ぶ際の5つの基準
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 料金の比較より先に「学習の継続性」と「修了後に実務へつなげられるか」を確認するのが安全です。2026年はAIエージェントやマルチモーダル前提の実務が増える傾向があるため、
+            料金の比較より先に「学習の継続性」と「修了後に実務へつなげられるか」を確認するのが安全です。2026年はAIエージェントやマルチモーダル前提の実務が増える傾向があるため、
             ツール操作だけで終わらない演習設計になっているかを見ておきましょう。
           </p>
           <div className="mt-6 space-y-4">
@@ -218,7 +218,7 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
             オンライン vs 通学の比較
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: どちらが優れているかではなく、生活リズムとの一致が継続性を左右します。自分の制約（時間・場所・フィードバック頻度）に合う形式を選びましょう。
+            どちらが優れているかではなく、生活リズムとの一致が継続性を左右します。自分の制約（時間・場所・フィードバック頻度）に合う形式を選びましょう。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -395,7 +395,7 @@ export default function AiSchoolForWorkingAdultsPage({ faqItems }: AiSchoolForWo
             無料セミナー / 個別相談
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 比較で止まらず、目的に合う学習ルートまで落とし込むのが最短です。無料セミナー/個別相談で短時間で整理できます。
+            比較で止まらず、目的に合う学習ルートまで落とし込むのが最短です。無料セミナー/個別相談で短時間で整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

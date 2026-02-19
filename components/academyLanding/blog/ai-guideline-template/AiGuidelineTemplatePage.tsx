@@ -23,7 +23,7 @@ const sectionReveal = {
 const keywordTags = ["生成AI 社内ガイドライン", "禁止事項", "権限・ログ", "例外申請"] as const;
 
 const tocItems = [
-  { id: "conclusion", label: "結論：禁止ではなく安全に使える状態" },
+  { id: "conclusion", label: "禁止ではなく安全に使える状態" },
   { id: "risks", label: "リスクとガイドライン論点" },
   { id: "one-page-template", label: "【コピペ可】1枚雛形" },
   { id: "30-days", label: "30日で運用まで持っていく" },
@@ -127,10 +127,10 @@ export default function AiGuidelineTemplatePage({ faqItems }: AiGuidelineTemplat
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            結論：社内ガイドラインは「禁止」ではなく「安全に使える状態」を作る
+            社内ガイドラインは「禁止」ではなく「安全に使える状態」を作る
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: ガイドラインは「使っていい範囲」を先に定義し、<span className="font-semibold">権限とログ</span>で統制する文書です。
+            ガイドラインは「使っていい範囲」を先に定義し、<span className="font-semibold">権限とログ</span>で統制する文書です。
             禁止事項だけを増やすと、現場は個人アカウント（シャドーAI）へ逃げやすく、監査も教育もできません。
           </p>
 

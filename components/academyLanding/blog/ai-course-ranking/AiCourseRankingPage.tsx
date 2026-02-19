@@ -240,7 +240,7 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             ランキングの評価基準
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 講座の良し悪しは「目的に合う設計か」で決まります。カリキュラム・実務接続・サポート・コスパ・受講者評価の5軸で比較すると判断が早くなります。
+            講座の良し悪しは「目的に合う設計か」で決まります。カリキュラム・実務接続・サポート・コスパ・受講者評価の5軸で比較すると判断が早くなります。
           </p>
           <figure className="my-8">
             <Image
@@ -307,7 +307,7 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             目的別おすすめ（転職・副業・業務効率化）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 目的が違えば「必要な講座タイプ」も変わります。まずは転職/副業/業務効率化のどれを優先するかを1つに固定してください。
+            目的が違えば「必要な講座タイプ」も変わります。まずは転職/副業/業務効率化のどれを優先するかを1つに固定してください。
           </p>
           <figure className="my-8">
             <Image
@@ -340,7 +340,7 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             選び方のポイント（補助金対応・受講形式・期間）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 比較で迷ったら「補助金/給付金の要件」「学習継続しやすい形式」「実務適用に必要な期間」の3点を先に確認すると判断が早くなります。
+            比較で迷ったら「補助金/給付金の要件」「学習継続しやすい形式」「実務適用に必要な期間」の3点を先に確認すると判断が早くなります。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {selectionPoints.map((point) => (
@@ -364,7 +364,7 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             よくある失敗パターンと回避法
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 失敗の多くは「目的が曖昧なまま申込む」「受講後の実務適用計画がない」ことから起きます。回避の視点を先に押さえましょう。
+            失敗の多くは「目的が曖昧なまま申込む」「受講後の実務適用計画がない」ことから起きます。回避の視点を先に押さえましょう。
           </p>
           <dl className="mt-6 space-y-4">
             {failurePatterns.map((item) => (
@@ -388,7 +388,7 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最終判断は公式情報の確認が前提です。そのうえで、比較で迷いやすい論点をQ&Aで整理します。
+            最終判断は公式情報の確認が前提です。そのうえで、比較で迷いやすい論点をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -473,7 +473,7 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
             無料セミナー / 個別相談
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 比較で止まらず、実行できる計画まで落とし込むのが最短です。無料セミナーで全体像を掴み、個別相談で目的に合う受講戦略を確認できます。
+            比較で止まらず、実行できる計画まで落とし込むのが最短です。無料セミナーで全体像を掴み、個別相談で目的に合う受講戦略を確認できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

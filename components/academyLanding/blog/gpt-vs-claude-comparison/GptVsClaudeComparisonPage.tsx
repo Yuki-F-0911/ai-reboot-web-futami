@@ -264,7 +264,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             GPT-4とClaudeの基本情報（開発元、モデル、リリース時期）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 「モデル名そのもの」よりも、プロダクト（ChatGPT/Claude）とAPI、選べるモデル、利用上限/機能の組み合わせで体験が変わります。
+            「モデル名そのもの」よりも、プロダクト（ChatGPT/Claude）とAPI、選べるモデル、利用上限/機能の組み合わせで体験が変わります。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             「GPT-4 vs Claude」と言っても、実際はプロダクト（ChatGPT/Claude）とAPI、選択できるモデル、利用上限や機能の組み合わせで体験が変わります。ここでは“系統”としての違いを整理します。
@@ -303,7 +303,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             性能比較（文章生成/コード生成/分析/要約/創造性）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: どちらが“上”かではなく、「あなたのタスクで勝つか」を見るのが正解です。同じ入力（プロンプト・素材）を渡し、出力の再現性と修正指示への追従で判断しましょう。
+            どちらが“上”かではなく、「あなたのタスクで勝つか」を見るのが正解です。同じ入力（プロンプト・素材）を渡し、出力の再現性と修正指示への追従で判断しましょう。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[920px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -339,7 +339,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             得意分野の違い（GPT-4が強い領域 vs Claudeが強い領域）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 速度が必要な工程（発散/試作/実装）にGPT系、文章の最終品質に影響する工程（推敲/トーン調整/レビュー）にClaudeを置くと、強みを活かしやすいです。
+            速度が必要な工程（発散/試作/実装）にGPT系、文章の最終品質に影響する工程（推敲/トーン調整/レビュー）にClaudeを置くと、強みを活かしやすいです。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {strengths.map((block) => (
@@ -372,7 +372,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             料金プラン比較（無料枠/個人プラン/API料金）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 料金は頻繁に更新されるため、ここでは「比較の考え方」を中心に整理します。個人はサブスク、APIは従量という前提で、あなたの利用量で試算するのが安全です。
+            料金は頻繁に更新されるため、ここでは「比較の考え方」を中心に整理します。個人はサブスク、APIは従量という前提で、あなたの利用量で試算するのが安全です。
           </p>
           <div className="mt-6 space-y-4">
             {pricingRows.map((row) => (
@@ -396,7 +396,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             用途別おすすめ（ビジネス文書/プログラミング/学習/クリエイティブ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まずは最重要の1タスクで両方を比較し、「修正指示への追従」と「再現性」が高い方を主軸に置くのが失敗しにくいです。
+            まずは最重要の1タスクで両方を比較し、「修正指示への追従」と「再現性」が高い方を主軸に置くのが失敗しにくいです。
           </p>
           <div className="mt-6 space-y-4">
             {useCaseRecommendations.map((item) => (
@@ -420,7 +420,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
             両方使いこなすコツ（併用の実践パターン）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 併用のポイントは「工程で分ける」「同じ入力で比較できる状態を作る」「長文は分割する」の3つです。以下のパターンをベースに、あなたの業務フローへ落とし込みましょう。
+            併用のポイントは「工程で分ける」「同じ入力で比較できる状態を作る」「長文は分割する」の3つです。以下のパターンをベースに、あなたの業務フローへ落とし込みましょう。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {combinePatterns.map((item) => (

@@ -226,7 +226,7 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
             RAGとは？（Retrieval-Augmented Generation の基本概念）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: RAGは「検索で関連文書を取り出し、その内容を参照して生成する」ことで、回答の根拠を外部データに持たせる方式です。
+            RAGは「検索で関連文書を取り出し、その内容を参照して生成する」ことで、回答の根拠を外部データに持たせる方式です。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             生成AI（LLM）は学習済みパラメータに知識を持ちますが、社内規程や最新仕様などは学習時点に存在しない場合があります。RAGは、その不足を検索で補う設計です。用語としてのRAGは、Lewis et al.
@@ -271,7 +271,7 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
             RAGの仕組み（検索→コンテキスト付与→生成の3ステップ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: RAGは「検索 → 参照情報をプロンプトへ追加 → 生成」の3ステップで、生成の前提を“根拠付き”にします。
+            RAGは「検索 → 参照情報をプロンプトへ追加 → 生成」の3ステップで、生成の前提を“根拠付き”にします。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             図解風に言うと、LLMにいきなり回答を作らせるのではなく、先に「材料（根拠）」を集めてから文章化させる流れです。これにより、社内ルールや製品仕様のような外部知識を回答へ織り込めます。
@@ -341,7 +341,7 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
             RAGが注目される背景（ハルシネーション対策、社内データ活用）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: RAGが注目される理由は、(1) 根拠を参照させて誤りを減らす、(2) 社内データを安全に使う入口になる、の2点です。
+            RAGが注目される理由は、(1) 根拠を参照させて誤りを減らす、(2) 社内データを安全に使う入口になる、の2点です。
           </p>
           <div className="mt-6">
             <Image
@@ -390,7 +390,7 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
             RAGのメリットと限界（精度向上・最新情報対応 vs 構築コスト・検索精度依存）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: RAGは「根拠で精度を上げる」点が強みですが、検索・データ整備・運用のコストが増えます。
+            RAGは「根拠で精度を上げる」点が強みですが、検索・データ整備・運用のコストが増えます。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             <section className="rounded-lg border border-emerald-200 bg-emerald-50 p-5">
@@ -437,7 +437,7 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
             RAGの活用事例（社内FAQ、ナレッジベース、カスタマーサポート、法務文書検索）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: RAGは「参照すべき資料がある業務」で効果が出やすく、問い合わせ対応・検索・下書き作成のような反復作業と相性が良いです。
+            RAGは「参照すべき資料がある業務」で効果が出やすく、問い合わせ対応・検索・下書き作成のような反復作業と相性が良いです。
           </p>
           <div className="mt-6">
             <Image
@@ -470,7 +470,7 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
             RAGを始めるには（主要フレームワーク: LangChain, LlamaIndex, Azure AI Search 等）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最初は「対象データ」「権限」「評価」を決め、検索の小さな成功（答えられる質問が増える）を積み上げるのが安全です。
+            最初は「対象データ」「権限」「評価」を決め、検索の小さな成功（答えられる質問が増える）を積み上げるのが安全です。
           </p>
           <div className="mt-6">
             <Image
@@ -550,7 +550,7 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
             RAGとファインチューニングの違い（使い分け判断基準）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 知識を最新化したいならRAG、文章の型や判断基準を“学習”で固定したいならファインチューニング、という整理が基本です。
+            知識を最新化したいならRAG、文章の型や判断基準を“学習”で固定したいならファインチューニング、という整理が基本です。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">

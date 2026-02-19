@@ -203,7 +203,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             アカウント作成から最初の質問までの手順（ChatGPT / Claude共通）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最初は「アカウント作成 → 1つの用途で試す → 同じ質問で比較」の順に進めると、最短で使い分けの感覚が掴めます。
+            最初は「アカウント作成 → 1つの用途で試す → 同じ質問で比較」の順に進めると、最短で使い分けの感覚が掴めます。
           </p>
           <div className="mt-6 space-y-4">
             {gettingStartedFlow.map((item) => (
@@ -227,7 +227,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             無料プランでできること・有料プランとの違い
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 最初から有料を前提にせず、無料範囲で利用目的を固めるのが堅実です。用途と利用頻度が明確になった段階で、各プランを比較して選びましょう。
+            最初から有料を前提にせず、無料範囲で利用目的を固めるのが堅実です。用途と利用頻度が明確になった段階で、各プランを比較して選びましょう。
             例として、ChatGPT（Plus/Pro、地域によってはGoなど）やClaude（Pro/Maxなど）のように、個人向けにも複数の有料プランが用意されることがあります（2026年2月時点、名称/料金/提供内容は更新されます）。
           </p>
           <div className="mt-6 overflow-x-auto">
@@ -264,7 +264,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             最初の1週間で試すべき7つの使い方
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 1週間で幅広く試しておくと、自分の業務に合う活用パターンが見つけやすくなります。以下の7つは初心者でも着手しやすい基本用途です。
+            1週間で幅広く試しておくと、自分の業務に合う活用パターンが見つけやすくなります。以下の7つは初心者でも着手しやすい基本用途です。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {firstWeekUseCases.map((item) => (
@@ -288,7 +288,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             よくある初心者の失敗と対策
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 失敗の多くは「曖昧な質問」と「1回で終わらせようとする運用」から起きます。型（目的・前提・出力形式）と追質問を前提にすると、安定して成果が出ます。
+            失敗の多くは「曖昧な質問」と「1回で終わらせようとする運用」から起きます。型（目的・前提・出力形式）と追質問を前提にすると、安定して成果が出ます。
           </p>
           <div className="mt-6 space-y-4">
             {beginnerMistakes.map((item) => (

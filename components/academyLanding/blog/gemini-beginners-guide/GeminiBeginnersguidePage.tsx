@@ -149,7 +149,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           <p className="mt-6 text-base leading-8 text-gray-700">
             Geminiを触ってみたものの、どこから始めるか・何ができるかが分かりにくいのが最初の壁です。
             このガイドでは、無料で始める手順、ChatGPT/Claudeとの違い、仕事で再現しやすい使い方を結論先出しで整理します。
-            筆者はまず「社内FAQの下書き→チェックリスト化」で試し、Googleサービス連携の強みが出る場面を掴みました（機能/料金/提供条件は更新されるため、実際の画面・公式案内もあわせて確認してください）。
+            まず「社内FAQの下書き→チェックリスト化」で試すと、Googleサービス連携の強みが出る場面を掴みやすいです（機能/料金/提供条件は更新されるため、実際の画面・公式案内もあわせて確認してください）。
           </p>
         </motion.header>
 
@@ -187,7 +187,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             Geminiとは？（Google AI概要）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: Geminiは、文章生成や要約などを自然文で依頼できるGoogleの生成AIの一つです。Googleアカウントで試しやすく、Googleのサービスを使う人ほど運用に組み込みやすい傾向があります。
+            Geminiは、文章生成や要約などを自然文で依頼できるGoogleの生成AIの一つです。Googleアカウントで試しやすく、Googleのサービスを使う人ほど運用に組み込みやすい傾向があります。
           </p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">初心者が押さえるポイント</h3>
           <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
@@ -211,7 +211,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             Gemini vs ChatGPT vs Claude（比較表）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: どれが正解というより「あなたの業務タスク」と「利用環境」に合うかで選ぶのが正解です。まずは同じ依頼文で出力を比較すると判断が早くなります。
+            どれが正解というより「あなたの業務タスク」と「利用環境」に合うかで選ぶのが正解です。まずは同じ依頼文で出力を比較すると判断が早くなります。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">比較情報の更新日: 2026年2月17日（提供条件は変動します）</p>
           <div className="mt-6 overflow-x-auto">
@@ -260,7 +260,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             Geminiの始め方（ステップバイステップ）
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            結論: 初心者は「Googleアカウントで触る → 1タスクで試す → 型を作る → 必要なら上位プラン検討」の順に進めると迷いません。注: 画面構成や提供条件は変更されます。
+            初心者は「Googleアカウントで触る → 1タスクで試す → 型を作る → 必要なら上位プラン検討」の順に進めると迷いません。注: 画面構成や提供条件は変更されます。
           </p>
           <div className="mt-6 space-y-4">
             {gettingStartedFlow.map((item) => (
@@ -291,7 +291,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             業務での活用パターン
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 生成AIは「考える時間」を増やすために、前処理（要約・整理・下書き）を肩代わりさせるのが最も効果的です。最初は小さく始め、うまくいった型を横展開します。
+            生成AIは「考える時間」を増やすために、前処理（要約・整理・下書き）を肩代わりさせるのが最も効果的です。最初は小さく始め、うまくいった型を横展開します。
           </p>
           <div className="mt-6 space-y-4">
             {workUseCases.map((item) => (

@@ -259,7 +259,7 @@ export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
             RAGとは？（簡潔な復習）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: RAG（検索拡張生成）は「検索で関連文書を取り出し、その内容を根拠としてLLMが回答を生成する」仕組みです。
+            RAG（検索拡張生成）は「検索で関連文書を取り出し、その内容を根拠としてLLMが回答を生成する」仕組みです。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             仕組みの詳細やメリット/限界を先に整理したい場合は、{" "}
@@ -290,7 +290,7 @@ export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
             <h2 id={section.id} className="scroll-mt-28 text-2xl font-bold text-gray-900">
               {section.title}
             </h2>
-            <p className="mt-5 text-base font-medium leading-8 text-gray-900">結論: {section.fit}</p>
+            <p className="mt-5 text-base font-medium leading-8 text-gray-900">{section.fit}</p>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               <section className="rounded-lg border border-gray-200 p-5">
                 <h3 className="text-lg font-semibold text-gray-900">向いている業務</h3>
@@ -328,7 +328,7 @@ export default function RagUseCasesPage({ faqItems }: RagUseCasesPageProps) {
             RAG導入のステップと注意点
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 先に「ユースケース」「正本（根拠）」「権限」「評価」を決め、検索が当たる状態を作ってから生成を広げるのが最短です。
+            先に「ユースケース」「正本（根拠）」「権限」「評価」を決め、検索が当たる状態を作ってから生成を広げるのが最短です。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             事例を見たあとに迷いやすいのが「何から手を付けるか」です。法人での進め方の全体像は{" "}

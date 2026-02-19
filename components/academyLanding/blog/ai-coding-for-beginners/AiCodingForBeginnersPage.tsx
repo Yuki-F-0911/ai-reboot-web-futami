@@ -214,7 +214,7 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
           <p className="mt-6 text-base leading-8 text-gray-700">
             AIコーディングとは、「環境構築なしで小さく試す」→「1つの自動化を完成させる」→「ツールを選び、レビュー手順を作って実務に乗せる」が最短ルートです。
             AIでコードを書けると聞くとワクワクしますが、最初は「何を作ればいいか」で止まりがちです。
-            筆者はまず「CSVを整形して、そのままSlackに貼れる文章にする」小さな自動化から始め、プロンプトの型を掴みました。
+            まず「CSVを整形して、そのままSlackに貼れる文章にする」小さな自動化から始めると、プロンプトの型を掴みやすいです。
           </p>
         </motion.header>
 
@@ -243,7 +243,7 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
             AIコーディングとは？（コード生成AIの概要）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: AIコーディングは、目的と条件を日本語で指定してコードの叩き台を作り、検証と修正を反復して完成度を上げる進め方です。
+            AIコーディングは、目的と条件を日本語で指定してコードの叩き台を作り、検証と修正を反復して完成度を上げる進め方です。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             AIコーディングは、自然言語（日本語）で目的や条件を伝え、コードの叩き台・修正案・テスト観点などを生成してもらう開発スタイルです。「ゼロから書く」よりも、
@@ -291,7 +291,7 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
             代表的なAIコーディングツール（ChatGPT/Claude/Copilot/Cursor/Windsurf/Replit）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 初心者はまず「チャット型」で理解と方針を固め、次に「エディタ統合」で速度を上げる順序が取り組みやすいです。
+            初心者はまず「チャット型」で理解と方針を固め、次に「エディタ統合」で速度を上げる順序が取り組みやすいです。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             各ツールの機能やプランは変わるため、必要に応じて公式情報も確認してください。
@@ -327,7 +327,7 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
             非エンジニアがAIコーディングで実現できること
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 非エンジニアは「影響範囲が小さく、成果が見えやすい作業」をAIで自動化すると、学びが実務につながりやすいです。
+            非エンジニアは「影響範囲が小さく、成果が見えやすい作業」をAIで自動化すると、学びが実務につながりやすいです。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             ポイントは「影響範囲が小さく、成果が見えやすい作業」から始めることです。最初に作るテーマ選びは、
@@ -380,7 +380,7 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
             AIコーディングの始め方5ステップ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 5ステップで「小さく作る→動かす→テスト/レビューで固定」を回すと、最短で実務に乗ります。
+            5ステップで「小さく作る→動かす→テスト/レビューで固定」を回すと、最短で実務に乗ります。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             初心者がつまずきやすいのは「最初から大きく作る」「ツールを先に固定する」「レビューなしで本番に当てる」です。以下の順序で、検証しながら段階的に広げましょう。
@@ -416,7 +416,7 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
             すぐ試せるプロンプト例（Python / Excel VBA / GAS / HTML）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: プロンプトは「目的/前提/要件/出力形式」を先に固定すると、コードのブレが減ります。
+            プロンプトは「目的/前提/要件/出力形式」を先に固定すると、コードのブレが減ります。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             仕事向けのテンプレは
@@ -471,7 +471,7 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
             AIコーディングの限界と注意点（セキュリティ、レビュー）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 生成コードはそのまま本番に入れず、機密/レビュー/権利の3点をルール化してから使うのが安全です。
+            生成コードはそのまま本番に入れず、機密/レビュー/権利の3点をルール化してから使うのが安全です。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             AIは便利ですが「正しさ」を保証してくれるわけではありません。特に実務では、セキュリティと品質の観点を先に決めておくと事故を防げます。
@@ -603,7 +603,7 @@ export default function AiCodingForBeginnersPage({ faqItems }: AiCodingForBeginn
 	            AIリブートアカデミーで、AIを「実務で使える型」＋キャリアの武器へ
 	          </h2>
 	          <p className="mt-4 text-base font-medium leading-8 text-gray-900">
-	            結論: 成果を分けるのはツール名よりも「入力の設計（前提・制約・出力形式）」「レビュー手順」「小さく回す運用」です。
+	            成果を分けるのはツール名よりも「入力の設計（前提・制約・出力形式）」「レビュー手順」「小さく回す運用」です。
 	          </p>
 	          <p className="mt-4 text-base leading-8 text-gray-700">
 	            型を覚えるだけで終わらせず、「自分の強みをどう伸ばすか」まで整理しながら100日間の伴走で実務に定着させたい方は、アカデミーの講座一覧をご覧ください。

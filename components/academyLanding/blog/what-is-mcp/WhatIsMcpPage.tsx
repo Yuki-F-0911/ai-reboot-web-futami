@@ -111,7 +111,7 @@ export default function WhatIsMcpPage({ faqItems }: WhatIsMcpPageProps) {
             <li className="pl-1 marker:text-gray-500">安全な連携のために、ガイドラインとチェックリストが必須</li>
           </ul>
           <p className="mt-6 text-sm leading-7 text-gray-700">
-            結論: MCPは「便利な接続規格」であり、導入の成否は<span className="font-semibold text-gray-900">運用設計（境界線）</span>で決まります。
+            MCPは「便利な接続規格」であり、導入の成否は<span className="font-semibold text-gray-900">運用設計（境界線）</span>で決まります。
             技術より先に、権限・認証・監査の“仕組み”を整えてから広げるのが最短ルートです。
           </p>
         </motion.section>

@@ -236,7 +236,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
             AI資格の全体マップ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: AI資格は「ビジネス系」「技術系」「実装系」の3軸で見ると、選ぶべき順序が明確になります。現在の業務と目標職種に合わせて軸を決めましょう。
+            AI資格は「ビジネス系」「技術系」「実装系」の3軸で見ると、選ぶべき順序が明確になります。現在の業務と目標職種に合わせて軸を決めましょう。
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {mapAxes.map((item, index) => (
@@ -444,7 +444,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 資格は「目的」と「実務での使いどころ」がセットです。迷いやすい論点をQ&Aで整理します。
+            資格は「目的」と「実務での使いどころ」がセットです。迷いやすい論点をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -544,7 +544,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
             無料セミナー / 個別相談
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 資格で得た知識を「現場で使える形」へ落とし込むには、業務テーマと実行計画まで落とすのが近道です。無料セミナー/個別相談で整理できます。
+            資格で得た知識を「現場で使える形」へ落とし込むには、業務テーマと実行計画まで落とすのが近道です。無料セミナー/個別相談で整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

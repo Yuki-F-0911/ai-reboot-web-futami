@@ -542,7 +542,7 @@ export default function PythonAiIntroPage({ faqItems }: PythonAiIntroPageProps) 
             生成AI時代のPython活用（LangChain/OpenAI API/ローカルLLM）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 生成AIの実務は「API連携」か「RAG」が入口で、Pythonは周辺ライブラリが揃っているため実装と検証を回しやすいです。
+            生成AIの実務は「API連携」か「RAG」が入口で、Pythonは周辺ライブラリが揃っているため実装と検証を回しやすいです。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
             生成AI（LLM）は、機械学習とは違って「既存モデルを使う」比重が大きくなります。実務では、(1)API連携でプロダクトに組み込む、(2)自分のデータに基づいて回答する（RAG）、の2パターンが入口になりやすいです。

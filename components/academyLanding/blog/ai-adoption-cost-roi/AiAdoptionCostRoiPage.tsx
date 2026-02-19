@@ -164,7 +164,7 @@ export default function AiAdoptionCostRoiPage({ faqItems }: AiAdoptionCostRoiPag
             生成AI導入の3つの方法と費用相場
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最初のPoCは<span className="font-semibold">SaaS型</span>で「小さく・早く」試し、効果が見えたら<span className="font-semibold">API開発型</span>へ拡張するのが低リスクです。
+            最初のPoCは<span className="font-semibold">SaaS型</span>で「小さく・早く」試し、効果が見えたら<span className="font-semibold">API開発型</span>へ拡張するのが低リスクです。
             ただし、要件（セキュリティ・連携・データ）が強い場合は最初から設計が必要です。
           </p>
 
@@ -216,7 +216,7 @@ export default function AiAdoptionCostRoiPage({ faqItems }: AiAdoptionCostRoiPag
             費用の内訳を理解する
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 「APIの単価」だけ見ても予算は決まりません。稟議で揉めやすいのは、<span className="font-semibold">開発・運用・教育・セキュリティ</span>が後から追加されることです。
+            「APIの単価」だけ見ても予算は決まりません。稟議で揉めやすいのは、<span className="font-semibold">開発・運用・教育・セキュリティ</span>が後から追加されることです。
             先に全体像を分解して見積もります。
           </p>
 
@@ -315,7 +315,7 @@ export default function AiAdoptionCostRoiPage({ faqItems }: AiAdoptionCostRoiPag
             ROIの計算方法
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: ROIは「削減コスト」と「売上増」を足し、導入総コストを引いてから、コストで割ります。重要なのは、まず定量（工数・人件費）で土台を作り、
+            ROIは「削減コスト」と「売上増」を足し、導入総コストを引いてから、コストで割ります。重要なのは、まず定量（工数・人件費）で土台を作り、
             定性（品質・満足度）を補助評価として乗せることです。
           </p>
 
@@ -396,7 +396,7 @@ export default function AiAdoptionCostRoiPage({ faqItems }: AiAdoptionCostRoiPag
             PoC予算の決め方
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: PoCの目的は「すごいデモ」ではなく、<span className="font-semibold">費用対効果を測れる形で再現性を出すこと</span>です。期間は1〜3ヶ月、予算は50万〜300万円を目安に設計します。
+            PoCの目的は「すごいデモ」ではなく、<span className="font-semibold">費用対効果を測れる形で再現性を出すこと</span>です。期間は1〜3ヶ月、予算は50万〜300万円を目安に設計します。
           </p>
 
           <h3 className="mt-8 text-lg font-semibold text-gray-900">PoC予算の構成要素</h3>
@@ -464,7 +464,7 @@ export default function AiAdoptionCostRoiPage({ faqItems }: AiAdoptionCostRoiPag
             投資回収シミュレーション
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 稟議で強いのは「何ヶ月で回収できるか」です。ここでは典型ケースを3つ並べ、回収の考え方を揃えます。
+            稟議で強いのは「何ヶ月で回収できるか」です。ここでは典型ケースを3つ並べ、回収の考え方を揃えます。
           </p>
 
           <div className="mt-6 space-y-4">
@@ -509,7 +509,7 @@ export default function AiAdoptionCostRoiPage({ faqItems }: AiAdoptionCostRoiPag
             失敗しないためのコスト管理ポイント
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 予算超過は「利用量の増加」「運用の肥大化」「ベンダーロックイン」で起きます。上限とレビュー頻度を決めて、段階的に拡大します。
+            予算超過は「利用量の増加」「運用の肥大化」「ベンダーロックイン」で起きます。上限とレビュー頻度を決めて、段階的に拡大します。
           </p>
 
           <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
@@ -532,7 +532,7 @@ export default function AiAdoptionCostRoiPage({ faqItems }: AiAdoptionCostRoiPag
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 費用は「導入方法」と「運用要件」で大きく変わります。よくある疑問をQ&Aで整理します。
+            費用は「導入方法」と「運用要件」で大きく変わります。よくある疑問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -584,7 +584,7 @@ export default function AiAdoptionCostRoiPage({ faqItems }: AiAdoptionCostRoiPag
             まとめ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 費用相場を「導入方法別」に押さえた上で、PoCで効果を測れる形に落とすと、稟議は通りやすくなります。最初は小さく始め、四半期ごとにROIをレビューしながら投資を拡大しましょう。
+            費用相場を「導入方法別」に押さえた上で、PoCで効果を測れる形に落とすと、稟議は通りやすくなります。最初は小さく始め、四半期ごとにROIをレビューしながら投資を拡大しましょう。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             もし「どの業務から始めるとROIが出やすいか」「費用内訳をどう書けば稟議が通るか」で詰まっている場合は、無料セミナーやLINE相談も活用してください。

@@ -203,7 +203,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
             なぜ「AIは怖い」と感じるのか
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 不安を減らすには、原因を分解して「事実で確認できるもの」と「運用で対処できるもの」に分けるのが有効です。
+            不安を減らすには、原因を分解して「事実で確認できるもの」と「運用で対処できるもの」に分けるのが有効です。
           </p>
           <figure className="my-8">
             <Image
@@ -245,7 +245,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
             文系・非エンジニアに向いているAI活用領域
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 最初は「文章」「情報整理」など、入出力が見えやすい業務から始めるのが安全です。成果が見える領域を選ぶほど、改善サイクルが回りやすくなります。
+            最初は「文章」「情報整理」など、入出力が見えやすい業務から始めるのが安全です。成果が見える領域を選ぶほど、改善サイクルが回りやすくなります。
           </p>
           <figure className="my-8">
             <Image
@@ -297,7 +297,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
             学習の始め方（プログラミング不要のアプローチ）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            結論: 「目的を1つに絞る → テンプレ化 → 検証」の順で進めると挫折しにくくなります。テンプレや素材はClaudeのProjectsなどに集約すると、再利用しやすくなります。
+            「目的を1つに絞る → テンプレ化 → 検証」の順で進めると挫折しにくくなります。テンプレや素材はClaudeのProjectsなどに集約すると、再利用しやすくなります。
           </p>
           <figure className="my-8">
             <Image
@@ -330,7 +330,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
             よくある誤解と事実
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 不安は「誤解」が混ざると増幅します。誤解を事実に戻し、運用でコントロールできる形に整理しましょう。
+            不安は「誤解」が混ざると増幅します。誤解を事実に戻し、運用でコントロールできる形に整理しましょう。
           </p>
           <figure className="my-8">
             <Image
@@ -382,7 +382,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 不安は「何を避ければ安全か」と「最初の成功パターン」が見えると小さくなります。よくある疑問をQ&Aで整理します。
+            不安は「何を避ければ安全か」と「最初の成功パターン」が見えると小さくなります。よくある疑問をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -461,7 +461,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
             無料セミナー / 個別相談
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 迷う場合は「今の業務に直結する1テーマ」を決め、学習順序まで落とし込むのが近道です。無料セミナー/個別相談で整理できます。
+            迷う場合は「今の業務に直結する1テーマ」を決め、学習順序まで落とし込むのが近道です。無料セミナー/個別相談で整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

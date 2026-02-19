@@ -200,7 +200,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             AIスキルで始められる副業の種類（ライティング支援、データ分析、自動化構築、コンサル等）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 最初は「自分の経験に近い領域」から始めるのが安全です。提案と納品の精度が上がり、継続案件につながりやすくなります。
+            最初は「自分の経験に近い領域」から始めるのが安全です。提案と納品の精度が上がり、継続案件につながりやすくなります。
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {sideBusinessTypes.map((item, index) => (
@@ -233,7 +233,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             副業を始めるまでの学習ステップ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 学習を長期化させないために、最初から「実務化」を前提に段階を区切りましょう。準備と実践を並行すると進みやすくなります。
+            学習を長期化させないために、最初から「実務化」を前提に段階を区切りましょう。準備と実践を並行すると進みやすくなります。
           </p>
           <div className="mt-7 space-y-4">
             {learningSteps.map((item) => (
@@ -258,7 +258,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             必要なスキルレベルの目安（職種別）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 必要スキルは「AI操作」よりも、納品品質を担保するための業務スキル（前提整理・修正対応・例外処理）で決まります。目安として整理します。
+            必要スキルは「AI操作」よりも、納品品質を担保するための業務スキル（前提整理・修正対応・例外処理）で決まります。目安として整理します。
           </p>
           <div className="mt-7 overflow-x-auto">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -294,7 +294,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             注意点（就業規則、確定申告、クライアントとの期待値調整）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: トラブル回避の鍵は、就業規則（副業可否）、税務（確定申告の準備）、クライアントとの期待値（AI活用範囲と品質担保）の3点を先に揃えることです。
+            トラブル回避の鍵は、就業規則（副業可否）、税務（確定申告の準備）、クライアントとの期待値（AI活用範囲と品質担保）の3点を先に揃えることです。
           </p>
           <div className="mt-6 space-y-4">
             {cautions.map((item) => (
@@ -318,7 +318,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             よくある質問（FAQ）
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: まずは「避けるべき地雷」を先に潰すのが安全です。未経験からの始め方、説明責任、社内ルール、税務をQ&Aで整理します。
+            まずは「避けるべき地雷」を先に潰すのが安全です。未経験からの始め方、説明責任、社内ルール、税務をQ&Aで整理します。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -406,7 +406,7 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             副業の第一歩を具体化したい方へ
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            結論: 無理のない範囲で継続できる計画を作るのが最優先です。無料セミナー/個別相談で、あなたの経験に合う進め方を整理できます。
+            無理のない範囲で継続できる計画を作るのが最優先です。無料セミナー/個別相談で、あなたの経験に合う進め方を整理できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link

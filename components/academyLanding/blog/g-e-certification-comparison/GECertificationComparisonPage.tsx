@@ -249,7 +249,7 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="recommendations" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            向いている人（結論：どちらを先に取るべき？）
+            向いている人（どちらを先に取るべき？）
           </h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {recommendationCards.map((card) => (
