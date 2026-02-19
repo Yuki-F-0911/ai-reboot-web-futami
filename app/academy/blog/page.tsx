@@ -354,6 +354,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "キャリア・転職",
   },
   {
+    slug: "ai-portfolio-guide",
+    title: "AIスキルのポートフォリオ作り方2026｜転職・副業・社内評価につながる実績のまとめ方",
+    summary:
+      "AIポートフォリオの成果物の種類、転職・副業・社内評価のシーン別の見せ方、GitHubやNotionでの公開方法を5ステップで整理した記事です。",
+    category: "キャリア・転職",
+  },
+  {
     slug: "gemini-beginners-guide",
     title: "Google Gemini完全入門ガイド｜使い方・ChatGPTとの違い・無料で始める方法",
     summary:
