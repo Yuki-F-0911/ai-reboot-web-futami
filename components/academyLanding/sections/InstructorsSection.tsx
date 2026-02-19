@@ -88,7 +88,7 @@ const InstructorsSection = () => {
                                     src={instructor.image}
                                     alt={instructor.name}
                                     fill
-                                    className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
+                                    className="object-cover object-top"
                                 />
                             </div>
 

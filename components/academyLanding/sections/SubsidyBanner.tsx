@@ -18,21 +18,13 @@ const SubsidyBanner = () => {
                     {/* Left Content - System Summary */}
                     <div className="flex-1 space-y-6">
                         <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-                            <div 
-                                className="border rounded-sm px-4 py-2 inline-block shadow-sm"
-                                style={{ 
-                                    backgroundColor: ACADEMY_COLORS.bgPanel,
-                                    borderColor: ACADEMY_COLORS.lineSoft 
-                                }}
-                            >
-                                <Image
-                                    src="/images/keisan-reskiling-logo.webp"
-                                    alt="経済産業省リスキリング補助金"
-                                    width={160}
-                                    height={50}
-                                    className="h-8 md:h-10 w-auto object-contain grayscale brightness-90"
-                                />
-                            </div>
+                            <Image
+                                src="/images/keisan-reskiling-logo.webp"
+                                alt="経済産業省リスキリング補助金"
+                                width={160}
+                                height={50}
+                                className="h-8 md:h-10 w-auto object-contain"
+                            />
                             <span 
                                 className="text-[10px] font-bold tracking-widest uppercase"
                                 style={{ 
