@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで66記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで67記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -483,6 +483,14 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "仕訳確認・経費精算・月次レポート・予算差異分析でのAI活用を具体的に解説。機密データのリスク対策、ExcelマクロのAI生成、自然言語でのデータ集計まで経理現場で使える知識を網羅。",
     category: "実務活用",
+  },
+  {
+    slug: "ai-content-sns-guide",
+    title: "AI×ブログ・SNS・YouTube台本の作り方｜コンテンツ制作を10倍速にする",
+    summary:
+      "ブログ構成・本文、X/Instagram/LinkedIn投稿、YouTube台本を媒体別に効率化する実践ガイド。コピペ可能プロンプトと週次運用の型をまとめています。",
+    category: "実務活用",
+    thumbnail: "/images/blog/ai-content-sns-guide/slide-01.png",
   },
 ] as const;
 
