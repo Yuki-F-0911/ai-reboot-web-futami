@@ -164,9 +164,9 @@ const HeroSection = () => {
                             <Image
                                 src="/images/keisan-reskiling-logo.webp"
                                 alt="リスキリング補助金"
-                                width={120}
-                                height={48}
-                                className="h-10 w-auto object-contain grayscale brightness-90"
+                                width={200}
+                                height={80}
+                                className="h-16 w-auto object-contain"
                             />
                             <p 
                                 className="text-[10px] font-medium leading-tight"

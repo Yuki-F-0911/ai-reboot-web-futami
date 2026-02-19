@@ -21,9 +21,9 @@ const SubsidyBanner = () => {
                             <Image
                                 src="/images/keisan-reskiling-logo.webp"
                                 alt="経済産業省リスキリング補助金"
-                                width={160}
-                                height={50}
-                                className="h-8 md:h-10 w-auto object-contain"
+                                width={240}
+                                height={80}
+                                className="h-14 md:h-16 w-auto object-contain"
                             />
                             <span 
                                 className="text-[10px] font-bold tracking-widest uppercase"
