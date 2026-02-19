@@ -89,7 +89,7 @@ const PricingSection = () => {
                                     className="text-4xl lg:text-5xl font-bold text-orange-600"
                                     style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
                                 >
-                                    99,000
+                                    120,000
                                 </span>
                                 <span className="text-sm font-bold text-orange-600">円〜</span>
                                 <span className="text-[10px] text-slate-400 ml-2">(実質負担額)</span>
