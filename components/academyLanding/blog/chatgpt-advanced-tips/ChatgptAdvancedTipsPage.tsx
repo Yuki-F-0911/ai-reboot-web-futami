@@ -411,7 +411,7 @@ function LineCtaBox() {
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
         >
-          LINEで週1AI通信を受け取る（無料）
+          【無料】プロンプト50選PDFをLINEで受け取る
         </a>
       </div>
     </motion.section>
