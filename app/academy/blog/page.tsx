@@ -492,6 +492,13 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/ai-video-generation-comparison/slide-01.png",
   },
   {
+    slug: "suno-ai-music-guide",
+    title: "Sunoで音楽を作る方法入門｜プロンプトから楽曲生成・ビジネス活用まで",
+    summary:
+      "Sunoの無料プランの始め方、BGM向けプロンプトの書き方、商用利用と著作権の判断ポイント、プレゼン・YouTube・SNSリールでの実務活用までを確認日付きで整理した入門ガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "new-employee-ai-starter-guide",
     title: "新入社員のAI活用スタートガイド2026｜最初の1ヶ月でやること完全版",
     summary:
