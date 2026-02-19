@@ -44,6 +44,30 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/ai-agent-build-guide/slide-01.png",
   },
   {
+    slug: "dify-beginner-guide",
+    title: "Difyの使い方完全ガイド｜ノーコードでAI業務ボットを最短で作る方法",
+    summary:
+      "Difyの定義・料金・インストール方法から、社内FAQボット作成の5ステップ、業種別5事例、失敗しない3つのポイントまでを解説。Difyスターターテンプレ（5ユースケース）配布中。",
+    category: "実務活用",
+    thumbnail: "/images/blog/dify-beginner-guide/slide-01.png",
+  },
+  {
+    slug: "workflow-automation-comparison",
+    title: "ワークフロー自動化ツール比較｜Make・Zapier・n8nを徹底比較【2026年版】",
+    summary:
+      "Make・Zapier・n8nを料金・機能・難易度・セキュリティの4軸で徹底比較。部門別おすすめ活用パターン5選と最初のフロー作成3ステップも解説。5業種対応スターターテンプレ配布中。",
+    category: "実務活用",
+    thumbnail: "/images/blog/workflow-automation-comparison/slide-01.png",
+  },
+  {
+    slug: "claude-code-intro",
+    title: "Claude Codeとは？使い方・料金・始め方を完全解説【2026年版】",
+    summary:
+      "AnthropicのCLI型AIコーディングアシスタント「Claude Code」の仕組み・料金・セットアップから、GitHub Copilot・Cursorとの違い、最初の5タスクと失敗しないポイントまでを解説。スターターキット配布中。",
+    category: "実務活用",
+    thumbnail: "/images/blog/claude-code-intro/slide-01.png",
+  },
+  {
     slug: "multimodal-ai-intro",
     title: "マルチモーダルAIとは？テキスト・画像・音声を横断する次世代AIを解説",
     summary: "マルチモーダルAIの定義、仕組み、代表モデル、業務活用と導入ステップを初心者向けに整理した入門記事です。",
@@ -333,6 +357,14 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "Sora/Runway/Pika/Kling/Veo/Luma Dream Machineの比較、用途別おすすめ、無料で試す始め方、著作権・商用利用の注意点を整理した記事です。",
     category: "実務活用",
+  },
+  {
+    slug: "new-employee-ai-starter-guide",
+    title: "新入社員のAI活用スタートガイド2026｜最初の1ヶ月でやること完全版",
+    summary:
+      "職場でのAI活用マナー・情報管理ルール・週別スケジュールを完全解説。機密情報の扱い方からプロンプト習慣化まで、入社後の最初の1ヶ月でやることをステップ別にまとめた新入社員向けガイドです。",
+    category: "AI基礎知識",
+    thumbnail: "/images/blog/new-employee-ai-starter-guide/slide-01.png",
   },
 ] as const;
 
