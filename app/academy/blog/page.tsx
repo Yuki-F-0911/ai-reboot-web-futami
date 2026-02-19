@@ -126,6 +126,14 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/prompt-template-for-work/slide-1.png",
   },
   {
+    slug: "ai-sales-prompt-templates",
+    title: "営業の生成AIプロンプト20選｜提案書・メール・ヒアリング設計まで",
+    summary:
+      "営業の生成AI活用を4カテゴリで整理し、企業研究・提案書作成・営業メール・商談振り返りで使えるコピペ可能プロンプト20本をまとめた実践記事です。",
+    category: "実務活用",
+    thumbnail: "/images/blog/ai-sales-prompt-templates/slide-01.png",
+  },
+  {
     slug: "ai-presentation-workflow",
     title: "AIでプレゼン資料を効率的に作る方法",
     summary: "構成案作成からスライド原稿、デザイン、推敲まで、AIを使った資料作成ワークフローを段階別に解説します。",
