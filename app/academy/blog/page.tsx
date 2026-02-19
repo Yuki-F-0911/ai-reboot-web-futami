@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで45記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで46記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -402,6 +402,14 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "Gensparkの基本機能、Perplexityとの違い、ビジネス情報収集シーン別の使い分け、無料利用可否と日本語運用の注意点を確認日付きで整理した最新AIツール解説です。",
     category: "最新AIツール",
+  },
+  {
+    slug: "google-ai-studio-guide",
+    title: "Google AI Studio使い方完全ガイド｜Geminiモデルをすぐ試せるAI開発環境",
+    summary:
+      "Google AI Studioとは何か、Geminiアプリ/ChatGPTとの違い、無料で始める10ステップ、プロンプト・画像入力・会話テストの使い方を非エンジニア向けに整理した最新AIツール入門です。",
+    category: "最新AIツール",
+    thumbnail: "/images/blog/google-ai-studio-guide/slide-01.png",
   },
   {
     slug: "ai-image-generation-guide",
