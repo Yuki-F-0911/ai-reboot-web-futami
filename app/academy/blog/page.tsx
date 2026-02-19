@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで41記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで43記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -227,6 +227,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "法人向け",
   },
   {
+    slug: "ai-agent-operations-guide",
+    title: "AI業務自動化の始め方｜AIエージェント導入を失敗させない運用設計ガイド",
+    summary:
+      "AI業務自動化を業務選定、権限設計、承認フロー、監査ログまで実務手順で解説。導入前チェックシートと30日運用プラン付き。",
+    category: "法人向け",
+  },
+  {
     slug: "what-is-mcp",
     title: "MCP（Model Context Protocol）とは？できることと危険な落とし穴",
     summary: "MCPの仕組みとセキュリティリスクをわかりやすく解説。安全な連携チェックポイント付き。",
@@ -243,6 +250,12 @@ const blogPosts: readonly BlogPost[] = [
     slug: "ai-adoption-cost-roi",
     title: "生成AI導入の費用相場とROIの考え方｜PoC予算の決め方まで",
     summary: "生成AI導入にかかる費用の相場とROI算出方法。PoC予算の決め方とROI試算シート付き。",
+    category: "法人向け",
+  },
+  {
+    slug: "llm-evaluation-guide",
+    title: "生成AIの評価（LLM評価）入門｜“任せていい品質”を測る指標と運用",
+    summary: "LLM評価を品質・安全性・運用性の3軸で設計する実務ガイド。週次運用できる評価シート付き。",
     category: "法人向け",
   },
   {
