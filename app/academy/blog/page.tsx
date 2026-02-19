@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで74記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで多数の記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -346,6 +346,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "法人向け",
   },
   {
+    slug: "ai-training-subsidy-guide",
+    title: "生成AI研修に助成金を使う手順｜対象条件・落とし穴・申請フロー完全版",
+    summary:
+      "社員向けAI研修で使える助成金の全体像を、人材開発支援助成金中心に解説。事前申請から支給申請までの5ステップと不支給を避ける実務ポイントを整理した法人向け記事です。",
+    category: "法人向け",
+  },
+  {
     slug: "reskilling-over-40",
     title: "40代・50代からのAIリスキリング完全ガイド",
     summary:
@@ -562,6 +569,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "経理・財務部門のAI活用ガイド2026｜仕訳・レポート・予算管理の自動化事例",
     summary:
       "仕訳確認・経費精算・月次レポート・予算差異分析でのAI活用を具体的に解説。機密データのリスク対策、ExcelマクロのAI生成、自然言語でのデータ集計まで経理現場で使える知識を網羅。",
+    category: "実務活用",
+  },
+  {
+    slug: "ai-legal-guide",
+    title: "法務の生成AI活用ガイド｜契約レビューを「任せない」運用設計と実践的な使い方",
+    summary:
+      "法務で生成AIを安全に使うために、契約レビューを全面委任しない理由、使える場面/使えない場面、機密情報を扱う際の運用フレームワークと実践プロンプトを整理した実務ガイドです。",
     category: "実務活用",
   },
   {
