@@ -123,6 +123,7 @@ const blogPosts: readonly BlogPost[] = [
     title: "AIでプレゼン資料を効率的に作る方法",
     summary: "構成案作成からスライド原稿、デザイン、推敲まで、AIを使った資料作成ワークフローを段階別に解説します。",
     category: "実務活用",
+    thumbnail: "/images/blog/ai-presentation-workflow/slide-1.png",
   },
   {
     slug: "ai-business-efficiency-cases",
@@ -189,6 +190,7 @@ const blogPosts: readonly BlogPost[] = [
     title: "AI時代に必要なスキルを職種別に解説",
     summary: "営業、マーケ、管理職など職種ごとに、AI時代のキャリアに必要なスキルを整理した記事です。",
     category: "資格・スキル",
+    thumbnail: "/images/blog/skills-for-ai-era-career/slide-01.png",
   },
   {
     slug: "ai-career-change-cases",
