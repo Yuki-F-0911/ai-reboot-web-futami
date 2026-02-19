@@ -323,6 +323,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
   },
   {
+    slug: "chatgpt-advanced-tips",
+    title: "ChatGPTを仕事で使いこなす実践テクニック集｜基本から応用まで50のTips",
+    summary:
+      "文章作成・調査・分析・プレゼン・日常業務の5カテゴリで、仕事に直結するChatGPT活用Tipsを50個とコピペ可能なプロンプト例つきでまとめた実践記事です。",
+    category: "実務活用",
+  },
+  {
     slug: "gpt-vs-claude-comparison",
     title: "GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説【2026年版】",
     summary:
