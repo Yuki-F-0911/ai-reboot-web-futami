@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "動画生成AI比較2026｜Kling・Runway・Seedance・Soraの特徴と選び方 | AIリブート";
 const pageDescription =
-  "動画生成AI比較2026年版。Kling・Runway・Seedance・Soraを品質・速度・価格・日本語対応・商用利用の5軸で整理し、SNS動画・プレゼン・副業・個人制作での選び方、無料で始める手順を解説します。";
+  "動画生成AI比較2026年版。Kling・Runway・Seedance・Soraを品質・速度・価格・日本語対応・商用利用の5軸で整理し、用途別の選び方と無料で始める手順を解説します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-video-generation-comparison";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
@@ -14,32 +14,32 @@ const faqItems = [
   {
     question: "動画生成AIは無料でどこまで使えますか？",
     answer:
-      "多くのサービスは無料枠または無料トライアルがありますが、解像度・尺・生成回数・透かし・同時生成数に制限がかかります。無料枠は「画作りの当たりパターン確認」までに使い、本番用途で継続するなら有料プラン移行を前提に計画するのが安全です。",
+      "無料枠はありますが、解像度・尺・回数に制限があります。無料期間は相性確認に使い、本番運用は有料前提で設計してください。",
   },
   {
     question: "Klingは無料で使えますか？",
     answer:
-      "無料で試せる導線が提供される場合がありますが、地域や時期で条件が変わります。Klingはクレジット消費モデルで運用されるため、長尺化や高解像度化の前に消費ペースを確認してください（確認日: 2026-02-19）。",
+      "無料で試せる場合がありますが、条件は地域と時期で変動します。クレジット消費型なので、長尺化前に消費ペースを確認してください。",
   },
   {
     question: "Runwayの商用利用は可能ですか？",
     answer:
-      "Runway公式ヘルプでは、有料プランで生成物の商用利用が可能と案内されています。一方でFreeプランは商用利用不可です。案件利用時は契約プラン、利用規約、第三者権利（著作権・商標・肖像権）をセットで確認してください。",
+      "公式ヘルプでは有料プランで商用利用可能、Freeプランは不可です。案件利用時は規約と第三者権利を確認してください。",
   },
   {
     question: "Soraはどのプランで使えますか？",
     answer:
-      "OpenAI公式ヘルプでは、SoraはChatGPT Plus / Pro / Teamで利用可能と案内されています。利用上限や同時生成数はプラン差があるため、契約前に最新の公式情報を確認してください（確認日: 2026-02-19）。",
+      "OpenAI公式ヘルプでは、SoraはChatGPT Plus / Pro / Teamで利用可能です。上限はプラン差があるため、契約前に確認してください。",
   },
   {
     question: "Seedanceとは何ですか？",
     answer:
-      "SeedanceはByteDance Seed Teamが公開している動画生成モデルです。公式記事ではDreaminaやDoubao経由で利用できる旨が示されています。提供地域・料金・商用条件は利用プラットフォーム側の規約に依存するため、実運用前に確認が必要です。",
+      "SeedanceはByteDance Seed Teamの動画生成モデルです。利用はDreaminaやDoubao経由で、料金と商用条件は利用先規約で確認してください。",
   },
   {
     question: "日本語で使いやすい動画生成AIはどれですか？",
     answer:
-      "日本語対応はツールごとに公開情報の粒度が異なります。実務では、UI言語よりも「日本語プロンプトで再現できるか」「日本語字幕やナレーション工程まで含めて運用できるか」で判断すると失敗しにくくなります。"
+      "UI言語だけでなく、日本語プロンプトの再現性と実運用での確認しやすさで判断してください。",
   },
 ] as const;
 
