@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで71記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで72記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -451,6 +451,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "Manus AIとは？使い方と活用シーン解説｜AIエージェントで仕事を自動化する",
     summary:
       "Manusとは何か、ChatGPTとの違い、AIエージェントの基本、リサーチ・文書作成・データ収集での自動化シーン、無料可否・日本語対応・セキュリティまで確認日付きで整理した最新AIツール解説です。",
+    category: "最新AIツール",
+  },
+  {
+    slug: "anthropic-cowork-guide",
+    title: "AnthropicのCoworkとは？使い方と活用シーン完全ガイド",
+    summary:
+      "AnthropicのCoworkとは何かを冒頭で定義し、個人向けの使い方、ChatGPT・Geminiとの使い分け、無料可否・日本語対応・ChatGPT Teamsとの差分を2026年2月時点で整理した最新AIツール解説です。",
     category: "最新AIツール",
   },
   {
