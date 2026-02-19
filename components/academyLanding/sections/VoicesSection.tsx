@@ -35,7 +35,7 @@ const voices = [
 
 const VoicesSection = () => {
     return (
-        <section className="py-20 md:py-32 bg-white relative overflow-hidden">
+        <section className="py-12 md:py-28 bg-white relative overflow-hidden">
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-10 left-10 w-72 h-72 bg-orange-100/40 rounded-full blur-3xl" />
                 <div className="absolute bottom-0 right-10 w-80 h-80 bg-amber-100/30 rounded-full blur-3xl" />

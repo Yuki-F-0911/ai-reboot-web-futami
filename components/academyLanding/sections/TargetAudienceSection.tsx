@@ -25,7 +25,7 @@ const targetAudience = [
 
 const TargetAudienceSection = () => {
     return (
-        <section className="py-20 md:py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+        <section className="py-12 md:py-28 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-orange-100/40 rounded-full blur-3xl" />

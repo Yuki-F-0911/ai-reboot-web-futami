@@ -127,7 +127,7 @@ export default function AcademyPage() {
       <FAQStructuredData items={academyFaqItems} />
 
       <HeroSection />
-      <section className="mx-auto max-w-5xl px-4 py-20 md:py-32">
+      <section className="mx-auto max-w-4xl px-4 py-16 md:py-20">
         <YouTubeEmbed
           videoId="aNmhgX1WomI"
           title="AIリブートアカデミー紹介動画"
@@ -136,7 +136,7 @@ export default function AcademyPage() {
       <ConceptSection />
 
       {/* Program Flow Section */}
-      <section id="flow" className="py-20 md:py-32 bg-slate-50">
+      <section id="flow" className="py-12 md:py-28 bg-slate-50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
           <div className="text-center mb-10 md:mb-16">
@@ -309,7 +309,7 @@ export default function AcademyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-40 bg-slate-900 text-white text-center relative overflow-hidden">
+      <section className="py-12 md:py-28 bg-slate-900 text-white text-center relative overflow-hidden">
         {/* Background Decoration */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500 rounded-full blur-3xl" />
