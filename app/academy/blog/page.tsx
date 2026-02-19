@@ -390,6 +390,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "副業・フリーランス",
   },
   {
+    slug: "freelancer-ai-checklist",
+    title: "個人事業主・フリーランスのためのAI活用チェックリスト50｜今日からできること",
+    summary:
+      "営業・作業・経理・発信・学習の5カテゴリで、個人事業主・フリーランスが今日から実行できるAI活用チェックリストを50項目で整理した実践記事です。",
+    category: "副業・フリーランス",
+  },
+  {
     slug: "ai-portfolio-guide",
     title: "AIスキルのポートフォリオ作り方2026｜転職・副業・社内評価につながる実績のまとめ方",
     summary:
