@@ -65,10 +65,6 @@ const SkillLevelSection = () => {
                                 height={320}
                                 className="object-contain"
                             />
-                            {/* Decorative elements */}
-                            <div className="absolute -left-4 top-1/4 w-3 h-3 bg-orange-400 rounded-full animate-pulse" />
-                            <div className="absolute -right-2 top-1/2 w-2 h-2 bg-orange-300 rounded-full animate-pulse delay-300" />
-                            <div className="absolute left-1/4 -bottom-2 w-4 h-4 bg-orange-200 rounded-full animate-pulse delay-500" />
                         </div>
                     </div>
 
@@ -89,8 +85,10 @@ const SkillLevelSection = () => {
                                         <div className={`hidden lg:block absolute left-0 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br ${item.color} shadow-lg`} />
 
                                         <div className={`bg-gradient-to-r ${item.color} rounded-xl md:rounded-2xl p-4 md:p-6 text-white shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden`}>
-                                            {/* Background Pattern */}
-                                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full transform translate-x-16 -translate-y-16" />
+                                            {/* Typographic step number */}
+                                            <span className="absolute right-5 top-1/2 -translate-y-1/2 text-[72px] md:text-[96px] font-black text-white/10 leading-none select-none pointer-events-none tracking-tighter">
+                                                {String(index + 1).padStart(2, '0')}
+                                            </span>
 
                                             <div className="relative z-10">
                                                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
