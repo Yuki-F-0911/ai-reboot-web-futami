@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで67記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで68記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -475,6 +475,14 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "Sora/Runway/Pika/Kling/Veo/Luma Dream Machineの比較、用途別おすすめ、無料で試す始め方、著作権・商用利用の注意点を整理した記事です。",
     category: "実務活用",
+  },
+  {
+    slug: "ai-video-generation-comparison",
+    title: "動画生成AI比較2026｜Kling・Runway・Seedance・Soraの特徴と選び方",
+    summary:
+      "Kling・Runway・Seedance・Soraを品質・速度・価格・日本語対応・商用利用の5軸で比較し、SNS動画・プレゼン・副業・個人制作の用途別選び方と無料で始める手順を整理した記事です。",
+    category: "最新AIツール",
+    thumbnail: "/images/blog/ai-video-generation-comparison/slide-01.png",
   },
   {
     slug: "new-employee-ai-starter-guide",
