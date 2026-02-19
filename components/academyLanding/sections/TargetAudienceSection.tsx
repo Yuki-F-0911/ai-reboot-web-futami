@@ -71,14 +71,6 @@ const TargetAudienceSection = () => {
                                 <p className={`text-base lg:text-lg leading-relaxed ${item.isImportant ? "text-slate-900 font-bold" : "text-slate-700 font-medium"}`}>
                                     {item.text}
                                 </p>
-                                
-                                {item.isImportant && (
-                                    <div className="flex-shrink-0">
-                                        <span className="text-[10px] px-2 py-0.5 border border-orange-500 text-orange-600 font-bold uppercase tracking-wider">
-                                            Recommended
-                                        </span>
-                                    </div>
-                                )}
                             </div>
                         </div>
                     ))}

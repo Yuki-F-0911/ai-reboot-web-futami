@@ -110,7 +110,7 @@ export default function AcademyPage() {
         <YouTubeEmbed
           videoId="aNmhgX1WomI"
           title="AIリブートアカデミー紹介動画"
-          label="Brief Video"
+          label="VIDEO BRIEF"
           description="AIリブートアカデミーが目指す世界観と、100日間の旅の断片をご覧ください。"
         />
       </section>

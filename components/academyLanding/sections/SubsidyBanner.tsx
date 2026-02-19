@@ -100,7 +100,7 @@ const SubsidyBanner = () => {
                                 </div>
                             </div>
 
-                            <div className="bg-orange-100 text-orange-700 text-[10px] font-bold px-3 py-1 rounded-sm uppercase tracking-wider mb-4">
+                            <div className="bg-slate-100 text-slate-600 text-[10px] font-bold px-3 py-1 rounded-sm uppercase tracking-wider mb-4">
                                 Max 70% Subsidized
                             </div>
                             
@@ -193,9 +193,9 @@ const SubsidyBanner = () => {
                                             <p className="text-[10px] text-slate-400">上限16万円 / 転職・1年継続後に支給</p>
                                         </div>
                                     </div>
-                                    <div className="p-6 bg-slate-900 text-center">
+                                    <div className="p-6 bg-slate-50 text-center border-t border-slate-200">
                                         <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">Total Support</p>
-                                        <p className="text-xl font-bold text-white">最大 70%（210,000円）が補助</p>
+                                        <p className="text-xl font-bold text-slate-900">最大 70%（210,000円）が補助</p>
                                     </div>
                                 </div>
                                 <div className="mt-8">

@@ -70,9 +70,9 @@ const ConceptSection = () => {
                 </div>
 
                 {/* Pillars with List Structure */}
-                <div className="space-y-0 border-t border-slate-200">
+                <ol className="space-y-0 border-t border-slate-200">
                     {pillars.map((pillar) => (
-                        <div
+                        <li
                             key={pillar.id}
                             className="group grid lg:grid-cols-12 gap-8 py-12 border-b border-slate-200 hover:bg-slate-50/50 transition-colors"
                         >
@@ -101,9 +101,9 @@ const ConceptSection = () => {
                                     {pillar.description}
                                 </p>
                             </div>
-                        </div>
+                        </li>
                     ))}
-                </div>
+                </ol>
             </div>
         </section>
     );
