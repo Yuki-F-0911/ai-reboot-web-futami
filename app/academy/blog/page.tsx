@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで72記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで73記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -64,6 +64,14 @@ const blogPosts: readonly BlogPost[] = [
       "Difyの定義・料金・インストール方法から、社内FAQボット作成の5ステップ、業種別5事例、失敗しない3つのポイントまでを解説。Difyスターターテンプレ（5ユースケース）配布中。",
     category: "実務活用",
     thumbnail: "/images/blog/dify-beginner-guide/slide-01.png",
+  },
+  {
+    slug: "ai-customer-support-guide",
+    title: "カスタマーサポートのAI活用｜一次対応・ナレッジ管理・品質管理の実装ガイド",
+    summary:
+      "CS現場の問い合わせ工数を削減するために、FAQボットの一次対応自動化、RAG前提のナレッジ管理、回答品質管理、クレーム対応設計までを段階的に解説した実務ガイドです。",
+    category: "実務活用",
+    thumbnail: "/images/blog/ai-customer-support-guide/slide-01.png",
   },
   {
     slug: "workflow-automation-comparison",
