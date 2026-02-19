@@ -2,7 +2,7 @@
 
 const PricingSection = () => {
     return (
-        <section id="pricing" className="py-12 md:py-28 bg-slate-50 relative overflow-hidden">
+        <section id="pricing" className="py-20 md:py-32 bg-slate-50 relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute top-0 left-0 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 -translate-x-1/2" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50 translate-y-1/2 translate-x-1/2" />

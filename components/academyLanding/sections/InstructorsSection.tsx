@@ -39,7 +39,7 @@ const instructors = [
 
 const InstructorsSection = () => {
     return (
-        <section className="py-12 md:py-28 bg-white relative overflow-hidden">
+        <section className="py-20 md:py-32 bg-white relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2" />
 

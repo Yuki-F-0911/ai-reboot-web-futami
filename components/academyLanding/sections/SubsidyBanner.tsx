@@ -17,7 +17,7 @@ const SubsidyBanner = () => {
             </div>
 
             {/* Main Banner Content */}
-            <div className="py-10 md:py-16 relative z-10">
+            <div className="py-16 md:py-24 relative z-10">
                 <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
                         {/* Left Content */}

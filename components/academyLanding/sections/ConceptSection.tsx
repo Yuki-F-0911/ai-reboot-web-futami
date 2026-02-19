@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const ConceptSection = () => {
     const pillars = [
@@ -34,25 +37,32 @@ const ConceptSection = () => {
     ];
 
     return (
-        <section className="py-12 md:py-28 bg-white">
+        <section className="py-20 md:py-32 bg-slate-900 text-white overflow-hidden">
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
                 {/* Section Header */}
-                <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16 space-y-3 md:space-y-4">
-                    <p className="text-orange-500 font-bold text-sm tracking-wider">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="max-w-4xl mx-auto text-center mb-16 md:mb-24 space-y-4 md:space-y-6"
+                >
+                    <p className="text-orange-500 font-bold text-sm tracking-widest uppercase">
                         CONCEPT
                     </p>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-slate-900">
-                        生成AIを学ぶ場所ではない。
-                        <br />
-                        人生をリブートする場所。
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight">
+                        生成AIを学ぶ場所ではない。<br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500">
+                            人生をリブートする場所。
+                        </span>
                     </h2>
-                    <p className="text-base sm:text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-                        AIリブートアカデミーは、生成AIで激変する時代に適応し、<br />
+                    <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto font-medium">
+                        AIリブートアカデミーは、生成AIで激変する時代に適応し、<br className="hidden md:block" />
                         飛躍する自分になるために、人生をリブートする場所です。
                     </p>
                     <Link
                         href="/academy/message"
-                        className="inline-flex items-center gap-2 mt-6 text-orange-500 hover:text-orange-600 font-semibold transition-colors group"
+                        className="inline-flex items-center gap-2 mt-8 px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-orange-400 hover:text-orange-300 font-bold transition-all group"
                     >
                         <span>私たちのメッセージを読む</span>
                         <svg
@@ -69,97 +79,49 @@ const ConceptSection = () => {
                             />
                         </svg>
                     </Link>
-                </div>
+                </motion.div>
 
                 {/* Four Pillars */}
-                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-12 md:mb-20">
-                    {pillars.map((pillar) => (
-                        <div
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+                    {pillars.map((pillar, index) => (
+                        <motion.div
                             key={pillar.id}
-                            className="bg-white p-4 md:p-8 rounded-xl md:rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="bg-slate-800/50 backdrop-blur-sm p-8 md:p-10 rounded-3xl border border-white/5 shadow-2xl hover:bg-slate-800 hover:border-orange-500/30 transition-all duration-500 relative overflow-hidden group"
                         >
                             {/* Background Decoration */}
-                            <div className="absolute -right-8 -top-8 w-24 h-24 bg-gradient-to-br from-orange-100 to-transparent rounded-full opacity-60" />
-                            <div className="absolute -left-8 -bottom-8 w-32 h-32 bg-gradient-to-tr from-orange-50 to-transparent rounded-full opacity-40" />
+                            <div className="absolute -right-8 -top-8 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-                            <div className="relative z-10">
+                            <div className="relative z-10 h-full flex flex-col">
                                 {/* Illustration */}
-                                <div className="w-full h-20 md:h-36 mb-3 md:mb-6 flex items-center justify-center">
+                                <div className="w-full h-32 md:h-40 mb-6 flex items-center justify-center">
                                     <Image
                                         src={pillar.illustration}
                                         alt={pillar.title}
                                         width={160}
                                         height={140}
-                                        className="object-contain group-hover:scale-110 transition-transform duration-300 mix-blend-multiply w-16 h-16 md:w-auto md:h-auto"
+                                        className="object-contain group-hover:scale-110 transition-transform duration-500 brightness-110 w-24 h-24 md:w-auto md:h-auto"
                                     />
                                 </div>
 
                                 {/* Number Badge */}
-                                <div className="inline-flex items-center justify-center w-7 h-7 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 text-white font-bold text-xs md:text-sm mb-2 md:mb-4 shadow-lg shadow-orange-200">
+                                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-orange-500/10 text-orange-500 font-black text-sm mb-6 border border-orange-500/20">
                                     {pillar.id}
                                 </div>
 
-                                <h3 className="text-sm md:text-xl lg:text-2xl font-bold text-slate-900 mb-1 md:mb-3">
+                                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors">
                                     {pillar.title}
                                 </h3>
-                                <p className="text-xs md:text-base text-slate-600 leading-relaxed hidden md:block">
+                                <p className="text-base text-slate-400 leading-relaxed font-medium">
                                     {pillar.description}
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
-
-                {/* Comparison Section - Hidden temporarily
-                <div className="bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-100">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">
-                        AIを学ぶだけでは変わらない。人生をリブートする。
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                        <div className="bg-white rounded-2xl p-6 border border-slate-100">
-                            <h4 className="font-bold text-red-500 mb-6 flex items-center gap-2 text-lg">
-                                <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                                これまでの講座
-                            </h4>
-                            <ul className="space-y-4">
-                                <li className="flex items-start gap-3 text-slate-600">
-                                    <span className="text-red-400 mt-0.5 font-bold">✕</span>
-                                    <span>AIツールの使い方を学んでも、結局使いこなせない</span>
-                                </li>
-                                <li className="flex items-start gap-3 text-slate-600">
-                                    <span className="text-red-400 mt-0.5 font-bold">✕</span>
-                                    <span>AIビジネスで稼げるようになるわけではない</span>
-                                </li>
-                                <li className="flex items-start gap-3 text-slate-600">
-                                    <span className="text-red-400 mt-0.5 font-bold">✕</span>
-                                    <span>AIを学べば下剋上できると思っていたが…</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div className="bg-white rounded-2xl p-6 border-2 border-orange-200">
-                            <h4 className="font-bold text-orange-500 mb-6 flex items-center gap-2 text-lg">
-                                <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-                                AIリブートアカデミー
-                            </h4>
-                            <ul className="space-y-4">
-                                <li className="flex items-start gap-3 text-slate-700 font-medium">
-                                    <span className="text-orange-500 mt-0.5 font-bold">✓</span>
-                                    <span>生成AI活用力で、既存の事業や仕事を<strong>劇的に変える</strong></span>
-                                </li>
-                                <li className="flex items-start gap-3 text-slate-700 font-medium">
-                                    <span className="text-orange-500 mt-0.5 font-bold">✓</span>
-                                    <span>AI時代に変化・活躍する人材に<strong>いち早くなる</strong></span>
-                                </li>
-                                <li className="flex items-start gap-3 text-slate-700 font-medium">
-                                    <span className="text-orange-500 mt-0.5 font-bold">✓</span>
-                                    <span>日本の根幹を支える産業で<strong>キーパーソン</strong>になる</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                */}
             </div>
         </section>
     );
