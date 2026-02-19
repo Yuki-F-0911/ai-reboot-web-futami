@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで70記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで71記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -451,6 +451,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "Manus AIとは？使い方と活用シーン解説｜AIエージェントで仕事を自動化する",
     summary:
       "Manusとは何か、ChatGPTとの違い、AIエージェントの基本、リサーチ・文書作成・データ収集での自動化シーン、無料可否・日本語対応・セキュリティまで確認日付きで整理した最新AIツール解説です。",
+    category: "最新AIツール",
+  },
+  {
+    slug: "openai-atlas-guide",
+    title: "OpenAI Atlasとは？AIブラウザの使い方と活用シーン完全解説",
+    summary:
+      "OpenAI Atlasとは何かを冒頭で明確化し、通常ブラウザとの違い、情報収集・フォーム入力・Web操作の活用法、Atlas vs Operator、無料可否と日本語対応まで確認日付きで整理した最新AIツール解説です。",
     category: "最新AIツール",
   },
   {
