@@ -33,42 +33,61 @@ const TargetAudienceSection = () => {
                 {/* Section Header */}
                 <div className="mb-16 lg:mb-20">
                     <span 
-                        className="inline-block text-[10px] tracking-[0.2em] font-bold text-orange-500 uppercase mb-4"
-                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                        className="inline-block text-[10px] tracking-[0.2em] font-bold uppercase mb-4"
+                        style={{ 
+                            fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                            color: ACADEMY_COLORS.accentMain
+                        }}
                     >
                         Target
                     </span>
                     <h2 
-                        className="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-6"
-                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
+                        className="text-3xl lg:text-4xl font-bold leading-tight mb-6"
+                        style={{ 
+                            fontFamily: ACADEMY_TYPOGRAPHY.serif,
+                            color: ACADEMY_COLORS.textStrong
+                        }}
                     >
                         こんな想いを持つ方に、<br />
                         最適なプログラムです
                     </h2>
-                    <p className="text-slate-600 max-w-xl leading-relaxed">
+                    <p 
+                        className="max-w-xl leading-loose"
+                        style={{ color: ACADEMY_COLORS.textBody }}
+                    >
                         技術的な習得だけでなく、自らのキャリアを主体的に切り拓きたい、<br className="hidden lg:block" />
                         そんな意志を持つ方々を募集しています。
                     </p>
                 </div>
 
                 {/* Target Audience List */}
-                <div className="max-w-4xl border-t border-slate-300">
+                <div 
+                    className="max-w-4xl border-t"
+                    style={{ borderColor: ACADEMY_COLORS.lineStrong }}
+                >
                     {targetAudience.map((item, index) => (
                         <div
                             key={index}
-                            className="group flex flex-col md:flex-row md:items-center gap-4 md:gap-12 py-8 border-b border-slate-300 transition-colors hover:bg-slate-200/50"
+                            className="group flex flex-col md:flex-row md:items-center gap-4 md:gap-12 py-8 border-b transition-colors hover:bg-stone-200/30"
+                            style={{ borderColor: ACADEMY_COLORS.lineSoft }}
                         >
                             <div className="flex-shrink-0 flex items-center">
                                 <span 
-                                    className="text-sm font-bold text-slate-400 tracking-widest"
-                                    style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                                    className="text-sm font-bold tracking-widest"
+                                    style={{ 
+                                        fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                                        color: ACADEMY_COLORS.textMuted
+                                    }}
                                 >
                                     {String(index + 1).padStart(2, '0')}
                                 </span>
                             </div>
 
                             <div className="flex-grow flex flex-col md:flex-row md:items-center justify-between gap-4">
-                                <p className={`text-base lg:text-lg leading-relaxed ${item.isImportant ? "text-slate-900 font-bold" : "text-slate-700 font-medium"}`}>
+                                <p 
+                                    className={`text-base lg:text-lg leading-loose ${item.isImportant ? "font-bold" : "font-medium"}`}
+                                    style={{ color: item.isImportant ? ACADEMY_COLORS.textStrong : ACADEMY_COLORS.textBody }}
+                                >
                                     {item.text}
                                 </p>
                             </div>
@@ -78,10 +97,16 @@ const TargetAudienceSection = () => {
 
                 {/* Bottom CTA hint */}
                 <div className="mt-16 flex flex-col items-start gap-4">
-                    <p className="text-slate-500 text-sm font-medium">
+                    <p 
+                        className="text-sm font-medium leading-loose"
+                        style={{ color: ACADEMY_COLORS.textMuted }}
+                    >
                         ひとつでも当てはまる方は、まずはオンライン説明会へお越しください。
                     </p>
-                    <div className="h-[1px] w-24 bg-slate-300" />
+                    <div 
+                        className="h-[1px] w-24" 
+                        style={{ backgroundColor: ACADEMY_COLORS.lineSoft }}
+                    />
                 </div>
             </div>
         </section>

@@ -18,7 +18,7 @@ export const YouTubeEmbed = ({ videoId, title, className, label, description }: 
   return (
     <div className={className}>
       {(label || description) && (
-        <div className="mb-6">
+        <div className="mb-8">
           {label && (
             <span className="inline-block text-[10px] tracking-[0.2em] font-bold text-slate-400 uppercase mb-2">
               {label}

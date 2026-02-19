@@ -43,18 +43,27 @@ const VoicesSection = () => {
                 {/* Section Header */}
                 <div className="mb-16 lg:mb-20">
                     <span 
-                        className="inline-block text-[10px] tracking-[0.2em] font-bold text-orange-500 uppercase mb-4"
-                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                        className="inline-block text-[10px] tracking-[0.2em] font-bold uppercase mb-4"
+                        style={{ 
+                            fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                            color: ACADEMY_COLORS.accentMain 
+                        }}
                     >
                         Voices
                     </span>
                     <h2 
-                        className="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-6"
-                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
+                        className="text-3xl lg:text-4xl font-bold leading-tight mb-6"
+                        style={{ 
+                            fontFamily: ACADEMY_TYPOGRAPHY.serif,
+                            color: ACADEMY_COLORS.textStrong
+                        }}
                     >
                         参加者の声
                     </h2>
-                    <p className="text-slate-600 max-w-2xl leading-relaxed">
+                    <p 
+                        className="max-w-2xl leading-loose"
+                        style={{ color: ACADEMY_COLORS.textBody }}
+                    >
                         たった2日間のキャンプでも、多くの「リブート」が生まれました。<br className="hidden lg:block" />
                         その変化の兆しが、100日間の伴走を通じて確信へと変わります。
                     </p>
@@ -64,23 +73,39 @@ const VoicesSection = () => {
                     {voices.map((voice, index) => (
                         <article
                             key={index}
-                            className="bg-white p-8 lg:p-10 border border-slate-200 rounded-sm shadow-sm transition-all hover:shadow-md"
+                            className="p-8 lg:p-10 border rounded-sm shadow-sm transition-all hover:shadow-md"
+                            style={{ 
+                                backgroundColor: ACADEMY_COLORS.bgPanel,
+                                borderColor: ACADEMY_COLORS.lineSoft
+                            }}
                         >
                             <h3 
-                                className="text-lg lg:text-xl font-bold text-slate-900 leading-snug mb-6"
-                                style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
+                                className="text-lg lg:text-xl font-bold leading-snug mb-6"
+                                style={{ 
+                                    fontFamily: ACADEMY_TYPOGRAPHY.serif,
+                                    color: ACADEMY_COLORS.textStrong
+                                }}
                             >
                                 &ldquo;{voice.title}&rdquo;
                             </h3>
 
-                            <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-8">
+                            <p 
+                                className="text-sm lg:text-base leading-loose mb-8"
+                                style={{ color: ACADEMY_COLORS.textBody }}
+                            >
                                 {voice.body}
                             </p>
 
-                            <div className="pt-6 border-t border-slate-100">
+                            <div 
+                                className="pt-6 border-t"
+                                style={{ borderColor: ACADEMY_COLORS.bgSection }}
+                            >
                                 <p 
-                                    className="text-[10px] font-bold text-slate-400 tracking-widest"
-                                    style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                                    className="text-[10px] font-bold tracking-widest"
+                                    style={{ 
+                                        fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                                        color: ACADEMY_COLORS.textMuted
+                                    }}
                                 >
                                     {voice.attribute}
                                 </p>

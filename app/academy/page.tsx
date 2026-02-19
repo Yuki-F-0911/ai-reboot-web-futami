@@ -11,6 +11,7 @@ import SubsidyBanner from "@/components/academyLanding/sections/SubsidyBanner";
 import PricingSection from "@/components/academyLanding/sections/PricingSection";
 import PreFooterCtaSection from "@/components/academyLanding/sections/PreFooterCtaSection";
 import FinalCtaSection from "@/components/academyLanding/sections/FinalCtaSection";
+import { ACADEMY_COLORS } from "@/components/academyLanding/sections/academyDesignTokens";
 import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import {
   CourseStructuredData,
@@ -87,7 +88,7 @@ export const metadata: Metadata = {
 
 export default function AcademyPage() {
   return (
-    <>
+    <div style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
       <CourseStructuredData
         name="AIリブートアカデミー"
         description={academyCourseStructuredDataDescription}
@@ -106,7 +107,9 @@ export default function AcademyPage() {
 
       <HeroSection />
       
-      <section className="mx-auto max-w-4xl px-6 py-24 lg:py-32">
+      <section 
+        className="mx-auto max-w-4xl px-6 py-24 lg:py-32"
+      >
         <YouTubeEmbed
           videoId="aNmhgX1WomI"
           title="AIリブートアカデミー紹介動画"
@@ -126,6 +129,7 @@ export default function AcademyPage() {
       <PricingSection />
       <PreFooterCtaSection />
       <FinalCtaSection />
-    </>
+    </div>
   );
 }
+

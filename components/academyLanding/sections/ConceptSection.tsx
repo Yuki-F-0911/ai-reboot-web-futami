@@ -39,26 +39,39 @@ const ConceptSection = () => {
                 {/* Section Header */}
                 <div className="max-w-4xl mb-20 lg:mb-24">
                     <span
-                        className="inline-block text-[10px] tracking-[0.2em] font-bold text-orange-500 uppercase mb-4"
-                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                        className="inline-block text-[10px] tracking-[0.2em] font-bold uppercase mb-4"
+                        style={{ 
+                            fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                            color: ACADEMY_COLORS.accentMain
+                        }}
                     >
                         Concept
                     </span>
                     <h2
-                        className="text-3xl lg:text-5xl font-bold leading-tight text-slate-900 mb-8"
-                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
+                        className="text-3xl lg:text-5xl font-bold leading-tight mb-8"
+                        style={{ 
+                            fontFamily: ACADEMY_TYPOGRAPHY.serif,
+                            color: ACADEMY_COLORS.textStrong
+                        }}
                     >
                         生成AIを学ぶ場所ではない。<br />
                         人生をリブートする場所。
                     </h2>
                     <div className="flex flex-col lg:flex-row gap-8 items-start lg:items-end">
-                        <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
+                        <p 
+                            className="text-lg leading-relaxed max-w-2xl"
+                            style={{ color: ACADEMY_COLORS.textBody }}
+                        >
                             AIリブートアカデミーは、技術の習得以上に「自分自身のOS」を書き換えることを重視します。<br className="hidden lg:block" />
                             道具に使われるのではなく、道具を使いこなし、新しい価値を創造する人へ。
                         </p>
                         <Link
                             href="/academy/message"
-                            className="inline-flex items-center gap-2 text-sm text-slate-900 font-bold border-b border-slate-900 pb-1 transition-opacity hover:opacity-70 group"
+                            className="inline-flex items-center gap-2 text-sm font-bold border-b pb-1 transition-opacity hover:opacity-70 group"
+                            style={{ 
+                                color: ACADEMY_COLORS.textStrong,
+                                borderColor: ACADEMY_COLORS.textStrong
+                            }}
                         >
                             <span>私たちのメッセージを読む</span>
                             <svg
@@ -74,41 +87,64 @@ const ConceptSection = () => {
                 </div>
 
                 {/* Pillars with List Structure */}
-                <ol className="space-y-0 border-t border-slate-200">
+                <ol 
+                    className="space-y-0 border-t"
+                    style={{ borderColor: ACADEMY_COLORS.lineSoft }}
+                >
                     {pillars.map((pillar) => (
                         <li
                             key={pillar.id}
-                            className="group grid lg:grid-cols-12 gap-8 py-12 border-b border-slate-200 hover:bg-slate-50/50 transition-colors"
+                            className="group grid lg:grid-cols-12 gap-8 py-12 border-b hover:bg-stone-50/50 transition-colors"
+                            style={{ borderColor: ACADEMY_COLORS.lineSoft }}
                         >
                             <div className="lg:col-span-3 flex flex-row lg:flex-col items-center lg:items-start gap-4">
-                                <Image
-                                    src={pillar.illustration}
-                                    alt={pillar.title}
-                                    width={80}
-                                    height={80}
-                                    className="object-contain opacity-85 flex-shrink-0"
-                                />
+                                <div className="p-2 bg-white rounded-md shadow-sm flex-shrink-0">
+                                    <Image
+                                        src={pillar.illustration}
+                                        alt={pillar.title}
+                                        width={80}
+                                        height={80}
+                                        className="object-contain opacity-85"
+                                    />
+                                </div>
                                 <span
-                                    className="text-xs font-bold text-slate-400 tracking-widest"
-                                    style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                                    className="text-xs font-bold tracking-widest"
+                                    style={{ 
+                                        fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                                        color: ACADEMY_COLORS.textMuted
+                                    }}
                                 >
                                     {pillar.label}
                                 </span>
                             </div>
                             <div className="lg:col-span-4">
-                                <h3 className="text-xl lg:text-2xl font-bold text-slate-900 mb-4">
+                                <h3 
+                                    className="text-xl lg:text-2xl font-bold mb-4"
+                                    style={{ color: ACADEMY_COLORS.textStrong }}
+                                >
                                     {pillar.title}
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
                                     {pillar.elements.map(el => (
-                                        <span key={el} className="text-[10px] px-2 py-0.5 bg-white border border-slate-200 text-slate-500 rounded-sm">
+                                        <span 
+                                            key={el} 
+                                            className="text-[10px] px-2 py-0.5 border rounded-sm"
+                                            style={{ 
+                                                backgroundColor: ACADEMY_COLORS.bgPanel,
+                                                borderColor: ACADEMY_COLORS.lineSoft,
+                                                color: ACADEMY_COLORS.textMuted
+                                            }}
+                                        >
                                             {el}
                                         </span>
                                     ))}
                                 </div>
                             </div>
                             <div className="lg:col-span-5">
-                                <p className="text-slate-600 leading-relaxed">
+                                <p 
+                                    className="leading-loose"
+                                    style={{ color: ACADEMY_COLORS.textBody }}
+                                >
                                     {pillar.description}
                                 </p>
                             </div>

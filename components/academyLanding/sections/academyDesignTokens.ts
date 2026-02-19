@@ -4,13 +4,13 @@
 
 export const ACADEMY_COLORS = {
   bgCanvas: '#f8f8f7',
-  bgSection: '#f1f5f9',
+  bgSection: '#f5f5f4',  // stone-100
   bgPanel: '#ffffff',
-  textStrong: '#0f172a', // slate-900
-  textBody: '#334155',   // slate-700
-  textMuted: '#64748b',  // slate-500
-  lineSoft: '#cbd5e1',   // slate-300
-  lineStrong: '#94a3b8', // slate-400
+  textStrong: '#0f172a', // slate-900 (kept as per instructions)
+  textBody: '#44403c',   // stone-700
+  textMuted: '#78716c',  // stone-500
+  lineSoft: '#e7e5e4',   // stone-200
+  lineStrong: '#d6d3d1', // stone-300
   accentMain: '#d46a1f', // orange-700 equivalent for UI
   accentSoft: '#f7e7d8', // light orange
   accentDeep: '#9a4c16', // darker orange

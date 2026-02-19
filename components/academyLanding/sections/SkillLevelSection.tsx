@@ -48,23 +48,32 @@ const SkillLevelSection = () => {
                 <div className="mb-20 lg:mb-24 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
                     <div>
                         <span
-                            className="inline-block text-[10px] tracking-[0.2em] font-bold text-orange-500 uppercase mb-4"
-                            style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                            className="inline-block text-[10px] tracking-[0.2em] font-bold uppercase mb-4"
+                            style={{ 
+                                fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                                color: ACADEMY_COLORS.accentMain 
+                            }}
                         >
                             Growth Steps
                         </span>
                         <h2
-                            className="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-6"
-                            style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
+                            className="text-3xl lg:text-4xl font-bold leading-tight mb-6"
+                            style={{ 
+                                fontFamily: ACADEMY_TYPOGRAPHY.serif,
+                                color: ACADEMY_COLORS.textStrong
+                            }}
                         >
                             AIスキルの成長段階
                         </h2>
-                        <p className="text-slate-600 max-w-2xl leading-relaxed">
+                        <p 
+                            className="max-w-2xl leading-loose"
+                            style={{ color: ACADEMY_COLORS.textBody }}
+                        >
                             100日間のプログラムを通じて、段階的にスキルを積み上げます。<br className="hidden lg:block" />
                             単なる操作方法の習得ではなく、AI時代を生き抜く「視点」と「能力」を獲得します。
                         </p>
                     </div>
-                    <div className="hidden lg:block flex-shrink-0">
+                    <div className="hidden lg:block flex-shrink-0 bg-white p-4 rounded-md shadow-sm">
                         <Image
                             src="/images/skill-pyramid-illustration.png"
                             alt="スキル成長ピラミッド"
@@ -76,46 +85,83 @@ const SkillLevelSection = () => {
                 </div>
 
                 {/* Competency Definition Sheet Layout */}
-                <div className="border-t border-slate-900/10">
+                <div 
+                    className="border-t"
+                    style={{ borderColor: ACADEMY_COLORS.lineSoft }}
+                >
                     {levels.map((item) => (
                         <div
                             key={item.id}
-                            className="grid lg:grid-cols-12 gap-8 lg:gap-16 py-12 lg:py-16 border-b border-slate-900/10"
+                            className="grid lg:grid-cols-12 gap-8 lg:gap-16 py-12 lg:py-16 border-b"
+                            style={{ borderColor: ACADEMY_COLORS.lineSoft }}
                         >
                             {/* Left: Level Definition */}
                             <div className="lg:col-span-5">
                                 <span 
-                                    className="text-xs font-bold text-orange-700 tracking-widest mb-4 inline-block"
-                                    style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                                    className="text-xs font-bold tracking-widest mb-4 inline-block"
+                                    style={{ 
+                                        fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                                        color: ACADEMY_COLORS.accentDeep
+                                    }}
                                 >
                                     {item.level}
                                 </span>
-                                <h3 className="text-xl lg:text-2xl font-bold text-slate-900 mb-4">
+                                <h3 
+                                    className="text-xl lg:text-2xl font-bold mb-4"
+                                    style={{ color: ACADEMY_COLORS.textStrong }}
+                                >
                                     {item.title}
                                 </h3>
-                                <p className="text-sm font-medium text-slate-500 mb-6 italic">
+                                <p 
+                                    className="text-sm font-medium mb-6 italic leading-loose"
+                                    style={{ color: ACADEMY_COLORS.textMuted }}
+                                >
                                     {item.subtitle}
                                 </p>
-                                <p className="text-slate-600 text-sm leading-relaxed">
+                                <p 
+                                    className="text-sm leading-loose"
+                                    style={{ color: ACADEMY_COLORS.textBody }}
+                                >
                                     {item.definition}
                                 </p>
                             </div>
 
                             {/* Right: Program & Action */}
-                            <div className="lg:col-span-7 bg-white p-8 lg:p-10 border border-slate-200 rounded-sm">
+                            <div 
+                                className="lg:col-span-7 p-8 lg:p-10 border rounded-sm shadow-sm"
+                                style={{ 
+                                    backgroundColor: ACADEMY_COLORS.bgPanel,
+                                    borderColor: ACADEMY_COLORS.lineSoft
+                                }}
+                            >
                                 <div className="mb-8">
-                                    <h4 className="text-[10px] font-bold text-slate-400 tracking-widest uppercase mb-3">
+                                    <h4 
+                                        className="text-[10px] font-bold tracking-widest uppercase mb-3"
+                                        style={{ color: ACADEMY_COLORS.textMuted }}
+                                    >
                                         Program
                                     </h4>
-                                    <p className="text-lg font-bold text-slate-800">
+                                    <p 
+                                        className="text-lg font-bold leading-loose"
+                                        style={{ color: ACADEMY_COLORS.textStrong }}
+                                    >
                                         {item.program.title}
                                     </p>
                                 </div>
-                                <div className="pt-8 border-t border-slate-100">
-                                    <h4 className="text-[10px] font-bold text-slate-400 tracking-widest uppercase mb-3">
+                                <div 
+                                    className="pt-8 border-t"
+                                    style={{ borderColor: ACADEMY_COLORS.bgSection }}
+                                >
+                                    <h4 
+                                        className="text-[10px] font-bold tracking-widest uppercase mb-3"
+                                        style={{ color: ACADEMY_COLORS.textMuted }}
+                                    >
                                         Action / Goal
                                     </h4>
-                                    <p className="text-slate-600 text-sm leading-relaxed">
+                                    <p 
+                                        className="text-sm leading-loose"
+                                        style={{ color: ACADEMY_COLORS.textBody }}
+                                    >
                                         {item.program.action}
                                     </p>
                                 </div>

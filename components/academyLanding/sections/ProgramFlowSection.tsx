@@ -38,18 +38,27 @@ const ProgramFlowSection = () => {
                 {/* Section Header */}
                 <div className="mb-20 lg:mb-24">
                     <span
-                        className="inline-block text-[10px] tracking-[0.2em] font-bold text-orange-500 uppercase mb-4"
-                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                        className="inline-block text-[10px] tracking-[0.2em] font-bold uppercase mb-4"
+                        style={{ 
+                            fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                            color: ACADEMY_COLORS.accentMain 
+                        }}
                     >
                         Program Flow
                     </span>
                     <h2
-                        className="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-6"
-                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
+                        className="text-3xl lg:text-4xl font-bold leading-tight mb-6"
+                        style={{ 
+                            fontFamily: ACADEMY_TYPOGRAPHY.serif,
+                            color: ACADEMY_COLORS.textStrong
+                        }}
                     >
                         自分を再起動する100日間
                     </h2>
-                    <p className="text-slate-600 max-w-2xl leading-relaxed">
+                    <p 
+                        className="max-w-2xl leading-loose"
+                        style={{ color: ACADEMY_COLORS.textBody }}
+                    >
                         「点」の学びで終わらせない。集中的なキャンプから始まり、100日間の継続的な実践と、<br className="hidden lg:block" />
                         その先のキャリア支援までがパッケージ化された一貫性のある成長体験を提供します。
                     </p>
@@ -58,48 +67,77 @@ const ProgramFlowSection = () => {
                 {/* Timeline Layout */}
                 <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 relative">
                     {/* Vertical Connector Line for Mobile */}
-                    <div className="lg:hidden absolute left-0 top-0 bottom-0 w-px bg-slate-200" />
+                    <div 
+                        className="lg:hidden absolute left-0 top-0 bottom-0 w-px" 
+                        style={{ backgroundColor: ACADEMY_COLORS.lineSoft }}
+                    />
 
                     {steps.map((step) => (
                         <div key={step.id} className="relative pl-8 lg:pl-0 group">
                             {/* Horizontal Line for Desktop */}
-                            <div className="hidden lg:block w-full h-px bg-slate-900/10 mb-8 group-hover:bg-slate-900/30 transition-colors" />
+                            <div 
+                                className="hidden lg:block w-full h-px mb-8 group-hover:opacity-60 transition-opacity" 
+                                style={{ backgroundColor: ACADEMY_COLORS.lineStrong }}
+                            />
 
                             {/* Dot/Marker */}
-                            <div className="lg:hidden absolute left-[-4px] top-0 w-2 h-2 rounded-full bg-slate-300" />
+                            <div 
+                                className="lg:hidden absolute left-[-4px] top-0 w-2 h-2 rounded-full" 
+                                style={{ backgroundColor: ACADEMY_COLORS.lineStrong }}
+                            />
 
                             {/* Illustration */}
                             <div className="mb-6 h-24 flex items-center">
-                                <Image
-                                    src={step.illustration}
-                                    alt={step.title}
-                                    width={100}
-                                    height={90}
-                                    className="object-contain opacity-85"
-                                />
+                                <div className="p-2 bg-white rounded-md shadow-sm">
+                                    <Image
+                                        src={step.illustration}
+                                        alt={step.title}
+                                        width={100}
+                                        height={90}
+                                        className="object-contain opacity-85"
+                                    />
+                                </div>
                             </div>
 
                             <div className="mb-6">
                                 <span
-                                    className="text-xs font-bold text-orange-600 tracking-widest"
-                                    style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                                    className="text-xs font-bold tracking-widest"
+                                    style={{ 
+                                        fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                                        color: ACADEMY_COLORS.accentMain
+                                    }}
                                 >
                                     {step.label}
                                 </span>
                             </div>
 
-                            <h3 className="text-xl lg:text-2xl font-bold text-slate-900 mb-6">
+                            <h3 
+                                className="text-xl lg:text-2xl font-bold mb-6"
+                                style={{ color: ACADEMY_COLORS.textStrong }}
+                            >
                                 {step.title}
                             </h3>
 
-                            <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-8">
+                            <p 
+                                className="text-sm lg:text-base leading-loose mb-8"
+                                style={{ color: ACADEMY_COLORS.textBody }}
+                            >
                                 {step.description}
                             </p>
 
                             <ul className="space-y-3">
                                 {step.items.map(item => (
-                                    <li key={item} className="flex gap-3 text-xs text-slate-500">
-                                        <span className="text-orange-400 font-bold">→</span>
+                                    <li 
+                                        key={item} 
+                                        className="flex gap-3 text-xs"
+                                        style={{ color: ACADEMY_COLORS.textMuted }}
+                                    >
+                                        <span 
+                                            className="font-bold"
+                                            style={{ color: ACADEMY_COLORS.accentMain }}
+                                        >
+                                            →
+                                        </span>
                                         <span>{item}</span>
                                     </li>
                                 ))}

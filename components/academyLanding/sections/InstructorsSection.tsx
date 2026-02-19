@@ -46,18 +46,27 @@ const InstructorsSection = () => {
                 {/* Section Header */}
                 <div className="mb-16 lg:mb-24">
                     <span 
-                        className="inline-block text-[10px] tracking-[0.2em] font-bold text-orange-500 uppercase mb-4"
-                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                        className="inline-block text-[10px] tracking-[0.2em] font-bold uppercase mb-4"
+                        style={{ 
+                            fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                            color: ACADEMY_COLORS.accentMain 
+                        }}
                     >
                         Mentors
                     </span>
                     <h2 
-                        className="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-6"
-                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
+                        className="text-3xl lg:text-4xl font-bold leading-tight mb-6"
+                        style={{ 
+                            fontFamily: ACADEMY_TYPOGRAPHY.serif,
+                            color: ACADEMY_COLORS.textStrong
+                        }}
                     >
                         講師・メンター
                     </h2>
-                    <p className="text-slate-600 max-w-2xl leading-relaxed">
+                    <p 
+                        className="max-w-2xl leading-loose"
+                        style={{ color: ACADEMY_COLORS.textBody }}
+                    >
                         第一線でAIと向き合い、自らも変化し続ける実践者たちが、<br className="hidden lg:block" />
                         あなたの100日間に伴走し、本質的な成長を支援します。
                     </p>
@@ -71,7 +80,10 @@ const InstructorsSection = () => {
                             className="flex flex-col sm:flex-row gap-6 lg:gap-8 group"
                         >
                             {/* Portrait */}
-                            <div className="relative w-full sm:w-40 lg:w-48 aspect-[3/4] shrink-0 bg-slate-100 overflow-hidden rounded-sm">
+                            <div 
+                                className="relative w-full sm:w-40 lg:w-48 aspect-[3/4] shrink-0 overflow-hidden rounded-sm"
+                                style={{ backgroundColor: ACADEMY_COLORS.bgSection }}
+                            >
                                 <Image
                                     src={instructor.image}
                                     alt={instructor.name}
@@ -84,29 +96,47 @@ const InstructorsSection = () => {
                             <div className="flex flex-col">
                                 <div className="mb-4">
                                     <h3 
-                                        className="text-xl lg:text-2xl font-bold text-slate-900 mb-1"
-                                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
+                                        className="text-xl lg:text-2xl font-bold mb-1"
+                                        style={{ 
+                                            fontFamily: ACADEMY_TYPOGRAPHY.serif,
+                                            color: ACADEMY_COLORS.textStrong
+                                        }}
                                     >
                                         {instructor.name}
                                     </h3>
                                     <p 
-                                        className="text-[10px] font-bold text-orange-600 tracking-widest uppercase"
-                                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                                        className="text-[10px] font-bold tracking-widest uppercase"
+                                        style={{ 
+                                            fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                                            color: ACADEMY_COLORS.accentDeep
+                                        }}
                                     >
                                         {instructor.nameEn}
                                     </p>
                                 </div>
                                 
-                                <div className="mb-4 pb-4 border-b border-slate-200">
-                                    <p className="text-xs font-bold text-slate-500 mb-1">
+                                <div 
+                                    className="mb-4 pb-4 border-b"
+                                    style={{ borderColor: ACADEMY_COLORS.lineSoft }}
+                                >
+                                    <p 
+                                        className="text-xs font-bold mb-1"
+                                        style={{ color: ACADEMY_COLORS.textMuted }}
+                                    >
                                         {instructor.company}
                                     </p>
-                                    <p className="text-sm font-medium text-slate-700 leading-snug">
+                                    <p 
+                                        className="text-sm font-medium leading-snug"
+                                        style={{ color: ACADEMY_COLORS.textBody }}
+                                    >
                                         {instructor.role}
                                     </p>
                                 </div>
 
-                                <p className="text-sm text-slate-600 leading-relaxed">
+                                <p 
+                                    className="text-sm leading-loose"
+                                    style={{ color: ACADEMY_COLORS.textBody }}
+                                >
                                     {instructor.profile}
                                 </p>
                             </div>
