@@ -29,6 +29,8 @@ const tocItems = [
   { id: "build-with-ai", label: "AIと対話して作る手順" },
   { id: "one-day-case", label: "1日でLPを作った実例" },
   { id: "cursor-vs-copilot", label: "Cursor vs GitHub Copilot" },
+  { id: "pitfalls", label: "つまずきやすいポイント" },
+  { id: "first-week-plan", label: "最初の7日間プラン" },
   { id: "faq", label: "よくある質問（FAQ）" },
   { id: "related-links", label: "関連記事" },
   { id: "next-action", label: "次のアクション" },
@@ -416,6 +418,115 @@ export default function CursorAiCodingGuidePage({ faqItems }: CursorAiCodingGuid
               Claude Code入門
             </Link>
             も合わせて読むと、用途別に選びやすくなります。
+          </p>
+        </motion.section>
+
+        <motion.section
+          id="pitfalls"
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            非エンジニアがCursorでつまずきやすいポイントと回避策
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            つまずきの原因は技術不足より、作業設計の不足であることが多いです。先に失敗パターンを知ると、挫折をかなり減らせます。
+          </p>
+
+          <h3 className="mt-7 text-xl font-semibold text-gray-900">1. 指示が広すぎて、何が終わったか判断できない</h3>
+          <p className="mt-3 text-sm leading-7 text-gray-700">
+            典型例は「いい感じのLPを作って」の一言で進めるケースです。生成はされますが、評価基準がないため修正が無限に続きます。回避策は、完成条件を3つに固定することです。例えば「CTAクリックが機能する」「スマホで崩れない」「問い合わせ導線が1画面で見える」など、判断基準を明文化してください。
+          </p>
+
+          <h3 className="mt-7 text-xl font-semibold text-gray-900">2. エラーを再生成で押し切ってしまう</h3>
+          <p className="mt-3 text-sm leading-7 text-gray-700">
+            動かないときに再生成を繰り返すと、原因が見えないままコードだけ増えていきます。まずはエラー全文、実行条件、期待する挙動を1セットで渡し、原因候補を出してもらう方が修正コストは下がります。非エンジニアほど「いま何が壊れているか」を言語化するだけで改善速度が上がります。
+          </p>
+
+          <h3 className="mt-7 text-xl font-semibold text-gray-900">3. 見た目修正と機能実装を同時に進める</h3>
+          <p className="mt-3 text-sm leading-7 text-gray-700">
+            フォーム送信の不具合調査をしながらデザインも触ると、変更原因が追えなくなります。先に機能を固め、後から見た目を整える順番に分けるだけで、作業の迷子を防げます。これは開発経験の有無に関係なく効果がある進め方です。
+          </p>
+
+          <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-5">
+            <p className="text-sm font-semibold text-amber-900">実務で使えるチェックルール（作業前に30秒で確認）</p>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-amber-900">
+              <li className="pl-1 marker:text-amber-600">今回の依頼は1目的だけか（例: フォーム送信修正のみ）。</li>
+              <li className="pl-1 marker:text-amber-600">完了条件を見れば第三者でも終了判断できるか。</li>
+              <li className="pl-1 marker:text-amber-600">変更後の確認項目を3つ以内に絞れているか。</li>
+            </ul>
+          </div>
+        </motion.section>
+
+        <motion.section
+          id="first-week-plan"
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            Cursorを仕事で使える状態にする最初の7日間プラン
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            1日で初版を作った後は、7日かけて再現性を作ると実務投入しやすくなります。
+          </p>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
+              <thead>
+                <tr className="border-b border-gray-300">
+                  <th className="py-3 pr-4 font-semibold text-gray-900">日</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">やること</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">到達目標</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">1日目</td>
+                  <td className="px-4 py-4">1ページLPを生成し、文言を差し替える。</td>
+                  <td className="py-4 pl-4">画面表示とCTAリンクが動く。</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">2日目</td>
+                  <td className="px-4 py-4">スマホ表示の余白・見出し改行を調整する。</td>
+                  <td className="py-4 pl-4">主要3画面サイズで崩れなし。</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">3日目</td>
+                  <td className="px-4 py-4">フォーム項目を追加し、入力チェックを入れる。</td>
+                  <td className="py-4 pl-4">未入力時に明確なエラー表示が出る。</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">4日目</td>
+                  <td className="px-4 py-4">送信後の完了画面と通知文面を調整する。</td>
+                  <td className="py-4 pl-4">問い合わせ導線が最後まで通る。</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">5日目</td>
+                  <td className="px-4 py-4">よく使う依頼文を3本テンプレ化する。</td>
+                  <td className="py-4 pl-4">同じ品質を再現できる。</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">6日目</td>
+                  <td className="px-4 py-4">別テーマの小ページをもう1本作る。</td>
+                  <td className="py-4 pl-4">初回以外でも再現できる。</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">7日目</td>
+                  <td className="px-4 py-4">作業ログを見返し、改善ルールを3つ決める。</td>
+                  <td className="py-4 pl-4">翌週から実務で継続運用できる。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-6 text-sm leading-7 text-gray-700">
+            この7日間プランの狙いは、単発の成功で終わらせないことです。最初の1本だけ作れても、翌週に再現できなければ実務には定着しません。少なくとも「依頼文の型」「確認手順」「公開前チェック」の3点をテンプレ化しておくと、非エンジニアでも運用品質を保ちながら改善を続けられます。
           </p>
         </motion.section>
 
