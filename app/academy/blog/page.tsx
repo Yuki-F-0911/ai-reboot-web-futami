@@ -6,11 +6,18 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで46記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで66記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
-type BlogCategory = "AI基礎知識" | "実務活用" | "最新AIツール" | "資格・スキル" | "キャリア・転職" | "法人向け";
+type BlogCategory =
+  | "AI基礎知識"
+  | "実務活用"
+  | "最新AIツール"
+  | "資格・スキル"
+  | "キャリア・転職"
+  | "副業・フリーランス"
+  | "法人向け";
 
 type BlogPost = {
   slug: string;
@@ -376,6 +383,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "キャリア・転職",
   },
   {
+    slug: "ai-freelance-work-guide",
+    title: "フリーランス・副業のAI活用術｜提案・作業・請求まで効率化する実践ガイド",
+    summary:
+      "案件獲得、実作業、請求・管理までを一連で効率化する実務ガイド。提案書・見積書のコピペ可能プロンプトと週次ワークフロー設計を解説します。",
+    category: "副業・フリーランス",
+  },
+  {
     slug: "ai-portfolio-guide",
     title: "AIスキルのポートフォリオ作り方2026｜転職・副業・社内評価につながる実績のまとめ方",
     summary:
@@ -426,6 +440,14 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/google-ai-studio-guide/slide-01.png",
   },
   {
+    slug: "google-ai-studio-app-build-guide",
+    title: "Google AI StudioのApp Build機能とは？アプリ作成の始め方と活用法",
+    summary:
+      "Google AI StudioのApp Build機能に絞って、準備、ステップ実装、業務アプリ3パターン（FAQ Bot・プロンプト整形・データ要約）の作り方、ノーコード運用の限界まで整理した実践ガイドです。",
+    category: "最新AIツール",
+    thumbnail: "/images/blog/google-ai-studio-app-build-guide/slide-01.png",
+  },
+  {
     slug: "ai-image-generation-guide",
     title: "AI画像生成おすすめツール比較｜Nano Banana・Midjourney・DALL-Eの使い方と選び方",
     summary:
@@ -470,6 +492,7 @@ const categoryClassName: Record<BlogCategory, string> = {
   "最新AIツール": "border border-cyan-200 bg-cyan-50 text-cyan-700",
   "資格・スキル": "border border-wisdom-light bg-wisdom-lighter text-wisdom",
   "キャリア・転職": "border border-amber-200 bg-amber-50 text-amber-700",
+  "副業・フリーランス": "border border-emerald-200 bg-emerald-50 text-emerald-700",
   法人向け: "border border-will-primary/20 bg-will-lighter text-will-primary",
 };
 
