@@ -83,47 +83,46 @@ const SubsidyBanner = () => {
                     <div 
                         className="w-full lg:w-80 border rounded-sm p-8 lg:p-10"
                         style={{
-                            backgroundColor: ACADEMY_COLORS.accentSoft,
-                            borderColor: ACADEMY_COLORS.accentMain + '40'
+                            backgroundColor: ACADEMY_COLORS.accentMain,
+                            borderColor: ACADEMY_COLORS.accentDeep
                         }}
                     >
                         <div className="flex flex-col items-center text-center">
                             <div className="mb-6">
-                                <p 
+                                <p
                                     className="text-xs line-through mb-1"
-                                    style={{ color: ACADEMY_COLORS.textMuted }}
+                                    style={{ color: 'rgba(255,255,255,0.6)' }}
                                 >
                                     通常価格 330,000円
                                 </p>
-                                <p 
+                                <p
                                     className="text-sm font-medium"
-                                    style={{ color: ACADEMY_COLORS.textBody }}
+                                    style={{ color: 'rgba(255,255,255,0.85)' }}
                                 >
                                     実質負担額
                                 </p>
                                 <div className="flex items-baseline justify-center gap-1">
                                     <span
                                         className="text-4xl lg:text-5xl font-bold"
-                                        style={{ 
+                                        style={{
                                             fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                                            color: ACADEMY_COLORS.textStrong
+                                            color: '#ffffff'
                                         }}
                                     >
                                         120,000
                                     </span>
-                                    <span 
+                                    <span
                                         className="text-sm font-bold"
-                                        style={{ color: ACADEMY_COLORS.textStrong }}
+                                        style={{ color: '#ffffff' }}
                                     >
                                         円〜
                                     </span>
                                 </div>
                             </div>
 
-                            
-                            <p 
+                            <p
                                 className="text-[10px] leading-relaxed italic"
-                                style={{ color: ACADEMY_COLORS.textMuted }}
+                                style={{ color: 'rgba(255,255,255,0.65)' }}
                             >
                                 ※転職および1年間の継続就業が条件となります。<br />
                                 詳細は個別面談にてご説明いたします。
