@@ -5,25 +5,25 @@ const steps = [
     {
         id: "01",
         label: "STEP 01",
-        title: "2日間のキックオフ・キャンプ",
-        description: "非日常の環境で、自分自身と深く向き合い、仲間との繋がりを築く2日間。AIリブートキャンプを通じて、これまでの常識を一度解体し、新しい自分への「再起動」を行います。",
+        title: "AIリブートキャンプ",
+        description: "仲間と共に集中的に学ぶ2日間。生成AIの本質を理解し、100日間の挑戦が始まります。",
         items: ["マインドセットの解体", "AI活用の第一歩", "共創コミュニティ形成"],
         illustration: "/images/bootcamp-illustration.png"
     },
     {
         id: "02",
         label: "STEP 02",
-        title: "100日間の実践プログラム",
-        description: "キャンプで得た熱量をそのままに、実務に即したAI活用スキルを習得。メンターによる伴走サポートを受けながら、自分だけのAI活用プロジェクトを推進します。",
+        title: "AIリブート100",
+        description: "最新のAI活用事例と実践的なワークショップ。一人ひとりの課題に寄り添うフィードバック。",
         items: ["生成AIの実務実装", "マーケティング視点の統合", "メンターによる定期フィードバック"],
         illustration: "/images/online-learning-illustration.png"
     },
     {
         id: "03",
         label: "STEP 03",
-        title: "キャリアリブート・転職支援",
-        description: "習得したスキルと再定義した自己価値を武器に、望むキャリアへと踏み出します。専門家によるキャリアコンサルティングと転職支援を通じて、新しいステージへの移行を確実にします。",
-        items: ["キャリアコンサルティング", "ポートフォリオ作成支援", "企業マッチング・転職支援"],
+        title: "成果発表会",
+        description: "100日間の成長と成果を披露する晴れ舞台です。修了証も授与されます。",
+        items: ["キャリアコンサルティング", "ポートフォリオ作成支援", "成果発表・修了証授与"],
         illustration: "/images/presentation-illustration.png"
     }
 ];
@@ -44,23 +44,22 @@ const ProgramFlowSection = () => {
                             color: ACADEMY_COLORS.accentMain 
                         }}
                     >
-                        Program Flow
+                        FLOW
                     </span>
                     <h2
                         className="text-3xl lg:text-4xl font-bold leading-tight mb-6"
-                        style={{ 
+                        style={{
                             fontFamily: ACADEMY_TYPOGRAPHY.serif,
                             color: ACADEMY_COLORS.textStrong
                         }}
                     >
-                        自分を再起動する100日間
+                        プログラムの流れ
                     </h2>
-                    <p 
+                    <p
                         className="max-w-2xl leading-loose"
                         style={{ color: ACADEMY_COLORS.textBody }}
                     >
-                        「点」の学びで終わらせない。集中的なキャンプから始まり、100日間の継続的な実践と、<br className="hidden lg:block" />
-                        その先のキャリア支援までがパッケージ化された一貫性のある成長体験を提供します。
+                        2日間の集中研修から始まる100日間の旅
                     </p>
                 </div>
 

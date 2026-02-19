@@ -41,22 +41,21 @@ const TargetAudienceSection = () => {
                     >
                         Target
                     </span>
-                    <h2 
+                    <h2
                         className="text-3xl lg:text-4xl font-bold leading-tight mb-6"
-                        style={{ 
+                        style={{
                             fontFamily: ACADEMY_TYPOGRAPHY.serif,
                             color: ACADEMY_COLORS.textStrong
                         }}
                     >
-                        こんな想いを持つ方に、<br />
-                        最適なプログラムです
+                        <span className="hidden lg:inline">特にオススメしている対象者</span>
+                        <span className="lg:hidden">特にオススメの対象者</span>
                     </h2>
-                    <p 
+                    <p
                         className="max-w-xl leading-loose"
                         style={{ color: ACADEMY_COLORS.textBody }}
                     >
-                        技術的な習得だけでなく、自らのキャリアを主体的に切り拓きたい、<br className="hidden lg:block" />
-                        そんな意志を持つ方々を募集しています。
+                        こんな想いを持つ方に、最適なプログラムです
                     </p>
                 </div>
 
@@ -97,11 +96,11 @@ const TargetAudienceSection = () => {
 
                 {/* Bottom CTA hint */}
                 <div className="mt-16 flex flex-col items-start gap-4">
-                    <p 
+                    <p
                         className="text-sm font-medium leading-loose"
                         style={{ color: ACADEMY_COLORS.textMuted }}
                     >
-                        ひとつでも当てはまる方は、まずはオンライン説明会へお越しください。
+                        当てはまる方は、ぜひ無料説明会へお越しください
                     </p>
                     <div 
                         className="h-[1px] w-24" 

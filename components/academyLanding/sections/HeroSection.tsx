@@ -121,32 +121,15 @@ const HeroSection = () => {
                             100日間で、変化する時代を<br className="sm:hidden" />
                             味方につける人材へ
                         </p>
-                        <p 
+                        <p
                             className="text-base lg:text-lg leading-loose max-w-xl mx-auto lg:mx-0"
                             style={{ color: ACADEMY_COLORS.textBody }}
                         >
-                            生成AI活用 × 自己理解 × 仲間との学び。<br className="hidden lg:block" />
-                            AI時代を生き抜く「武器」と「視点」を、<br className="sm:hidden" />
-                            体系的に習得する実践プログラム。
+                            <span className="hidden sm:inline">生成AI活用 × マーケティング × コミュニケーション × キャリアデザイン</span>
+                            <span className="sm:hidden">生成AI活用 × マーケティング<br />× コミュニケーション × キャリアデザイン</span>
+                            <br />
+                            AI時代に活躍する人材に、いち早くなる。
                         </p>
-                    </div>
-
-                    {/* 3 Pillars Label */}
-                    <div className="mb-8 flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2">
-                        {['生成AI活用力', '自己理解・キャリア', '共創コミュニティ'].map((pillar) => (
-                            <div key={pillar} className="flex items-center gap-2">
-                                <span 
-                                    className="w-1.5 h-1.5 rounded-full" 
-                                    style={{ backgroundColor: ACADEMY_COLORS.accentMain }}
-                                />
-                                <span 
-                                    className="text-xs font-bold tracking-wider uppercase"
-                                    style={{ color: ACADEMY_COLORS.textBody }}
-                                >
-                                    {pillar}
-                                </span>
-                            </div>
-                        ))}
                     </div>
 
                     {/* CTA Buttons */}

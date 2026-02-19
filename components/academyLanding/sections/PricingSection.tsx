@@ -19,21 +19,20 @@ const PricingSection = () => {
                     >
                         Pricing
                     </span>
-                    <h2 
+                    <h2
                         className="text-3xl lg:text-4xl font-bold leading-tight mb-6"
-                        style={{ 
+                        style={{
                             fontFamily: ACADEMY_TYPOGRAPHY.serif,
                             color: ACADEMY_COLORS.textStrong
                         }}
                     >
-                        プログラム受講費用
+                        費用詳細
                     </h2>
-                    <p 
+                    <p
                         className="max-w-xl leading-loose"
                         style={{ color: ACADEMY_COLORS.textBody }}
                     >
-                        経済産業省のリスキリング補助金を活用することで、<br className="hidden lg:block" />
-                        受講費用の最大70%が国から支給されます。
+                        経済産業省リスキリング補助金で最大70%OFF
                     </p>
                 </div>
 
@@ -96,11 +95,10 @@ const PricingSection = () => {
 
                         <ul className="space-y-6">
                             {[
-                                "100日間の実践型オンラインプログラム",
-                                "2日間のキックオフ・キャンプ（宿泊研修）",
-                                "専属メンターによる学習伴走サポート",
-                                "キャリアコンサルティング（計3回）",
-                                "限定コミュニティへの参加権"
+                                "100日間の実践プログラム",
+                                "2日間の宿泊型集合研修",
+                                "メンター伴走サポート",
+                                "キャリアコンサルティング3回"
                             ].map(feature => (
                                 <li key={feature} className="flex gap-4">
                                     <span 
@@ -178,10 +176,10 @@ const PricingSection = () => {
 
                         <ul className="space-y-6">
                             {[
-                                "経済産業省リスキリング支援事業対象",
-                                "全てのプログラム内容を同一に受講可能",
-                                "キャリア形成と転職活動を同時に支援",
-                                "転職成功でさらに給付額がアップ",
+                                "経済産業省リスキリング補助金対象",
+                                "税抜価格の50%補助",
+                                "全てのプログラム内容を含む",
+                                "転職成功でさらに20%補助",
                                 "雇用形態等の条件により適用外となる場合があります"
                             ].map(feature => (
                                 <li key={feature} className="flex gap-4">
@@ -209,8 +207,7 @@ const PricingSection = () => {
                         className="text-[10px] leading-loose text-center max-w-2xl"
                         style={{ color: ACADEMY_COLORS.textMuted }}
                     >
-                        ※ 表示価格は消費税10%を含みます。補助金制度の詳細は、お住まいの地域や現在の雇用形態により異なる場合があります。<br />
-                        ご自身が対象になるかどうかは、個別オンライン説明会にて詳しくお伝えいたします。
+                        料金は税込価格です。補助金の適用には条件がございます。詳しくは無料説明会にてご案内いたします。
                     </p>
                     <div 
                         className="mt-8 h-[1px] w-24" 

@@ -7,26 +7,34 @@ const ConceptSection = () => {
         {
             id: "01",
             label: "PILLAR 01",
-            title: "生成AI活用力",
-            description: "生成AIを単なる道具としてではなく、思考のパートナーとして使いこなす。マーケティング視点を掛け合わせ、実務を劇的に効率化・高度化する術を学びます。",
+            title: "生成AI活用",
+            description: "AI時代に仕事のやり方をアップデートするスキル",
             elements: ["プロンプトエンジニアリング", "AIマーケティング", "実務自動化"],
             illustration: "/images/mindset-illustration.png"
         },
         {
             id: "02",
             label: "PILLAR 02",
-            title: "自己理解・キャリアデザイン",
-            description: "AIに代替されない「あなただけの価値」を再定義。自分の強みと情熱を言語化し、変化の激しい時代でも揺るがないキャリアの羅針盤を創り上げます。",
-            elements: ["強みの言語化", "価値観の再構築", "ビジョン設計"],
-            illustration: "/images/career-design-illustration.png"
+            title: "マーケティング",
+            description: "価値を届け、人を動かすための戦略的思考力",
+            elements: ["マーケティング戦略", "コピーライティング", "データ分析"],
+            illustration: "/images/skills-illustration.png"
         },
         {
             id: "03",
             label: "PILLAR 03",
-            title: "共創コミュニティ",
-            description: "一人の学びは限界がある。同じ志を持つ仲間と対話し、フィードバックし合う環境。多様な視点が混ざり合うことで、一人では到達できない解へと辿り着きます。",
-            elements: ["ピアラーニング", "プロフェッショナルとの対話", "共創ネットワーク"],
+            title: "コミュニケーション",
+            description: "AIでは代替できない、人を巻き込み動かす力",
+            elements: ["プレゼンテーション", "チームビルディング", "対話力"],
             illustration: "/images/community-illustration.png"
+        },
+        {
+            id: "04",
+            label: "PILLAR 04",
+            title: "キャリアデザイン",
+            description: "自分の未来を描き直し、新しいステージへ踏み出す設計力",
+            elements: ["強みの言語化", "価値観の再構築", "ビジョン設計"],
+            illustration: "/images/career-design-illustration.png"
         }
     ];
 
@@ -58,12 +66,12 @@ const ConceptSection = () => {
                         人生をリブートする場所。
                     </h2>
                     <div className="flex flex-col lg:flex-row gap-8 items-start lg:items-end">
-                        <p 
+                        <p
                             className="text-lg leading-relaxed max-w-2xl"
                             style={{ color: ACADEMY_COLORS.textBody }}
                         >
-                            AIリブートアカデミーは、技術の習得以上に「自分自身のOS」を書き換えることを重視します。<br className="hidden lg:block" />
-                            道具に使われるのではなく、道具を使いこなし、新しい価値を創造する人へ。
+                            AIリブートアカデミーは、生成AIで激変する時代に適応し、<br />
+                            飛躍する自分になるために、人生をリブートする場所です。
                         </p>
                         <Link
                             href="/academy/message"

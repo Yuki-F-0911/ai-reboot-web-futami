@@ -6,9 +6,9 @@ const SkillLevelSection = () => {
         {
             id: "01",
             level: "LEVEL 01",
-            title: "AI基礎力・マインドセット",
-            subtitle: "AIを自分事と捉え、変化を味方にする",
-            definition: "生成AIの基礎知識を習得し、AIを「恐れる対象」から「活用する相棒」へと認識をアップデートします。100日間の挑戦に向けた土台を築きます。",
+            title: "AI基礎力",
+            subtitle: "AIを自分事と捉え、変革に向けて行動できるレベル",
+            definition: "生成AIの基礎知識を習得し、AIを恐れず活用する姿勢を身につけます。100日間の挑戦のスタートラインです。",
             program: {
                 title: "AI時代のマインドセット形成",
                 action: "主要AIツールの特性理解と、継続的な学習習慣の確立"
@@ -17,9 +17,9 @@ const SkillLevelSection = () => {
         {
             id: "02",
             level: "LEVEL 02",
-            title: "AI実務活用・共創力",
-            subtitle: "AIを実務に実装し、劇的な価値を創出する",
-            definition: "複数の生成AIを使いこなし、日常業務やマーケティング施策にAIを統合。生産性を向上させるだけでなく、AIならではの新しい発想を生み出します。",
+            title: "AI活用力",
+            subtitle: "AIを活用して業務効率化・価値創出ができるレベル",
+            definition: "ChatGPT、Claude、Geminiなど複数の生成AIを使いこなし、自分の仕事にAIを実装。生産性を飛躍的に向上させます。",
             program: {
                 title: "実践的なAI共創スキル",
                 action: "プロンプトエンジニアリングの深化と業務フローの再設計"
@@ -28,11 +28,11 @@ const SkillLevelSection = () => {
         {
             id: "03",
             level: "LEVEL 03",
-            title: "AI時代のキャリアデザイン",
-            subtitle: "AIと共に、自分らしい未来を切り拓く",
-            definition: "AIに代替されない「人間ならではの強み」を武器に、自走できる人材へ。プログラム修了後も変化し続け、コミュニティと共に成長を続けます。",
+            title: "AI共創力",
+            subtitle: "AIと共に新しい価値を創り出せるレベル",
+            definition: "あなたの「やりたい」をAIと共に形にする力を養成。AI時代のリーダーとして活躍できる人材を目指します。",
             program: {
-                title: "Will実現のための人生設計",
+                title: "Will実現のためのキャリアデザイン",
                 action: "自己理解の深化と、AI時代における独自の提供価値確立"
             }
         }
@@ -58,19 +58,19 @@ const SkillLevelSection = () => {
                         </span>
                         <h2
                             className="text-3xl lg:text-4xl font-bold leading-tight mb-6"
-                            style={{ 
+                            style={{
                                 fontFamily: ACADEMY_TYPOGRAPHY.serif,
                                 color: ACADEMY_COLORS.textStrong
                             }}
                         >
-                            AIスキルの成長段階
+                            AIスキルの成長ステップ
                         </h2>
-                        <p 
+                        <p
                             className="max-w-2xl leading-loose"
                             style={{ color: ACADEMY_COLORS.textBody }}
                         >
-                            100日間のプログラムを通じて、段階的にスキルを積み上げます。<br className="hidden lg:block" />
-                            単なる操作方法の習得ではなく、AI時代を生き抜く「視点」と「能力」を獲得します。
+                            100日間のプログラムで、段階的にスキルアップ。<br className="hidden lg:block" />
+                            ゼロからAIと共創できる人材へと成長します。
                         </p>
                     </div>
                     <div className="hidden lg:block flex-shrink-0">
