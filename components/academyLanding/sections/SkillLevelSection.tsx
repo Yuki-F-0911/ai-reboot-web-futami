@@ -41,7 +41,7 @@ const SkillLevelSection = () => {
     return (
         <section 
             className="py-24 lg:py-32"
-            style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}
+            style={{ backgroundColor: '#ffffff' }}
         >
             <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
                 {/* Section Header */}
@@ -73,13 +73,13 @@ const SkillLevelSection = () => {
                             単なる操作方法の習得ではなく、AI時代を生き抜く「視点」と「能力」を獲得します。
                         </p>
                     </div>
-                    <div className="hidden lg:block flex-shrink-0 bg-white p-4 rounded-md shadow-sm">
+                    <div className="hidden lg:block flex-shrink-0">
                         <Image
                             src="/images/skill-pyramid-illustration.png"
                             alt="スキル成長ピラミッド"
-                            width={180}
-                            height={180}
-                            className="object-contain opacity-85"
+                            width={260}
+                            height={260}
+                            className="object-contain"
                         />
                     </div>
                 </div>

@@ -32,7 +32,7 @@ const ProgramFlowSection = () => {
     return (
         <section
             className="py-24 lg:py-32"
-            style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}
+            style={{ backgroundColor: '#ffffff' }}
         >
             <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
                 {/* Section Header */}
@@ -87,16 +87,14 @@ const ProgramFlowSection = () => {
                             />
 
                             {/* Illustration */}
-                            <div className="mb-6 h-24 flex items-center">
-                                <div className="p-2 bg-white rounded-md shadow-sm">
-                                    <Image
-                                        src={step.illustration}
-                                        alt={step.title}
-                                        width={100}
-                                        height={90}
-                                        className="object-contain opacity-85"
-                                    />
-                                </div>
+                            <div className="mb-6 h-40 flex items-center">
+                                <Image
+                                    src={step.illustration}
+                                    alt={step.title}
+                                    width={160}
+                                    height={140}
+                                    className="object-contain"
+                                />
                             </div>
 
                             <div className="mb-6">

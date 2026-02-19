@@ -33,7 +33,7 @@ const ConceptSection = () => {
     return (
         <section
             className="py-24 lg:py-32"
-            style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}
+            style={{ backgroundColor: '#ffffff' }}
         >
             <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
                 {/* Section Header */}
@@ -98,15 +98,13 @@ const ConceptSection = () => {
                             style={{ borderColor: ACADEMY_COLORS.lineSoft }}
                         >
                             <div className="lg:col-span-3 flex flex-row lg:flex-col items-center lg:items-start gap-4">
-                                <div className="p-2 bg-white rounded-md shadow-sm flex-shrink-0">
-                                    <Image
-                                        src={pillar.illustration}
-                                        alt={pillar.title}
-                                        width={80}
-                                        height={80}
-                                        className="object-contain opacity-85"
-                                    />
-                                </div>
+                                <Image
+                                    src={pillar.illustration}
+                                    alt={pillar.title}
+                                    width={120}
+                                    height={120}
+                                    className="object-contain"
+                                />
                                 <span
                                     className="text-xs font-bold tracking-widest"
                                     style={{ 
