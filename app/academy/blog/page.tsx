@@ -165,6 +165,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "資格・スキル",
   },
   {
+    slug: "ai-study-learning-guide",
+    title: "AI×勉強・資格・語学学習完全ガイド｜ChatGPTで最短合格する方法",
+    summary:
+      "独学で続かない社会人向けに、資格勉強の問題集生成、語学の会話練習、スキルアップの学習計画作成を1本で実践できるAI活用法を解説します。",
+    category: "資格・スキル",
+  },
+  {
     slug: "generative-ai-passport-guide",
     title: "生成AIパスポート試験の合格法2026｜勉強時間・おすすめ教材・出題傾向まとめ",
     summary:
