@@ -35,7 +35,7 @@ const voices = [
 
 const VoicesSection = () => {
     return (
-        <section className="py-12 md:py-28 bg-white relative overflow-hidden">
+        <section className="py-20 md:py-32 bg-slate-50 relative overflow-hidden">
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-10 left-10 w-72 h-72 bg-orange-100/40 rounded-full blur-3xl" />
                 <div className="absolute bottom-0 right-10 w-80 h-80 bg-amber-100/30 rounded-full blur-3xl" />
@@ -54,11 +54,11 @@ const VoicesSection = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-7">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
                     {voices.map((voice) => (
                         <article
                             key={voice.title}
-                            className="h-full bg-slate-50 border border-slate-100 rounded-2xl p-6 md:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col relative overflow-hidden"
+                            className="h-full bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col relative overflow-hidden"
                         >
                             <span className="absolute top-3 right-4 text-7xl text-orange-200 font-serif leading-none pointer-events-none select-none z-0">
                                 &ldquo;

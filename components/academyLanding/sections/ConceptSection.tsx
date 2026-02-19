@@ -34,7 +34,7 @@ const ConceptSection = () => {
     ];
 
     return (
-        <section className="py-12 md:py-28 bg-white">
+        <section className="py-20 md:py-32 bg-white">
             <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
                 {/* Section Header */}
                 <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16 space-y-3 md:space-y-4">
@@ -76,7 +76,7 @@ const ConceptSection = () => {
                     {pillars.map((pillar) => (
                         <div
                             key={pillar.id}
-                            className="bg-white p-4 md:p-8 rounded-xl md:rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                            className="bg-white p-4 md:p-8 rounded-3xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 relative overflow-hidden group"
                         >
                             {/* Background Decoration */}
                             <div className="absolute -right-8 -top-8 w-24 h-24 bg-gradient-to-br from-orange-100 to-transparent rounded-full opacity-60" />

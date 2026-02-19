@@ -2,7 +2,7 @@
 
 const PricingSection = () => {
     return (
-        <section id="pricing" className="py-12 md:py-28 bg-slate-50 relative overflow-hidden">
+        <section id="pricing" className="py-20 md:py-32 bg-slate-50 border-y border-slate-100 relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute top-0 left-0 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 -translate-x-1/2" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50 translate-y-1/2 translate-x-1/2" />
@@ -24,7 +24,7 @@ const PricingSection = () => {
                 {/* Pricing Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
                     {/* Regular Price Card */}
-                    <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 relative">
+                    <div className="bg-white rounded-3xl p-6 md:p-10 border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 relative">
                         <div className="text-center mb-8">
                             <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
                                 一般受講料

@@ -22,7 +22,7 @@ const HeroSection = () => {
     }, []);
 
     return (
-        <section className="relative flex flex-col w-full min-h-[75vh] max-[375px]:min-h-0 overflow-hidden bg-slate-50">
+        <section className="relative flex flex-col w-full min-h-[75vh] max-[375px]:min-h-0 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
             {/* Mobile: Image at top */}
             <div className="lg:hidden relative w-full h-[40vh] min-h-[280px] overflow-hidden">
                 {heroImages.map((src, index) => (
@@ -73,10 +73,10 @@ const HeroSection = () => {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 container mx-auto px-5 md:px-6 lg:px-8 pt-16 lg:pt-28 pb-8 lg:pb-16 flex flex-1 items-center">
+            <div className="relative z-10 container mx-auto px-5 md:px-6 lg:px-8 pt-20 lg:pt-36 pb-12 lg:pb-24 flex flex-1 items-center">
                 <div className="w-full lg:max-w-2xl text-center lg:text-left">
                     {/* Main Tagline - 最も目立つ訴求コピー */}
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 leading-tight">
+                    <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-black text-slate-900 mb-6 leading-[1.1] tracking-tight">
                         <span className="sr-only">AIリブートアカデミー｜経産省認定リスキリング講座で生成AIスキルを習得</span>
                         <span aria-hidden="true">
                             激変する時代に、<br className="hidden sm:block" />自分を再起動する

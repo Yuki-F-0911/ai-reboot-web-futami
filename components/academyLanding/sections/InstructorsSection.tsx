@@ -39,7 +39,7 @@ const instructors = [
 
 const InstructorsSection = () => {
     return (
-        <section className="py-12 md:py-28 bg-white relative overflow-hidden">
+        <section className="py-20 md:py-32 bg-white relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2" />
 
@@ -62,7 +62,7 @@ const InstructorsSection = () => {
                     {instructors.map((instructor, index) => (
                         <div
                             key={index}
-                            className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 flex flex-col md:flex-row group hover:shadow-xl transition-all duration-300"
+                            className="bg-white rounded-3xl overflow-hidden border border-slate-100 flex flex-col md:flex-row group hover:shadow-2xl transition-all duration-300 shadow-md"
                         >
                             {/* Image Column */}
                             <div className="relative w-full md:w-2/5 aspect-[4/3] md:aspect-auto shrink-0">

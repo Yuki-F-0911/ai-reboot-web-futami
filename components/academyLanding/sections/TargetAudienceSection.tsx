@@ -25,7 +25,7 @@ const targetAudience = [
 
 const TargetAudienceSection = () => {
     return (
-        <section className="py-12 md:py-28 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+        <section className="py-20 md:py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-orange-100/40 rounded-full blur-3xl" />
@@ -55,7 +55,7 @@ const TargetAudienceSection = () => {
                                 key={index}
                                 className={`flex items-center gap-4 md:gap-6 py-5 transition-all duration-300 ${index < targetAudience.length - 1 && !item.isImportant ? "border-b border-slate-200" : ""
                                     } ${item.isImportant
-                                        ? "bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl -mx-4 px-4 mt-4 border border-orange-200"
+                                        ? "bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl -mx-4 px-4 mt-4 border border-orange-200"
                                         : ""
                                     }`}
                             >

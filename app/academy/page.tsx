@@ -127,7 +127,7 @@ export default function AcademyPage() {
       <FAQStructuredData items={academyFaqItems} />
 
       <HeroSection />
-      <section className="mx-auto max-w-4xl px-4 py-16 md:py-20">
+      <section className="mx-auto max-w-4xl px-4 py-20 md:py-32">
         <YouTubeEmbed
           videoId="aNmhgX1WomI"
           title="AIリブートアカデミー紹介動画"
@@ -136,7 +136,7 @@ export default function AcademyPage() {
       <ConceptSection />
 
       {/* Program Flow Section */}
-      <section id="flow" className="py-12 md:py-28 bg-slate-50">
+      <section id="flow" className="py-20 md:py-32 bg-slate-50 border-y border-slate-100">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
           <div className="text-center mb-10 md:mb-16">
@@ -158,7 +158,7 @@ export default function AcademyPage() {
               {steps.map((step) => (
                 <div key={step.id} className="min-w-0">
                   {/* Step Card */}
-                  <div className="bg-white rounded-2xl p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group h-full">
+                  <div className="bg-white rounded-3xl p-6 md:p-8 border border-slate-100 shadow-md hover:shadow-2xl transition-all duration-300 relative overflow-hidden group h-full">
                     {/* Background Decoration */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-50 to-transparent rounded-bl-full opacity-50" />
 
@@ -208,7 +208,7 @@ export default function AcademyPage() {
                     </div>
                   )}
 
-                  <div className="bg-white rounded-2xl p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group h-full">
+                  <div className="bg-white rounded-3xl p-6 md:p-8 border border-slate-100 shadow-md hover:shadow-2xl transition-all duration-300 relative overflow-hidden group h-full">
                     {/* Background Decoration */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-50 to-transparent rounded-bl-full opacity-50" />
 
@@ -249,7 +249,7 @@ export default function AcademyPage() {
 
       <TargetAudienceSection />
 
-      <section className="py-8 md:py-12 bg-gradient-to-r from-orange-500 to-amber-500">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-orange-500 to-amber-500">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-5xl text-center">
           <p className="text-xl md:text-2xl font-bold text-white">
             当てはまる方は、まず無料で話を聞いてみませんか？
@@ -259,7 +259,7 @@ export default function AcademyPage() {
               href="https://bexn9pao.autosns.app/line"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm md:text-base font-bold text-orange-500 bg-white rounded-full hover:bg-orange-50 transition-all duration-300 shadow-lg shadow-orange-900/20"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm md:text-base font-bold text-orange-500 bg-white rounded-full hover:bg-orange-50 transition-all duration-300 shadow-lg shadow-orange-900/20 hover:shadow-xl hover:-translate-y-0.5"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
@@ -268,9 +268,12 @@ export default function AcademyPage() {
             </a>
             <Link
               href="/academy/seminars"
-              className="text-white font-bold underline underline-offset-4 hover:opacity-90"
+              className="text-white font-bold underline underline-offset-4 hover:text-orange-100 transition-colors flex items-center gap-2 group"
             >
-              またはオンライン説明会に参加
+              <span>またはオンライン説明会に参加</span>
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
           </div>
         </div>
@@ -283,15 +286,15 @@ export default function AcademyPage() {
 
       <PricingSection />
 
-      <section className="bg-slate-50">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl text-center pt-4 pb-8">
+      <section className="bg-white border-y border-slate-100">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl text-center py-16 md:py-24">
           <p className="text-base text-slate-500 mb-4">補助金の利用方法もLINEでご案内できます</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="https://bexn9pao.autosns.app/line"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-bold text-white bg-[#06C755] hover:bg-[#05b54d] rounded-full transition-all duration-300 shadow-lg shadow-green-500/30"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-bold text-white bg-[#06C755] hover:bg-[#05b54d] rounded-full transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-xl hover:-translate-y-0.5"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
@@ -300,7 +303,7 @@ export default function AcademyPage() {
             </a>
             <Link
               href="/academy/seminars"
-              className="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold text-orange-500 bg-transparent border-2 border-orange-500/50 hover:border-orange-400 hover:bg-orange-500/10 rounded-full transition-all duration-300"
+              className="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold text-orange-500 bg-transparent border-2 border-orange-500/50 hover:border-orange-500 hover:bg-orange-500/5 rounded-full transition-all duration-300 hover:-translate-y-0.5"
             >
               またはオンライン説明会に参加
             </Link>
@@ -309,29 +312,29 @@ export default function AcademyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-28 bg-slate-900 text-white text-center relative overflow-hidden">
+      <section className="py-20 md:py-32 bg-white text-slate-900 text-center relative overflow-hidden">
         {/* Background Decoration */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-400 rounded-full blur-3xl" />
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-orange-400 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-orange-300 rounded-full blur-[120px]" />
         </div>
 
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl relative z-10">
-          <h2 className="text-3xl md:text-5xl font-black mb-6">
+          <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tight">
             人生を、リブートする。
           </h2>
-          <p className="text-base md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-            <span className="hidden sm:inline">生成AI活用 × マーケティング × コミュニケーション × キャリアデザイン</span>
-            <span className="sm:hidden">生成AI活用 × マーケティング<br />× コミュニケーション × キャリアデザイン</span>
+          <p className="text-lg md:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <span className="hidden sm:inline font-medium">生成AI活用 × マーケティング × コミュニケーション × キャリアデザイン</span>
+            <span className="sm:hidden font-medium">生成AI活用 × マーケティング<br />× コミュニケーション × キャリアデザイン</span>
             <br />
-            100日間で、AI時代に活躍する人材へ。
+            <span className="mt-4 block font-bold text-slate-900">100日間で、AI時代に活躍する人材へ。</span>
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="https://bexn9pao.autosns.app/line"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-bold text-white bg-[#06C755] hover:bg-[#05b54d] rounded-full transition-all duration-300 shadow-lg shadow-green-500/30"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-bold text-white bg-[#06C755] hover:bg-[#05b54d] rounded-full transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-xl hover:-translate-y-0.5"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
@@ -340,12 +343,12 @@ export default function AcademyPage() {
             </a>
             <Link
               href="/academy/seminars"
-              className="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold text-orange-500 bg-transparent border-2 border-orange-500/50 hover:border-orange-400 hover:bg-orange-500/10 rounded-full transition-all duration-300"
+              className="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold text-orange-500 bg-transparent border-2 border-orange-500/50 hover:border-orange-500 hover:bg-orange-500/5 rounded-full transition-all duration-300 hover:-translate-y-0.5"
             >
               またはオンライン説明会に参加
             </Link>
           </div>
-          <p className="text-slate-500 text-sm mt-8">
+          <p className="text-slate-400 text-sm mt-8">
             ※ 無理な勧誘は一切ございません。安心してお申し込みください。
           </p>
         </div>
