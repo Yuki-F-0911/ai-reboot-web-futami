@@ -76,10 +76,10 @@ const HeroSection = () => {
             <div className="relative z-10 container mx-auto px-5 md:px-6 lg:px-8 pt-20 lg:pt-36 pb-12 lg:pb-24 flex flex-1 items-center">
                 <div className="w-full lg:max-w-2xl text-center lg:text-left">
                     {/* Main Tagline - 最も目立つ訴求コピー */}
-                    <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-black text-slate-900 mb-6 leading-[1.1] tracking-tight">
+                    <h1 className="text-[clamp(2rem,5vw,3.5rem)] font-black text-slate-900 mb-6 leading-[1.2] tracking-tight">
                         <span className="sr-only">AIリブートアカデミー｜経産省認定リスキリング講座で生成AIスキルを習得</span>
                         <span aria-hidden="true">
-                            激変する時代に、<br className="hidden sm:block" />自分を再起動する
+                            激変する時代に、<br />自分を再起動する
                         </span>
                     </h1>
 
