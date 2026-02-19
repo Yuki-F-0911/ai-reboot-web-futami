@@ -6,11 +6,11 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで44記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで45記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
-type BlogCategory = "AI基礎知識" | "実務活用" | "資格・スキル" | "キャリア・転職" | "法人向け";
+type BlogCategory = "AI基礎知識" | "実務活用" | "最新AIツール" | "資格・スキル" | "キャリア・転職" | "法人向け";
 
 type BlogPost = {
   slug: string;
@@ -390,6 +390,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "実務活用",
   },
   {
+    slug: "genspark-guide",
+    title: "Gensparkとは？AI検索の新世代ツールを徹底解説｜Perplexityとの違いと使い分け",
+    summary:
+      "Gensparkの基本機能、Perplexityとの違い、ビジネス情報収集シーン別の使い分け、無料利用可否と日本語運用の注意点を確認日付きで整理した最新AIツール解説です。",
+    category: "最新AIツール",
+  },
+  {
     slug: "ai-image-generation-guide",
     title: "AI画像生成おすすめツール比較｜Nano Banana・Midjourney・DALL-Eの使い方と選び方",
     summary:
@@ -431,6 +438,7 @@ const blogPosts: readonly BlogPost[] = [
 const categoryClassName: Record<BlogCategory, string> = {
   "AI基礎知識": "border border-harmony-light bg-harmony-lighter text-harmony",
   実務活用: "border border-orange-200 bg-orange-50 text-orange-700",
+  "最新AIツール": "border border-cyan-200 bg-cyan-50 text-cyan-700",
   "資格・スキル": "border border-wisdom-light bg-wisdom-lighter text-wisdom",
   "キャリア・転職": "border border-amber-200 bg-amber-50 text-amber-700",
   法人向け: "border border-will-primary/20 bg-will-lighter text-will-primary",
