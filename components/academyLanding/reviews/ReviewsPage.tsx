@@ -275,7 +275,7 @@ const ReviewsPage = ({ faqItems }: ReviewsPageProps) => {
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
           <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">
-            AIリブートアカデミーの評判は？結論からお伝えします
+            AIリブートアカデミーの評判は？第一期参加者の声
           </h2>
           <p className="mt-3 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
             第一期参加者の声を整理すると、「行動に移すための環境が整っていること」が繰り返し語られています。具体的には、実務に近いアウトプット、仲間との学び、2日間での変化がポイントです。
@@ -424,7 +424,7 @@ const ReviewsPage = ({ faqItems }: ReviewsPageProps) => {
             無料セミナー参加者の声
           </h2>
           <p className="mt-3 max-w-4xl text-sm leading-relaxed text-slate-600 sm:text-base">
-            2026/1/2・2026/1/8に開催した無料セミナーのアンケート（19名回答）から、参加者の声を抜粋しました。平均満足度は約4.2/5です。
+            2026/1/2・2026/1/8に開催した無料セミナーのアンケート（19名回答）から、参加者の声を抜粋しました。有効回答18名（未回答1名を除く）の平均満足度は4.2 / 5です。
           </p>
           <p className="mt-1 text-xs leading-relaxed text-slate-500 sm:text-sm">
             ※ コメントは個人が特定されない形で掲載しています。

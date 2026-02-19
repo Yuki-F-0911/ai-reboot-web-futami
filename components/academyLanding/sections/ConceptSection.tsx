@@ -6,7 +6,7 @@ const ConceptSection = () => {
         {
             id: "01",
             title: "生成AI活用",
-            description: "AI時代の武器を手に入れ、既存の仕事を劇的に変える力",
+            description: "AI時代に仕事のやり方をアップデートするスキル",
             icon: "🤖",
             illustration: "/images/mindset-illustration.png"
         },

@@ -238,7 +238,6 @@ const ReskillingCourseRecommendationPage = ({ faqItems }: ReskillingCourseRecomm
               </li>
             ))}
           </ul>
-          {/* TODO: 要ファクト確認 - 制度条件変更時は手順文言を更新 */}
         </motion.div>
       </section>
 

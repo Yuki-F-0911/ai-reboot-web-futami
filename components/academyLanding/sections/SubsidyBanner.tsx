@@ -98,7 +98,7 @@ const SubsidyBanner = () => {
                                 {/* Discount Badge */}
                                 <div className="bg-orange-50 border-2 border-orange-200 rounded-full px-6 py-2">
                                     <p className="text-orange-600 font-bold text-lg">
-                                        最大70%OFF
+                                        最大70%補助
                                     </p>
                                 </div>
 

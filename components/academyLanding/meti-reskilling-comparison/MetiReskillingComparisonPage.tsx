@@ -133,7 +133,6 @@ export default function MetiReskillingComparisonPage({
             </li>
           ))}
         </ul>
-        {/* TODO: 要ファクト確認 - 制度要件や公式表現の変更時に更新 */}
       </section>
 
       <section className="border-y border-slate-100 bg-slate-50 py-12 md:py-16">

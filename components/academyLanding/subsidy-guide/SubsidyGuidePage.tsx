@@ -275,7 +275,6 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
           <p className="mt-3 max-w-4xl text-sm sm:text-base text-slate-700">
             「自分は対象か分からない」という方は、下のチェックで判断できます。該当が多いほど、手続きの見通しが立てやすくなります。
           </p>
-          {/* TODO: 要ファクト確認 - 「雇用保険被保険者等」の詳細要件は募集回ごとの最新要項で確認 */}
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             <motion.div
               className="rounded-2xl border border-emerald-200 bg-white p-6 shadow-sm"
@@ -366,7 +365,6 @@ const SubsidyGuidePage = ({ faqItems }: SubsidyGuidePageProps) => {
             <p>
               ※ 補助は補助事業者へ交付され、受講者は受講費用の軽減として受ける形が一般的です。適用タイミングや手続きは募集回・事業者により異なる場合があります。
             </p>
-            {/* TODO: 要ファクト確認 - 税込総額ベースの「約¥99,000〜¥165,000」表記を使う場合は公式根拠の明示が必要 */}
             <p>※ 制度は年度ごとに変更される可能性があります。最新条件は説明会で確認してください。</p>
           </div>
         </motion.div>

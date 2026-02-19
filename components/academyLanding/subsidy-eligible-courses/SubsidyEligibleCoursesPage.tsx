@@ -348,7 +348,7 @@ const SubsidyEligibleCoursesPage = ({ faqItems }: SubsidyEligibleCoursesPageProp
                 href="/academy/ai-course-comparison"
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
-                AI講座の選び方 7つの比較ポイント
+                AI講座の選び方 5つのチェックポイント
               </Link>
             </li>
             <li>
