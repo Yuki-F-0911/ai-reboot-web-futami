@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで43記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで44記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -197,6 +197,14 @@ const blogPosts: readonly BlogPost[] = [
     title: "AI時代のキャリアチェンジ事例集",
     summary: "職種転換の進め方をBefore/Afterの観点で整理し、学習と実務接続の共通ポイントを紹介します。",
     category: "キャリア・転職",
+  },
+  {
+    slug: "ai-job-hunting-guide",
+    title: "AI×転職完全ガイド｜職務経歴書・面接対策・企業研究の実践テクニック",
+    summary:
+      "転職活動でAIを使う3フェーズ（職務経歴書・企業研究・面接対策）を実務手順で解説し、ChatGPTプロンプトと面接Q&A生成テンプレまで整理した記事です。",
+    category: "キャリア・転職",
+    thumbnail: "/images/blog/ai-job-hunting-guide/slide-01.png",
   },
   {
     slug: "ai-engineer-career-change",
