@@ -397,6 +397,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "実務活用",
   },
   {
+    slug: "manus-ai-guide",
+    title: "Manus AIとは？使い方と活用シーン解説｜AIエージェントで仕事を自動化する",
+    summary:
+      "Manusとは何か、ChatGPTとの違い、AIエージェントの基本、リサーチ・文書作成・データ収集での自動化シーン、無料可否・日本語対応・セキュリティまで確認日付きで整理した最新AIツール解説です。",
+    category: "最新AIツール",
+  },
+  {
     slug: "genspark-guide",
     title: "Gensparkとは？AI検索の新世代ツールを徹底解説｜Perplexityとの違いと使い分け",
     summary:
