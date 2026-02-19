@@ -20,6 +20,7 @@ const targetAudience = [
     {
         text: "AIスキルを身に付けたいし、それ以上に自分の価値を高めたい人",
         isImportant: true,
+        note: "特に重要",
     },
 ];
 
@@ -67,7 +68,7 @@ const TargetAudienceSection = () => {
                     {targetAudience.map((item, index) => (
                         <div
                             key={index}
-                            className="group flex flex-col md:flex-row md:items-center gap-4 md:gap-12 py-8 border-b transition-colors hover:bg-stone-200/30"
+                            className="flex flex-col gap-4 border-b py-8 md:flex-row md:items-center md:gap-12"
                             style={{ borderColor: ACADEMY_COLORS.lineSoft }}
                         >
                             <div className="flex-shrink-0 flex items-center">
@@ -82,13 +83,24 @@ const TargetAudienceSection = () => {
                                 </span>
                             </div>
 
-                            <div className="flex-grow flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div className="flex-grow flex flex-col justify-between gap-4 md:flex-row md:items-center">
                                 <p 
                                     className={`text-base lg:text-lg leading-loose ${item.isImportant ? "font-bold" : "font-medium"}`}
                                     style={{ color: item.isImportant ? ACADEMY_COLORS.textStrong : ACADEMY_COLORS.textBody }}
                                 >
                                     {item.text}
                                 </p>
+                                {item.isImportant && (
+                                    <span
+                                        className="text-[10px] font-bold tracking-widest uppercase"
+                                        style={{
+                                            fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                                            color: ACADEMY_COLORS.accentMain,
+                                        }}
+                                    >
+                                        {item.note}
+                                    </span>
+                                )}
                             </div>
                         </div>
                     ))}

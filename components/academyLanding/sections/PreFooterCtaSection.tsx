@@ -4,8 +4,11 @@ import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "./academyDesignTokens";
 const PreFooterCtaSection = () => {
     return (
         <section 
-            className="py-16 md:py-24 border-b border-stone-100"
-            style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}
+            className="border-b py-16 md:py-24"
+            style={{ 
+                backgroundColor: ACADEMY_COLORS.bgPanel,
+                borderColor: ACADEMY_COLORS.lineSoft
+            }}
         >
             <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
                 <div className="mb-10">
@@ -43,8 +46,9 @@ const PreFooterCtaSection = () => {
                     
                     <Link
                         href="/academy/seminars"
-                        className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold bg-white border hover:bg-stone-50 rounded-lg transition-all duration-300"
+                        className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold border rounded-lg transition-opacity duration-300 hover:opacity-80"
                         style={{ 
+                            backgroundColor: ACADEMY_COLORS.bgPanel,
                             borderColor: ACADEMY_COLORS.lineSoft,
                             color: ACADEMY_COLORS.textBody 
                         }}

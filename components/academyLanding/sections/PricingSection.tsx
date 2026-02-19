@@ -4,8 +4,11 @@ const PricingSection = () => {
     return (
         <section 
             id="pricing" 
-            className="py-24 lg:py-32 border-y border-stone-200"
-            style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}
+            className="border-y py-24 lg:py-32"
+            style={{ 
+                backgroundColor: ACADEMY_COLORS.bgCanvas,
+                borderColor: ACADEMY_COLORS.lineSoft
+            }}
         >
             <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
                 {/* Section Header */}
@@ -170,7 +173,7 @@ const PricingSection = () => {
                                 style={{ color: ACADEMY_COLORS.textMuted }}
                             >
                                 ※受講修了時に50%（15万円）、<br className="hidden lg:block" />
-                                転職成功後に20%（6万円）が給給されます。
+                                転職成功後に20%（6万円）が支給されます。
                             </p>
                         </div>
 

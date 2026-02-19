@@ -10,8 +10,11 @@ const SubsidyBanner = () => {
 
     return (
         <section 
-            className="py-12 border-y border-stone-200"
-            style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}
+            className="border-y py-12"
+            style={{ 
+                backgroundColor: ACADEMY_COLORS.bgPanel,
+                borderColor: ACADEMY_COLORS.lineSoft
+            }}
         >
             <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
@@ -83,21 +86,21 @@ const SubsidyBanner = () => {
                     <div 
                         className="w-full lg:w-80 border rounded-sm p-8 lg:p-10"
                         style={{
-                            backgroundColor: ACADEMY_COLORS.accentMain,
-                            borderColor: ACADEMY_COLORS.accentDeep
+                            backgroundColor: ACADEMY_COLORS.bgPanel,
+                            borderColor: ACADEMY_COLORS.lineStrong
                         }}
                     >
                         <div className="flex flex-col items-center text-center">
                             <div className="mb-6">
                                 <p
                                     className="text-xs line-through mb-1"
-                                    style={{ color: 'rgba(255,255,255,0.6)' }}
+                                    style={{ color: ACADEMY_COLORS.textMuted }}
                                 >
                                     通常価格 330,000円
                                 </p>
                                 <p
                                     className="text-sm font-medium"
-                                    style={{ color: 'rgba(255,255,255,0.85)' }}
+                                    style={{ color: ACADEMY_COLORS.textBody }}
                                 >
                                     実質負担額
                                 </p>
@@ -106,14 +109,14 @@ const SubsidyBanner = () => {
                                         className="text-4xl lg:text-5xl font-bold"
                                         style={{
                                             fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                                            color: '#ffffff'
+                                            color: ACADEMY_COLORS.accentMain
                                         }}
                                     >
                                         120,000
                                     </span>
                                     <span
                                         className="text-sm font-bold"
-                                        style={{ color: '#ffffff' }}
+                                        style={{ color: ACADEMY_COLORS.accentMain }}
                                     >
                                         円〜
                                     </span>
@@ -122,7 +125,7 @@ const SubsidyBanner = () => {
 
                             <p
                                 className="text-[10px] leading-relaxed italic"
-                                style={{ color: 'rgba(255,255,255,0.65)' }}
+                                style={{ color: ACADEMY_COLORS.textMuted }}
                             >
                                 ※転職および1年間の継続就業が条件となります。<br />
                                 詳細は個別面談にてご説明いたします。
@@ -250,12 +253,9 @@ const SubsidyBanner = () => {
                                         borderColor: ACADEMY_COLORS.lineSoft 
                                     }}
                                 >
-                                    <div 
-                                        className="grid grid-cols-12 border-b border-stone-100"
-                                        style={{ borderColor: ACADEMY_COLORS.bgSection }}
-                                    >
+                                    <div className="grid grid-cols-12 border-b" style={{ borderColor: ACADEMY_COLORS.bgSection }}>
                                         <div 
-                                            className="col-span-4 p-4 flex items-center bg-stone-50"
+                                            className="col-span-4 flex items-center p-4"
                                             style={{ backgroundColor: ACADEMY_COLORS.bgSection }}
                                         >
                                             <span 
@@ -285,12 +285,9 @@ const SubsidyBanner = () => {
                                             </p>
                                         </div>
                                     </div>
-                                    <div 
-                                        className="grid grid-cols-12 border-b border-stone-100"
-                                        style={{ borderColor: ACADEMY_COLORS.bgSection }}
-                                    >
+                                    <div className="grid grid-cols-12 border-b" style={{ borderColor: ACADEMY_COLORS.bgSection }}>
                                         <div 
-                                            className="col-span-4 p-4 flex items-center bg-stone-50"
+                                            className="col-span-4 flex items-center p-4"
                                             style={{ backgroundColor: ACADEMY_COLORS.bgSection }}
                                         >
                                             <span 
@@ -321,7 +318,7 @@ const SubsidyBanner = () => {
                                         </div>
                                     </div>
                                     <div 
-                                        className="p-6 text-center border-t border-stone-200"
+                                        className="border-t p-6 text-center"
                                         style={{ 
                                             backgroundColor: ACADEMY_COLORS.bgSection,
                                             borderColor: ACADEMY_COLORS.lineSoft 
