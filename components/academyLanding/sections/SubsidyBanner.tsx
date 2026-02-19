@@ -90,11 +90,11 @@ const SubsidyBanner = () => {
                                 <p className="text-xs text-slate-400 line-through mb-1">通常価格 330,000円</p>
                                 <p className="text-sm font-medium text-slate-600">実質負担額</p>
                                 <div className="flex items-baseline justify-center gap-1">
-                                    <span 
+                                    <span
                                         className="text-4xl lg:text-5xl font-bold text-slate-900"
                                         style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
                                     >
-                                        99,000
+                                        120,000
                                     </span>
                                     <span className="text-sm font-bold text-slate-900">円〜</span>
                                 </div>
@@ -180,8 +180,8 @@ const SubsidyBanner = () => {
                                             <span className="text-xs font-bold text-slate-600">受講修了時</span>
                                         </div>
                                         <div className="col-span-8 p-4">
-                                            <p className="text-sm font-bold text-slate-800">受講費用の 50% 補助</p>
-                                            <p className="text-[10px] text-slate-400">上限40万円 / 講座修了後に支給</p>
+                                            <p className="text-sm font-bold text-slate-800">受講費用の <span className="text-orange-500 text-xl">1/2</span>（上限40万円）</p>
+                                            <p className="text-[10px] text-slate-400">リスキリング講座の受講を終了した場合</p>
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-12 border-b border-slate-100">
@@ -189,13 +189,18 @@ const SubsidyBanner = () => {
                                             <span className="text-xs font-bold text-slate-600">転職後1年継続</span>
                                         </div>
                                         <div className="col-span-8 p-4">
-                                            <p className="text-sm font-bold text-slate-800">受講費用の 20% 補助</p>
-                                            <p className="text-[10px] text-slate-400">上限16万円 / 転職・1年継続後に支給</p>
+                                            <p className="text-sm font-bold text-slate-800">追加で <span className="text-amber-500 text-xl">1/5</span>（上限16万円）</p>
+                                            <p className="text-[10px] text-slate-400">転職して1年間継続就業した場合</p>
                                         </div>
                                     </div>
                                     <div className="p-6 bg-slate-50 text-center border-t border-slate-200">
                                         <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">Total Support</p>
-                                        <p className="text-xl font-bold text-slate-900">最大 70%（210,000円）が補助</p>
+                                        <p className="text-xl font-bold text-orange-600">
+                                            受講費用の最大<span className="text-3xl">70</span>%が補助！
+                                        </p>
+                                        <p className="text-xs text-slate-500 mt-1">
+                                            ※当講座の場合：330,000円 → 実質約120,000円〜
+                                        </p>
                                     </div>
                                 </div>
                                 <div className="mt-8">

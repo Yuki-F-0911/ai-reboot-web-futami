@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "./academyDesignTokens";
 
 const ConceptSection = () => {
@@ -8,39 +9,42 @@ const ConceptSection = () => {
             label: "PILLAR 01",
             title: "生成AI活用力",
             description: "生成AIを単なる道具としてではなく、思考のパートナーとして使いこなす。マーケティング視点を掛け合わせ、実務を劇的に効率化・高度化する術を学びます。",
-            elements: ["プロンプトエンジニアリング", "AIマーケティング", "実務自動化"]
+            elements: ["プロンプトエンジニアリング", "AIマーケティング", "実務自動化"],
+            illustration: "/images/mindset-illustration.png"
         },
         {
             id: "02",
             label: "PILLAR 02",
             title: "自己理解・キャリアデザイン",
             description: "AIに代替されない「あなただけの価値」を再定義。自分の強みと情熱を言語化し、変化の激しい時代でも揺るがないキャリアの羅針盤を創り上げます。",
-            elements: ["強みの言語化", "価値観の再構築", "ビジョン設計"]
+            elements: ["強みの言語化", "価値観の再構築", "ビジョン設計"],
+            illustration: "/images/career-design-illustration.png"
         },
         {
             id: "03",
             label: "PILLAR 03",
             title: "共創コミュニティ",
             description: "一人の学びは限界がある。同じ志を持つ仲間と対話し、フィードバックし合う環境。多様な視点が混ざり合うことで、一人では到達できない解へと辿り着きます。",
-            elements: ["ピアラーニング", "プロフェッショナルとの対話", "共創ネットワーク"]
+            elements: ["ピアラーニング", "プロフェッショナルとの対話", "共創ネットワーク"],
+            illustration: "/images/community-illustration.png"
         }
     ];
 
     return (
-        <section 
+        <section
             className="py-24 lg:py-32"
             style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}
         >
             <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
                 {/* Section Header */}
                 <div className="max-w-4xl mb-20 lg:mb-24">
-                    <span 
+                    <span
                         className="inline-block text-[10px] tracking-[0.2em] font-bold text-orange-500 uppercase mb-4"
                         style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
                     >
                         Concept
                     </span>
-                    <h2 
+                    <h2
                         className="text-3xl lg:text-5xl font-bold leading-tight text-slate-900 mb-8"
                         style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
                     >
@@ -76,8 +80,15 @@ const ConceptSection = () => {
                             key={pillar.id}
                             className="group grid lg:grid-cols-12 gap-8 py-12 border-b border-slate-200 hover:bg-slate-50/50 transition-colors"
                         >
-                            <div className="lg:col-span-3">
-                                <span 
+                            <div className="lg:col-span-3 flex flex-row lg:flex-col items-center lg:items-start gap-4">
+                                <Image
+                                    src={pillar.illustration}
+                                    alt={pillar.title}
+                                    width={80}
+                                    height={80}
+                                    className="object-contain opacity-85 flex-shrink-0"
+                                />
+                                <span
                                     className="text-xs font-bold text-slate-400 tracking-widest"
                                     style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
                                 >

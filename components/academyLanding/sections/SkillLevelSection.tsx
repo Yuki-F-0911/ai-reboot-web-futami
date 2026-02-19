@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "./academyDesignTokens";
 
 const SkillLevelSection = () => {
@@ -44,23 +45,34 @@ const SkillLevelSection = () => {
         >
             <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
                 {/* Section Header */}
-                <div className="mb-20 lg:mb-24">
-                    <span 
-                        className="inline-block text-[10px] tracking-[0.2em] font-bold text-orange-500 uppercase mb-4"
-                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
-                    >
-                        Growth Steps
-                    </span>
-                    <h2 
-                        className="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-6"
-                        style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
-                    >
-                        AIスキルの成長段階
-                    </h2>
-                    <p className="text-slate-600 max-w-2xl leading-relaxed">
-                        100日間のプログラムを通じて、段階的にスキルを積み上げます。<br className="hidden lg:block" />
-                        単なる操作方法の習得ではなく、AI時代を生き抜く「視点」と「能力」を獲得します。
-                    </p>
+                <div className="mb-20 lg:mb-24 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+                    <div>
+                        <span
+                            className="inline-block text-[10px] tracking-[0.2em] font-bold text-orange-500 uppercase mb-4"
+                            style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+                        >
+                            Growth Steps
+                        </span>
+                        <h2
+                            className="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-6"
+                            style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
+                        >
+                            AIスキルの成長段階
+                        </h2>
+                        <p className="text-slate-600 max-w-2xl leading-relaxed">
+                            100日間のプログラムを通じて、段階的にスキルを積み上げます。<br className="hidden lg:block" />
+                            単なる操作方法の習得ではなく、AI時代を生き抜く「視点」と「能力」を獲得します。
+                        </p>
+                    </div>
+                    <div className="hidden lg:block flex-shrink-0">
+                        <Image
+                            src="/images/skill-pyramid-illustration.png"
+                            alt="スキル成長ピラミッド"
+                            width={180}
+                            height={180}
+                            className="object-contain opacity-85"
+                        />
+                    </div>
                 </div>
 
                 {/* Competency Definition Sheet Layout */}
