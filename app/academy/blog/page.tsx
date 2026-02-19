@@ -6,7 +6,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで40記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで41記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -162,6 +162,14 @@ const blogPosts: readonly BlogPost[] = [
     title: "AI資格おすすめ一覧｜難易度・費用を比較",
     summary: "G検定やE検定を含む主要資格を、目的・難易度・費用で比較して選び方を整理します。",
     category: "資格・スキル",
+  },
+  {
+    slug: "generative-ai-passport-guide",
+    title: "生成AIパスポート試験の合格法2026｜勉強時間・おすすめ教材・出題傾向まとめ",
+    summary:
+      "生成AIパスポートの難易度・勉強時間・教材・出題傾向を整理し、独学で合格を目指すための実践的な学習プランを解説します。",
+    category: "資格・スキル",
+    thumbnail: "/images/blog/generative-ai-passport-guide/slide-01.png",
   },
   {
     slug: "g-e-certification-comparison",
@@ -342,6 +350,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "NotebookLMの使い方完全ガイド｜AIで情報整理・学習を効率化する方法",
     summary:
       "ソース取り込み→要約・質問の基本操作から、リサーチ/報告書整理/学習ノートへの活用、Audio Overviewの使い方までを整理した入門ガイドです。",
+    category: "実務活用",
+  },
+  {
+    slug: "perplexity-ai-guide",
+    title: "Perplexity AIの使い方完全ガイド2026｜ChatGPTとの違いと検索AIの活用法",
+    summary:
+      "Google検索との違いを起点に、Perplexityの基本、無料/有料の使い分け、ChatGPTとの比較、調査・比較・要約で使える実践プロンプトをまとめた解説記事です。",
     category: "実務活用",
   },
   {
