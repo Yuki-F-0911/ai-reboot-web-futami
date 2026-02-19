@@ -102,7 +102,7 @@ const ConceptSection = () => {
                     {pillars.map((pillar) => (
                         <li
                             key={pillar.id}
-                            className="group grid lg:grid-cols-2 gap-6 lg:gap-12 py-12 border-b border-l-4 pl-4 lg:pl-6 hover:bg-stone-50/50 transition-colors"
+                            className="group grid lg:grid-cols-2 gap-6 lg:gap-12 py-6 border-b border-l-4 pl-4 lg:pl-6 hover:bg-stone-50/50 transition-colors"
                             style={{
                                 borderColor: ACADEMY_COLORS.lineSoft,
                                 borderLeftColor: ACADEMY_COLORS.accentMain
@@ -121,16 +121,15 @@ const ConceptSection = () => {
 
                             {/* Right: Content */}
                             <div className="flex flex-col justify-center gap-3">
-                                {/* PILLAR label — badge style */}
+                                {/* Number only */}
                                 <span
-                                    className="inline-flex items-center self-start text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded-sm"
+                                    className="text-4xl font-bold leading-none"
                                     style={{
                                         fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                                        backgroundColor: ACADEMY_COLORS.accentSoft,
-                                        color: ACADEMY_COLORS.accentDeep
+                                        color: ACADEMY_COLORS.accentMain
                                     }}
                                 >
-                                    {pillar.label}
+                                    {pillar.id}
                                 </span>
                                 <h3
                                     className="text-xl lg:text-2xl font-bold"
