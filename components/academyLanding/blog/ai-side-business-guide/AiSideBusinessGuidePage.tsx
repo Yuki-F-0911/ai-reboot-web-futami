@@ -425,6 +425,17 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
             </a>
           </div>
         </motion.section>
+
+        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/ai-freelance-work-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                フリーランス・副業のAI活用術｜提案・作業・請求まで効率化する実践ガイド
+              </Link>
+            </li>
+          </ul>
+        </section>
       </article>
     </main>
   );

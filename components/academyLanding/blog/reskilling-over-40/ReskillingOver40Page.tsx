@@ -414,6 +414,17 @@ export default function ReskillingOver40Page({ faqItems }: ReskillingOver40PageP
             </a>
           </div>
         </motion.section>
+
+        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/ai-study-learning-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI×勉強・資格・語学学習完全ガイド｜ChatGPTで最短合格する方法
+              </Link>
+            </li>
+          </ul>
+        </section>
       </article>
     </main>
   );

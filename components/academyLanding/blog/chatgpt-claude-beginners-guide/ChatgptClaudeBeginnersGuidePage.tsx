@@ -446,6 +446,17 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             </Link>
           </div>
         </motion.section>
+
+        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/chatgpt-advanced-tips" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPTを仕事で使いこなす実践テクニック集｜基本から応用まで50のTips
+              </Link>
+            </li>
+          </ul>
+        </section>
 </article>
     </main>
   );
