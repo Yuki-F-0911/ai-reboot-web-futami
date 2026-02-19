@@ -67,7 +67,7 @@ export default function MetiReskillingComparisonPage({
           経産省のリスキリング支援制度対象講座を比較する視点｜選び方のポイント
         </h1>
         <p className="mt-5 text-base leading-relaxed text-slate-700 md:text-lg">
-          結論として、制度対象であることに加え、実績の透明性とサポート運用を合わせて確認すると講座選びの精度が上がります。
+          制度対象であることに加え、実績の透明性とサポート運用を合わせて確認すると講座選びの精度が上がります。
         </p>
       </section>
 

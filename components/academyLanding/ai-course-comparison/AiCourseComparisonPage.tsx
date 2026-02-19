@@ -20,15 +20,6 @@ type ComparisonAxis = {
   checkpoints: readonly string[];
 };
 
-type AnonymousComparisonRow = {
-  school: string;
-  price: string;
-  duration: string;
-  support: string;
-  practical: string;
-  subsidy: string;
-};
-
 const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
@@ -52,79 +43,44 @@ const sectionHeadingClass = "mt-3 text-2xl font-bold leading-tight text-slate-90
 
 const comparisonAxes: readonly ComparisonAxis[] = [
   {
-    title: "価格",
-    description: "受講料の総額だけでなく、質問対応や演習レビューが含まれるかを同条件で比較します。",
-    checkpoints: ["税込総額の明記", "追加費用の有無", "費用に含まれるサポート範囲"],
+    title: "目的の一致度",
+    description: "最初に「何をできるようになりたいか」を揃えると、比較軸がぶれません。",
+    checkpoints: ["到達ゴールが明文化されている", "対象者と前提スキルが明確", "卒業後の活用シーンが想定できる"],
   },
   {
-    title: "期間",
-    description: "仕事や家庭と両立できる学習ペースかどうかを、週単位で確認します。",
-    checkpoints: ["受講期間", "週の学習目安", "遅れた場合のフォロー"],
+    title: "生成AIの実践性",
+    description: "知識だけで終わらず、実務に近いアウトプットを積み上げられるかが重要です。",
+    checkpoints: ["提出物（成果物）が明確", "フィードバックと改善サイクルがある", "実務に近い題材・テンプレが用意されている"],
   },
   {
-    title: "伴走度",
-    description: "質問窓口の有無だけでなく、面談頻度や回答スピードの運用まで確認します。",
-    checkpoints: ["質問手段", "面談頻度", "相談できる範囲"],
+    title: "伴走と学習環境",
+    description: "挫折しやすいポイントを超えられる運用（質問・面談・コミュニティ）を確認します。",
+    checkpoints: ["質問手段と回答スピード", "面談/コーチングの頻度", "学習コミュニティの有無"],
   },
   {
-    title: "実践性",
-    description: "知識インプット中心か、業務課題に近いアウトプット中心かで習得の質が変わります。",
-    checkpoints: ["課題提出の有無", "レビューの有無", "成果物の作成機会"],
+    title: "自己理解・キャリア設計",
+    description: "学びを「次の仕事」に繋げるために、自己理解と意思決定の支援があるかを見ます。",
+    checkpoints: ["強み・価値観を言語化できる設計", "キャリアの棚卸し/目標設定の支援", "学びの選択理由を説明できる状態になる"],
   },
   {
-    title: "補助金対応",
-    description: "講座情報と制度公式情報を突き合わせ、適用条件と申請フローを事前確認します。",
-    checkpoints: ["対象制度の明記", "適用条件の明記", "最新情報の確認導線"],
-  },
-] as const;
-
-const anonymousComparisonRows: readonly AnonymousComparisonRow[] = [
-  {
-    school: "A社",
-    price: "要確認",
-    duration: "要確認",
-    support: "要確認",
-    practical: "要確認",
-    subsidy: "要確認",
-  },
-  {
-    school: "B社",
-    price: "要確認",
-    duration: "要確認",
-    support: "要確認",
-    practical: "要確認",
-    subsidy: "要確認",
-  },
-  {
-    school: "C社",
-    price: "要確認",
-    duration: "要確認",
-    support: "要確認",
-    practical: "要確認",
-    subsidy: "要確認",
-  },
-  {
-    school: "AIリブートアカデミー",
-    price: "公式案内で確認",
-    duration: "100日伴走",
-    support: "伴走サポートあり",
-    practical: "実務直結の課題設計",
-    subsidy: "経産省リスキリング関連制度の対象講座として案内",
+    title: "費用・制度・条件",
+    description: "総額・追加費用・制度適用の条件を揃えると、後からの手戻りを減らせます。",
+    checkpoints: ["税込総額と追加費用の明記", "制度対象/条件の確認導線", "返金・解約条件が明確"],
   },
 ] as const;
 
 const differentiationPoints = [
   {
-    title: "100日伴走で継続しやすい設計",
-    body: "学習の初速だけでなく、途中のつまずきにも対応しやすい伴走体制を重視しています。",
+    title: "生成AI活用力（実務で即使える体系）",
+    body: "学んで終わりではなく、業務で再現できる形に落とし込めるように、実践と振り返りを中心に設計しています。",
   },
   {
-    title: "制度対象に関する情報を明確化",
-    body: "制度情報の参照先と確認手順を明示し、受講前に判断できる状態をつくっています。",
+    title: "自己理解・キャリアデザイン（AIを鏡に再設計）",
+    body: "AIを活用しながら強み・価値観を言語化し、次のキャリアを“選べる状態”に整える支援を重視しています。",
   },
   {
-    title: "実務直結のアウトプット重視",
-    body: "学習内容を業務で再現できるように、実践課題と振り返りを中心に設計しています。",
+    title: "仲間と共に学ぶ環境（対話と協働）",
+    body: "一人で抱え込まずに進められるように、対話・フィードバック・協働が生まれる学習環境づくりを大切にしています。",
   },
 ] as const;
 
@@ -164,8 +120,8 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-700 sm:text-lg">
             AIスクールは情報が多く、価格だけで選ぶと後悔しがちです。
-            結論: 価格だけでなく「伴走の深さ」と「実践課題の質」を同時に比較すると、受講後のミスマッチを減らせます。
-            筆者は比較時に「週の面談頻度」と「課題レビューの有無」を最優先で見て、判断がブレにくくなりました。
+            価格だけでなく「伴走の深さ」と「実践課題の質」を同時に比較すると、受講後のミスマッチを減らせます。
+            比較では「週の面談頻度」と「課題レビューの有無」を優先して確認すると、判断がブレにくくなります。
           </p>
         </motion.div>
       </section>
@@ -179,10 +135,10 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.52, ease: "easeOut" }}
         >
-          <p className={sectionLabelClass}>AXES</p>
-          <h2 className={sectionHeadingClass}>比較前に揃える5つの比較軸</h2>
+          <p className={sectionLabelClass}>CHECKPOINTS</p>
+          <h2 className={sectionHeadingClass}>講座選びの5つのチェックポイント</h2>
           <p className="mt-4 max-w-4xl text-sm sm:text-base font-semibold text-slate-900">
-            結論: 5軸（価格・期間・伴走度・実践性・補助金対応）を同じ粒度で揃えると、比較の抜け漏れを防げます。
+            5つのチェックポイントを同じ粒度で揃えると、比較の抜け漏れを防げます。
           </p>
 
           <motion.ol
@@ -194,7 +150,7 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           >
             {comparisonAxes.map((axis, index) => (
               <motion.li key={axis.title} variants={itemReveal} className="border-b border-slate-200 py-6">
-                <p className="text-xs font-bold tracking-[0.14em] text-slate-500">AXIS {index + 1}</p>
+                <p className="text-xs font-bold tracking-[0.14em] text-slate-500">CHECKPOINT {index + 1}</p>
                 <h3 className="mt-2 text-lg font-bold text-slate-900 sm:text-xl">{axis.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-700 sm:text-base">{axis.description}</p>
                 <ul className="mt-4 space-y-1 text-sm leading-relaxed text-slate-700 sm:text-base">
@@ -217,58 +173,10 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           variants={sectionReveal}
           transition={{ duration: 0.52, ease: "easeOut" }}
         >
-          <p className={sectionLabelClass}>TABLE</p>
-          <h2 className={sectionHeadingClass}>匿名比較表（A社〜C社 + 自社）</h2>
-          <p className="mt-4 max-w-4xl text-sm sm:text-base font-semibold text-slate-900">
-            結論: 比較表は「確認できる事実だけ」で埋め、推測は混ぜないのが安全です（A社〜C社は入力欄として利用してください）。
-          </p>
-          <p className="mt-3 max-w-4xl text-sm leading-relaxed text-slate-700 sm:text-base">
-            競合名は匿名化し、確認できる事実のみを記載しています。A社〜C社は公開情報の精査前のため、入力欄として利用してください。
-          </p>
-          {/* TODO: 要ファクト確認 - A社/B社/C社の項目は一次情報確認後に更新 */}
-
-          <div className="mt-6 overflow-x-auto rounded-lg border border-slate-200">
-            <table className="min-w-full border-collapse text-sm sm:text-base">
-              <thead className="bg-slate-50">
-                <tr>
-                  <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">講座</th>
-                  <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">価格</th>
-                  <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">期間</th>
-                  <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">伴走度</th>
-                  <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">実践性</th>
-                  <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">補助金対応</th>
-                </tr>
-              </thead>
-              <tbody>
-                {anonymousComparisonRows.map((row) => (
-                  <tr key={row.school}>
-                    <th className="border-b border-slate-200 px-4 py-3 text-left font-bold text-slate-900">{row.school}</th>
-                    <td className="border-b border-slate-200 px-4 py-3 text-slate-700">{row.price}</td>
-                    <td className="border-b border-slate-200 px-4 py-3 text-slate-700">{row.duration}</td>
-                    <td className="border-b border-slate-200 px-4 py-3 text-slate-700">{row.support}</td>
-                    <td className="border-b border-slate-200 px-4 py-3 text-slate-700">{row.practical}</td>
-                    <td className="border-b border-slate-200 px-4 py-3 text-slate-700">{row.subsidy}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </motion.div>
-      </section>
-
-      <section className="border-t border-slate-200 py-14 md:py-20">
-        <motion.div
-          className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.52, ease: "easeOut" }}
-        >
           <p className={sectionLabelClass}>DIFFERENTIATION</p>
           <h2 className={sectionHeadingClass}>AIリブートアカデミーの差別化ポイント</h2>
           <p className="mt-4 max-w-4xl text-sm sm:text-base font-semibold text-slate-900">
-            結論: 継続できる伴走と、実務に直結するアウトプット設計がある講座ほど、受講後に使える形で残りやすいです。
+            継続できる伴走と、実務に直結するアウトプット設計がある講座ほど、受講後に使える形で残りやすいです。
           </p>
 
           <motion.ul
@@ -292,7 +200,7 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
         <div className="container mx-auto max-w-5xl px-4 md:px-6 lg:px-8">
           <h2 className="text-lg font-bold text-slate-900">関連ページ</h2>
           <p className="mt-3 max-w-4xl text-sm sm:text-base text-slate-700">
-            <span className="font-semibold text-slate-900">結論:</span> 補助金や評判も含めて判断したい場合は、関連ページも合わせて確認してください。
+            補助金や評判も含めて判断したい場合は、関連ページも合わせて確認してください。
           </p>
           <ul className="mt-4 space-y-2 text-sm sm:text-base">
             {internalLinks.map((item) => (
@@ -318,7 +226,7 @@ const AiCourseComparisonPage = ({ faqItems }: AiCourseComparisonPageProps) => {
           <p className={sectionLabelClass}>FAQ</p>
           <h2 className={sectionHeadingClass}>よくある質問</h2>
           <p className="mt-4 max-w-4xl text-sm sm:text-base font-semibold text-slate-900">
-            結論: 迷ったら「目的の一致度」「伴走」「実践課題」の3点から先に絞ると、比較が早くなります。
+            迷ったら「目的の一致度」「伴走」「実践課題」の3点から先に絞ると、比較が早くなります。
           </p>
 
           <motion.div
