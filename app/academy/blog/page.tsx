@@ -687,6 +687,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "実務活用",
   },
   {
+    slug: "ai-medical-nursing-guide",
+    title: "AI医療・看護活用ガイド2026｜診断支援・記録自動化・電子カルテ連携の実務",
+    summary:
+      "医療現場でのAI活用を、画像診断・投薬管理・記録自動化の3領域で整理。看護師が使える文書支援、電子カルテ連携の動向、個人情報・責任・精度リスク対策までを確認日付きで解説した実務ガイドです。",
+    category: "実務活用",
+  },
+  {
     slug: "ai-content-sns-guide",
     title: "AI×ブログ・SNS・YouTube台本の作り方｜コンテンツ制作を10倍速にする",
     summary:
