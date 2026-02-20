@@ -610,6 +610,13 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/ai-meeting-tools-comparison/slide-01.png",
   },
   {
+    slug: "ai-pm-tools-guide",
+    title: "AIプロジェクト管理ツール比較2026｜Asana AI・Linear・Notion・Jiraの選び方",
+    summary:
+      "Asana AI・Linear・Notion Projects・Jira AIを対応プラン、価格、優先順位付け・進捗予測・リスク検出の観点で比較。スタートアップと大企業の選定軸、導入定着の実践ポイントまで整理した法人向けガイドです。",
+    category: "法人向け",
+  },
+  {
     slug: "ai-accounting-guide",
     title: "経理・財務部門のAI活用ガイド2026｜仕訳・レポート・予算管理の自動化事例",
     summary:
