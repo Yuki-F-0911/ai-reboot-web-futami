@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 
 type FAQItem = {
   question: string;
@@ -238,6 +239,22 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           <p className="mt-5 text-sm leading-7 text-gray-700">
             受験料や実施形式、E検定の受験資格（認定プログラム修了など）は更新される可能性があります。申込前に必ず公式情報を確認し、学習計画は試験日から逆算して立てましょう。
           </p>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <MidArticleCtaBox
+            slug="g-e-certification-comparison"
+            bonusId="bonus06"
+            bonusTitle="30日AI学習プラン"
+            bonusDescription="G検定・E検定どちらを先に進めるか迷う人向けに、30日で判断と実行を進める計画を配布しています。"
+          />
         </motion.section>
 
         <motion.section

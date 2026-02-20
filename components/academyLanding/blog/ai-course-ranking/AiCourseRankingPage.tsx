@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 
 type FAQItem = {
   question: string;
@@ -293,6 +294,22 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
               </tbody>
             </table>
           </div>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <MidArticleCtaBox
+            slug="ai-course-ranking"
+            bonusId="bonus06"
+            bonusTitle="30日AI学習プラン"
+            bonusDescription="目的別に学習順を迷わず決められる、1日単位の実行プランをLINE限定で配布しています。"
+          />
         </motion.section>
 
         <motion.section

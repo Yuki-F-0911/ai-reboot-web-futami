@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 
 type FAQItem = {
   question: string;
@@ -520,6 +521,22 @@ export default function WorkflowAutomationComparisonPage({
             </Link>
             も参照してください。
           </p>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <MidArticleCtaBox
+            slug="workflow-automation-comparison"
+            bonusId="bonus02"
+            bonusTitle="AI導入効果チェックリスト"
+            bonusDescription="自動化テーマごとの効果測定項目を先に決められる、導入効果チェックリストを受け取れます。"
+          />
         </motion.section>
 
         {/* H2-5: 最初の1本を作る3ステップ */}

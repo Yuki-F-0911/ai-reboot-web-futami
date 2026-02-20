@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 
 type FAQItem = {
   question: string;
@@ -137,22 +138,38 @@ const useCaseCards = [
   },
 ] as const;
 
-function LineCtaBox({ className }: { className: string }) {
+type LineCtaBoxProps = {
+  className: string;
+  slug: string;
+  bonusId: string;
+  bonusTitle?: string;
+  bonusDescription?: string;
+};
+
+function LineCtaBox({
+  className,
+  slug,
+  bonusId,
+  bonusTitle = "AI活用ROI試算シート",
+  bonusDescription = "AIツール導入時の費用対効果を見える化できる、LINE登録限定シートを無料配布しています。",
+}: LineCtaBoxProps) {
+  const lineHref = `${lineUrl}?${new URLSearchParams({
+    src: "blog",
+    slug,
+    bonus: bonusId,
+  }).toString()}`;
+
   return (
     <div className={className}>
-      <p className="text-base font-semibold text-gray-900">
-        AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）
-      </p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        Cursor・Claude Code・Copilotの更新も、実務で判断しやすい形で毎週整理して配信しています。無料で受け取れます。
-      </p>
+      <p className="text-base font-semibold text-gray-900">LINE登録で「{bonusTitle}」を受け取る</p>
+      <p className="mt-2 text-sm leading-7 text-gray-700">{bonusDescription}</p>
       <a
-        href={lineUrl}
+        href={lineHref}
         target="_blank"
         rel="noopener noreferrer"
         className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
       >
-        今すぐ無料で登録する（30秒）
+        LINEで特典を受け取る（無料）
       </a>
     </div>
   );
@@ -276,7 +293,12 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="" />
+          <LineCtaBox
+            className=""
+            slug="ai-coding-tool-comparison-2026"
+            bonusId="bonus03"
+            bonusTitle="AI活用ROI試算シート"
+          />
         </motion.section>
 
         <motion.section
@@ -429,14 +451,19 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
         </motion.section>
 
         <motion.section
-          className="mt-14 rounded-lg border border-green-200 bg-green-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="" />
+          <MidArticleCtaBox
+            slug="ai-coding-tool-comparison-2026"
+            bonusId="bonus03"
+            bonusTitle="AI活用ROI試算シート"
+            bonusDescription="ツール比較後にそのまま導入判断へ進める、ROI試算テンプレートをLINE登録で受け取れます。"
+          />
         </motion.section>
 
         <motion.section
@@ -539,7 +566,12 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="" />
+          <LineCtaBox
+            className=""
+            slug="ai-coding-tool-comparison-2026"
+            bonusId="bonus03"
+            bonusTitle="AI活用ROI試算シート"
+          />
         </motion.section>
 
         <motion.section

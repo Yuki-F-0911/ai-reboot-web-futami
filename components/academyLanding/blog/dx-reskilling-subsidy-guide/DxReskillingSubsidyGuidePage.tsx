@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 
 type FAQItem = {
   question: string;
@@ -278,6 +279,22 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
               </tbody>
             </table>
           </div>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <MidArticleCtaBox
+            slug="dx-reskilling-subsidy-guide"
+            bonusId="bonus03"
+            bonusTitle="AI活用ROI試算シート"
+            bonusDescription="助成金活用と合わせて、AI導入の費用対効果を社内説明できるテンプレートです。"
+          />
         </motion.section>
 
         <motion.section

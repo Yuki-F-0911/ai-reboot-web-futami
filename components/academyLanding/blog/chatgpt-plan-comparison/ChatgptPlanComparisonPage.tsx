@@ -6,6 +6,7 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 
 type FAQItem = {
   question: string;
@@ -147,22 +148,38 @@ const usecaseRows = [
   },
 ] as const;
 
-function LineCtaBox({ className }: { className: string }) {
+type LineCtaBoxProps = {
+  className: string;
+  slug: string;
+  bonusId: string;
+  bonusTitle?: string;
+  bonusDescription?: string;
+};
+
+function LineCtaBox({
+  className,
+  slug,
+  bonusId,
+  bonusTitle = "業種別プロンプト50選",
+  bonusDescription = "ChatGPT活用を仕事に直結させるテンプレート集を、LINE登録特典として無料配布しています。",
+}: LineCtaBoxProps) {
+  const lineHref = `${lineUrl}?${new URLSearchParams({
+    src: "blog",
+    slug,
+    bonus: bonusId,
+  }).toString()}`;
+
   return (
     <section className={className}>
-      <p className="text-base font-semibold text-gray-900">
-        AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）
-      </p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        ChatGPTや主要AIツールの更新を、実務に使いやすい粒度で毎週まとめて受け取りたい方向けです。
-      </p>
+      <p className="text-base font-semibold text-gray-900">LINE登録で「{bonusTitle}」を受け取る</p>
+      <p className="mt-2 text-sm leading-7 text-gray-700">{bonusDescription}</p>
       <a
-        href={lineUrl}
+        href={lineHref}
         target="_blank"
         rel="noopener noreferrer"
         className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
       >
-        今すぐ無料で登録する（30秒）
+        LINEで特典を受け取る（無料）
       </a>
     </section>
   );
@@ -298,7 +315,12 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <LineCtaBox
+            className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
+            slug="chatgpt-plan-comparison"
+            bonusId="bonus05"
+            bonusTitle="業種別プロンプト50選"
+          />
         </motion.section>
 
         <motion.section
@@ -395,7 +417,12 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <MidArticleCtaBox
+            slug="chatgpt-plan-comparison"
+            bonusId="bonus05"
+            bonusTitle="業種別プロンプト50選"
+            bonusDescription="実務ですぐ使えるプロンプトを業種別に整理したテンプレートを、LINE登録で受け取れます。"
+          />
         </motion.section>
 
         <motion.section
@@ -534,7 +561,12 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <LineCtaBox
+            className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
+            slug="chatgpt-plan-comparison"
+            bonusId="bonus05"
+            bonusTitle="業種別プロンプト50選"
+          />
           <p className="mt-4 text-xs leading-6 text-gray-500">
             ※料金・上限・機能は2026年2月20日時点の公開情報に基づきます。最新情報は公式サイトで再確認してください。
           </p>
@@ -560,4 +592,3 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
     </main>
   );
 }
-

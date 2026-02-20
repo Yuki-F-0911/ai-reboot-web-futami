@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 
 type FAQItem = {
   question: string;
@@ -267,6 +268,22 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
               ))}
             </dl>
           </div>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <MidArticleCtaBox
+            slug="ai-certification-guide"
+            bonusId="bonus06"
+            bonusTitle="30日AI学習プラン"
+            bonusDescription="資格学習と実務アウトプットを同時に進めるための、30日ロードマップを受け取れます。"
+          />
         </motion.section>
 
         <motion.section
