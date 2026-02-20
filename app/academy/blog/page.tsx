@@ -31,6 +31,13 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "flux-image-generation-guide",
+    title: "Flux画像生成の使い方ガイド｜Dev/Schnell/Pro/Ultra比較とローカル運用【2026年版】",
+    summary:
+      "Flux.1 Dev/Schnell/Pro/Ultraの違いを、ライセンス・商用可否・速度・品質で整理。ComfyUI/Forgeのローカル運用、Replicate/fal.ai/Hugging Faceのクラウド活用、日本語プロンプト実践までまとめたガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "mcp-tool-integration-guide",
     title: "MCP使い方実践ガイド｜Claude Desktop・Claude CodeでNotion/GitHub/Slack連携【2026年版】",
     summary:
@@ -49,6 +56,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "AIコーディングツール比較 2026年版｜Cursor・Claude Code・GitHub Copilotの選び方",
     summary:
       "2026年2月時点でCursor・Claude Code・GitHub Copilotを比較。Agent/Composer機能、コンテキスト長、モデル選択、Vibe Coding対応力、料金と年間コスト、用途別おすすめ、Copilot Agent HQの最新情報を整理した実務ガイドです。",
+    category: "最新AIツール",
+  },
+  {
+    slug: "ai-research-tool-2026",
+    title: "AI情報収集ツール比較2026｜Perplexity・Deep Research・Gensparkの選び方",
+    summary:
+      "2026年2月時点で、Perplexity・ChatGPT Deep Research・Gensparkを比較。リアルタイム検索型/深掘り型/専門特化型の違い、用途別選択チャート、料金と無料枠、ハルシネーション対策まで整理した実務ガイドです。",
     category: "最新AIツール",
   },
   {
