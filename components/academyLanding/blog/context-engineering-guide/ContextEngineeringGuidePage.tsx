@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
@@ -249,6 +250,15 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
             原因の多くは、指示文の言い回しではなく、AIに渡す前提情報の設計不足です。
             ここで使うのがコンテキストエンジニアリングです。非エンジニアでも使える形で、実務に落とし込む手順を整理します。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/context-engineering-guide/slide-1.png"
+              alt="コンテキストエンジニアリングの全体像"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.header>
 
         <ArticleTOC items={tocItems} />
@@ -280,6 +290,15 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
             現場では「便利だけれど品質が読めない」という理由でAI活用が止まることがあります。コンテキストエンジニアリングは、この不安を設計で解消するアプローチです。
             入力を定義し、検証し、更新する流れを作れば、担当者の経験値に依存しない形で運用を継続できます。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/context-engineering-guide/slide-2.png"
+              alt="情報設計を標準化して品質を安定化する要点"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.section>
 
         <motion.section
@@ -314,6 +333,15 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
             AIは受け取った情報をもとに次の単語を予測して文章を組み立てるため、入力が曖昧なら結論も曖昧になります。
             非エンジニアが成果を出している現場ほど、プロンプトの小手先よりも、背景情報と制約条件の定義に時間を使っています。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/context-engineering-guide/slide-3.png"
+              alt="プロンプトだけでは限界になる理由"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-7 rounded-lg border border-gray-200 bg-gray-50 p-5">
             <h3 className="text-lg font-semibold text-gray-900">現場で起きやすい3つの限界</h3>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
@@ -370,6 +398,15 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
             </Link>
             を先に確認すると理解しやすくなります。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/context-engineering-guide/slide-4.png"
+              alt="コンテキストエンジニアリングの4要素の考え方"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-7 space-y-4">
             {contextElements.map((element) => (
               <div key={element.title} className="rounded-lg border border-gray-200 p-5">
@@ -409,6 +446,15 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
             一方でコンテキストエンジニアリングは、指示文が機能するための前提を整える設計です。
             例えるなら「言葉の磨き込み」と「業務条件の明文化」の違いです。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/context-engineering-guide/slide-5.png"
+              alt="プロンプトエンジニアリングとコンテキストエンジニアリングの違い"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-5 overflow-x-auto">
             <table className="w-full min-w-[720px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -474,6 +520,15 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
             品質だけで判断すると、見た目は良いが運用コストの高いテンプレートを選んでしまうことがあります。
             コンテキストエンジニアリングの目的は、文章を整えることではなく、業務判断を短時間で行える状態を作ることです。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/context-engineering-guide/slide-6.png"
+              alt="4要素で設計する実践フロー"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-7 space-y-6">
             {businessExamples.map((example) => (
               <section key={example.title} className="rounded-lg border border-gray-200 p-5">
@@ -550,6 +605,15 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
             下記10項目を満たせば、ほとんどの業務で初回出力の質が上がります。チーム導入時はこのチェック項目をテンプレートに紐づけて保存してください。
             すぐに使えるチェックシート版はLINEで配布しています。
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/context-engineering-guide/slide-7.png"
+              alt="チェックシート運用でチーム品質を揃える方法"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <ol className="mt-6 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {checksheetItems.map((item) => (
               <li key={item} className="pl-1 marker:text-gray-500">
@@ -582,6 +646,15 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/context-engineering-guide/slide-8.png"
+              alt="コンテキストエンジニアリング導入時のFAQ"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
           <div className="mt-6 space-y-4">
             {faqItems.map((faq, index) => (
               <section key={faq.question} className="rounded-lg border border-gray-200 p-5">
