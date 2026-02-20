@@ -1,180 +1,117 @@
 ---
-title: "LINE特典配布オペレーション手順書（記事#31〜#33）"
+title: "LINE特典配布 週次計測テンプレート"
 version: "1.0"
-last_updated: "2026-02-19"
+last_updated: "2026-02-20"
 author: "さかもと"
 reviewers: []
 related_docs: [
+  "app/briefing/page.tsx",
   "docs/content-strategy-batch3.md",
   "docs/line-bonus-04-job-hunting-template.md",
   "docs/line-bonus-05-industry-prompts-50.md",
-  "docs/line-bonus-06-30day-study-plan.md",
-  "components/academyLanding/blog/ai-job-hunting-guide/AiJobHuntingGuidePage.tsx",
-  "components/academyLanding/blog/chatgpt-advanced-tips/ChatgptAdvancedTipsPage.tsx",
-  "components/academyLanding/blog/ai-study-learning-guide/AiStudyLearningGuidePage.tsx"
+  "docs/line-bonus-06-30day-study-plan.md"
 ]
 status: "draft"
 dependencies:
   upstream: [
-    "docs/content-strategy-batch3.md",
-    "components/academyLanding/blog/ai-job-hunting-guide/AiJobHuntingGuidePage.tsx",
-    "components/academyLanding/blog/chatgpt-advanced-tips/ChatgptAdvancedTipsPage.tsx",
-    "components/academyLanding/blog/ai-study-learning-guide/AiStudyLearningGuidePage.tsx"
+    "app/briefing/page.tsx"
   ]
   downstream: [
-    "[TODO] LINE公式アカウント配布設定",
-    "[TODO] 特典URL管理台帳（Notion/Spreadsheet）",
-    "[TODO] 計測ダッシュボード（登録率・クリック率）"
+    "[TODO] 計測ダッシュボード（GA4 / Looker Studio）",
+    "[TODO] LINE登録完了イベント計測仕様"
   ]
 impact_level: "medium"
 ---
 
 <!-- ============Rulesを確認============ -->
 
-# LINE特典配布オペレーション手順書（記事#31〜#33）
+# LINE特典配布 週次計測テンプレート
 
-## 1. 目的
+## 1. 計測指標定義
 
-- SEO/AIO記事からLP・LINE登録へ誘導した後、**登録直後に特典を配布できる状態**を作る
-- 特典配布を単発対応ではなく、**運用ルール化**して再現可能にする
+### 1-1. 記事別CTR（mid-article CTA クリック率）
 
----
-
-## 2. 既存実装の確認結果（2026-02-19）
-
-### 2-1. LINE導線（実装済み）
-
-- #31：`components/academyLanding/blog/ai-job-hunting-guide/AiJobHuntingGuidePage.tsx`  
-  `const lineUrl = "https://bexn9pao.autosns.app/line"` を使用
-- #32：`components/academyLanding/blog/chatgpt-advanced-tips/ChatgptAdvancedTipsPage.tsx`  
-  `const lineUrl = "https://bexn9pao.autosns.app/line"` を使用
-- #33：`components/academyLanding/blog/ai-study-learning-guide/AiStudyLearningGuidePage.tsx`  
-  `const lineUrl = "https://bexn9pao.autosns.app/line"` を使用
-
-### 2-2. 現状ギャップ
-
-- CTA文言は「週1AI通信」訴求が中心で、**記事別特典URLの出し分けは未設定**
-- 特典配布ファイル（Google Docs/Notion/PDF）の**公開URL台帳が未整備**
-
----
-
-## 3. 配布アセット一覧（本手順で管理）
-
-| 記事 | slug | 特典ファイル（本リポジトリ） | 外部配布形式 | 外部URL（運用者入力） |
-|---|---|---|---|---|
-| #31 | `ai-job-hunting-guide` | `docs/line-bonus-04-job-hunting-template.md` | Google Docs | `[TODO]` |
-| #32 | `chatgpt-advanced-tips` | `docs/line-bonus-05-industry-prompts-50.md` | Notion / PDF | `[TODO]` |
-| #33 | `ai-study-learning-guide` | `docs/line-bonus-06-30day-study-plan.md` | Google Docs | `[TODO]` |
-
----
-
-## 4. 外部配布ファイル準備フロー
-
-1. Markdown原本をベースにGoogle Docs / Notionへ転記  
-2. タイトルに特典番号を付与（例：`LINE特典04_職務経歴書テンプレ`）  
-3. 閲覧権限を「リンクを知っている全員が閲覧可」に設定  
-4. 編集権限は運用チームのみ付与  
-5. 公開URLを本ドキュメントのアセット一覧へ記録  
-6. PDF配布が必要な特典は同内容をPDF出力してURLも記録
-
----
-
-## 5. LINE配布設定フロー
-
-### 5-1. 配布方式
-
-- 推奨：自動応答（キーワード配布）  
-- 代替：登録直後メッセージ＋手動返信
-
-### 5-2. キーワード設計（推奨）
-
-| 特典 | 推奨キーワード | 返信内容 |
-|---|---|---|
-| #31 転職テンプレ | `転職テンプレ` | #31特典URL＋使い方1行 |
-| #32 プロンプト50選 | `プロンプト50` | #32特典URL＋活用手順1行 |
-| #33 30日学習プラン | `30日学習` | #33特典URL＋開始手順1行 |
-
-### 5-3. 配布メッセージテンプレ
-
-### #31配布文
+- 指標名: `Article CTR`
+- 定義: 各記事内の中間CTAクリック数 ÷ 各記事PV
+- 対象: `src=blog` かつ `placement=mid` のCTA
+- 算出式:
 
 ```text
-ご登録ありがとうございます。
-「AI転職テンプレ（職種3種＋面接Q&A生成プロンプト）」はこちらです。
-{#31配布URL}
-
-使い方：共通インプットシート→職種別テンプレ→面接Q&Aの順で進めると最短で整います。
+Article CTR(%) = (mid-article CTA click数 / 記事PV) x 100
 ```
 
-### #32配布文
+### 1-2. 特典別クリック数（bonus=bonus0X パラメータ別）
+
+- 指標名: `Bonus Clicks`
+- 定義: `/line?src=briefing&bonus=bonus0X` のクリック数
+- 集計軸: `bonus01`〜`bonus06`
+- 推奨確認単位: 日次・週次
+
+### 1-3. LINE登録率（クリック→登録の転換率）
+
+- 指標名: `LINE CVR`
+- 定義: 特典リンククリック数に対するLINE登録完了数
+- 算出式:
 
 ```text
-ご登録ありがとうございます。
-「業種別プロンプト50選（営業・マーケ・総務・エンジニア・医療）」はこちらです。
-{#32配布URL}
-
-使い方：まず1職種10本を試し、使えたものだけチームテンプレに残してください。
+LINE CVR(%) = (LINE登録完了数 / 特典リンククリック数) x 100
 ```
 
-### #33配布文
+- 備考: 計測基盤上でクリックイベントと登録完了イベントのID連携を行う
 
-```text
-ご登録ありがとうございます。
-「30日学習プランテンプレ（資格・語学・AIスキルアップ）」はこちらです。
-{#33配布URL}
+## 2. 週次レビュー手順（チェックリスト）
 
-使い方：Day1で目標設定→Day7/14/21/30で必ず振り返ると継続しやすくなります。
-```
+### 2-1. UTMパラメータ確認手順
 
----
+- [ ] 今週追加・変更したCTA URL一覧を抽出する
+- [ ] `src` が意図どおり設定されていることを確認する（例: `briefing`, `blog`）
+- [ ] `bonus` が `bonus01`〜`bonus06` の命名規則に一致していることを確認する
+- [ ] 不正なパラメータ（空値、typo、大文字混在）を修正する
 
-## 6. 計測設定（最低限）
+### 2-2. 記事別ランキング作成方法
 
-### 6-1. URLパラメータ例
+- [ ] 記事別に `mid-article CTA click数` と `記事PV` を取得する
+- [ ] 記事ごとに `Article CTR` を算出する
+- [ ] CTR降順で並べ、上位3記事・下位3記事を抽出する
+- [ ] 前週比で増減率を算出し、変動要因をメモする
 
-- #31：`[TODO] ?src=line&bonus=04&article=31`
-- #32：`[TODO] ?src=line&bonus=05&article=32`
-- #33：`[TODO] ?src=line&bonus=06&article=33`
+### 2-3. 改善案PickUp基準
 
-### 6-2. 追う指標
+- [ ] 下位3記事のうち、PV上位の記事を優先して改善対象にする
+- [ ] `Bonus Clicks` が偏っている場合、訴求文の差し替え候補を作る
+- [ ] `LINE CVR` が低い場合、遷移後メッセージの冒頭文を見直す
+- [ ] 週次では同時に2施策以上を実施せず、1施策ずつ効果検証する
 
-- LINE登録数（記事別）
-- 特典URLクリック数（特典別）
-- 特典クリック率（クリック数/登録数）
-- 特典経由の相談・セミナー遷移数
+## 3. 特典別配布メッセージ管理表
 
----
+| 特典 | メッセージ内容（要約） | 配布条件 | 対象記事 |
+|---|---|---|---|
+| 特典01 | AI活用ガイドライン雛形（社内配布用テンプレート）案内 | `bonus=bonus01` クリック後の登録完了 | briefing / 法人導入系記事 |
+| 特典02 | AI導入効果チェックリスト（30項目）案内 | `bonus=bonus02` クリック後の登録完了 | briefing / 比較検討系記事 |
+| 特典03 | AI導入ROI試算シート（Excel形式）案内 | `bonus=bonus03` クリック後の登録完了 | briefing / ROI・稟議系記事 |
+| 特典04 | AI転職・求人票チェックシート案内 | `bonus=bonus04` クリック後の登録完了 | briefing / 転職・キャリア系記事 |
+| 特典05 | 業種別AIプロンプト50選案内 | `bonus=bonus05` クリック後の登録完了 | briefing / 実務活用系記事 |
+| 特典06 | 30日AI学習プラン（ロードマップ付き）案内 | `bonus=bonus06` クリック後の登録完了 | briefing / 学習・リスキリング系記事 |
 
-## 7. 配布前チェックリスト
+## 4. bonus命名規則定義表
 
-- [ ] 外部URLが開ける（ログイン不要）
-- [ ] スマホ表示で崩れない
-- [ ] 誤字脱字・リンク切れなし
-- [ ] 返信キーワードの誤配布なし
-- [ ] 配布メッセージに別特典URLが混ざっていない
-- [ ] 特典内容が記事CTA訴求と一致している
+| bonus値 | 定義 | URLパラメータ例 | 特典ファイル名（運用管理名） |
+|---|---|---|---|
+| `bonus01` | AI活用ガイドライン雛形（社内配布用テンプレート） | `https://bexn9pao.autosns.app/line?src=briefing&bonus=bonus01` | `line-bonus-01-ai-guideline-template` |
+| `bonus02` | AI導入効果チェックリスト（30項目） | `https://bexn9pao.autosns.app/line?src=briefing&bonus=bonus02` | `line-bonus-02-ai-effect-checklist-30` |
+| `bonus03` | AI導入ROI試算シート（Excel形式） | `https://bexn9pao.autosns.app/line?src=briefing&bonus=bonus03` | `line-bonus-03-ai-roi-sheet` |
+| `bonus04` | AI転職・求人票チェックシート | `https://bexn9pao.autosns.app/line?src=briefing&bonus=bonus04` | `line-bonus-04-job-check-sheet` |
+| `bonus05` | 業種別AIプロンプト50選 | `https://bexn9pao.autosns.app/line?src=briefing&bonus=bonus05` | `line-bonus-05-industry-prompts-50` |
+| `bonus06` | 30日AI学習プラン（ロードマップ付き） | `https://bexn9pao.autosns.app/line?src=briefing&bonus=bonus06` | `line-bonus-06-30day-learning-plan` |
 
----
+## 5. 週次レビュー記録テンプレート
 
-## 8. 週次運用（15分）
+| 週 | Article CTR 上位3 | Article CTR 下位3 | Bonus Clicks 上位 | LINE CVR | 今週の改善施策 | 次週アクション |
+|---|---|---|---|---|---|---|
+| YYYY-WW | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] | [TODO] |
 
-1. クリック率が低い特典を特定する  
-2. 返信文1行目（価値訴求）をA/Bで改善する  
-3. 次週は1特典だけ改善して効果検証する  
-4. 更新履歴を残す（変更日・変更者・変更理由）
-
----
-
-## 9. AIリブート活用方針（3本柱）
-
-- **生成AI活用力**：特典を実務で使えるテンプレとして即配布  
-- **自己理解・キャリアデザイン**：転職・学習の文脈で自己分析と将来設計を支援  
-- **仲間と共に学ぶ環境**：LINE配布後も改善ヒントと対話で継続を後押し
-
----
-
-## 10. 更新履歴
+## 更新履歴
 
 | バージョン | 更新日 | 更新者 | 更新内容 | 影響ドキュメント |
 |---|---|---|---|---|
-| 1.0 | 2026-02-19 | さかもと | 初版作成（#31〜#33の配布運用を定義） | `docs/line-bonus-04-job-hunting-template.md`, `docs/line-bonus-05-industry-prompts-50.md`, `docs/line-bonus-06-30day-study-plan.md` |
+| 1.0 | 2026-02-20 | さかもと | 週次計測テンプレートとして再作成（bonus01〜06対応） | `app/briefing/page.tsx` |
