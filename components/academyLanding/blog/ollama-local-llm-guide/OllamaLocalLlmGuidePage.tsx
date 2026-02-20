@@ -102,7 +102,7 @@ const lineUrl = "https://bexn9pao.autosns.app/line";
 const lineCtaTitle = "AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）";
 const lineCtaBody =
   "業務で再利用できるAI活用の型、導入判断で迷いやすい論点、最新ニュースの要点を毎週1本で整理して届けます。";
-const lineCtaButtonLabel = "LINEで週1AI通信を受け取る（無料）";
+const lineCtaButtonLabel = "今すぐ無料で登録する（30秒）";
 
 function LineCtaBox({ className = "blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" }: { className?: string }) {
   return (

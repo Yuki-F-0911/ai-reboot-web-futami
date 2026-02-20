@@ -21,7 +21,7 @@ const sectionReveal = {
 };
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaBody = "AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）";
+const lineCtaBody = "毎週1本、実務で使える生成AI活用のヒントとAIニュースをLINEで配信しています（無料）。読むだけで、AI活用の「知っておくべきこと」が自然と身につきます。受講前の不安や、自分に合うか確認したい方は、個別LINE相談もできます。";
 
 const sourceRows = [
   {
@@ -130,7 +130,7 @@ const tocItems = [
 function LineCtaBox({
   title = "LINEで毎週AI知識を配信中",
   body = lineCtaBody,
-  buttonLabel = "LINEで週1AI通信を受け取る（無料）",
+  buttonLabel = "今すぐ無料で登録する（30秒）",
   className = "blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6",
 }: {
   title?: string;

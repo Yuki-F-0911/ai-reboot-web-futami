@@ -22,7 +22,7 @@ const sectionReveal = {
 };
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaBody = "AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）";
+const lineCtaBody = "毎週1本、実務で使える生成AI活用のヒントとAIニュースをLINEで配信しています（無料）。読むだけで、AI活用の「知っておくべきこと」が自然と身につきます。受講前の不安や、自分に合うか確認したい方は、個別LINE相談もできます。";
 
 const keywordTags = ["Midjourney v7 使い方", "Midjourney 日本語", "AI 画像生成 比較 2026"] as const;
 
@@ -186,7 +186,7 @@ function LineCtaBox({ tone }: { tone: "green" | "orange" }) {
         rel="noopener noreferrer"
         className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
       >
-        LINEで週1AI通信を受け取る（無料）
+        今すぐ無料で登録する（30秒）
       </a>
     </section>
   );

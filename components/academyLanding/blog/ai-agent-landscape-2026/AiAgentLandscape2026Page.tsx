@@ -261,7 +261,7 @@ function LineCtaBox({ tone }: { tone: "gray" | "green" | "orange" }) {
         rel="noopener noreferrer"
         className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
       >
-        LINEで週1AI通信を受け取る（無料）
+        今すぐ無料で登録する（30秒）
       </a>
     </motion.section>
   );

@@ -32,7 +32,7 @@ const sectionReveal = {
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
 const lineCtaTitle = "AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）";
-const lineCtaButtonLabel = "LINEで週1AI通信を受け取る（無料）";
+const lineCtaButtonLabel = "今すぐ無料で登録する（30秒）";
 
 const keywordTags = ["AI アプリ おすすめ スマホ 2026", "iPhone AI アプリ", "Android AI アプリ", "無料 AI アプリ 日本語"] as const;
 

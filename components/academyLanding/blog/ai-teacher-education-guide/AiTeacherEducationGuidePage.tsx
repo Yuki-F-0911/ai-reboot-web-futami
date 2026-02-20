@@ -127,7 +127,7 @@ const learnerChecklist = [
 const lineUrl = "https://bexn9pao.autosns.app/line";
 const lineCtaTitle = "AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）";
 const lineCtaBody = "教育・研修で使える生成AIの実務知識を、毎週1本ずつ無料で配信しています。";
-const lineCtaButtonLabel = "LINEで週1AI通信を受け取る（無料）";
+const lineCtaButtonLabel = "今すぐ無料で登録する（30秒）";
 
 function LineCtaBox({ className = "blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" }: { className?: string }) {
   return (
