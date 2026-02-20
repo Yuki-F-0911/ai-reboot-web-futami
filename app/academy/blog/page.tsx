@@ -31,6 +31,13 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-side-business-2026",
+    title: "AI副業の稼ぎ方2026｜初心者が月5万円を目指す3分野と6か月ロードマップ",
+    summary:
+      "2026年のAI副業トレンドを踏まえ、記事生成代行・SNS運用代行・データ分析レポート代行の始め方、0〜6か月の収益化ロードマップ、月5万円の匿名実例、税務の注意点まで整理した実践ガイドです。",
+    category: "副業・フリーランス",
+  },
+  {
     slug: "claude-opus-4-6-guide",
     title: "Claude Opus 4.6使い方ガイド｜1Mトークン・Adaptive Thinking・料金比較【2026年2月版】",
     summary:
