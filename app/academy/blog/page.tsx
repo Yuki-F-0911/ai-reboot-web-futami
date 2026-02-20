@@ -31,6 +31,13 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "aireboot-academy-reviews",
+    title: "AIリブートアカデミーの評判・口コミは実際どう？受講前に確認すべきポイントを正直解説",
+    summary:
+      "AIリブートアカデミーの評判・口コミを、公式公開の第一期コメントと講座情報をもとに整理。向いている人・向いていない人、受講後の変化、受講前に確認すべき懸念点まで最終判断用にまとめた記事です。",
+    category: "キャリア・転職",
+  },
+  {
     slug: "flux-image-generation-guide",
     title: "Flux画像生成の使い方ガイド｜Dev/Schnell/Pro/Ultra比較とローカル運用【2026年版】",
     summary:
