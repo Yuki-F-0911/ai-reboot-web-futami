@@ -261,6 +261,9 @@ export default function AiSlideCreationPage({ faqItems }: AiSlideCreationPagePro
           <p className="blog-p mt-3 text-base leading-8 text-gray-700">
             ただし、どのツールでも初稿をそのまま本番利用すると、論理飛躍や数値不整合が残る可能性があります。本記事では、ツール比較だけでなく、仕上げの手動調整までを前提に手順を整理します。
           </p>
+          <p className="blog-p mt-3 text-base leading-8 text-gray-700">
+            個人利用は「まず形にする速さ」、法人利用は「既存テンプレート運用とライセンス整合」が判断軸になります。自分の利用文脈に合わせて読み進めると、導入判断がしやすくなります。
+          </p>
           <p className="blog-p mt-3 text-sm leading-7 text-gray-600">
             価格・仕様の確認日: 2026-02-20（変動情報は導入前に公式ページで再確認してください）
           </p>
@@ -294,6 +297,9 @@ export default function AiSlideCreationPage({ faqItems }: AiSlideCreationPagePro
               どの選択でも、最終品質は手動チェック工程を設計するかで差が出ます。
             </li>
           </ul>
+          <p className="blog-p mt-5 text-sm leading-7 text-blue-900">
+            個人は「1人で完結できるか」を基準に、法人は「チーム共同編集と監修フローに載るか」を基準に比較すると、導入後の運用負荷を抑えられます。
+          </p>
         </motion.section>
 
         <motion.section
@@ -596,4 +602,3 @@ export default function AiSlideCreationPage({ faqItems }: AiSlideCreationPagePro
     </main>
   );
 }
-

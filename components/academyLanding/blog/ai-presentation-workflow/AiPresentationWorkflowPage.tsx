@@ -604,6 +604,14 @@ export default function AiPresentationWorkflowPage({ faqItems }: AiPresentationW
             </li>
             <li>
               <Link
+                href="/academy/blog/ai-slide-creation"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIプレゼンスライド自動生成ツール比較2026｜Gamma・Beautiful.ai・Copilot・Google Slides AI | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/academy/blog/ai-business-efficiency-cases"
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >

@@ -561,6 +561,13 @@ export default function MicrosoftCopilotGuidePage({ faqItems }: MicrosoftCopilot
               <p className="text-sm font-semibold text-gray-900">Gemini for Workspace使い方ガイド</p>
               <p className="mt-2 text-sm leading-7 text-gray-700">Microsoft系とGoogle系の比較検討に使える記事。</p>
             </Link>
+            <Link
+              href="/academy/blog/ai-slide-creation"
+              className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-colors hover:border-will-primary/40"
+            >
+              <p className="text-sm font-semibold text-gray-900">AIスライド自動生成ツール比較2026</p>
+              <p className="mt-2 text-sm leading-7 text-gray-700">CopilotとGamma/Beautiful.aiの使い分けを整理した比較記事。</p>
+            </Link>
           </div>
         </motion.section>
 
