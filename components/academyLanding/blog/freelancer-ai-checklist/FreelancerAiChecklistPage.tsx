@@ -227,14 +227,14 @@ export default function FreelancerAiChecklistPage({ faqItems }: FreelancerAiChec
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             個人事業主・フリーランスのためのAI活用チェックリスト50｜今日からできること
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             個人で仕事をしていると、営業・制作・請求・発信・学習を同時に回す必要があります。AIは便利ですが、使い方が曖昧だと時間短縮も品質向上も中途半端になります。
             そこで本記事では、個人事業主・フリーランス・副業会社員向けに、実務でそのまま使える50項目を5カテゴリで整理しました。
           </p>
           <p className="mt-3 text-sm leading-7 text-gray-700">
-            制度・仕様の確認日: 2026年2月19日（厚労省「副業・兼業の促進に関するガイドライン」、公取委「フリーランス法Q&A」、
-            OpenAI「ChatGPT Businessのデータ取り扱い」）。
+            制度・仕様の確認日: 2026年2月20日（厚労省「副業・兼業の促進に関するガイドライン」、公取委・中小企業庁・厚労省
+            「フリーランス・事業者間取引適正化等法Q&A」、OpenAI「ChatGPT Businessのデータ取り扱い」）。
           </p>
         </motion.header>
 
@@ -362,6 +362,9 @@ export default function FreelancerAiChecklistPage({ faqItems }: FreelancerAiChec
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくある質問（FAQ）：個人事業主・フリーランスのAIチェックリスト運用で詰まりやすい点
           </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            運用初期は「何から着手するか」と「どこまでAIに任せるか」で迷いやすくなります。実務で頻出の論点から確認してください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">

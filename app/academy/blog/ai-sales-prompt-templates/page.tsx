@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "営業の生成AIプロンプト20選｜提案書・メール・ヒアリング設計まで | AIリブート";
 const pageDescription =
-  "営業の生成AI活用を事前準備・提案書・メール・振り返りの4カテゴリで解説。提案書AI作成、営業メールAI生成、商談メモ要約まで、コピペで使える営業プロンプト20選と機密情報リスク対策をまとめました。";
+  "営業で生成AIを使うなら、準備・提案・メール・振り返りの4場面をテンプレ化するのが実践的です。顧客情報を守る運用前提で、商談準備、提案書作成、フォロー連絡、改善ログまで、現場で使える20プロンプトを整理しました。チーム導入時の使い分け基準も示します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-sales-prompt-templates";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

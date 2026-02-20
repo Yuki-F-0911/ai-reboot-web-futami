@@ -102,7 +102,7 @@ const reportUseCases = [
 const dataRiskItems = [
   {
     title: "外部送信・学習データへの利用",
-    body: "無料・標準プランのAIサービスでは、入力内容がサービス改善のために利用される場合があります。ChatGPT（有料エンタープライズプラン）やClaude for Enterpriseは、原則として学習に使われない設定が可能です。プランの規約を事前に確認します。",
+    body: "無料・標準プランのAIサービスでは、入力内容がサービス改善に利用される場合があります。2026年2月時点の公開ポリシーでは、ChatGPT Business/EnterpriseやClaudeの商用プランで学習利用に関する方針が明示されています。実際の運用可否は契約プランの仕様を必ず確認してください。",
   },
   {
     title: "入力禁止情報の例",
@@ -211,7 +211,7 @@ export default function AiAccountingGuidePage({ faqItems }: AiAccountingGuidePag
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             経理・財務部門のAI活用ガイド2026｜仕訳・レポート・予算管理の自動化事例
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             経理・財務部門でAIを使うとき、多くの担当者がぶつかる壁が「機密データを外部サービスに入れていいのか」という問いです。
             この記事では、仕訳確認・経費精算・月次レポート・予算差異分析での具体的な活用方法と、
@@ -248,7 +248,7 @@ export default function AiAccountingGuidePage({ faqItems }: AiAccountingGuidePag
               ExcelマクロはAIで生成できる。「やりたいことを日本語で書く→AIにコードを作らせる→Excelに貼る」の3ステップでプログラミング不要。
             </li>
             <li className="pl-1 marker:text-gray-500">
-              ChatGPTやClaudeにCSVを添付すると、自然言語での集計・差異抽出・グラフ生成が可能。数値確認の作業を大幅に圧縮できる。
+              ChatGPTやClaudeにCSVを添付すると、自然言語での集計・差異抽出・グラフ生成が可能。数値確認の作業を圧縮しやすい。
             </li>
           </ul>
         </motion.section>
@@ -336,6 +336,9 @@ export default function AiAccountingGuidePage({ faqItems }: AiAccountingGuidePag
           <p className="mt-4 text-base leading-8 text-gray-700">
             勘定科目の自動仕訳は会計ソフト側の機能として進化していますが、汎用AIを使えば社内独自の勘定体系や摘要の命名ルールに対応した候補提示も実現できます。
             また、経費規程の確認作業はAIに一次照合を任せることで、担当者への問い合わせ件数を減らせます。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            2026年2月時点では、freee会計の「AI決算書スキャン」、マネーフォワード クラウド会計の「AI-OCRから入力」、弥生の「スマート取引取込/スマート証憑管理」など、会計ソフト側のAI補助機能も拡充が続いています。機能名や対応範囲はプランで異なるため、導入前に最新版ヘルプの確認が必要です。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {journalUseCases.map((item) => (

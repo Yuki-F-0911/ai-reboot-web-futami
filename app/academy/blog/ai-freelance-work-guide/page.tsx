@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "フリーランス・副業のAI活用術｜提案・作業・請求まで効率化する実践ガイド | AIリブート";
 const pageDescription =
-  "フリーランス・副業でAIを使う実践ガイド。案件獲得の提案書/見積書、実作業のリサーチ・文章生成・レビュー、請求・管理までを一連のワークフローで解説。コピペで使える提案プロンプト付き。";
+  "フリーランス・副業のAI活用は、提案・実作業・請求管理を分業設計すると成果が安定します。提案書/見積書の作成、納品前レビュー、入金管理、法令確認を含む運用ルールを、案件で再利用しやすい手順で整理しました。副業会社員向けの就業規則チェック観点も含めます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-freelance-work-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T12:00:00+09:00";
-const modifiedTime = "2026-02-19T12:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

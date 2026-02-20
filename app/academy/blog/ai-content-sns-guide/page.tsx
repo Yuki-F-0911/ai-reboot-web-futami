@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AI×ブログ・SNS・YouTube台本の作り方｜コンテンツ制作を10倍速にする | AIリブート";
 const pageDescription =
-  "コンテンツ制作に時間がかかる、ネタ切れになる悩みを解消する実践ガイド。ブログ構成・本文、X/Instagram/LinkedIn投稿、YouTube台本をAIで作る手順と、媒体別のコピペ可能プロンプトをまとめて解説。";
+  "コンテンツ制作を速くする近道は、ブログを親コンテンツにしてX・Instagram・LinkedIn・YouTubeへ展開する運用です。媒体別テンプレート、ネタ切れ対策、公開前チェック、週次の運用設計まで、実務で回る手順をまとめています。発信継続のための作業分担ルールも示します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-content-sns-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T15:00:00+09:00";
-const modifiedTime = "2026-02-19T15:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

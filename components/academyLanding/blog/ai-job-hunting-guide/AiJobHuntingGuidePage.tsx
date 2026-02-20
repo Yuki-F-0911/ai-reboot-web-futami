@@ -233,7 +233,7 @@ export default function AiJobHuntingGuidePage({ faqItems }: AiJobHuntingGuidePag
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI×転職完全ガイド｜職務経歴書・面接対策・企業研究の実践テクニック
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             転職活動でAIを使うなら、職務経歴書だけに限定せず、企業研究と面接対策まで一気通貫で設計するのが効率的です。
             本記事では「職務経歴書・企業研究・面接対策」の3フェーズで、実際に使えるChatGPTプロンプトと作業手順をまとめます。

@@ -197,7 +197,7 @@ export default function AiFreelanceWorkGuidePage({ faqItems }: AiFreelanceWorkGu
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             フリーランス・副業のAI活用術｜提案・作業・請求まで効率化する実践ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             フリーランスのAI活用は、文章生成の速さだけでは成果につながりません。案件獲得、実作業、請求・管理の3段階で役割を分けると、時短と品質を両立しやすくなります。
             この記事では、提案書・見積書のコピペ可能プロンプト、納品前レビューの型、請求管理の運用まで具体手順で整理します。
@@ -335,7 +335,7 @@ export default function AiFreelanceWorkGuidePage({ faqItems }: AiFreelanceWorkGu
             納品後の請求処理を後回しにすると、売上管理と税務準備が崩れます。請求文面、入金確認、次回提案メモの3点をテンプレ化し、案件終了時に同時処理するのが実務的です。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
-            制度面では、副業・兼業のルール確認（厚労省）、取引条件明示や報酬支払期日の考え方（フリーランス法）、帳簿と書類保存（国税庁）が基礎になります。制度情報の確認日: 2026年2月19日。
+            制度面では、副業・兼業のルール確認（厚労省）に加えて、取引条件明示や報酬支払期日などを定める「特定受託事業者に係る取引の適正化等に関する法律（フリーランス法、2024年11月1日施行）」、帳簿と書類保存（国税庁）の確認が基礎になります。制度情報の確認日: 2026年2月20日。
           </p>
           <div className="mt-7 space-y-4">
             {billingOps.map((item) => (
@@ -346,7 +346,7 @@ export default function AiFreelanceWorkGuidePage({ faqItems }: AiFreelanceWorkGu
             ))}
           </div>
           <div className="mt-8 rounded-lg border border-gray-200 bg-gray-50 p-5">
-            <p className="text-sm font-semibold text-gray-900">情報管理の補足（確認日: 2026年2月19日）</p>
+            <p className="text-sm font-semibold text-gray-900">情報管理の補足（確認日: 2026年2月20日）</p>
             <p className="mt-3 text-sm leading-7 text-gray-700">
               ChatGPT利用とAPI利用ではデータ取り扱いの前提が異なるため、案件ごとに入力ルールを分けてください。顧客情報を扱う案件では、匿名化テキストで検討し、最終文面だけを人間側で戻し込む運用が安全です。
             </p>
@@ -455,6 +455,9 @@ export default function AiFreelanceWorkGuidePage({ faqItems }: AiFreelanceWorkGu
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            運用で詰まりやすいのは、品質基準と情報管理ルールの線引きです。まず小さく運用し、週次で調整する前提で読み進めてください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">

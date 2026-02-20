@@ -278,7 +278,7 @@ export default function AiSalesPromptTemplatesPage({ faqItems }: AiSalesPromptTe
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             営業の生成AIプロンプト20選｜提案書・メール・ヒアリング設計まで
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             営業の生成AI活用は、ツール名より「どの場面で使うか」を先に決めると成果が出ます。この記事では、事前準備・提案書作成・メール・振り返りの4カテゴリで、コピペして使える営業プロンプト20本を整理しました。
             実務での応用を広げたい方は
@@ -415,7 +415,7 @@ export default function AiSalesPromptTemplatesPage({ faqItems }: AiSalesPromptTe
             ChatGPTに機密情報を入れても大丈夫か: 結論は「条件を満たすときだけ」
           </h2>
           <p className="mt-5 text-base font-medium text-gray-900">
-            2026年2月19日時点の公開情報では、ビジネス向けプランやAPIでデータ取り扱い方針が明示されています。ただし、安全性は契約プランと自社運用で決まるため、無条件での入力は避けるべきです。
+            2026年2月20日時点の公開ポリシーでは、ChatGPT Business/EnterpriseやAPIのデータ取り扱い方針が明示されています。ただし、安全性は契約プランと自社運用で決まるため、無条件での入力は避けるべきです。
           </p>
           <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">

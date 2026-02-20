@@ -5,11 +5,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 const pageTitle =
   "AIスキルのポートフォリオ作り方2026｜転職・副業・社内評価につながる実績のまとめ方 | AIリブート";
 const pageDescription =
-  "AIポートフォリオの作り方を転職・副業・社内評価のシーン別に解説。プロンプト集・自動化フロー・分析ダッシュボードなど成果物の種類と、GitHubやNotionでの公開方法を5ステップで整理します。";
+  "AIポートフォリオで評価されるのは、学習履歴より『課題→手法→成果』の記録です。転職・副業・社内評価での見せ方、GitHub/Notion公開手順、更新サイクルを含む5ステップの作成方法を、非エンジニア向けに解説します。評価者に伝わる記載例とNG例も示します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-portfolio-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T10:00:00+09:00";
-const modifiedTime = "2026-02-19T10:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

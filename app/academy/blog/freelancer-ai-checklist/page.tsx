@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "個人事業主・フリーランスのためのAI活用チェックリスト50｜今日からできること | AIリブート";
 const pageDescription =
-  "個人事業主・フリーランス・副業会社員向けに、AI活用の実行項目を50個に整理。営業・作業・経理・発信・学習の5カテゴリで、今日から始める順番と運用ルールを具体化した実践チェックリストです。";
+  "個人事業主・フリーランスがAI活用を定着させるには、営業・作業・経理・発信・学習を同時に管理する設計が必要です。50項目チェックリストで、制度確認と情報管理を押さえつつ、今日から着手できる優先順位を明確にします。週次90分で回す実行プランも提示します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/freelancer-ai-checklist";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T12:00:00+09:00";
-const modifiedTime = "2026-02-19T12:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

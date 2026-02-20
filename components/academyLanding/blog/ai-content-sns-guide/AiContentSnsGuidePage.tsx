@@ -45,7 +45,7 @@ const blogPromptExamples = [
 
 const snsPromptExamples = [
   {
-    channel: "X（Twitter）",
+    channel: "X",
     title: "X向けの短文投稿を作るプロンプト",
     prompt:
       "あなたはBtoB領域のSNS編集者です。\n目的: X向けに1投稿を作成する。\n入力:\n- テーマ: {テーマ}\n- 読者: {読者像}\n- 伝えたい結論: {結論}\n制約:\n- 140〜220文字\n- 1文目で課題提起、2文目で解決策、3文目で行動提案\n- ハッシュタグは最大2つ\n出力形式:\n- 投稿本文3案\n- 冒頭フックのみ5案",
@@ -177,7 +177,7 @@ export default function AiContentSnsGuidePage({ faqItems }: AiContentSnsGuidePag
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI×ブログ・SNS・YouTube台本の作り方｜コンテンツ制作を10倍速にする
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             コンテンツ制作の悩みは、時間不足とネタ切れに集約されます。AIを使うときは「速く書く」より、ブログを親コンテンツとしてSNSと動画台本に展開する設計を先に決める方が効果的です。
             この記事では、ブログ、SNS（X・Instagram・LinkedIn）、YouTube台本の3媒体別に、実務で使える作成手順とコピペ可能プロンプトを整理します。
@@ -388,6 +388,9 @@ export default function AiContentSnsGuidePage({ faqItems }: AiContentSnsGuidePag
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            よくある詰まりどころは、媒体ごとの書き分けと公開後の改善運用です。先に判断基準を決める前提でQ&Aを確認してください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">

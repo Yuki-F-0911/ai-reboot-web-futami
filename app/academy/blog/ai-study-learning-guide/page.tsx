@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AI×勉強・資格・語学学習完全ガイド｜ChatGPTで最短合格する方法 | AIリブート";
 const pageDescription =
-  "独学で続かない社会人向けに、AIを使った資格勉強・語学学習・スキルアップの実践手順を整理。問題集生成、弱点分析、会話練習、30日学習計画まで、コピペ可能なChatGPTプロンプト付きで解説します。";
+  "AI学習を続けるコツは、資格勉強・語学・業務スキルを別管理せず同じ学習ループで回すことです。問題生成、誤答分析、会話練習、週次レビュー、30日計画の更新まで、社会人が継続しやすい実行順を具体化しています。独学で止まりやすいポイントの回避策も併記します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-study-learning-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

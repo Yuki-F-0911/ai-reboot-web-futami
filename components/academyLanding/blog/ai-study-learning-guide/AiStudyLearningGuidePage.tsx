@@ -303,7 +303,7 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AI×勉強・資格・語学学習完全ガイド｜ChatGPTで最短合格する方法
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             結論として、独学が続かない最大要因は「計画不足」と「振り返り不足」です。AIを使うと、資格勉強の問題演習、語学の会話練習、
             スキルアップの学習設計を一つの流れで回せます。
@@ -536,6 +536,9 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
           <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             よくある質問（FAQ）
           </h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            導入前に迷いやすいポイントを先に確認すると、学習計画の停滞を減らせます。現場で相談が多い論点を簡潔にまとめました。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">

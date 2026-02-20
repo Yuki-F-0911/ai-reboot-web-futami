@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "経理・財務部門のAI活用ガイド2026｜仕訳・レポート・予算管理の自動化事例 | AIリブート";
 const pageDescription =
-  "経理・財務でのAI活用を仕訳確認・経費精算・月次レポート・予算差異分析の4業務で解説。機密データを外部AIに入れる際のリスクと対策、ExcelマクロのAI生成方法、自然言語でのデータ集計まで網羅。社内ガイドライン整備のポイントと3段階の導入ステップ付き。";
+  "経理・財務のAI活用は、文章生成から始めてデータ分析へ広げる順序が安全です。仕訳・経費精算・月次コメント作成の使いどころ、機密データ管理、会計ソフトのAI補助機能確認ポイントまで、実務導入の判断軸を解説します。プラン選定と社内ルール整備の進め方も示します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-accounting-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {
@@ -39,7 +39,7 @@ const faqItems = [
   {
     question: "会計ソフトはAIを導入するときに変える必要がありますか？",
     answer:
-      "変える必要はありません。ChatGPTやClaudeなどの汎用AIは、会計ソフトからエクスポートしたCSVや手入力の数値を受け取って処理できます。会計ソフト自体のAI機能強化と、汎用AIによる補助は並行して活用できます。",
+      "変える必要はありません。2026年2月時点でも、freee会計・マネーフォワード クラウド会計・弥生シリーズなど既存ソフト側でAI補助機能の更新が続いています。自社の契約プランで使える機能を確認したうえで、必要に応じてChatGPTやClaudeを補助的に併用する進め方が現実的です。",
   },
   {
     question: "経理部門でAI活用のルールはどう作ればよいですか？",

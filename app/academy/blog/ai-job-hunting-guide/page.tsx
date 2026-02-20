@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AI×転職完全ガイド｜職務経歴書・面接対策・企業研究の実践テクニック | AIリブート";
 const pageDescription =
-  "転職活動でAIを使う3フェーズ（職務経歴書・企業研究・面接対策）を実務手順で解説。ChatGPTの職務経歴書プロンプト、面接Q&A生成テンプレ、AI活用を評価につなげる伝え方まで整理します。";
+  "転職活動でAIを使うなら、職務経歴書・企業研究・面接対策を分断せずに設計するのが近道です。応募書類の下書きから企業比較、想定Q&Aの改善、面接で評価される伝え方まで、3フェーズで再利用できる実務手順を解説します。在職中でも回せる時短設計と注意点も示します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-job-hunting-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T18:00:00+09:00";
-const modifiedTime = "2026-02-19T18:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

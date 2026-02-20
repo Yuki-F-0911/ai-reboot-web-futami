@@ -187,7 +187,7 @@ export default function AiPortfolioGuidePage({ faqItems }: AiPortfolioGuidePageP
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AIスキルのポートフォリオ作り方2026｜転職・副業・社内評価につながる実績のまとめ方
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             「AIを学んでいる」と伝えても、転職・副業・社内評価に結びつくのは<strong>成果物の記録がある</strong>ときだけです。
             この記事では、ポートフォリオに含める成果物の種類、シーン別の見せ方、GitHubとNotionでの公開方法を5ステップで整理します。
@@ -223,7 +223,7 @@ export default function AiPortfolioGuidePage({ faqItems }: AiPortfolioGuidePageP
               「この人に業務を渡したとき、どんな成果が出るか」です。その判断材料になるのが成果物の記録——いわゆるポートフォリオです。
             </p>
             <p>
-              2026年現在、生成AIを「何らかの形で使っている」社会人は増えています。差がつくのは
+              2026年時点でも、生成AIを「何らかの形で使っている」社会人が増えているという調査・報告があります。差がつくのは
               <strong>「課題→手法→成果」の構造で記録できているかどうか</strong>です。
               メール対応を時短した、会議資料の下書きを15分で作れるようになった、こうした記録が積み重なってポートフォリオになります。
             </p>
