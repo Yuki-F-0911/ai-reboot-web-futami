@@ -653,6 +653,13 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/ai-content-sns-guide/slide-01.png",
   },
   {
+    slug: "ai-youtube-content-guide",
+    title: "YouTube AI動画制作ガイド2026｜企画・台本・編集・サムネを一気通貫で効率化",
+    summary:
+      "YouTube AI動画制作を、企画・台本・編集・サムネの全工程で整理。ChatGPT/Geminiの台本設計、Descript・CapCut AI比較、YouTubeショート向けAI活用まで確認日付きで解説した実務ガイドです。",
+    category: "実務活用",
+  },
+  {
     slug: "aio-seo-strategy-guide",
     title: "AI Overviews時代のSEO完全ガイド｜「AIに引用される」コンテンツ設計チェック",
     summary:
