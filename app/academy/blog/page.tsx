@@ -624,6 +624,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "法人向け",
   },
   {
+    slug: "ai-document-ocr-guide",
+    title: "AI OCRで書類処理を自動化する方法｜請求書・契約書の読取と会計連携【2026】",
+    summary:
+      "AI OCRの基礎から、請求書・領収書・契約書の自動読み取り、freee・マネーフォワード連携、主要4ツール比較、導入ROIと電子帳簿保存法対応までを法人バックオフィス向けに整理した実務ガイドです。",
+    category: "法人向け",
+  },
+  {
     slug: "ai-accounting-guide",
     title: "経理・財務部門のAI活用ガイド2026｜仕訳・レポート・予算管理の自動化事例",
     summary:
