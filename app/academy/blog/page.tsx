@@ -31,6 +31,13 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-writing-tool",
+    title: "AI文章作成ツール比較2026｜ChatGPT・Claude・Jasper・Copy.ai・Notion AIの選び方",
+    summary:
+      "AI文章作成ツールを2026年基準で比較。汎用チャット型と専門ライティング型の違い、主要5ツールの料金・日本語対応、ブログ/SNS/メール/広報での使い分け、AIらしい文を防ぐ編集手順まで整理した実務ガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "gpt-vs-claude-2026",
     title: "ChatGPTとClaude比較 2026年版｜GPT-5.2 vs Claude 3.7 Sonnetの選び方",
     summary:
