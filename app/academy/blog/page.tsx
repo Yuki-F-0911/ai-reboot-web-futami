@@ -31,6 +31,13 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-coding-tool-comparison-2026",
+    title: "AIコーディングツール比較 2026年版｜Cursor・Claude Code・GitHub Copilotの選び方",
+    summary:
+      "2026年2月時点でCursor・Claude Code・GitHub Copilotを比較。Agent/Composer機能、コンテキスト長、モデル選択、Vibe Coding対応力、料金と年間コスト、用途別おすすめ、Copilot Agent HQの最新情報を整理した実務ガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "ai-side-business-2026",
     title: "AI副業の稼ぎ方2026｜初心者が月5万円を目指す3分野と6か月ロードマップ",
     summary:
