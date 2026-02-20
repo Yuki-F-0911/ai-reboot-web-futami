@@ -500,6 +500,13 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/gemini-workspace-guide/slide-01.png",
   },
   {
+    slug: "ai-notion-guide",
+    title: "Notion AIの使い方完全ガイド｜料金・実務活用・連携術【2026年版】",
+    summary:
+      "Notion AIの最新機能、Notion AI Plus 2026の見方、無料版とBusiness/Enterpriseの違い、議事録・タスク管理・文書整理での活用、ChatGPT/Gemini連携とデータベース制限を確認日つきで整理した実務ガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "notebooklm-guide",
     title: "NotebookLMの使い方完全ガイド｜AIで情報整理・学習を効率化する方法",
     summary:
