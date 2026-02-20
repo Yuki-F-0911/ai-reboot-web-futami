@@ -520,6 +520,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "最新AIツール",
   },
   {
+    slug: "deepseek-guide",
+    title: "DeepSeekとは？使い方と実務活用の始め方｜ChatGPTとの違いも解説",
+    summary:
+      "DeepSeekの基本、R1/V3の使い分け、ChatとAPIの違い、ChatGPTとの分業、業務利用時の情報管理と根拠確認ルールまでを確認日付きで整理した実務ガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "genspark-guide",
     title: "Gensparkとは？AI検索の新世代ツールを徹底解説｜Perplexityとの違いと使い分け",
     summary:
@@ -592,6 +599,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "経理・財務部門のAI活用ガイド2026｜仕訳・レポート・予算管理の自動化事例",
     summary:
       "仕訳確認・経費精算・月次レポート・予算差異分析でのAI活用を具体的に解説。機密データのリスク対策、ExcelマクロのAI生成、自然言語でのデータ集計まで経理現場で使える知識を網羅。",
+    category: "実務活用",
+  },
+  {
+    slug: "ai-tax-accounting-guide",
+    title: "税務・会計業務のAI活用ガイド2026｜申告前レビューと説明文作成を効率化",
+    summary:
+      "税務・会計のAI活用を、申告判断ではなく説明文作成・論点整理・レビュー準備の観点で整理。機密データ管理、レビュー体制、導入ステップを実務向けに解説します。",
     category: "実務活用",
   },
   {
