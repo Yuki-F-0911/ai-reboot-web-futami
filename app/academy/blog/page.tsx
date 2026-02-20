@@ -150,6 +150,13 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/github-copilot-guide/slide-1.png",
   },
   {
+    slug: "microsoft-copilot-guide",
+    title: "Microsoft Copilot使い方ガイド｜無料版・有料版・M365比較【2026年版】",
+    summary:
+      "Microsoft Copilotの種類（無料版/Pro/M365）を整理し、Windows・Edgeでできること、Copilot Pro月額3,200円の差分、Word/Excel/PowerPoint/Outlook活用、ChatGPT・Geminiとの使い分けまで解説した記事です。",
+    category: "最新AIツール",
+  },
+  {
     slug: "python-ai-intro",
     title: "Python×AI入門｜環境構築からはじめての機械学習までの学習ロードマップ",
     summary:
@@ -425,10 +432,24 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
   },
   {
+    slug: "claude-beginner-guide",
+    title: "Claudeの使い方入門｜登録から最初のチャットまで初心者向け解説【2026年版】",
+    summary:
+      "Anthropic製Claudeとは何か、無料登録から初回チャットまでの手順、最新モデル（4.6世代）とClaude 3.7の関係、無料とPro（月額20ドル）の違いを初心者向けに整理した入門記事です。",
+    category: "AI基礎知識",
+  },
+  {
     slug: "chatgpt-start-guide-smartphone",
     title: "ChatGPTをスマホで始める方法｜iPhone・Android対応の初期設定ガイド",
     summary:
       "公式アプリの入れ方、アカウント作成・ログイン、初期設定、便利機能、無料/有料の違いまでをiPhone/Android別に整理したスマホ入門ガイドです。",
+    category: "AI基礎知識",
+  },
+  {
+    slug: "chatgpt-plan-comparison",
+    title: "ChatGPT無料・Plus・Proの違いを比較｜2026年版の料金と選び方",
+    summary:
+      "無料プラン・Plus（月額20ドル）・Pro（月額200ドル）の違いを、上限、モデルアクセス、用途別の判断軸で比較。GPT-5.2とGPT-5.3-Codexの制限差、変更・解約方法まで初心者向けに整理した記事です。",
     category: "AI基礎知識",
   },
   {
