@@ -160,7 +160,7 @@ function LineCtaBox({
   className,
   slug,
   bonusId,
-  bonusTitle = "業種別プロンプト50選",
+  bonusTitle = "業種別AIプロンプト50選",
   bonusDescription = "ChatGPT活用を仕事に直結させるテンプレート集を、LINE登録特典として無料配布しています。",
 }: LineCtaBoxProps) {
   const lineHref = `${lineUrl}?${new URLSearchParams({
@@ -171,7 +171,7 @@ function LineCtaBox({
 
   return (
     <section className={className}>
-      <p className="text-base font-semibold text-gray-900">LINE登録で「{bonusTitle}」を受け取る</p>
+      <p className="text-base font-semibold text-gray-900">LINE登録で{bonusTitle}を受け取る</p>
       <p className="mt-2 text-sm leading-7 text-gray-700">{bonusDescription}</p>
       <a
         href={lineHref}
@@ -272,6 +272,22 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           </ul>
         </motion.section>
 
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <LineCtaBox
+            className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
+            slug="chatgpt-plan-comparison"
+            bonusId="bonus05"
+            bonusTitle="業種別AIプロンプト50選"
+          />
+        </motion.section>
+
         <WebtoonBannerSection />
 
         <motion.section
@@ -315,22 +331,6 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
             補足として、PlusとProの料金はOpenAI Helpでそれぞれ「20ドル/月」「200ドル/月」と案内されています。上限・機能は更新されるため、必ず最新の公式ページで再確認してください。
           </p>
           <p className="mt-3 text-xs leading-6 text-gray-500">情報確認日: 2026年2月20日</p>
-        </motion.section>
-
-        <motion.section
-          className="mt-14"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <LineCtaBox
-            className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
-            slug="chatgpt-plan-comparison"
-            bonusId="bonus05"
-            bonusTitle="業種別プロンプト50選"
-          />
         </motion.section>
 
         <motion.section
@@ -575,7 +575,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
             className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
             slug="chatgpt-plan-comparison"
             bonusId="bonus05"
-            bonusTitle="業種別プロンプト50選"
+            bonusTitle="業種別AIプロンプト50選"
           />
           <p className="mt-4 text-xs leading-6 text-gray-500">
             ※料金・上限・機能は2026年2月20日時点の公開情報に基づきます。最新情報は公式サイトで再確認してください。

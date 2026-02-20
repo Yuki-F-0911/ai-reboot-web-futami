@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
-import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -243,6 +243,20 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
+          <LineCtaBox
+            title="LINE登録で30日AI学習プランを受け取る"
+            href="https://bexn9pao.autosns.app/line?src=blog&slug=ai-certification-guide&bonus=bonus06"
+          />
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <h2 id="ai-certification-map" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             AI資格の全体マップ
           </h2>
@@ -278,22 +292,6 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
               ))}
             </dl>
           </div>
-        </motion.section>
-
-        <motion.section
-          className="mt-14"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <MidArticleCtaBox
-            slug="ai-certification-guide"
-            bonusId="bonus06"
-            bonusTitle="30日AI学習プラン"
-            bonusDescription="資格学習と実務アウトプットを同時に進めるための、30日ロードマップを受け取れます。"
-          />
         </motion.section>
 
         <motion.section

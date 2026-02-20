@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
-import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -209,6 +209,20 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
+          <LineCtaBox
+            title="LINE登録でAI導入ROI試算シートを受け取る"
+            href="https://bexn9pao.autosns.app/line?src=blog&slug=education-training-benefit-ai&bonus=bonus03"
+          />
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <h2 id="difference-from-reskilling-subsidy" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             リスキリング補助金との違い（制度比較表）
           </h2>
@@ -238,22 +252,6 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
               </tbody>
             </table>
           </div>
-        </motion.section>
-
-        <motion.section
-          className="mt-14"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <MidArticleCtaBox
-            slug="education-training-benefit-ai"
-            bonusId="bonus03"
-            bonusTitle="AI活用ROI試算シート"
-            bonusDescription="給付金活用後の実質負担と、学習投資の回収見込みを1枚で整理できるシートです。"
-          />
         </motion.section>
 
         <motion.section

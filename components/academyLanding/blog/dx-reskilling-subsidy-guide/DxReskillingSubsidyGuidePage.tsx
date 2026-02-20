@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
-import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -224,6 +224,20 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
+          <LineCtaBox
+            title="LINE登録でAI導入ROI試算シートを受け取る"
+            href="https://bexn9pao.autosns.app/line?src=blog&slug=dx-reskilling-subsidy-guide&bonus=bonus03"
+          />
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <h2 id="what-is-dx-reskilling-subsidy" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             DXリスキリング助成金とは（制度の概要）
           </h2>
@@ -290,22 +304,6 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
               </tbody>
             </table>
           </div>
-        </motion.section>
-
-        <motion.section
-          className="mt-14"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <MidArticleCtaBox
-            slug="dx-reskilling-subsidy-guide"
-            bonusId="bonus03"
-            bonusTitle="AI活用ROI試算シート"
-            bonusDescription="助成金活用と合わせて、AI導入の費用対効果を社内説明できるテンプレートです。"
-          />
         </motion.section>
 
         <motion.section

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
-import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -247,6 +247,20 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
+          <LineCtaBox
+            title="LINE登録で30日AI学習プランを受け取る"
+            href="https://bexn9pao.autosns.app/line?src=blog&slug=ai-course-ranking&bonus=bonus06"
+          />
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <h2 id="ranking-criteria" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             ランキングの評価基準
           </h2>
@@ -304,22 +318,6 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
               </tbody>
             </table>
           </div>
-        </motion.section>
-
-        <motion.section
-          className="mt-14"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <MidArticleCtaBox
-            slug="ai-course-ranking"
-            bonusId="bonus06"
-            bonusTitle="30日AI学習プラン"
-            bonusDescription="目的別に学習順を迷わず決められる、1日単位の実行プランをLINE限定で配布しています。"
-          />
         </motion.section>
 
         <motion.section

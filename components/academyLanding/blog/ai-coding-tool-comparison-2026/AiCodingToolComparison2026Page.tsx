@@ -150,7 +150,7 @@ function LineCtaBox({
   className,
   slug,
   bonusId,
-  bonusTitle = "AI活用ROI試算シート",
+  bonusTitle = "AI導入ROI試算シート",
   bonusDescription = "AIツール導入時の費用対効果を見える化できる、LINE登録限定シートを無料配布しています。",
 }: LineCtaBoxProps) {
   const lineHref = `${lineUrl}?${new URLSearchParams({
@@ -161,7 +161,7 @@ function LineCtaBox({
 
   return (
     <div className={className}>
-      <p className="text-base font-semibold text-gray-900">LINE登録で「{bonusTitle}」を受け取る</p>
+      <p className="text-base font-semibold text-gray-900">LINE登録で{bonusTitle}を受け取る</p>
       <p className="mt-2 text-sm leading-7 text-gray-700">{bonusDescription}</p>
       <a
         href={lineHref}
@@ -264,6 +264,22 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
         </motion.section>
 
         <motion.section
+          className="mt-14 rounded-lg border border-green-200 bg-green-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <LineCtaBox
+            className=""
+            slug="ai-coding-tool-comparison-2026"
+            bonusId="bonus03"
+            bonusTitle="AI導入ROI試算シート"
+          />
+        </motion.section>
+
+        <motion.section
           id="selection"
           className="mt-14"
           initial="hidden"
@@ -293,22 +309,6 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
             </Link>
             を先に確認すると、比較軸がぶれにくくなります。
           </p>
-        </motion.section>
-
-        <motion.section
-          className="mt-14 rounded-lg border border-green-200 bg-green-50 p-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <LineCtaBox
-            className=""
-            slug="ai-coding-tool-comparison-2026"
-            bonusId="bonus03"
-            bonusTitle="AI活用ROI試算シート"
-          />
         </motion.section>
 
         <motion.section
@@ -580,7 +580,7 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
             className=""
             slug="ai-coding-tool-comparison-2026"
             bonusId="bonus03"
-            bonusTitle="AI活用ROI試算シート"
+            bonusTitle="AI導入ROI試算シート"
           />
         </motion.section>
 
