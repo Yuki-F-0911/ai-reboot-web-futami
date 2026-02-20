@@ -1,47 +1,33 @@
-"use client";
-
 import Link from "next/link";
-import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "../sections/academyDesignTokens";
+import { ACADEMY_COLORS } from "../sections/academyDesignTokens";
 
 export default function WebtoonBannerSection() {
   return (
-    <section
-      className="mt-10 rounded-2xl border p-5 sm:p-7"
+    <Link
+      href="/webtoon"
+      className="my-10 flex items-center justify-between gap-4 rounded-lg border-l-4 px-5 py-4 transition-opacity hover:opacity-80 sm:px-6"
       style={{
-        background: `linear-gradient(135deg, ${ACADEMY_COLORS.bgSection} 0%, ${ACADEMY_COLORS.bgPanel} 55%, #fff7e6 100%)`,
-        borderColor: "#f3cfac",
+        borderLeftColor: ACADEMY_COLORS.accentMain,
+        backgroundColor: ACADEMY_COLORS.bgSection,
+        borderTopColor: ACADEMY_COLORS.lineSoft,
+        borderRightColor: ACADEMY_COLORS.lineSoft,
+        borderBottomColor: ACADEMY_COLORS.lineSoft,
       }}
     >
-      <div className="mb-4 inline-flex rounded-full border px-3 py-1 text-[11px] font-semibold tracking-[0.08em]" style={{ color: ACADEMY_COLORS.accentDeep, borderColor: "#e7b98d" }}>
-        MANGA
+      <div className="flex items-center gap-3 min-w-0">
+        <span
+          className="shrink-0 rounded px-2 py-0.5 text-[10px] font-bold tracking-widest"
+          style={{ backgroundColor: ACADEMY_COLORS.accentMain, color: "#fff" }}
+        >
+          MANGA
+        </span>
+        <p className="truncate text-sm font-medium" style={{ color: ACADEMY_COLORS.textBody }}>
+          「AIって結局、自分には関係ない話？」 ― 漫画3分で確かめる
+        </p>
       </div>
-
-      <div className="grid gap-5 md:grid-cols-[1.2fr_1fr] md:items-center">
-        <div className="rounded-2xl border border-[#f1be8f] p-4 sm:p-5" style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}>
-          <p className="rounded-2xl border border-[#f4d5b8] px-4 py-3 text-sm leading-7 sm:text-base" style={{ color: ACADEMY_COLORS.textStrong, backgroundColor: ACADEMY_COLORS.bgPanel }}>
-            「AIって結局、自分には関係ない話？」
-          </p>
-          <p className="mt-3 rounded-2xl border border-[#f0c090] bg-[#fff4e9] px-4 py-3 text-sm font-bold leading-7 sm:text-base" style={{ color: ACADEMY_COLORS.accentDeep }}>
-            「…本当にそれでいいの？」
-          </p>
-        </div>
-
-        <div className="rounded-2xl border border-[#f0c090] bg-white/80 p-5">
-          <p className="text-xs font-semibold tracking-[0.08em]" style={{ color: ACADEMY_COLORS.accentMain }}>
-            漫画3分で読める
-          </p>
-          <h3 className="mt-2 text-xl font-bold leading-tight sm:text-2xl" style={{ color: ACADEMY_COLORS.textStrong, fontFamily: ACADEMY_TYPOGRAPHY.serif }}>
-            AIに怯える32歳が、走り出すまで
-          </h3>
-          <Link
-            href="/webtoon"
-            className="mt-4 inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-bold transition-opacity hover:opacity-90"
-            style={{ backgroundColor: ACADEMY_COLORS.accentMain, color: "#ffffff", fontFamily: ACADEMY_TYPOGRAPHY.sans }}
-          >
-            漫画を読む →
-          </Link>
-        </div>
-      </div>
-    </section>
+      <span className="shrink-0 text-sm font-bold" style={{ color: ACADEMY_COLORS.accentMain }}>
+        読む →
+      </span>
+    </Link>
   );
 }
