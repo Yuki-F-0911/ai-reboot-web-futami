@@ -455,6 +455,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
   },
   {
+    slug: "chatgpt-prompt-beginner",
+    title: "ChatGPTプロンプトの書き方入門｜初心者がすぐ使える15の型とNG/OK例",
+    summary:
+      "思い通りの答えが返らない理由を整理し、初心者向けに役割指定・ステップ分解・出力形式指定など15の型を例文付きで解説。実務・学習・副業のNG/OK比較と、追質問を使った会話設計までまとめた入門記事です。",
+    category: "AI基礎知識",
+  },
+  {
     slug: "chatgpt-plan-comparison",
     title: "ChatGPT無料・Plus・Proの違いを比較｜2026年版の料金と選び方",
     summary:
