@@ -38,6 +38,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "最新AIツール",
   },
   {
+    slug: "ai-smartphone-apps",
+    title: "AIアプリおすすめ20選【スマホ版2026】iPhone/Android比較・無料TOP5",
+    summary:
+      "2026年時点のAIスマホアプリ20選をカテゴリ別で比較。iPhone/Androidの差、完全無料TOP5、課金判断、日本語対応が強いアプリまで初心者向けに整理したガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "ai-transcription-guide",
     title:
       "AI文字起こしアプリ比較2026｜Notta・Clova Note後継・Whisper・Otter・Google Recorderの選び方",
