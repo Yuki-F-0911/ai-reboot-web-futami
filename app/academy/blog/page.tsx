@@ -397,6 +397,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "資格・スキル",
   },
   {
+    slug: "ai-teacher-education-guide",
+    title: "AI講師とは？教育現場での活用・失敗パターン・導入手順を解説",
+    summary:
+      "AI講師の定義、成果が出る導入条件、失敗しやすい運用パターン、30日で回す導入チェックリストを一次情報ベースで整理した実践ガイドです。",
+    category: "資格・スキル",
+  },
+  {
     slug: "chatgpt-claude-beginners-guide",
     title: "ChatGPT・Claude初心者ガイド｜最初の1週間でできること",
     summary:
