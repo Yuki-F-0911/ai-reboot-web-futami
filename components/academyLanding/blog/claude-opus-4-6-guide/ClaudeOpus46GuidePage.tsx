@@ -39,6 +39,7 @@ const summaryPoints = [
   "Claude Opus 4.6は2026年2月5日に公開されたAnthropicの上位モデルで、Claude.aiとAPIの両方で利用できます。",
   "主要アップデートは1Mトークンコンテキスト（beta）、Adaptive Thinking、effort controls（alpha）です。",
   "API価格は入力$15/MTok、出力$75/MTok（確認日: 2026-02-20）で、単価だけでなく品質差を含めて判断する必要があります。",
+  "Anthropicは2026年2月時点でSeries Gにより評価額3,800億ドルを公表しており、モデル投資競争の前提が変わっています。",
   "Claude 3.5 Sonnetとの比較は指標が揃わないため、同一ベンチの社内検証を前提に意思決定するのが安全です。",
 ] as const;
 
@@ -62,6 +63,10 @@ const overviewRows = [
   {
     axis: "API価格",
     detail: "入力$15/MTok、出力$75/MTok",
+  },
+  {
+    axis: "企業動向",
+    detail: "AnthropicはSeries Gで評価額3,800億ドルを公表（2026年2月時点）",
   },
 ] as const;
 
