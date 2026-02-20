@@ -704,6 +704,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "実務活用",
   },
   {
+    slug: "ai-video-editing-guide",
+    title: "AI動画編集の始め方｜初心者向けツール比較とCapCut無料実践【2026】",
+    summary:
+      "AI動画編集初心者向けに、CapCut・Descript・VEED・Premiere Pro AIを比較。自動字幕・自動カット・翻訳・ノイズ除去の使い方、無料実践、SNS最適化、課金判断と商用利用の注意点を整理した実践ガイドです。",
+    category: "実務活用",
+  },
+  {
     slug: "ai-video-generation-comparison",
     title: "動画生成AI比較2026｜Kling・Runway・Seedance・Soraの特徴と選び方",
     summary:
