@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
@@ -272,6 +273,8 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           </ul>
           <p className="mt-4 text-xs leading-6 text-gray-500">情報確認日: {infoCheckedDate}</p>
         </motion.section>
+
+        <WebtoonBannerSection />
 
         <motion.section
           id="spec-diff"

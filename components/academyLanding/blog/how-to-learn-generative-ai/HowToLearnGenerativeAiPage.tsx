@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
@@ -183,6 +184,8 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
             「学習→試す→振り返る」を短いサイクルで回し、成果物（議事録テンプレ、営業メール、分析メモなど）を残すと、継続しやすくなります。
           </p>
         </motion.section>
+
+        <WebtoonBannerSection />
 
         <motion.section
           className="mt-14"

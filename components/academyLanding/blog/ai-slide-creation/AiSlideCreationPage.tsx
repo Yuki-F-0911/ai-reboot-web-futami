@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
@@ -311,6 +312,8 @@ export default function AiSlideCreationPage({ faqItems }: AiSlideCreationPagePro
             個人は「1人で完結できるか」を基準に、法人は「チーム共同編集と監修フローに載るか」を基準に比較すると、導入後の運用負荷を抑えられます。
           </p>
         </motion.section>
+
+        <WebtoonBannerSection />
 
         <motion.section
           id="what-ai-can-do"

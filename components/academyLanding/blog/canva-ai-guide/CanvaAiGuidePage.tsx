@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
@@ -266,6 +267,8 @@ export default function CanvaAiGuidePage({ faqItems }: CanvaAiGuidePageProps) {
             <li className="blog-li pl-1 marker:text-gray-500">人の最終編集: 事実確認・文字組み・権利確認を行う</li>
           </ul>
         </motion.section>
+
+        <WebtoonBannerSection />
 
         <section className="mt-10">
           <LineCtaBox />

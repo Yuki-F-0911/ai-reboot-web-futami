@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
@@ -252,6 +253,8 @@ export default function AiSmartphoneAppsPage({ faqItems }: AiSmartphoneAppsPageP
             データ確認日: 2026-02-20（App Store: 評価/件数、Google Play: 評価/件数/DL帯）
           </p>
         </motion.section>
+
+        <WebtoonBannerSection />
 
         <LineCtaBox className="blog-cta-box mt-10 rounded-lg border border-green-200 bg-green-50 p-6" />
 

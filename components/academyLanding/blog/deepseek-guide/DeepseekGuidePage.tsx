@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
@@ -224,6 +225,8 @@ export default function DeepseekGuidePage({ faqItems }: DeepseekGuidePageProps) 
             ))}
           </ul>
         </motion.section>
+
+        <WebtoonBannerSection />
 
         <LineCtaBox tone="green" />
 

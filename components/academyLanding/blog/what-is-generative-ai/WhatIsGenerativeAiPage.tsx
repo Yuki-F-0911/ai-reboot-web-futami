@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
+import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 
 type FAQItem = {
@@ -205,6 +206,8 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
             <Image src="/images/blog/what-is-generative-ai/slide-2.png" alt="従来AIと生成AIの違い比較図" width={800} height={450} className="rounded-lg" />
           </figure>
         </motion.section>
+
+        <WebtoonBannerSection />
 
         <motion.section
           className="mt-14"
