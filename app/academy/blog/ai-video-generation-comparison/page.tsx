@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import AiVideoGenerationComparisonPage from "@/components/academyLanding/blog/ai-video-generation-comparison/AiVideoGenerationComparisonPage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "動画生成AI比較2026｜Kling・Runway・Seedance・Soraの特徴と選び方 | AIリブート";
+const pageTitle = "動画生成AI比較2026｜Kling AI・Midjourney V1 Video・Runway Gen-3と主要モデルの選び方 | AIリブート";
 const pageDescription =
-  "動画生成AIを選ぶ人向けに、Kling・Runway・Seedance・Soraを品質・速度・価格・日本語対応・商用条件で比較。用途別の選び方、無料検証手順、課金判断のチェックポイント、導入時の確認順まで2026年2月時点で整理した比較ガイドです。";
+  "動画生成AIを選ぶ人向けに、Kling AI・Midjourney V1 Video・Runway Gen-3 Alpha・Seedance・Soraを品質・速度・価格・日本語対応・商用条件で比較。用途別の選び方、無料検証手順、課金判断のチェックポイント、導入時の確認順まで2026年2月時点で整理した比較ガイドです。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-video-generation-comparison";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
@@ -17,14 +17,19 @@ const faqItems = [
       "無料枠はありますが、解像度・尺・回数に制限があります。無料期間は相性確認に使い、本番運用は有料前提で設計してください。",
   },
   {
-    question: "Klingは無料で使えますか？",
+    question: "Kling AIは無料で使えますか？",
     answer:
-      "無料で試せる場合がありますが、条件は地域と時期で変動します。クレジット消費型なので、長尺化前に消費ペースを確認してください。",
+      "無料枠はありますが、1日あたりの利用上限があります。Kling AIは最大1080p・30fps・最大3分まで対応する一方、商用利用は有料プランが前提です（確認日: 2026-02-20）。",
   },
   {
-    question: "Runwayの商用利用は可能ですか？",
+    question: "Midjourney V1 Videoはどう使いますか？",
     answer:
-      "公式ヘルプでは有料プランで商用利用可能、Freeプランは不可です。案件利用時は規約と第三者権利を確認してください。",
+      "Midjourney V1 Videoは静止画から動画に変換する機能で、Animateボタンから実行します。生成尺は4〜8秒程度の短尺で、利用はPro / Megaプラン限定です（確認日: 2026-02-20）。",
+  },
+  {
+    question: "Runway Gen-3 Alphaの商用利用は可能ですか？",
+    answer:
+      "Runway Gen-3 Alphaはテキスト/画像から最大10秒動画を生成でき、Advancedプランで利用できます。商用利用は有料プラン前提で、Freeプランは不可です（確認日: 2026-02-20）。",
   },
   {
     question: "Soraはどのプランで使えますか？",
@@ -48,8 +53,9 @@ export const metadata: Metadata = {
   description: pageDescription,
   keywords: [
     "動画生成AI 比較",
-    "Kling 使い方",
-    "Runway AI 使い方",
+    "Kling AI",
+    "Midjourney V1 Video",
+    "Runway Gen-3 Alpha",
     "Sora 使い方",
     "Seedance とは",
     "動画生成 無料",
