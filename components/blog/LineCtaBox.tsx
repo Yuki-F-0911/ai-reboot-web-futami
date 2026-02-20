@@ -7,10 +7,10 @@ type LineCtaBoxProps = {
 };
 
 const defaultLineUrl = "https://bexn9pao.autosns.app/line";
-const defaultTitle = "LINE登録で「AI活用スターター特典セット」を受け取る";
+const defaultTitle = "AIで仕事を変えたい方へ｜LINEで無料相談する";
 const defaultDescription =
-  "実務で使える生成AI活用テンプレートを、自己理解・キャリア設計の視点とあわせてLINEで無料配布しています。";
-const defaultButtonLabel = "LINEで特典を受け取る（無料）";
+  "経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」について、LINEで気軽に相談できます。補助金の使い方・カリキュラム・学習イメージを無料でお伝えします。";
+const defaultButtonLabel = "LINEで無料相談する（登録無料）";
 
 export default function LineCtaBox({
   className = "blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6",

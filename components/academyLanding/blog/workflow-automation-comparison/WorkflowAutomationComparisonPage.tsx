@@ -343,8 +343,7 @@ export default function WorkflowAutomationComparisonPage({
         >
           <LineCtaBox
             className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
-            title="LINE登録でAI導入効果チェックリストを受け取る"
-            href="https://bexn9pao.autosns.app/line?src=blog&slug=workflow-automation-comparison&bonus=bonus02"
+            href="https://bexn9pao.autosns.app/line?src=blog&slug=workflow-automation-comparison"
           />
         </motion.section>
 
@@ -535,9 +534,6 @@ export default function WorkflowAutomationComparisonPage({
         >
           <MidArticleCtaBox
             slug="workflow-automation-comparison"
-            bonusId="bonus02"
-            bonusTitle="AI導入効果チェックリスト"
-            bonusDescription="自動化テーマごとの効果測定項目を先に決められる、導入効果チェックリストを受け取れます。"
           />
         </motion.section>
 

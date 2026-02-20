@@ -211,7 +211,7 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
         >
           <LineCtaBox
             title="LINE登録でAI導入ROI試算シートを受け取る"
-            href="https://bexn9pao.autosns.app/line?src=blog&slug=education-training-benefit-ai&bonus=bonus03"
+            href="https://bexn9pao.autosns.app/line?src=blog&slug=education-training-benefit-ai"
           />
         </motion.section>
 

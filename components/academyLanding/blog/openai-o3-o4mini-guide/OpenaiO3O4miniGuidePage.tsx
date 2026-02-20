@@ -475,9 +475,6 @@ export default function OpenaiO3O4miniGuidePage({ faqItems }: OpenaiO3O4miniGuid
         >
           <MidArticleCtaBox
             slug="openai-o3-o4mini-guide"
-            bonusId="bonus05"
-            bonusTitle="業種別プロンプト50選"
-            bonusDescription="営業・企画・管理部門で再利用できる実務プロンプトを配布しています。推論モデル導入の最初の型として活用してください。"
           />
         </motion.section>
 
@@ -596,9 +593,7 @@ export default function OpenaiO3O4miniGuidePage({ faqItems }: OpenaiO3O4miniGuid
           <div className="mt-6">
             <LineCtaBox
               className="rounded-lg border border-green-200 bg-green-50 p-6"
-              description="特典として業種別プロンプト50選（bonus05）をLINEで配布しています。推論モデル運用の初期テンプレとして活用してください。"
-              href="https://bexn9pao.autosns.app/line?src=blog&slug=openai-o3-o4mini-guide&bonus=bonus05"
-              buttonLabel="業種別プロンプト50選を受け取る（無料）"
+              href="https://bexn9pao.autosns.app/line?src=blog&slug=openai-o3-o4mini-guide"
             />
           </div>
           <div className="mt-6">

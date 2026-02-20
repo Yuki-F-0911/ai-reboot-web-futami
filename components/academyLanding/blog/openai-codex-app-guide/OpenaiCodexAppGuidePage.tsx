@@ -21,7 +21,7 @@ const sectionReveal = {
   visible: { opacity: 1, y: 0 },
 };
 
-const lineUrl = "https://bexn9pao.autosns.app/line?src=blog&slug=openai-codex-app-guide&bonus=bonus05";
+const lineUrl = "https://bexn9pao.autosns.app/line?src=blog&slug=openai-codex-app-guide";
 
 const keywordTags = ["Codex App 使い方", "OpenAI Codex", "macOS AIコーディング", "Codex Spark"] as const;
 

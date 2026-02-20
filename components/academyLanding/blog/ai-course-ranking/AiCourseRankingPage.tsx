@@ -248,8 +248,7 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <LineCtaBox
-            title="LINE登録で30日AI学習プランを受け取る"
-            href="https://bexn9pao.autosns.app/line?src=blog&slug=ai-course-ranking&bonus=bonus06"
+            href="https://bexn9pao.autosns.app/line?src=blog&slug=ai-course-ranking"
           />
         </motion.section>
 

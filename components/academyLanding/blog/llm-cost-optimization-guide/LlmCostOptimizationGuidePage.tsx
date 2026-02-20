@@ -40,7 +40,7 @@ const answerPoints = [
   "コスト最適化は「導入費用の一般論」ではなく、API呼び出し単位での運用設計が中心です。",
   "最初にやるべき施策は、トークン削減・モデルルーティング・キャッシュの3点です。",
   "費用だけ追うと品質が落ちるため、正答率や再編集率を同時に監視する必要があります。",
-  "LINE特典のROI試算シート（bonus03）で、削減効果を稟議に載せられる形式へ変換できます。",
+  "ROI試算シートを活用して、削減効果を稟議に載せられる形式へ変換できます。",
 ] as const;
 
 const costBreakdownRows = [
@@ -160,7 +160,7 @@ function MidArticleCtaBox() {
     >
       <p className="text-base font-semibold text-emerald-900">費用削減を稟議に載せるなら、数値化テンプレを先に持つ</p>
       <p className="mt-2 text-sm leading-7 text-emerald-900/90">
-        LINE登録で「AI活用ROI試算シート（bonus03）」を配布しています。API運用の改善効果を、上司説明しやすい形で整理できます。
+        LINEで「AIリブートアカデミー」に無料相談できます。API運用改善や補助金活用について、気軽にお声がけください。
       </p>
       <a
         href={lineUrl}
@@ -184,9 +184,9 @@ function LineCtaBox() {
       variants={sectionReveal}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <p className="text-base font-semibold text-green-800">LLMコスト最適化の実務テンプレを無料配布中</p>
+      <p className="text-base font-semibold text-green-800">AIで仕事を変えたい方へ｜LINEで無料相談する</p>
       <p className="mt-2 text-sm leading-7 text-gray-700">
-        AIリブート通信（無料）では、AI活用ROI試算シート（bonus03）を配布しています。API費用の削減施策を数値で説明したい方におすすめです。
+        経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」について、LINEで気軽に相談できます。補助金の使い方・カリキュラム・学習イメージを無料でお伝えします。
       </p>
       <a
         href={lineUrl}
@@ -194,7 +194,7 @@ function LineCtaBox() {
         rel="noopener noreferrer"
         className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
       >
-        LINEで無料受け取り
+        LINEで無料相談する（登録無料）
       </a>
     </motion.section>
   );

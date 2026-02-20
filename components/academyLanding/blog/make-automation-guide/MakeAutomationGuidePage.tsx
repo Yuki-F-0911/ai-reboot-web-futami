@@ -40,7 +40,7 @@ const answerPoints = [
   "Make.comは比較で終わらせず、1本のシナリオを完成させると導入判断が速くなります。",
   "初回は「入力→生成AI処理→通知」の3段構成に限定し、分岐は後から追加するのが安全です。",
   "運用では、失敗通知・再実行ルール・入力データ制限を先に決めると止まりにくくなります。",
-  "LINE特典のAI導入効果チェックリスト（bonus02）を使い、時短効果を週次で可視化してください。",
+  "AI活用の効果測定を週次で行い、継続改善サイクルを作ってください。",
 ] as const;
 
 const implementationSteps = [
@@ -112,7 +112,7 @@ const kpiRows = [
   {
     metric: "週次削減工数",
     target: "削減時間を週次で記録",
-    note: "bonus02とセットで運用",
+    note: "LINEで相談しながら進める",
   },
 ] as const;
 
@@ -143,8 +143,7 @@ function MidArticleCtaBox() {
     >
       <p className="text-base font-semibold text-emerald-900">ここで一度、導入効果を見える化する</p>
       <p className="mt-2 text-sm leading-7 text-emerald-900/90">
-        Makeの1本目は「動いた」で終わらせず、効果計測まで設計すると定着率が上がります。LINE登録で
-        「AI導入効果チェックリスト（bonus02）」を無料配布しています。
+        Makeの1本目は「動いた」で終わらせず、効果計測まで設計すると定着率が上がります。AIリブートアカデミーについてLINEで無料相談できます。
       </p>
       <a
         href={lineUrl}
@@ -168,9 +167,9 @@ function LineCtaBox() {
       variants={sectionReveal}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <p className="text-base font-semibold text-green-800">Make実装を業務定着させるチェックリストを配布中</p>
+      <p className="text-base font-semibold text-green-800">AIで仕事を変えたい方へ｜LINEで無料相談する</p>
       <p className="mt-2 text-sm leading-7 text-gray-700">
-        AIリブート通信（無料）に登録すると、AI導入効果チェックリスト（bonus02）を受け取れます。1本目の自動化を改善サイクルに乗せたい方に最適です。
+        経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」について、LINEで気軽に相談できます。補助金の使い方・カリキュラム・学習イメージを無料でお伝えします。
       </p>
       <a
         href={lineUrl}
@@ -178,7 +177,7 @@ function LineCtaBox() {
         rel="noopener noreferrer"
         className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
       >
-        今すぐLINEで受け取る
+        LINEで無料相談する（登録無料）
       </a>
     </motion.section>
   );

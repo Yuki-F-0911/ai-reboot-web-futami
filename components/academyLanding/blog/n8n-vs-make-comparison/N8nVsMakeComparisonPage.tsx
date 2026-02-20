@@ -21,7 +21,7 @@ const sectionReveal = {
   visible: { opacity: 1, y: 0 },
 };
 
-const lineUrl = "https://bexn9pao.autosns.app/line?src=blog&slug=n8n-vs-make-comparison&bonus=bonus02";
+const lineUrl = "https://bexn9pao.autosns.app/line?src=blog&slug=n8n-vs-make-comparison";
 
 const keywordTags = ["n8n Make 比較", "n8n vs Make", "ワークフロー自動化 選び方", "セルフホスト"] as const;
 

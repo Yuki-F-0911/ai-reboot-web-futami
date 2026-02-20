@@ -40,7 +40,7 @@ const answerPoints = [
   "Perplexity Pagesは、単発回答ではなく「公開可能な調査ページ」を短時間で作る機能です。",
   "公開前に、対象読者・更新頻度・責任者を決めると運用が崩れにくくなります。",
   "SEOを意識する場合は、タイトル、導入3行、見出し構造、FAQを先に固定します。",
-  "LINE特典の業種別プロンプト50選（bonus05）を使うと、Pages本文の初稿作成が速くなります。",
+  "プロンプトを事前に設計しておくと、Pages本文の初稿作成が速くなります。",
 ] as const;
 
 const flowSteps = [
@@ -144,9 +144,9 @@ function MidArticleCtaBox() {
       variants={sectionReveal}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <p className="text-base font-semibold text-emerald-900">Pages初稿を速く作るなら、業種別プロンプトを先に用意する</p>
+      <p className="text-base font-semibold text-emerald-900">AIで仕事を変えたい方へ｜LINEで無料相談する</p>
       <p className="mt-2 text-sm leading-7 text-emerald-900/90">
-        LINE登録で「業種別プロンプト50選（bonus05）」を配布中です。Pagesの見出し・要約・FAQ作成を短時間で進められます。
+        経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」について、LINEで気軽に相談できます。生成AIを仕事で活用する方法を一緒に考えます。
       </p>
       <a
         href={lineUrl}
@@ -154,7 +154,7 @@ function MidArticleCtaBox() {
         rel="noopener noreferrer"
         className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
       >
-        LINEで特典を受け取る
+        LINEで無料相談する（登録無料）
       </a>
     </motion.section>
   );
@@ -170,9 +170,9 @@ function LineCtaBox() {
       variants={sectionReveal}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <p className="text-base font-semibold text-green-800">Pages運用に効くプロンプト50選を配布中</p>
+      <p className="text-base font-semibold text-green-800">AIで仕事を変えたい方へ｜LINEで無料相談する</p>
       <p className="mt-2 text-sm leading-7 text-gray-700">
-        AIリブート通信（無料）で、業種別プロンプト50選（bonus05）を受け取れます。Perplexity Pagesの継続運用を仕組み化したい方におすすめです。
+        経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」について、LINEで気軽に相談できます。補助金の使い方・カリキュラム・学習イメージを無料でお伝えします。
       </p>
       <a
         href={lineUrl}
@@ -180,7 +180,7 @@ function LineCtaBox() {
         rel="noopener noreferrer"
         className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
       >
-        今すぐLINEで受け取る
+        LINEで無料相談する（登録無料）
       </a>
     </motion.section>
   );

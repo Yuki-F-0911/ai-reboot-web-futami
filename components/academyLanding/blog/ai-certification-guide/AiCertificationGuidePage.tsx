@@ -245,7 +245,7 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
         >
           <LineCtaBox
             title="LINE登録で30日AI学習プランを受け取る"
-            href="https://bexn9pao.autosns.app/line?src=blog&slug=ai-certification-guide&bonus=bonus06"
+            href="https://bexn9pao.autosns.app/line?src=blog&slug=ai-certification-guide"
           />
         </motion.section>
 

@@ -21,7 +21,7 @@ const sectionReveal = {
   visible: { opacity: 1, y: 0 },
 };
 
-const lineUrl = "https://bexn9pao.autosns.app/line?src=blog&slug=github-copilot-agent-hq-guide&bonus=bonus03";
+const lineUrl = "https://bexn9pao.autosns.app/line?src=blog&slug=github-copilot-agent-hq-guide";
 
 const keywordTags = [
   "GitHub Copilot Agent HQ 使い方",

@@ -21,7 +21,7 @@ const sectionReveal = {
   visible: { opacity: 1, y: 0 },
 };
 
-const lineUrl = "https://bexn9pao.autosns.app/line?src=blog&slug=ai-pc-copilot-plus-guide&bonus=bonus02";
+const lineUrl = "https://bexn9pao.autosns.app/line?src=blog&slug=ai-pc-copilot-plus-guide";
 
 const keywordTags = ["Copilot+ PC 活用", "AI PC おすすめ", "NPU", "Windows AI機能", "Recall"] as const;
 

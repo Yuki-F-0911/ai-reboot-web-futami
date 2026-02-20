@@ -141,35 +141,28 @@ const useCaseCards = [
 type LineCtaBoxProps = {
   className: string;
   slug: string;
-  bonusId: string;
-  bonusTitle?: string;
-  bonusDescription?: string;
 };
 
 function LineCtaBox({
   className,
   slug,
-  bonusId,
-  bonusTitle = "AI導入ROI試算シート",
-  bonusDescription = "AIツール導入時の費用対効果を見える化できる、LINE登録限定シートを無料配布しています。",
 }: LineCtaBoxProps) {
   const lineHref = `${lineUrl}?${new URLSearchParams({
     src: "blog",
     slug,
-    bonus: bonusId,
   }).toString()}`;
 
   return (
     <div className={className}>
-      <p className="text-base font-semibold text-gray-900">LINE登録で{bonusTitle}を受け取る</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">{bonusDescription}</p>
+      <p className="text-base font-semibold text-gray-900">AIで仕事を変えたい方へ｜LINEで無料相談する</p>
+      <p className="mt-2 text-sm leading-7 text-gray-700">経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」について、LINEで気軽に相談できます。補助金の使い方・カリキュラム・学習イメージを無料でお伝えします。</p>
       <a
         href={lineHref}
         target="_blank"
         rel="noopener noreferrer"
         className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
       >
-        LINEで特典を受け取る（無料）
+        LINEで無料相談する（登録無料）
       </a>
     </div>
   );
@@ -274,8 +267,6 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           <LineCtaBox
             className=""
             slug="ai-coding-tool-comparison-2026"
-            bonusId="bonus03"
-            bonusTitle="AI導入ROI試算シート"
           />
         </motion.section>
 
@@ -470,9 +461,6 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
         >
           <MidArticleCtaBox
             slug="ai-coding-tool-comparison-2026"
-            bonusId="bonus03"
-            bonusTitle="AI活用ROI試算シート"
-            bonusDescription="ツール比較後にそのまま導入判断へ進める、ROI試算テンプレートをLINE登録で受け取れます。"
           />
         </motion.section>
 
@@ -579,8 +567,6 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           <LineCtaBox
             className=""
             slug="ai-coding-tool-comparison-2026"
-            bonusId="bonus03"
-            bonusTitle="AI導入ROI試算シート"
           />
         </motion.section>
 

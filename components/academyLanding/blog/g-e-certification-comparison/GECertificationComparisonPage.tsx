@@ -160,7 +160,7 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
         >
           <LineCtaBox
             title="LINE登録で30日AI学習プランを受け取る"
-            href="https://bexn9pao.autosns.app/line?src=blog&slug=g-e-certification-comparison&bonus=bonus06"
+            href="https://bexn9pao.autosns.app/line?src=blog&slug=g-e-certification-comparison"
           />
         </motion.section>
 
