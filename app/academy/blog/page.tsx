@@ -31,6 +31,34 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "github-copilot-agent-hq-guide",
+    title: "GitHub Copilot Agent HQ使い方ガイド｜Issue→PR自動化とClaude Code使い分け【2026年版】",
+    summary:
+      "2026年2月時点のGitHub Copilot Agent HQを解説。Claude + Codex統合の位置づけ、GitHub.comでの起動手順、Issue→PR自動化ワークフロー、Copilot Workspaceとの違い、許可リポジトリ限定のセキュリティ設定まで整理した実務ガイドです。",
+    category: "最新AIツール",
+  },
+  {
+    slug: "openai-codex-app-guide",
+    title: "Codex App使い方ガイド｜macOS版の始め方とSpark/Classic比較【2026年版】",
+    summary:
+      "2026年2月2日リリースのmacOS版Codex Appを解説。Codex SparkとCodex Classicの違い、ローカルコード読み取りの仕組みとセキュリティ、インストールから初回使用手順、Cursor/Claude Codeとの使い分けまで整理します。",
+    category: "最新AIツール",
+  },
+  {
+    slug: "ai-pc-copilot-plus-guide",
+    title: "Copilot+ PC活用ガイド｜NPU 40TOPS基準と購入前チェック5点【2026年版】",
+    summary:
+      "Copilot+ PCの定義（NPU 40TOPS以上）、Recall・Live Captions・AI画像生成の実務活用、Surface Pro 11やThinkPad X1 Carbonなどの機種比較、購入前チェック5点を在宅ワーク視点で整理したガイドです。",
+    category: "最新AIツール",
+  },
+  {
+    slug: "n8n-vs-make-comparison",
+    title: "n8nとMake比較ガイド｜2ツール深掘りで選ぶワークフロー自動化【2026年版】",
+    summary:
+      "n8nとMake.comを2ツール限定で深掘り比較。費用、セルフホスト可否、生成AI連携、学習コスト、サポートの5軸と、中小企業・個人・エンタープライズ別フローチャートで選び方を整理した実務記事です。",
+    category: "実務活用",
+  },
+  {
     slug: "gpt-5-3-guide",
     title: "GPT-5.3 使い方ガイド｜Codex・Spark連携・料金・Claude Opus 4.6比較【2026年2月版】",
     summary:
