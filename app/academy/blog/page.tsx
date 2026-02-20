@@ -244,8 +244,9 @@ const blogPosts: readonly BlogPost[] = [
   },
   {
     slug: "how-to-learn-generative-ai",
-    title: "社会人のための生成AI学習ロードマップ",
-    summary: "0〜100日で実務活用まで到達するための学習フェーズと、つまずき回避のポイントを解説します。",
+    title: "生成AIの学び方【2026年版】社会人向け3ステージ学習ロードマップ",
+    summary:
+      "何から始めればいいかわからない社会人向けに、基礎→実務→応用の学習ステージ、独学vsスクール比較、2026年版おすすめ学習リソースを整理した実践ガイドです。",
     category: "AI基礎知識",
     thumbnail: "/images/blog/how-to-learn-generative-ai/slide-1.png",
   },

@@ -2,34 +2,44 @@ import type { Metadata } from "next";
 import HowToLearnGenerativeAiPage from "@/components/academyLanding/blog/how-to-learn-generative-ai/HowToLearnGenerativeAiPage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ | AIリブート";
+const pageTitle = "生成AIの学び方【2026年版】社会人向け3ステージ学習ロードマップ | AIリブート";
 const pageDescription =
-  "社会人向け生成AIの学び方を100日ロードマップで解説。基礎理解→実践→業務統合の順に、毎日30〜60分で実務活用へ。つまずき対策、ツール選び、業務に落とすミニ課題例まで整理。失敗しない習慣化のコツも紹介。無料セミナー/個別相談の案内付き。";
+  "生成AIの学び方を、基礎→実務→応用の3ステージで解説。独学とスクールのメリット・デメリット・コスト比較、2026年版おすすめ学習リソース（無料/有料）、社会人が挫折しない学習設計まで実務視点で整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/how-to-learn-generative-ai";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
-const publishedTime = "2025-09-12T09:00:00+09:00";
-const modifiedTime = "2026-02-18T18:00:00+09:00";
+const publishedTime = "2026-02-20T10:00:00+09:00";
+const modifiedTime = "2026-02-20T10:00:00+09:00";
 
 const faqItems = [
   {
-    question: "プログラミング経験がなくても生成AIは学べますか？",
+    question: "生成AIは何から学べばいいですか？",
     answer:
-      "はい。最初に必要なのはプログラミングよりも、業務課題を言語化し、AIの出力を評価する力です。まずはChatGPTやClaudeの基本操作から始めれば十分です。",
+      "最初は「基礎ステージ」で、生成AIの仕組み理解とプロンプトの基本型を固めるのが効果的です。いきなり多機能ツールへ広げるより、1つのツールで業務タスクを再現できる状態を先に作ると学習効率が上がります。",
   },
   {
-    question: "1日何時間くらい勉強すれば実務活用まで到達できますか？",
+    question: "社会人は1日どれくらい学習すれば実務で使えるようになりますか？",
     answer:
-      "目安は平日30〜60分です。週末に90分程度の復習を加えると定着しやすく、100日で実務レベルの活用まで進めやすくなります。",
+      "平日30〜45分を週4日、週末に60〜90分の振り返りを1回入れる設計が現実的です。3ステージを12週間で回すと、実務接続まで到達しやすくなります。",
   },
   {
-    question: "ChatGPTとClaudeはどちらから始めるべきですか？",
+    question: "生成AIは独学とスクールのどちらが向いていますか？",
     answer:
-      "最初はどちらか1つを軸にして問題ありません。基本操作とプロンプト設計が固まってから、比較目的で2つ目を導入するのがおすすめです。",
+      "独学は費用を抑えやすい反面、順序設計とフィードバックを自力で確保する必要があります。短期間で実務定着まで進めたい、学習継続に不安がある場合はスクールの伴走が有効です。",
   },
   {
-    question: "独学と講座受講はどちらが向いていますか？",
+    question: "2026年におすすめの生成AI学習リソースはありますか？",
     answer:
-      "自分で計画を立てて検証できる人は独学でも進めやすいです。一方で、短期間で実務適用まで進めたい場合や、伴走サポートが必要な場合は講座受講が有効です。",
+      "無料ではOpenAI Academy、Microsoft Learn、Google Cloud Skills Boostが使いやすく、有料ではCoursera Plusや国内スクールの伴走型講座が候補です。料金や提供内容は更新されるため、確認日付きで公式ページを必ず再確認してください。",
+  },
+  {
+    question: "キャリア転換を見据える場合、どの段階で学習を見直すべきですか？",
+    answer:
+      "応用ステージに入った時点で、学習テーマを『できること』ではなく『提供価値』に置き換えるのが有効です。成果物と振り返りログを使って、自分の強みと市場ニーズの接点を言語化してください。",
+  },
+  {
+    question: "AIリブートアカデミーはどんな人に向いていますか？",
+    answer:
+      "単発のツール操作ではなく、生成AI活用力の習得、自己理解・キャリアデザイン、仲間と共に学ぶ環境まで含めて学習基盤を作りたい社会人に向いています。",
   },
 ] as const;
 
@@ -38,10 +48,11 @@ export const metadata: Metadata = {
   description: pageDescription,
   keywords: [
     "生成AI 学び方",
-    "生成AI 勉強",
-    "生成AI 学習ロードマップ",
-    "社会人 AI学習",
-    "生成AI 実務活用",
+    "生成AI 勉強法",
+    "生成AI 独学",
+    "AI スキル 習得 方法",
+    "社会人 AI 学習",
+    "キャリア転換 AI学習",
   ],
   alternates: {
     canonical: pageUrl,
@@ -87,7 +98,7 @@ export default function HowToLearnGenerativeAiRoute() {
           { name: "ホーム", url: "https://ai-reboot.io" },
           { name: "アカデミー", url: "https://ai-reboot.io/academy" },
           { name: "ブログ", url: "https://ai-reboot.io/academy/blog" },
-          { name: "生成AI学習法", url: pageUrl },
+          { name: "生成AIの学び方", url: pageUrl },
         ]}
       />
       <FAQStructuredData items={[...faqItems]} />
