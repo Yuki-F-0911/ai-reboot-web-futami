@@ -202,6 +202,13 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/ai-presentation-workflow/slide-1.png",
   },
   {
+    slug: "ai-slide-creation",
+    title: "AIプレゼンスライド自動生成ツール比較2026｜Gamma・Beautiful.ai・Copilot・Google Slides AI",
+    summary:
+      "AIスライド自動生成ツールを2026年基準で比較。Gamma無料手順、Beautiful.ai・PowerPoint Copilot・Google Slides AIの違い、時短のための手動微調整ポイントまで整理した実務ガイドです。",
+    category: "実務活用",
+  },
+  {
     slug: "ai-business-efficiency-cases",
     title: "AI業務効率化事例集",
     summary: "営業・マーケ・管理部門の一般的な活用傾向と、導入前に押さえる設計ポイントや失敗対策を整理した記事です。",
