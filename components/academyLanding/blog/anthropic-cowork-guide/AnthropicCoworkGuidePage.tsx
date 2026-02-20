@@ -27,7 +27,7 @@ const lineCtaBody =
 const keywordTags = [
   "Anthropic Cowork 使い方",
   "Cowork AI とは",
-  "Claude Teams 活用",
+  "Claude Team 活用",
   "Anthropic チーム向け AI",
 ] as const;
 
@@ -140,7 +140,7 @@ const toolComparisonRows = [
   {
     axis: "組織利用の性格",
     cowork: "Team/Enterpriseにも展開可能だが、研究プレビュー前提で監査対象を要確認。",
-    chatgpt: "ChatGPT Teamは2025-08-29にBusinessへ改称。共有ワークスペース運用を前提に設計。",
+    chatgpt: "ChatGPT Teamは現在Business名称。共有ワークスペース運用を前提に設計。",
     gemini: "Workspace管理コンソール配下で導入しやすく、既存Google環境と接続しやすい。",
     recommendation: "既存の管理基盤に合わせて選ぶと、導入後の運用コストが下がる。",
   },
@@ -243,7 +243,7 @@ export default function AnthropicCoworkGuidePage({ faqItems }: AnthropicCoworkGu
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             AnthropicのCoworkとは？使い方と活用シーン完全ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             AnthropicのCoworkは、Claude Desktop上で情報収集、ファイル整理、下書き作成を一連で実行できる研究プレビュー機能です。名前から「チーム機能だけ」と
             誤解されがちですが、実際は個人の知的作業を短縮する用途で効果が出ます。
@@ -319,7 +319,7 @@ export default function AnthropicCoworkGuidePage({ faqItems }: AnthropicCoworkGu
             </table>
           </div>
           <p className="mt-5 text-xs text-gray-500">
-            情報基準: Anthropic公式（Cowork紹介ページ / Getting started with Cowork / Release Notes）確認日: 2026年2月19日
+            情報基準: Anthropic公式（Cowork紹介ページ / Getting started with Cowork / Release Notes）確認日: 2026年2月20日
           </p>
           <p className="mt-6 text-sm leading-7 text-gray-700">
             Claude全体の基礎を先に押さえる場合は、
@@ -494,7 +494,7 @@ export default function AnthropicCoworkGuidePage({ faqItems }: AnthropicCoworkGu
             ))}
           </ul>
           <p className="mt-5 text-xs text-gray-500">
-            情報基準: Anthropic support.claude.com（Getting started with Cowork / Cowork for Team and Enterprise plans）確認日: 2026年2月19日
+            情報基準: Anthropic support.claude.com（Getting started with Cowork / Cowork for Team and Enterprise plans）確認日: 2026年2月20日
           </p>
         </motion.section>
 

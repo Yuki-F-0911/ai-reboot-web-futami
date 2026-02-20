@@ -157,7 +157,7 @@ export default function AiAdoptionProposalTemplatePage({ faqItems }: AiAdoptionP
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             稟議が通る生成AI導入計画書の作り方｜目的・リスク・費用を1枚で整理
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             生成AI導入の稟議が止まる理由は、技術不足より「意思決定に必要な情報不足」です。役員が見ているのは、ツールの新しさではなく、
             <span className="font-semibold text-gray-900">目的、効果、リスク、費用、判断タイミング</span>が一枚で読めるかどうかです。
@@ -199,7 +199,7 @@ export default function AiAdoptionProposalTemplatePage({ faqItems }: AiAdoptionP
             個人情報保護委員会の注意喚起も、目的とデータ取り扱いの事前整理を強く求めています。つまり稟議段階で必要なのは、
             <span className="font-semibold text-gray-900">「何をやるか」だけでなく「どう安全に運用するか」</span>の明文化です。
           </p>
-          <p className="mt-4 text-xs leading-6 text-gray-500">制度・ガイドラインの確認日: 2026年2月19日</p>
+          <p className="mt-4 text-xs leading-6 text-gray-500">制度・ガイドラインの確認日: 2026年2月20日</p>
         </motion.section>
 
         <LineCtaBox className="mt-10 rounded-lg border border-emerald-200 bg-emerald-50 p-6" />

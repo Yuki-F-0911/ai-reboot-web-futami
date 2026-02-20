@@ -4,17 +4,17 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "OpenAI Atlasとは？AIブラウザの使い方と活用シーン完全解説 | AIリブート";
 const pageDescription =
-  "OpenAI Atlasとは何かを2026年2月時点の公式情報で整理。通常ブラウザとの違い、AIエージェント機能、情報収集・フォーム入力・Web操作の活用シーン、Atlas vs Operator、無料可否と日本語対応まで実務目線で解説します。";
+  "OpenAI Atlasの提供状況と実務での使い方を2026年2月時点の公式情報で整理。通常ブラウザとの違い、導入時の注意点、AtlasとChatGPT agentの役割分担、企業導入で先に決める運用ルールと実装順序まで判断できるガイドです。";
 const pageUrl = "https://ai-reboot.io/academy/blog/openai-atlas-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T15:00:00+09:00";
-const modifiedTime = "2026-02-19T15:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {
     question: "OpenAI Atlasとは何ですか？",
     answer:
-      "OpenAI Atlasは、Web閲覧とAIエージェント支援を1つの画面で扱えるOpenAI提供のAIブラウザです。ページ要約、質問、フォーム入力補助などをブラウザ操作の流れで実行できます（確認日: 2026年2月19日）。",
+      "OpenAI Atlasは、Web閲覧とAIエージェント支援を1つの画面で扱えるOpenAI提供のAIブラウザです。ページ要約、質問、フォーム入力補助などをブラウザ操作の流れで実行できます（確認日: 2026年2月20日）。",
   },
   {
     question: "OpenAI Atlasは無料で使えますか？",
@@ -34,7 +34,7 @@ const faqItems = [
   {
     question: "AtlasとOperatorの違いは何ですか？",
     answer:
-      "OperatorはもともとOpenAIの自律操作エージェント研究プレビューとして公開され、その後ChatGPTのagent機能へ統合が進んでいます。Atlasはブラウザ体験そのものをAI化する方向で、日常のWeb業務に組み込みやすい点が違いです（確認日: 2026年2月19日）。",
+      "OperatorはもともとOpenAIの自律操作エージェント研究プレビューとして公開され、その後ChatGPTのagent機能へ統合が進んでいます。Atlasはブラウザ体験そのものをAI化する方向で、日常のWeb業務に組み込みやすい点が違いです（確認日: 2026年2月20日）。",
   },
   {
     question: "法人導入で先に決めるべき運用ルールは何ですか？",

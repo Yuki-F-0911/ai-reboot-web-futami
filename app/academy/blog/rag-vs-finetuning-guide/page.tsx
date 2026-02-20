@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "RAGとファインチューニング、どちらを選ぶ？社内データ活用の判断フレーム | AIリブート";
 const pageDescription =
-  "社内データを生成AIで活かすときに迷うRAGとファインチューニングの違いを、コスト・用途・更新頻度・精度・実装難易度で比較。3ステップ判断フローで、非エンジニアでも選定できる実務ガイドです。";
+  "RAGとファインチューニングの選び方を、用途・更新頻度・コスト・運用体制で比較。Responses API / File SearchとFine-tuning APIの最新前提を踏まえ、非エンジニアでも判断できる3ステップと実装順序を提示します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/rag-vs-finetuning-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

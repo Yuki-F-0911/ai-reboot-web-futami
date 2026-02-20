@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "カスタマーサポートのAI活用｜一次対応・ナレッジ管理・品質管理の実装ガイド | AIリブート";
 const pageDescription =
-  "生成AIでカスタマーサポートの工数を削減する実装ガイド。FAQボットによる一次対応自動化、RAG前提のナレッジ管理、オペレーター品質管理、クレーム対応の運用設計までを実務向けに整理します。";
+  "生成AIを使ったカスタマーサポート実装の要点を、一次対応自動化・RAG前提ナレッジ管理・品質管理の順で整理。FAQ Bot運用で工数を減らしつつ回答品質を保つための設計手順、役割分担、エスカレーション設計、改善サイクルを解説し、導入時の失敗回避策も示します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-customer-support-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

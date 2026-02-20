@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "稟議が通る生成AI導入計画書の作り方｜目的・リスク・費用を1枚で整理 | AIリブート";
 const pageDescription =
-  "生成AI導入の稟議が通らない理由を、承認者視点で整理。目的・期待効果・リスク対策・費用・導入ロードマップを1枚に落とす方法と、PoC提案/全社展開提案の書き分けを解説します。";
+  "生成AI導入の稟議を通すために、目的・効果・リスク・費用・導入ロードマップを1枚で示す方法を解説。PoC提案と全社展開提案の書き分け、承認者が見る判断材料、差し戻しを減らす構成テンプレート、社内合意形成の進め方を整理し、そのまま下書きに使える内容です。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-adoption-proposal-template";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19";
-const modifiedTime = "2026-02-19";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

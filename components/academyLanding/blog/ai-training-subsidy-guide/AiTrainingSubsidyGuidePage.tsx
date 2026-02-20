@@ -213,7 +213,7 @@ export default function AiTrainingSubsidyGuidePage({ faqItems }: AiTrainingSubsi
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             生成AI研修に助成金を使う手順｜対象条件・落とし穴・申請フロー完全版
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日（2026年2月時点の情報）</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日（2026年2月時点の情報）</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             社員向けの生成AI研修を検討している企業でも、「AI研修に助成金を使える」こと自体が共有されていないケースが少なくありません。
             結果として、研修予算を先に確定してから制度を調べ、申請期限を過ぎてしまうパターンが起きます。この記事は、
@@ -542,10 +542,10 @@ export default function AiTrainingSubsidyGuidePage({ faqItems }: AiTrainingSubsi
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="official-sources" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            参照した公式情報（2026年2月19日確認）
+            参照した公式情報（2026年2月20日確認）
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            制度情報は毎年度見直しが入るため、以下の一次情報を基準にしています。実運用では、必ず最新の公表資料と管轄労働局の案内で最終確認してください。
+            制度情報は毎年度見直しが入るため、以下の一次情報を基準にしています。本記事の数値は主に令和7年度資料に基づくため、令和8年度版の公開後は必ず差分確認を行ってください。実運用では、最新の公表資料と管轄労働局の案内で最終確認する前提です。
           </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">

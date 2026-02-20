@@ -181,7 +181,7 @@ export default function RagVsFinetunigGuidePage({ faqItems }: RagVsFinetunigGuid
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             RAGとファインチューニング、どちらを選ぶ？社内データ活用の判断フレーム
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             「社内データを生成AIに使いたいが、RAGとファインチューニングのどちらを選ぶべきか分からない」という相談は、PoC初期で最も多い論点です。ここで判断を誤ると、
             初期は動いても運用で破綻し、コストと時間だけが増えます。
@@ -306,7 +306,10 @@ export default function RagVsFinetunigGuidePage({ faqItems }: RagVsFinetunigGuid
             自社の更新頻度と運用体制に合うかを優先してください。
           </p>
           <p className="mt-3 text-sm leading-7 text-gray-700">
-            なお、料金や機能は更新されるため、実装時は必ず公式ドキュメントを確認してください（確認日: 2026-02-19）。
+            OpenAI系の実装では、RAGはResponses API + File Search、学習はFine-tuning APIという構成が2026年2月時点の基本です。
+          </p>
+          <p className="mt-3 text-sm leading-7 text-gray-700">
+            なお、料金や機能は更新されるため、実装時は必ず公式ドキュメントを確認してください（確認日: 2026-02-20）。
           </p>
         </motion.section>
 

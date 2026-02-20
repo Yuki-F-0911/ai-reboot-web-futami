@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "生成AI研修に助成金を使う手順｜対象条件・落とし穴・申請フロー完全版 | AIリブート";
 const pageDescription =
-  "社員向け生成AI研修で助成金を使いたい法人担当者向けに、人材開発支援助成金を中心とした対象条件、5ステップ申請フロー、よくある落とし穴と回避策を2026年2月時点の情報で整理します。";
+  "社員向け生成AI研修で助成金を活用する企業向けに、人材開発支援助成金を中心とした申請5ステップと実務上の注意点を整理。年度改定に対応する確認手順、必要証憑の揃え方、不支給を避ける運用ポイント、窓口照会の進め方を解説し、申請準備の優先順位も示します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-training-subsidy-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

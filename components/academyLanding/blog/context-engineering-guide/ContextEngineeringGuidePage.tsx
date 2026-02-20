@@ -243,7 +243,7 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             コンテキストエンジニアリングとは？AIの出力品質を上げる設計思想を非エンジニアが解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             「プロンプトを工夫しているのに、日によってAIの回答品質がぶれる」という相談は多くの現場で起きています。
             原因の多くは、指示文の言い回しではなく、AIに渡す前提情報の設計不足です。

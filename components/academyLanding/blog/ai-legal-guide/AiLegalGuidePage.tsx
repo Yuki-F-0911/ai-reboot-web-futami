@@ -178,7 +178,7 @@ export default function AiLegalGuidePage({ faqItems }: AiLegalGuidePageProps) {
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             法務の生成AI活用ガイド｜契約レビューを「任せない」運用設計と実践的な使い方
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             結論から言うと、法務で生成AIを使うときに最も重要なのは、契約レビューを「任せる」ことではなく、契約レビューを
             <span className="font-semibold text-gray-900">「任せない前提で設計する」</span>ことです。
@@ -249,6 +249,10 @@ export default function AiLegalGuidePage({ faqItems }: AiLegalGuidePageProps) {
           <p className="blog-p mt-3 text-sm leading-7 text-gray-700">
             個人情報保護委員会の注意喚起（2023年6月2日）でも、生成AI利用時は入力データと利用規約の確認が求められています。契約書には取引先名、単価、スキーム、個人情報が含まれやすく、
             無加工で入力すると守秘義務や個人情報規制の論点が同時に発生します。
+          </p>
+          <p className="blog-p mt-3 text-sm leading-7 text-gray-700">
+            2026年2月20日時点では、日本国内はAI専用の単独法でなく、著作権法・個人情報保護法・不正競争防止法など既存法の組み合わせで判断する実務が続いています。EUではAI
+            Actの段階適用が進行中で、次の主要適用日である2026年8月2日を見据えた対応計画が必要です。
           </p>
           <p className="blog-p mt-3 text-sm leading-7 text-gray-700">
             詳細な情報管理ルールは、

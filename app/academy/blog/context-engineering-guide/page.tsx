@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "コンテキストエンジニアリングとは？AIの出力品質を上げる設計思想を非エンジニアが解説 | AIリブート";
 const pageDescription =
-  "プロンプト改善だけでは精度が安定しない理由を整理し、役割設定・背景情報・制約条件・出力形式の4要素でChatGPTへの指示品質を上げる実践手順を解説。プロンプトエンジニアリングとの違いと現場導入のチェックポイントもまとめます。";
+  "プロンプト改善だけで精度が安定しない原因を、役割・背景・制約・出力形式の4要素で解決する実践ガイド。非エンジニアでも再現しやすい設計手順、運用チェック項目、チーム導入時のつまずき回避策、評価指標の作り方まで整理し、実務導入判断に使える内容です。";
 const pageUrl = "https://ai-reboot.io/academy/blog/context-engineering-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T20:00:00+09:00";
-const modifiedTime = "2026-02-19T20:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

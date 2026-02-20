@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "法務の生成AI活用ガイド｜契約レビューを「任せない」運用設計と実践的な使い方 | AIリブート";
 const pageDescription =
-  "法務で生成AIを安全に使うために、契約レビューをAIへ全面委任しない理由、使える業務/使えない業務、機密情報の扱い、運用フレームワーク、実践プロンプトを体系化。法務活用チェックリスト導入の進め方も解説。";
+  "法務で生成AIを安全に使うための実務ガイド。契約レビューを任せない運用原則、著作権法・個人情報保護法・EU AI Actを踏まえた統制ポイント、入力データ管理と承認フローを設計する具体手順、監査で使う記録項目を解説し、社内規程に落とし込める内容です。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-legal-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

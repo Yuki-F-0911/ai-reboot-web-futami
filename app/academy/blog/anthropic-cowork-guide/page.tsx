@@ -4,22 +4,22 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "AnthropicのCoworkとは？使い方と活用シーン完全ガイド | AIリブート";
 const pageDescription =
-  "AnthropicのCoworkを2026年2月時点の公式情報で解説。個人での使い方、ChatGPT/Geminiとの使い分け、無料可否・日本語対応・Team差分まで整理します。";
+  "AnthropicのCoworkを2026年2月時点の公式情報で確認し、個人利用の始め方と注意点を解説。対応環境、料金プラン、ChatGPT/Geminiとの役割分担、監査ログ制約を踏まえた導入判断と初週の進め方、失敗回避の基準まで実務目線で整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/anthropic-cowork-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {
     question: "AnthropicのCoworkは無料で使えますか？",
     answer:
-      "いいえ。Coworkは研究プレビューで、Pro・Max・Team・Enterpriseの有料プラン向け機能です。無料プランは対象外です（確認日: 2026年2月19日）。",
+      "いいえ。Coworkは研究プレビューで、Pro・Max・Team・Enterpriseの有料プラン向け機能です。無料プランは対象外です（確認日: 2026年2月20日）。",
   },
   {
     question: "Coworkは日本語で使えますか？",
     answer:
-      "使えます。Claudeの言語設定で日本語を選択でき、入力言語に合わせて対話できます。Coworkで生成した成果物も日本語で作成可能です（確認日: 2026年2月19日）。",
+      "使えます。Claudeの言語設定で日本語を選択でき、入力言語に合わせて対話できます。Coworkで生成した成果物も日本語で作成可能です（確認日: 2026年2月20日）。",
   },
   {
     question: "CoworkとClaude Codeの違いは何ですか？",
@@ -27,14 +27,14 @@ const faqItems = [
       "どちらも同じエージェント系アーキテクチャを基盤にしていますが、Claude Codeはターミナル中心、CoworkはClaude Desktop上で知的業務を進める前提です。非エンジニアがファイル作業や調査を任せる導線はCoworkの方が分かりやすく設計されています。",
   },
   {
-    question: "ChatGPT Teamsとの違いは何ですか？",
+    question: "ChatGPT Team（現Business）との違いは何ですか？",
     answer:
-      "まず名称として、ChatGPT Teamは2025年8月29日にChatGPT Businessへ改称されています。Coworkはローカルファイルに直接アクセスして複数ステップ実行するデスクトップ実行型、ChatGPT Businessは共有ワークスペースやGPTs・Projectsを使った組織運用型という差があります。",
+      "名称面では、ChatGPT Teamは現在ChatGPT Businessとして案内されています。Coworkはローカルファイルに直接アクセスして複数ステップ実行するデスクトップ実行型、ChatGPT Businessは共有ワークスペースやGPTs・Projectsを使った組織運用型という差があります。",
   },
   {
     question: "Coworkはどの環境で使えますか？",
     answer:
-      "Claude DesktopのmacOS版とWindows x64版で利用できます。Web版・モバイル版では使えません。Windows arm64は非対応です（確認日: 2026年2月19日）。",
+      "Claude DesktopのmacOS版とWindows x64版で利用できます。Web版・モバイル版では使えません。Windows arm64は非対応です（確認日: 2026年2月20日）。",
   },
   {
     question: "Coworkを業務で使うときの注意点は？",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   keywords: [
     "Anthropic Cowork 使い方",
     "Cowork AI とは",
-    "Claude Teams 活用",
+    "Claude Team 活用",
     "Anthropic チーム向け AI",
     "Claude 仕事 活用",
   ],

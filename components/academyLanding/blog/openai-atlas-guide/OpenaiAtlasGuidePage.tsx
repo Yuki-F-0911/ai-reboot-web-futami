@@ -45,7 +45,7 @@ const lineCtaBody =
 const summaryPoints = [
   "OpenAI Atlasは、Web閲覧の画面上でAIに要約・質問・フォーム操作補助を任せられるAIブラウザです。",
   "通常ブラウザとの実務差は、操作の前後にある「調べる→整える→入力する」を連続処理しやすい点です。",
-  "OpenAI公式情報では、AtlasはFreeを含む複数プランで展開され、機能は段階的に更新されています（確認日: 2026年2月19日）。",
+  "OpenAI公式ページとHelp Centerの案内ベースで、Atlasの提供範囲は段階的に更新されています（確認日: 2026年2月20日）。",
   "Operatorは自律操作エージェントとして始まり、ChatGPT agent機能へ統合が進行中です。Atlasはブラウザ体験を強化する役割で捉えると整理しやすくなります。",
   "導入時は、承認が必要な操作とログ保存を先に設計し、最終判断を人が担う運用にすることが前提です。",
 ] as const;
@@ -224,13 +224,13 @@ export default function OpenaiAtlasGuidePage({ faqItems }: OpenaiAtlasGuidePageP
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             OpenAI Atlasとは？AIブラウザの使い方と活用シーン完全解説
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             OpenAI Atlasは、Webを見ながらAIに質問・要約・入力補助を任せられるAIブラウザです。指名検索で「OpenAI
             Atlasとは？」を調べる人に向けて、まず結論を示すと、Atlasは「通常ブラウザにAIエージェント操作レイヤーを重ねた製品」です。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
-            この記事では、2026年2月19日時点のOpenAI公式公開情報を基準に、通常ブラウザとの違い、使い方、ビジネス活用、Atlas
+            この記事では、2026年2月20日時点のOpenAI公式公開情報を基準に、通常ブラウザとの違い、使い方、ビジネス活用、Atlas
             vs Operatorの関係まで整理します。機能・提供条件は更新されるため、本文中に確認日を明記します。
           </p>
         </motion.header>
@@ -275,10 +275,10 @@ export default function OpenaiAtlasGuidePage({ faqItems }: OpenaiAtlasGuidePageP
             公式公開情報では、Atlasページで「Browse any website with AI support」と案内され、リリースノートでも段階的な提供拡大と機能更新が継続しています。価格や提供条件は更新されるため、実務導入では必ず確認日をセットにしてください。
           </p>
           <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">2025-11-06: AtlasがFree/Plus/Pro/Team向けに提供開始と記載。</li>
-            <li className="pl-1 marker:text-gray-500">2026-01-22: Enterprise/Eduにも展開と記載。</li>
-            <li className="pl-1 marker:text-gray-500">2026-01-29: 日本語IME入力の改善をリリースノートで確認。</li>
-            <li className="pl-1 marker:text-gray-500">確認日: 2026年2月19日（OpenAI公式ページ/Help Center）。</li>
+            <li className="pl-1 marker:text-gray-500">2025-10-21: OpenAI公式発表でAtlasが公開。</li>
+            <li className="pl-1 marker:text-gray-500">Help CenterにGetting startedとEnterprise向け案内が公開され、提供条件が継続更新。</li>
+            <li className="pl-1 marker:text-gray-500">Enterprise向け機能は段階展開のため、監査要件や利用可能機能の事前確認が必須。</li>
+            <li className="pl-1 marker:text-gray-500">確認日: 2026年2月20日（OpenAI公式ページ/Help Center）。</li>
           </ul>
           <p className="mt-6 text-sm leading-7 text-gray-700">
             AIエージェントの全体像を先に押さえたい場合は、
@@ -422,7 +422,7 @@ export default function OpenaiAtlasGuidePage({ faqItems }: OpenaiAtlasGuidePageP
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             OpenAI公式情報を基準にすると、Operatorは自律操作エージェントとして公開後、ChatGPTのagent機能へ統合が進む流れです。AtlasはAIブラウザとして別軸で進化しています。
           </p>
-          <p className="mt-2 text-xs text-gray-500">確認日: 2026年2月19日（OpenAI公式ブログ・リリースノート）</p>
+          <p className="mt-2 text-xs text-gray-500">確認日: 2026年2月20日（OpenAI公式ブログ・リリースノート）</p>
           <div className="mt-5 overflow-x-auto">
             <table className="w-full min-w-[880px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
