@@ -157,6 +157,16 @@ export default function EducationTrainingBenefitAiPage({ faqItems }: EducationTr
           </p>
         </motion.header>
 
+        <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
+          <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
+          <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1">教育訓練給付金の3区分（一般・特定一般・専門実践）の違いとAI講座への適用可否</li>
+            <li className="pl-1">リスキリング補助金との制度的な違いと住み分け方（申請主体・要件の差）</li>
+            <li className="pl-1">AI講座の費用相場と給付活用後の実質負担の考え方</li>
+            <li className="pl-1">コスパの良い講座を選ぶ4つの判断基準</li>
+          </ul>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         

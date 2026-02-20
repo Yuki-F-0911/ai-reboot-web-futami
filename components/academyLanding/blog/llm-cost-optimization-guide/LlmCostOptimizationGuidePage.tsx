@@ -435,6 +435,43 @@ export default function LlmCostOptimizationGuidePage({ faqItems }: LlmCostOptimi
 
         <LineCtaBox />
 
+        <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+            関連リンク
+          </h2>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="/academy/blog/rag-vs-finetuning-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                RAGとファインチューニング、どちらを選ぶ？社内データ活用の判断フレーム | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/vector-db-intro"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                ベクターデータベース入門｜Pinecone・Weaviate・ChromaDBの比較と選び方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/llm-evaluation-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                生成AIの評価（LLM評価）入門｜&ldquo;任せていい品質&rdquo;を測る指標と運用【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIリブートアカデミー TOP
+              </Link>
+            </li>
+          </ul>
+        </section>
+
         <motion.section
           id="academy-cta"
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"

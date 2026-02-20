@@ -270,6 +270,16 @@ export default function WorkflowAutomationComparisonPage({
           </ul>
         </motion.section>
 
+        <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
+          <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
+          <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1">Make・Zapier・n8nを料金・機能・難易度・セキュリティの4軸で比較した結果</li>
+            <li className="pl-1">部門別おすすめ活用パターン5選と最初のフロー作成3ステップ</li>
+            <li className="pl-1">プログラミング知識なしで使えるツールの見分け方</li>
+            <li className="pl-1">個人情報を含むフローのセキュリティ対策と国内SaaS連携の実例</li>
+          </ul>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         {/* H2-1: ワークフロー自動化とは？ */}
@@ -721,6 +731,30 @@ export default function WorkflowAutomationComparisonPage({
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 AIエージェント導入チェックリスト
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/make-automation-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                Make.com×生成AI自動化ガイド｜最初の1本を実装する手順【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/n8n-beginner-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                n8n入門ガイド｜初心者が業務自動化を最初の1本から実装する手順【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/power-automate-ai-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                Power Automate×生成AI活用｜Microsoft環境の現場自動化レシピ集 | AIリブート
               </Link>
             </li>
           </ul>

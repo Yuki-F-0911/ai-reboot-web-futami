@@ -207,6 +207,16 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           </p>
         </motion.header>
 
+        <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
+          <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
+          <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1">AI資格はビジネス系・技術系・実装系の3軸で整理でき、目的で選ぶと遠回りしません</li>
+            <li className="pl-1">G検定・E検定・AI実装検定・DS検定など主要AI資格の難易度・費用・活用場面の比較</li>
+            <li className="pl-1">文系・非エンジニアから始めやすい資格の選び方</li>
+            <li className="pl-1">資格取得とスクール受講の使い分け方</li>
+          </ul>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section

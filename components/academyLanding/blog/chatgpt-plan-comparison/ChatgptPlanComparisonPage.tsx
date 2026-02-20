@@ -236,6 +236,16 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           </p>
         </motion.header>
 
+        <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
+          <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
+          <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1">ChatGPT無料・Plus（月額20ドル）・Pro（月額200ドル）の料金と利用上限の比較（2026年2月時点）</li>
+            <li className="pl-1">GPT-5.2とGPT-5.3-Codexのプランごとのアクセス差</li>
+            <li className="pl-1">用途・利用頻度別のおすすめプランの選び方</li>
+            <li className="pl-1">変更・解約の手順（Web/iOS/Android別）</li>
+          </ul>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section

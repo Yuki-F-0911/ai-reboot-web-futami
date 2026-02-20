@@ -225,6 +225,16 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           </p>
         </motion.header>
 
+        <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
+          <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
+          <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1">2026年版Cursor・Claude Code・GitHub CopilotをAgent機能・コンテキスト・料金で比較</li>
+            <li className="pl-1">Vibe Coding対応力と用途別おすすめの判断基準</li>
+            <li className="pl-1">非エンジニアが最初に選ぶべきツールと理由</li>
+            <li className="pl-1">チーム導入時に先に決めるべき運用ルール5点</li>
+          </ul>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section

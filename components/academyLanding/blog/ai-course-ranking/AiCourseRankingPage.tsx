@@ -194,6 +194,16 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
           />
         </figure>
 
+        <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
+          <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
+          <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1">AI講座ランキングの評価5軸（カリキュラム・実務接続・サポート・コスパ・受講者評価）</li>
+            <li className="pl-1">転職・副業・業務効率化の目的別おすすめ講座タイプ</li>
+            <li className="pl-1">補助金対応・受講形式・受講期間を先に確認する3つのポイント</li>
+            <li className="pl-1">よくある失敗パターン3選と回避法</li>
+          </ul>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section
@@ -468,6 +478,22 @@ export default function AiCourseRankingPage({ faqItems }: AiCourseRankingPagePro
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 副業でAIを活用する始め方ガイド｜学習から案件獲得までの現実的な進め方 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/generative-ai-skills-checklist"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                生成AIスキルを身につける5段階チェックリスト【2026年版】 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/g-e-certification-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説 | AIリブート
               </Link>
             </li>
             <li>

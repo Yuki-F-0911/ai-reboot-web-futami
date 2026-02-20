@@ -118,6 +118,16 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           </p>
         </motion.header>
 
+        <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
+          <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
+          <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1">G検定はビジネス職向けの基礎リテラシー、E検定はAIエンジニア向けの専門資格（対象者が異なる）</li>
+            <li className="pl-1">難易度・費用・受験資格・学習期間の具体的な比較</li>
+            <li className="pl-1">迷ったときはG検定→E検定の順が学習コストを抑えやすい理由</li>
+            <li className="pl-1">それぞれが向いている人のタイプ別解説</li>
+          </ul>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section

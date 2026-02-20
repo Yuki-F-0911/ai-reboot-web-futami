@@ -320,6 +320,16 @@ export default function AiResearchTool2026Page({ faqItems }: AiResearchTool2026P
           </p>
         </motion.header>
 
+        <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
+          <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
+          <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1">AI情報収集ツールはリアルタイム検索型・深掘り型・専門特化型の3分類で選ぶと判断が早い</li>
+            <li className="pl-1">Perplexity・ChatGPT Deep Research・Gensparkの用途別比較</li>
+            <li className="pl-1">無料枠での実務運用可否の目安と有料化の判断基準</li>
+            <li className="pl-1">ハルシネーション・引用ミスを防ぐ4点の固定ルール</li>
+          </ul>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section

@@ -176,6 +176,17 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           <Image src="/images/blog/dx-reskilling-subsidy-guide/slide-1.png" alt="DXリスキリング助成金活用ガイド（タイトルスライド）" width={800} height={450} className="rounded-lg" />
         </figure>
 
+        <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
+          <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
+          <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1">DXリスキリング助成金は企業がDX研修費用を助成する制度群。申請前の要件確認が最重要です</li>
+            <li className="pl-1">企業向け（法人申請）と個人向け補助金の違いと切り分け方</li>
+            <li className="pl-1">対象となる研修・講座に求められる4つの条件</li>
+            <li className="pl-1">申請の4ステップフローと必要書類の全体像</li>
+            <li className="pl-1">他制度との併用可否と事前設計のポイント</li>
+          </ul>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section
@@ -440,6 +451,14 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 法人向けAI研修サービス｜社内定着・研修設計・導入相談 | AIリブート
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-certification-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】 | AIリブート
               </Link>
             </li>
             <li>

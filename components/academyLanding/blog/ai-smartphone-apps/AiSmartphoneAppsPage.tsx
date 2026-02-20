@@ -226,6 +226,16 @@ export default function AiSmartphoneAppsPage({ faqItems }: AiSmartphoneAppsPageP
           </p>
         </motion.header>
 
+        <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
+          <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
+          <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1">2026年版AIスマホアプリ20選をカテゴリ別（チャット・翻訳・生産性・音声）で比較</li>
+            <li className="pl-1">iPhone/Androidの対応状況の差と確認すべき項目</li>
+            <li className="pl-1">完全無料で実用レベルのTOP5アプリ</li>
+            <li className="pl-1">月額課金するタイミングの判断基準</li>
+          </ul>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section
