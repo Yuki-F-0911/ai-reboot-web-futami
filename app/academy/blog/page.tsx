@@ -239,6 +239,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "資格・スキル",
   },
   {
+    slug: "ai-english-learning-guide",
+    title: "AI英語学習ガイド2026｜ChatGPT英会話・アプリ比較・継続設計",
+    summary:
+      "ChatGPT/Gemini英会話のプロンプト実践、Duolingo Max・ELSA Speak・Speak比較、ビジネス英語への落とし込み、30日継続設計まで社会人向けに整理した実践ガイドです。",
+    category: "資格・スキル",
+  },
+  {
     slug: "generative-ai-passport-guide",
     title: "生成AIパスポート試験の合格法2026｜勉強時間・おすすめ教材・出題傾向まとめ",
     summary:
@@ -490,6 +497,21 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "Google Geminiの基本操作、ChatGPT・Claudeとの違い、無料プランの始め方、業務活用パターンを整理した入門記事です。",
     category: "AI基礎知識",
+  },
+  {
+    slug: "gemini-workspace-guide",
+    title: "Gemini for Google Workspace使い方ガイド｜料金・活用・Copilot比較【2026年版】",
+    summary:
+      "Gemini for Google Workspaceのプラン差、Gmail・Docs・Sheets・Meetの活用、導入コストとROI、Copilot比較、日本語環境での評価手順を法人向けに整理した実務ガイドです。",
+    category: "法人向け",
+    thumbnail: "/images/blog/gemini-workspace-guide/slide-01.png",
+  },
+  {
+    slug: "gemini-3-practical-guide",
+    title: "Gemini 3.1 Proの使い方実務ガイド｜3.0との違い・料金・Workspace連携・GPT-5.2比較",
+    summary:
+      "Gemini 3.1 Proと3.0 Proの機能差・料金差、Workspace連携の現状、マルチモーダル対応範囲、ChatGPT GPT-5.2との使い分けを公式情報ベースで整理した実務ガイドです。",
+    category: "最新AIツール",
   },
   {
     slug: "notebooklm-guide",
