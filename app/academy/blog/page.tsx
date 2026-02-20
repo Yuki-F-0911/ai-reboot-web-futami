@@ -31,6 +31,20 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "gpt-5-3-guide",
+    title: "GPT-5.3 使い方ガイド｜Codex・Spark連携・料金・Claude Opus 4.6比較【2026年2月版】",
+    summary:
+      "GPT-5.3の概要とGPT-5.2からの変化点、Codex/Sparkとの使い分け、ビジネス実務（文書作成・分析・コード補助）での活用シーン、Claude Opus 4.6との強み・弱み・料金比較を2026年2月時点で解説します。",
+    category: "最新AIツール",
+  },
+  {
+    slug: "claude-code-beginners-guide",
+    title: "Claude Code入門｜インストール・基本コマンド・Vibe Coding活用まで【2026年版】",
+    summary:
+      "AnthropicのCLIツール「Claude Code」の概要・インストール手順・基本コマンドとワークフロー・GitHub Copilot/Cursorとの比較・Vibe Codingとの親和性を2026年2月時点でわかりやすく解説します。",
+    category: "最新AIツール",
+  },
+  {
     slug: "openai-o3-o4mini-guide",
     title: "OpenAI o3/o4-mini使い方ガイド｜推論モデルの実務選定と料金判断【2026年版】",
     summary:
