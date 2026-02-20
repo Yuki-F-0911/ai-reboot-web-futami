@@ -31,6 +31,14 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "claude-opus-4-6-guide",
+    title: "Claude Opus 4.6使い方ガイド｜1Mトークン・Adaptive Thinking・料金比較【2026年2月版】",
+    summary:
+      "Claude Opus 4.6を2026年2月20日時点で解説。1Mトークンコンテキスト、Adaptive Thinking、effort controls、ベンチ比較、API/Claude.ai料金、実務導入手順を中級者向けに整理したガイドです。",
+    category: "最新AIツール",
+    thumbnail: "/images/blog/claude-opus-4-6-guide/slide-01.png",
+  },
+  {
     slug: "gemini-deep-think-guide",
     title: "Gemini Deep Think使い方ガイド｜ARC-AGI-2・Codeforces・AI Ultra料金・推論AI比較",
     summary:
@@ -84,6 +92,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "Midjourney v7使い方完全ガイド｜Discord・Web・料金・商用利用【2026年版】",
     summary:
       "Midjourney v7の始め方、DiscordとWebアプリの使い分け、日本語プロンプトの実態、Basic/Standard/Pro/Mega料金、DALL·E 3・Stable Diffusion・Canva AI比較、商用利用の注意点を整理した実践ガイドです。",
+    category: "最新AIツール",
+  },
+  {
+    slug: "midjourney-video-guide",
+    title: "Midjourney V1 Video使い方ガイド｜静止画から動画生成・設定・商用利用【2026年版】",
+    summary:
+      "Midjourney V1 Videoの使い方を2026年2月時点で解説。正式公開日（2025-06-18）、Basic/Standard/Pro/Megaの対応差、Web/DiscordのAnimate手順、最大秒数・解像度、Runway Gen-3・Kling AIとの使い分けを整理した実践ガイドです。",
     category: "最新AIツール",
   },
   {
