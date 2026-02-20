@@ -411,6 +411,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
   },
   {
+    slug: "chatgpt-gpt5-guide",
+    title: "ChatGPTとGPT-5の違いを整理｜2026年版モデル選びと使い分けガイド",
+    summary:
+      "GPT-5とGPT-5.2の現状、ChatGPTのAuto/Thinkingの使い分け、ChatGPT利用とAPI利用の課金・運用責任の違いを確認日付きで整理した実務判断ガイドです。",
+    category: "AI基礎知識",
+  },
+  {
     slug: "chatgpt-advanced-tips",
     title: "ChatGPTを仕事で使いこなす実践テクニック集｜基本から応用まで50のTips",
     summary:
