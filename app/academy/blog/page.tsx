@@ -31,6 +31,13 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "openai-deep-research-guide",
+    title: "OpenAI Deep Research使い方ガイド｜市場調査・競合分析の実務手順【2026年版】",
+    summary:
+      "OpenAI Deep Researchの使い方を2026年2月時点で解説。通常検索との違い、ChatGPT Plus/Pro/Business(旧Team)/Enterpriseでの起動手順、2026-02-10のMCP接続アップデート、レポート活用と誤情報対策、Perplexity・Gemini比較まで整理した実務ガイドです。",
+    category: "実務活用",
+  },
+  {
     slug: "ai-writing-tool",
     title: "AI文章作成ツール比較2026｜ChatGPT・Claude・Jasper・Copy.ai・Notion AIの選び方",
     summary:
@@ -655,6 +662,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "OpenAI Atlasとは？AIブラウザの使い方と活用シーン完全解説",
     summary:
       "OpenAI Atlasとは何かを冒頭で明確化し、通常ブラウザとの違い、情報収集・フォーム入力・Web操作の活用法、Atlas vs Operator、無料可否と日本語対応まで確認日付きで整理した最新AIツール解説です。",
+    category: "最新AIツール",
+  },
+  {
+    slug: "openai-operator-guide",
+    title: "OpenAI Operator使い方ガイド｜Atlasとの違い・日本での始め方・安全な自動操作",
+    summary:
+      "Operator（現agent mode）を2026年2月時点で整理し、Atlasとの違い、日本での開始時期とプラン条件、フォーム入力・予約・EC・データ収集の実務活用、制限サイトとセキュリティ設定、Anthropic/Google比較まで解説した実務ガイドです。",
     category: "最新AIツール",
   },
   {
