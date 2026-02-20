@@ -659,6 +659,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "実務活用",
   },
   {
+    slug: "ai-agent-landscape-2026",
+    title: "AIエージェント比較2026｜主要プレイヤーの勢力図・料金・日本対応を整理",
+    summary:
+      "2026年2月時点のAIエージェント勢力図を3カテゴリで整理し、Operator/Atlas/Mariner/Computer Use/Manus/Genspark/Claude Code/Copilot/Cursorの違いを、対応タスク・料金・日本語対応・自律度で比較した実務判断ガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "manus-ai-guide",
     title: "Manus AIとは？使い方と活用シーン解説｜AIエージェントで仕事を自動化する",
     summary:
