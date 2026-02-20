@@ -6,24 +6,29 @@ import ArticleReadLineModal from "@/components/academyLanding/common/ArticleRead
 
 const academyBaseUrl = "https://ai-reboot.io";
 const academyTopUrl = `${academyBaseUrl}/academy`;
-const academyDefaultTitle = "AIリブートアカデミー | AI REBOOT - ウィルフォワード";
+const academyDefaultTitle = "AIリブートアカデミー";
 const academyDefaultDescription =
-  "経済産業省認定リスキリング講座で、生成AI活用・キャリア設計・実践力を100日間で身につけるAIリブートアカデミー。";
+  "AI時代のリスキリング・生成AIスキルを習得するオンライン講座";
+const academyOgImagePath = "/academy/opengraph-image";
 
 export const metadata: Metadata = {
   metadataBase: new URL(academyBaseUrl),
-  title: academyDefaultTitle,
+  title: {
+    default: academyDefaultTitle,
+    template: "%s | AIリブートアカデミー",
+  },
   description: academyDefaultDescription,
+  alternates: {
+    canonical: academyTopUrl,
+  },
   openGraph: {
     title: academyDefaultTitle,
     description: academyDefaultDescription,
-    siteName: "AIリブートアカデミー",
-    locale: "ja_JP",
-    type: "website",
     url: academyTopUrl,
+    siteName: "AIリブートアカデミー",
     images: [
       {
-        url: "/academy/opengraph-image",
+        url: academyOgImagePath,
         width: 1200,
         height: 630,
         alt: "AIリブートアカデミー",
@@ -34,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: academyDefaultTitle,
     description: academyDefaultDescription,
-    images: ["/academy/opengraph-image"],
+    images: [academyOgImagePath],
   },
 };
 

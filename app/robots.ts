@@ -6,10 +6,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/admin/", "/debug", "/blog/debug", "/blog/temp", "/news/temp", "/auth/"],
+        disallow: ["/api/", "/test/"],
       },
     ],
-    host: "https://ai-reboot.io",
     sitemap: "https://ai-reboot.io/sitemap.xml",
   };
 }
