@@ -293,7 +293,7 @@ export default function GoogleAiStudioGuidePage({ faqItems }: GoogleAiStudioGuid
           </h1>
           <div className="mt-4 flex items-center justify-between">
             <p className="text-sm text-gray-500">
-              <time dateTime="2026-02-19">2026年2月19日</time> 公開
+              <time dateTime="2026-02-20">2026年2月20日</time> 公開
             </p>
             <CopyAsMarkdownButton
               title="Google AI Studio使い方完全ガイド｜Geminiモデルをすぐ試せるAI開発環境"
@@ -325,6 +325,7 @@ export default function GoogleAiStudioGuidePage({ faqItems }: GoogleAiStudioGuid
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-xl font-bold text-blue-900">要点まとめ</h2>
+          <p className="mt-4 text-sm leading-7 text-blue-800">最初に役割の違いを理解し、次に10ステップで検証フローを固定すると学習効率が上がります。</p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-blue-800">
             {summaryPoints.map((point) => (
               <li key={point} className="pl-1 marker:text-blue-500">
@@ -390,7 +391,7 @@ export default function GoogleAiStudioGuidePage({ faqItems }: GoogleAiStudioGuid
             </table>
           </div>
           <p className="mt-6 text-sm leading-7 text-gray-700">
-            公式情報確認日: 2026年2月19日。料金・仕様・提供地域は変動するため、以下の一次情報を起点にしてください。
+            公式情報確認日: 2026年2月20日。料金・仕様・提供地域は変動するため、以下の一次情報を起点にしてください。
           </p>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {sourceLinks.map((source) => (
@@ -417,7 +418,7 @@ export default function GoogleAiStudioGuidePage({ faqItems }: GoogleAiStudioGuid
             初回は「触って終わり」にしないことが重要です。下記10ステップを上から順に実施し、最後に検証メモまで残すと、次のApp Build段階で再利用できます。
           </p>
           <p className="mt-2 text-xs text-gray-500">
-            ※2026年2月19日確認。Free tier / Paid tierの条件や対応モデルは更新される可能性があります。
+            ※2026年2月20日確認。Free tier / Paid tierの条件や対応モデルは更新される可能性があります。
           </p>
           <div className="mt-6 space-y-4">
             {quickstartSteps.map((item) => (
@@ -600,6 +601,9 @@ export default function GoogleAiStudioGuidePage({ faqItems }: GoogleAiStudioGuid
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
+            先に結論を確認し、料金・対応モデル・提供地域は公式ドキュメントの更新日とあわせて判断してください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">

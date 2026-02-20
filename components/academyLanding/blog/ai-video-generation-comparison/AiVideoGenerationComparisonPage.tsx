@@ -39,7 +39,7 @@ const comparisonRows = [
     tool: "Kling",
     quality: "高（動き表現で評価されやすい）",
     speed: "中〜高",
-    price: "中国本土向け公式発表: 66元/月〜（海外は地域差）",
+    price: "クレジット/プラン制（地域・提供経路で差）",
     japanese: "△（公式の日本語仕様公開が限定）",
     commercial: "△（規約確認が必須）",
     fit: "SNS向け短尺、動き重視素材",
@@ -48,7 +48,7 @@ const comparisonRows = [
     tool: "Runway",
     quality: "高（生成から編集まで一気通貫）",
     speed: "中",
-    price: "Standard $15/月（年払い）〜",
+    price: "Standardは月払い$15 / 年払い$12相当〜（2026年2月時点）",
     japanese: "△（UIは英語中心）",
     commercial: "○（有料プランで可、Free不可）",
     fit: "案件制作、チーム運用",
@@ -56,7 +56,7 @@ const comparisonRows = [
   {
     tool: "Seedance",
     quality: "高（公式が高品質モデルとして提示）",
-    speed: "高（1.0で10秒1080p約41秒の公式記載）",
+    speed: "中〜高（モデル/混雑状況で変動）",
     price: "Dreamina / Doubao側プラン依存",
     japanese: "△（公式情報が限定）",
     commercial: "△（利用先規約で判断）",
@@ -173,16 +173,21 @@ export default function AiVideoGenerationComparisonPage({ faqItems }: AiVideoGen
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             動画生成AI比較2026｜Kling・Runway・Seedance・Soraの特徴と選び方
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            この記事は<strong className="font-semibold text-gray-900">テキスト/画像から動画を作る生成AI</strong>の比較です。VrewやCapCutなど編集中心ツールは対象外とし、
+            結論として、動画生成AIは「用途→商用条件→コスト→品質」の順で絞ると選定が速くなります。この記事は
+            <strong className="font-semibold text-gray-900">テキスト/画像から動画を作る生成AI</strong>
+            の比較に限定し、VrewやCapCutなど編集中心ツールは対象外とします。
+          </p>
+          <p className="mt-4 text-base leading-8 text-gray-700">
+            編集中心ツールは
             <Link href="/academy/blog/ai-video-tool-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               ai-video-tool-comparison
             </Link>
             で扱います。比較軸は品質・速度・価格・日本語対応・商用利用の5つです。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-600">
-            ※料金・機能・規約は更新が速いため、確認日は2026年2月19日で統一しています。
+            ※料金・機能・規約は更新が速いため、確認日は2026年2月20日で統一しています。
           </p>
         </motion.header>
 
@@ -198,6 +203,7 @@ export default function AiVideoGenerationComparisonPage({ faqItems }: AiVideoGen
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">要点まとめ</h2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">先に用途と商用条件を固定し、その後に品質とコストを比較すると選定がぶれません。</p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               商用条件はRunwayとSoraが比較しやすく、KlingとSeedanceは地域差確認が必要です。
@@ -273,7 +279,7 @@ export default function AiVideoGenerationComparisonPage({ faqItems }: AiVideoGen
             Kling・Runway・Seedance・Soraの比較表（品質・速度・価格・日本語対応・商用利用）
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            下表は公式情報を優先した比較です（確認日: 2026-02-19）。導入前に規約を再確認してください。
+            下表は公式情報を優先した比較です（確認日: 2026-02-20）。導入前に規約を再確認してください。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[1100px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -392,6 +398,9 @@ export default function AiVideoGenerationComparisonPage({ faqItems }: AiVideoGen
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
+            まず結論を短く示し、その上で料金・商用条件・利用可能プランは必ず公式規約で再確認してください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -407,6 +416,7 @@ export default function AiVideoGenerationComparisonPage({ faqItems }: AiVideoGen
 
         <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
           <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <p className="mb-4 text-sm leading-7 text-gray-700">編集工程や画像素材まで含めて設計したい場合は、次の関連記事を併読してください。</p>
           <ul className="space-y-2">
             <li>
               <Link

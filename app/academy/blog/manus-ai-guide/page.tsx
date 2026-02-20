@@ -4,22 +4,22 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "Manus AIとは？使い方と活用シーン解説｜AIエージェントで仕事を自動化する | AIリブート";
 const pageDescription =
-  "Manus AIとは何かを、ChatGPTとの違いから初心者向けに解説。AIエージェントの基本、使い方、リサーチ・文書作成・データ収集の自動化シーン、無料可否・日本語対応・セキュリティまで確認日付きで整理します。";
+  "Manus AIを業務で使う前提で、ChatGPTとの違い、AIエージェントの基本、初期設定から自動化の進め方、無料枠の見方、日本語運用時の注意、セキュリティ確認項目と導入前チェックリスト、実務定着の観点を2026年2月時点の公開情報ベースで整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/manus-ai-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {
     question: "Manus AIは無料で使えますか？",
     answer:
-      "無料プランが用意されています。ただし、クレジット上限や実行できるタスク量には制限があるため、継続利用する場合は有料プランを比較して判断するのが現実的です（確認日: 2026年2月19日）。",
+      "無料プランは案内されていますが、クレジット上限や実行できるタスク量には制限があります。継続利用時は有料プラン条件を含めて比較し、最新情報を確認して判断するのが安全です（確認日: 2026年2月20日）。",
   },
   {
     question: "Manus AIは日本語に対応していますか？",
     answer:
-      "日本語UIに切り替えて利用できます。設定画面のLanguage項目で変更可能です。日本語での指示自体は可能ですが、業務用途では固有名詞や専門語の出力を都度確認する運用が重要です（確認日: 2026年2月19日）。",
+      "日本語での指示と出力は可能です。UI言語や利用可能機能はプラン・アカウント条件・時期で変わる場合があるため、設定画面と公式ヘルプを確認し、業務用途では固有名詞や専門語の出力を都度レビューしてください（確認日: 2026年2月20日）。",
   },
   {
     question: "Manus AIのセキュリティは大丈夫ですか？",

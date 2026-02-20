@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "動画生成AI比較2026｜Kling・Runway・Seedance・Soraの特徴と選び方 | AIリブート";
 const pageDescription =
-  "動画生成AI比較2026年版。Kling・Runway・Seedance・Soraを品質・速度・価格・日本語対応・商用利用の5軸で整理し、用途別の選び方と無料で始める手順を解説します。";
+  "動画生成AIを選ぶ人向けに、Kling・Runway・Seedance・Soraを品質・速度・価格・日本語対応・商用条件で比較。用途別の選び方、無料検証手順、課金判断のチェックポイント、導入時の確認順まで2026年2月時点で整理した比較ガイドです。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-video-generation-comparison";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T21:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {
@@ -29,7 +29,7 @@ const faqItems = [
   {
     question: "Soraはどのプランで使えますか？",
     answer:
-      "OpenAI公式ヘルプでは、SoraはChatGPT Plus / Pro / Teamで利用可能です。上限はプラン差があるため、契約前に確認してください。",
+      "OpenAI公式ヘルプでは、SoraはChatGPT Plus / Pro / Teamで利用できます。生成上限や同時実行数はプランで変わるため、契約前に最新条件を確認してください（確認日: 2026-02-20）。",
   },
   {
     question: "Seedanceとは何ですか？",

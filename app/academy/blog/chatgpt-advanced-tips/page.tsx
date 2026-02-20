@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "ChatGPTを仕事で使いこなす実践テクニック集｜基本から応用まで50のTips | AIリブート";
 const pageDescription =
-  "ChatGPTを仕事で使いこなすための実践Tipsを50個厳選。文章作成・調査・分析・プレゼン・日常業務の5カテゴリで、コピペ可能なプロンプト例を掲載。GPT-4oとChatGPTの使い分け、APIとの違いも2026年2月時点で整理。";
+  "仕事でChatGPTを再現性高く使うために、文章作成・調査・分析・プレゼン・日常業務の50Tipsを収録。すぐ使えるプロンプト例、ChatGPTアプリ利用とAPI利用の違い、レビュー運用の作り方、誤回答を減らす確認手順まで2026年2月時点で整理しました。";
 const pageUrl = "https://ai-reboot.io/academy/blog/chatgpt-advanced-tips";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

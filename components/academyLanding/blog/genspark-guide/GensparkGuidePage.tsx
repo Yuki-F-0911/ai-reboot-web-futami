@@ -53,7 +53,6 @@ const summaryPoints = [
 const definitionPoints = [
   "公式サイトでは「AI Agent Engine」を掲げ、複数情報源の統合と回答生成を中核価値として説明しています。",
   "公式規約では、無料利用が可能である一方、日次クレジットや機能制限があることを明記しています。",
-  "OpenAIとAWSの公開事例では、2025年から2026年にかけて急成長した事例として紹介されています。",
 ] as const;
 
 const comparisonRows = [
@@ -212,7 +211,7 @@ export default function GensparkGuidePage({ faqItems }: GensparkGuidePageProps) 
           </h1>
           <div className="mt-4 flex items-center justify-between">
             <p className="text-sm text-gray-500">
-              <time dateTime="2026-02-19">2026年2月19日</time> 公開
+              <time dateTime="2026-02-20">2026年2月20日</time> 公開
             </p>
             <CopyAsMarkdownButton
               title="Gensparkとは？AI検索の新世代ツールを徹底解説｜Perplexityとの違いと使い分け"
@@ -236,6 +235,7 @@ export default function GensparkGuidePage({ faqItems }: GensparkGuidePageProps) 
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-xl font-bold text-blue-900">要点まとめ</h2>
+          <p className="mt-4 text-sm leading-7 text-blue-800">先に用途を決めて役割分担で使うと、GensparkとPerplexityの併用効果を出しやすくなります。</p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-blue-800">
             {summaryPoints.map((point) => (
               <li key={point} className="pl-1 marker:text-blue-500">
@@ -268,9 +268,6 @@ export default function GensparkGuidePage({ faqItems }: GensparkGuidePageProps) 
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-sm leading-7 text-gray-700">
-            なお、OpenAIとAWSの公式公開事例では、Gensparkは短期間でARRを伸ばしたケースとして紹介されています。成長指標は公表時点に依存するため、本文では「急成長トレンドの指標」として扱い、絶対比較には使わないのが安全です。
-          </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             情報整理型AIの運用を強化したい場合は、
             <Link
@@ -390,7 +387,7 @@ export default function GensparkGuidePage({ faqItems }: GensparkGuidePageProps) 
             無料利用は可能ですが、実務導入では制限条件と検証手順を先に決めることが不可欠です。
           </p>
           <p className="mt-2 text-xs text-gray-500">
-            確認日: 2026-02-19（Genspark公式Terms/Help、Perplexity公式Helpを参照）
+            確認日: 2026-02-20（Genspark公式Terms/Help、Perplexity公式Helpを参照）
           </p>
           <div className="mt-5 overflow-x-auto">
             <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -435,6 +432,9 @@ export default function GensparkGuidePage({ faqItems }: GensparkGuidePageProps) 
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
+            先に短い結論を確認し、無料枠・上限・規約の更新有無は運用開始前に公式ヘルプで再確認してください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -449,6 +449,7 @@ export default function GensparkGuidePage({ faqItems }: GensparkGuidePageProps) 
 
         <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
           <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <p className="mb-4 text-sm leading-7 text-gray-700">AI検索の比較と実務導入を深掘りしたい場合は、次の関連記事が有効です。</p>
           <ul className="space-y-2">
             <li>
               <Link
@@ -517,4 +518,3 @@ export default function GensparkGuidePage({ faqItems }: GensparkGuidePageProps) 
     </main>
   );
 }
-

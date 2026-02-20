@@ -43,8 +43,8 @@ const lineCtaBody =
 const summaryPoints = [
   "Manus AIは、質問応答だけでなくタスク実行まで進めるAIエージェントとして設計されています。",
   "ChatGPTが対話中心であるのに対し、Manusは「調べる・整理する・出力する」を連続処理しやすい点が実務上の差分です。",
-  "無料プランはありますが、クレジット消費を見ながら対象業務を絞る運用が必要です（確認日: 2026年2月19日）。",
-  "日本語は設定で利用でき、セキュリティ関連情報は公式ヘルプで公開されています。導入時は権限管理とログ監査を必ず併用します。",
+  "無料プランはありますが、クレジット消費を見ながら対象業務を絞る運用が必要です（確認日: 2026年2月20日）。",
+  "日本語での指示・出力は可能ですが、UI言語や利用可能機能は時期やアカウント条件で差があります。導入時は権限管理とログ監査を必ず併用します。",
 ] as const;
 
 const manusVsChatgptRows = [
@@ -219,15 +219,15 @@ export default function ManusAiGuidePage({ faqItems }: ManusAiGuidePageProps) {
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             Manus AIとは？使い方と活用シーン解説｜AIエージェントで仕事を自動化する
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            Manus AIは、チャットで回答を得るだけでなく、タスクの完了まで進めることを狙ったAIエージェントサービスです。2025年に注目が急上昇した背景には、
-            「質問して終わり」ではなく「作業を進める」体験への関心が高まったことがあります。
+            Manus AIは、チャットで回答を得るだけでなく、タスクの完了まで進めることを狙ったAIエージェントサービスです。要点は「質問して終わり」ではなく、
+            「作業を進める」工程まで扱えるかどうかにあります。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
             この記事では、まず「Manusとは何か」「ChatGPTと何が違うのか」を明確にし、その後でAIエージェントの考え方、使い方、業務での自動化シーンまで
             実務目線で整理します。料金・仕様・対応言語などの変動項目は
-            <span className="font-semibold text-gray-900">確認日: 2026年2月19日</span>
+            <span className="font-semibold text-gray-900">確認日: 2026年2月20日</span>
             を明記しています。
           </p>
         </motion.header>
@@ -276,7 +276,7 @@ export default function ManusAiGuidePage({ faqItems }: ManusAiGuidePageProps) {
             実行フローまで含めた運用に向いています。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
-            参考情報の確認日: 2026年2月19日（Manus公式サイト・Help Center・Docs）
+            参考情報の確認日: 2026年2月20日（Manus公式サイト・Help Center・Docs）
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[880px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -359,7 +359,7 @@ export default function ManusAiGuidePage({ faqItems }: ManusAiGuidePageProps) {
             使い方のコツは、最初から大きな自動化を狙わないことです。対象業務を1つに絞り、出力形式を固定して反復すると、短期間で運用の型を作れます。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
-            プラン・クレジット・言語設定などの仕様は更新されるため、必ず公式情報を再確認してください（確認日: 2026年2月19日）。
+            プラン・クレジット・言語設定などの仕様は更新されるため、必ず公式情報を再確認してください（確認日: 2026年2月20日）。
           </p>
           <div className="mt-7 space-y-4">
             {gettingStartedSteps.map((step) => (
@@ -467,6 +467,7 @@ export default function ManusAiGuidePage({ faqItems }: ManusAiGuidePageProps) {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-2xl font-bold text-gray-900">関連リンク</h2>
+          <p className="mt-4 text-sm leading-7 text-gray-700">基礎理解と実務運用をつなげるために、次の関連記事を順番に確認してください。</p>
           <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               <Link href="/academy/blog/what-is-ai-agent" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">

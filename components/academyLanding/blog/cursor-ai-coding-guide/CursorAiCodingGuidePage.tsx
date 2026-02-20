@@ -153,7 +153,7 @@ export default function CursorAiCodingGuidePage({ faqItems }: CursorAiCodingGuid
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             Cursor × AIコーディング入門｜非エンジニアでも使える実践ガイド
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             結論から言うと、コード経験が少ない人でもCursorを使えば、1日でLPや小さな業務ツールの初版は作れます。重要なのは、文法を覚えることよりも
             「何を作るか」「どこまでを完成とするか」を先に決めることです。この記事では、Cursorの基本、インストール、AIと対話しながら形にする手順、実例、他ツールとの違いまでを実務目線で整理します。
@@ -172,6 +172,7 @@ export default function CursorAiCodingGuidePage({ faqItems }: CursorAiCodingGuid
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">要点まとめ</h2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">結論は、技術知識より作業設計が成果を左右することです。目的を固定して小さく反復してください。</p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               Cursorは「AIに相談しながらコードを作る」体験に特化したエディタで、非エンジニアでも実装の入口に立ちやすい。
@@ -551,6 +552,9 @@ export default function CursorAiCodingGuidePage({ faqItems }: CursorAiCodingGuid
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
+            導入前につまずきやすい論点を先に確認すると、初回の実装速度と品質が安定します。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -563,6 +567,7 @@ export default function CursorAiCodingGuidePage({ faqItems }: CursorAiCodingGuid
 
         <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
           <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事（内部リンク）</h2>
+          <p className="mb-4 text-sm leading-7 text-gray-700">実装手順を深掘りしたい場合は、次の内部記事を順に確認してください。</p>
           <ul className="space-y-2">
             <li>
               <Link href="/academy/blog/ai-coding-for-beginners" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">

@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "Cursor × AIコーディング入門｜非エンジニアでも使える実践ガイド | AIリブート";
 const pageDescription =
-  "Cursorの使い方を非エンジニア向けに解説。Cursorとは何か、インストール手順、AIと対話しながらLPを作る実践ステップ、GitHub Copilotとの違い、よくある質問まで1本で整理しました。";
+  "Cursorを非エンジニアが実務で使うために、初回セットアップ、AI対話でLPを作る進め方、GitHub Copilotとの使い分け、失敗しやすいポイントと回避策、公開前レビュー観点、7日運用プランと実務チェック表まで具体例つきで解説する実践ガイドです。";
 const pageUrl = "https://ai-reboot.io/academy/blog/cursor-ai-coding-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {

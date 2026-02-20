@@ -4,22 +4,22 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "Sunoで音楽を作る方法入門｜プロンプトから楽曲生成・ビジネス活用まで | AIリブート";
 const pageDescription =
-  "Sunoの使い方を初心者向けに解説。無料プランの始め方、ジャンル・テンポ・ムード・楽器を指定するプロンプト設計、商用利用と著作権の注意点、YouTube・SNS・プレゼンでの活用方法まで確認日付きで整理します。";
+  "SunoでBGM制作を始める人向けに、無料枠での検証手順、プロンプト設計、商用利用と権利確認の要点、YouTube・SNS・プレゼン活用、プラン別の運用注意点、制作ログ管理の基本と配信前チェック項目まで2026年2月時点の公式情報を基に整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/suno-ai-music-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T23:10:00+09:00";
-const modifiedTime = "2026-02-19T23:10:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {
     question: "Sunoの無料プランでは何曲くらい作れますか？",
     answer:
-      "Sunoヘルプ（確認日: 2026-02-19）では、無料（Basic）プランは1日50クレジットが補充され、目安として1日10曲を作れる案内です。クレジット仕様は更新されるため、利用前に最新情報を確認してください。",
+      "Sunoヘルプ（確認日: 2026-02-20）では、無料（Basic）プランは1日50クレジットが補充され、目安として1日10曲を作れる案内です。クレジット仕様は更新されるため、利用前に最新情報を確認してください。",
   },
   {
     question: "Suno無料プランで作った曲をYouTubeで収益化できますか？",
     answer:
-      "できません。Sunoヘルプでは、無料（Basic）プランで作成した曲は非商用利用のみとされています。YouTube収益化や配信収益を前提にする場合は、作成時点でProまたはPremierの契約が必要です（確認日: 2026-02-19）。",
+      "できません。Sunoヘルプでは、無料（Basic）プランで作成した曲は非商用利用のみとされています。YouTube収益化や配信収益を前提にする場合は、作成時点でProまたはPremierの契約が必要です（確認日: 2026-02-20）。",
   },
   {
     question: "Pro/Premierで作った曲は解約後も商用利用できますか？",
@@ -29,7 +29,7 @@ const faqItems = [
   {
     question: "Sunoで作った曲の著作権はどうなりますか？",
     answer:
-      "Sunoヘルプでは、無料プラン作成曲はSunoが所有、Pro/Premier作成曲はユーザーが所有と案内されています。一方で、AI生成物は国・地域によっては著作権保護の対象外となる可能性がある旨も明記されているため、商用前提では配信先規約も併せて確認してください（確認日: 2026-02-19）。",
+      "Sunoヘルプでは、無料プラン作成曲はSunoが所有、Pro/Premier作成曲はユーザーが所有と案内されています。一方で、AI生成物は国・地域によっては著作権保護の対象外となる可能性がある旨も明記されているため、商用前提では配信先規約も併せて確認してください（確認日: 2026-02-20）。",
   },
   {
     question: "自分で書いた歌詞の権利はSuno利用時も自分に残りますか？",

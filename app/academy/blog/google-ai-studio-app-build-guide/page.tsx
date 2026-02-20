@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "Google AI StudioのApp Build機能とは？アプリ作成の始め方と活用法 | AIリブート";
 const pageDescription =
-  "Google AI StudioのApp Build機能に特化し、準備から作成手順、業務アプリ3パターン（FAQ Bot・プロンプト整形・データ要約）の作り方、ノーコード運用の限界まで実務目線で解説します。";
+  "Google AI StudioのBuild mode（App Build）で試作アプリを作る手順を、準備チェック・8ステップ実装・業務活用3パターン・ノーコード運用の限界に加え、導入前チェックと失敗時の見直し手順まで2026年2月時点の情報で整理した実践ガイドです。";
 const pageUrl = "https://ai-reboot.io/academy/blog/google-ai-studio-app-build-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {
@@ -19,7 +19,7 @@ const faqItems = [
   {
     question: "Google AI Studio App Buildは無料で使えますか？",
     answer:
-      "Google AI Studioは無料で試せる設計ですが、利用するモデル、APIキーの運用方法、関連するGoogle Cloud設定によって課金が発生する場合があります。最新条件は公式のPricing/Billing情報を確認してください（確認日: 2026-02-19）。",
+      "Google AI Studioは無料で試せる設計ですが、利用するモデル、APIキーの運用方法、関連するGoogle Cloud設定によって課金が発生する場合があります。最新条件は公式のPricing/Billing情報を確認してください（確認日: 2026-02-20）。",
   },
   {
     question: "コードを書かずにアプリを作れますか？",

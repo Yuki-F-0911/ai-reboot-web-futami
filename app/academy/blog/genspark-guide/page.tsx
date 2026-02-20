@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "Gensparkとは？AI検索の新世代ツールを徹底解説｜Perplexityとの違いと使い分け | AIリブート";
 const pageDescription =
-  "Gensparkとは何かを冒頭で明確化し、Perplexityとの違いを比較表で解説。ビジネス情報収集シーン別の使い方、無料利用可否、日本語対応まで確認日付きで整理します。";
+  "Gensparkの使いどころを知りたい人向けに、Perplexityとの違い、情報収集での使い分け、引用確認を含む実務フロー、無料枠と日本語運用の注意点、社内導入時の確認ポイント、比較表テンプレート活用まで2026年2月時点の情報で整理したガイドです。";
 const pageUrl = "https://ai-reboot.io/academy/blog/genspark-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T12:00:00+09:00";
-const modifiedTime = "2026-02-19T12:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {
@@ -24,7 +24,7 @@ const faqItems = [
   {
     question: "Gensparkは無料で使えますか？",
     answer:
-      "無料で開始できます。公式規約とヘルプでは、無料利用には機能制限や日次クレジット制限があると明示されています。最新条件は公式ページで確認してください（確認日: 2026-02-19）。",
+      "無料で開始できます。公式規約とヘルプでは、無料利用には機能制限や日次クレジット制限があると明示されています。最新条件は公式ページで確認してください（確認日: 2026-02-20）。",
   },
   {
     question: "Gensparkは日本語でも使えますか？",
@@ -106,4 +106,3 @@ export default function GensparkGuideRoute() {
     </>
   );
 }
-

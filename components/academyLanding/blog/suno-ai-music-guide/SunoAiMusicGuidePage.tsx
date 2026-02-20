@@ -41,7 +41,7 @@ const tocItems = [
 
 const freeStartSteps = [
   "Sunoアカウントを作成し、ダッシュボードを開く。",
-  "無料（Basic）プランで1日50クレジットが付与されることを確認する（確認日: 2026-02-19）。",
+  "無料（Basic）プランで1日50クレジットが付与されることを確認する（確認日: 2026-02-20）。",
   "最初は15〜30秒程度の短尺BGMを3パターン生成して、好みの方向を決める。",
   "公開用途がある場合は、無料生成曲を本番で使わず、検証専用として扱う。",
   "収益化する曲は、ProまたはPremier契約中に作成して作成ログを残す。",
@@ -184,14 +184,14 @@ export default function SunoAiMusicGuidePage({ faqItems }: SunoAiMusicGuidePageP
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             Sunoで音楽を作る方法入門｜プロンプトから楽曲生成・ビジネス活用まで
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            「動画・SNS・プレゼン用のBGMを著作権で迷わず用意したい」という人にとって、Sunoは短時間で音楽を試作できる選択肢です。
-            ただし、無料プランと有料プランで商用利用条件が大きく違うため、生成前に運用ルールを決める必要があります。
+            結論として、Sunoは動画・SNS・プレゼン用BGMを短時間で試作したい人に向いています。ただし、無料プランと有料プランで商用利用条件が大きく違うため、
+            生成前に運用ルールを決める必要があります。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-600">
             本記事では、Sunoの始め方、プロンプトの書き方、商用利用・著作権の整理、実務導入手順を
-            <strong className="font-semibold text-gray-900">2026年2月19日時点の公式情報</strong>
+            <strong className="font-semibold text-gray-900">2026年2月20日時点の公式情報</strong>
             を基準にまとめています。
           </p>
         </motion.header>
@@ -208,6 +208,7 @@ export default function SunoAiMusicGuidePage({ faqItems }: SunoAiMusicGuidePageP
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">要点まとめ</h2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">先に商用可否の境界を決め、無料枠は検証に限定すると後工程の権利トラブルを避けやすくなります。</p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
               Suno無料（Basic）プランは1日50クレジットで、目安10曲/日の試作が可能です。
@@ -240,7 +241,7 @@ export default function SunoAiMusicGuidePage({ faqItems }: SunoAiMusicGuidePageP
             結論として、Sunoは無料で曲調検証を行い、商用公開する曲だけを有料契約中に作る運用が最も合理的です。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
-            Suno公式Pricing/Help（確認日: 2026-02-19）では、Basicは1日50クレジットの無料枠、Pro/Premierは商用利用向けの契約として整理されています。
+            Suno公式Pricing/Help（確認日: 2026-02-20）では、Basicは1日50クレジットの無料枠、Pro/Premierは商用利用向けの契約として整理されています。
             ここを分けずに運用すると、公開直前に権利要件で詰まるケースが増えます。
           </p>
           <h3 className="mt-7 text-xl font-semibold text-gray-900">無料プランで始める5ステップ</h3>
@@ -297,7 +298,7 @@ export default function SunoAiMusicGuidePage({ faqItems }: SunoAiMusicGuidePageP
             </ul>
           </div>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            Suno公式のPromptingガイド（確認日: 2026-02-19）でも、ジャンル指定とスタイル記述、必要に応じたInstrumental指定が推奨されています。
+            Suno公式のPromptingガイド（確認日: 2026-02-20）でも、ジャンル指定とスタイル記述、必要に応じたInstrumental指定が推奨されています。
             BGM用途では、歌詞生成より先に「Instrumental」を前提に書く方が編集工程を安定させやすくなります。
           </p>
 
@@ -337,14 +338,14 @@ export default function SunoAiMusicGuidePage({ faqItems }: SunoAiMusicGuidePageP
             結論として、Sunoでは「どのプランで、いつ作った曲か」が商用可否の判断軸です。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
-            Suno公式Help/Terms（確認日: 2026-02-19）に基づく実務整理は次の通りです。なお、法制度は国ごとに異なるため、最終判断は配信先規約と法務確認を前提にしてください。
+            Suno公式Help/Terms（確認日: 2026-02-20）に基づく実務整理は次の通りです。なお、法制度は国ごとに異なるため、最終判断は配信先規約と法務確認を前提にしてください。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
                 <tr className="border-b border-gray-300">
                   <th className="px-4 py-3 font-semibold text-gray-900">論点</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">公式整理（2026-02-19確認）</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">公式整理（2026-02-20確認）</th>
                   <th className="px-4 py-3 font-semibold text-gray-900">実務対応</th>
                 </tr>
               </thead>
@@ -439,6 +440,9 @@ export default function SunoAiMusicGuidePage({ faqItems }: SunoAiMusicGuidePageP
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
+            まず結論を確認し、商用利用・著作権・プラン条件は制作前に公式ヘルプの最新情報で再確認してください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
@@ -454,6 +458,7 @@ export default function SunoAiMusicGuidePage({ faqItems }: SunoAiMusicGuidePageP
 
         <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
           <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <p className="mb-4 text-sm leading-7 text-gray-700">映像制作や配信導線まで含めて設計する場合は、次の記事を併読してください。</p>
           <ul className="space-y-2">
             <li>
               <Link

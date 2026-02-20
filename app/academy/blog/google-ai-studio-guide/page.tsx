@@ -4,11 +4,11 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "Google AI Studio使い方完全ガイド｜Geminiモデルをすぐ試せるAI開発環境 | AIリブート";
 const pageDescription =
-  "Google AI Studioとは何か、GeminiアプリやChatGPTとの違い、無料で始める10ステップ、プロンプトテスト・画像入力・会話テストの実務的な使い方までを非エンジニア向けに整理した入門ガイドです。";
+  "Google AI Studioの始め方を最短で把握したい人向けに、Geminiアプリ・ChatGPTとの違い、無料で試す10ステップ、プロンプト検証と画像入力テストの進め方、非エンジニアが導入前に確認すべき料金・上限・運用ポイントを2026年2月時点の公式情報ベースで解説します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/google-ai-studio-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-19T09:00:00+09:00";
+const modifiedTime = "2026-02-20";
 
 const faqItems = [
   {
@@ -19,7 +19,7 @@ const faqItems = [
   {
     question: "Google AI Studioは無料で使えますか？",
     answer:
-      "公式のGemini APIドキュメントではFree tierとPaid tierが案内されており、Google AI Studioは無料で試せる設計です。ただし、AI Studio内で有料APIキーを紐づけて利用する場合は課金対象になり得るため、最新条件を必ず確認してください（確認日: 2026-02-19）。",
+      "公式のGemini APIドキュメントではFree tierとPaid tierが案内されており、Google AI Studioは無料で試せる設計です。ただし、AI Studio内で有料APIキーを紐づけて利用する場合は課金対象になり得るため、最新条件を必ず確認してください（確認日: 2026-02-20）。",
   },
   {
     question: "Google AI Studioは日本語で使えますか？",

@@ -325,7 +325,7 @@ export default function GoogleAiStudioAppBuildGuidePage({ faqItems }: GoogleAiSt
           </h1>
           <div className="mt-4 flex items-center justify-between">
             <p className="text-sm text-gray-500">
-              <time dateTime="2026-02-19">2026年2月19日</time> 公開
+              <time dateTime="2026-02-20">2026年2月20日</time> 公開
             </p>
             <CopyAsMarkdownButton
               title="Google AI StudioのApp Build機能とは？アプリ作成の始め方と活用法"
@@ -333,7 +333,7 @@ export default function GoogleAiStudioAppBuildGuidePage({ faqItems }: GoogleAiSt
             />
           </div>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            この記事の対象読者：App Build機能で実際にアプリを作りたい人向け。全体像は
+            結論として、Build mode（App Build）は「短期間で試作を回し、要件を詰める」工程に向いています。この記事は実際にアプリを作りたい人向けで、全体像は
             <Link
               href="/academy/blog/google-ai-studio-guide"
               className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
@@ -343,7 +343,7 @@ export default function GoogleAiStudioAppBuildGuidePage({ faqItems }: GoogleAiSt
             へ。本記事ではApp Build機能のみに絞って、準備、作成手順、業務活用パターン、運用時の限界までを実務目線で解説します。
           </p>
           <p className="mt-3 text-sm leading-7 text-gray-600">
-            ※仕様・料金・利用条件は変動します。本文内の公式情報確認日は 2026-02-19 です。
+            ※仕様・料金・利用条件は変動します。本文内の公式情報確認日は 2026-02-20 です。
           </p>
         </motion.header>
 
@@ -359,6 +359,7 @@ export default function GoogleAiStudioAppBuildGuidePage({ faqItems }: GoogleAiSt
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-xl font-bold text-blue-900">要点まとめ</h2>
+          <p className="mt-4 text-sm leading-7 text-blue-800">Build modeは「短く試作して検証する」運用で効果が出ます。先に準備条件を固定するのが近道です。</p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-blue-800">
             {summaryPoints.map((point) => (
               <li key={point} className="pl-1 marker:text-blue-500">
@@ -597,7 +598,7 @@ export default function GoogleAiStudioAppBuildGuidePage({ faqItems }: GoogleAiSt
               </li>
             ))}
           </ol>
-          <h3 className="mt-8 text-xl font-semibold text-gray-900">公式情報（確認日: 2026-02-19）</h3>
+          <h3 className="mt-8 text-xl font-semibold text-gray-900">公式情報（確認日: 2026-02-20）</h3>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {sourceLinks.map((source) => (
               <li key={source.href} className="pl-1 marker:text-gray-500">
@@ -653,6 +654,9 @@ export default function GoogleAiStudioAppBuildGuidePage({ faqItems }: GoogleAiSt
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
+            よくある疑問を先に短く整理します。料金・提供条件・機能範囲は公式ドキュメントで最終確認してください。
+          </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
               <div key={item.question} className="py-5">
