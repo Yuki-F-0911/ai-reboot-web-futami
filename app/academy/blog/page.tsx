@@ -31,6 +31,13 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "gpt-vs-claude-2026",
+    title: "ChatGPTとClaude比較 2026年版｜GPT-5.2 vs Claude 3.7 Sonnetの選び方",
+    summary:
+      "ChatGPT（GPT-5.2）とClaude 3.7 Sonnetを、文章・コード・分析・翻訳・創作の用途別に比較。無料/有料プラン、API単価、コンテキスト窓の差と、どっちを選ぶかの判断チャートまで整理した最新版ガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "ai-transcription-guide",
     title:
       "AI文字起こしアプリ比較2026｜Notta・Clova Note後継・Whisper・Otter・Google Recorderの選び方",
