@@ -43,6 +43,7 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "2026年時点のAIスマホアプリ20選をカテゴリ別で比較。iPhone/Androidの差、完全無料TOP5、課金判断、日本語対応が強いアプリまで初心者向けに整理したガイドです。",
     category: "最新AIツール",
+    thumbnail: "/images/ogp-default.webp",
   },
   {
     slug: "ai-transcription-guide",
@@ -214,6 +215,7 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "AIスライド自動生成ツールを2026年基準で比較。Gamma無料手順、Beautiful.ai・PowerPoint Copilot・Google Slides AIの違い、時短のための手動微調整ポイントまで整理した実務ガイドです。",
     category: "実務活用",
+    thumbnail: "/images/blog/ai-slide-creation/slide-01.png",
   },
   {
     slug: "ai-business-efficiency-cases",
