@@ -8,7 +8,7 @@ export default function WebtoonBannerSection() {
     <section
       className="mt-10 rounded-2xl border p-5 sm:p-7"
       style={{
-        background: `linear-gradient(135deg, ${ACADEMY_COLORS.accentSoft} 0%, #fff7e6 52%, #fffdf8 100%)`,
+        background: `linear-gradient(135deg, ${ACADEMY_COLORS.bgSection} 0%, ${ACADEMY_COLORS.bgPanel} 55%, #fff7e6 100%)`,
         borderColor: "#f3cfac",
       }}
     >
@@ -17,8 +17,8 @@ export default function WebtoonBannerSection() {
       </div>
 
       <div className="grid gap-5 md:grid-cols-[1.2fr_1fr] md:items-center">
-        <div className="rounded-2xl border border-[#f1be8f] bg-white/85 p-4 sm:p-5">
-          <p className="rounded-2xl border border-[#f4d5b8] bg-white px-4 py-3 text-sm leading-7 sm:text-base" style={{ color: ACADEMY_COLORS.textStrong }}>
+        <div className="rounded-2xl border border-[#f1be8f] p-4 sm:p-5" style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}>
+          <p className="rounded-2xl border border-[#f4d5b8] px-4 py-3 text-sm leading-7 sm:text-base" style={{ color: ACADEMY_COLORS.textStrong, backgroundColor: ACADEMY_COLORS.bgPanel }}>
             「AIって結局、自分には関係ない話？」
           </p>
           <p className="mt-3 rounded-2xl border border-[#f0c090] bg-[#fff4e9] px-4 py-3 text-sm font-bold leading-7 sm:text-base" style={{ color: ACADEMY_COLORS.accentDeep }}>
