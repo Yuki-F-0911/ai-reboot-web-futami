@@ -31,6 +31,20 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "mcp-tool-integration-guide",
+    title: "MCP使い方実践ガイド｜Claude Desktop・Claude CodeでNotion/GitHub/Slack連携【2026年版】",
+    summary:
+      "MCPの実践運用を2026年2月20日時点で解説。Claude Desktop/Codeの設定手順、公式MCPサーバーの使い道、Notion・GitHub・Slack連携、自作サーバー最小実装、トラブルシューティングまで中級者向けに整理した記事です。",
+    category: "実務活用",
+  },
+  {
+    slug: "ai-music-generation-2026",
+    title: "AI音楽生成ツール比較2026｜Suno最新版・Udio・Mureka V8の違いと選び方",
+    summary:
+      "2026年2月時点でSuno最新版・Udio・Mureka V8を比較。音質、スタイル幅、歌詞対応、日本語対応、商用利用条件、料金の差を整理し、BGM・ポップス・ボカロ風・プロ品質の用途別に選び方を解説した実務ガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "ai-coding-tool-comparison-2026",
     title: "AIコーディングツール比較 2026年版｜Cursor・Claude Code・GitHub Copilotの選び方",
     summary:
