@@ -185,6 +185,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "実務活用",
   },
   {
+    slug: "ai-real-estate-guide",
+    title: "AI不動産活用ガイド2026｜査定・物件探し・業務効率化・投資分析の実践ポイント",
+    summary:
+      "不動産業界でのAI活用を、査定・物件マッチング・書類作成・投資分析まで体系化。消費者向けAI査定サービスの使い方、不動産会社の業務効率化、精度限界と補正ルールを実務目線で解説します。",
+    category: "実務活用",
+  },
+  {
     slug: "what-is-rag",
     title: "RAG（検索拡張生成）とは？仕組み・メリット・活用事例をわかりやすく解説",
     summary:
@@ -236,6 +243,13 @@ const blogPosts: readonly BlogPost[] = [
     title: "AI×勉強・資格・語学学習完全ガイド｜ChatGPTで最短合格する方法",
     summary:
       "独学で続かない社会人向けに、資格勉強の問題集生成、語学の会話練習、スキルアップの学習計画作成を1本で実践できるAI活用法を解説します。",
+    category: "資格・スキル",
+  },
+  {
+    slug: "ai-english-learning-guide",
+    title: "AI英語学習ガイド2026｜ChatGPT英会話・アプリ比較・継続設計",
+    summary:
+      "ChatGPT/Gemini英会話のプロンプト実践、Duolingo Max・ELSA Speak・Speak比較、ビジネス英語への落とし込み、30日継続設計まで社会人向けに整理した実践ガイドです。",
     category: "資格・スキル",
   },
   {
@@ -505,6 +519,13 @@ const blogPosts: readonly BlogPost[] = [
       "Gemini for Google Workspaceのプラン差、Gmail・Docs・Sheets・Meetの活用、導入コストとROI、Copilot比較、日本語環境での評価手順を法人向けに整理した実務ガイドです。",
     category: "法人向け",
     thumbnail: "/images/blog/gemini-workspace-guide/slide-01.png",
+  },
+  {
+    slug: "gemini-3-practical-guide",
+    title: "Gemini 3.1 Proの使い方実務ガイド｜3.0との違い・料金・Workspace連携・GPT-5.2比較",
+    summary:
+      "Gemini 3.1 Proと3.0 Proの機能差・料金差、Workspace連携の現状、マルチモーダル対応範囲、ChatGPT GPT-5.2との使い分けを公式情報ベースで整理した実務ガイドです。",
+    category: "最新AIツール",
   },
   {
     slug: "ollama-local-llm-guide",
