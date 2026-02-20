@@ -507,6 +507,13 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/gemini-workspace-guide/slide-01.png",
   },
   {
+    slug: "ollama-local-llm-guide",
+    title: "Ollamaで始めるローカルLLM実務ガイド｜導入手順・モデル選定・安全運用【2026年版】",
+    summary:
+      "Ollamaの導入手順、モデルサイズと量子化タグの見方、公開設定とログ管理の運用ポイント、ローカル単独運用とCloud/API併用の判断基準を整理した実務ガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "ai-notion-guide",
     title: "Notion AIの使い方完全ガイド｜料金・実務活用・連携術【2026年版】",
     summary:
