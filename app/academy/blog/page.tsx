@@ -87,6 +87,7 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "プロンプト改善だけでは品質が安定しない理由と、役割設定・背景情報・制約条件・出力形式の4要素でAI指示の再現性を上げる実践手順をまとめた記事です。",
     category: "AI基礎知識",
+    thumbnail: "/images/blog/context-engineering-guide/slide-1.png",
   },
   {
     slug: "what-is-ai-agent",
@@ -109,7 +110,7 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "Difyの定義・料金・インストール方法から、社内FAQボット作成の5ステップ、業種別5事例、失敗しない3つのポイントまでを解説。Difyスターターテンプレ（5ユースケース）配布中。",
     category: "実務活用",
-    thumbnail: "/images/blog/dify-beginner-guide/slide-01.png",
+    thumbnail: "/images/blog/dify-beginner-guide/slide-1.png",
   },
   {
     slug: "ai-customer-support-guide",
