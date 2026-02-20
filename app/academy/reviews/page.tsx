@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import ReviewsPage from "@/components/academyLanding/reviews/ReviewsPage";
 import { FAQStructuredData } from "@/components/seo/StructuredData";
 
+export const dynamic = "force-dynamic";
+
 const academyReviewsTitle =
   "AIリブートアカデミー 評判・口コミ｜受講生の声と受講後の変化";
 const academyReviewsDescription =
