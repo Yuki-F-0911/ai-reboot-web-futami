@@ -84,6 +84,13 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/workflow-automation-comparison/slide-01.png",
   },
   {
+    slug: "n8n-beginner-guide",
+    title: "n8n入門ガイド｜初心者が業務自動化を最初の1本から実装する手順【2026年版】",
+    summary:
+      "n8nとは何か、最初のワークフローを作る3ステップ、Cloudとセルフホストの判断軸、止まらない運用設計までを初心者向けに整理した実践ガイドです。",
+    category: "実務活用",
+  },
+  {
     slug: "power-automate-ai-guide",
     title: "Power Automate × 生成AI活用｜Microsoft環境の現場自動化レシピ集",
     summary:
