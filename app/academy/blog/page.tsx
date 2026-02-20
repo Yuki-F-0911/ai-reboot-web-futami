@@ -251,6 +251,13 @@ const blogPosts: readonly BlogPost[] = [
     thumbnail: "/images/blog/how-to-learn-generative-ai/slide-1.png",
   },
   {
+    slug: "generative-ai-skills-checklist",
+    title: "生成AIスキルを身につける5段階チェックリスト【2026年版】",
+    summary:
+      "あなたは今どのレベルかを診断し、入門〜プロの5段階で次に伸ばすべきスキルと練習方法を整理した社会人向けチェックリスト記事です。",
+    category: "資格・スキル",
+  },
+  {
     slug: "ai-for-non-engineers",
     title: "文系・非エンジニアのAI活用ガイド",
     summary: "AIが怖いと感じる理由を整理し、プログラミング不要で始める学習と実務活用の進め方を解説します。",
