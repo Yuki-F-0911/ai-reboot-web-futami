@@ -31,6 +31,13 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "gemini-deep-think-guide",
+    title: "Gemini Deep Think使い方ガイド｜ARC-AGI-2・Codeforces・AI Ultra料金・推論AI比較",
+    summary:
+      "Gemini 3 Deep Thinkを2026年2月時点で解説。公開日と提供条件、ARC-AGI-2/Codeforcesの読み方、Gemini 1.5/2.0との使い分け、Google AI Ultraの料金、Claude Opus 4.6・GPT-5.2比較まで整理した実務ガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "openai-deep-research-guide",
     title: "OpenAI Deep Research使い方ガイド｜市場調査・競合分析の実務手順【2026年版】",
     summary:
@@ -751,6 +758,13 @@ const blogPosts: readonly BlogPost[] = [
       "Kling・Runway・Seedance・Soraを品質・速度・価格・日本語対応・商用利用の5軸で比較し、SNS動画・プレゼン・副業・個人制作の用途別選び方と無料で始める手順を整理した記事です。",
     category: "最新AIツール",
     thumbnail: "/images/blog/ai-video-generation-comparison/slide-01.png",
+  },
+  {
+    slug: "kling-ai-guide",
+    title: "Kling AI使い方ガイド2026｜登録・動画生成・料金・商用利用を解説",
+    summary:
+      "Kling AIの登録から初回動画生成、Text to VideoとImage to Videoの使い分け、無料枠と料金、Runway Gen-3・Sora比較、商用利用時の確認ポイントまでを確認日付きで整理した実践ガイドです。",
+    category: "最新AIツール",
   },
   {
     slug: "suno-ai-music-guide",
