@@ -31,11 +31,39 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "openai-o3-o4mini-guide",
+    title: "OpenAI o3/o4-mini使い方ガイド｜推論モデルの実務選定と料金判断【2026年版】",
+    summary:
+      "OpenAI o3/o4-miniの違いを2026年2月時点で整理。推論モデルを選ぶ理由、GPT-4oやGPT-5系との役割分担、o3 API運用、料金の判断基準、実務向け選定チャートまで中級者向けに解説したガイドです。",
+    category: "実務活用",
+  },
+  {
     slug: "aireboot-academy-reviews",
     title: "AIリブートアカデミーの評判・口コミは実際どう？受講前に確認すべきポイントを正直解説",
     summary:
       "AIリブートアカデミーの評判・口コミを、公式公開の第一期コメントと講座情報をもとに整理。向いている人・向いていない人、受講後の変化、受講前に確認すべき懸念点まで最終判断用にまとめた記事です。",
     category: "キャリア・転職",
+  },
+  {
+    slug: "make-automation-guide",
+    title: "Make.com×生成AI自動化ガイド｜最初の1本を実装する手順【2026年版】",
+    summary:
+      "Make.comの使い方を比較ではなく実装手順に特化して解説。シナリオ設計、Webhook受信、生成AI処理、通知、失敗時の復旧まで、最初の1本を動かす流れを整理した実務ガイドです。",
+    category: "実務活用",
+  },
+  {
+    slug: "llm-cost-optimization-guide",
+    title: "LLM APIコスト最適化ガイド｜トークン節約・モデル選定・キャッシュ設計【2026年版】",
+    summary:
+      "LLM API費用を運用面から最適化する実践ガイド。トークン節約、モデルルーティング、キャッシュ、監視指標を分解し、ChatGPT APIを含む日常運用での費用削減手順を解説します。",
+    category: "実務活用",
+  },
+  {
+    slug: "perplexity-pages-guide",
+    title: "Perplexity Pages使い方ガイド｜公開・共有・SEO活用の実務手順【2026年版】",
+    summary:
+      "Perplexity Pagesに特化し、公開設定、共同編集、更新運用、SEOを意識した見出し設計までを実務目線で整理。一般的な検索AI解説ではなく、共有可能な調査ページ作成に焦点を当てた記事です。",
+    category: "実務活用",
   },
   {
     slug: "flux-image-generation-guide",
