@@ -31,6 +31,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-transcription-guide",
+    title:
+      "AI文字起こしアプリ比較2026｜Notta・Clova Note後継・Whisper・Otter・Google Recorderの選び方",
+    summary:
+      "AI文字起こしアプリを2026年基準で比較。Notta・LINE WORKS AiNote（旧Clova Note後継）・Whisper・Otter.ai・Google Recorderの料金、無料枠、日本語精度、会議連携を整理した実務ガイドです。",
+    category: "実務活用",
+    thumbnail: "/images/blog/ai-transcription-guide/slide-01.png",
+  },
+  {
     slug: "what-is-generative-ai",
     title: "生成AIとは？初心者向けにわかりやすく解説",
     summary: "生成AIの定義、主要ツールの違い、最初の使い方を非技術者向けに整理した入門記事です。",
@@ -678,6 +687,13 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "Asana AI・Linear・Notion Projects・Jira AIを対応プラン、価格、優先順位付け・進捗予測・リスク検出の観点で比較。スタートアップと大企業の選定軸、導入定着の実践ポイントまで整理した法人向けガイドです。",
     category: "法人向け",
+  },
+  {
+    slug: "canva-ai-guide",
+    title: "Canva AI（Magic Studio）使い方ガイド2026｜無料版・Proの違いと実務活用",
+    summary:
+      "Magic Write・Magic Design・Text to Image・背景削除の実践手順を、SNS投稿・プレゼン・チラシ制作の用途別に整理。無料版とProの違い、商用利用の注意点、Adobe Express・Microsoft Designer比較までまとめた実務ガイドです。",
+    category: "実務活用",
   },
   {
     slug: "ai-document-ocr-guide",
