@@ -38,6 +38,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "実務活用",
   },
   {
+    slug: "elevenlabs-guide",
+    title: "ElevenLabs使い方ガイド2026｜料金・音声クローン・日本語対応を解説",
+    summary:
+      "ElevenLabsの始め方を、登録から初回音声生成、音声クローン、活用事例、日本語発音の実態、Free/Starter/Creator/Pro比較、VOICEVOX・NijiVoice・CoeFontとの違い、商用利用の注意点まで整理した実務ガイドです。",
+    category: "最新AIツール",
+  },
+  {
     slug: "ai-writing-tool",
     title: "AI文章作成ツール比較2026｜ChatGPT・Claude・Jasper・Copy.ai・Notion AIの選び方",
     summary:
@@ -185,6 +192,14 @@ const blogPosts: readonly BlogPost[] = [
       "AIコーディングの基本、代表ツール、非エンジニアができること、始め方5ステップとプロンプト例、注意点までを整理した入門ガイドです。",
     category: "AI基礎知識",
     thumbnail: "/images/blog/ai-coding-for-beginners/slide-1.png",
+  },
+  {
+    slug: "vibe-coding-beginner-guide",
+    title: "Vibe Coding入門｜非エンジニアがAIでWebアプリを作る手順とツール比較【2026年版】",
+    summary:
+      "Vibe Codingの定義、従来開発/ノーコードとの違い、Cursor・Claude Code・v0・Replit・Bolt.newの使い分け、非エンジニア向け実装手順、限界とセキュリティ注意点を整理した入門ガイドです。",
+    category: "AI基礎知識",
+    thumbnail: "/images/blog/vibe-coding-beginner-guide/slide-01.png",
   },
   {
     slug: "cursor-ai-coding-guide",
