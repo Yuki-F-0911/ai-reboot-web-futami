@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
@@ -234,6 +235,16 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
             本記事では、Difyとは何かという基礎から、料金・プランの選び方、社内FAQボット作成の5ステップ、業種別5つの活用事例、
             失敗しないための3つのポイントまでを一気通貫で解説します。
           </p>
+
+          <figure className="my-8">
+            <Image
+              src="/images/blog/dify-beginner-guide/slide-1.png"
+              alt="Dify初心者向けガイドの全体像"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.header>
 
         <ArticleTOC items={tocItems} />
@@ -313,10 +324,31 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
             ベクトルDBの構築やLangChainコードの記述は不要です。
           </p>
 
+          <figure className="my-8">
+            <Image
+              src="/images/blog/dify-beginner-guide/slide-2.png"
+              alt="Difyの特徴とRAG機能の概要"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
+
           <h3 className="mt-8 text-lg font-semibold text-gray-900">Dify vs 類似ツール 比較表</h3>
           <p className="mt-3 text-sm leading-7 text-gray-700">
             「どのツールを選ぶべきか？」は多くの現場で最初の迷いどころです。用途ごとの選択基準を比較表で整理します。
           </p>
+
+          <figure className="my-8">
+            <Image
+              src="/images/blog/dify-beginner-guide/slide-3.png"
+              alt="Difyと類似ツールの比較イメージ"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
+
           <div className="mt-5 overflow-x-auto">
             <table className="w-full border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -387,12 +419,33 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
             本番運用や機密情報を扱うならセルフホスト版が基本の判断軸です。
           </p>
 
+          <figure className="my-8">
+            <Image
+              src="/images/blog/dify-beginner-guide/slide-4.png"
+              alt="Difyの料金プランと導入パターン"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
+
           <h3 className="mt-8 text-lg font-semibold text-gray-900">クラウド版のプラン概要</h3>
           <p className="mt-3 text-sm leading-7 text-gray-700">
             クラウド版（<span className="font-semibold text-gray-900">dify.ai</span>）はアカウント作成だけで即日利用を開始できます。
             プランはSandbox（無料）・Professional・Teamの3段階が用意されており、上位プランほどメッセージ数・ナレッジ容量・チームメンバー数の上限が拡大されます。
             ※最新のプラン詳細・料金はDify公式サイトをご確認ください。
           </p>
+
+          <figure className="my-8">
+            <Image
+              src="/images/blog/dify-beginner-guide/slide-5.png"
+              alt="Difyクラウド版プランの選び方"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
+
           <div className="mt-4 overflow-x-auto">
             <table className="w-full border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -432,6 +485,17 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
             Dockerが動く環境（Linux / Mac / Windows）であれば、
             <span className="font-semibold text-gray-900">docker compose up</span>のコマンド1本でローカル起動が可能です。
           </p>
+
+          <figure className="my-8">
+            <Image
+              src="/images/blog/dify-beginner-guide/slide-6.png"
+              alt="Difyセルフホスト版の導入イメージ"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
+
           <div className="mt-4 overflow-x-auto rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm leading-7 text-gray-700">
             <p className="font-semibold text-gray-900">セルフホスト版のクイックスタート（概要）</p>
             <ol className="mt-2 list-decimal space-y-1 pl-5">
@@ -466,6 +530,16 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
             「社内規程を元に質問に答えるFAQボット」を例に、Difyでのアプリ作成の流れを5ステップで解説します。
             初回セットアップから最初の動作確認まで、慣れれば30〜60分で完了します。
           </p>
+
+          <figure className="my-8">
+            <Image
+              src="/images/blog/dify-beginner-guide/slide-7.png"
+              alt="Difyで社内FAQボットを作る5ステップ"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
 
           <div className="mt-6 space-y-6">
             {buildSteps.map((step, i) => (
@@ -512,6 +586,16 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
             Difyが最も力を発揮するのは「社内に文書があるが、検索しにくく、担当者への問い合わせが多い」状況です。
             以下の5事例はそれぞれシステムプロンプトの設計パターンが異なります。
           </p>
+
+          <figure className="my-8">
+            <Image
+              src="/images/blog/dify-beginner-guide/slide-8.png"
+              alt="Difyの業種別活用事例"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
 
           <div className="mt-6 space-y-5">
             {useCases.map((uc) => (
@@ -576,6 +660,16 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
             「動いた！」から「業務で使える」へのギャップを埋めるのに最も必要なのは技術知識ではなく、運用設計の意識です。
             現場でよく見られる3つの失敗パターンとその対策を整理します。
           </p>
+
+          <figure className="my-8">
+            <Image
+              src="/images/blog/dify-beginner-guide/slide-9.png"
+              alt="Dify導入で失敗しないための3つのポイント"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
 
           <div className="mt-6 space-y-6">
             {pitfalls.map((p) => (
