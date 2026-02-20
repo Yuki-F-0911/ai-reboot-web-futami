@@ -700,7 +700,7 @@ export default function PythonAiIntroPage({ faqItems }: PythonAiIntroPageProps) 
           transition={{ duration: 0.5, ease: "easeOut" }}
 	        >
 	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-	            AIリブートアカデミーで、Python×AIを「実務で使える型」＋キャリアの武器へ
+	            AIリブートアカデミーで、AIを活用する判断力とキャリアの武器を同時に育てる
 	          </h2>
 	          <p className="mt-4 text-base leading-8 text-gray-700">
 	            AI開発は、ライブラリ名よりも「何の価値を出すか」を言語化する思考OSと、「検証→改善」を回す運用が成果を分けます。型の習得だけでなく、自分の強みをどう伸ばすかまで整理しながら100日間の伴走で実務に定着させたい方は、アカデミーの講座一覧をご覧ください。

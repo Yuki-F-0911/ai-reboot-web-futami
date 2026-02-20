@@ -30,7 +30,7 @@ const tocItems = [
   { id: "risk-management", label: "権限・承認・停止手順の実務" },
   { id: "faq", label: "FAQ" },
   { id: "related-links", label: "関連リンク" },
-  { id: "cta", label: "アカデミーで運用力を定着させる" },
+  { id: "cta", label: "AIリブートアカデミーで次のステップへ" },
 ] as const;
 
 const automationStageRows = [

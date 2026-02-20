@@ -618,7 +618,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
             Power Automate × 生成AIの導入では、ツール選定よりも「業務の切り分け」「責任範囲」「運用ルール」が成果を左右します。小さく始めて、効果測定できる単位で拡張することが最短ルートです。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
-            AIリブートアカデミーでは、AIツール操作の習得だけでなく、実務に効く設計力とキャリア戦略を一体で伸ばす学習設計を重視しています。
+            AIリブートアカデミーでは、生成AI活用力の習得だけでなく、自己理解・キャリアデザイン、仲間と共に学ぶ環境づくりまで一体で設計しています。ツールをどの業務に組み込むか、活用の判断軸ごと整理したい方は、学習全体の設計を見直すのが有効です。
           </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {academyPillars.map((item) => (

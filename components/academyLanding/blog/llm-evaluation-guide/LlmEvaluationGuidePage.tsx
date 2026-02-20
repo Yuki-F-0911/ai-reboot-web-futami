@@ -30,7 +30,7 @@ const tocItems = [
   { id: "department-practice", label: "部門別の実務設計" },
   { id: "faq", label: "FAQ" },
   { id: "related-links", label: "関連リンク" },
-  { id: "cta", label: "アカデミーで運用力を固める" },
+  { id: "cta", label: "AIリブートアカデミーで次のステップへ" },
 ] as const;
 
 const metricRows = [

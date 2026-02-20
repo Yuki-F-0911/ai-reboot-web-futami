@@ -489,7 +489,7 @@ export default function GensparkGuidePage({ faqItems }: GensparkGuidePageProps) 
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">次のアクション</h2>
           <p className="mt-4 text-sm leading-7 text-gray-700">
-            AIリブートアカデミーでは、生成AI活用力の習得に加えて、自己理解・キャリアデザインの言語化、仲間と共に学ぶ環境づくりまで含めて学習を設計しています。ツール比較で終わらず、実務成果に接続したい方は、学習プロセス全体を見直すことが有効です。
+            AIリブートアカデミーでは、生成AI活用力の習得だけでなく、自己理解・キャリアデザイン、仲間と共に学ぶ環境づくりまで一体で設計しています。Difyのようなツールをどの業務課題に当てるか、活用の判断軸と実務への組み込み方を考えたい方は、学習プロセス全体を見直すことが有効です。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a

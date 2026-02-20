@@ -33,7 +33,7 @@ const tocItems = [
   { id: "getting-started", label: "RAGを始めるには" },
   { id: "rag-vs-finetuning", label: "RAGとファインチューニングの違い" },
   { id: "faq", label: "よくある質問（FAQ）" },
-  { id: "cta", label: "AIリブートアカデミーで学ぶ" },
+  { id: "cta", label: "AIリブートアカデミーで、AI活用の判断軸をキャリアに接続する" },
 ] as const;
 
 const flowSteps = [
@@ -669,7 +669,7 @@ export default function WhatIsRagPage({ faqItems }: WhatIsRagPageProps) {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで学ぶ（RAGを「成果が出る運用」へ）
+            AIリブートアカデミーで、AI活用の判断軸をキャリアに接続する
           </h2>
           <div className="mt-6">
             <Image

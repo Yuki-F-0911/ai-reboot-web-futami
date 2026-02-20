@@ -486,7 +486,7 @@ export default function RagVsFinetunigGuidePage({ faqItems }: RagVsFinetunigGuid
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            AIリブートアカデミーで、導入判断を「実装できる力」に変える
+            AIリブートアカデミーで、AIの判断軸をキャリアの武器に変える
           </h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
             AIリブートアカデミーは、ツールの使い方だけを学ぶ場ではありません。実務で使える生成AI活用力に加え、自己理解とキャリア設計、仲間と学ぶ環境を通じて、

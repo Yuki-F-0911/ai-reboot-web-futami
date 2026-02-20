@@ -576,7 +576,7 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
           transition={{ duration: 0.5, ease: "easeOut" }}
 	        >
 	          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-	            AIリブートアカデミーで、AIエージェントを「実務で回る仕組み」へ
+	            AIリブートアカデミーで、AI活用力とキャリアを同時に設計する
 	          </h2>
 	          <p className="mt-4 text-base leading-8 text-gray-700">
 	            AIエージェントは作るだけではなく、「何の価値を出すか（思考OS）」まで含めた目的設計と、境界設計・運用・改善までが成果を分けます。
@@ -584,7 +584,7 @@ export default function AiAgentBuildGuidePage({ faqItems }: AiAgentBuildGuidePag
 	          </p>
           <figure className="my-8">
             <Link href="/academy">
-              <Image src="/images/blog/ai-agent-build-guide/slide-10.png" alt="AIリブートアカデミーで体系的に学ぶ" width={800} height={450} className="rounded-lg" />
+              <Image src="/images/blog/ai-agent-build-guide/slide-10.png" alt="AIリブートアカデミーの学習プログラム概要" width={800} height={450} className="rounded-lg" />
             </Link>
           </figure>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">

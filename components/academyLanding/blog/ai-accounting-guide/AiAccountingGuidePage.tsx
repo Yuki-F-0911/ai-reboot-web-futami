@@ -718,7 +718,7 @@ export default function AiAccountingGuidePage({ faqItems }: AiAccountingGuidePag
             プロンプトを一度作れば繰り返し使える「型」にできます。部門ルールと組み合わせると、チーム全体の効率化につながります。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            ツールの操作方法だけでなく、「経理の仕事でどこにAIを入れるか」「どのリスクをどう管理するか」まで含めて設計したい方には、アカデミーで実務に合わせた活用プランを一緒に考えられます。
+            「経理の仕事でどこにAIを入れるか」「どのリスクをどう管理するか」まで含めて考えたい方には、アカデミーで自己理解・キャリアデザインと生成AI活用力を組み合わせながら実務への接続を設計できます。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
