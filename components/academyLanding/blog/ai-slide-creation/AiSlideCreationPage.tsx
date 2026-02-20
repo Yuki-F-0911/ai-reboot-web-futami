@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
@@ -267,6 +268,15 @@ export default function AiSlideCreationPage({ faqItems }: AiSlideCreationPagePro
           <p className="blog-p mt-3 text-sm leading-7 text-gray-600">
             価格・仕様の確認日: 2026-02-20（変動情報は導入前に公式ページで再確認してください）
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-slide-creation/slide-01.png"
+              alt="AIプレゼンスライド自動生成ツール比較の要点"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.header>
 
         <ArticleTOC items={tocItems} />

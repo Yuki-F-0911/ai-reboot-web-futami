@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
@@ -243,6 +244,15 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
           <p className="blog-p mt-3 text-sm leading-7 text-gray-600">
             価格・仕様の確認日: 2026-02-20（変動情報は導入前に再確認してください）
           </p>
+          <figure className="my-8">
+            <Image
+              src="/images/blog/ai-transcription-guide/slide-01.png"
+              alt="AI文字起こしアプリ比較の概要"
+              width={800}
+              height={450}
+              className="rounded-lg"
+            />
+          </figure>
         </motion.header>
 
         <ArticleTOC items={tocItems} />
