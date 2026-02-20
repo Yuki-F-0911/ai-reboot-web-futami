@@ -5,7 +5,7 @@ import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
-  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで37記事をカテゴリ別に掲載しています。";
+  "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、資格・スキル、キャリア、法人向け導入ガイドまで38記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
 
@@ -19,6 +19,13 @@ type BlogPost = {
 };
 
 const blogPosts: readonly BlogPost[] = [
+  {
+    slug: "ai-writing-tool",
+    title: "AI文章作成ツール比較2026｜ChatGPT・Claude・Jasper・Copy.ai・Notion AIの選び方",
+    summary:
+      "AI文章作成ツールを2026年基準で比較。汎用チャット型と専門ライティング型の違い、主要5ツールの料金・日本語対応、ブログ/SNS/メール/広報での使い分け、AIらしい文を防ぐ編集手順まで整理した実務ガイドです。",
+    category: "実務活用",
+  },
   {
     slug: "what-is-generative-ai",
     title: "生成AIとは？初心者向けにわかりやすく解説",
