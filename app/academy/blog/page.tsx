@@ -38,6 +38,14 @@ const blogPosts: readonly BlogPost[] = [
     category: "最新AIツール",
   },
   {
+    slug: "adobe-firefly-guide",
+    title: "Adobe Firefly使い方ガイド2026｜商用利用・料金・Photoshop連携まで解説",
+    summary:
+      "Adobe Fireflyの使い方を2026年基準で解説。Photoshop・Illustrator・Adobe ExpressでのAI機能、商用利用ライセンス、無料版と有料Creative Cloudの違い、Midjourney・DALL·Eとの比較まで整理した実務ガイドです。",
+    category: "最新AIツール",
+    thumbnail: "/images/ogp-default.webp",
+  },
+  {
     slug: "gpt-vs-claude-2026",
     title: "ChatGPTとClaude比較 2026年版｜GPT-5.2 vs Claude 3.7 Sonnetの選び方",
     summary:
@@ -49,6 +57,14 @@ const blogPosts: readonly BlogPost[] = [
     title: "AIアプリおすすめ20選【スマホ版2026】iPhone/Android比較・無料TOP5",
     summary:
       "2026年時点のAIスマホアプリ20選をカテゴリ別で比較。iPhone/Androidの差、完全無料TOP5、課金判断、日本語対応が強いアプリまで初心者向けに整理したガイドです。",
+    category: "最新AIツール",
+    thumbnail: "/images/ogp-default.webp",
+  },
+  {
+    slug: "midjourney-guide",
+    title: "Midjourney v7使い方完全ガイド｜Discord・Web・料金・商用利用【2026年版】",
+    summary:
+      "Midjourney v7の始め方、DiscordとWebアプリの使い分け、日本語プロンプトの実態、Basic/Standard/Pro/Mega料金、DALL·E 3・Stable Diffusion・Canva AI比較、商用利用の注意点を整理した実践ガイドです。",
     category: "最新AIツール",
     thumbnail: "/images/ogp-default.webp",
   },
