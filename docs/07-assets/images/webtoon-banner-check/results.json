@@ -1,0 +1,206 @@
+[
+  {
+    "path": "/academy/blog/what-is-generative-ai",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/what-is-generative-ai-desktop.png"
+  },
+  {
+    "path": "/academy/blog/what-is-ai-agent",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/what-is-ai-agent-desktop.png"
+  },
+  {
+    "path": "/academy/blog/chatgpt-plan-comparison",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/chatgpt-plan-comparison-desktop.png"
+  },
+  {
+    "path": "/academy/blog/claude-beginner-guide",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/claude-beginner-guide-desktop.png"
+  },
+  {
+    "path": "/academy/blog/microsoft-copilot-guide",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/microsoft-copilot-guide-desktop.png"
+  },
+  {
+    "path": "/academy/blog/ai-smartphone-apps",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/ai-smartphone-apps-desktop.png"
+  },
+  {
+    "path": "/academy/blog/chatgpt-prompt-beginner",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/chatgpt-prompt-beginner-desktop.png"
+  },
+  {
+    "path": "/academy/blog/canva-ai-guide",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/canva-ai-guide-desktop.png"
+  },
+  {
+    "path": "/academy/blog/ai-writing-tool",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/ai-writing-tool-desktop.png"
+  },
+  {
+    "path": "/academy/blog/ai-slide-creation",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/ai-slide-creation-desktop.png"
+  },
+  {
+    "path": "/academy/blog/ai-transcription-guide",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/ai-transcription-guide-desktop.png"
+  },
+  {
+    "path": "/academy/blog/gpt-vs-claude-2026",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/gpt-vs-claude-2026-desktop.png"
+  },
+  {
+    "path": "/academy/blog/chatgpt-gpt5-guide",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/chatgpt-gpt5-guide-desktop.png"
+  },
+  {
+    "path": "/academy/blog/midjourney-guide",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/midjourney-guide-desktop.png"
+  },
+  {
+    "path": "/academy/blog/deepseek-guide",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/deepseek-guide-desktop.png"
+  },
+  {
+    "path": "/academy/blog/ai-for-non-engineers",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/ai-for-non-engineers-desktop.png"
+  },
+  {
+    "path": "/academy/blog/how-to-learn-generative-ai",
+    "viewport": "desktop",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/how-to-learn-generative-ai-desktop.png"
+  },
+  {
+    "path": "/academy/blog/what-is-generative-ai",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/what-is-generative-ai-mobile.png"
+  },
+  {
+    "path": "/academy/blog/what-is-ai-agent",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/what-is-ai-agent-mobile.png"
+  },
+  {
+    "path": "/academy/blog/chatgpt-plan-comparison",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/chatgpt-plan-comparison-mobile.png"
+  },
+  {
+    "path": "/academy/blog/claude-beginner-guide",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/claude-beginner-guide-mobile.png"
+  },
+  {
+    "path": "/academy/blog/microsoft-copilot-guide",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/microsoft-copilot-guide-mobile.png"
+  },
+  {
+    "path": "/academy/blog/ai-smartphone-apps",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/ai-smartphone-apps-mobile.png"
+  },
+  {
+    "path": "/academy/blog/chatgpt-prompt-beginner",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/chatgpt-prompt-beginner-mobile.png"
+  },
+  {
+    "path": "/academy/blog/canva-ai-guide",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/canva-ai-guide-mobile.png"
+  },
+  {
+    "path": "/academy/blog/ai-writing-tool",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/ai-writing-tool-mobile.png"
+  },
+  {
+    "path": "/academy/blog/ai-slide-creation",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/ai-slide-creation-mobile.png"
+  },
+  {
+    "path": "/academy/blog/ai-transcription-guide",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/ai-transcription-guide-mobile.png"
+  },
+  {
+    "path": "/academy/blog/gpt-vs-claude-2026",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/gpt-vs-claude-2026-mobile.png"
+  },
+  {
+    "path": "/academy/blog/chatgpt-gpt5-guide",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/chatgpt-gpt5-guide-mobile.png"
+  },
+  {
+    "path": "/academy/blog/midjourney-guide",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/midjourney-guide-mobile.png"
+  },
+  {
+    "path": "/academy/blog/deepseek-guide",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/deepseek-guide-mobile.png"
+  },
+  {
+    "path": "/academy/blog/ai-for-non-engineers",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/ai-for-non-engineers-mobile.png"
+  },
+  {
+    "path": "/academy/blog/how-to-learn-generative-ai",
+    "viewport": "mobile",
+    "visible": true,
+    "file": "docs/07-assets/images/webtoon-banner-check/how-to-learn-generative-ai-mobile.png"
+  }
+]
