@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import GeminiBeginnersguidePage from "@/components/academyLanding/blog/gemini-beginners-guide/GeminiBeginnersguidePage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "Google Gemini完全入門ガイド｜使い方・ChatGPTとの違い・無料で始める方法【2026年版】 | AIリブート";
+const pageTitle = "Google Gemini入門｜使い方・ChatGPTとの違い・無料の始め方【2026年版】 | AIリブート";
 const pageDescription =
   "Google Gemini初心者向けに、概要・無料で始める手順・ChatGPT/Claudeとの違い・業務での使い分けを整理。最初に試すプロンプト例と注意点もまとめました。";
 const pageUrl = "https://ai-reboot.io/academy/blog/gemini-beginners-guide";

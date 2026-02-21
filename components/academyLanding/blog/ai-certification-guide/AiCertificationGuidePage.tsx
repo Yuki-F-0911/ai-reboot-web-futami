@@ -217,6 +217,21 @@ export default function AiCertificationGuidePage({ faqItems }: AiCertificationGu
           </ul>
         </section>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/how-to-learn-generative-ai" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AI学習ロードマップ
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-study-learning-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI勉強法ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-for-non-engineers" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            非エンジニア向けAI活用
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         <motion.section

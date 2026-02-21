@@ -161,6 +161,21 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/what-is-generative-ai" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AIとは？
+          </Link>
+          ・
+          <Link href="/academy/blog/gemini-beginners-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            Gemini入門ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-side-business-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI副業ガイド
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         <motion.section

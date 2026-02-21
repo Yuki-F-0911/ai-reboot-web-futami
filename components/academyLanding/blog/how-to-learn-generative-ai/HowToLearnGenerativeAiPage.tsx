@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
@@ -220,6 +221,21 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/what-is-generative-ai" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AIとは？
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-study-learning-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI勉強法ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-first-30-days-work-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AI最初の30日ガイド
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         <motion.section
@@ -432,6 +448,24 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
             ]}
           />
         </motion.section>
+
+        <section id="related-links" className="mt-12 rounded-xl border border-gray-200 bg-white p-6">
+          <h2 className="mb-4 text-lg font-bold text-gray-900">あわせて読みたい</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/what-is-generative-ai" className="text-blue-700 underline hover:text-blue-900">生成AIとは？初心者向け解説</Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-prompt-beginner" className="text-blue-700 underline hover:text-blue-900">ChatGPTプロンプト入門</Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-study-learning-guide" className="text-blue-700 underline hover:text-blue-900">AI勉強法ガイド</Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-first-30-days-work-guide" className="text-blue-700 underline hover:text-blue-900">生成AI最初の30日ガイド</Link>
+            </li>
+          </ul>
+        </section>
       </article>
     </main>
   );

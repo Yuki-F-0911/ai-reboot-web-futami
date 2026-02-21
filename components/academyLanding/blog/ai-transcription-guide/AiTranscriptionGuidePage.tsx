@@ -256,6 +256,21 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
           </figure>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/chatgpt-start-guide-smartphone" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTスマホ開始ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/notebooklm-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            NotebookLM活用ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-for-non-engineers" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            非エンジニア向けAI活用
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         <motion.section

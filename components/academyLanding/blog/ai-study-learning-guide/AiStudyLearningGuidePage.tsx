@@ -314,6 +314,21 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/how-to-learn-generative-ai" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AI学習ロードマップ
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-certification-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI資格ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-first-30-days-work-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AI最初の30日ガイド
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         <motion.section

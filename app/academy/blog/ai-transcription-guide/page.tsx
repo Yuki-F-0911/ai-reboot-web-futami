@@ -3,7 +3,7 @@ import AiTranscriptionGuidePage from "@/components/academyLanding/blog/ai-transc
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle =
-  "AI文字起こしアプリ比較2026｜Notta・Clova Note後継・Whisper・Otter・Google Recorder | AIリブート";
+  "AI文字起こしアプリ比較｜Notta・AiNote・Whisperの選び方【2026年版】 | AIリブート";
 const pageDescription =
   "AI文字起こしアプリを2026年基準で比較。Notta・LINE WORKS AiNote（旧Clova Note）・Whisper・Otter.ai・Google Recorderの料金、無料枠、日本語精度、Zoom/Meet/Teams連携を整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-transcription-guide";

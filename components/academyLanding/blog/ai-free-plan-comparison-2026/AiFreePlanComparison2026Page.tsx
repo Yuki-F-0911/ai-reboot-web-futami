@@ -43,15 +43,15 @@ const tocItems = [
 const comparisonRows = [
   {
     axis: "利用モデル",
-    chatgpt: "GPT-4o mini（2026年2月13日にGPT-4oは無料枠から引退。軽量モデルに一本化）",
-    claude: "Claude Sonnet 4.5（200Kトークンのコンテキストウィンドウ付き）",
-    gemini: "Gemini 3 Flash（Auto）。複雑な推論時はThinking（3 Pro）に自動切替",
+    chatgpt: "GPT-5（制限付き）。上限到達時や混雑時は軽量モデルへ切替される場合あり",
+    claude: "Claude Sonnet 4.6（無料でも利用可。上限は利用状況で変動）",
+    gemini: "Gemini Flash系（提供モデルは時期・地域で変動。3.1 Proは上位プランで拡張）",
   },
   {
     axis: "1日の利用上限（目安）",
-    chatgpt: "約30ターン/時間のソフトキャップ。超過すると一時的に速度制限",
-    claude: "30〜100メッセージ/日（メッセージの複雑さで変動）。4〜8時間でリセット",
-    gemini: "日次上限あり（具体的な数値は非公開）。軽量タスクなら数十回は可能",
+    chatgpt: "利用上限あり（具体値は非公開。需要や利用状況で変動）",
+    claude: "利用上限あり（入力の長さ・混雑状況で変動）",
+    gemini: "利用上限あり（具体値は非公開。時期・地域で変動）",
   },
   {
     axis: "ファイル添付",
@@ -67,9 +67,9 @@ const comparisonRows = [
   },
   {
     axis: "画像生成",
-    chatgpt: "DALL-E 3ベースの画像生成が利用可",
+    chatgpt: "ChatGPTの画像生成機能が利用可（提供モデル名は更新される）",
     claude: "非対応（テキスト特化）",
-    gemini: "対応（Imagen 3ベース）。動画生成も一部無料枠で利用可",
+    gemini: "対応（Googleの画像/動画生成機能が提供される場合あり）",
   },
   {
     axis: "コンテキスト長",
@@ -252,6 +252,21 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/chatgpt-plan-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT料金プラン比較
+          </Link>
+          ・
+          <Link href="/academy/blog/gemini-beginners-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            Gemini入門ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/claude-beginner-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            Claude入門ガイド
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         {/* 30秒でわかるまとめ */}
@@ -268,7 +283,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
           </h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
-              <strong>ChatGPT Free</strong>：万能型。GPT-4o miniで幅広いタスクに対応。画像生成もできる。アイデア出し・汎用作業に
+              <strong>ChatGPT Free</strong>：万能型。GPT-5（制限付き）で幅広いタスクに対応。画像生成もできる。アイデア出し・汎用作業に
             </li>
             <li className="pl-1 marker:text-gray-500">
               <strong>Claude Free</strong>：長文・文書特化。200Kトークンのコンテキスト、Artifacts、アプリ連携が無料。議事録・レポート・メール推敲に
@@ -546,7 +561,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
                 href="/academy/blog/gpt-vs-claude-comparison"
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
-                GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説
+                GPT-5.2とClaude 4.6を比較｜性能・得意分野・料金の違いを解説
               </Link>
             </li>
             <li>

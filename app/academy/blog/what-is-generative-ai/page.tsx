@@ -3,7 +3,7 @@ import WhatIsGenerativeAiPage from "@/components/academyLanding/blog/what-is-gen
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle =
-  "生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】 | AIリブート";
+  "生成AIとは？初心者向け解説｜ChatGPT・Claude・Gemini比較【2026年版】 | AIリブート";
 const pageDescription =
   "生成AIとは何かを初心者向けにやさしく解説。ChatGPT/Claude/Geminiの違いと選び方、失敗しないプロンプトの基本、仕事で使う前に決めるルールまで1ページで整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/what-is-generative-ai";

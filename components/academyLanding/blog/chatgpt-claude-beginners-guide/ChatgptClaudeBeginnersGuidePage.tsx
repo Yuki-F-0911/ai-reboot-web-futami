@@ -165,6 +165,21 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/chatgpt-plan-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT料金プラン比較
+          </Link>
+          ・
+          <Link href="/academy/blog/claude-beginner-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            Claude入門ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/gemini-beginners-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            Gemini入門ガイド
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         <motion.section
@@ -333,7 +348,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             </li>
             <li>
               <Link href="/academy/blog/gpt-vs-claude-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説【2026年版】 | AIリブート
+                GPT-5.2とClaude 4.6を比較｜性能・得意分野・料金の違いを解説【2026年版】 | AIリブート
               </Link>
             </li>
             <li>

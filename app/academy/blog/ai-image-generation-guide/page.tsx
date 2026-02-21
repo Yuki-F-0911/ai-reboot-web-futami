@@ -3,7 +3,7 @@ import AiImageGenerationGuidePage from "@/components/academyLanding/blog/ai-imag
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
 const pageTitle =
-  "AI画像生成おすすめツール比較｜Google Gemini・Midjourney・ChatGPT画像生成の使い方と選び方【2026年版】 | AIリブート";
+  "AI画像生成ツール比較｜Gemini・Midjourney・ChatGPTの選び方【2026年版】 | AIリブート";
 const pageDescription =
   "AI画像生成ツール（Gemini/Midjourney/ChatGPT/Stable Diffusion/Firefly）を用途別に比較。始め方、仕事での使いどころ、著作権・商用利用の注意点、失敗しないプロンプトの考え方を初心者向けにまとめます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-image-generation-guide";

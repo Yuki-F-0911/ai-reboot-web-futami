@@ -177,6 +177,21 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           <Image src="/images/blog/what-is-generative-ai/slide-1.png" alt="生成AIスタートガイド タイトル" width={800} height={450} className="rounded-lg" />
         </figure>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/chatgpt-claude-beginners-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT・Claude初心者ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/how-to-learn-generative-ai" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AI学習ロードマップ
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-plan-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT料金プラン比較
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         <motion.section

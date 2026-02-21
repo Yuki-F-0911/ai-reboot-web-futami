@@ -153,6 +153,21 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/chatgpt-claude-beginners-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT・Claude初心者ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/notebooklm-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            NotebookLM活用ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-free-plan-comparison-2026" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AI無料プラン比較
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         <motion.section
@@ -344,7 +359,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             </li>
             <li>
               <Link href="/academy/blog/gpt-vs-claude-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説【2026年版】 | AIリブート
+                GPT-5.2とClaude 4.6を比較｜性能・得意分野・料金の違いを解説【2026年版】 | AIリブート
               </Link>
             </li>
             <li>

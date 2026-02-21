@@ -104,12 +104,12 @@ AIを「正解を教えてくれる先生」ではなく、「一緒に考えて
     answer: `ChatGPT・Claude・Geminiはいずれも無料プランがあります。
 
 ChatGPTの無料プラン（2026年2月時点）：
-・GPT-4oモデルが利用可能
+・GPT-5モデルが制限付きで利用可能
 ・文章作成、要約、翻訳、アイデア出し、画像認識など基本機能が使える
 ・一定回数を超えると制限がかかるが、日常的な用途には十分
 
 Claudeの無料プラン：
-・Sonnet 4.5モデルが利用可能
+・Sonnet 4.6モデルが利用可能
 ・ファイル添付、サードパーティ連携（Notion・Slackなど）にも対応
 
 Geminiの無料プラン：
@@ -274,6 +274,21 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/ai-for-non-engineers" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            非エンジニア向けAI活用
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-start-guide-smartphone" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTスマホ開始ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-first-30-days-work-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AI最初の30日ガイド
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         {/* 要点まとめ */}

@@ -28,7 +28,7 @@ const sectionReveal = {
   visible: { opacity: 1, y: 0 },
 };
 
-const keywordTags = ["ChatGPT 使いこなし", "ChatGPT 仕事 活用", "GPT-4o 活用法", "ChatGPT 業務効率化"] as const;
+const keywordTags = ["ChatGPT 使いこなし", "ChatGPT 仕事 活用", "GPT-5 活用法", "ChatGPT 業務効率化"] as const;
 
 const tocItems = [
   { id: "conclusion", label: "要点まとめ" },
@@ -38,7 +38,7 @@ const tocItems = [
   { id: "analysis-tips", label: "分析Tips 10" },
   { id: "presentation-tips", label: "プレゼンTips 10" },
   { id: "daily-tips", label: "日常業務Tips 10" },
-  { id: "gpt4o-chatgpt-api", label: "GPT-4o / ChatGPT / APIの違い" },
+  { id: "gpt5-chatgpt-api", label: "GPT-5 / ChatGPT / APIの違い" },
   { id: "faq", label: "よくある質問" },
 ] as const;
 
@@ -460,7 +460,7 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             ChatGPTを仕事で使いこなす実践テクニック集｜基本から応用まで50のTips
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月21日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             ChatGPTを仕事で使いこなすには、便利機能を増やす前に「再利用できる型」を作ることが重要です。この記事は、
             <Link
@@ -480,6 +480,21 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/chatgpt-prompt-beginner" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTプロンプト入門
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-plan-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT料金プラン比較
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-study-learning-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI勉強法ガイド
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         <motion.section
@@ -595,7 +610,7 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="gpt4o-chatgpt-api" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="gpt5-chatgpt-api" className="scroll-mt-28 text-2xl font-bold text-gray-900">
             OpenAIモデルとChatGPTの使い分け、APIとの違い（2026年2月時点）
           </h2>
           <p className="mt-5 text-base font-medium text-gray-900">

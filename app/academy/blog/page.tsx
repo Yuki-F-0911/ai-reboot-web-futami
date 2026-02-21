@@ -13,6 +13,7 @@ const lineUrl = "https://bexn9pao.autosns.app/line";
 
 type BlogCategory =
   | "AI基礎知識"
+  | "AI活用術"
   | "実務活用"
   | "AIO/マーケ"
   | "最新AIツール"
@@ -32,6 +33,15 @@ type BlogPost = {
 };
 
 const blogPosts: readonly BlogPost[] = [
+  {
+    slug: "chatgpt-voice-mode-guide",
+    title: "ChatGPT音声モード完全ガイド｜スマホで話しかけるだけのAI活用術【2026年版】",
+    summary:
+      "ChatGPTの音声モードの始め方から便利な活用シーンまで完全解説。通勤中・料理中・運転中・英会話練習・寝る前のブレストなど、ハンズフリーでAIを使いこなす方法を紹介。無料プランでも利用可能。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T17:00:00+09:00",
+    tags: ["ChatGPT 音声モード 使い方", "ChatGPT 音声会話", "AI 音声入力 活用", "ChatGPT 話しかける", "AI 音声 スマホ"],
+  },
   {
     slug: "ai-beginners-guide-over-50",
     title: "50代60代から始めるAI入門｜スマホだけでできるChatGPT活用ガイド【2026年版】",
@@ -1116,6 +1126,7 @@ const blogPosts: readonly BlogPost[] = [
 
 const categoryClassName: Record<BlogCategory, string> = {
   "AI基礎知識": "border border-harmony-light bg-harmony-lighter text-harmony",
+  "AI活用術": "border border-violet-200 bg-violet-50 text-violet-700",
   実務活用: "border border-orange-200 bg-orange-50 text-orange-700",
   "AIO/マーケ": "border border-sky-200 bg-sky-50 text-sky-700",
   "最新AIツール": "border border-cyan-200 bg-cyan-50 text-cyan-700",
