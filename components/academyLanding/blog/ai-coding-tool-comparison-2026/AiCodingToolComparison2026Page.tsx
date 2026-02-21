@@ -228,6 +228,14 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           </ul>
         </section>
 
+        {/* Answer Box */}
+        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
+          <p className="mt-2 text-sm leading-7 text-slate-700">
+            2026年の実務選定は、Webアプリ実装の主戦場ならCursor、CLI自動化とバッチ運用ならClaude Code、GitHub中心のチーム開発ならCopilotが最適です。決め手はモデル名ではなく、Agent運用のしやすさと既存フローへの接続性です。まず1ツールを主軸に据え、上位モデル利用とプレミアムリクエストの変動費を含めて年間コストで判断するのが失敗しにくい選び方です。
+          </p>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section

@@ -274,6 +274,14 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           <p className="mt-4 text-xs leading-6 text-gray-500">情報確認日: {infoCheckedDate}</p>
         </motion.section>
 
+        {/* Answer Box */}
+        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
+          <p className="mt-2 text-sm leading-7 text-slate-700">
+            2026年に1本選ぶなら、構造化出力・コード実装・API単価のバランスでGPT-5.2を先に検証するのが合理的です。長文推敲や文体の自然さを重視する業務ではClaude 3.7 Sonnetが優位に働くため、最終的には工程分業の併用が最も再現性があります。判断はベンチマーク比較ではなく、同一タスクを1週間回した実測で決めるのが安全です。
+          </p>
+        </section>
+
         <WebtoonBannerSection />
 
         <motion.section

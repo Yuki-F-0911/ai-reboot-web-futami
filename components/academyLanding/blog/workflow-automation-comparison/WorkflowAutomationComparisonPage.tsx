@@ -271,6 +271,14 @@ export default function WorkflowAutomationComparisonPage({
           </ul>
         </motion.section>
 
+        {/* Answer Box */}
+        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
+          <p className="mt-2 text-sm leading-7 text-slate-700">
+            初導入で最短成果を狙うならZapier、コスト効率と複雑フローの両立を狙うならMake、機密データ運用や長期コスト最適化ならn8n（セルフホスト）が適しています。選定は「接続先SaaS」「月次処理量」「セキュリティ要件」の3点で決まります。迷う場合はZapierかMakeで1業務を先行自動化し、処理量が増えた段階でn8n移行を検討するのが現実的です。
+          </p>
+        </section>
+
         <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
           <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
           <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">

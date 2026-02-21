@@ -212,6 +212,14 @@ export default function RagVsFinetunigGuidePage({ faqItems }: RagVsFinetunigGuid
           </ul>
         </motion.section>
 
+        {/* Answer Box */}
+        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
+          <p className="mt-2 text-sm leading-7 text-slate-700">
+            社内データ活用は、更新頻度と根拠提示の要件がある限りRAG先行が基本です。ファインチューニングは、出力フォーマットや文体を厳密に固定したい業務に限定して後から足すと投資効率が上がります。実務では「RAGで知識を担保し、Fine-tuningで振る舞いを整える」段階導入が最も失敗しにくい構成です。
+          </p>
+        </section>
+
         <motion.section
           className="mt-14"
           initial="hidden"

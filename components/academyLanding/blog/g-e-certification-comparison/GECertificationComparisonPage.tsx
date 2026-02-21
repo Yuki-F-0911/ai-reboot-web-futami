@@ -128,6 +128,14 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           </ul>
         </section>
 
+        {/* Answer Box */}
+        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
+          <p className="mt-2 text-sm leading-7 text-slate-700">
+            迷ったらG検定から始め、AIの全体像と活用文脈を押さえたうえでE検定に進む順番が最も学習効率が高いです。E検定は深層学習の理論理解と前提知識が求められるため、目的がエンジニア職でない限り先行受験の難度は上がります。転職や社内評価では「資格単体」より、資格で得た知識を業務改善に結びつけた実績が評価されます。
+          </p>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section
