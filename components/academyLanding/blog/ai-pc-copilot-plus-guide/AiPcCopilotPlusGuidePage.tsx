@@ -253,8 +253,6 @@ export default function AiPcCopilotPlusGuidePage({ faqItems }: AiPcCopilotPlusGu
         >
           <LineCtaBox
             className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
-            title="LINE登録で「AI導入効果チェックリスト」を受け取る"
-            description="端末導入前に業務効果を見積もれるチェックリスト（特典02）を無料で配布しています。"
             href={lineUrl}
           />
         </motion.section>
@@ -383,9 +381,6 @@ export default function AiPcCopilotPlusGuidePage({ faqItems }: AiPcCopilotPlusGu
         >
           <LineCtaBox
             className="blog-cta-box rounded-lg border border-emerald-200 bg-emerald-50 p-6"
-            title="LINE登録で「AI導入効果チェックリスト」を受け取る"
-            description="PCリプレース前に確認したい導入効果設計シート（特典02）を配布中です。"
-            buttonLabel="LINEで特典を受け取る（無料）"
             href={lineUrl}
           />
         </motion.section>

@@ -244,8 +244,6 @@ export default function OpenaiCodexAppGuidePage({ faqItems }: OpenaiCodexAppGuid
         >
           <LineCtaBox
             className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
-            title="LINE登録で「AIプロンプト50選」を受け取る"
-            description="Codex Appでも流用できる、実務向けプロンプト50選（特典05）を無料配布しています。"
             href={lineUrl}
           />
         </motion.section>
@@ -380,9 +378,6 @@ export default function OpenaiCodexAppGuidePage({ faqItems }: OpenaiCodexAppGuid
         >
           <LineCtaBox
             className="blog-cta-box rounded-lg border border-emerald-200 bg-emerald-50 p-6"
-            title="LINE登録で「AIプロンプト50選」を受け取る"
-            description="Codex App・Cursor・Claude Codeで使い回せる実務テンプレート（特典05）を配布中です。"
-            buttonLabel="LINEで特典を受け取る（無料）"
             href={lineUrl}
           />
         </motion.section>

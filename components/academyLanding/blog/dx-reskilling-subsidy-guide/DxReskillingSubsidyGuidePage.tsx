@@ -225,7 +225,7 @@ export default function DxReskillingSubsidyGuidePage({ faqItems }: DxReskillingS
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <LineCtaBox
-            title="LINE登録でAI導入ROI試算シートを受け取る"
+
             href="https://bexn9pao.autosns.app/line?src=blog&slug=dx-reskilling-subsidy-guide"
           />
         </motion.section>

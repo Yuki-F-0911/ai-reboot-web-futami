@@ -238,8 +238,6 @@ export default function N8nVsMakeComparisonPage({ faqItems }: N8nVsMakeCompariso
         >
           <LineCtaBox
             className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
-            title="LINE登録で「AI導入効果チェックリスト」を受け取る"
-            description="n8n/Makeのどちらでも使える導入効果チェックリスト（特典02）を無料配布しています。"
             href={lineUrl}
           />
         </motion.section>
@@ -331,9 +329,6 @@ export default function N8nVsMakeComparisonPage({ faqItems }: N8nVsMakeCompariso
         >
           <LineCtaBox
             className="blog-cta-box rounded-lg border border-emerald-200 bg-emerald-50 p-6"
-            title="LINE登録で「AI導入効果チェックリスト」を受け取る"
-            description="ワークフロー自動化の効果測定と運用判断に使える特典02を配布しています。"
-            buttonLabel="LINEで特典を受け取る（無料）"
             href={lineUrl}
           />
         </motion.section>

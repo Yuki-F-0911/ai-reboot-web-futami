@@ -271,8 +271,6 @@ export default function GithubCopilotAgentHqGuidePage({ faqItems }: GithubCopilo
         >
           <LineCtaBox
             className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
-            title="LINE登録で「AI導入ROI試算シート」を受け取る"
-            description="Agent導入前に、工数削減とレビュー負荷を同時に見積もるROI試算シート（特典03）を無料配布しています。"
             href={lineUrl}
           />
         </motion.section>
@@ -467,9 +465,6 @@ export default function GithubCopilotAgentHqGuidePage({ faqItems }: GithubCopilo
         >
           <LineCtaBox
             className="blog-cta-box rounded-lg border border-emerald-200 bg-emerald-50 p-6"
-            title="LINE登録で「AI導入ROI試算シート」を受け取る"
-            description="チーム導入前に、工数・コスト・レビュー負荷を見える化できる特典03を配布しています。"
-            buttonLabel="LINEで特典を受け取る（無料）"
             href={lineUrl}
           />
         </motion.section>
