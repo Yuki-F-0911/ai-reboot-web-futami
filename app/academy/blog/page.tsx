@@ -33,6 +33,60 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-beginners-guide-over-50",
+    title: "50代60代から始めるAI入門｜スマホだけでできるChatGPT活用ガイド【2026年版】",
+    summary:
+      "50代60代の方向けに、スマホだけでChatGPTを始める手順をステップバイステップで解説。音声入力の活用法、健康相談・旅行計画・趣味・町内会文書作成など生活に直結する7つの活用シナリオ、よくある失敗と対処法まで。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-22T16:00:00+09:00",
+    tags: ["AI 50代 始め方", "ChatGPT シニア 使い方", "50代 AI入門", "生成AI 初心者 60代", "ChatGPT 簡単 始める"],
+  },
+  {
+    slug: "chatgpt-prompt-templates-50",
+    title: "すぐ使える！ChatGPTプロンプトテンプレート50選｜仕事・勉強・日常のAI活用集【2026年版】",
+    summary:
+      "コピペで即使えるChatGPTプロンプトテンプレートを50個厳選。仕事効率化・文章作成・勉強・日常生活・クリエイティブの5カテゴリに分類し、NG例/OK例の対比付きで使い方のコツを解説。ChatGPT・Claude・Geminiすべてで使えます。",
+    category: "実務活用",
+    publishedAt: "2026-02-22T15:00:00+09:00",
+    tags: ["ChatGPT プロンプト テンプレート", "ChatGPT 使い方 例文", "AI プロンプト 便利", "ChatGPT 活用 仕事"],
+  },
+  {
+    slug: "ai-privacy-safety-guide",
+    title: "生成AIに個人情報を入れても大丈夫？｜安全に使うための5つのルール【2026年版】",
+    summary:
+      "ChatGPT・Claude・Geminiに個人情報や会社の情報を入力しても安全？2026年2月時点の各ツールのデータポリシーを正確に比較し、オプトアウト設定の手順を図解。「何が危険で何は安全か」を5つのルールで解説。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-22T13:00:00+09:00",
+    tags: ["生成AI 個人情報 大丈夫", "ChatGPT セキュリティ 安全性", "AI 情報漏洩 対策", "ChatGPT 会社で使う 注意点"],
+  },
+  {
+    slug: "ai-hallucination-fact-check-guide",
+    title: "ChatGPTが嘘をつく？｜生成AIのハルシネーションを見抜く7つの実践テクニック",
+    summary:
+      "AIが「嘘をつく」のはなぜ？ハルシネーションの仕組みをわかりやすく解説し、今日から使える7つの見抜き方を具体的なプロンプト例つきで紹介。GPT-5.2・Claude Opus 4.6・Gemini 3の2026年2月最新ハルシネーション改善状況も。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-22T12:00:00+09:00",
+    tags: ["ChatGPT 嘘 見分け方", "生成AI ハルシネーション 対策", "AI 間違い なぜ", "AI ファクトチェック 方法"],
+  },
+  {
+    slug: "ai-trends-february-2026",
+    title: "【2026年2月】生成AIの最新トレンド5選｜初心者が\u201c今\u201d知っておくべきこと",
+    summary:
+      "Claude 4.6、GPT-5.2、Gemini 3、AIエージェント、日本のリスキリング政策——2026年2月の生成AI最新動向を初心者目線でわかりやすく解説。各トレンドの「あなたへの影響」と「今日からできること」を整理しました。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-22T11:00:00+09:00",
+    tags: ["生成AI 最新 2026", "AI トレンド 2026年", "ChatGPT 最新情報", "Claude 最新"],
+  },
+  {
+    slug: "ai-mastery-tips-for-beginners",
+    title: "生成AIを「使えるようになった人」がやっていた5つのこと｜挫折しないためのリアルな始め方",
+    summary:
+      "「うまく使えない」「何を聞けばいいかわからない」と感じている方へ。AIを使いこなしている人が実践していた5つの行動パターンを、コピペで使えるプロンプト例つきで解説。ChatGPT・Claude・Geminiの2026年2月最新比較も。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-22T10:00:00+09:00",
+    tags: ["生成AI 使いこなす コツ", "ChatGPT うまく使えない", "AI 使い方 初心者", "生成AI 挫折"],
+  },
+  {
     slug: "ai-first-30-days-work-guide",
     title: "生成AIを仕事で使い始めた人の「最初の30日」完全ガイド｜週別ロードマップ＆プロンプト例つき",
     summary:
@@ -49,15 +103,6 @@ const blogPosts: readonly BlogPost[] = [
     category: "AI基礎知識",
     publishedAt: "2026-02-21T20:00:00+09:00",
     tags: ["ChatGPT 無料 できること", "Claude 無料プラン", "Gemini 無料 比較"],
-  },
-  {
-    slug: "ai-cybersecurity-defender-guide",
-    title: "AIサイバーセキュリティ導入ガイド｜Defender XDRとAnthropicで構築する2026年型SOC",
-    summary:
-      "2026年2月の最新AI×セキュリティ動向。Microsoft DefenderのAI優先順位付け、Anthropicの防御特化型AI、AIエージェント保護（Entra Agent IDs）などSOC高度化の実務ステップを提示。",
-    category: "法人向け",
-    publishedAt: "2026-02-21T19:00:00+09:00",
-    tags: ["AI サイバーセキュリティ 導入", "Defender AI", "SOC 効率化"],
   },
   {
     slug: "ai-anxiety-overcome-guide",
