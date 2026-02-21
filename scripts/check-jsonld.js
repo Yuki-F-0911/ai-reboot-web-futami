@@ -156,13 +156,16 @@ function validateFaq(source, errors) {
 function validateArticle(source, errors) {
   const articlePropsText = extractJsxProps(source, "ArticleStructuredData");
   if (!articlePropsText) {
-    errors.push('Article JSON-LD 未検出（`@type: "Article"` がない）');
+    errors.push('Article JSON-LD 未検出（`@type: "Article" または "BlogPosting"` がない）');
     return;
   }
 
   const articleType = extractStringPropValue(articlePropsText, "articleType") || "Article";
-  if (articleType !== "Article") {
-    errors.push(`Article JSON-LD の @type が "Article" ではない（現在: "${articleType}"）`);
+  const allowedArticleTypes = new Set(["Article", "BlogPosting"]);
+  if (!allowedArticleTypes.has(articleType)) {
+    errors.push(
+      `Article JSON-LD の @type が "Article" または "BlogPosting" ではない（現在: "${articleType}"）`
+    );
   }
 
   if (!hasProp(articlePropsText, "title")) {
