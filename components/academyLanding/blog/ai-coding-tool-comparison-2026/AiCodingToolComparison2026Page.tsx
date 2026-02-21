@@ -25,16 +25,15 @@ const sectionReveal = {
 
 const keywordTags = [
   "AIコーディングツール 比較 2026",
-  "Cursor vs Claude Code vs Copilot",
-  "Vibe Coding ツール",
+  "Copilot Agent HQ / Codex App",
+  "Cursor Continue Windsurf",
 ] as const;
 
 const tocItems = [
   { id: "conclusion", label: "要点まとめ" },
-  { id: "selection", label: "3強比較の結論" },
-  { id: "feature-comparison", label: "機能比較（Agent/Composer/モデル）" },
-  { id: "vibe-coding", label: "Vibe Coding対応力" },
-  { id: "pricing", label: "料金比較（年間コスト）" },
+  { id: "selection", label: "5ツール比較の結論" },
+  { id: "feature-comparison", label: "機能比較（Agent/モデル/導入性）" },
+  { id: "pricing", label: "料金比較（2026年2月）" },
   { id: "use-cases", label: "用途別おすすめ" },
   { id: "agent-hq", label: "Copilot Agent HQ最新機能" },
   { id: "faq", label: "よくある質問（FAQ）" },
@@ -44,97 +43,104 @@ const tocItems = [
 
 const featureRows = [
   {
-    axis: "Agent / Composer",
-    cursor: "Agent機能を中心に継続強化。Background agent・Subagents・Skillsを展開。",
-    claudeCode: "CLI Agentとして自律実行に特化。権限ルールと承認フローを細かく設計可能。",
-    copilot: "エディタ補完中心からAgent HQへ拡張。coding agentを含む並列タスク実行が可能。",
+    axis: "主な強み",
+    copilot: "GitHub上でcoding agentを運用しやすく、PR/レビュー導線に接続しやすい。",
+    codex: "OpenAI Codex CLIで実装から検証までをターミナルで一気通貫に回せる。",
+    cursor: "IDE内で対話編集を高速反復しやすく、画面修正の初速が高い。",
+    continueTool: "OSSベースで拡張性が高く、モデル・実行基盤を自前統制しやすい。",
+    windsurf: "低価格で始めやすく、Flow/Tab中心の生成体験で初学者の初速が出やすい。",
   },
   {
-    axis: "コンテキスト長",
-    cursor: "通常200k。Max modeで一部モデルは1Mコンテキスト対応。",
-    claudeCode: "モデル選択で`sonnet[1m]`を利用可能（契約条件に依存）。",
-    copilot: "固定値公開ではなく、選択モデルと機能（Chat/Agent）依存で運用。",
+    axis: "Agent実行",
+    copilot: "Agent mode + coding agent + Agent HQでタスク並列と進捗管理が可能。",
+    codex: "CLI上で指示、編集、実行、再計画を反復。スクリプト運用と相性が高い。",
+    cursor: "Background agentや複数モデル呼び分けでIDE内作業を自動化しやすい。",
+    continueTool: "実行基盤は構成依存。自社環境に合わせたAgent設計が可能。",
+    windsurf: "Cascade/Flowで実装補助を行いやすいが、組織統制は要検証。",
   },
   {
     axis: "モデル選択",
-    cursor: "OpenAI・Anthropic・Google系を横断して使い分け可能。",
-    claudeCode: "`/model`でClaudeファミリーを切替（Sonnet/Opus等）。",
-    copilot: "GPT系に加えClaude/Gemini/Codex系モデルをタスク別に選択可能。",
+    copilot: "OpenAI/Anthropic/Google系を含む複数モデルから選択可能。",
+    codex: "OpenAIモデル中心。難問は推論系、反復は軽量モデルに切替えやすい。",
+    cursor: "OpenAI/Anthropic/Googleなど横断で選択可能。",
+    continueTool: "ローカル/クラウドを含め自由度が高い（運用者の設計力が必要）。",
+    windsurf: "主要クラウドモデル対応。詳細はプランと提供時期で変動。",
   },
   {
     axis: "導入しやすさ",
-    cursor: "VS Code利用者は移行しやすい。UIベースで着手しやすい。",
-    claudeCode: "CLI運用が前提。開発者には強力だが初学者は慣れが必要。",
-    copilot: "GitHubとIDE連携が強く、既存開発チームに導入しやすい。",
-  },
-] as const;
-
-const vibeRows = [
-  {
-    tool: "Cursor",
-    score: "高い",
-    reason: "自然言語で画面修正を反復しやすく、非エンジニアでも初稿を作りやすい。",
-    caution: "上位モデル連打でコストが増えやすいため、タスク粒度を絞る必要がある。",
-  },
-  {
-    tool: "Claude Code",
-    score: "中",
-    reason: "自動化能力は高いが、ターミナル・権限・実行ログの理解が必要。",
-    caution: "CLI前提のため、非エンジニアは最初の学習負荷が高くなりやすい。",
-  },
-  {
-    tool: "GitHub Copilot",
-    score: "中",
-    reason: "補完体験は強いが、既存コードベース前提で価値が最大化しやすい。",
-    caution: "初学者はAgent機能とモデル選択の概念を同時に覚える必要がある。",
+    copilot: "GitHub利用組織では最も導入しやすい。",
+    codex: "CLI前提のため開発者向け。自動化志向のチームに適合。",
+    cursor: "VS Code利用者は移行しやすく、非エンジニアでも触り始めやすい。",
+    continueTool: "セットアップ自由度が高い反面、設計と保守の手間が必要。",
+    windsurf: "低価格で試しやすいが、大規模運用要件は事前確認が必要。",
   },
 ] as const;
 
 const personalPricingRows = [
   {
-    tool: "Cursor",
-    free: "Hobby",
-    paid: "Pro $20/月 / Pro+ $60/月 / Ultra $200/月",
-    annual: "$240 / $720 / $2,400",
-  },
-  {
-    tool: "Claude Code（Claudeプラン経由）",
-    free: "Claude Free",
-    paid: "Pro $20/月（年払い$17相当） / Max $100・$200/月",
-    annual: "$200〜$240 / $1,200〜$2,400",
-  },
-  {
     tool: "GitHub Copilot",
     free: "Copilot Free",
-    paid: "Pro $10/月（年$100） / Pro+ $39/月（年$390）",
-    annual: "$100〜$120 / $390〜$468",
+    paid: "Pro $10/月, Pro+ $39/月",
+    annual: "$100〜$468",
+  },
+  {
+    tool: "OpenAI Codex App",
+    free: "ChatGPT Free / Goで試用可能（提供条件あり）",
+    paid: "ChatGPT Plus $20/月, Pro $200/月（プラン連動）",
+    annual: "$240〜$2,400",
+  },
+  {
+    tool: "Cursor",
+    free: "Hobby",
+    paid: "Pro $20/月, Ultra $200/月",
+    annual: "$240〜$2,400",
+  },
+  {
+    tool: "Continue",
+    free: "Solo（無料）",
+    paid: "Team $20/seat/月（クレジット付き）",
+    annual: "$0〜$240/seat + API従量",
+  },
+  {
+    tool: "Windsurf",
+    free: "Free",
+    paid: "Pro $15/月",
+    annual: "$180",
   },
 ] as const;
 
 const teamPricingRows = [
-  { tool: "Cursor", plan: "Teams", monthly: "$40 / user", annual: "$480 / user" },
-  { tool: "Claude", plan: "Team Standard", monthly: "$25 / user（年契約で$20相当）", annual: "$240〜$300 / user" },
   { tool: "GitHub Copilot", plan: "Business / Enterprise", monthly: "$19 / $39 per user", annual: "$228 / $468 per user" },
+  { tool: "OpenAI Codex App", plan: "ChatGPT Business / Enterprise連携", monthly: "契約見積り", annual: "契約見積り" },
+  { tool: "Cursor", plan: "Teams", monthly: "$40 / user", annual: "$480 / user" },
+  { tool: "Continue", plan: "Team", monthly: "$20 / seat + API", annual: "$240 / seat + API" },
+  { tool: "Windsurf", plan: "Teams", monthly: "$30 / user", annual: "$360 / user" },
 ] as const;
 
 const useCaseCards = [
   {
-    title: "Webアプリ開発",
-    recommendation: "Cursor中心 + Copilot補完",
+    title: "GitHub中心のチーム開発",
+    recommendation: "GitHub Copilot Agent HQ",
     reason:
-      "UI確認しながら複数ファイルを編集する場面が多いため、Cursorの対話編集が効きやすい。既存リポジトリではCopilot補完を併用すると速度が安定する。",
+      "既存のIssue/PR/レビュー導線にAgentを接続しやすく、導入直後の運用負荷を抑えやすい。組織導入の最初の1本として失敗しにくい。",
   },
   {
-    title: "スクリプト自動化",
-    recommendation: "Claude Code中心",
+    title: "CLI自動化・バッチ運用",
+    recommendation: "OpenAI Codex App",
     reason:
-      "CLI上で要件定義から実行、修正まで一気に回しやすい。定期バッチ・ログ整形・移行スクリプトなど、ターミナル主体の作業と相性が高い。",
+      "ターミナル中心で実行と修正を繰り返す運用に強い。スクリプト化・検証・再実行のループを短くできる。",
   },
   {
-    title: "コードレビュー",
-    recommendation: "GitHub Copilot中心",
+    title: "画面改修の高速反復",
+    recommendation: "Cursor",
     reason:
-      "GitHub連携とPR文脈で使えるため、レビュー導線に組み込みやすい。Agent HQを活用すると、レビュー前の下処理タスクも委任しやすい。",
+      "IDE内で複数ファイルを対話編集しやすく、UI改修と微修正を素早く回せる。非エンジニアとの共同作業にも向きやすい。",
+  },
+  {
+    title: "自前統制・低コスト重視",
+    recommendation: "Continue / Windsurf",
+    reason:
+      "Continueは構成自由度が高く統制設計に向く。Windsurfは低価格で試しやすく、個人導入の初期コストを抑えやすい。",
   },
 ] as const;
 
@@ -143,10 +149,7 @@ type LineCtaBoxProps = {
   slug: string;
 };
 
-function LineCtaBox({
-  className,
-  slug,
-}: LineCtaBoxProps) {
+function LineCtaBox({ className, slug }: LineCtaBoxProps) {
   const lineHref = `${lineUrl}?${new URLSearchParams({
     src: "blog",
     slug,
@@ -155,7 +158,9 @@ function LineCtaBox({
   return (
     <div className={className}>
       <p className="text-base font-semibold text-gray-900">AIで仕事を変えたい方へ｜LINEで無料相談する</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」について、LINEで気軽に相談できます。補助金の使い方・カリキュラム・学習イメージを無料でお伝えします。</p>
+      <p className="mt-2 text-sm leading-7 text-gray-700">
+        経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」について、LINEで気軽に相談できます。補助金の使い方・カリキュラム・学習イメージを無料でお伝えします。
+      </p>
       <a
         href={lineHref}
         target="_blank"
@@ -202,37 +207,36 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           <div className="mt-6 flex">
             <div className="ml-auto w-full sm:w-auto">
               <CopyAsMarkdownButton
-                title="AIコーディングツール比較 2026年版｜Cursor・Claude Code・GitHub Copilotの選び方"
+                title="AIコーディングツール比較 2026｜Copilot Agent HQ・Codex App・Cursor・Continue・Windsurf"
                 sourceSelector="[data-blog-article-body]"
               />
             </div>
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            AIコーディングツール比較 2026年版｜Cursor・Claude Code・GitHub Copilotの選び方
+            AIコーディングツール比較 2026｜Copilot Agent HQ・Codex App・Cursor・Continue・Windsurf
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日（確認日ベース）</p>
-          <p className="blog-p mt-6 text-base leading-8 text-gray-700">
-            2026年2月時点で、AIコーディングツールの実務選定は「どのモデルが強いか」だけでは決まりません。結論は、Webアプリ実装中心ならCursor、CLI自動化中心ならClaude
-            Code、GitHub運用中心ならGitHub Copilotが軸になります。本記事では、Agent/Composer機能、コンテキスト長、モデル選択、Vibe
-            Coding対応力、料金、用途別おすすめ、Copilot Agent HQの最新情報まで一気に整理します。
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月21日（確認日ベース）</p>
+          <p className="mt-6 text-base leading-8 text-gray-700">
+            2026年2月時点の選定ポイントは「どのモデルが強いか」より「どの業務導線にAgentを接続するか」です。本記事では、
+            GitHub Copilot Agent HQ、OpenAI Codex App、Cursor、Continue、Windsurfの5ツールを、機能・料金・導入性で比較します。
           </p>
         </motion.header>
 
         <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
           <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
           <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1">2026年版Cursor・Claude Code・GitHub CopilotをAgent機能・コンテキスト・料金で比較</li>
-            <li className="pl-1">Vibe Coding対応力と用途別おすすめの判断基準</li>
-            <li className="pl-1">非エンジニアが最初に選ぶべきツールと理由</li>
-            <li className="pl-1">チーム導入時に先に決めるべき運用ルール5点</li>
+            <li className="pl-1">Copilot Agent HQ・Codex Appを含む5ツール比較</li>
+            <li className="pl-1">Cursor・Continue・Windsurfの違いと選定基準</li>
+            <li className="pl-1">2026年2月時点の料金目安と見落としやすい変動費</li>
+            <li className="pl-1">チーム導入時に先に決めるべき運用ルール</li>
           </ul>
         </section>
 
-        {/* Answer Box */}
-        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
+        <section className="mb-8 mt-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">Answer Box</p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
-            2026年の実務選定は、Webアプリ実装の主戦場ならCursor、CLI自動化とバッチ運用ならClaude Code、GitHub中心のチーム開発ならCopilotが最適です。決め手はモデル名ではなく、Agent運用のしやすさと既存フローへの接続性です。まず1ツールを主軸に据え、上位モデル利用とプレミアムリクエストの変動費を含めて年間コストで判断するのが失敗しにくい選び方です。
+            2026年の実務選定は、GitHub中心ならCopilot Agent HQ、CLI自動化ならCodex App、IDEでの高速改修ならCursorが主軸です。
+            Continueは自前統制、Windsurfは低価格導入に強みがあります。最初は1本を主軸にし、足りない工程だけ2本目で補う段階導入が最も失敗しにくいです。
           </p>
         </section>
 
@@ -247,20 +251,12 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">要点まとめ</h2>
-          <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="blog-li pl-1 marker:text-gray-500">
-              Cursorは、対話しながら複数ファイルを編集する開発で強く、Vibe Codingの初速を作りやすいです。
-            </li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              Claude CodeはCLIの自律実行が強く、スクリプト自動化やタスク分解運用で効率が出ます。
-            </li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              GitHub Copilotは既存GitHubフローとの接続が強く、Copilot Agent HQによりAgent運用が拡張されました。
-            </li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              料金比較は月額だけでなく、プレミアムリクエストや上位モデル利用の変動費まで確認する必要があります。
-            </li>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">要点まとめ</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">Copilot Agent HQはチーム運用との接続が強く、組織導入で安定しやすい。</li>
+            <li className="pl-1 marker:text-gray-500">Codex AppはCLI実行の反復と自動化ワークフローに強い。</li>
+            <li className="pl-1 marker:text-gray-500">Cursorは画面改修の初速、Continueは統制設計、Windsurfは低価格導入が強み。</li>
+            <li className="pl-1 marker:text-gray-500">料金比較は固定費だけでなく、モデル利用とAgent実行の従量部分まで確認する。</li>
           </ul>
         </motion.section>
 
@@ -272,10 +268,7 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox
-            className=""
-            slug="ai-coding-tool-comparison-2026"
-          />
+          <LineCtaBox className="" slug="ai-coding-tool-comparison-2026" />
         </motion.section>
 
         <motion.section
@@ -287,26 +280,12 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
-            3強比較の結論: 選定は「作業の主戦場」で決める
-          </h2>
-          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
-            3ツールの差は、モデル品質よりも「どの環境で何を最短化したいか」に表れます。
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">5ツール比較の結論: 「主戦場」で主軸を決める</h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            5ツールの差はモデル品質より、どの業務導線を短縮できるかに表れます。
           </p>
-          <p className="blog-p mt-4 text-sm leading-7 text-gray-700">
-            画面を見ながら構成と実装を往復するならCursor、ターミナルで作業を自動化したいならClaude Code、GitHub上のレビューや運用導線を重視するならCopilotが選びやすいです。
-            特に乗り換え検討では、すべてを一度に切り替えるより「今のボトルネック1つ」を潰す順で導入したほうが失敗しにくくなります。
-          </p>
-          <p className="blog-p mt-4 text-sm leading-7 text-gray-700">
-            基礎から整理したい場合は
-            <Link href="/academy/blog/ai-coding-for-beginners" className="blog-link mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              AIコーディング入門
-            </Link>
-            と、
-            <Link href="/academy/blog/vibe-coding-beginner-guide" className="blog-link mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              Vibe Coding入門
-            </Link>
-            を先に確認すると、比較軸がぶれにくくなります。
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            GitHub中心のチームはCopilot、CLI中心はCodex App、IDE中心はCursorが軸になりやすいです。ContinueとWindsurfは、統制重視か低価格重視かで使い分けると判断しやすくなります。
           </p>
         </motion.section>
 
@@ -319,79 +298,38 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
-            機能比較: Agent/Composer・コンテキスト長・モデル選択
-          </h2>
-          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
-            2026年2月時点では、3ツールとも「チャット補助」から「タスク実行」へ重心が移っています。
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">機能比較: Agent/モデル/導入性</h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            2026年2月時点では、全ツールが「補完」から「タスク実行」へ重心を移しています。
           </p>
           <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[900px] border-collapse text-left text-sm leading-7 text-gray-700">
+            <table className="blog-table w-full min-w-[1200px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">比較軸</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Copilot Agent HQ</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Codex App</th>
                   <th className="py-3 px-4 font-semibold text-gray-900">Cursor</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">Claude Code</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">GitHub Copilot</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Continue</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">Windsurf</th>
                 </tr>
               </thead>
               <tbody>
                 {featureRows.map((row) => (
                   <tr key={row.axis} className="border-b border-gray-200 align-top">
                     <th className="py-4 pr-4 font-semibold text-gray-900">{row.axis}</th>
+                    <td className="py-4 px-4">{row.copilot}</td>
+                    <td className="py-4 px-4">{row.codex}</td>
                     <td className="py-4 px-4">{row.cursor}</td>
-                    <td className="py-4 px-4">{row.claudeCode}</td>
-                    <td className="py-4 pl-4">{row.copilot}</td>
+                    <td className="py-4 px-4">{row.continueTool}</td>
+                    <td className="py-4 pl-4">{row.windsurf}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="blog-p mt-5 text-xs leading-6 text-gray-500">
-            出典: Cursor公式Pricing/Changelog、Anthropic Claude Code docs、GitHub Copilot plans/docs（確認日: 2026-02-20）
-          </p>
-        </motion.section>
-
-        <motion.section
-          id="vibe-coding"
-          className="mt-14"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
-            Vibe Coding対応力: 非エンジニアでも使えるか
-          </h2>
-          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
-            Vibe Coding文脈では、最初の成果物を出す速度と、継続運用できる設計の両立が評価軸になります。
-          </p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">ツール</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">初速評価</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">強み</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">注意点</th>
-                </tr>
-              </thead>
-              <tbody>
-                {vibeRows.map((row) => (
-                  <tr key={row.tool} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.tool}</th>
-                    <td className="py-4 px-4">{row.score}</td>
-                    <td className="py-4 px-4">{row.reason}</td>
-                    <td className="py-4 pl-4">{row.caution}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
-            非エンジニアが最初に成果を出すなら、Cursorで小さく画面を作り、必要に応じてClaude
-            Codeで自動化を追加し、GitHub運用に入る段階でCopilotを活かす流れが現実的です。単一ツールで完結させるより、工程ごとに役割を分けるほうが再現性は高まります。
+          <p className="mt-5 text-xs leading-6 text-gray-500">
+            出典: GitHub Docs/Blog、OpenAI Codex、Cursor Pricing、Continue Pricing、Windsurf Pricing（確認日: 2026-02-21）
           </p>
         </motion.section>
 
@@ -404,19 +342,20 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">料金比較: Free/有料プランと年間コスト</h2>
-          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
-            料金は必ず「固定費」と「変動費」を分けて見てください。確認日は2026-02-20です。
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">料金比較（2026年2月）: 固定費と変動費を分ける</h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            比較時は月額料金だけでなく、上位モデル利用、プレミアムリクエスト、API従量を分離して計算してください。
           </p>
-          <h3 className="blog-h3 mt-8 text-xl font-semibold text-gray-900">個人向け比較</h3>
+
+          <h3 className="mt-8 text-xl font-semibold text-gray-900">個人向け比較</h3>
           <div className="mt-5 overflow-x-auto">
-            <table className="blog-table w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
+            <table className="blog-table w-full min-w-[920px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">ツール</th>
                   <th className="py-3 px-4 font-semibold text-gray-900">無料枠</th>
                   <th className="py-3 px-4 font-semibold text-gray-900">主要有料プラン</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">年間目安（税別）</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">年額目安（税別）</th>
                 </tr>
               </thead>
               <tbody>
@@ -431,9 +370,10 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
               </tbody>
             </table>
           </div>
-          <h3 className="blog-h3 mt-10 text-xl font-semibold text-gray-900">チーム向け比較（1席）</h3>
+
+          <h3 className="mt-10 text-xl font-semibold text-gray-900">チーム向け比較（1席）</h3>
           <div className="mt-5 overflow-x-auto">
-            <table className="blog-table w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
+            <table className="blog-table w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">ツール</th>
@@ -454,9 +394,7 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
               </tbody>
             </table>
           </div>
-          <p className="blog-p mt-6 text-xs leading-6 text-gray-500">
-            [要確認: Cursor無料枠の細かな利用上限、Copilot Agent HQの追加課金細目] 価格・上限は変更されるため、契約前に公式ページを再確認してください。
-          </p>
+          <p className="mt-6 text-xs leading-6 text-gray-500">価格・上限は頻繁に更新されるため、契約前に各公式ページで再確認してください。</p>
         </motion.section>
 
         <motion.section
@@ -467,9 +405,7 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <MidArticleCtaBox
-            slug="ai-coding-tool-comparison-2026"
-          />
+          <MidArticleCtaBox slug="ai-coding-tool-comparison-2026" />
         </motion.section>
 
         <motion.section
@@ -481,13 +417,11 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
-            用途別おすすめ: Webアプリ開発・スクリプト自動化・コードレビュー
-          </h2>
-          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
-            1ツールですべて解決するより、用途で主役を分けたほうが運用が安定します。
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">用途別おすすめ</h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            1ツールで完結させるより、工程ごとに主役を分けるほうが定着しやすくなります。
           </p>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {useCaseCards.map((card) => (
               <div key={card.title} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
                 <p className="text-sm font-semibold text-gray-900">{card.title}</p>
@@ -496,18 +430,14 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
               </div>
             ))}
           </div>
-          <p className="blog-p mt-6 text-sm leading-7 text-gray-700">
-            詳細な実践手順は
-            <Link href="/academy/blog/cursor-ai-coding-guide" className="blog-link mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              Cursor活用ガイド
+          <p className="mt-6 text-sm leading-7 text-gray-700">
+            実装の基礎整理には
+            <Link href="/academy/blog/ai-coding-for-beginners" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              AIコーディング入門
             </Link>
-            、
-            <Link href="/academy/blog/claude-code-intro" className="blog-link mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              Claude Code解説
-            </Link>
-            、
-            <Link href="/academy/blog/github-copilot-guide" className="blog-link mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              GitHub Copilotガイド
+            を、Cursor活用は
+            <Link href="/academy/blog/cursor-ai-coding-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              Cursorガイド
             </Link>
             を参照してください。
           </p>
@@ -522,25 +452,17 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
-            GitHub Copilot Agent HQ最新機能: Claude+Codex統合の意味
-          </h2>
-          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
-            GitHub公式は2026年2月10日に、Copilot coding agentとAgent mode（MCP対応）をPublic Previewとして発表しました。
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">GitHub Copilot Agent HQ最新機能（2026年対応）</h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            GitHubは2026年2月10日に、Copilot coding agentとAgent mode（MCP対応）をPublic Previewとして発表しました。
           </p>
-          <ul className="blog-ul mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="blog-li pl-1 marker:text-gray-500">
-              GitHub上で複数のバックグラウンドタスクを並列実行し、Agent HQで状況管理できる構成に進化しました。
-            </li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              Claude Opus系とOpenAI Codex系を含む複数モデル選択が可能になり、タスク難度で使い分けやすくなっています。
-            </li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              coding agentのセッションはプレミアムリクエスト消費対象のため、コスト設計を事前に決めることが重要です。
-            </li>
+          <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">Issueからcoding agentを起動し、バックグラウンドでタスク処理を進められる。</li>
+            <li className="pl-1 marker:text-gray-500">Agent HQで複数セッションの進捗を集約して確認しやすい。</li>
+            <li className="pl-1 marker:text-gray-500">モデル選択の幅が拡張され、タスク難度ごとに使い分けしやすい。</li>
           </ul>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
-            ここで重要なのは、機能が増えたこと自体よりも、チーム側の運用基準です。どのタスクをAgentへ委任するか、どのレビュー段階で人が承認するか、どこまでを自動マージ対象にするかを先に決めると、導入後の混乱を抑えられます。
+          <p className="mt-5 text-sm leading-7 text-gray-700">
+            重要なのは機能の多さより運用ルールです。どのタスクをAgentに委任し、どこで人間承認を挟むかを先に決めると、品質事故とコスト超過を防ぎやすくなります。
           </p>
         </motion.section>
 
@@ -553,12 +475,12 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
           <div className="mt-6 space-y-4">
             {faqItems.map((item) => (
               <section key={item.question} className="rounded-lg border border-slate-200 bg-white p-5">
-                <h3 className="blog-h3 text-base font-semibold text-gray-900">{item.question}</h3>
-                <p className="blog-p mt-2 text-sm leading-7 text-gray-700">{item.answer}</p>
+                <h3 className="text-base font-semibold text-gray-900">{item.question}</h3>
+                <p className="mt-2 text-sm leading-7 text-gray-700">{item.answer}</p>
               </section>
             ))}
           </div>
@@ -572,10 +494,7 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox
-            className=""
-            slug="ai-coding-tool-comparison-2026"
-          />
+          <LineCtaBox className="" slug="ai-coding-tool-comparison-2026" />
         </motion.section>
 
         <motion.section
@@ -587,25 +506,20 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">関連記事</h2>
-          <ul className="blog-ul mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="blog-li pl-1 marker:text-gray-500">
-              <Link href="/academy/blog/ai-coding-for-beginners" className="blog-link text-orange-600 underline underline-offset-4 hover:text-orange-700">
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">関連記事</h2>
+          <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">
+              <Link href="/academy/blog/ai-coding-for-beginners" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方
               </Link>
             </li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              <Link href="/academy/blog/cursor-ai-coding-guide" className="blog-link text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            <li className="pl-1 marker:text-gray-500">
+              <Link href="/academy/blog/cursor-ai-coding-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 Cursor × AIコーディング入門｜非エンジニアでも使える実践ガイド
               </Link>
             </li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              <Link href="/academy/blog/claude-code-intro" className="blog-link text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                Claude Codeとは？使い方・料金・始め方を完全解説
-              </Link>
-            </li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              <Link href="/academy/blog/github-copilot-guide" className="blog-link text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            <li className="pl-1 marker:text-gray-500">
+              <Link href="/academy/blog/github-copilot-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 GitHub Copilotの使い方｜導入・設定・効率化のコツ
               </Link>
             </li>
@@ -621,10 +535,9 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 text-2xl font-bold text-gray-900">AI活用の判断軸とキャリアを同時に設計する</h2>
-          <p className="blog-p mt-4 text-sm leading-7 text-gray-700">
-            ツール選定で成果差が出る本質は、機能差より「どの業務課題にどう当てるか」の判断です。AIリブートアカデミーでは、生成AI活用力の習得に加え、
-            AIを鏡にした自己理解・キャリアデザイン、仲間と共に学ぶ環境づくりを一体で設計しています。特定ツールの操作に閉じず、実務アウトプットと次のキャリア判断をつなげたい方に向いた学習設計です。
+          <h2 className="text-2xl font-bold text-gray-900">AI活用の判断軸とキャリアを同時に設計する</h2>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            ツール選定の本質は、機能差より業務課題との接続です。AIリブートアカデミーでは、生成AI活用力の習得に加え、AIを鏡にした自己理解・キャリアデザイン、仲間と共に学ぶ環境づくりを一体で設計しています。
           </p>
           <div className="mt-6">
             <Link

@@ -7,8 +7,8 @@ const pageDescription =
   "法務で生成AIを安全に使うための実務ガイド。契約レビューを任せない運用原則、著作権法・個人情報保護法・EU AI Actを踏まえた統制ポイント、入力データ管理と承認フローを設計する具体手順、監査で使う記録項目を解説し、社内規程に落とし込める内容です。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-legal-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
-const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-02-20";
+const publishedTime = "2026-02-21T09:00:00+09:00";
+const modifiedTime = "2026-02-21T09:00:00+09:00";
 
 const faqItems = [
   {
@@ -41,6 +41,16 @@ const faqItems = [
     answer:
       "最初に定めるべきは、1) 入力データ分類、2) タスク分類（補助/要承認/禁止）、3) レビューとログ保存ルールの3点です。これがないまま利用を広げると、監査と改善ができません。",
   },
+  {
+    question: "EU AI Actは2026年8月2日に何が変わりますか？",
+    answer:
+      "主要フェーズとして、高リスクAIシステムへの義務適用が2026年8月2日に始まります。日本企業でもEU向けサービスやEU子会社経由で対象になる可能性があるため、提供AIの分類と技術文書整備を前倒しで進める必要があります。",
+  },
+  {
+    question: "日本企業が今すぐ着手すべき対応は何ですか？",
+    answer:
+      "1) 自社AIユースケースの棚卸し、2) EU関連取引の有無確認、3) 高リスク該当性の一次判定、4) ログ・説明可能性・人間監督の運用整備、5) ベンダー契約条項の更新、の5点から着手すると実務に落とし込みやすいです。",
+  },
 ] as const;
 
 export const metadata: Metadata = {
@@ -52,6 +62,8 @@ export const metadata: Metadata = {
     "AI 契約書 作成",
     "生成AI リーガル",
     "法務 ChatGPT 使い方",
+    "EU AI Act 2026",
+    "高リスクAIシステム 対応",
   ],
   alternates: {
     canonical: pageUrl,

@@ -27,8 +27,10 @@ const keywordTags = ["生成AI 法務 活用", "契約書 AI レビュー", "リ
 const tocItems = [
   { id: "conclusion", label: "要点まとめ" },
   { id: "why-no-full-delegate", label: "全部任せてはいけない理由" },
+  { id: "eu-ai-act-2026", label: "EU AI Act 2026適用フェーズ" },
   { id: "can-cannot", label: "使える場面・使えない場面" },
   { id: "framework", label: "任せない運用フレームワーク" },
+  { id: "jp-checklist", label: "日本企業の対応チェックリスト" },
   { id: "practice", label: "実践手順とプロンプト例" },
   { id: "faq", label: "FAQ" },
 ] as const;
@@ -108,6 +110,32 @@ const rolloutSteps = [
   },
 ] as const;
 
+const euAiActPhaseRows = [
+  {
+    phase: "2025-02-02",
+    scope: "禁止AIプラクティス等の先行適用",
+    impact: "AI利用ポリシーと禁止用途の棚卸しが必須",
+  },
+  {
+    phase: "2026-08-02",
+    scope: "高リスクAIシステムの主要義務が適用開始",
+    impact: "リスク管理、技術文書、ログ、人間監督の実装が必要",
+  },
+  {
+    phase: "2027-08-02",
+    scope: "一部の高リスク要件（規制製品組込等）の追加適用",
+    impact: "製品提供形態によって追加対応が必要",
+  },
+] as const;
+
+const japanCompanyChecklist = [
+  "EU向けに提供するAI機能・サービスを棚卸しし、対象国と提供主体を明確化する。",
+  "高リスクAI該当性の一次判定を実施し、該当候補を台帳化する。",
+  "入力データ分類・ログ保管・説明可能性・人間監督フローを文書化する。",
+  "ベンダー契約で再委託、ログ提供、インシデント通知、責任分界を明確化する。",
+  "法務・情報システム・事業部で四半期ごとの監査と教育を運用に組み込む。",
+] as const;
+
 function LineCtaBox({ withChecklistNote = false }: { withChecklistNote?: boolean }) {
   return (
     <section className="blog-cta-box mt-10 rounded-lg border border-green-200 bg-green-50 p-6">
@@ -178,7 +206,7 @@ export default function AiLegalGuidePage({ faqItems }: AiLegalGuidePageProps) {
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             法務の生成AI活用ガイド｜契約レビューを「任せない」運用設計と実践的な使い方
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月21日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             結論から言うと、法務で生成AIを使うときに最も重要なのは、契約レビューを「任せる」ことではなく、契約レビューを
             <span className="font-semibold text-gray-900">「任せない前提で設計する」</span>ことです。
@@ -188,6 +216,14 @@ export default function AiLegalGuidePage({ faqItems }: AiLegalGuidePageProps) {
             この境界を曖昧にすると、品質・情報管理・説明責任の3点で運用が崩れます。
           </p>
         </motion.header>
+
+        <section className="mb-8 mt-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">Answer Box</p>
+          <p className="mt-2 text-sm leading-7 text-slate-700">
+            法務で生成AIを安全に使う結論は、契約レビューの最終判断を人間に固定し、AIは差分抽出と論点整理に限定することです。加えて、EU AI
+            Actは2026年8月2日に高リスクAIシステムへの主要義務適用が始まるため、日本企業もEU関連業務を持つ場合は今のうちに対象判定と証跡運用を整備する必要があります。
+          </p>
+        </section>
 
         <ArticleTOC items={tocItems} />
 
@@ -251,8 +287,8 @@ export default function AiLegalGuidePage({ faqItems }: AiLegalGuidePageProps) {
             無加工で入力すると守秘義務や個人情報規制の論点が同時に発生します。
           </p>
           <p className="blog-p mt-3 text-sm leading-7 text-gray-700">
-            2026年2月20日時点では、日本国内はAI専用の単独法でなく、著作権法・個人情報保護法・不正競争防止法など既存法の組み合わせで判断する実務が続いています。EUではAI
-            Actの段階適用が進行中で、次の主要適用日である2026年8月2日を見据えた対応計画が必要です。
+            2026年2月21日時点では、日本国内はAI専用の単独法でなく、著作権法・個人情報保護法・不正競争防止法など既存法の組み合わせで判断する実務が続いています。EUではAI
+            Actの段階適用が進行中で、2026年8月2日の高リスクAIシステムへの主要義務適用を見据えた対応計画が必要です。
           </p>
           <p className="blog-p mt-3 text-sm leading-7 text-gray-700">
             詳細な情報管理ルールは、
@@ -260,6 +296,45 @@ export default function AiLegalGuidePage({ faqItems }: AiLegalGuidePageProps) {
               生成AIで情報漏えいが起きるパターン10選
             </Link>
             で具体例を確認してください。
+          </p>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="eu-ai-act-2026" className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+            EU AI Act 2026適用フェーズ: 2026年8月2日から高リスクAI義務が本格化
+          </h2>
+          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
+            EU AI Actは段階適用で進んでおり、2026年8月2日が実務上の重要なマイルストーンです。
+          </p>
+          <div className="mt-6 overflow-x-auto">
+            <table className="blog-table w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
+              <thead>
+                <tr className="border-b border-gray-300">
+                  <th className="py-3 pr-4 font-semibold text-gray-900">適用日</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">主な内容</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">日本企業への影響</th>
+                </tr>
+              </thead>
+              <tbody>
+                {euAiActPhaseRows.map((row) => (
+                  <tr key={row.phase} className="border-b border-gray-200 align-top">
+                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.phase}</th>
+                    <td className="py-4 px-4">{row.scope}</td>
+                    <td className="py-4 pl-4">{row.impact}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="blog-p mt-4 text-xs leading-6 text-gray-500">
+            出典: European Commission AI Act timeline（確認日: 2026-02-21）
           </p>
         </motion.section>
 
@@ -383,6 +458,29 @@ export default function AiLegalGuidePage({ faqItems }: AiLegalGuidePageProps) {
             </Link>
             を参照すると設計しやすくなります。
           </p>
+        </motion.section>
+
+        <motion.section
+          className="mt-14 rounded-lg border border-indigo-200 bg-indigo-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="jp-checklist" className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+            日本企業の対応チェックリスト（EU関連取引あり）
+          </h2>
+          <p className="blog-p mt-4 text-sm leading-7 text-gray-700">
+            EU向けにAIを提供する可能性がある企業は、法務・情報システム・事業部の3者で次を先に固めると運用事故を減らせます。
+          </p>
+          <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            {japanCompanyChecklist.map((item) => (
+              <li key={item} className="blog-li pl-1 marker:text-gray-500">
+                {item}
+              </li>
+            ))}
+          </ul>
         </motion.section>
 
         <LineCtaBox withChecklistNote />
