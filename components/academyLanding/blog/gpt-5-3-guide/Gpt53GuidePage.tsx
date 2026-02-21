@@ -23,116 +23,113 @@ const sectionReveal = {
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
 
-const keywordTags = ["GPT-5.3 使い方", "GPT-5.3 Codex", "OpenAI 料金", "Claude Opus 4.6 比較"] as const;
+const keywordTags = ["OpenAI最新モデル", "GPT-4o / o3", "GPT-5.3-codex", "Claude Opus 4.6比較"] as const;
 
 const tocItems = [
   { id: "conclusion", label: "要点まとめ" },
-  { id: "what-is-gpt53", label: "GPT-5.3とは：GPT-5.2からの変化点" },
-  { id: "codex-spark", label: "GPT-5.3-Codexの使い分け" },
-  { id: "business-use", label: "ビジネス実務での活用シーン" },
+  { id: "notice", label: "重要注記：GPT-5.3について" },
+  { id: "model-map", label: "OpenAIモデル全体マップ" },
+  { id: "use-case-table", label: "用途別の使い分け表" },
+  { id: "codex-cli", label: "GPT-5.3-codexの使いどころ" },
   { id: "vs-claude", label: "Claude Opus 4.6との比較" },
-  { id: "pricing", label: "料金プランの整理" },
   { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
-const changePoints = [
+const modelRows = [
   {
-    item: "コード補助精度",
-    gpt52: "基本的なコード生成・補完に対応",
-    gpt53: "複雑なリファクタリング・テスト生成の精度が向上",
+    model: "GPT-4o",
+    category: "汎用モデル",
+    strengths: "文章生成、要約、説明、日常業務の幅広いタスクを高品質に処理しやすい",
+    usage: "提案書、メール、議事録、顧客向け文面の作成",
   },
   {
-    item: "日本語対応",
-    gpt52: "安定しているが長文で一貫性が下がりやすい",
-    gpt53: "長文ビジネス文書での一貫性・敬語精度が改善",
+    model: "GPT-4o mini",
+    category: "軽量・高速モデル",
+    strengths: "処理速度とコスト効率が高く、繰り返し実行の多い業務に向く",
+    usage: "下書き、分類、短文整形、FAQ初稿作成",
   },
   {
-    item: "推論モード",
-    gpt52: "Auto/Thinkingの2モード中心",
-    gpt53: "タスク難易度に応じた自動切り替えが改善",
+    model: "o3",
+    category: "推論モデル",
+    strengths: "多段の思考が必要な課題で根拠整理や判断プロセスを明確化しやすい",
+    usage: "要件定義、意思決定支援、複雑な原因分析",
   },
   {
-    item: "API連携",
-    gpt52: "Responses API対応済み",
-    gpt53: "Codex（app/CLI/IDE/web）で利用。API提供状況は更新されるため要確認",
-  },
-] as const;
-
-const codexSparkRows = [
-  {
-    tool: "GPT-5.3-Codex（Codex）",
-    useCase: "対話ベースの実装支援・コード生成・修正",
-    access: "Codex app / CLI / IDE / web",
-    caution: "通常のChatGPT UIのモデル選択とは別導線で利用する",
+    model: "o4-mini",
+    category: "軽量推論モデル",
+    strengths: "推論品質と速度のバランスがよく、日常の検討業務に組み込みやすい",
+    usage: "簡易分析、仮説検証、レビュー観点の抽出",
   },
   {
-    tool: "OpenAI API",
-    useCase: "アプリ組み込み・バッチ処理・CI連携",
-    access: "従量課金",
-    caution: "GPT-5.3-CodexのAPI提供可否は公式更新を都度確認する",
+    model: "GPT-5.3-codex",
+    category: "コード特化モデル（Codex CLI専用）",
+    strengths: "実装、修正、リファクタリング、テスト補助など開発タスクに特化",
+    usage: "Codex CLIでのコード生成・変更提案・検証フロー",
   },
 ] as const;
 
-const businessUseCases = [
+const useCaseRows = [
   {
-    title: "文書作成：提案書・メール・議事録",
-    body: "「目的・対象・文体・構成」を先に渡し、段落単位でレビューする運用が安定します。GPT-5.3は日本語ビジネス文書の一貫性が改善されており、長文でも誤字・敬語崩れが減少しています。",
+    task: "ビジネス文書",
+    recommended: "GPT-4o（初稿量産はGPT-4o mini）",
+    operation: "4o miniで叩き台を作り、最終版だけ4oで品質調整する",
   },
   {
-    title: "データ分析：集計結果の解釈と報告文生成",
-    body: "Excelやスプレッドシートのデータをテキストで貼り付け、「この数値から読み取れる傾向と課題を3点」のように依頼します。コード解析との併用では、Codeインタープリタ機能が有効です。",
+    task: "データ分析",
+    recommended: "o4-mini（複雑な判断はo3）",
+    operation: "日次レポートはo4-mini、意思決定を伴う論点整理はo3に切り替える",
   },
   {
-    title: "コード補助：実装方針の壁打ちと初稿生成",
-    body: "「この関数の責務を分割したい」「TypeScriptで型エラーが出ている」など具体的な課題を渡すと、修正差分の提案精度が上がります。IDE連携が必要な補完作業はGitHub CopilotやCursorとの役割分担が現実的です。",
+    task: "コード生成・改修",
+    recommended: "GPT-5.3-codex（Codex CLI）",
+    operation: "要件と制約を先に与え、差分レビュー前提で運用する",
+  },
+  {
+    task: "推論タスク",
+    recommended: "o3（速度優先時はo4-mini）",
+    operation: "論点分解と前提確認を明示し、結論だけでなく判断根拠も出力させる",
+  },
+] as const;
+
+const codexFlowRows = [
+  {
+    step: "1. タスク定義",
+    detail: "変更目的、制約、受け入れ条件を先に渡す",
+  },
+  {
+    step: "2. 実装生成",
+    detail: "GPT-5.3-codexに差分案を作らせる",
+  },
+  {
+    step: "3. 検証",
+    detail: "型チェック・テスト・レビューで妥当性を確認する",
+  },
+  {
+    step: "4. 反映",
+    detail: "採用差分のみを取り込み、変更理由を記録する",
   },
 ] as const;
 
 const vsClaudeRows = [
   {
-    axis: "コンテキスト長",
-    gpt53: "最大128K〜200Kトークン（プランによる）",
-    claude: "最大100万トークン（Opus 4.6）",
+    axis: "使い分けのしやすさ",
+    openai: "4o系・o系・Codex系に分けて運用設計しやすい",
+    claude: "長文読解や一貫した文章生成を中心に設計しやすい",
   },
   {
-    axis: "日本語精度",
-    gpt53: "GPT-5.3で改善。長文ビジネス文書に対応",
-    claude: "高い。複雑な指示の追従性が安定",
+    axis: "コードワークフロー",
+    openai: "GPT-5.3-codexをCodex CLIで使う開発導線を作りやすい",
+    claude: "Claude Codeを起点にした実装・検証フローを組みやすい",
   },
   {
-    axis: "コード補助",
-    gpt53: "Codex連携で開発フロー組み込みが強み",
-    claude: "Claude Code経由でエージェント型の自律実行が強み",
+    axis: "推論業務",
+    openai: "o3 / o4-miniで難易度に応じて段階的に使い分けしやすい",
+    claude: "長文前提の思考整理や説明生成で安定した運用がしやすい",
   },
   {
-    axis: "エコシステム",
-    gpt53: "Codex・Responses APIなどOpenAI開発導線との連携",
-    claude: "Claude Code・MCP連携・Anthropicツール群",
-  },
-  {
-    axis: "料金（導線別）",
-    gpt53: "Codex利用枠 + API従量課金（提供状況により変動）",
-    claude: "Pro $20/月・Max 5x $100/月・Max 20x $200/月",
-  },
-  {
-    axis: "安全性・制約",
-    gpt53: "コンテンツポリシーによる制約あり",
-    claude: "Constitutional AI設計。倫理的制約の安定性が高い",
-  },
-] as const;
-
-const pricingRows = [
-  {
-    plan: "Codex（有料プラン）",
-    price: "契約プランに準拠",
-    gpt53: "GPT-5.3-Codexを利用",
-    note: "通常のChatGPT UIモデル選択とは導線が異なる",
-  },
-  {
-    plan: "OpenAI API",
-    price: "従量課金（別請求）",
-    gpt53: "GPT-5.3-Codexは提供状況を要確認",
-    note: "契約プランと別請求。詳細は公式サイトをご確認ください（確認日: 2026-02-21）",
+    axis: "導入判断",
+    openai: "業務カテゴリ別にモデルを固定すると再現性が高い",
+    claude: "長文中心の業務では優先候補として検討しやすい",
   },
 ] as const;
 
@@ -147,7 +144,7 @@ function LineCtaBox({ className }: LineCtaBoxProps) {
         AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）
       </p>
       <p className="mt-2 text-sm leading-7 text-gray-700">
-        GPT-5.3や最新モデルの変化を、ビジネス判断に使える要点だけで毎週配信しています。
+        OpenAIモデルの更新点と実務運用の判断軸を、毎週わかりやすく整理して配信しています。
       </p>
       <a
         href={lineUrl}
@@ -171,7 +168,7 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
             { label: "ホーム", href: "/" },
             { label: "アカデミー", href: "/academy" },
             { label: "ブログ", href: "/academy/blog" },
-            { label: "GPT-5.3 使い方ガイド" },
+            { label: "OpenAI最新モデルの使い分けガイド" },
           ]}
         />
 
@@ -195,20 +192,22 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           <div className="mt-6 flex">
             <div className="ml-auto w-full sm:w-auto">
               <CopyAsMarkdownButton
-                title="GPT-5.3 使い方ガイド｜Codex連携・料金・Claude Opus 4.6比較【2026年2月版】"
+                title="OpenAI最新モデルの使い分けガイド【2026年2月版】"
                 sourceSelector="[data-blog-article-body]"
               />
             </div>
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            GPT-5.3 使い方ガイド｜Codex連携・料金・Claude Opus 4.6比較【2026年2月版】
+            OpenAI最新モデルの使い分けガイド【2026年2月版】
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月21日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            OpenAIはGPT-5.2に続いて2026年2月にGPT-5.3-Codexを公開しました。コード補助・日本語対応・エージェント連携の改善が中心で、Codex経由での実装導線が再整理されています。
+            OpenAIのモデル選択は「最新名」を追うより、業務別に固定ルールを作るほうが成果につながります。本記事では
+            GPT-4o / GPT-4o mini / o3 / o4-mini / GPT-5.3-codex を、実務の用途に沿って整理します。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
-            本記事は2026年2月21日時点の情報をもとに、GPT-5.3の変化点・使い分け・ビジネス活用・Claude Opus 4.6との比較・料金プランを実務で判断できる形に整理します。
+            2026年2月21日時点で誤解されやすい点として、「GPT-5.3」は一般公開モデル名ではありません。この前提を明確にしたうえで、
+            文書・分析・コード・推論タスクの使い分けを解説します。
           </p>
         </motion.header>
 
@@ -226,25 +225,41 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">要点まとめ</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
-              GPT-5.3はGPT-5.2比でコード補助・日本語長文・エージェント連携が改善されたモデルです（2026年2月時点）。
+              2026年2月21日時点で「GPT-5.3」という一般公開モデル名は存在しません。
             </li>
             <li className="pl-1 marker:text-gray-500">
-              GPT-5.3-CodexはCodex経由（app/CLI/IDE/web）で使う前提です。通常のChatGPT UIで直接選択する想定は避け、導線を分けて設計してください。
+              実務での主要選択肢は GPT-4o / GPT-4o mini / o3 / o4-mini と、Codex CLI専用の GPT-5.3-codex です。
             </li>
             <li className="pl-1 marker:text-gray-500">
-              Claude Opus 4.6は100万トークンコンテキスト・指示追従性で優位、GPT-5.3はOpenAIエコシステム連携・コード特化ツールとの統合で優位です。
+              文書は4o系、推論はo系、コードはGPT-5.3-codexと役割分担すると再現性が上がります。
             </li>
             <li className="pl-1 marker:text-gray-500">
-              ChatGPT契約とOpenAI APIは別請求です。チーム導入時は両方の予算上限を分けて設計してください。
+              Claude Opus 4.6との比較は優劣ではなく、業務特性に応じた併用設計で判断するのが実践的です。
             </li>
           </ul>
           <p className="mt-4 text-xs leading-6 text-gray-500">情報確認日: 2026年2月21日</p>
         </motion.section>
 
+        <motion.section
+          id="notice"
+          className="mt-10 rounded-lg border border-red-200 bg-red-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="scroll-mt-28 text-xl font-bold text-red-900">重要注記：GPT-5.3について</h2>
+          <p className="mt-3 text-sm leading-7 text-red-800">
+            2026年2月21日時点で「GPT-5.3」は一般公開モデルとして確認できません。本記事では誤解を避けるため、
+            実在するモデル名のみを扱います。コード用途での「GPT-5.3-codex」はCodex CLI専用モデルとして整理します。
+          </p>
+        </motion.section>
+
         <WebtoonBannerSection />
 
         <motion.section
-          id="what-is-gpt53"
+          id="model-map"
           className="mt-14"
           initial="hidden"
           whileInView="visible"
@@ -252,40 +267,39 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            GPT-5.3とは：GPT-5.2から何が変わったか
-          </h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">OpenAIモデル全体マップ</h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            GPT-5.3はGPT-5.2の後継として2026年2月にリリースされました。モデルアーキテクチャの刷新というより、実務での再現性と言語対応品質の改善が中心です。
+            モデル選定は「最強モデル」探しではなく、業務カテゴリごとの配備で考えると失敗が減ります。以下の5モデルを基準に運用ルールを作るのが実務的です。
           </p>
           <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
+            <table className="blog-table w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
                 <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">項目</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">GPT-5.2</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">GPT-5.3</th>
+                  <th className="py-3 pr-4 font-semibold text-gray-900">モデル</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">分類</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">強み</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">主な用途</th>
                 </tr>
               </thead>
               <tbody>
-                {changePoints.map((row) => (
-                  <tr key={row.item} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.item}</th>
-                    <td className="px-4 py-4">{row.gpt52}</td>
-                    <td className="py-4 pl-4">{row.gpt53}</td>
+                {modelRows.map((row) => (
+                  <tr key={row.model} className="border-b border-gray-200 align-top">
+                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.model}</th>
+                    <td className="px-4 py-4">{row.category}</td>
+                    <td className="px-4 py-4">{row.strengths}</td>
+                    <td className="py-4 pl-4">{row.usage}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            GPT-5.2以前のモデル整理については、
+            モデルの変遷全体を確認したい場合は、
             <Link href="/academy/blog/chatgpt-gpt5-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              ChatGPTとGPT-5の違いを整理した記事
+              ChatGPTとGPT系モデルの整理記事
             </Link>
-            をあわせて確認してください。
+            もあわせて参照してください。
           </p>
-          <p className="mt-3 text-xs leading-6 text-gray-500">情報確認日: 2026年2月21日</p>
         </motion.section>
 
         <motion.section
@@ -300,7 +314,7 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
         </motion.section>
 
         <motion.section
-          id="codex-spark"
+          id="use-case-table"
           className="mt-14"
           initial="hidden"
           whileInView="visible"
@@ -308,48 +322,41 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            GPT-5.3-Codexの使い分け：Codex導線とAPI導線を分けると設計が明確になる
-          </h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">用途別の使い分け表（文書 / 分析 / コード / 推論）</h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            GPT-5.3-CodexはCodex上で提供されるため、通常のChatGPT UI利用と混同しないことが重要です。アプリ実装でAPIを使う場合は、モデル提供状況の更新を前提に設計してください。
+            モデル名で迷う時間を減らすために、まず業務タイプで入口を固定します。以下はチームで運用しやすい最小ルールです。
           </p>
           <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
+            <table className="blog-table w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
                 <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">ツール</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">主な用途</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">アクセス方法</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">注意点</th>
+                  <th className="py-3 pr-4 font-semibold text-gray-900">業務カテゴリ</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">推奨モデル</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">運用ルール</th>
                 </tr>
               </thead>
               <tbody>
-                {codexSparkRows.map((row) => (
-                  <tr key={row.tool} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.tool}</th>
-                    <td className="px-4 py-4">{row.useCase}</td>
-                    <td className="px-4 py-4">{row.access}</td>
-                    <td className="py-4 pl-4">{row.caution}</td>
+                {useCaseRows.map((row) => (
+                  <tr key={row.task} className="border-b border-gray-200 align-top">
+                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.task}</th>
+                    <td className="px-4 py-4">{row.recommended}</td>
+                    <td className="py-4 pl-4">{row.operation}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            Codex APIを組み込む場合は、
-            <Link href="/academy/blog/openai-responses-api-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              OpenAI Responses API実践ガイド
+            プロンプトの標準化まで含めて運用したい場合は、
+            <Link href="/academy/blog/prompt-template-for-work" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              仕事で使えるプロンプトテンプレート集
             </Link>
-            でエンドポイント設計を先に確認すると実装コストを抑えられます。
-          </p>
-          <p className="mt-3 text-xs leading-6 text-gray-500">
-            詳細は公式サイトをご確認ください（確認日: 2026-02-21）。
+            を組み合わせると、担当者差を抑えやすくなります。
           </p>
         </motion.section>
 
         <motion.section
-          id="business-use"
+          id="codex-cli"
           className="mt-14"
           initial="hidden"
           whileInView="visible"
@@ -358,25 +365,32 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            ビジネス実務での活用シーン：文書作成・分析・コード補助の3軸
+            GPT-5.3-codexの使いどころ：Codex CLIでコード業務を分離する
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            GPT-5.3はビジネス実務の3つの領域で特に活用しやすくなっています。ツール選択前に「どの業務に当てるか」を決めることで、プロンプト設計の初速が上がります。
+            GPT-5.3-codexは、コード生成と修正を主目的にした運用で効果を出しやすいモデルです。一般チャット用途と混在させず、
+            Codex CLIのフローとして分離すると品質管理がしやすくなります。
           </p>
-          <div className="mt-7 space-y-4">
-            {businessUseCases.map((item) => (
-              <section key={item.title} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-gray-700">{item.body}</p>
-              </section>
-            ))}
+          <div className="mt-6 overflow-x-auto">
+            <table className="blog-table w-full min-w-[700px] border-collapse text-left text-sm leading-7 text-gray-700">
+              <thead>
+                <tr className="border-b border-gray-300">
+                  <th className="py-3 pr-4 font-semibold text-gray-900">ステップ</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">実務ポイント</th>
+                </tr>
+              </thead>
+              <tbody>
+                {codexFlowRows.map((row) => (
+                  <tr key={row.step} className="border-b border-gray-200 align-top">
+                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.step}</th>
+                    <td className="py-4 pl-4">{row.detail}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
-            業務別のプロンプトテンプレートを体系化したい場合は、
-            <Link href="/academy/blog/prompt-template-for-work" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              仕事で使えるプロンプトテンプレート集
-            </Link>
-            の型を組み合わせると属人化を防げます。
+          <p className="mt-5 text-xs leading-6 text-gray-500">
+            モデル提供範囲や利用条件は更新されるため、導入前に必ず公式情報を再確認してください（確認日: 2026-02-21）。
           </p>
         </motion.section>
 
@@ -400,26 +414,24 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            Claude Opus 4.6との比較：コンテキスト長・エコシステム・料金の3軸で判断する
-          </h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">Claude Opus 4.6との比較</h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            GPT-5.3かClaude Opus 4.6かを選ぶ際、「どちらが優れているか」ではなく「どの業務に当てるか」で決めると失敗が減ります。両者は強みが異なるため、併用が現実的です。
+            比較の目的は勝敗を決めることではなく、業務の再現性を高めることです。OpenAIとClaudeをタスク単位で併用する運用が、現場では最も安定しやすい選択です。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="blog-table w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">比較軸</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">GPT-5.3</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">Claude Opus 4.6</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">OpenAI側</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">Claude Opus 4.6側</th>
                 </tr>
               </thead>
               <tbody>
                 {vsClaudeRows.map((row) => (
                   <tr key={row.axis} className="border-b border-gray-200 align-top">
                     <th className="py-4 pr-4 font-semibold text-gray-900">{row.axis}</th>
-                    <td className="px-4 py-4">{row.gpt53}</td>
+                    <td className="px-4 py-4">{row.openai}</td>
                     <td className="py-4 pl-4">{row.claude}</td>
                   </tr>
                 ))}
@@ -427,61 +439,11 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
             </table>
           </div>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            Claude Opus 4.6の詳細については、
+            Claude Opus 4.6の詳細は、
             <Link href="/academy/blog/claude-opus-4-6-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               Claude Opus 4.6使い方ガイド
             </Link>
-            で1Mトークン・Adaptive Thinking・料金を整理しています。
-          </p>
-          <div className="mt-8 rounded-lg border border-blue-200 bg-blue-50 p-5">
-            <p className="text-sm font-semibold text-blue-900">実務での選び方の基準</p>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-blue-800">
-              <li className="pl-1">OpenAIツール（DALL-E・Codex）を組み合わせたい → GPT-5.3-Codex</li>
-              <li className="pl-1">100万トークンを超える長文処理・Claude Code連携 → Claude Opus 4.6</li>
-              <li className="pl-1">費用対効果を最大化したい → タスク別に両者を使い分ける</li>
-            </ul>
-          </div>
-        </motion.section>
-
-        <motion.section
-          id="pricing"
-          className="mt-14"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            GPT-5.3-Codexの料金プランを整理する：Codex契約とAPI課金は別管理
-          </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            チーム導入で最も混乱しやすいのが、Codex利用とAPI請求を同じ予算として扱ってしまうことです。契約導線と従量課金は別管理を前提に、導入計画の段階で分けておくことが重要です。
-          </p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">プラン</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">料金（目安）</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">GPT-5.3利用</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">想定用途</th>
-                </tr>
-              </thead>
-              <tbody>
-                {pricingRows.map((row) => (
-                  <tr key={row.plan} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.plan}</th>
-                    <td className="px-4 py-4">{row.price}</td>
-                    <td className="px-4 py-4">{row.gpt53}</td>
-                    <td className="py-4 pl-4">{row.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-4 text-xs leading-6 text-gray-500">
-            料金・提供可否は更新されるため、最新情報は公式サイトをご確認ください（確認日: 2026-02-21）。
+            で整理しています。
           </p>
         </motion.section>
 
@@ -496,7 +458,7 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            モデル仕様は更新されるため、以下のQ&Aも確認日つきで運用する前提で読んでください。
+            モデル名や提供範囲は更新されるため、運用では確認日を必ず残してください。
           </p>
           <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
             {faqItems.map((item) => (
@@ -518,12 +480,12 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           <ul className="space-y-2">
             <li>
               <Link href="/academy/blog/chatgpt-gpt5-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                ChatGPTとGPT-5の違いを整理｜2026年版モデル選びと使い分けガイド
+                ChatGPTとGPT系モデルの違いを整理したガイド
               </Link>
             </li>
             <li>
               <Link href="/academy/blog/claude-opus-4-6-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                Claude Opus 4.6使い方ガイド｜1Mトークン・Adaptive Thinking・料金比較
+                Claude Opus 4.6使い方ガイド
               </Link>
             </li>
             <li>
@@ -533,7 +495,7 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
             </li>
             <li>
               <Link href="/academy/blog/gpt-vs-claude-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説
+                GPTとClaudeの比較記事
               </Link>
             </li>
           </ul>
@@ -541,9 +503,10 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
 
         <section className="mt-14 rounded-2xl border border-will-primary/20 bg-will-lighter p-8">
           <p className="text-sm font-semibold tracking-[0.08em] text-will-primary">AIリブートアカデミー</p>
-          <h2 className="mt-3 text-2xl font-bold text-gray-900">モデル選択より「判断軸」を育てる</h2>
+          <h2 className="mt-3 text-2xl font-bold text-gray-900">モデル選定を超えて、実務で変化を起こす力へ</h2>
           <p className="mt-4 text-sm leading-7 text-gray-700">
-            GPT-5.3やClaude Opus 4.6のどちらが優れているかではなく、業務課題に対してどのツールをどう当てるかを判断できる力が実務価値を高めます。AIリブートアカデミーは、ツール習得と同時に、自己理解・キャリア設計・仲間との学習環境を一体で提供します。
+            AIリブートアカデミーは、生成AI活用力を実務レベルで身につけるだけでなく、AIを鏡にした自己理解とキャリアデザイン、
+            そして仲間と共に学ぶ環境を一体で提供します。単なるツール習得で終わらない学習設計で、次のキャリア行動までつなげます。
           </p>
           <div className="mt-6">
             <Link
