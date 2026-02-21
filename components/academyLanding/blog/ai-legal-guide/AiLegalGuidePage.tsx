@@ -141,7 +141,7 @@ function LineCtaBox({ withChecklistNote = false }: { withChecklistNote?: boolean
     <section className="blog-cta-box mt-10 rounded-lg border border-green-200 bg-green-50 p-6">
       {withChecklistNote && (
         <p className="text-sm leading-7 text-green-900">
-          法務活用チェックリスト（リスク管理観点）は、LINE登録後に案内しています。
+          法務導入の進め方は、LINEの無料個別相談で状況に合わせて整理できます。AI活用ロードマップの案内も行っています。
         </p>
       )}
       <p className="mt-2 text-base font-semibold text-green-900">📩 LINEで毎週AI知識を配信中</p>

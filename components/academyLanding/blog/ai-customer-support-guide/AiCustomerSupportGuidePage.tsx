@@ -327,7 +327,7 @@ export default function AiCustomerSupportGuidePage({ faqItems }: AiCustomerSuppo
             も合わせて確認してください。
           </p>
           <p className="mt-6 text-sm leading-7 text-gray-700">
-            LINE登録者には、実運用で使える「一次対応20問答テンプレ」を特典として案内しています。まずは雛形を使い、現場の言葉に置き換える運用から始めると定着しやすくなります。
+            LINEでは、無料個別相談とAI活用ロードマップの案内を行っています。現場に合った運用へ調整したい場合は、現在の体制に合わせて進め方を整理できます。
           </p>
         </motion.section>
 

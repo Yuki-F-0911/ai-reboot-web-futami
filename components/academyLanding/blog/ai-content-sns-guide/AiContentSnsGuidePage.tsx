@@ -324,7 +324,7 @@ export default function AiContentSnsGuidePage({ faqItems }: AiContentSnsGuidePag
             ))}
           </div>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            X・Instagram・LinkedIn別の投稿テンプレートをすぐ使いたい方は、LINE特典で配布しているテンプレ集を活用してください。投稿頻度を上げたいときほど、書き方の型を先に持つ方が成果が安定します。
+            SNS運用を継続したい方は、LINEの無料個別相談を活用してください。AI活用ロードマップの案内をもとに、投稿設計を業務に合わせて整理できます。
           </p>
         </motion.section>
 
@@ -401,7 +401,7 @@ export default function AiContentSnsGuidePage({ faqItems }: AiContentSnsGuidePag
           </dl>
           <div className="mt-8">
             <p className="text-sm leading-7 text-gray-700">
-              X・Instagram・LinkedInの投稿テンプレートを使って、次の1週間から発信を仕組み化したい方はLINE特典を活用してください。
+              次の1週間から発信を仕組み化したい方は、LINEの無料個別相談で現在の運用課題を整理してください。
             </p>
           </div>
           <div className="mt-5">

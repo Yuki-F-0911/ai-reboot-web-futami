@@ -254,7 +254,7 @@ function LineCtaBox({ className = "mt-10" }: { className?: string }) {
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
         >
-          【無料】30日学習プランをLINEで受け取る
+          LINEで無料個別相談する
         </a>
       </div>
     </motion.section>
@@ -485,7 +485,7 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
             </table>
           </div>
           <p className="mt-5 text-sm leading-7 text-gray-700">
-            LINEでは、この30日テンプレをそのまま使える形で毎週の学習改善ヒントと一緒に配信しています。登録後すぐに自分用へ置き換えて学習を開始できます。
+            LINEでは、毎週の学習改善ヒントに加えて、無料個別相談とAI活用ロードマップの案内をしています。自分に合う学習の進め方を整理したい方は活用してください。
           </p>
         </motion.section>
 

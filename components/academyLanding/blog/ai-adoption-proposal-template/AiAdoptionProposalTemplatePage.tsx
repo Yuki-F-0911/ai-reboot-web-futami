@@ -340,7 +340,7 @@ export default function AiAdoptionProposalTemplatePage({ faqItems }: AiAdoptionP
         >
           <h3 className="text-xl font-semibold text-gray-900">A4一枚版テンプレ（Google Docs形式イメージ）</h3>
           <p className="mt-3 text-sm leading-7 text-gray-700">
-            下記の構成をそのままGoogle Docsで運用できる形に整えたテンプレートをLINE特典で配布しています。社内フォーマットに合わせて即日で稟議に転用できます。
+            導入設計の壁打ちは、LINEの無料個別相談で対応しています。AI活用ロードマップの案内を使うと、社内フォーマットへの落とし込みを進めやすくなります。
           </p>
           <pre className="mt-6 overflow-x-auto whitespace-pre-wrap rounded-md bg-slate-900 p-5 text-xs leading-6 text-slate-100">
             <code>{onePageTemplate}</code>

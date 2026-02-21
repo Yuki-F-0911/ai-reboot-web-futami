@@ -603,7 +603,7 @@ export default function ContextEngineeringGuidePage({ faqItems }: ContextEnginee
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">
             下記10項目を満たせば、ほとんどの業務で初回出力の質が上がります。チーム導入時はこのチェック項目をテンプレートに紐づけて保存してください。
-            すぐに使えるチェックシート版はLINEで配布しています。
+            導入の優先順位に迷う場合は、LINE無料相談で現状整理できます。AI活用ロードマップの案内も利用できます。
           </p>
           <figure className="my-8">
             <Image

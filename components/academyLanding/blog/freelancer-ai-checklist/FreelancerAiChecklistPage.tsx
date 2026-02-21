@@ -257,7 +257,7 @@ export default function FreelancerAiChecklistPage({ faqItems }: FreelancerAiChec
             <li className="pl-1 marker:text-gray-500">AIは「下書き・比較・整理」を任せ、人間は最終判断と責任を持つ運用が実務向きです。</li>
             <li className="pl-1 marker:text-gray-500">副業会社員は就業規則と機密情報ルールを先に確認し、AI使用範囲を明文化してください。</li>
             <li className="pl-1 marker:text-gray-500">
-              50項目の印刷用PDF版は、記事内で案内するLINE特典から受け取れます。
+              実行順の整理に迷う場合は、記事内で案内するLINE無料相談を活用してください。AI活用ロードマップに沿って優先順位を決められます。
             </li>
           </ul>
         </motion.section>

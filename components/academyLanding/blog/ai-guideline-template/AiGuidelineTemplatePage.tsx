@@ -189,7 +189,7 @@ export default function AiGuidelineTemplatePage({ faqItems }: AiGuidelineTemplat
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
             >
-              雛形（Google Docs/Notion）をLINEで受け取る
+              LINEで無料個別相談する
             </a>
             <Link
               href="/academy/seminars"
@@ -357,7 +357,7 @@ export default function AiGuidelineTemplatePage({ faqItems }: AiGuidelineTemplat
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
             >
-              穴埋めテンプレ一式をLINEで受け取る
+              LINEで無料個別相談する
             </a>
             <Link
               href="/academy/blog/corporate-ai-adoption-guide"

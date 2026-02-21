@@ -168,7 +168,7 @@ function MidArticleCtaBox() {
         rel="noopener noreferrer"
         className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
       >
-        LINEで特典を受け取る
+        LINEで無料相談する（登録無料）
       </a>
     </motion.section>
   );
@@ -503,4 +503,3 @@ export default function LlmCostOptimizationGuidePage({ faqItems }: LlmCostOptimi
     </main>
   );
 }
-

@@ -367,8 +367,8 @@ export default function RagVsFinetunigGuidePage({ faqItems }: RagVsFinetunigGuid
 
           <div className="mt-8 rounded-lg border border-emerald-200 bg-emerald-100 p-5">
             <p className="text-sm leading-7 text-emerald-900">
-              部門別に分岐を増やした「用途別判断フローチャート（詳細版）」はLINE特典で配布しています。導入前会議で使う場合は、詳細版を印刷して意思決定項目を揃えると、
-              企画・開発・情シスでの合意形成が速くなります。
+              部門横断で導入判断を進める際は、LINEの無料個別相談で現状を整理できます。AI活用ロードマップの案内もあるため、
+              企画・開発・情シスでの合意形成を進めやすくなります。
             </p>
           </div>
 

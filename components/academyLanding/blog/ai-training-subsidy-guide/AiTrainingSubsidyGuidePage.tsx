@@ -257,7 +257,7 @@ export default function AiTrainingSubsidyGuidePage({ faqItems }: AiTrainingSubsi
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <p className="text-sm leading-7 text-emerald-900">
-            申請前に使える「5ステップ申請フローチェックリスト（社内共有用）」をLINE特典として配布しています。先にチェック項目を揃えると、稟議と申請の抜け漏れを減らせます。
+            申請前の進め方に迷う場合は、LINEの無料個別相談で状況を整理できます。AI活用ロードマップの案内もあるため、稟議と申請準備を進めやすくなります。
           </p>
           <h3 className="mt-3 text-2xl font-bold text-gray-900">{lineCtaTitle}</h3>
           <p className="mt-3 text-sm leading-7 text-gray-700">{lineCtaBody}</p>
@@ -446,7 +446,7 @@ export default function AiTrainingSubsidyGuidePage({ faqItems }: AiTrainingSubsi
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <p className="text-sm leading-7 text-emerald-900">
-            5ステップをそのまま使える申請フローチェックリスト（事前申請期限つき）をLINE特典で配布しています。社内回覧フォーマットとして使える形にしています。
+            事前申請の進め方は、LINEの無料個別相談で現状に合わせて整理できます。AI活用ロードマップの案内を使うと、社内回覧に必要な項目を揃えやすくなります。
           </p>
           <h3 className="mt-3 text-2xl font-bold text-gray-900">{lineCtaTitle}</h3>
           <p className="mt-3 text-sm leading-7 text-gray-700">{lineCtaBody}</p>
