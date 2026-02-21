@@ -33,6 +33,33 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-first-30-days-work-guide",
+    title: "生成AIを仕事で使い始めた人の「最初の30日」完全ガイド｜週別ロードマップ＆プロンプト例つき",
+    summary:
+      "生成AIを仕事に取り入れたい社会人向け。Week 1〜4の週別ロードマップで、アカウント作成からチームへの展開まで30日で「AI使える人」になる手順をコピペ可能なプロンプト例つきで解説します。",
+    category: "実務活用",
+    publishedAt: "2026-02-21T21:00:00+09:00",
+    tags: ["生成AI 仕事 始め方", "AI 最初の30日", "ChatGPT 業務活用"],
+  },
+  {
+    slug: "ai-free-plan-comparison-2026",
+    title: "ChatGPT・Claude・Gemini 無料プランでどこまでできる？2026年2月最新比較",
+    summary:
+      "ChatGPT・Claude・Geminiの無料プランを2026年2月時点で徹底比較。利用モデル・上限・ファイル添付・画像生成・外部連携の違い、実務シーン別おすすめ、課金タイミング、30分で全ツールを試せるガイドまで。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-21T20:00:00+09:00",
+    tags: ["ChatGPT 無料 できること", "Claude 無料プラン", "Gemini 無料 比較"],
+  },
+  {
+    slug: "ai-cybersecurity-defender-guide",
+    title: "AIサイバーセキュリティ導入ガイド｜Defender XDRとAnthropicで構築する2026年型SOC",
+    summary:
+      "2026年2月の最新AI×セキュリティ動向。Microsoft DefenderのAI優先順位付け、Anthropicの防御特化型AI、AIエージェント保護（Entra Agent IDs）などSOC高度化の実務ステップを提示。",
+    category: "法人向け",
+    publishedAt: "2026-02-21T19:00:00+09:00",
+    tags: ["AI サイバーセキュリティ 導入", "Defender AI", "SOC 効率化"],
+  },
+  {
     slug: "ai-anxiety-overcome-guide",
     title: "「AIが怖い・難しい」を乗り越える安心スタートガイド2026｜5つの不安と正直な答え",
     summary:
