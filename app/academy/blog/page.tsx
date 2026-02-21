@@ -26,6 +26,8 @@ type BlogPost = {
   title: string;
   summary: string;
   category: BlogCategory;
+  publishedAt?: string;
+  tags?: readonly string[];
   thumbnail?: string;
 };
 
@@ -78,6 +80,15 @@ const blogPosts: readonly BlogPost[] = [
     summary:
       "OpenAI o3/o4-miniの違いを2026年2月時点で整理。推論モデルを選ぶ理由、GPT-4oやGPT-5系との役割分担、o3 API運用、料金の判断基準、実務向け選定チャートまで中級者向けに解説したガイドです。",
     category: "実務活用",
+  },
+  {
+    slug: "openai-responses-api-guide",
+    title: "OpenAI Responses API実装ガイド｜移行・function calling・運用設計 | AIリブート",
+    summary:
+      "OpenAI Responses APIの始め方を2026年2月時点で整理。Chat Completionsからの移行手順、function callingとbuilt-in toolsの設計、previous_response_idでの会話管理、Background mode運用まで実務目線で解説します。",
+    category: "実務活用",
+    publishedAt: "2026-02-20T15:30:00+09:00",
+    tags: ["OpenAI Responses API 使い方", "Chat Completions 移行", "function calling 実装"],
   },
   {
     slug: "aireboot-academy-reviews",
