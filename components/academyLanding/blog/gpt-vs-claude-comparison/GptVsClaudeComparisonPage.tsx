@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 
 type FAQItem = {
   question: string;
@@ -297,6 +298,19 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
               </tbody>
             </table>
           </div>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <MidArticleCtaBox
+            slug="gpt-vs-claude-comparison"
+          />
         </motion.section>
 
         <motion.section

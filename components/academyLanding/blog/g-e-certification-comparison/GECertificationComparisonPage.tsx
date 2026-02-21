@@ -6,6 +6,7 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 import LineCtaBox from "@/components/blog/LineCtaBox";
+import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 
 type FAQItem = {
   question: string;
@@ -169,6 +170,19 @@ export default function GECertificationComparisonPage({ faqItems }: GECertificat
           <LineCtaBox
 
             href="https://bexn9pao.autosns.app/line?src=blog&slug=g-e-certification-comparison"
+          />
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <MidArticleCtaBox
+            slug="g-e-certification-comparison"
           />
         </motion.section>
 

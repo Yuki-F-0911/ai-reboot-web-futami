@@ -6,6 +6,7 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 
 type FAQItem = {
   question: string;
@@ -548,6 +549,19 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
               AIリブートアカデミーでは、生成AI活用力の習得だけでなく、AIを鏡にした自己理解・キャリアデザイン、仲間と共に学ぶ環境づくりを一体で設計しています。ツール名に引っ張られず、業務課題に対する判断軸を育てたい方に向いた学習設計です。
             </p>
           </div>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <MidArticleCtaBox
+            slug="gpt-vs-claude-2026"
+          />
         </motion.section>
 
         <motion.section

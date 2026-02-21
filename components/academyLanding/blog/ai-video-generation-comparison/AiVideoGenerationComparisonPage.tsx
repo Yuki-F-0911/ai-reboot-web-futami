@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 
 type FAQItem = {
   question: string;
@@ -428,6 +429,19 @@ export default function AiVideoGenerationComparisonPage({ faqItems }: AiVideoGen
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" titleClassName="text-base font-semibold text-orange-800" />
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <MidArticleCtaBox
+            slug="ai-video-generation-comparison"
+          />
         </motion.section>
 
         <motion.section
