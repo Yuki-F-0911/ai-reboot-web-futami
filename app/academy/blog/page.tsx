@@ -33,6 +33,24 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "claude-sonnet-4-6-guide",
+    title: "Claude Sonnet 4.6使い方ガイド｜料金・Opus 4.6比較・API実装【2026年2月】",
+    summary:
+      "Claude Sonnet 4.6を2026年2月時点で解説。公開日、Opus 4.6との使い分け、API呼び出し例、文書作成・要約・コード補助の実務活用、Claude.aiとAPIの料金比較まで整理した中級者向けガイドです。",
+    category: "最新AIツール",
+    publishedAt: "2026-02-21T09:00:00+09:00",
+    tags: ["Claude Sonnet 4.6 使い方", "Claude Sonnet 4.6 料金", "Claude Sonnet 4.6 API"],
+  },
+  {
+    slug: "assistants-api-migration-checklist-2026",
+    title: "Assistants API移行チェックリスト2026｜Responses API/Chat Completions移行手順",
+    summary:
+      "Assistants API sunset（target: 2026-08-26）に向けて、Responses API/Chat Completionsへの移行背景、10項目チェックリスト、落とし穴対策、段階移行スケジュールを法人担当者向けに整理した実務ガイドです。",
+    category: "法人向け",
+    publishedAt: "2026-02-21T09:30:00+09:00",
+    tags: ["Assistants API 移行 2026", "Assistants API sunset", "OpenAI Responses API 移行"],
+  },
+  {
     slug: "github-copilot-agent-hq-guide",
     title: "GitHub Copilot Agent HQ使い方ガイド｜Issue→PR自動化とClaude Code使い分け【2026年版】",
     summary:
