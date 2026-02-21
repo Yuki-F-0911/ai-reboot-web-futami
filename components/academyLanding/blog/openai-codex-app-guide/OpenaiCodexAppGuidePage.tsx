@@ -23,12 +23,12 @@ const sectionReveal = {
 
 const lineUrl = "https://bexn9pao.autosns.app/line?src=blog&slug=openai-codex-app-guide";
 
-const keywordTags = ["Codex App 使い方", "OpenAI Codex", "macOS AIコーディング", "Codex Spark"] as const;
+const keywordTags = ["Codex App 使い方", "OpenAI Codex", "macOS AIコーディング", "Codex 運用"] as const;
 
 const tocItems = [
   { id: "answer-box", label: "要点まとめ（Answer Box）" },
   { id: "what-is-codex-app", label: "macOS版Codex Appとは" },
-  { id: "spark-vs-classic", label: "Codex SparkとClassicの違い" },
+  { id: "spark-vs-classic", label: "運用モードの整理（本記事ラベル）" },
   { id: "local-security", label: "ローカル読み取りとセキュリティ" },
   { id: "setup", label: "インストール〜初回使用手順" },
   { id: "tool-chart", label: "Cursor/Claude Codeとの使い分け" },
@@ -36,8 +36,8 @@ const tocItems = [
 ] as const;
 
 const answerPoints = [
-  "Codex Appは、2026年2月2日に公開されたmacOS向けAIコーディング実行アプリとして注目されています。",
-  "Sparkは探索・提案の初速、Classicは安定した編集反復に向くため、同じタスクでも段階で使い分けると効率が上がります。",
+  "Codex Appは、2026年2月時点でmacOS向けAIコーディング実行アプリとして注目されています。",
+  "本記事では便宜上、探索フェーズと実装フェーズを分けて解説しています（Spark/Classicは記事内ラベル）。",
   "ローカルコードの取り扱いは「対象ディレクトリ限定」「除外ルール」「監査ログ確認」をセットで設計するのが基本です。",
   "CursorやClaude Codeと競合ではなく、IDE補完・CLI自動化・デスクトップ実行を役割分担すると実務で再現性が出ます。",
 ] as const;
@@ -83,8 +83,8 @@ const setupSteps = [
     body: "作業対象フォルダを選択し、読み取り/編集権限を決めます。最初は編集範囲を絞ると意図しない変更を防げます。",
   },
   {
-    step: "Step 3. Sparkで要件案、Classicで実装へ落とす",
-    body: "Sparkで候補を比較した後、Classicに受け入れ条件を渡して実装させる流れが安定します。",
+    step: "Step 3. 探索フェーズで要件案、実装フェーズで差分化する",
+    body: "要件候補を比較した後、受け入れ条件を固定して実装へ落とす流れが安定します。",
   },
   {
     step: "Step 4. 差分確認とテストで完了条件を満たす",
@@ -144,21 +144,21 @@ export default function OpenaiCodexAppGuidePage({ faqItems }: OpenaiCodexAppGuid
           <div className="mt-6 flex">
             <div className="ml-auto w-full sm:w-auto">
               <CopyAsMarkdownButton
-                title="Codex App使い方ガイド｜macOS版の始め方とSpark/Classic比較【2026年版】"
+                title="Codex App使い方ガイド｜macOS版の始め方と運用ポイント【2026年版】"
                 sourceSelector="[data-blog-article-body]"
               />
             </div>
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            Codex App使い方ガイド｜macOS版の始め方とSpark/Classic比較【2026年版】
+            Codex App使い方ガイド｜macOS版の始め方と運用ポイント【2026年版】
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            Codex Appは、macOS上で要件整理から実装補助までを一気通貫で扱える新しい実行体験として注目されています。2026年2月2日の公開以降、単純なコード補完ツールではなく、
+            Codex Appは、macOS上で要件整理から実装補助までを一気通貫で扱える新しい実行体験として注目されています。単純なコード補完ツールではなく、
             作業単位でAIに任せる運用へ移行するチームが増えています。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
-            本記事ではSparkとClassicの使い分け、ローカルコード読み取りの安全設計、初回セットアップ手順、CursorやClaude Codeとの役割分担を整理します。
+            本記事では運用フェーズごとの使い分け、ローカルコード読み取りの安全設計、初回セットアップ手順、CursorやClaude Codeとの役割分担を整理します。
           </p>
         </motion.header>
 
@@ -192,13 +192,16 @@ export default function OpenaiCodexAppGuidePage({ faqItems }: OpenaiCodexAppGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">2026年2月2日リリースのmacOS版Codex Appとは</h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">2026年2月時点のmacOS版Codex Appとは</h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             Codex Appは、エディタ拡張単体ではなく、プロジェクト単位の実行タスクを管理しやすい形で提供される点が特徴です。要件を与えて差分を確認する流れが明確なため、
             タスク管理とコード修正を同じ文脈で進められます。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
             ただし生産性はツール名では決まりません。対象範囲、完了条件、レビュー手順を固定して初めて実務で再現性が出ます。
+          </p>
+          <p className="mt-3 text-xs leading-6 text-gray-500">
+            Codex AppはmacOS向け提供です。CLI・IDE・webなど他導線の提供範囲は別管理のため、詳細は公式サイトをご確認ください（確認日: 2026-02-21）。
           </p>
         </motion.section>
 
@@ -211,14 +214,14 @@ export default function OpenaiCodexAppGuidePage({ faqItems }: OpenaiCodexAppGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">Codex SparkとCodex Classicの違い</h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">運用モードの整理（本記事ラベル）</h2>
           <div className="mt-6 overflow-x-auto">
             <table className="blog-table w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">比較軸</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">Codex Spark</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">Codex Classic</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">探索フェーズ（記事内ラベル）</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">実装フェーズ（記事内ラベル）</th>
                 </tr>
               </thead>
               <tbody>
@@ -232,6 +235,9 @@ export default function OpenaiCodexAppGuidePage({ faqItems }: OpenaiCodexAppGuid
               </tbody>
             </table>
           </div>
+          <p className="mt-3 text-xs leading-6 text-gray-500">
+            ※「Spark」「Classic」は本記事内の便宜上ラベルです。詳細は公式サイトをご確認ください（確認日: 2026-02-21）。
+          </p>
         </motion.section>
 
         <motion.section
@@ -363,7 +369,7 @@ export default function OpenaiCodexAppGuidePage({ faqItems }: OpenaiCodexAppGuid
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">まとめ</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">Codex AppはmacOS上でタスク単位のAI実装を進めたいユーザーと相性が高いです。</li>
-            <li className="pl-1 marker:text-gray-500">SparkとClassicを工程で分けると、試行錯誤と仕上げの両立がしやすくなります。</li>
+            <li className="pl-1 marker:text-gray-500">探索フェーズと実装フェーズを工程で分けると、試行錯誤と仕上げの両立がしやすくなります。</li>
             <li className="pl-1 marker:text-gray-500">ローカルコード運用は、技術選定より権限境界と監査設計を先に整えることが重要です。</li>
           </ul>
         </motion.section>

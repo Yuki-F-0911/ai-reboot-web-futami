@@ -29,7 +29,7 @@ const faqItems = [
   {
     question: "Surface Pro 11とThinkPad X1 Carbonはどちらが良いですか？",
     answer:
-      "モバイル性とタッチ運用を重視するならSurface Pro 11、キーボード作業と企業導入を重視するならThinkPad X1 Carbonが選ばれやすい傾向です。",
+      "一般論では、モバイル性とタッチ運用を重視するならSurface系、キーボード作業と企業導入を重視するならThinkPad系が選ばれやすい傾向です。Copilot+対応やNPU性能は世代・SKUで異なるため、最新ラインナップは公式情報で確認してください。詳細は公式サイトをご確認ください（確認日: 2026-02-21）。",
   },
   {
     question: "既存PCからの買い替え判断基準は？",

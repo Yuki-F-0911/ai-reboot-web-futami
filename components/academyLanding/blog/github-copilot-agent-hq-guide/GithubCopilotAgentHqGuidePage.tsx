@@ -24,27 +24,27 @@ const sectionReveal = {
 const lineUrl = "https://bexn9pao.autosns.app/line?src=blog&slug=github-copilot-agent-hq-guide";
 
 const keywordTags = [
-  "GitHub Copilot Agent HQ 使い方",
+  "GitHub Copilot coding agent 使い方",
   "Copilot Agent",
-  "Claude Copilot連携",
+  "Copilot モデル設定",
   "AIコーディング2026",
 ] as const;
 
 const tocItems = [
   { id: "answer-box", label: "要点まとめ（Answer Box）" },
-  { id: "what-is-agent-hq", label: "Agent HQとは何か" },
+  { id: "what-is-agent-hq", label: "coding agentとは何か" },
   { id: "how-to-launch", label: "GitHub.comでの起動方法" },
   { id: "issue-to-pr", label: "Issue→PR自動化ワークフロー" },
   { id: "workspace-vs-hq", label: "Copilot Workspaceとの使い分け" },
   { id: "security-settings", label: "セキュリティ設定の実務ポイント" },
-  { id: "hq-vs-claude-code", label: "Agent HQ vs Claude Code比較" },
+  { id: "hq-vs-claude-code", label: "coding agent vs Claude Code比較" },
   { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
 const answerPoints = [
-  "2026年2月時点でのAgent HQは、Issue起点で実装とPR作成までをつなぐ「GitHub上の実行レイヤー」です。",
-  "Claude + Codex統合の流れで、モデル性能の比較より「どの工程を任せるか」を先に決める運用が重要になっています。",
-  "Copilot Workspaceは計画整理、Agent HQは実装実行で使い分けると手戻りを減らせます。",
+  "GitHub公式の呼称はCopilot coding agentです（本記事では旧称的にAgent HQと記載していた箇所を更新）。",
+  "モデル提供や導線は更新が速いため、名称よりも「どの工程を任せるか」を先に決める運用が重要です。",
+  "Copilot Workspaceは計画整理、coding agentは実装実行で使い分けると手戻りを減らせます。",
   "本番運用では、許可リポジトリ限定・PRレビュー必須・ブランチ保護をセットで設定してください。",
 ] as const;
 
@@ -76,7 +76,7 @@ const workflowRows = [
   },
   {
     phase: "Agent実行",
-    owner: "Copilot Agent HQ",
+    owner: "Copilot coding agent",
     output: "実装差分、コミット、PR草案",
     checkpoint: "対象ファイル範囲が意図と一致しているか",
   },
@@ -158,7 +158,7 @@ export default function GithubCopilotAgentHqGuidePage({ faqItems }: GithubCopilo
             { label: "ホーム", href: "/" },
             { label: "アカデミー", href: "/academy" },
             { label: "ブログ", href: "/academy/blog" },
-            { label: "GitHub Copilot Agent HQ使い方ガイド" },
+            { label: "GitHub Copilot Coding Agent使い方ガイド" },
           ]}
         />
 
@@ -182,21 +182,24 @@ export default function GithubCopilotAgentHqGuidePage({ faqItems }: GithubCopilo
           <div className="mt-6 flex">
             <div className="ml-auto w-full sm:w-auto">
               <CopyAsMarkdownButton
-                title="GitHub Copilot Agent HQ使い方ガイド｜Issue→PR自動化とClaude Code使い分け【2026年版】"
+                title="GitHub Copilot Coding Agent使い方ガイド｜Issue→PR自動化とClaude Code使い分け【2026年版】"
                 sourceSelector="[data-blog-article-body]"
               />
             </div>
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            GitHub Copilot Agent HQ使い方ガイド｜Issue→PR自動化とClaude Code使い分け【2026年版】
+            GitHub Copilot Coding Agent使い方ガイド｜Issue→PR自動化とClaude Code使い分け【2026年版】
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            GitHub Copilot Agent HQは、エディタ補完の延長ではなく、Issue駆動の開発フロー全体を前提にした運用レイヤーです。2026年2月のClaude + Codex統合の流れで、
+            GitHub Copilot coding agentは、エディタ補完の延長ではなく、Issue駆動の開発フロー全体を前提にした運用レイヤーです。モデルや導線の更新が続くため、
             モデル比較より「どの工程を任せるか」を設計できるチームが成果を出しています。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
             本記事では、GitHub.comでの起動手順、Issue→PR自動化の実務フロー、Copilot WorkspaceやClaude Codeとの使い分け、セキュリティ設定まで判断軸を整理します。
+          </p>
+          <p className="mt-3 text-xs leading-6 text-gray-500">
+            利用可能なモデル・機能名・導線は契約やロールアウトで変わるため、詳細はGitHub公式サイトをご確認ください（確認日: 2026-02-21）。
           </p>
         </motion.header>
 
@@ -231,10 +234,10 @@ export default function GithubCopilotAgentHqGuidePage({ faqItems }: GithubCopilo
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            Agent HQとは何か。2026年は「補完ツール」ではなく「Issue駆動実行基盤」として扱う
+            Copilot coding agentとは何か。2026年は「補完ツール」ではなく「Issue駆動実行基盤」として扱う
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            Agent HQの価値は、コード生成そのものより、GitHubのIssue・PR・レビュー運用を一つの流れで扱える点にあります。複数人の開発で重要なのは、実装速度より追跡可能性です。
+            coding agentの価値は、コード生成そのものより、GitHubのIssue・PR・レビュー運用を一つの流れで扱える点にあります。複数人の開発で重要なのは、実装速度より追跡可能性です。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
             そのため、導入時は「どのIssueを任せるか」「どの条件で人が最終判断するか」を先に固定してください。ここを決めずに実行回数だけ増やすと、差分は増えても品質は安定しません。
@@ -328,7 +331,7 @@ export default function GithubCopilotAgentHqGuidePage({ faqItems }: GithubCopilo
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">比較軸</th>
                   <th className="px-4 py-3 font-semibold text-gray-900">Copilot Workspace</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">Copilot Agent HQ</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">Copilot coding agent</th>
                 </tr>
               </thead>
               <tbody>
@@ -372,13 +375,14 @@ export default function GithubCopilotAgentHqGuidePage({ faqItems }: GithubCopilo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">GitHub Copilot Agent HQ vs Claude Code 比較</h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">GitHub Copilot coding agent vs Claude Code 比較</h2>
+
           <div className="mt-6 overflow-x-auto">
             <table className="blog-table w-full min-w-[880px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">比較軸</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">Copilot Agent HQ</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">Copilot coding agent</th>
                   <th className="py-3 pl-4 font-semibold text-gray-900">Claude Code</th>
                 </tr>
               </thead>
@@ -449,8 +453,8 @@ export default function GithubCopilotAgentHqGuidePage({ faqItems }: GithubCopilo
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">まとめ</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">Agent HQは「Issue駆動でPRまで進める運用層」として使うと価値が出ます。</li>
-            <li className="pl-1 marker:text-gray-500">Workspaceは計画、Agent HQは実行で分けると開発フローが安定します。</li>
+            <li className="pl-1 marker:text-gray-500">Copilot coding agentは「Issue駆動でPRまで進める運用層」として使うと価値が出ます。</li>
+            <li className="pl-1 marker:text-gray-500">Workspaceは計画、coding agentは実行で分けると開発フローが安定します。</li>
             <li className="pl-1 marker:text-gray-500">導入効果を高める鍵は、モデル比較より権限設計とレビュー責任の明確化です。</li>
           </ul>
         </motion.section>

@@ -28,7 +28,7 @@ const keywordTags = ["GPT-5.3 使い方", "GPT-5.3 Codex", "OpenAI 料金", "Cla
 const tocItems = [
   { id: "conclusion", label: "要点まとめ" },
   { id: "what-is-gpt53", label: "GPT-5.3とは：GPT-5.2からの変化点" },
-  { id: "codex-spark", label: "Codex・Sparkとの使い分け" },
+  { id: "codex-spark", label: "GPT-5.3-Codexの使い分け" },
   { id: "business-use", label: "ビジネス実務での活用シーン" },
   { id: "vs-claude", label: "Claude Opus 4.6との比較" },
   { id: "pricing", label: "料金プランの整理" },
@@ -54,28 +54,22 @@ const changePoints = [
   {
     item: "API連携",
     gpt52: "Responses API対応済み",
-    gpt53: "Codex/Spark経由でのエージェント連携が強化",
+    gpt53: "Codex（app/CLI/IDE/web）で利用。API提供状況は更新されるため要確認",
   },
 ] as const;
 
 const codexSparkRows = [
   {
-    tool: "GPT-5.3（ChatGPT UI）",
-    useCase: "汎用対話・文書作成・分析・壁打ち",
-    access: "ChatGPTプラン加入",
-    caution: "チームで使う場合はTeamプランの利用上限を設計する",
+    tool: "GPT-5.3-Codex（Codex）",
+    useCase: "対話ベースの実装支援・コード生成・修正",
+    access: "Codex app / CLI / IDE / web",
+    caution: "通常のChatGPT UIのモデル選択とは別導線で利用する",
   },
   {
-    tool: "Codex（API）",
-    useCase: "コード特化の自動化・CI/CD組み込み・バッチ処理",
-    access: "OpenAI API従量課金",
-    caution: "権限設計とロギングをコード側で実装する必要がある",
-  },
-  {
-    tool: "Spark",
-    useCase: "対話型アシスタント・カスタムGPTs相当の軽量実装",
-    access: "OpenAIダッシュボード経由",
-    caution: "複雑なフロー制御はResponsesAPIやCodexと組み合わせる",
+    tool: "OpenAI API",
+    useCase: "アプリ組み込み・バッチ処理・CI連携",
+    access: "従量課金",
+    caution: "GPT-5.3-CodexのAPI提供可否は公式更新を都度確認する",
   },
 ] as const;
 
@@ -112,12 +106,12 @@ const vsClaudeRows = [
   },
   {
     axis: "エコシステム",
-    gpt53: "DALL-E・Plugins・Codex・Spark連携",
+    gpt53: "Codex・Responses APIなどOpenAI開発導線との連携",
     claude: "Claude Code・MCP連携・Anthropicツール群",
   },
   {
-    axis: "料金（ChatGPT/Claude）",
-    gpt53: "Plus $20/月・Pro $200/月（API別途）",
+    axis: "料金（導線別）",
+    gpt53: "Codex利用枠 + API従量課金（提供状況により変動）",
     claude: "Pro $20/月・Max 5x $100/月・Max 20x $200/月",
   },
   {
@@ -129,22 +123,16 @@ const vsClaudeRows = [
 
 const pricingRows = [
   {
-    plan: "ChatGPT Plus",
-    price: "$20/月",
-    gpt53: "利用可能（上限あり）",
-    note: "個人の日常利用・文書作成向け",
-  },
-  {
-    plan: "ChatGPT Pro",
-    price: "$200/月",
-    gpt53: "上限拡張で利用可能",
-    note: "高頻度利用・ヘビーユーザー向け",
+    plan: "Codex（有料プラン）",
+    price: "契約プランに準拠",
+    gpt53: "GPT-5.3-Codexを利用",
+    note: "通常のChatGPT UIモデル選択とは導線が異なる",
   },
   {
     plan: "OpenAI API",
     price: "従量課金（別請求）",
-    gpt53: "モデル名指定で利用",
-    note: "ChatGPT契約とは独立した請求体系",
+    gpt53: "GPT-5.3-Codexは提供状況を要確認",
+    note: "契約プランと別請求。詳細は公式サイトをご確認ください（確認日: 2026-02-21）",
   },
 ] as const;
 
@@ -207,17 +195,17 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           <div className="mt-6 flex">
             <div className="ml-auto w-full sm:w-auto">
               <CopyAsMarkdownButton
-                title="GPT-5.3 使い方ガイド｜Codex・Spark連携・料金・Claude Opus 4.6比較【2026年2月版】"
+                title="GPT-5.3 使い方ガイド｜Codex連携・料金・Claude Opus 4.6比較【2026年2月版】"
                 sourceSelector="[data-blog-article-body]"
               />
             </div>
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            GPT-5.3 使い方ガイド｜Codex・Spark連携・料金・Claude Opus 4.6比較【2026年2月版】
+            GPT-5.3 使い方ガイド｜Codex連携・料金・Claude Opus 4.6比較【2026年2月版】
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月21日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            OpenAIはGPT-5.2に続いて2026年2月にGPT-5.3を公開しました。コード補助・日本語対応・エージェント連携の改善が中心で、Codex・Sparkとの役割分担が再整理されています。
+            OpenAIはGPT-5.2に続いて2026年2月にGPT-5.3-Codexを公開しました。コード補助・日本語対応・エージェント連携の改善が中心で、Codex経由での実装導線が再整理されています。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
             本記事は2026年2月21日時点の情報をもとに、GPT-5.3の変化点・使い分け・ビジネス活用・Claude Opus 4.6との比較・料金プランを実務で判断できる形に整理します。
@@ -241,7 +229,7 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
               GPT-5.3はGPT-5.2比でコード補助・日本語長文・エージェント連携が改善されたモデルです（2026年2月時点）。
             </li>
             <li className="pl-1 marker:text-gray-500">
-              ChatGPT UIでの汎用対話はGPT-5.3、コード自動化のフロー組み込みはCodex API、軽量アシスタント実装はSparkと役割分担すると効率的です。
+              GPT-5.3-CodexはCodex経由（app/CLI/IDE/web）で使う前提です。通常のChatGPT UIで直接選択する想定は避け、導線を分けて設計してください。
             </li>
             <li className="pl-1 marker:text-gray-500">
               Claude Opus 4.6は100万トークンコンテキスト・指示追従性で優位、GPT-5.3はOpenAIエコシステム連携・コード特化ツールとの統合で優位です。
@@ -321,10 +309,10 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            Codex・Sparkとの使い分け：ChatGPT UIとAPIの役割を分けると設計が明確になる
+            GPT-5.3-Codexの使い分け：Codex導線とAPI導線を分けると設計が明確になる
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            OpenAIのエコシステムは「対話インターフェース（ChatGPT）」「コード実行API（Codex）」「軽量アシスタント（Spark）」の3層で構成されています。用途を混同しないことが設計コストを下げるポイントです。
+            GPT-5.3-CodexはCodex上で提供されるため、通常のChatGPT UI利用と混同しないことが重要です。アプリ実装でAPIを使う場合は、モデル提供状況の更新を前提に設計してください。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="blog-table w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -354,6 +342,9 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
               OpenAI Responses API実践ガイド
             </Link>
             でエンドポイント設計を先に確認すると実装コストを抑えられます。
+          </p>
+          <p className="mt-3 text-xs leading-6 text-gray-500">
+            詳細は公式サイトをご確認ください（確認日: 2026-02-21）。
           </p>
         </motion.section>
 
@@ -445,7 +436,7 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           <div className="mt-8 rounded-lg border border-blue-200 bg-blue-50 p-5">
             <p className="text-sm font-semibold text-blue-900">実務での選び方の基準</p>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-blue-800">
-              <li className="pl-1">OpenAIツール（DALL-E・Plugins・Codex）を組み合わせたい → GPT-5.3</li>
+              <li className="pl-1">OpenAIツール（DALL-E・Codex）を組み合わせたい → GPT-5.3-Codex</li>
               <li className="pl-1">100万トークンを超える長文処理・Claude Code連携 → Claude Opus 4.6</li>
               <li className="pl-1">費用対効果を最大化したい → タスク別に両者を使い分ける</li>
             </ul>
@@ -462,10 +453,10 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            GPT-5.3の料金プランを整理する：ChatGPT契約とAPI課金は別管理
+            GPT-5.3-Codexの料金プランを整理する：Codex契約とAPI課金は別管理
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            チーム導入で最も混乱しやすいのが、ChatGPT契約とAPI請求を同じ予算として扱ってしまうことです。2つは独立した請求体系であり、導入計画の段階で分けておくことが重要です。
+            チーム導入で最も混乱しやすいのが、Codex利用とAPI請求を同じ予算として扱ってしまうことです。契約導線と従量課金は別管理を前提に、導入計画の段階で分けておくことが重要です。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="blog-table w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -490,7 +481,7 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
             </table>
           </div>
           <p className="mt-4 text-xs leading-6 text-gray-500">
-            料金は2026年2月21日時点の参考値です。最新情報はOpenAI公式料金ページを確認してください。
+            料金・提供可否は更新されるため、最新情報は公式サイトをご確認ください（確認日: 2026-02-21）。
           </p>
         </motion.section>
 

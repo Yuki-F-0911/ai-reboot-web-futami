@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Gpt53GuidePage from "@/components/academyLanding/blog/gpt-5-3-guide/Gpt53GuidePage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "GPT-5.3 使い方ガイド｜Codex・Spark連携・料金・Claude Opus 4.6比較【2026年2月版】 | AIリブート";
+const pageTitle = "GPT-5.3 使い方ガイド｜Codex連携・料金・Claude Opus 4.6比較【2026年2月版】 | AIリブート";
 const pageDescription =
-  "GPT-5.3の概要とGPT-5.2からの変化点、Codex/Sparkとの使い分け、ビジネス実務での活用シーン（文書作成・分析・コード補助）、Claude Opus 4.6との強み・弱み・料金比較を2026年2月時点で解説します。";
+  "GPT-5.3の概要とGPT-5.2からの変化点、Codex経由での使い方、ビジネス実務での活用シーン（文書作成・分析・コード補助）、Claude Opus 4.6との強み・弱み・料金比較を2026年2月時点で解説します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/gpt-5-3-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-21T09:00:00+09:00";
@@ -19,17 +19,17 @@ const faqItems = [
   {
     question: "GPT-5.3とCodexはどちらを使えばよいですか？",
     answer:
-      "GPT-5.3はChatGPT UIでの対話・文書作成・分析など汎用タスク向けです。CodexはAPIを通じたコード特化の自動化・CI/CD連携など開発フロー組み込みに強みがあります。会話ベースで試したい場合はGPT-5.3、プログラムから呼び出したい場合はCodex APIが基本的な判断軸になります。",
+      "2026年2月21日時点でGPT-5.3はGPT-5.3-CodexとしてCodex経由（app/CLI/IDE/web）で利用する形が基本です。通常のChatGPT UIでモデルとして直接選択する前提ではないため、対話・実装ともCodex側の導線で運用してください。詳細は公式サイトをご確認ください（確認日: 2026-02-21）。",
   },
   {
     question: "GPT-5.3の料金はどうなっていますか？",
     answer:
-      "2026年2月時点で、ChatGPT Plus（$20/月）・Pro（$200/月）でGPT-5.3が利用可能です。API利用は入力・出力トークン単位の従量課金で、ChatGPT契約とは別請求になります。具体的なAPI料金はOpenAI公式の最新料金ページを都度確認してください。",
+      "GPT-5.3-CodexはCodex利用枠で提供され、OpenAI APIでの提供状況は時期により更新されます。契約と従量課金を混同せず、導入前にモデル提供可否と最新料金を公式で確認してください。詳細は公式サイトをご確認ください（確認日: 2026-02-21）。",
   },
   {
     question: "Claude Opus 4.6とGPT-5.3はどちらが優れていますか？",
     answer:
-      "用途によります。GPT-5.3はOpenAIエコシステム（Codex・DALL-E・Plugins）との連携と英語コンテキストの処理に強みがあります。Claude Opus 4.6は長文コンテキスト（最大100万トークン）・指示追従性・倫理的制約の安定性で評価されています。両者を実務で使い分けるのが現実的な運用です。",
+      "用途によります。GPT-5.3-CodexはOpenAIエコシステム（Codex・DALL-E）との連携と開発導線で強みがあります。Claude Opus 4.6は長文コンテキスト（最大100万トークン）・指示追従性・倫理的制約の安定性で評価されています。両者を実務で使い分けるのが現実的な運用です。",
   },
   {
     question: "ビジネス文書作成でGPT-5.3を活用するコツは何ですか？",

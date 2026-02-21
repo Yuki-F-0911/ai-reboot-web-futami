@@ -266,7 +266,7 @@ export default function AiPcCopilotPlusGuidePage({ faqItems }: AiPcCopilotPlusGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">搭載機種比較（Surface Pro 11・ThinkPad X1 Carbon等）</h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">搭載機種比較（Surface Pro 11・ThinkPad X1 Carbon等の例）</h2>
           <div className="mt-6 overflow-x-auto">
             <table className="blog-table w-full min-w-[880px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -287,6 +287,9 @@ export default function AiPcCopilotPlusGuidePage({ faqItems }: AiPcCopilotPlusGu
               </tbody>
             </table>
           </div>
+          <p className="mt-3 text-xs leading-6 text-gray-500">
+            Copilot+対応・NPU性能・SKU構成は世代や地域で変わります。最新ラインナップはMicrosoft/Lenovo公式サイトをご確認ください（確認日: 2026-02-21）。
+          </p>
         </motion.section>
 
         <motion.section

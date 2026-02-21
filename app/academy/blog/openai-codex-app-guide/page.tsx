@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import OpenaiCodexAppGuidePage from "@/components/academyLanding/blog/openai-codex-app-guide/OpenaiCodexAppGuidePage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "Codex App使い方ガイド｜macOS版の始め方とSpark/Classic比較【2026年版】 | AIリブート";
+const pageTitle = "Codex App使い方ガイド｜macOS版の始め方と運用ポイント【2026年版】 | AIリブート";
 const pageDescription =
-  "OpenAI Codex Appの使い方を2026年2月時点で解説。2026年2月2日リリースのmacOS版概要、Codex SparkとCodex Classicの違い、ローカルコード読み取りの仕組みとセキュリティ、初回セットアップ、Cursor/Claude Codeとの使い分けを整理します。";
+  "OpenAI Codex Appの使い方を2026年2月時点で解説。macOS版の概要、ローカルコード読み取りの仕組みとセキュリティ、初回セットアップ、Cursor/Claude Codeとの使い分けを整理します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/openai-codex-app-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-20T12:30:00+09:00";
@@ -17,9 +17,9 @@ const faqItems = [
       "ローカルコードを読みながら、要件整理から修正までをmacOS上で一貫して進めたいユーザーに向いています。エディタ補完より、タスク単位で進めたい人に合います。",
   },
   {
-    question: "Codex SparkとCodex Classicの違いは何ですか？",
+    question: "Spark/Classicという呼び方は公式ですか？",
     answer:
-      "Sparkは探索と提案の初速、Classicは安定した編集と反復作業に向く運用が一般的です。チームではSparkで設計案を出し、Classicで仕上げる分担が使いやすくなります。",
+      "本記事では運用説明のために便宜上のラベルとして使っています。公式機能名として固定されている情報は確認できないため、実際の機能名・提供範囲は公式情報を確認してください。詳細は公式サイトをご確認ください（確認日: 2026-02-21）。",
   },
   {
     question: "ローカルコードは外部に送信されますか？",
@@ -50,8 +50,7 @@ export const metadata: Metadata = {
     "Codex App 使い方",
     "OpenAI Codex",
     "macOS AIコーディング",
-    "Codex Spark",
-    "Codex Classic",
+    "Codex 運用",
     "Claude Code Cursor 比較",
   ],
   alternates: {
