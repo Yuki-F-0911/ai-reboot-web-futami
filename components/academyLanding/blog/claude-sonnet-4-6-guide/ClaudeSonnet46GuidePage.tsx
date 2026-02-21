@@ -175,7 +175,7 @@ function LineCtaBox({ className }: LineCtaBoxProps) {
     <section className={className}>
       <p className="text-base font-semibold text-gray-900">AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）</p>
       <p className="mt-2 text-sm leading-7 text-gray-700">
-        ClaudeやOpenAIの仕様変更を、実務判断に使える粒度で毎週整理して配信しています。導入検討中の法人担当者向けの要点も無料で受け取れます。
+        ClaudeやOpenAIの最新情報を、仕事にすぐ使える形で毎週整理して届けています。Claude活用の実践ノウハウを無料で受け取れます。
       </p>
       <a
         href={lineUrl}

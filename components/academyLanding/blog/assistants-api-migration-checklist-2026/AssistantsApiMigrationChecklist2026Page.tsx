@@ -176,7 +176,7 @@ function LineCtaBox({ className }: LineCtaBoxProps) {
     <section className={className}>
       <p className="text-base font-semibold text-gray-900">AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）</p>
       <p className="mt-2 text-sm leading-7 text-gray-700">
-        API仕様の更新情報や移行判断の要点を、実務で使える形で毎週整理して配信しています。法人担当者が見落としやすい変更点も無料で確認できます。
+        API仕様の更新情報や移行判断の要点を、実務で使える形で毎週整理して配信しています。見落としやすい仕様変更も無料でキャッチアップできます。
       </p>
       <a
         href={lineUrl}
