@@ -131,9 +131,9 @@ const blogPosts: readonly BlogPost[] = [
   },
   {
     slug: "perplexity-pages-guide",
-    title: "Perplexity Pages使い方ガイド｜公開・共有・SEO活用の実務手順【2026年版】",
+    title: "Perplexity Pages使い方ガイド｜公開・共有・SEO活用の実務手順【2026年2月最新版】",
     summary:
-      "Perplexity Pagesに特化し、公開設定、共同編集、更新運用、SEOを意識した見出し設計までを実務目線で整理。一般的な検索AI解説ではなく、共有可能な調査ページ作成に焦点を当てた記事です。",
+      "Perplexity Pagesに特化し、公開・共有・更新運用までを実務目線で整理。2026年2月時点はCreate page一時停止のため、Threads/Spacesで検証→Share/Exportで配布→（Convert復活後にPage化）という現実的フローで解説します。",
     category: "実務活用",
   },
   {

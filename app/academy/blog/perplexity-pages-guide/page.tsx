@@ -2,44 +2,44 @@ import type { Metadata } from "next";
 import PerplexityPagesGuidePage from "@/components/academyLanding/blog/perplexity-pages-guide/PerplexityPagesGuidePage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "Perplexity Pages使い方ガイド｜公開・共有・SEO活用の実務手順【2026年版】 | AIリブート";
+const pageTitle = "Perplexity Pages使い方ガイド｜公開・共有・SEO活用の実務手順【2026年2月最新版】 | AIリブート";
 const pageDescription =
-  "Perplexity Pagesの使い方を、一般的な検索AIの解説から切り分けて整理。Pagesの作成、公開設定、共同編集、SEOを意識した構成設計まで2026年2月時点で解説します。";
+  "Perplexity Pagesの使い方を、公開・共有・更新運用の実務手順として整理。2026年2月時点はCreate pageが一時停止のため、Threads/Spacesで検証→Share/Exportで配布→（Convert復活後にPage化）という現実的フローで解説します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/perplexity-pages-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-20T21:20:00+09:00";
-const modifiedTime = "2026-02-20";
+const modifiedTime = "2026-02-21";
 
 const faqItems = [
   {
-    question: "Perplexity Pagesは通常のPerplexity回答と何が違いますか？",
+    question: "Pagesはいま使えますか？",
     answer:
-      "通常回答が一問一答中心なのに対し、Pagesは複数セクションで構成した公開ドキュメントを作る機能です。調査メモを共有資料に変換しやすい点が実務での違いです。",
+      "2026年2月21日時点では、公式ヘルプで「Create page」が一時停止と案内されています。本記事では、確実に運用できるThreads/Spaces中心のフローで解説し、Convert復活後にPage化する前提で進めます。",
   },
   {
-    question: "Perplexity Pagesは無料プランでも使えますか？",
+    question: "ThreadとSpaceは何が違う？",
     answer:
-      "機能提供範囲はプラン更新で変わる可能性があるため、最新の公式プランページ確認が必要です。本記事では運用設計に焦点を置き、利用可否は作成前に必ず公式情報を確認する前提で解説しています。",
+      "Threadは会話の履歴を保持して調査を深掘りする単位、SpaceはThreadsをプロジェクト単位で束ねて共同作業や運用をしやすくする作業場です。",
   },
   {
-    question: "Pagesを公開する際に最初に決めるべきことは何ですか？",
+    question: "公開リンクはデフォルトでオンですか？",
     answer:
-      "対象読者、公開範囲、更新頻度の3点です。ここが曖昧だと、公開後に情報粒度やトーンがぶれ、運用負荷が上がりやすくなります。",
+      "Threads/Spacesは基本的に非公開で、共有したいときにShareでリンク共有します。公開前に公開範囲を必ず確認してください。",
   },
   {
-    question: "SEOを意識するならどこを最適化すべきですか？",
+    question: "公開すると添付ファイルも見られますか？",
     answer:
-      "タイトル、導入要約、見出し構造、FAQの4点です。最初の3行で結論を提示し、見出しごとに問いを明確化すると検索意図との一致率を高めやすくなります。",
+      "公開したThreadは、リンク閲覧者が添付ファイルを見られる可能性があります。機密が混ざる場合は公開せず、Exportで共有する運用が安全です。",
   },
   {
-    question: "社内で共同編集する場合の注意点はありますか？",
+    question: "無料プランでも運用できますか？",
     answer:
-      "更新責任者を決め、改訂履歴を残す運用が必要です。特に数値情報は更新日を必ず併記し、古い情報の再配布を防ぐルールを先に決めてください。",
+      "無料（Standard）でも基本検索や履歴は使えますが、Pro検索量やファイル周りは制限があります。機能は変更され得るため、最新の公式案内を確認した上で判断してください。",
   },
   {
-    question: "Perplexity Pagesとブログ記事はどう使い分けるべきですか？",
+    question: "共同編集の注意点は？",
     answer:
-      "Pagesは調査結果を素早く共有する用途、ブログは検索流入を継続獲得する用途に向いています。Pagesで検証した構成を、後でブログへ展開する二段構えが実務では有効です。",
+      "Spaceを共同作業のハブにしつつ、責任者1名と更新履歴の運用を必ず決めてください。特に数値や仕様の記述は更新日を併記し、古い情報の再配布を防ぎます。",
   },
 ] as const;
 
@@ -51,6 +51,8 @@ export const metadata: Metadata = {
     "Perplexity Pages 公開",
     "Perplexity Pages SEO",
     "Perplexity 共有ページ",
+    "Perplexity Threads",
+    "Perplexity Spaces",
     "検索AI コンテンツ作成",
   ],
   alternates: {
@@ -105,4 +107,3 @@ export default function PerplexityPagesGuideRoute() {
     </>
   );
 }
-

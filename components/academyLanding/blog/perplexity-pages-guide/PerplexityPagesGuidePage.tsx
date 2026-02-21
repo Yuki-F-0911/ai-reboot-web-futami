@@ -23,12 +23,18 @@ const sectionReveal = {
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
 
-const keywordTags = ["Perplexity Pages 使い方", "Pages 公開", "Pages SEO活用", "情報共有"] as const;
+const keywordTags = [
+  "Perplexity Pages 使い方",
+  "Threads/Spaces 運用",
+  "Share/Export 共有",
+  "Pages SEO活用",
+] as const;
 
 const tocItems = [
   { id: "answer-box", label: "結論（Answer Box）" },
-  { id: "difference", label: "Perplexity一般利用との違い" },
-  { id: "build-flow", label: "Pages作成フロー" },
+  { id: "definition", label: "定義：Pages/Threads/Spaces" },
+  { id: "difference", label: "一般利用との違い" },
+  { id: "build-flow", label: "公開資産化フロー" },
   { id: "publish", label: "公開・共有の実務設定" },
   { id: "seo", label: "SEOを意識した構成設計" },
   { id: "operations", label: "運用ルールと更新管理" },
@@ -37,55 +43,93 @@ const tocItems = [
 ] as const;
 
 const answerPoints = [
-  "Perplexity Pagesは、単発回答ではなく「公開可能な調査ページ」を短時間で作る機能です。",
-  "公開前に、対象読者・更新頻度・責任者を決めると運用が崩れにくくなります。",
-  "SEOを意識する場合は、タイトル、導入3行、見出し構造、FAQを先に固定します。",
-  "プロンプトを事前に設計しておくと、Pages本文の初稿作成が速くなります。",
+  "2026年2月時点はCreate pageが一時停止のため、Threadで調査→Spaceで整理→Share/Exportで配布が最短ルートです。",
+  "公開前に決めるべき3点は、対象読者・更新頻度・責任者です。ここが曖昧だと運用が崩れます。",
+  "事故防止のコアは、公開範囲・添付ファイル・更新日・責任者の4チェックです。",
+  "SEO目的なら主戦場は自社ドメインです。Perplexity共有は検証ログや草稿用途に置くと安全です。",
+] as const;
+
+const officialDocs = {
+  pages: "https://www.perplexity.ai/help-center/en/articles/10352968-perplexity-pages",
+  thread: "https://www.perplexity.ai/help-center/en/articles/10354769-what-is-a-thread",
+  spaces: "https://www.perplexity.ai/help-center/en/articles/10352961-what-are-spaces",
+  files: "https://www.perplexity.ai/help-center/en/articles/10354810-security-and-privacy-with-file-uploads",
+  gettingStarted: "https://www.perplexity.ai/help-center/en/articles/10354975-getting-started-with-perplexity",
+} as const;
+
+const definitionCards = [
+  {
+    title: "Thread（スレッド）",
+    body: "会話の履歴と出典が積み上がる単位。フォローアップで「結論→根拠→例外」を深掘りし、調査の連続性を作ります。",
+    href: officialDocs.thread,
+    linkLabel: "公式ヘルプ: What is a Thread?",
+  },
+  {
+    title: "Space（スペース）",
+    body: "Threadsや検索をプロジェクト単位で束ねる作業場。共同作業者を招待したり、運用の指示を固定して再現性を作れます。",
+    href: officialDocs.spaces,
+    linkLabel: "公式ヘルプ: What are Spaces?",
+  },
+  {
+    title: "Pages（ページ）",
+    body: "本来は調査結果を読み物として整形し公開しやすくする機能ですが、2026年2月時点はCreate pageが一時停止。まずはThreads/Spacesで運用し、Convert復活後にPage化するのが現実解です。",
+    href: officialDocs.pages,
+    linkLabel: "公式ヘルプ: Perplexity Pages",
+  },
 ] as const;
 
 const flowSteps = [
   {
+    title: "Step 0. まず「Pagesは作れるか？」を確認する",
+    body: "2026年2月時点はCreate pageが一時停止のため、Threads/Spacesで検証→Share/Exportで配布する前提で進めます。",
+  },
+  {
     title: "Step 1. 調査クエリを定義する",
-    body: "読者が知りたい問いを1つに絞り、比較軸を3〜5項目に固定します。",
+    body: "読者が知りたい問いを1つに絞り、比較軸を3〜5個に固定します（例：料金/制限/共有/運用/リスク）。",
   },
   {
-    title: "Step 2. セクション構成を先に作る",
-    body: "導入、比較、示唆、FAQの順で見出しを作ると、公開後の読みやすさが安定します。",
+    title: "Step 2. Threadで調査→追質問で“根拠付きの骨”を作る",
+    body: "Threadは履歴と出典が残るため、結論→根拠→例外の順で深掘りしやすいです。主張ごとに公式/規約/ヘルプなど一次情報を最低1つ添えます。",
   },
   {
-    title: "Step 3. 根拠リンクを明示する",
-    body: "主張ごとに根拠元を残し、更新日を併記します。公開後の信頼性に直結します。",
+    title: "Step 3. セクション構成を先に固定する",
+    body: "おすすめ順は「結論→定義→使い方→注意点→FAQ」。先に型を固定すると、公開後の読みやすさと更新作業が安定します。",
   },
   {
-    title: "Step 4. 公開範囲を設定する",
-    body: "外部公開か限定共有かを決め、誤って機密情報が含まれないように最終確認します。",
+    title: "Step 4. Spaceに入れて“運用単位”にする",
+    body: "ThreadをSpaceに集約し、同テーマの調査を束ねます。共同作業ならSpaceに共同作業者を招待し、運用ルール（責任者・更新日・公開範囲）を固定します。",
   },
   {
-    title: "Step 5. 配布導線を設計する",
-    body: "SNS、社内共有、ブログ転用の導線を作り、ページ公開後の活用を先に決めます。",
+    title: "Step 5. 公開・共有（Share）か配布（Export）を選ぶ",
+    body: "Shareはリンク共有でスピード優先、Exportは社内配布や添付除外など保存性優先です。公開したThreadは添付が見える可能性があるため、機密が混ざる場合はExportを選びます。",
   },
+] as const;
+
+const recommendedPrompts = [
+  "このテーマを公開記事にする前提で、見出し案→要点→FAQ案を先に出して。",
+  "各主張に一次情報（公式/規約/ヘルプ）を最低1つ付けて。曖昧なら曖昧と明記して。",
 ] as const;
 
 const publishRows = [
   {
     item: "公開範囲",
-    point: "全体公開 / 限定共有を明確化",
+    point: "「公開リンク」か「組織内」かを明確化（Enterpriseでは管理側制御もあり得る）",
     mistake: "意図せず全体公開してしまう",
   },
   {
+    item: "添付ファイル",
+    point: "機密があるなら公開しない。共有するならExportを優先する",
+    mistake: "公開スレッドに機密添付が混ざる",
+  },
+  {
     item: "更新日",
-    point: "見出し近くに記載",
-    mistake: "古い情報が新しい情報として読まれる",
+    point: "冒頭と見出し近くに併記する",
+    mistake: "古い情報が新しい顔をする",
   },
   {
     item: "責任者",
-    point: "更新担当を1人決める",
+    point: "更新担当を1人決め、変更履歴を残す",
     mistake: "誰も更新せず陳腐化する",
-  },
-  {
-    item: "再利用導線",
-    point: "ブログ化/SNS展開を事前設計",
-    mistake: "公開して終わりになる",
   },
 ] as const;
 
@@ -116,7 +160,7 @@ const operationChecklist = [
   "公開前レビュー担当を固定する",
   "月1回はリンク切れと古い数値を確認する",
   "更新履歴に変更理由を残す",
-  "Pagesの成果をブログへ転用し、検索流入を積み上げる",
+  "Thread/Spaceで検証→自社ブログへ転用で検索資産を積む",
 ] as const;
 
 const academyPillars = [
@@ -220,19 +264,35 @@ export default function PerplexityPagesGuidePage({ faqItems }: PerplexityPagesGu
           <div className="mt-6 flex">
             <div className="ml-auto w-full sm:w-auto">
               <CopyAsMarkdownButton
-                title="Perplexity Pages使い方ガイド｜公開・共有・SEO活用の実務手順【2026年版】"
+                title="Perplexity Pages使い方ガイド｜公開・共有・SEO活用の実務手順【2026年2月最新版】"
                 sourceSelector="[data-blog-article-body]"
               />
             </div>
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            Perplexity Pages使い方ガイド｜公開・共有・SEO活用の実務手順【2026年版】
+            Perplexity Pages使い方ガイド｜公開・共有・SEO活用の実務手順【2026年2月最新版】
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月21日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            Perplexity Pagesは、調査結果を公開可能な構造に変換できる点が強みです。一般的なPerplexity入門とは役割が違い、
-            情報公開と更新運用まで含めて設計する必要があります。確認日: 2026-02-20。
+            Perplexity Pagesは本来、調査結果を読み物として公開しやすい形に整える機能です。ただし2026年2月時点はCreate pageが一時停止のため、
+            現状はThreads/Spacesで検証し、Share/Exportで配布する運用が確実です。確認日: 2026-02-21。
           </p>
+
+          <section className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-amber-900">
+            <p className="font-semibold">重要（2026年2月の仕様）</p>
+            <p className="mt-2">
+              公式ヘルプではPages体験改善のため「Create page」が一時停止と案内されています。Convert to Pageは改善して復活予定のため、
+              本記事では「Threads/Spaces → Share/Export →（Convert復活後にPage化）」の実務フローで解説します。
+            </p>
+            <a
+              href={officialDocs.pages}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex text-orange-700 underline underline-offset-4 hover:text-orange-800"
+            >
+              公式ヘルプ: Perplexity Pages
+            </a>
+          </section>
         </motion.header>
 
         <ArticleTOC items={tocItems} />
@@ -259,6 +319,34 @@ export default function PerplexityPagesGuidePage({ faqItems }: PerplexityPagesGu
         <WebtoonBannerSection />
 
         <motion.section
+          id="definition"
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">定義：Pages/Threads/Spacesは何が違う？</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {definitionCards.map((card) => (
+              <section key={card.title} className="rounded-xl border border-gray-200 bg-white p-5 shadow-subtle">
+                <h3 className="text-base font-semibold text-gray-900">{card.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-gray-700">{card.body}</p>
+                <a
+                  href={card.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex text-sm font-semibold text-orange-600 underline underline-offset-4 hover:text-orange-700"
+                >
+                  {card.linkLabel}
+                </a>
+              </section>
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section
           id="difference"
           className="mt-14"
           initial="hidden"
@@ -267,14 +355,25 @@ export default function PerplexityPagesGuidePage({ faqItems }: PerplexityPagesGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">Perplexity一般利用との違い。Pagesは「公開資産化」が目的</h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">Perplexity一般利用との違い。Threads/Spaces運用は「公開資産化」が目的</h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
-            通常のPerplexity活用は一問一答が中心です。一方Pagesは、調査結果を見出し構造付きで共有できるため、
-            社内ナレッジ化や外部公開の土台に使えます。基本操作を確認したい場合は
+            通常のPerplexity利用（単発検索）でも答えは出ますが、公開・共有・更新まで考えるなら、Threadで調査の根拠を積み上げ、
+            Spaceで構造と運用ルールを固定するのが強いです。基本操作を確認したい場合は
             <Link href="/academy/blog/perplexity-ai-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               Perplexity一般ガイド
             </Link>
             を先に確認してください。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            なおThreads/Spacesは基本的に非公開で、共有したいときにShareで公開・共有します。公開範囲と添付の扱いは必ず事前に確認してください。
+            <a
+              href={officialDocs.gettingStarted}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
+            >
+              公式ヘルプ（Getting Started）
+            </a>
           </p>
         </motion.section>
 
@@ -287,7 +386,7 @@ export default function PerplexityPagesGuidePage({ faqItems }: PerplexityPagesGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">Pages作成フロー。5ステップで公開可能な形に整える</h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">（現行版）公開資産化フロー。6ステップで“共有できる形”にする</h2>
           <div className="mt-6 space-y-4">
             {flowSteps.map((step) => (
               <section key={step.title} className="rounded-xl border border-gray-200 bg-white p-5 shadow-subtle">
@@ -296,6 +395,33 @@ export default function PerplexityPagesGuidePage({ faqItems }: PerplexityPagesGu
               </section>
             ))}
           </div>
+
+          <section className="mt-8 rounded-xl border border-gray-200 bg-gray-50 p-5">
+            <h3 className="text-base font-semibold text-gray-900">おすすめプロンプト（コピペ用）</h3>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+              {recommendedPrompts.map((prompt) => (
+                <li key={prompt} className="pl-1 marker:text-gray-400">
+                  {prompt}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="mt-6 rounded-xl border border-gray-200 bg-white p-5">
+            <h3 className="text-base font-semibold text-gray-900">Share/Exportの選び方（実務）</h3>
+            <p className="mt-2 text-sm leading-7 text-gray-700">
+              Shareはリンク共有でスピード最優先、Exportは社内配布や添付除外など保存性を優先します。公開したThreadは添付が見える可能性があるため、
+              機密が混ざる場合は「公開しない/Exportで共有」を基本にしてください。
+              <a
+                href={officialDocs.files}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                公式ヘルプ（File uploads）
+              </a>
+            </p>
+          </section>
         </motion.section>
 
         <motion.section
@@ -341,7 +467,11 @@ export default function PerplexityPagesGuidePage({ faqItems }: PerplexityPagesGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">SEOを意識した構成設計。公開後の見つかりやすさを上げる</h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">SEOを意識した構成設計。Perplexity共有は「検証→転用」が安全</h2>
+          <p className="mt-5 text-base leading-8 text-gray-700">
+            SEO狙いの基本は、検索流入の主戦場を自社ドメインに置くことです。Perplexity側は仕様が変わりやすく、Pagesも改修中のため、
+            共有ページは「検証ログ→配布→草稿」として使い、確度が上がったらブログへ転用する運用が堅いです。
+          </p>
           <div className="mt-6 overflow-x-auto">
             <table className="blog-table w-full min-w-[900px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
@@ -436,4 +566,3 @@ export default function PerplexityPagesGuidePage({ faqItems }: PerplexityPagesGu
     </main>
   );
 }
-
