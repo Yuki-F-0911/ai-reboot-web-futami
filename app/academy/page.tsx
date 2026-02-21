@@ -108,25 +108,7 @@ export default function AcademyPage() {
 
       <HeroSection />
 
-      <section className="border-y border-orange-100 bg-orange-50/70 py-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-6 md:flex-row md:items-center lg:px-8">
-          <div>
-            <p className="text-xs font-bold tracking-[0.14em] text-orange-700">COMPARE COURSES</p>
-            <p className="mt-2 text-lg font-bold text-slate-900 sm:text-xl">AI講座の違いを先に整理したい方へ</p>
-            <p className="mt-1 text-sm text-slate-700 sm:text-base">
-              主要AI講座の比較表と、あなたに合う選び方チェックリストを用意しています。
-            </p>
-          </div>
-          <Link
-            href="/academy/ai-course-comparison"
-            className="inline-flex min-w-[220px] items-center justify-center rounded-lg bg-orange-500 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-orange-600"
-          >
-            講座を比較する
-          </Link>
-        </div>
-      </section>
-      
-      <section 
+      <section
         className="mx-auto max-w-4xl px-6 py-24 lg:py-32"
       >
         <YouTubeEmbed

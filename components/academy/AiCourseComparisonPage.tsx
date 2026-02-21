@@ -10,69 +10,7 @@ type AiCourseComparisonPageProps = {
   faqItems: readonly FAQItem[];
 };
 
-type ComparisonRow = {
-  courseName: string;
-  period: string;
-  cost: string;
-  subsidy: string;
-  support: string;
-  outcome: string;
-  suitedFor: string;
-  highlight?: boolean;
-};
-
 const lineUrl = "https://bexn9pao.autosns.app/line";
-
-const comparisonRows: readonly ComparisonRow[] = [
-  {
-    courseName: "AIリブートアカデミー",
-    period: "100日間（AIリブート100）",
-    cost: "330,000円（税込）",
-    subsidy: "リスキリング補助金対象（条件あり）",
-    support: "講師伴走・実践課題フィードバック・学習コミュニティ",
-    outcome:
-      "生成AI活用力に加え、自己理解とキャリアデザインを進め、実務への定着までを狙える",
-    suitedFor:
-      "AIスキル習得だけでなく、次のキャリア設計や仲間との学習環境も重視したい人",
-    highlight: true,
-  },
-  {
-    courseName: "Aidemy",
-    period: "コースごとに異なる（各社公式サイト参照）",
-    cost: "プランごとに異なる（各社公式サイト参照）",
-    subsidy: "制度対応の有無はコースごとに要確認",
-    support: "サポート範囲はコース/プランごとに異なる",
-    outcome: "修了後の活用範囲は選択コース次第",
-    suitedFor: "目的に合う専門コースを選んで学びたい人",
-  },
-  {
-    courseName: "侍エンジニア",
-    period: "学習期間はコースごとに異なる（各社公式サイト参照）",
-    cost: "受講費用はコースごとに異なる（各社公式サイト参照）",
-    subsidy: "対象制度や適用条件は要確認",
-    support: "サポート内容はプランごとに異なる",
-    outcome: "到達レベルはカリキュラムと学習量に依存",
-    suitedFor: "個別伴走型の学習を検討したい人",
-  },
-  {
-    courseName: "Udemy",
-    period: "受講ペースは自分で調整（買い切り教材中心）",
-    cost: "講座ごとの買い切り価格（各社公式サイト参照）",
-    subsidy: "公的補助制度の対象可否は講座単位で要確認",
-    support: "質問・サポート体制は講師や講座ごとに異なる",
-    outcome: "必要テーマをピンポイントで学びやすい",
-    suitedFor: "低コストで必要スキルを自走学習したい人",
-  },
-  {
-    courseName: "Coursera",
-    period: "コース/認定プログラムごとに異なる",
-    cost: "課金体系はコースごとに異なる（各社公式サイト参照）",
-    subsidy: "補助制度の対象可否は要確認",
-    support: "サポートや学習支援は提供元プログラムごとに異なる",
-    outcome: "体系的な学習や修了証明を得やすい",
-    suitedFor: "国内外の幅広い講座を比較しながら学びたい人",
-  },
-];
 
 const selectionChecklist = [
   {
@@ -130,54 +68,6 @@ export default function AiCourseComparisonPage({ faqItems }: AiCourseComparisonP
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-700 sm:text-lg">
             「生成AI活用力」「自己理解・キャリアデザイン」「仲間と共に学ぶ環境」の3軸で比較すると、
             受講後のミスマッチを減らせます。まずは比較表で候補を整理し、最後にLINEで無料相談して判断を固めてください。
-          </p>
-          <div className="mt-7 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
-            他社の期間・費用・制度対応などの最新条件は変動するため、必ず各社公式サイトをご確認ください。
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-slate-200 py-14 md:py-20">
-        <div className="container mx-auto max-w-6xl px-4 md:px-6 lg:px-8">
-          <p className="text-xs font-bold tracking-[0.14em] text-slate-500">COMPARISON TABLE</p>
-          <h2 className="mt-3 text-2xl font-bold leading-tight text-slate-900 sm:text-3xl md:text-4xl">
-            主要AI講座の比較表
-          </h2>
-          <p className="mt-4 text-sm leading-relaxed text-slate-700 sm:text-base">
-            比較軸は「期間・費用・補助金対応・サポート内容・卒業後の変化・向いている人」に統一しています。
-          </p>
-
-          <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200">
-            <table className="min-w-[980px] w-full border-collapse text-left text-sm">
-              <thead className="bg-slate-50 text-slate-700">
-                <tr>
-                  <th className="border-b border-slate-200 px-4 py-3 font-bold">講座</th>
-                  <th className="border-b border-slate-200 px-4 py-3 font-bold">期間</th>
-                  <th className="border-b border-slate-200 px-4 py-3 font-bold">費用</th>
-                  <th className="border-b border-slate-200 px-4 py-3 font-bold">補助金対応</th>
-                  <th className="border-b border-slate-200 px-4 py-3 font-bold">サポート内容</th>
-                  <th className="border-b border-slate-200 px-4 py-3 font-bold">卒業後の変化</th>
-                  <th className="border-b border-slate-200 px-4 py-3 font-bold">向いている人</th>
-                </tr>
-              </thead>
-              <tbody className="align-top text-slate-700">
-                {comparisonRows.map((row) => (
-                  <tr key={row.courseName} className={row.highlight ? "bg-orange-50/50" : "bg-white"}>
-                    <th className="border-b border-slate-200 px-4 py-4 font-bold text-slate-900">{row.courseName}</th>
-                    <td className="border-b border-slate-200 px-4 py-4">{row.period}</td>
-                    <td className="border-b border-slate-200 px-4 py-4">{row.cost}</td>
-                    <td className="border-b border-slate-200 px-4 py-4">{row.subsidy}</td>
-                    <td className="border-b border-slate-200 px-4 py-4">{row.support}</td>
-                    <td className="border-b border-slate-200 px-4 py-4">{row.outcome}</td>
-                    <td className="border-b border-slate-200 px-4 py-4">{row.suitedFor}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="mt-4 text-xs leading-relaxed text-slate-500">
-            注: 他社情報は断定せず、公開情報ベースで整理しています。最終判断前に必ず各社公式サイト・最新募集要項をご確認ください。
           </p>
         </div>
       </section>
