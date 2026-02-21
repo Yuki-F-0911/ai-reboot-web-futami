@@ -23,12 +23,12 @@ const sectionReveal = {
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
 
-const keywordTags = ["OpenAI最新モデル", "GPT-4o / o3", "GPT-5.3-codex", "Claude Opus 4.6比較"] as const;
+const keywordTags = ["GPT-5.2", "thinkingレベル", "GPT-5.3-codex", "Claude Opus 4.6比較"] as const;
 
 const tocItems = [
   { id: "conclusion", label: "要点まとめ" },
-  { id: "notice", label: "重要注記：GPT-5.3について" },
-  { id: "model-map", label: "OpenAIモデル全体マップ" },
+  { id: "model-map", label: "3モデルの役割マップ" },
+  { id: "thinking-levels", label: "GPT-5.2のthinkingレベル差" },
   { id: "use-case-table", label: "用途別の使い分け表" },
   { id: "codex-cli", label: "GPT-5.3-codexの使いどころ" },
   { id: "vs-claude", label: "Claude Opus 4.6との比較" },
@@ -37,28 +37,16 @@ const tocItems = [
 
 const modelRows = [
   {
-    model: "GPT-4o",
-    category: "汎用モデル",
-    strengths: "文章生成、要約、説明、日常業務の幅広いタスクを高品質に処理しやすい",
-    usage: "提案書、メール、議事録、顧客向け文面の作成",
+    model: "GPT-5.2（standard）",
+    category: "汎用モード",
+    strengths: "応答速度と品質のバランスがよく、日常の業務タスクを安定して回しやすい",
+    usage: "文書下書き、要約、壁打ち、通常のQ&A",
   },
   {
-    model: "GPT-4o mini",
-    category: "軽量・高速モデル",
-    strengths: "処理速度とコスト効率が高く、繰り返し実行の多い業務に向く",
-    usage: "下書き、分類、短文整形、FAQ初稿作成",
-  },
-  {
-    model: "o3",
-    category: "推論モデル",
-    strengths: "多段の思考が必要な課題で根拠整理や判断プロセスを明確化しやすい",
-    usage: "要件定義、意思決定支援、複雑な原因分析",
-  },
-  {
-    model: "o4-mini",
-    category: "軽量推論モデル",
-    strengths: "推論品質と速度のバランスがよく、日常の検討業務に組み込みやすい",
-    usage: "簡易分析、仮説検証、レビュー観点の抽出",
+    model: "GPT-5.2（thinking）",
+    category: "深い推論モード",
+    strengths: "前提整理・論点分解・判断理由の明示が必要な課題で精度を上げやすい",
+    usage: "要件整理、比較検討、意思決定前の論点設計",
   },
   {
     model: "GPT-5.3-codex",
@@ -68,16 +56,37 @@ const modelRows = [
   },
 ] as const;
 
-const useCaseRows = [
+const thinkingLevelRows = [
   {
-    task: "ビジネス文書",
-    recommended: "GPT-4o（初稿量産はGPT-4o mini）",
-    operation: "4o miniで叩き台を作り、最終版だけ4oで品質調整する",
+    level: "standard",
+    fit: "通常の業務処理をテンポよく回したいとき",
+    output: "十分な品質を短い往復で得やすい",
+    caution: "論点が多い課題では検討の深さが不足する場合がある",
   },
   {
-    task: "データ分析",
-    recommended: "o4-mini（複雑な判断はo3）",
-    operation: "日次レポートはo4-mini、意思決定を伴う論点整理はo3に切り替える",
+    level: "thinking",
+    fit: "判断根拠や比較軸まで明示したいとき",
+    output: "前提確認と推論プロセスが丁寧になりやすい",
+    caution: "standardより応答に時間がかかる前提で運用する",
+  },
+  {
+    level: "extended thinking（提供時）",
+    fit: "最難度の課題を時間をかけて検討したいとき",
+    output: "深い検討が期待できるが、利用可否は環境依存",
+    caution: "名称・提供範囲はプランやUI更新で変わるため公式情報を都度確認する",
+  },
+] as const;
+
+const useCaseRows = [
+  {
+    task: "日常の文書・コミュニケーション",
+    recommended: "GPT-5.2（standard）",
+    operation: "まずstandardで初稿を作成し、レビュー基準だけ人間側で固定する",
+  },
+  {
+    task: "重要判断を伴う企画・分析",
+    recommended: "GPT-5.2（thinking）",
+    operation: "判断理由と前提を明示する指示を追加し、根拠つきで出力させる",
   },
   {
     task: "コード生成・改修",
@@ -85,16 +94,16 @@ const useCaseRows = [
     operation: "要件と制約を先に与え、差分レビュー前提で運用する",
   },
   {
-    task: "推論タスク",
-    recommended: "o3（速度優先時はo4-mini）",
-    operation: "論点分解と前提確認を明示し、結論だけでなく判断根拠も出力させる",
+    task: "高難度タスクの再検証",
+    recommended: "GPT-5.2（thinking）",
+    operation: "standard結果を下書きに使い、品質不足時のみthinkingへ昇格させる",
   },
 ] as const;
 
 const codexFlowRows = [
   {
     step: "1. タスク定義",
-    detail: "変更目的、制約、受け入れ条件を先に渡す",
+    detail: "変更目的、制約、受け入れ条件を先に渡す（GPT-5.2で要件整理してから渡すと安定）",
   },
   {
     step: "2. 実装生成",
@@ -113,7 +122,7 @@ const codexFlowRows = [
 const vsClaudeRows = [
   {
     axis: "使い分けのしやすさ",
-    openai: "4o系・o系・Codex系に分けて運用設計しやすい",
+    openai: "GPT-5.2のstandard/thinkingを同一系統で切り替え、コードはGPT-5.3-codexへ分離しやすい",
     claude: "長文読解や一貫した文章生成を中心に設計しやすい",
   },
   {
@@ -123,12 +132,12 @@ const vsClaudeRows = [
   },
   {
     axis: "推論業務",
-    openai: "o3 / o4-miniで難易度に応じて段階的に使い分けしやすい",
+    openai: "GPT-5.2 thinkingを起点に、必要に応じてthinkingレベルを調整しやすい",
     claude: "長文前提の思考整理や説明生成で安定した運用がしやすい",
   },
   {
     axis: "導入判断",
-    openai: "業務カテゴリ別にモデルを固定すると再現性が高い",
+    openai: "standard→thinking→codexの昇格ルールを定義すると再現性が高い",
     claude: "長文中心の業務では優先候補として検討しやすい",
   },
 ] as const;
@@ -168,7 +177,7 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
             { label: "ホーム", href: "/" },
             { label: "アカデミー", href: "/academy" },
             { label: "ブログ", href: "/academy/blog" },
-            { label: "OpenAI最新モデルの使い分けガイド" },
+            { label: "GPT-5.2使い分けガイド" },
           ]}
         />
 
@@ -192,22 +201,22 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           <div className="mt-6 flex">
             <div className="ml-auto w-full sm:w-auto">
               <CopyAsMarkdownButton
-                title="OpenAI最新モデルの使い分けガイド【2026年2月版】"
+                title="GPT-5.2使い方ガイド｜thinkingレベルとGPT-5.3-codexの使い分け【2026年2月版】"
                 sourceSelector="[data-blog-article-body]"
               />
             </div>
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            OpenAI最新モデルの使い分けガイド【2026年2月版】
+            GPT-5.2使い方ガイド｜thinkingレベルとGPT-5.3-codexの使い分け【2026年2月版】
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月21日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
-            OpenAIのモデル選択は「最新名」を追うより、業務別に固定ルールを作るほうが成果につながります。本記事では
-            GPT-4o / GPT-4o mini / o3 / o4-mini / GPT-5.3-codex を、実務の用途に沿って整理します。
+            本記事は2026年2月21日時点の公開情報を前提に、GPT-5.2（standard / thinking）と、Codex CLI専用の
+            GPT-5.3-codexの役割を整理します。モデル名を追うより、業務ごとに固定ルールを作るほうが実務成果につながります。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
-            2026年2月21日時点で誤解されやすい点として、「GPT-5.3」は一般公開モデル名ではありません。この前提を明確にしたうえで、
-            文書・分析・コード・推論タスクの使い分けを解説します。
+            特に重要なのは、GPT-5.2のthinkingレベル差を理解してstandardとthinkingを使い分けることです。コード作業は
+            GPT-5.3-codexへ分離し、品質と速度を両立する運用を作ります。
           </p>
         </motion.header>
 
@@ -225,35 +234,19 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">要点まとめ</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">
-              2026年2月21日時点で「GPT-5.3」という一般公開モデル名は存在しません。
+              本記事の主軸はGPT-5.2（standard / thinking）とGPT-5.3-codexの3モデル構成です。
             </li>
             <li className="pl-1 marker:text-gray-500">
-              実務での主要選択肢は GPT-4o / GPT-4o mini / o3 / o4-mini と、Codex CLI専用の GPT-5.3-codex です。
+              通常業務はGPT-5.2 standard、重要判断はGPT-5.2 thinking、コード変更はGPT-5.3-codexで分離すると運用が安定します。
             </li>
             <li className="pl-1 marker:text-gray-500">
-              文書は4o系、推論はo系、コードはGPT-5.3-codexと役割分担すると再現性が上がります。
+              thinkingレベル（standard / thinking / extended thinking相当）の名称や提供範囲は変わるため、都度公式情報を確認してください。
             </li>
             <li className="pl-1 marker:text-gray-500">
               Claude Opus 4.6との比較は優劣ではなく、業務特性に応じた併用設計で判断するのが実践的です。
             </li>
           </ul>
           <p className="mt-4 text-xs leading-6 text-gray-500">情報確認日: 2026年2月21日</p>
-        </motion.section>
-
-        <motion.section
-          id="notice"
-          className="mt-10 rounded-lg border border-red-200 bg-red-50 p-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 className="scroll-mt-28 text-xl font-bold text-red-900">重要注記：GPT-5.3について</h2>
-          <p className="mt-3 text-sm leading-7 text-red-800">
-            2026年2月21日時点で「GPT-5.3」は一般公開モデルとして確認できません。本記事では誤解を避けるため、
-            実在するモデル名のみを扱います。コード用途での「GPT-5.3-codex」はCodex CLI専用モデルとして整理します。
-          </p>
         </motion.section>
 
         <WebtoonBannerSection />
@@ -267,12 +260,12 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">OpenAIモデル全体マップ</h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">3モデルの役割マップ（2026年2月時点）</h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            モデル選定は「最強モデル」探しではなく、業務カテゴリごとの配備で考えると失敗が減ります。以下の5モデルを基準に運用ルールを作るのが実務的です。
+            モデル選定は「最強モデル」探しではなく、業務カテゴリごとの配備で考えると失敗が減ります。以下の3モデルを基準に運用ルールを作るのが実務的です。
           </p>
           <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
+            <table className="blog-table w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">モデル</th>
@@ -296,9 +289,49 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           <p className="mt-5 text-sm leading-7 text-gray-700">
             モデルの変遷全体を確認したい場合は、
             <Link href="/academy/blog/chatgpt-gpt5-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              ChatGPTとGPT系モデルの整理記事
+              ChatGPTとGPT-5系モデルの整理記事
             </Link>
             もあわせて参照してください。
+          </p>
+        </motion.section>
+
+        <motion.section
+          id="thinking-levels"
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">GPT-5.2のthinkingレベル差（standard / thinking / extended thinking相当）</h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            GPT-5.2は、同じモデル系統でも思考量の設定によって挙動が変わります。まずstandardを既定値にし、必要時のみthinking側へ上げる運用が実務では扱いやすくなります。
+          </p>
+          <div className="mt-6 overflow-x-auto">
+            <table className="blog-table w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
+              <thead>
+                <tr className="border-b border-gray-300">
+                  <th className="py-3 pr-4 font-semibold text-gray-900">レベル</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">向いている場面</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">期待できる出力傾向</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">運用上の注意</th>
+                </tr>
+              </thead>
+              <tbody>
+                {thinkingLevelRows.map((row) => (
+                  <tr key={row.level} className="border-b border-gray-200 align-top">
+                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.level}</th>
+                    <td className="px-4 py-4">{row.fit}</td>
+                    <td className="px-4 py-4">{row.output}</td>
+                    <td className="py-4 pl-4">{row.caution}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-5 text-xs leading-6 text-gray-500">
+            注記: レベル名称・提供可否・上限は変動するため、実際の運用時はOpenAI公式ヘルプとモデルセレクター表示を必ず確認してください（確認日: 2026-02-21）。
           </p>
         </motion.section>
 
@@ -322,7 +355,7 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">用途別の使い分け表（文書 / 分析 / コード / 推論）</h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">用途別の使い分け表（GPT-5.2 standard/thinking + GPT-5.3-codex）</h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             モデル名で迷う時間を減らすために、まず業務タイプで入口を固定します。以下はチームで運用しやすい最小ルールです。
           </p>
