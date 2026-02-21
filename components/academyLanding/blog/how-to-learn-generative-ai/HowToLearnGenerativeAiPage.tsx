@@ -1,10 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable, Callout } from "@/components/blog/ArticleBody";
+import { Check, Info, Lightbulb } from "lucide-react";
 
 type FAQItem = {
   question: string;
@@ -40,9 +41,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaTitle = "AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）";
 
 const keywordTags = ["生成AI 学び方", "生成AI 勉強法", "生成AI 独学", "AI スキル 習得 方法"] as const;
 
@@ -168,25 +166,6 @@ const paidResources: readonly ResourceItem[] = [
   },
 ] as const;
 
-function LineCtaBox({ className }: { className: string }) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-gray-900">{lineCtaTitle}</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        何を学ぶか迷う社会人向けに、週1本で学習テーマを整理して配信しています。忙しい週でも、次にやるべきことを決めやすくなります。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </section>
-  );
-}
-
 export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGenerativeAiPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -245,36 +224,20 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
 
         <motion.section
           id="conclusion"
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">要点まとめ</h2>
-          <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="blog-li pl-1 marker:text-gray-500">
-              生成AI学習は「基礎→実務→応用」の3段階で設計すると、業務接続までの失速を防げます。
-            </li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              独学は低コストで始めやすく、スクールは学習速度と伴走支援に強みがあります。選定は予算より学習継続力を基準にしてください。
-            </li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              キャリア転換を見据えるなら、応用ステージで成果物をポートフォリオ化し、提供価値として説明できる状態を目標にします。
-            </li>
-          </ul>
-        </motion.section>
-
-        <motion.section
-          className="mt-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.45, ease: "easeOut" }}
-        >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <SummaryBox
+            title="要点まとめ"
+            items={[
+              "生成AI学習は「基礎→実務→応用」の3段階で設計すると、業務接続までの失速を防げます。",
+              "独学は低コストで始めやすく、スクールは学習速度と伴走支援に強みがあります。選定は予算より学習継続力を基準にしてください。",
+              "キャリア転換を見据えるなら、応用ステージで成果物をポートフォリオ化し、提供価値として説明できる状態を目標にします。",
+            ]}
+          />
         </motion.section>
 
         <motion.section
@@ -286,21 +249,24 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="learning-stages">
             3つの学習ステージ（基礎→実務→応用）と、各ステージでやること
-          </h2>
+          </ArticleH2>
           <p className="blog-p mt-5 text-base leading-8 text-gray-700">
             先に全体像を固定しておくと、途中でツール比較に時間を使いすぎる失敗を防げます。ここでは12週間で回す前提で、各ステージの到達目標を明確化します。
           </p>
           <div className="mt-8 space-y-6">
             {stageItems.map((stage) => (
-              <section key={stage.id} className="rounded-lg border border-gray-200 p-6">
-                <h3 className="blog-h3 text-xl font-semibold leading-8 text-gray-900">{stage.title}</h3>
-                <p className="mt-1 text-sm font-medium text-gray-500">期間目安: {stage.duration}</p>
-                <p className="blog-p mt-4 text-sm font-medium leading-7 text-gray-900">到達目標: {stage.goal}</p>
-                <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+              <section key={stage.id} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{stage.title}</ArticleH3>
+                <div className="mt-2 flex items-center gap-4 text-sm font-medium">
+                  <span className="rounded-full bg-orange-50 px-3 py-1 text-orange-600">期間目安: {stage.duration}</span>
+                  <span className="text-gray-500">到達目標: {stage.goal}</span>
+                </div>
+                <ul className="mt-4 space-y-2">
                   {stage.tasks.map((task) => (
-                    <li key={task} className="blog-li pl-1 marker:text-gray-500">
+                    <li key={task} className="flex gap-3 text-sm leading-relaxed text-gray-700 sm:text-base">
+                      <Check className="mt-1 h-4 w-4 shrink-0 text-orange-500" />
                       {task}
                     </li>
                   ))}
@@ -308,21 +274,9 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
               </section>
             ))}
           </div>
-          <p className="blog-p mt-6 text-sm leading-7 text-gray-700">
-            基礎理解を深める場合は
-            <Link href="/academy/blog/what-is-generative-ai" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              生成AIとは何か
-            </Link>
-            、指示設計の精度を上げる場合は
-            <Link href="/academy/blog/chatgpt-prompt-beginner" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              プロンプト入門ガイド
-            </Link>
-            、実務での自動化接続は
-            <Link href="/academy/blog/ai-coding-for-beginners" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              AIコーディング入門
-            </Link>
-            を参照してください。
-          </p>
+          <Callout type="tip" title="関連ガイドの活用">
+            基礎理解は「生成AIとは何か」、プロンプト設計は「入門ガイド」、自動化は「AIコーディング入門」など、各ステージの課題に合わせて関連記事を活用しましょう。
+          </Callout>
         </motion.section>
 
         <motion.section
@@ -334,35 +288,33 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="self-study-vs-school">
             独学 vs スクールの比較（メリット・デメリット・コスト）
-          </h2>
+          </ArticleH2>
           <p className="blog-p mt-5 text-base leading-8 text-gray-700">
             重要なのは「どちらが正しいか」ではなく、今の制約に合う選択をすることです。社会人は学習時間が限られるため、継続設計まで含めて判断してください。
           </p>
-          <div className="blog-table mt-6 overflow-x-auto">
-            <table className="w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">比較軸</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">独学</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">スクール</th>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">比較軸</th>
+                <th className="py-4 px-6 font-bold text-gray-900">独学</th>
+                <th className="py-4 px-6 font-bold text-gray-900">スクール</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {comparisonRows.map((row) => (
+                <tr key={row.axis} className="hover:bg-gray-50/50 transition-colors">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.axis}</th>
+                  <td className="py-4 px-6 text-gray-700">{row.selfStudy}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.school}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row) => (
-                  <tr key={row.axis} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.axis}</th>
-                    <td className="py-4 px-4">{row.selfStudy}</td>
-                    <td className="py-4 pl-4">{row.school}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="blog-p mt-4 text-sm leading-7 text-gray-700">
-            コストは常に変動します。独学は月額課金の積み上げ、スクールは受講料と期間設計で総額が大きく変わるため、比較時は必ず最新料金を公式サイトで再確認してください。
-          </p>
+              ))}
+            </tbody>
+          </RichTable>
+          <Callout type="warning" title="コストの確認">
+            独学は月額課金の積み上げ、スクールは受講料と期間設計で総額が大きく変わります。比較時は必ず最新料金を公式サイトで再確認してください。
+          </Callout>
         </motion.section>
 
         <motion.section
@@ -374,90 +326,78 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="resources-2026">
             2026年版おすすめ学習リソース（無料/有料）
-          </h2>
+          </ArticleH2>
           <p className="blog-p mt-5 text-base leading-8 text-gray-700">
-            学習リソースは「何を学ぶか」より「どの段階で使うか」で選ぶと失敗しにくくなります。基礎ステージは無料教材、実務ステージ以降は必要に応じて有料化する順序が現実的です。
+            学習リソースは「何を学ぶか」より「どの段階で使うか」で選ぶと失敗しにくくなります。
           </p>
 
-          <section className="mt-8 rounded-lg border border-green-200 bg-green-50 p-6">
-            <h3 className="blog-h3 text-lg font-semibold text-green-900">無料で始めるリソース</h3>
-            <ul className="blog-ul mt-4 space-y-4">
-              {freeResources.map((item) => (
-                <li key={item.name} className="blog-li rounded-md border border-green-200 bg-white p-4">
-                  <p className="text-sm font-semibold text-gray-900">{item.name}</p>
-                  <p className="mt-2 text-sm leading-7 text-gray-700">{item.purpose}</p>
-                  <p className="mt-2 text-xs font-medium text-gray-500">{item.costNote}</p>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 inline-flex text-sm font-semibold text-green-700 underline underline-offset-4 hover:text-green-800"
-                  >
-                    公式ページを確認する
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <section className="rounded-2xl border border-blue-100 bg-blue-50/30 p-6">
+              <h3 className="text-lg font-bold text-blue-900 flex items-center gap-2 mb-4">
+                <Info size={20} /> 無料で始める
+              </h3>
+              <ul className="space-y-4">
+                {freeResources.map((item) => (
+                  <li key={item.name} className="rounded-xl border border-blue-100 bg-white p-4 shadow-sm">
+                    <p className="text-sm font-bold text-gray-900">{item.name}</p>
+                    <p className="mt-1 text-xs text-gray-600 line-clamp-2">{item.purpose}</p>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex text-xs font-bold text-blue-600 hover:text-blue-700"
+                    >
+                      公式を確認する →
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
 
-          <section className="mt-6 rounded-lg border border-orange-200 bg-orange-50 p-6">
-            <h3 className="blog-h3 text-lg font-semibold text-orange-900">有料で加速するリソース</h3>
-            <ul className="blog-ul mt-4 space-y-4">
-              {paidResources.map((item) => (
-                <li key={item.name} className="blog-li rounded-md border border-orange-200 bg-white p-4">
-                  <p className="text-sm font-semibold text-gray-900">{item.name}</p>
-                  <p className="mt-2 text-sm leading-7 text-gray-700">{item.purpose}</p>
-                  <p className="mt-2 text-xs font-medium text-gray-500">{item.costNote}</p>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 inline-flex text-sm font-semibold text-orange-700 underline underline-offset-4 hover:text-orange-800"
-                  >
-                    公式ページを確認する
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
-        </motion.section>
-
-        <motion.section
-          className="mt-14"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.45, ease: "easeOut" }}
-        >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+            <section className="rounded-2xl border border-orange-100 bg-orange-50/30 p-6">
+              <h3 className="text-lg font-bold text-orange-900 flex items-center gap-2 mb-4">
+                <Lightbulb size={20} /> 有料で加速する
+              </h3>
+              <ul className="space-y-4">
+                {paidResources.map((item) => (
+                  <li key={item.name} className="rounded-xl border border-orange-100 bg-white p-4 shadow-sm">
+                    <p className="text-sm font-bold text-gray-900">{item.name}</p>
+                    <p className="mt-1 text-xs text-gray-600 line-clamp-2">{item.purpose}</p>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex text-xs font-bold text-orange-600 hover:text-orange-700"
+                    >
+                      公式を確認する →
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
         </motion.section>
 
         <motion.section
           id="academy-fit"
-          className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-blue-900">AIリブートアカデミーが向いている人</h2>
-          <p className="blog-p mt-4 text-sm leading-7 text-blue-900">
-            次の条件に当てはまる場合、単発学習よりも学習プロセス全体を再設計したほうが成果が出やすくなります。
-          </p>
-          <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-blue-900">
-            <li className="blog-li pl-1">ツールを触っているが、仕事の成果に接続しきれていない</li>
-            <li className="blog-li pl-1">転職・複業・社内役割拡張に向けて、実績を言語化したい</li>
-            <li className="blog-li pl-1">一人学習だと継続が難しく、振り返りの場が必要</li>
-          </ul>
-          <p className="blog-p mt-5 text-sm leading-7 text-blue-900">
-            AIリブートアカデミーでは、<span className="font-semibold">生成AI活用力</span>の習得だけでなく、
-            <span className="font-semibold">自己理解・キャリアデザイン</span>、<span className="font-semibold">仲間と共に学ぶ環境</span>
-            を一体で設計しています。特定ツールの操作習得より、実務で継続できる判断軸を育てたい方に適した設計です。
-          </p>
+          <ArticleH2 id="academy-fit">AIリブートアカデミーが向いている人</ArticleH2>
+          <Callout type="info">
+            次の条件に当てはまる場合、単地学習よりも学習プロセス全体を再設計したほうが成果が出やすくなります。
+            <ul className="mt-4 space-y-2">
+              <li className="flex gap-2 items-start"><Check className="h-4 w-4 mt-1 text-blue-500 shrink-0"/> ツールを触っているが、仕事の成果に接続しきれていない</li>
+              <li className="flex gap-2 items-start"><Check className="h-4 w-4 mt-1 text-blue-500 shrink-0"/> 転職・複業・社内役割拡張に向けて、実績を言語化したい</li>
+              <li className="flex gap-2 items-start"><Check className="h-4 w-4 mt-1 text-blue-500 shrink-0"/> 一人学習だと継続が難しく、振り返りの場が必要</li>
+            </ul>
+          </Callout>
         </motion.section>
 
         <motion.section
@@ -469,39 +409,28 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-            {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          <ArticleH2 id="faq">よくある質問（FAQ）</ArticleH2>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
         <motion.section
           id="action-plan"
-          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          className="mt-20"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">12週間で進める実行プラン</h2>
-          <ol className="blog-ol mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="blog-li pl-1">1〜4週: 基礎ステージに集中し、毎日1タスクで出力品質を安定化させる。</li>
-            <li className="blog-li pl-1">5〜8週: 実務ステージで1業務を改善し、工数削減と品質指標を記録する。</li>
-            <li className="blog-li pl-1">9〜12週: 応用ステージで活用判断軸を作り、成果物をポートフォリオ化する。</li>
-            <li className="blog-li pl-1">12週目: 次の3か月で伸ばす領域を決め、学習計画を更新する。</li>
-          </ol>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
-            学習は「知識を増やす活動」ではなく「仕事の成果を変える活動」です。何を覚えたかより、何を改善できたかで評価してください。
-          </p>
-          <div className="mt-6">
-            <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-white p-6" />
-          </div>
+          <SummaryBox
+            title="12週間アクションプラン"
+            items={[
+              "1〜4週: 基礎ステージに集中し、毎日1タスクで出力品質を安定化させる。",
+              "5〜8週: 実務ステージで1業務を改善し、工数削減と品質指標を記録する。",
+              "9〜12週: 応用ステージで活用判断軸を作り、成果物をポートフォリオ化する。",
+              "12週目: 次の3か月で伸ばす領域を決め、学習計画を更新する。",
+            ]}
+          />
         </motion.section>
       </article>
     </main>

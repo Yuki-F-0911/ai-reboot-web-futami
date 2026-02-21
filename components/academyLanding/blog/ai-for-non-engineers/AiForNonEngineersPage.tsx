@@ -7,6 +7,8 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable, Callout } from "@/components/blog/ArticleBody";
+import { Check } from "lucide-react";
 
 type FAQItem = {
   question: string;
@@ -169,32 +171,27 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
         <ArticleTOC items={tocItems} />
 
         <motion.section
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          id="conclusion"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            要点まとめ
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">
-              「AIは怖い」という感覚は、未知・役割変化・誤情報への懸念が重なって生まれます。構造を分けて考えると対処しやすくなります。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              文系・非エンジニアは、文章作成、情報整理、企画補助など日常業務に近い領域から始めるのが一般的です。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              プログラミング不要でも学習は始められます。目的を1つに絞り、テンプレート化と検証を繰り返すことが継続の鍵です。
-            </li>
-          </ul>
+          <SummaryBox
+            title="要点まとめ"
+            items={[
+              "「AIは怖い」という感覚は、未知・役割変化・誤情報への懸念が重なって生まれます。構造を分けて考えると対処しやすくなります。",
+              "文系・非エンジニアは、文章作成、情報整理、企画補助など日常業務に近い領域から始めるのが一般的です。",
+              "プログラミング不要でも学習は始められます。目的を1つに絞り、テンプレート化と検証を繰り返すことが継続の鍵です。",
+            ]}
+          />
         </motion.section>
 
         <WebtoonBannerSection />
 
         <motion.section
+          id="fear-structure"
           className="mt-14"
           initial="hidden"
           whileInView="visible"
@@ -202,41 +199,33 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="fear-structure" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="fear-structure">
             なぜ「AIは怖い」と感じるのか
-          </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+          </ArticleH2>
+          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
             不安を減らすには、原因を分解して「事実で確認できるもの」と「運用で対処できるもの」に分けるのが有効です。
           </p>
           <figure className="my-8">
             <Image
               src="/images/blog/ai-for-non-engineers/slide-02.png"
-              alt="なぜAIが怖いと感じるのか？ - 未知・役割変化・誤情報"
+              alt="なぜAIが怖いと感じるのか？"
               width={800}
               height={450}
-              className="rounded-lg"
+              className="rounded-xl shadow-soft border border-gray-100"
             />
           </figure>
-          <div className="mt-6 space-y-4">
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {fearStructureItems.map((item) => (
-              <section key={item.title} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-gray-700">{item.body}</p>
+              <section key={item.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+                <ArticleH3>{item.title}</ArticleH3>
+                <p className="blog-p mt-3 text-sm leading-relaxed text-gray-700">{item.body}</p>
               </section>
             ))}
           </div>
-          <figure className="my-8">
-            <Image
-              src="/images/blog/ai-for-non-engineers/slide-03.png"
-              alt="曖昧な不安を対処できる課題へ"
-              width={800}
-              height={450}
-              className="rounded-lg"
-            />
-          </figure>
         </motion.section>
 
         <motion.section
+          id="fit-areas"
           className="mt-14"
           initial="hidden"
           whileInView="visible"
@@ -244,51 +233,36 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="fit-areas" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="fit-areas">
             文系・非エンジニアに向いているAI活用領域
-          </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            最初は「文章」「情報整理」など、入出力が見えやすい業務から始めるのが安全です。成果が見える領域を選ぶほど、改善サイクルが回りやすくなります。
+          </ArticleH2>
+          <p className="blog-p mt-5 text-base leading-8 text-gray-700">
+            最初は「文章」「情報整理」など、入出力が見えやすい業務から始めるのが安全です。
           </p>
           <figure className="my-8">
             <Image
               src="/images/blog/ai-for-non-engineers/slide-04.png"
-              alt="プログラミングではなく文脈を操る - ベン図"
+              alt="プログラミングではなく文脈を操る"
               width={800}
               height={450}
-              className="rounded-lg"
+              className="rounded-xl shadow-soft border border-gray-100"
             />
           </figure>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {fitAreas.map((item) => (
-              <section key={item.area} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{item.area}</h3>
-                <p className="mt-3 text-sm leading-7 text-gray-700">具体例: {item.examples}</p>
-                <p className="mt-2 text-sm leading-7 text-gray-700">向いている理由: {item.reason}</p>
+              <section key={item.area} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.area}</ArticleH3>
+                <p className="blog-p mt-3 text-sm font-medium text-orange-600 mb-2 flex items-center gap-1">
+                  <Check size={14} /> 具体例: {item.examples}
+                </p>
+                <p className="blog-p text-sm leading-relaxed text-gray-600">{item.reason}</p>
               </section>
             ))}
           </div>
-          <figure className="my-8">
-            <Image
-              src="/images/blog/ai-for-non-engineers/slide-05.png"
-              alt="おすすめ活用領域①：文章作成・編集"
-              width={800}
-              height={450}
-              className="rounded-lg"
-            />
-          </figure>
-          <figure className="my-8">
-            <Image
-              src="/images/blog/ai-for-non-engineers/slide-06.png"
-              alt="おすすめ活用領域②：情報整理・アイデア出し"
-              width={800}
-              height={450}
-              className="rounded-lg"
-            />
-          </figure>
         </motion.section>
 
         <motion.section
+          id="learning-start"
           className="mt-14"
           initial="hidden"
           whileInView="visible"
@@ -296,32 +270,24 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="learning-start" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            学習の始め方（プログラミング不要のアプローチ）
-          </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            「目的を1つに絞る → テンプレ化 → 検証」の順で進めると挫折しにくくなります。テンプレや素材はClaudeのProjectsなどに集約すると、再利用しやすくなります。
+          <ArticleH2 id="learning-start">
+            学習の始め方（プログラミング不要）
+          </ArticleH2>
+          <p className="blog-p mt-5 text-base leading-8 text-gray-700">
+            「目的を1つに絞る → テンプレ化 → 検証」の順で進めると挫折しにくくなります。
           </p>
-          <figure className="my-8">
-            <Image
-              src="/images/blog/ai-for-non-engineers/slide-07.png"
-              alt="挫折しない4ステップ学習サイクル"
-              width={800}
-              height={450}
-              className="rounded-lg"
-            />
-          </figure>
-          <div className="mt-6 space-y-4">
+          <div className="mt-8 space-y-4">
             {learningSteps.map((step) => (
-              <section key={step.title} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{step.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-gray-700">{step.body}</p>
+              <section key={step.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+                <ArticleH3>{step.title}</ArticleH3>
+                <p className="blog-p mt-3 text-sm leading-7 text-gray-700 sm:text-base">{step.body}</p>
               </section>
             ))}
           </div>
         </motion.section>
 
         <motion.section
+          id="misconceptions"
           className="mt-14"
           initial="hidden"
           whileInView="visible"
@@ -329,51 +295,35 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="misconceptions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="misconceptions">
             よくある誤解と事実
-          </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+          </ArticleH2>
+          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
             不安は「誤解」が混ざると増幅します。誤解を事実に戻し、運用でコントロールできる形に整理しましょう。
           </p>
-          <figure className="my-8">
-            <Image
-              src="/images/blog/ai-for-non-engineers/slide-08.png"
-              alt="よくある誤解と事実 - Myth vs Fact"
-              width={800}
-              height={450}
-              className="rounded-lg"
-            />
-          </figure>
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">誤解</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">事実</th>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">巷の誤解</th>
+                <th className="py-4 px-6 font-bold text-gray-900">AI活用の事実</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {misconceptionRows.map((item) => (
+                <tr key={item.misconception} className="hover:bg-gray-50/50 transition-colors">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap align-top">{item.misconception}</th>
+                  <td className="py-4 px-6 text-gray-700">{item.fact}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {misconceptionRows.map((item) => (
-                  <tr key={item.misconception} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{item.misconception}</th>
-                    <td className="py-4 pl-4">{item.fact}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <figure className="my-8">
-            <Image
-              src="/images/blog/ai-for-non-engineers/slide-09.png"
-              alt="最後に残るのは人の判断"
-              width={800}
-              height={450}
-              className="rounded-lg"
-            />
-          </figure>
+              ))}
+            </tbody>
+          </RichTable>
+          <Callout type="warning" title="最後は人の判断">
+            AI導入ですぐに全業務が変わるわけではありません。小さく始めて、事実確認と人の判断を組み合わせる運用を整えるのが現実的です。
+          </Callout>
         </motion.section>
 
         <motion.section
+          id="faq"
           className="mt-14"
           initial="hidden"
           whileInView="visible"
@@ -381,71 +331,33 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            よくある質問（FAQ）
-          </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            不安は「何を避ければ安全か」と「最初の成功パターン」が見えると小さくなります。よくある疑問をQ&Aで整理します。
-          </p>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-            {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          <ArticleH2 id="faq">よくある質問（FAQ）</ArticleH2>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
-        <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
-          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+        <section className="mt-20 border-t border-slate-200 pb-4 pt-12">
+          <h2 id="related-links" className="scroll-mt-28 mb-6 text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
             関連リンク
           </h2>
-          <ul className="space-y-2">
+          <ul className="grid gap-3 sm:grid-cols-2">
             <li>
-              <Link href="/academy/blog/what-is-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】 | AIリブート
+              <Link href="/academy/blog/what-is-generative-ai" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                生成AIとは？初心者向け解説
               </Link>
             </li>
             <li>
-              <Link
-                href="/academy/blog/chatgpt-claude-beginners-guide"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                ChatGPT・Claude初心者ガイド｜最初の1週間でできること | AIリブート
+              <Link href="/academy/blog/how-to-learn-generative-ai" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                社会人のための学習ロードマップ
               </Link>
             </li>
             <li>
-              <Link
-                href="/academy/blog/ai-coding-for-beginners"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              <Link href="/academy/blog/prompt-template-for-work" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                仕事で使えるテンプレート集
               </Link>
             </li>
             <li>
-              <Link
-                href="/academy/blog/python-ai-intro"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                Python × AI入門｜環境構築からはじめての機械学習までの学習ロードマップ | AIリブート
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/academy/blog/how-to-learn-generative-ai"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                社会人のための生成AI学習ロードマップ｜0→100日で実務活用レベルへ | AIリブート
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/prompt-template-for-work" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化 | AIリブート
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              <Link href="/academy" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 AIリブートアカデミー TOP
               </Link>
             </li>
@@ -453,90 +365,29 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
         </section>
 
         <motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
+          className="mt-14 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white shadow-floating"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            無料セミナー / 個別相談
+          <h2 id="cta" className="text-2xl font-bold">
+            まずは1つの業務から始めましょう
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            迷う場合は「今の業務に直結する1テーマ」を決め、学習順序まで落とし込むのが近道です。無料セミナー/個別相談で整理できます。
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/academy/seminars"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
-            >
-              無料セミナーに参加する
-            </Link>
-            <a
-              href="https://bexn9pao.autosns.app/line"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
-            >
-              個別相談を申し込む
-            </a>
-          </div>
-        </motion.section>
-      
-        <motion.section
-          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            まとめ
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">「AIは怖い」という感覚は、未知・役割変化・誤情報への懸念が重なって生まれます。構造を分けて考えると対処しやすくなります。</li>
-            <li className="pl-1 marker:text-gray-500">文系・非エンジニアは、文章作成、情報整理、企画補助など日常業務に近い領域から始めるのが一般的です。</li>
-            <li className="pl-1 marker:text-gray-500">プログラミング不要でも学習は始められます。目的を1つに絞り、テンプレート化と検証を繰り返すことが継続の鍵です。</li>
-          </ul>
-        </motion.section>
-
-        <motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            次のアクション
-          </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+          <p className="mt-4 text-base leading-relaxed text-gray-300">
             AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
           </p>
-          <figure className="my-8">
-            <Link href="/academy/seminars">
-              <Image
-                src="/images/blog/ai-for-non-engineers/slide-10.png"
-                alt="まずは1つの業務から始めましょう - 無料セミナーに参加する"
-                width={800}
-                height={450}
-                className="rounded-lg"
-              />
-            </Link>
-          </figure>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/academy/seminars"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+              className="inline-flex items-center justify-center rounded-xl bg-will-primary px-6 py-3.5 text-sm font-bold text-white transition-all hover:scale-[1.02] hover:bg-will-primary/90 active:scale-[0.98]"
             >
               無料セミナーを見る
             </Link>
             <Link
               href="/academy"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+              className="inline-flex items-center justify-center rounded-xl bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-[0.98]"
             >
               アカデミーTOPへ
             </Link>

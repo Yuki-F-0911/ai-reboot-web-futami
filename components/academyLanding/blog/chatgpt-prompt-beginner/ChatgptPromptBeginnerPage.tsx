@@ -6,6 +6,8 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, Callout } from "@/components/blog/ArticleBody";
+import { Check, X, Lightbulb, Info } from "lucide-react";
 
 type FAQItem = {
   question: string;
@@ -28,8 +30,6 @@ type ExamplePair = {
   ok: string;
   point: string;
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
@@ -196,46 +196,6 @@ const apiTips = [
   "情報確認日: 2026-02-20（OpenAI Model release notes / Prompting guide）",
 ] as const;
 
-const academyPillars = [
-  {
-    title: "生成AI活用力",
-    body: "実務で即使えるAIスキルを体系的に習得し、日々のアウトプットに落とし込みます。",
-  },
-  {
-    title: "自己理解・キャリアデザイン",
-    body: "AIを鏡に自分の強みと価値観を掘り下げ、次のキャリアの方向性を設計します。",
-  },
-  {
-    title: "仲間と共に学ぶ環境",
-    body: "志を同じくする仲間との対話と協働を通じて、学習と実践の継続性を高めます。",
-  },
-] as const;
-
-type LineCtaBoxProps = {
-  className: string;
-};
-
-function LineCtaBox({ className }: LineCtaBoxProps) {
-  return (
-    <section className={`blog-cta-box ${className}`}>
-      <p className="text-base font-semibold text-gray-900">
-        AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）
-      </p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        ChatGPT活用で迷いやすい更新情報や、仕事に直結する使い方の要点を週1本で受け取れます。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </section>
-  );
-}
-
 export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeginnerPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -291,23 +251,22 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
 
         <motion.section
           id="conclusion"
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">要点まとめ</h2>
-          <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="blog-li pl-1 marker:text-gray-500">答えがズレる主因は、曖昧な依頼と条件不足です。</li>
-            <li className="blog-li pl-1 marker:text-gray-500">最初は「役割指定・ステップ分解・出力形式指定」の3型だけで十分改善できます。</li>
-            <li className="blog-li pl-1 marker:text-gray-500">NGとOKの差は、目的・前提・制約が言語化されているかどうかです。</li>
-            <li className="blog-li pl-1 marker:text-gray-500">精度を上げるには、1回で終わらせず、追質問前提で会話を設計します。</li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              APIではsystem/developer側とuser側を分離すると、再現性と運用性が上がります。
-            </li>
-          </ul>
+          <SummaryBox
+            title="要点まとめ"
+            items={[
+              "答えがズレる主因は、曖昧な依頼と条件不足です。",
+              "最初は「役割指定・ステップ分解・出力形式指定」の3型だけで十分改善できます。",
+              "NGとOKの差は、目的・前提・制約が言語化されているかどうかです。",
+              "精度を上げるには、1回で終わらせず、追質問前提で会話を設計します。",
+              "APIではsystem/developer側とuser側を分離すると、再現性と運用性が上がります。",
+            ]}
+          />
         </motion.section>
 
         <WebtoonBannerSection />
@@ -321,42 +280,23 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
-            思い通りの答えが返らないのは、モデルの問題より「質問設計の不足」が原因になりやすい
-          </h2>
+          <ArticleH2 id="why-miss">
+            答えがズレる理由：モデルの問題より「質問設計の不足」
+          </ArticleH2>
           <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
             OpenAI公式のプロンプトガイドでも、曖昧な依頼より、目的・条件・出力形式を明示した指示が推奨されています。初心者のつまずきもこの3点に集中しています。
           </p>
           <div className="mt-7 grid gap-4 sm:grid-cols-2">
             {failurePatterns.map((item) => (
-              <section key={item.title} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="blog-h3 text-lg font-semibold text-gray-900">{item.title}</h3>
+              <section key={item.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.title}</ArticleH3>
                 <p className="blog-p mt-3 text-sm leading-7 text-gray-700">{item.body}</p>
               </section>
             ))}
           </div>
-          <p className="blog-p mt-6 text-sm leading-7 text-gray-700">
-            まず操作に慣れたい場合は
-            <Link href="/academy/blog/chatgpt-start-guide-smartphone" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              ChatGPTをスマホで始める方法
-            </Link>
-            、仕事ですぐ使うテンプレを見たい場合は
-            <Link href="/academy/blog/prompt-template-for-work" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              仕事で使えるプロンプトテンプレート集
-            </Link>
-            を先に読むと理解が速くなります。
-          </p>
-        </motion.section>
-
-        <motion.section
-          className="mt-14"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <LineCtaBox className="rounded-lg border border-green-200 bg-green-50 p-6" />
+          <Callout type="tip" title="さらに詳しく学ぶ">
+            まず操作に慣れたい場合は「スマホで始める方法」、仕事ですぐ使うテンプレを見たい場合は「テンプレート集」を先に読むと理解が速くなります。
+          </Callout>
         </motion.section>
 
         <motion.section
@@ -368,32 +308,27 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
-            初心者がすぐ使える15のプロンプト型は、「目的固定→形式固定→改善」の順で使うと定着しやすい
-          </h2>
+          <ArticleH2 id="templates-15">
+            初心者がすぐ使える15のプロンプト型
+          </ArticleH2>
           <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
             15個を一度に覚える必要はありません。最初の3つを毎日使い、慣れたら他の型を追加する運用が現実的です。
           </p>
-          <div className="mt-7 space-y-4">
+          <div className="mt-7 grid gap-4 sm:grid-cols-2">
             {promptPatterns.map((item, index) => (
-              <section key={item.name} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="blog-h3 text-lg font-semibold text-gray-900">
+              <section key={item.name} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+                <ArticleH3>
                   {index + 1}. {item.name}
-                </h3>
-                <p className="blog-p mt-2 text-sm text-gray-700">使いどころ: {item.scene}</p>
-                <pre className="mt-3 overflow-x-auto rounded-md bg-slate-900 p-4 text-xs leading-6 text-slate-100">
-                  <code>{item.template}</code>
-                </pre>
+                </ArticleH3>
+                <p className="blog-p mt-2 text-sm text-gray-500 mb-4 flex items-center gap-1">
+                  <Info size={14} /> 使いどころ: {item.scene}
+                </p>
+                <div className="overflow-x-auto rounded-xl bg-gray-900 p-4 font-mono text-xs leading-6 text-gray-300">
+                  {item.template}
+                </div>
               </section>
             ))}
           </div>
-          <p className="blog-p mt-6 text-sm leading-7 text-gray-700">
-            さらに実務寄りの使い方を増やしたい場合は、
-            <Link href="/academy/blog/chatgpt-advanced-tips" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              ChatGPTを仕事で使いこなす実践テクニック集
-            </Link>
-            もあわせて確認してください。
-          </p>
         </motion.section>
 
         <motion.section
@@ -405,41 +340,36 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
-            NG例とOK例の差は、「目的・制約・出力条件」を言語化しているかどうかで決まる
-          </h2>
+          <ArticleH2 id="ng-ok">
+            NG例 vs OK例：改善のポイント
+          </ArticleH2>
           <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
             実務系、学習系、副業系の3カテゴリで比較すると、改善ポイントが明確になります。
           </p>
-          <div className="mt-7 space-y-5">
+          <div className="mt-7 space-y-6">
             {examplePairs.map((pair) => (
-              <section key={pair.category} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="blog-h3 text-lg font-semibold text-gray-900">{pair.category}</h3>
+              <section key={pair.category} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+                <ArticleH3>{pair.category}</ArticleH3>
                 <div className="mt-4 grid gap-4 md:grid-cols-2">
-                  <div className="rounded-md border border-rose-200 bg-rose-50 p-4">
-                    <p className="text-xs font-semibold tracking-wide text-rose-700">NG例</p>
-                    <p className="blog-p mt-2 text-sm leading-7 text-gray-700">{pair.ng}</p>
+                  <div className="rounded-xl border border-red-100 bg-red-50/50 p-4">
+                    <p className="text-xs font-bold tracking-wide text-red-600 flex items-center gap-1 mb-2">
+                      <X size={14} /> NG例
+                    </p>
+                    <p className="blog-p text-sm leading-7 text-gray-700">{pair.ng}</p>
                   </div>
-                  <div className="rounded-md border border-emerald-200 bg-emerald-50 p-4">
-                    <p className="text-xs font-semibold tracking-wide text-emerald-700">OK例</p>
-                    <p className="blog-p mt-2 text-sm leading-7 text-gray-700">{pair.ok}</p>
+                  <div className="rounded-xl border border-emerald-100 bg-emerald-50/50 p-4">
+                    <p className="text-xs font-bold tracking-wide text-emerald-600 flex items-center gap-1 mb-2">
+                      <Check size={14} /> OK例
+                    </p>
+                    <p className="blog-p text-sm leading-7 text-gray-700">{pair.ok}</p>
                   </div>
                 </div>
-                <p className="blog-p mt-4 text-sm leading-7 text-gray-700">改善ポイント: {pair.point}</p>
+                <p className="blog-p mt-4 text-sm font-medium text-orange-600 flex items-center gap-2">
+                  <Lightbulb size={16} /> 改善ポイント: {pair.point}
+                </p>
               </section>
             ))}
           </div>
-        </motion.section>
-
-        <motion.section
-          className="mt-14"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <LineCtaBox className="rounded-lg border border-orange-200 bg-orange-50 p-6" />
         </motion.section>
 
         <motion.section
@@ -451,27 +381,20 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
-            「続けて質問する」会話設計は、初稿→差分修正→深掘り→最終化の4段階で回すと安定する
-          </h2>
+          <ArticleH2 id="conversation-design">
+            続けて質問するコツ（会話設計）
+          </ArticleH2>
           <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
-            1回で完成を狙うより、段階的に改善した方が再現性が高くなります。会話の進め方をテンプレ化しておくと、毎回の精度が揃います。
+            1回で完成を狙うより、段階的に改善した方が再現性が高くなります。
           </p>
-          <div className="mt-7 space-y-4">
+          <div className="mt-7 grid gap-4 sm:grid-cols-2">
             {conversationSteps.map((step) => (
-              <section key={step.title} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="blog-h3 text-lg font-semibold text-gray-900">{step.title}</h3>
+              <section key={step.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+                <ArticleH3>{step.title}</ArticleH3>
                 <p className="blog-p mt-3 text-sm leading-7 text-gray-700">{step.body}</p>
               </section>
             ))}
           </div>
-          <p className="blog-p mt-6 text-sm leading-7 text-gray-700">
-            プラン別の上限や利用感を確認しながら使いたい場合は、
-            <Link href="/academy/blog/chatgpt-plan-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              ChatGPT無料・Plus・Pro比較
-            </Link>
-            も参考になります。
-          </p>
         </motion.section>
 
         <motion.section
@@ -483,21 +406,19 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
-            2026年版GPT-5.2では、文脈理解を活かすために「固定指示」と「都度指示」を分ける設計が有効
-          </h2>
-          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
-            OpenAIの更新情報では、GPT-5.2は文脈と意図への適応が強化された方向が示されています。API利用では、system/developer側に固定ルールを置き、user側で案件差分を渡す設計が運用しやすいです。
-          </p>
-          <div className="mt-6 rounded-lg border border-blue-200 bg-blue-50 p-5">
-            <ul className="blog-ul list-disc space-y-2 pl-5 text-sm leading-7 text-blue-900">
+          <ArticleH2 id="api-system-user">
+            GPT-5.2時代の設計とAPI補足
+          </ArticleH2>
+          <Callout type="info" title="指示の分離設計">
+            API利用では、system/developer側に固定ルールを置き、user側で案件差分を渡す設計が運用しやすいです。
+            <ul className="mt-4 space-y-2">
               {apiTips.map((tip) => (
-                <li key={tip} className="blog-li pl-1 marker:text-blue-600">
-                  {tip}
+                <li key={tip} className="flex gap-2 items-start text-sm text-blue-900 opacity-90">
+                  <Check className="h-4 w-4 mt-1 shrink-0"/> {tip}
                 </li>
               ))}
             </ul>
-          </div>
+          </Callout>
         </motion.section>
 
         <motion.section
@@ -509,68 +430,63 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-            {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="blog-h3 text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="blog-p mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
-              </div>
-            ))}
-          </dl>
-          <div className="mt-6">
-            <LineCtaBox className="rounded-lg border border-green-200 bg-green-50 p-6" />
-          </div>
+          <ArticleH2 id="faq">よくある質問（FAQ）</ArticleH2>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
-        <section className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6">
-          <p className="text-sm font-semibold text-blue-900">AI活用の判断軸とキャリア設計を同時に進める</p>
-          <h2 className="blog-h2 mt-3 scroll-mt-28 text-2xl font-bold text-gray-900">
-            ツール操作だけで終わらない学び方へ切り替える
-          </h2>
-          <p className="blog-p mt-4 text-sm leading-7 text-gray-700">
-            AIリブートアカデミーでは、生成AI活用力に加えて、自己理解・キャリアデザイン、仲間と共に学ぶ環境を一体で設計しています。ツール名ではなく、業務課題に対する判断軸を育てたい方に向いた学習設計です。
-          </p>
-          <div className="mt-5 grid gap-4 md:grid-cols-3">
-            {academyPillars.map((pillar) => (
-              <section key={pillar.title} className="rounded-lg border border-blue-100 bg-white p-4">
-                <h3 className="blog-h3 text-base font-semibold text-gray-900">{pillar.title}</h3>
-                <p className="blog-p mt-2 text-sm leading-7 text-gray-700">{pillar.body}</p>
-              </section>
-            ))}
-          </div>
-          <div className="mt-6">
-            <Link
-              href="/academy"
-              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
-            >
-              アカデミーの詳細を見る
-            </Link>
-          </div>
-        </section>
-
-        <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
-          <h3 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+        <section className="mt-20 border-t border-slate-200 pb-4 pt-12">
+          <h2 id="related-links" className="scroll-mt-28 mb-6 text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
             関連リンク
-          </h3>
-          <ul className="space-y-2">
+          </h2>
+          <ul className="grid gap-3 sm:grid-cols-2">
             <li>
-              <Link href="/academy/blog/chatgpt-start-guide-smartphone" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                ChatGPTをスマホで始める方法｜iPhone・Android対応の初期設定ガイド
+              <Link href="/academy/blog/chatgpt-start-guide-smartphone" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                ChatGPTスマホ始め方ガイド
               </Link>
             </li>
             <li>
-              <Link href="/academy/blog/prompt-template-for-work" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              <Link href="/academy/blog/prompt-template-for-work" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 仕事で使えるプロンプトテンプレート集
               </Link>
             </li>
             <li>
-              <Link href="/academy/blog/chatgpt-advanced-tips" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                ChatGPTを仕事で使いこなす実践テクニック集｜基本から応用まで50のTips
+              <Link href="/academy/blog/chatgpt-advanced-tips" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                ChatGPT実践テクニック集
               </Link>
             </li>
           </ul>
         </section>
+
+        <motion.section
+          className="mt-14 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white shadow-floating"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="cta" className="text-2xl font-bold">
+            ツール操作だけで終わらない学び方へ
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-gray-300">
+            AIリブートアカデミーでは、生成AI活用力に加えて、自己理解・キャリアデザイン、仲間と共に学ぶ環境を一体で設計しています。
+          </p>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-xl bg-will-primary px-6 py-3.5 text-sm font-bold text-white transition-all hover:scale-[1.02] hover:bg-will-primary/90 active:scale-[0.98]"
+            >
+              アカデミーの詳細を見る
+            </Link>
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-xl bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-[0.98]"
+            >
+              無料セミナーを見る
+            </Link>
+          </div>
+        </motion.section>
       </article>
     </main>
   );

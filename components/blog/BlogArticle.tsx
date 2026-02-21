@@ -301,22 +301,24 @@ export default async function BlogArticle({
               <div 
                 className="prose prose-lg prose-gray max-w-none
                   prose-headings:font-bold prose-headings:text-gray-900
-                  prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-gray-200
-                  prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
+                  prose-h2:text-2xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:pb-0 prose-h2:border-b-0 prose-h2:relative prose-h2:pl-4
+                  before:prose-h2:absolute before:prose-h2:left-0 before:prose-h2:top-1 before:prose-h2:bottom-1 before:prose-h2:w-1.5 before:prose-h2:bg-gradient-to-b before:prose-h2:from-will-primary before:prose-h2:to-will-secondary before:prose-h2:rounded-full before:prose-h2:opacity-80
+                  prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4 prose-h3:flex prose-h3:items-center prose-h3:gap-2
+                  before:prose-h3:content-[''] before:prose-h3:h-1.5 before:prose-h3:w-1.5 before:prose-h3:rounded-full before:prose-h3:bg-will-primary
                   prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
                   prose-a:text-will-primary prose-a:no-underline hover:prose-a:underline
                   prose-strong:text-gray-900 prose-strong:font-bold
                   prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
                   prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6
                   prose-li:my-2 prose-li:text-gray-700
-                  prose-blockquote:border-l-4 prose-blockquote:border-will-primary/30 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600
-                  prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:text-gray-800
-                  prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-4 prose-pre:overflow-x-auto
-                  prose-img:rounded-lg prose-img:shadow-soft prose-img:my-8
-                  prose-table:my-8 prose-table:w-full
-                  prose-thead:border-b-2 prose-thead:border-gray-200
-                  prose-th:text-left prose-th:font-bold prose-th:p-3
-                  prose-td:p-3 prose-td:border-b prose-td:border-gray-100"
+                  prose-blockquote:not-italic prose-blockquote:border-l-4 prose-blockquote:border-will-primary/30 prose-blockquote:bg-gray-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:text-gray-600
+                  prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:text-gray-800 before:prose-code:content-[''] after:prose-code:content-['']
+                  prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-xl prose-pre:p-6 prose-pre:overflow-x-auto prose-pre:shadow-lg
+                  prose-img:rounded-xl prose-img:shadow-soft prose-img:my-10
+                  prose-table:my-10 prose-table:w-full prose-table:border-collapse prose-table:rounded-xl prose-table:overflow-hidden prose-table:shadow-sm prose-table:border prose-table:border-gray-100
+                  prose-thead:bg-gray-50 prose-thead:border-b prose-thead:border-gray-200
+                  prose-th:text-gray-900 prose-th:font-bold prose-th:py-4 prose-th:px-6
+                  prose-td:py-4 prose-td:px-6 prose-td:text-gray-700 prose-td:border-b prose-td:border-gray-100"
                 data-blog-article-body
                 dangerouslySetInnerHTML={{ __html: htmlContent }}
               />

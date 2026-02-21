@@ -6,24 +6,29 @@
 
 /* 見出しスタイル */
 .markdown-content h1 {
-  @apply text-4xl font-light text-depth-900 mt-12 mb-6 pb-4 border-b border-depth-200;
+  @apply text-4xl font-bold text-gray-900 mt-16 mb-8 pb-4 border-b border-gray-100;
 }
 
 .markdown-content h2 {
-  @apply text-3xl font-light text-depth-900 mt-10 mb-5 pl-4 relative;
+  @apply text-2xl font-bold text-gray-900 mt-16 mb-8 pl-4 relative scroll-mt-28 sm:text-3xl;
 }
 
 .markdown-content h2::before {
   content: '';
-  @apply absolute left-0 top-1 bottom-1 w-1 bg-gradient-to-b from-will-primary to-will-secondary rounded-full;
+  @apply absolute left-0 top-1 bottom-1 w-1.5 bg-gradient-to-b from-will-primary to-will-secondary rounded-full opacity-80;
 }
 
 .markdown-content h3 {
-  @apply text-2xl font-light text-depth-800 mt-8 mb-4;
+  @apply text-xl font-bold text-gray-900 mt-10 mb-4 flex items-center gap-2 sm:text-2xl;
+}
+
+.markdown-content h3::before {
+  content: '';
+  @apply h-1.5 w-1.5 rounded-full bg-will-primary shrink-0;
 }
 
 .markdown-content h4 {
-  @apply text-xl font-normal text-depth-700 mt-6 mb-3;
+  @apply text-lg font-bold text-gray-800 mt-8 mb-3;
 }
 
 .markdown-content h5 {
@@ -114,12 +119,12 @@
 
 /* 引用スタイル */
 .markdown-content blockquote {
-  @apply my-8 pl-6 py-4 pr-4 bg-gradient-to-r from-wisdom-lighter to-harmony-lighter border-l-4 border-will-primary rounded-r-lg text-depth-600 italic relative;
+  @apply my-10 pl-10 py-6 pr-6 bg-gray-50 border-l-4 border-will-primary/30 rounded-r-2xl text-gray-600 italic relative;
 }
 
 .markdown-content blockquote::before {
   content: '"';
-  @apply absolute -left-2 -top-2 text-5xl text-will-primary/20 font-serif;
+  @apply absolute left-3 top-4 text-5xl text-gray-200 font-serif leading-none;
 }
 
 /* コードスタイル */
@@ -147,35 +152,31 @@
 
 /* テーブルスタイル */
 .markdown-content table {
-  @apply my-8 w-full rounded-lg overflow-hidden shadow-sm;
+  @apply my-10 w-full rounded-xl overflow-hidden shadow-sm border border-gray-100 border-collapse;
 }
 
 .markdown-content thead {
-  @apply bg-gradient-to-r from-will-lighter to-harmony-lighter;
+  @apply bg-gray-50 border-b border-gray-200;
 }
 
 .markdown-content th {
-  @apply px-6 py-3 text-left text-depth-700 font-semibold text-sm uppercase tracking-wider;
+  @apply px-6 py-4 text-left text-gray-900 font-bold text-sm uppercase tracking-wider;
 }
 
 .markdown-content tbody {
-  @apply bg-white;
+  @apply bg-white divide-y divide-gray-100;
 }
 
 .markdown-content tr {
-  @apply border-b border-depth-100;
-}
-
-.markdown-content tbody tr:last-child {
-  @apply border-0;
+  @apply transition-colors;
 }
 
 .markdown-content tbody tr:hover {
-  @apply bg-depth-100/50 transition-colors;
+  @apply bg-gray-50/50;
 }
 
 .markdown-content td {
-  @apply px-6 py-4 text-depth-600;
+  @apply px-6 py-4 text-gray-700 text-sm sm:text-base;
 }
 
 /* 定義リスト */
