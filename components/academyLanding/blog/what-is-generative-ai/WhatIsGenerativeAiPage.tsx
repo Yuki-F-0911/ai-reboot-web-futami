@@ -7,6 +7,8 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable, Callout, RichBlockquote } from "@/components/blog/ArticleBody";
+import { Check, Lightbulb } from "lucide-react";
 
 type FAQItem = {
   question: string;
@@ -185,25 +187,27 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="q1-what-is-generative-ai" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="q1-what-is-generative-ai">
             Q1. 生成AIとは何ですか？
-          </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+          </ArticleH2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900 italic border-l-4 border-gray-200 pl-4 bg-gray-50/50 py-2">
             生成AIは、文章・画像・コードなどの新しいコンテンツを作るAIです。専門知識がなくても、自然文で指示すれば使い始められます。
           </p>
-          <p className="mt-4 text-sm leading-7 text-gray-700">
+          <Callout type="info" title="初心者向けの捉え方">
             「AI」と聞くと難しく感じますが、入門段階では「質問に対して下書きを作ってくれるアシスタント」と捉えると理解しやすくなります。
-          </p>
-          <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: 従来AIとの違い</h3>
-          <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+          </Callout>
+          
+          <ArticleH3>根拠: 従来AIとの違い</ArticleH3>
+          <ul className="mt-5 space-y-3">
             {definitionEvidencePoints.map((point) => (
-              <li key={point} className="pl-1 marker:text-gray-500">
+              <li key={point} className="flex gap-3 text-sm leading-relaxed text-gray-700 sm:text-base">
+                <Check className="mt-1 h-4 w-4 shrink-0 text-orange-500" />
                 {point}
               </li>
             ))}
           </ul>
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-2.png" alt="従来AIと生成AIの違い比較図" width={800} height={450} className="rounded-lg" />
+            <Image src="/images/blog/what-is-generative-ai/slide-2.png" alt="従来AIと生成AIの違い比較図" width={800} height={450} className="rounded-xl shadow-soft" />
           </figure>
         </motion.section>
 
@@ -217,38 +221,36 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="q2-chatgpt-claude-gemini" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="q2-chatgpt-claude-gemini">
             Q2. ChatGPT・Claude・Geminiは何が違いますか？
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             どれが絶対に正解というより、あなたの業務に合うかで選ぶのが正解です。最初は1つに絞って使い、必要に応じて比較すると定着しやすくなります。
           </p>
-          <p className="mt-4 text-sm leading-7 text-gray-700">比較情報の更新日: 2026年2月16日</p>
-          <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: 主要3サービス比較表</h3>
-          <div className="mt-5 overflow-x-auto">
-            <table className="w-full min-w-[680px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">サービス</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">強み</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">注意点</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">向いている人</th>
+          
+          <ArticleH3>根拠: 主要3サービス比較表</ArticleH3>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">サービス</th>
+                <th className="py-4 px-6 font-bold text-gray-900">強み</th>
+                <th className="py-4 px-6 font-bold text-gray-900">注意点</th>
+                <th className="py-4 px-6 font-bold text-gray-900">向いている人</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {modelComparisonRows.map((row) => (
+                <tr key={row.service} className="hover:bg-gray-50/50 transition-colors">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.service}</th>
+                  <td className="py-4 px-6 text-gray-700">{row.strength}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.caution}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.fit}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {modelComparisonRows.map((row) => (
-                  <tr key={row.service} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.service}</th>
-                    <td className="py-4 px-4">{row.strength}</td>
-                    <td className="py-4 px-4">{row.caution}</td>
-                    <td className="py-4 pl-4">{row.fit}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </RichTable>
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-3.png" alt="ChatGPT・Claude・Geminiの特徴比較カード" width={800} height={450} className="rounded-lg" />
+            <Image src="/images/blog/what-is-generative-ai/slide-3.png" alt="ChatGPT・Claude・Geminiの特徴比較カード" width={800} height={450} className="rounded-xl shadow-soft" />
           </figure>
         </motion.section>
 
@@ -260,40 +262,36 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="q3-ai-chat-tool-comparison" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="q3-ai-chat-tool-comparison">
             Q3. AIチャットのおすすめ比較を知りたいです
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             初心者は無料プランがある主要ツールから始めるのが安全です。選定基準は「使う環境との相性」と「日常業務に直結するか」の2点です。
           </p>
-          <p className="mt-4 text-sm leading-7 text-gray-700">比較情報の更新日: 2026年2月16日</p>
-          <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: 主要AIチャットツール5選</h3>
-          <div className="mt-5 overflow-x-auto">
-            <table className="w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">ツール</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">無料プラン</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">特徴</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">注意点</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">向いている用途</th>
+          
+          <ArticleH3>根拠: 主要AIチャットツール5選</ArticleH3>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">ツール</th>
+                <th className="py-4 px-6 font-bold text-gray-900">無料プラン</th>
+                <th className="py-4 px-6 font-bold text-gray-900">特徴</th>
+                <th className="py-4 px-6 font-bold text-gray-900">向いている用途</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {aiChatToolRows.map((row) => (
+                <tr key={row.tool} className="hover:bg-gray-50/50 transition-colors">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.tool}</th>
+                  <td className="py-4 px-6 text-gray-700">{row.freePlan}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.strengths}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.fit}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {aiChatToolRows.map((row) => (
-                  <tr key={row.tool} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.tool}</th>
-                    <td className="py-4 px-4">{row.freePlan}</td>
-                    <td className="py-4 px-4">{row.strengths}</td>
-                    <td className="py-4 px-4">{row.caution}</td>
-                    <td className="py-4 pl-4">{row.fit}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </RichTable>
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-4.png" alt="AIツール選定フローチャート" width={800} height={450} className="rounded-lg" />
+            <Image src="/images/blog/what-is-generative-ai/slide-4.png" alt="AIツール選定フローチャート" width={800} height={450} className="rounded-xl shadow-soft" />
           </figure>
         </motion.section>
 
@@ -305,77 +303,63 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="q4-prompt-writing" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="q4-prompt-writing">
             Q4. プロンプトはどう書けばいいですか？
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             「目的・前提・制約・出力形式」の4点を分けて書くと、出力の質が安定します。最初は短い業務タスクで反復するのが近道です。
           </p>
-          <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: まずはこの型で書く</h3>
-          <pre className="mt-4 overflow-x-auto rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm leading-7 text-gray-700">
-目的: 何を達成したいか
-前提: 背景・対象者・文脈
-制約: 文字数、トーン、NG事項
-出力形式: 箇条書き、表、見出し付き文書 など
-          </pre>
+          
+          <ArticleH3>根拠: まずはこの型で書く</ArticleH3>
+          <RichBlockquote>
+            <div className="font-mono text-sm leading-7 space-y-1">
+              <div>目的: 何を達成したいか</div>
+              <div>前提: 背景・対象者・文脈</div>
+              <div>制約: 文字数、トーン、NG事項</div>
+              <div>出力形式: 箇条書き、表、見出し付き文書 など</div>
+            </div>
+          </RichBlockquote>
+          
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-5.png" alt="プロンプトの書き方 4つの要素" width={800} height={450} className="rounded-lg" />
+            <Image src="/images/blog/what-is-generative-ai/slide-5.png" alt="プロンプトの書き方 4つの要素" width={800} height={450} className="rounded-xl shadow-soft" />
           </figure>
+          
           <div className="mt-7 space-y-6">
             {promptExamples.map((example) => (
-              <div key={example.heading} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{example.heading}</h3>
-                <pre className="mt-3 overflow-x-auto rounded bg-gray-50 p-3 text-xs leading-6 text-gray-700">
-{example.prompt}
-                </pre>
-                <p className="mt-3 text-sm leading-7 text-gray-700">{example.result}</p>
+              <div key={example.heading} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+                <ArticleH3>{example.heading}</ArticleH3>
+                <div className="mt-3 overflow-x-auto rounded-xl bg-gray-900 p-4 font-mono text-xs leading-6 text-gray-300">
+                  {example.prompt}
+                </div>
+                <p className="mt-4 text-sm font-medium text-orange-600 flex items-center gap-2">
+                  <Lightbulb size={16} /> 活用効果: {example.result}
+                </p>
               </div>
             ))}
           </div>
-          <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-6.png" alt="生成AIの日常業務活用例" width={800} height={450} className="rounded-lg" />
-          </figure>
         </motion.section>
 
         <motion.section
-          className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="q5-next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="q5-next-step">
             Q5. 次に何をすれば実務活用につながりますか？
-          </h2>
-          <p className="mt-4 text-base font-medium leading-8 text-gray-900">
-            まずは小さく使い始め、1つの業務で成果を出してから範囲を広げると失敗しにくくなります。学習順序を決めるだけでも継続率は大きく変わります。
-          </p>
-          <h3 className="mt-7 text-xl font-semibold text-gray-900">根拠: 初心者向け3ステップ</h3>
-          <ol className="mt-5 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            {nextStepItems.map((step) => (
-              <li key={step} className="pl-1 marker:text-gray-500">
-                {step}
-              </li>
-            ))}
-          </ol>
+          </ArticleH2>
+          <SummaryBox
+            title="初心者向け3ステップ"
+            items={nextStepItems}
+          />
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-7.png" alt="AI活用ロードマップ 3つのステップ" width={800} height={450} className="rounded-lg" />
+            <Image src="/images/blog/what-is-generative-ai/slide-7.png" alt="AI活用ロードマップ 3つのステップ" width={800} height={450} className="rounded-xl shadow-soft" />
           </figure>
-          <p className="mt-5 text-sm leading-7 text-gray-700">
-            次は
-            <Link
-              href="/academy/blog/how-to-learn-generative-ai"
-              className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
-            >
-              社会人向けの生成AI学習ロードマップ
-            </Link>
-            で学習順序を固め、必要に応じて
-            <Link href="/academy/seminars" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              無料セミナー
-            </Link>
-            で相談する流れがおすすめです。
-          </p>
+          <Callout type="tip" title="さらに詳しく学ぶ">
+            次は「社会人向けの生成AI学習ロードマップ」で学習順序を固め、必要に応じて無料セミナーで相談する流れがおすすめです。
+          </Callout>
         </motion.section>
 
         <motion.section
@@ -386,10 +370,13 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl font-bold text-gray-900">AI利用時の注意点</h2>
+          <ArticleH2>AI利用時の注意点</ArticleH2>
           <figure className="my-8">
-            <Image src="/images/blog/what-is-generative-ai/slide-8.png" alt="AI利用時の安全ルール" width={800} height={450} className="rounded-lg" />
+            <Image src="/images/blog/what-is-generative-ai/slide-8.png" alt="AI利用時の安全ルール" width={800} height={450} className="rounded-xl shadow-soft" />
           </figure>
+          <Callout type="warning" title="セキュリティと正確性">
+            機密情報の入力は避け、AIの回答は必ず人間が事実確認（ファクトチェック）を行う運用を徹底しましょう。
+          </Callout>
         </motion.section>
 
         <motion.section
@@ -400,109 +387,95 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            よくある質問（FAQ）
-          </h2>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-            {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          <ArticleH2 id="faq">よくある質問（FAQ）</ArticleH2>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
-        <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
-          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+        <section className="mt-20 border-t border-slate-200 pb-4 pt-12">
+          <h2 id="related-links" className="scroll-mt-28 mb-6 text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
             関連リンク
           </h2>
-          <ul className="space-y-2">
+          <ul className="grid gap-3 sm:grid-cols-2">
             <li>
-              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              <Link href="/academy" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 AIリブートアカデミー TOP
               </Link>
             </li>
             <li>
-              <Link
-                href="/academy/blog/how-to-learn-generative-ai"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
+              <Link href="/academy/blog/how-to-learn-generative-ai" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 社会人のための生成AI学習ロードマップ
               </Link>
             </li>
             <li>
-              <Link href="/academy/blog/what-is-rag" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                RAGとは？検索拡張生成の仕組みと活用例をわかりやすく解説
+              <Link href="/academy/blog/what-is-rag" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                RAGとは？仕組みと活用例
               </Link>
             </li>
             <li>
-              <Link href="/academy/blog/ai-agent-build-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AIエージェントの作り方ガイド（業務で使える設計と導入手順）
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/ai-coding-for-beginners" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AIコーディング入門（非エンジニア向け）
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/seminars" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              <Link href="/academy/seminars" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 無料セミナー一覧
               </Link>
             </li>
           </ul>
         </section>
-      
-        
+
         <motion.section
-          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          className="mt-14 rounded-2xl bg-orange-50/50 border-2 border-orange-100 p-8 shadow-sm"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="summary" className="mt-0! mb-6!">
             まとめ
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">生成AIは、文章・画像・コードなどの新しいコンテンツを作るAIです。</li>
-            <li className="pl-1 marker:text-gray-500">どれが絶対に正解というより、あなたの業務に合うかで選ぶのが正解です。</li>
-            <li className="pl-1 marker:text-gray-500">初心者は無料プランがある主要ツールから始めるのが安全です。</li>
-            <li className="pl-1 marker:text-gray-500">「目的・前提・制約・出力形式」の4点を分けて書くと、出力の質が安定します。</li>
-            <li className="pl-1 marker:text-gray-500">まずは小さく使い始め、1つの業務で成果を出してから範囲を広げると失敗しにくくなります。</li>
+          </ArticleH2>
+          <ul className="space-y-3 mb-8">
+            <li className="flex gap-3 text-sm leading-relaxed text-gray-700 sm:text-base">
+              <Check className="mt-1 h-4 w-4 shrink-0 text-orange-500" />
+              生成AIは、文章・画像・コードなどの新しいコンテンツを作るAIです。
+            </li>
+            <li className="flex gap-3 text-sm leading-relaxed text-gray-700 sm:text-base">
+              <Check className="mt-1 h-4 w-4 shrink-0 text-orange-500" />
+              あなたの業務に合うサービス（ChatGPT, Claude, Geminiなど）を選びましょう。
+            </li>
+            <li className="flex gap-3 text-sm leading-relaxed text-gray-700 sm:text-base">
+              <Check className="mt-1 h-4 w-4 shrink-0 text-orange-500" />
+              「目的・前提・制約・出力形式」のプロンプトの型を使いこなしましょう。
+            </li>
           </ul>
-          <figure className="my-8">
+          <figure className="relative overflow-hidden rounded-xl shadow-soft">
             <Link href="/academy/seminars">
-              <Image src="/images/blog/what-is-generative-ai/slide-9.png" alt="生成AI活用まとめ" width={800} height={450} className="rounded-lg" />
+              <Image src="/images/blog/what-is-generative-ai/slide-9.png" alt="生成AI活用まとめ" width={800} height={450} className="hover:scale-105 transition-transform duration-500" />
             </Link>
           </figure>
         </motion.section>
-<motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
+
+        <motion.section
+          className="mt-14 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white shadow-floating"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="text-2xl font-bold">
             次のアクション
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+          <p className="mt-4 text-base leading-relaxed text-gray-300">
             AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
           </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/academy/seminars"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+              className="inline-flex items-center justify-center rounded-xl bg-will-primary px-6 py-3.5 text-sm font-bold text-white transition-all hover:scale-[1.02] hover:bg-will-primary/90 active:scale-[0.98]"
             >
               無料セミナーを見る
             </Link>
             <Link
               href="/academy"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+              className="inline-flex items-center justify-center rounded-xl bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-[0.98]"
             >
               アカデミーTOPへ
             </Link>

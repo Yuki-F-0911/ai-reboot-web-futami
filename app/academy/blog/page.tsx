@@ -33,6 +33,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-anxiety-overcome-guide",
+    title: "「AIが怖い・難しい」を乗り越える安心スタートガイド2026｜5つの不安と正直な答え",
+    summary:
+      "AIに興味はあるけど怖い・難しそうと感じている方へ。仕事が奪われる？個人情報は？使いこなせる？——5つの不安にデータと公式情報で正直に答え、最初の3日間でやることを具体的に解説します。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-21T18:00:00+09:00",
+    tags: ["AI 怖い", "生成AI 不安", "AI 難しい", "AI 始め方 不安"],
+  },
+  {
     slug: "claude-sonnet-4-6-guide",
     title: "Claude Sonnet 4.6使い方ガイド｜料金・Opus 4.6比較・API実装【2026年2月】",
     summary:
