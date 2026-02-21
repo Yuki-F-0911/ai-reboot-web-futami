@@ -324,6 +324,14 @@ export default function AiMeetingToolsComparisonPage({
           </ul>
         </motion.section>
 
+        {/* Answer Box */}
+        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
+          <p className="mt-2 text-sm leading-7 text-slate-700">
+            日本語会議を主軸にするならNotta、英語中心や国際会議ならFireflies.ai/Otter.aiの選定が基本です。まず無料で運用検証したい場合は、録画と文字起こしを無制限で試せるtl;dvが最も始めやすい選択です。Notion AIは録音機能がないため、文字起こしツールと組み合わせて導入する前提で設計してください。
+          </p>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         {/* H2-1: AI議事録ツールとは */}

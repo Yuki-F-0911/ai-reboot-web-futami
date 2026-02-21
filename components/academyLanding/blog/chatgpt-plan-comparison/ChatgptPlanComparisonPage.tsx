@@ -239,6 +239,14 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           </ul>
         </section>
 
+        {/* Answer Box */}
+        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
+          <p className="mt-2 text-sm leading-7 text-slate-700">
+            ChatGPTのプラン選びは料金より「利用上限」と「使うモデル」で決めるのが正解です。毎日業務で使うならまずPlus、Proは高頻度のコーディングや重い比較分析を長時間回す人向けです。無料で始める場合も、上限到達が続くなら早めにPlusへ切り替えると作業停止を減らせます。GPT-5.3-Codexを本格利用したいなら有料プランが前提です。
+          </p>
+        </section>
+
         <ArticleTOC items={tocItems} />
 
         <motion.section

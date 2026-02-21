@@ -41,6 +41,16 @@ const faqItems = [
     answer:
       "Web契約はChatGPTの設定画面から解約できます。iOSはAppleのサブスクリプション管理、AndroidはGoogle Playの定期購入管理から解約します。解約は次回請求日の24時間以上前が推奨です。",
   },
+  {
+    question: "PlusからProへ切り替える判断タイミングはいつですか？",
+    answer:
+      "Plus運用中に、GPT-5.2 ThinkingやGPT-5.3-Codexの上限・待機が業務ボトルネックになるならPro検討のタイミングです。毎日長時間のコーディング支援や重い比較分析を回し、停止時間が成果に直結する場合はProの投資回収がしやすくなります。",
+  },
+  {
+    question: "解約やダウングレードは請求日に影響しますか？",
+    answer:
+      "Web・iOS・Androidいずれも、次回請求日直前だと更新がかかる可能性があるため24時間以上前の手続きが安全です。ダウングレード時も請求サイクルの切り替えタイミングを確認し、利用実績を見てプランを決めると無駄な課金を減らせます。",
+  },
 ] as const;
 
 export const metadata: Metadata = {
@@ -106,4 +116,3 @@ export default function ChatgptPlanComparisonRoute() {
     </>
   );
 }
-
