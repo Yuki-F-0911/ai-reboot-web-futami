@@ -45,6 +45,15 @@ const blogPosts: readonly BlogPost[] = [
     tags: ["生成AI 使い方 仕事 具体例", "ChatGPT 活用法 初心者", "AI 業務効率化 例", "生成AI 活用術 2026"],
   },
   {
+    slug: "ai-first-3days-action-guide",
+    title: "AI入門、最初の3日間でやるべき5つのこと【今日から始める完全アクションガイド2026】",
+    summary:
+      "「AIを始めたいけど何からやればいい?」その答えがここにあります。ChatGPT・Gemini・Claudeを使った最初の3日間の具体的なアクションプランを、AI初心者向けに分かりやすく解説します。",
+    category: "AI学習",
+    publishedAt: "2026-02-23T15:00:00+09:00",
+    tags: ["AI 始め方 初心者 2026", "ChatGPT 始め方 スマホ", "生成AI 入門 最初", "AI アカウント作り方", "ChatGPT 使い方 初めて"],
+  },
+  {
     slug: "ai-try-fail-breakthrough-guide",
     title: "AIを何度試しても続かなかった私が、やっと使いこなせた理由【2026年版】",
     summary:
