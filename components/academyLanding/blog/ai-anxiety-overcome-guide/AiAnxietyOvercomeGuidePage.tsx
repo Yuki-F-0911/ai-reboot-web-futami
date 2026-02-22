@@ -246,7 +246,7 @@ const privacySettings = [
 
 export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
   return (
-    <main className="bg-white pb-24 pt-28 sm:pt-32 overflow-hidden">
+    <main className="bg-white pb-24 pt-28 sm:pt-32 overflow-x-clip">
       <article className="mx-auto max-w-5xl px-5 sm:px-6 markdown-content" data-blog-article-body>
         <AcademyBreadcrumb
           className="mb-8"
@@ -422,11 +422,11 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
                   </div>
                   <h4 className="text-xl font-bold text-slate-900 border-none m-0">{item.question}</h4>
                 </div>
-                <div className="mt-4 whitespace-pre-line text-[15px] leading-8 text-slate-700">{item.answer}</div>
+                <div className="mt-4 whitespace-pre-line text-base leading-[1.8] text-slate-700">{item.answer}</div>
                 {item.sources.length > 0 && (
                   <div className="mt-8 pt-4 border-t border-slate-100 flex flex-wrap gap-4">
                     <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Sources:</span>
-                    {item.sources.map((src, i) => (
+                    {item.sources.map((src) => (
                       <a key={src.url} href={src.url} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-slate-500 underline decoration-slate-300 underline-offset-4 hover:text-will-primary transition-colors">
                         {src.label}
                       </a>
@@ -489,7 +489,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
                         <CheckCircle2 className="h-4 w-4 text-will-primary/40" />
                         {step.title}
                       </h4>
-                      <p className="mt-3 text-[14px] leading-relaxed text-slate-600">{step.body}</p>
+                      <p className="mt-3 text-base leading-[1.8] text-slate-600">{step.body}</p>
                     </div>
                   ))}
                 </div>
@@ -531,7 +531,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
                   </div>
                   <span className="text-xs font-bold text-will-primary tracking-widest uppercase">{story.role}</span>
                 </div>
-                <p className="text-base leading-relaxed text-slate-700 font-medium relative">
+                <p className="text-base leading-[1.8] text-slate-700 font-medium relative">
                   <Quote className="absolute -left-2 -top-2 h-8 w-8 text-slate-100 -z-10" />
                   {story.quote}
                 </p>

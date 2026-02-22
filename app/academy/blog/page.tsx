@@ -36,6 +36,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-practical-uses-spring-2026",
+    title: "今すぐ試せる！生成AIが仕事と日常で本当に役立った使い方15選【2026年春版】",
+    summary:
+      "ChatGPT・Claude・Geminiを使って実際に業務が楽になった15の活用例を紹介。仕事のメール・会議・資料作成から日常の調べ物まで、初心者でも今日から試せる具体的な使い方をプロンプト例つきで解説します。",
+    category: "AI活用術",
+    publishedAt: "2026-02-23T12:00:00+09:00",
+    tags: ["生成AI 使い方 仕事 具体例", "ChatGPT 活用法 初心者", "AI 業務効率化 例", "生成AI 活用術 2026"],
+  },
+  {
     slug: "ai-try-fail-breakthrough-guide",
     title: "AIを何度試しても続かなかった私が、やっと使いこなせた理由【2026年版】",
     summary:

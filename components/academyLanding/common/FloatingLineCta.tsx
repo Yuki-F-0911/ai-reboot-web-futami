@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
 const dismissKey = "academy-floating-line-cta-dismissed";
@@ -9,11 +11,18 @@ const dismissKey = "academy-floating-line-cta-dismissed";
 export default function FloatingLineCta() {
   const pathname = usePathname();
   const [dismissed, setDismissed] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     const saved = window.sessionStorage.getItem(dismissKey);
-    if (saved === "1") setDismissed(true);
+    if (saved === "1") {
+      setDismissed(true);
+    } else {
+      // 少し遅れて表示させることで注目を集める
+      const timer = setTimeout(() => setIsVisible(true), 1500);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const isAcademyPath = useMemo(() => pathname?.startsWith("/academy"), [pathname]);
@@ -22,58 +31,156 @@ export default function FloatingLineCta() {
   if (!isAcademyPath || dismissed) return null;
 
   const close = () => {
-    setDismissed(true);
-    if (typeof window !== "undefined") {
-      window.sessionStorage.setItem(dismissKey, "1");
-    }
+    setIsVisible(false);
+    setTimeout(() => {
+      setDismissed(true);
+      if (typeof window !== "undefined") {
+        window.sessionStorage.setItem(dismissKey, "1");
+      }
+    }, 300);
   };
 
   return (
-    <>
-      <div className="fixed bottom-4 left-1/2 z-[70] w-[calc(100%-1.5rem)] max-w-md -translate-x-1/2 sm:hidden">
-        <div className="flex items-center gap-2 rounded-xl border border-green-200 bg-white/95 px-3 py-3 shadow-lg backdrop-blur">
-          <a
-            href={lineUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#06C755] px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-[#05b54d]"
+    <AnimatePresence>
+      {isVisible && (
+        <>
+          {/* Mobile version */}
+          <motion.div
+            initial={{ y: 100, x: "-50%", opacity: 0 }}
+            animate={{ y: 0, x: "-50%", opacity: 1 }}
+            exit={{ y: 100, x: "-50%", opacity: 0 }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed bottom-6 left-1/2 z-[70] w-[calc(100%-2rem)] max-w-md -translate-x-1/2 sm:hidden"
           >
-            <LineIcon className="h-4 w-4" />
-            LINEで無料相談
-          </a>
-          <button
-            type="button"
-            onClick={close}
-            aria-label="追従LINEボタンを閉じる"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition-colors hover:bg-slate-100"
-          >
-            ×
-          </button>
-        </div>
-      </div>
+            <div className="relative overflow-hidden rounded-2xl border border-green-100 bg-white/95 p-1 shadow-[0_12px_40px_-10px_rgba(6,199,85,0.4)] backdrop-blur-md">
+              <div className="flex items-center gap-2 p-1">
+                <motion.a
+                  href={lineUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  animate={{
+                    scale: [1, 1.02, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  whileTap={{ scale: 0.96 }}
+                  className="relative flex flex-1 items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-[#06C755] to-[#05b54d] px-4 py-4.5 text-base font-black text-white shadow-[0_4px_14px_0_rgba(6,199,85,0.39)]"
+                >
+                  {/* Pulse effect background */}
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.3, 1],
+                      opacity: [0, 0.15, 0],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="absolute inset-0 bg-white"
+                  />
+                  
+                  <LineIcon className="relative z-10 h-6 w-6" />
+                  <span className="relative z-10 tracking-tight text-[15px] sm:text-base">
+                    {isBlogTop ? "LINE登録で特典を受け取る" : "LINEで無料相談する"}
+                  </span>
+                  
+                  {/* Subtle shine effect */}
+                  <motion.div
+                    animate={{
+                      x: ["-100%", "200%"],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      repeatDelay: 2
+                    }}
+                    className="absolute inset-0 z-10 w-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
+                  />
+                </motion.a>
+                
+                <button
+                  type="button"
+                  onClick={close}
+                  aria-label="閉じる"
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-50 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
 
-      <div className="fixed bottom-6 right-6 z-[70] hidden sm:block">
-        <div className="flex items-center gap-2">
-          <a
-            href={lineUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#06C755] px-6 py-3 text-sm font-bold text-white shadow-lg transition-colors hover:bg-[#05b54d]"
+          {/* Desktop version */}
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 100, opacity: 0 }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed bottom-8 right-8 z-[70] hidden sm:block"
           >
-            <LineIcon className="h-4 w-4" />
-            {isBlogTop ? "LINEで特典を受け取る" : "LINEで無料相談"}
-          </a>
-          <button
-            type="button"
-            onClick={close}
-            aria-label="追従LINEボタンを閉じる"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 shadow-sm transition-colors hover:bg-slate-100"
-          >
-            ×
-          </button>
-        </div>
-      </div>
-    </>
+            <div className="group relative">
+              {/* Tooltip-like badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2 }}
+                className="absolute -top-12 right-0 whitespace-nowrap rounded-lg bg-slate-900 px-3 py-1.5 text-[11px] font-bold text-white shadow-lg after:absolute after:right-6 after:top-full after:border-4 after:border-transparent after:border-t-slate-900"
+              >
+                まずはLINEで気軽に相談 ✨
+              </motion.div>
+
+              <div className="flex items-center gap-3">
+                <motion.div
+                  animate={{
+                    boxShadow: [
+                      "0 0 0 0px rgba(6, 199, 85, 0)",
+                      "0 0 0 10px rgba(6, 199, 85, 0.2)",
+                      "0 0 0 20px rgba(6, 199, 85, 0)"
+                    ]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeOut"
+                  }}
+                  className="rounded-full"
+                >
+                  <motion.a
+                    href={lineUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex items-center gap-3 rounded-full bg-gradient-to-r from-[#06C755] to-[#05b54d] pl-5 pr-7 py-4 text-base font-black text-white shadow-[0_10px_20px_-5px_rgba(6,199,85,0.4)] transition-all hover:shadow-[0_15px_30px_-5px_rgba(6,199,85,0.5)]"
+                  >
+                    <LineIcon className="h-6 w-6" />
+                    <span className="tracking-tight">
+                      {isBlogTop ? "LINEで特典を受け取る" : "LINEで無料相談する"}
+                    </span>
+                  </motion.a>
+                </motion.div>
+
+                <motion.button
+                  type="button"
+                  onClick={close}
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  whileTap={{ scale: 0.9 }}
+                  aria-label="閉じる"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-400 shadow-sm backdrop-blur-sm transition-all hover:border-slate-300 hover:text-slate-600 hover:shadow-md"
+                >
+                  <X className="h-4 w-4" />
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
   );
 }
 
@@ -84,3 +191,4 @@ function LineIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
