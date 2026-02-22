@@ -753,8 +753,8 @@ export default function AiToolChoiceFatigueGuidePage({ faqItems }: Props) {
               </Link>
             </li>
             <li>
-              <Link href="/academy/blog/grok-3-beginners-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                Grok 3完全入門ガイド2026｜イーロン・マスクの最新AIを試した正直レポート
+              <Link href="/academy/blog/grok-4-beginners-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                Grok 4完全入門ガイド2026｜イーロン・マスクの最新AIを試した正直レポート
               </Link>
             </li>
             <li>

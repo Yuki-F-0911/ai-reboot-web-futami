@@ -144,13 +144,13 @@ const blogPosts: readonly BlogPost[] = [
     tags: ["生成AI コスト", "企業AI 予算", "AI ROI", "コストガバナンス"],
   },
   {
-    slug: "grok-3-beginners-guide",
-    title: "Grok 3完全入門ガイド2026：イーロン・マスクの最新AIを初心者が試した正直レポート",
+    slug: "grok-4-beginners-guide",
+    title: "Grok 4完全入門ガイド2026：イーロン・マスクの最新AIを初心者が試した正直レポート",
     summary:
-      "2026年2月にリリースされたGrok 3を初心者目線で徹底解説。ChatGPT・Claude・Geminiとの違い、無料で始める方法、実際に試してわかった強み・弱みを正直レポート。",
+      "2026年2月にリリースされたGrok 4を初心者目線で徹底解説。ChatGPT・Claude・Geminiとの違い、無料で始める方法、実際に試してわかった強み・弱みを正直レポート。推論能力・コーディング性能・リアルタイム検索強化の実力を正直にお伝えします。",
     category: "最新AIツール",
-    publishedAt: "2026-02-22T20:00:00+09:00",
-    tags: ["Grok 3", "xAI", "ChatGPT 比較", "AI選び"],
+    publishedAt: "2026-02-23T10:00:00+09:00",
+    tags: ["Grok 4", "xAI", "ChatGPT 比較", "AI選び"],
   },
   {
     slug: "ai-learning-dropout-prevention-guide",
@@ -309,7 +309,7 @@ const blogPosts: readonly BlogPost[] = [
     slug: "ai-overview-map-2026",
     title: "2026年春のAI全体マップ｜初心者がまず知っておくべきツール・できること・始め方",
     summary:
-      "ChatGPT・Claude・Gemini・Grok 3...AIツールが多すぎて迷っていませんか？2026年春時点の生成AI全体像を「地図」のように整理。テキスト・画像・音声・動画・コーディングの5カテゴリと、あなたに合った入り口を案内します。",
+      "ChatGPT・Claude・Gemini・Grok 4...AIツールが多すぎて迷っていませんか？2026年春時点の生成AI全体像を「地図」のように整理。テキスト・画像・音声・動画・コーディングの5カテゴリと、あなたに合った入り口を案内します。",
     category: "AI基礎知識",
     publishedAt: "2026-02-22T11:00:00+09:00",
     tags: ["生成AI 全体像 2026", "AI ツール 種類 初心者", "ChatGPT Claude 違い", "生成AI 何から始める", "AI 地図 わかりやすい"],
