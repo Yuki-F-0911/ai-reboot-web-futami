@@ -45,6 +45,15 @@ const blogPosts: readonly BlogPost[] = [
     tags: ["生成AI 使い方 仕事 具体例", "ChatGPT 活用法 初心者", "AI 業務効率化 例", "生成AI 活用術 2026"],
   },
   {
+    slug: "ai-learning-diy-vs-school-guide",
+    title: "AIを独学で学ぶ vs スクールで学ぶ：後悔しない選び方の完全ガイド【2026年版】",
+    summary:
+      "AIを独学で習得しようとして挫折した人、スクールに入るべきか迷っている人へ。独学とスクール学習の具体的な違い・向いている人の特徴・費用対効果を正直に比較します。3つの質問で自分に合う方法がわかる判断フレームワーク付き。",
+    category: "AI学習",
+    publishedAt: "2026-02-23T14:00:00+09:00",
+    tags: ["AI 学習 独学 スクール 比較", "AI スクール 必要", "生成AI 独学 難しい", "AI 学習 費用", "ChatGPT 独学 挫折"],
+  },
+  {
     slug: "ai-first-3days-action-guide",
     title: "AI入門、最初の3日間でやるべき5つのこと【今日から始める完全アクションガイド2026】",
     summary:
