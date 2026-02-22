@@ -25,6 +25,7 @@ import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 import LineCtaBox from "@/components/blog/LineCtaBox";
+import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "../../sections/academyDesignTokens";
 
 type FAQItem = {
   question: string;
@@ -633,18 +634,19 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
 
         {/* まとめ */}
         <motion.section
-          className="mt-24 rounded-[2.5rem] border border-slate-100 bg-gradient-to-br from-slate-50 via-white to-slate-50 p-10 sm:p-14 shadow-soft relative overflow-hidden"
+          className="mt-24 rounded-2xl border p-10 sm:p-14 relative overflow-hidden"
+          style={{ backgroundColor: ACADEMY_COLORS.bgWarm, borderColor: ACADEMY_COLORS.lineSoft }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
         >
-          <Sparkles className="absolute -right-4 -top-4 h-32 w-32 text-will-primary/5" />
+          <Sparkles className="absolute -right-4 -top-4 h-32 w-32 opacity-5" style={{ color: ACADEMY_COLORS.accentMain }} />
           
-          <h2 id="summary" className="scroll-mt-28 text-2xl font-black text-slate-900 m-0 border-none pb-0">
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold m-0 border-none pb-0" style={{ color: ACADEMY_COLORS.textStrong }}>
             まとめ：一歩踏み出した人だけが見える景色
           </h2>
-          <p className="mt-8 text-lg leading-relaxed text-slate-700 font-medium">
+          <p className="mt-8 text-lg leading-relaxed font-medium" style={{ color: ACADEMY_COLORS.textStrong }}>
             この記事では、AIに対する5つの代表的な不安を一つずつ整理しました。
           </p>
           <div className="mt-10 grid gap-4">
@@ -655,20 +657,24 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
               "AIの間違いは減っていますが、重要な情報は人が確認するのが基本です",
               "無料プランだけで十分に試せます"
             ].map((text) => (
-              <div key={text} className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-50 shadow-subtle">
+              <div 
+                key={text} 
+                className="flex items-center gap-4 p-4 rounded-xl border"
+                style={{ backgroundColor: ACADEMY_COLORS.bgPanel, borderColor: ACADEMY_COLORS.lineSoft }}
+              >
                 <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0" />
-                <span className="text-base font-semibold text-slate-700">{text}</span>
+                <span className="text-base font-semibold" style={{ color: ACADEMY_COLORS.textBody }}>{text}</span>
               </div>
             ))}
           </div>
           <div className="mt-12 space-y-6">
-            <p className="text-lg leading-relaxed text-slate-700">
+            <p className="text-lg leading-relaxed" style={{ color: ACADEMY_COLORS.textBody }}>
               不安は、知ることで小さくなります。そして、触れることで消えていきます。
             </p>
-            <p className="text-lg leading-relaxed text-slate-700">
+            <p className="text-lg leading-relaxed" style={{ color: ACADEMY_COLORS.textBody }}>
               あなたが「Day 1」を始めるのに、特別な準備は必要ありません。ChatGPTを開いて「こんにちは」と打つだけです。その小さな一歩が、半年後の働き方を変えるかもしれません。
             </p>
-            <p className="text-2xl font-black leading-tight text-slate-900 tracking-tight">
+            <p className="text-2xl font-bold leading-tight tracking-tight" style={{ color: ACADEMY_COLORS.textStrong, fontFamily: ACADEMY_TYPOGRAPHY.serif }}>
               AIで人生をリブートする——<br />その最初の一歩を、今日踏み出してみませんか。
             </p>
           </div>
@@ -691,24 +697,25 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
 
         {/* CTA：次に学ぶ */}
         <motion.section
-          className="mt-24 pt-16 border-t border-slate-100"
+          className="mt-24 pt-16 border-t"
+          style={{ borderColor: ACADEMY_COLORS.lineSoft }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
         >
-          <h2 id="academy-cta" className="scroll-mt-28 flex items-center gap-3">
-            <Lightbulb className="h-8 w-8 text-will-primary" />
+          <h2 id="academy-cta" className="scroll-mt-28 flex items-center gap-3 text-2xl font-bold" style={{ color: ACADEMY_COLORS.textStrong, fontFamily: ACADEMY_TYPOGRAPHY.serif }}>
+            <Lightbulb className="h-8 w-8" style={{ color: ACADEMY_COLORS.accentMain }} />
             次のステップ：もっとAIを活用したくなったら
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-slate-600">
+          <p className="mt-6 text-lg leading-relaxed" style={{ color: ACADEMY_COLORS.textBody }}>
             3日間の体験で「もっと使いたい」と感じたら、次のステップに進んでみましょう。
             プロンプトの書き方を学ぶと、AIの回答品質が格段に上がります。
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/academy/blog/chatgpt-prompt-beginner"
-              className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-slate-900 px-8 py-5 text-lg font-bold text-white shadow-elevated transition-all hover:scale-[1.02] hover:bg-slate-800 active:scale-95"
+              className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-slate-900 px-8 py-5 text-lg font-bold text-white transition-all hover:opacity-90 active:scale-95 sm:w-auto"
             >
               <span className="relative z-10 flex items-center gap-2">
                 プロンプトの書き方を学ぶ
@@ -717,7 +724,8 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
             </Link>
             <Link
               href="/academy"
-              className="inline-flex items-center justify-center rounded-2xl border-2 border-slate-200 px-8 py-5 text-lg font-bold text-slate-700 transition-all hover:border-slate-900 hover:text-slate-900 active:scale-95"
+              className="inline-flex items-center justify-center rounded-lg border px-8 py-5 text-lg font-bold transition-all hover:opacity-70 active:scale-95"
+              style={{ backgroundColor: ACADEMY_COLORS.bgPanel, borderColor: ACADEMY_COLORS.lineSoft, color: ACADEMY_COLORS.textBody }}
             >
               AIリブートアカデミーを見る
             </Link>
@@ -725,12 +733,12 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
         </motion.section>
 
         {/* 関連リンク */}
-        <section id="related-links" className="mt-24 border-t border-slate-100 pt-16 pb-12">
+        <section id="related-links" className="mt-24 border-t pt-16 pb-12" style={{ borderColor: ACADEMY_COLORS.lineSoft }}>
           <div className="flex items-center gap-3 mb-10">
-            <div className="h-10 w-10 rounded-xl bg-slate-100 flex items-center justify-center">
-              <BookOpen className="h-5 w-5 text-slate-500" />
+            <div className="h-10 w-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: ACADEMY_COLORS.bgSection }}>
+              <BookOpen className="h-5 w-5" style={{ color: ACADEMY_COLORS.textMuted }} />
             </div>
-            <h2 className="scroll-mt-28 m-0 border-none pb-0 text-2xl font-bold text-slate-900">関連リンク</h2>
+            <h2 className="scroll-mt-28 m-0 border-none pb-0 text-2xl font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>関連リンク</h2>
           </div>
           <ul className="grid gap-4 sm:grid-cols-2">
             {[
@@ -748,10 +756,17 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
               <li key={link.href}>
                 <Link 
                   href={link.href} 
-                  className="flex items-center justify-between p-5 rounded-2xl border border-slate-100 bg-white hover:border-will-primary/30 hover:shadow-soft transition-all group"
+                  className="flex items-center justify-between p-5 rounded-xl border transition-all group"
+                  style={{ backgroundColor: ACADEMY_COLORS.bgPanel, borderColor: ACADEMY_COLORS.lineSoft }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = ACADEMY_COLORS.accentMain;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = ACADEMY_COLORS.lineSoft;
+                  }}
                 >
-                  <span className="text-sm font-semibold text-slate-700 group-hover:text-will-primary transition-colors">{link.label}</span>
-                  <ChevronRight className="h-4 w-4 text-slate-300 group-hover:text-will-primary group-hover:translate-x-1 transition-all" />
+                  <span className="text-sm font-semibold transition-colors group-hover:text-[#d46a1f]" style={{ color: ACADEMY_COLORS.textBody }}>{link.label}</span>
+                  <ChevronRight className="h-4 w-4 text-stone-300 group-hover:text-[#d46a1f] group-hover:translate-x-1 transition-all" />
                 </Link>
               </li>
             ))}
