@@ -35,6 +35,42 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-business-document-templates-2026",
+    title: "AIビジネス文書テンプレート完全版2026：議事録・報告書・メール・企画書をAIで10分で完成させる",
+    summary:
+      "議事録、報告書、ビジネスメール、企画書をAIで10分作成。ChatGPT・Claude対応のコピペ可能な実務テンプレート50選を用途別に収録。会議後すぐ使える2026年版の決定版です。",
+    category: "AI活用術",
+    publishedAt: "2026-02-23T18:00:00+09:00",
+    tags: ["AI 議事録 テンプレート", "ChatGPT ビジネスメール", "AI 報告書 作成", "AI 企画書 プロンプト"],
+  },
+  {
+    slug: "generative-ai-dictionary-2026",
+    title: "生成AI用語辞典2026：初心者が今日から使えるAI用語100語をわかりやすく解説",
+    summary:
+      "プロンプト、LLM、ハルシネーション、RAG、MCPまで、2026年版の生成AI重要用語100語を初心者向けに整理。カテゴリ別で意味・やさしい説明・使用例をまとめた実用辞典です。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-23T16:00:00+09:00",
+    tags: ["生成AI 用語", "AI 用語集", "LLM とは", "プロンプト 意味"],
+  },
+  {
+    slug: "chatgpt-plus-honest-review-2026",
+    title: "ChatGPT Plusに月3,000円払う価値はあるか？半年使った会社員の正直レビュー2026",
+    summary:
+      "ChatGPT Plusと無料版の本当の違いを半年使った視点から正直にレポート。o3・画像生成・メモリ機能など有料機能の価値を初心者向けに解説。課金すべきか迷っているあなたへの正直な答えを届けます。",
+    category: "ChatGPT",
+    publishedAt: "2026-02-23T10:00:00+09:00",
+    tags: ["ChatGPT Plus", "ChatGPT 料金", "o3 初心者", "AI課金 判断"],
+  },
+  {
+    slug: "ai-tool-choice-fatigue-guide",
+    title: "AIツール選び疲れ、もうやめませんか？2026年春版・初心者が最初に使うべきAIはたった1つでいい",
+    summary:
+      "ChatGPT・Claude・Gemini・Grok…AIが多すぎて選べない「AI選び疲れ」を解消する処方箋。初心者が本当に最初に使うべき1つのAIとその理由を、正直に解説します。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-23T11:00:00+09:00",
+    tags: ["AI ツール 選び方", "生成AI どれを使えばいい", "AI 選び疲れ", "ChatGPT 始め方 初心者"],
+  },
+  {
     slug: "ai-search-tool-comparison-2026",
     title: "情報収集はどのAIが最強？2026年版：Perplexity・ChatGPT・Gemini・Copilotを実際に使って比べた",
     summary:
