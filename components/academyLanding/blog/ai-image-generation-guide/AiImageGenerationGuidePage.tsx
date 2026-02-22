@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable, Callout } from "@/components/blog/ArticleBody";
 
 type FAQItem = {
   question: string;
@@ -179,33 +180,23 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
         <ArticleTOC items={tocItems} />
 
         <motion.section
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            要点まとめ
-          </h2>
-          <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">
-              まずは<strong className="font-semibold text-gray-900">目的（何の素材を作るか）</strong>を決めると、ツール選びとプロンプトがブレにくくなります。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              <strong className="font-semibold text-gray-900">Google Gemini（画像生成）</strong>は日本語で始めやすく、まず試したい人向きです（「Nano Banana（Pro）」と呼ばれることもあります）。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              <strong className="font-semibold text-gray-900">Midjourney</strong>は高品質なアート表現に強く、世界観づくりに向きます（Discord/公式UI）。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              <strong className="font-semibold text-gray-900">ChatGPT（画像生成）</strong>は会話の流れで修正しやすく、文章作成と相性が良い傾向です。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              商用利用は<strong className="font-semibold text-gray-900">規約・著作権・商標・肖像権</strong>の確認が必須です。
-            </li>
-          </ul>
+          <SummaryBox
+            title="要点まとめ（AIO向け：結論先出し）"
+            items={[
+              "まずは目的（何の素材を作るか）を決めると、ツール選びとプロンプトがブレにくくなります。",
+              "Google Gemini（画像生成）は日本語で始めやすく、まず試したい人向きです（「Nano Banana（Pro）」と呼ばれることもあります）。",
+              "Midjourneyは高品質なアート表現に強く、世界観づくりに向きます（Discord/公式UI）。",
+              "ChatGPT（画像生成）は会話の流れで修正しやすく、文章作成と相性が良い傾向です。",
+              "商用利用は規約・著作権・商標・肖像権の確認が必須です。",
+            ]}
+          />
         </motion.section>
 
         <motion.section
@@ -216,13 +207,13 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="what-is-ai-image-generation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="what-is-ai-image-generation">
             AI画像生成とは？（概要と用途）
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             AI画像生成は、テキストで指示（プロンプト）を与えることで画像を作る仕組みです。業務では「完成品を一発で作る」よりも、「アイデアのたたき台や素材の初稿を増やす」用途で効果が出やすい傾向があります。
           </p>
-          <h3 className="mt-7 text-xl font-semibold text-gray-900">まず押さえるプロンプトの型</h3>
+          <ArticleH3>まず押さえるプロンプトの型</ArticleH3>
           <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {promptStarter.map((item) => (
               <li key={item} className="pl-1 marker:text-gray-500">
@@ -240,36 +231,34 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="tool-comparison" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="tool-comparison">
             主要ツール比較表
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             「まず試す」なら始めやすさ、「表現品質」ならMidjourney、「会話で調整」ならChatGPT系、「自由度」ならStable Diffusionという整理がわかりやすいです。
           </p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">ツール</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">強み</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">始め方</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">注意点</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">向いている人</th>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-3 px-4 font-semibold text-gray-900">ツール</th>
+                <th className="py-3 px-4 font-semibold text-gray-900">強み</th>
+                <th className="py-3 px-4 font-semibold text-gray-900">始め方</th>
+                <th className="py-3 px-4 font-semibold text-gray-900">注意点</th>
+                <th className="py-3 px-4 font-semibold text-gray-900">向いている人</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {toolComparisonRows.map((row) => (
+                <tr key={row.tool} className="hover:bg-gray-50/50 transition-colors align-top">
+                  <th className="py-4 px-4 font-semibold text-gray-900 whitespace-nowrap">{row.tool}</th>
+                  <td className="py-4 px-4">{row.strengths}</td>
+                  <td className="py-4 px-4">{row.howToStart}</td>
+                  <td className="py-4 px-4">{row.caution}</td>
+                  <td className="py-4 px-4">{row.fit}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {toolComparisonRows.map((row) => (
-                  <tr key={row.tool} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.tool}</th>
-                    <td className="py-4 px-4">{row.strengths}</td>
-                    <td className="py-4 px-4">{row.howToStart}</td>
-                    <td className="py-4 px-4">{row.caution}</td>
-                    <td className="py-4 pl-4">{row.fit}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </RichTable>
         </motion.section>
 
         <motion.section
@@ -280,13 +269,13 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="gemini-nano-banana" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="gemini-nano-banana">
             Google Gemini（画像生成）の使い方
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             「Nano Banana（Pro）」は、Geminiの画像生成機能の呼称として紹介されることがあります。実務では、文章で目的と制約を伝え、まずは小さく試して当たりの型を作るのが失敗しにくい方法です。
           </p>
-          <h3 className="mt-7 text-xl font-semibold text-gray-900">ステップ（初心者向け）</h3>
+          <ArticleH3>ステップ（初心者向け）</ArticleH3>
           <ol className="mt-5 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">Geminiを開き、画像生成（または画像関連）の機能を選びます。</li>
             <li className="pl-1 marker:text-gray-500">
@@ -309,13 +298,13 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="midjourney" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="midjourney">
             Midjourneyの使い方
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             Midjourneyは高品質な表現が魅力で、雰囲気づくりの案出しに向きます。Discordまたは公式UIでプロンプトを送って生成し、候補からアップスケールやバリエーション作成を行います。
           </p>
-          <h3 className="mt-7 text-xl font-semibold text-gray-900">ステップ（基本の流れ）</h3>
+          <ArticleH3>ステップ（基本の流れ）</ArticleH3>
           <ol className="mt-5 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">DiscordでMidjourneyの案内に従い、利用設定を行います。</li>
             <li className="pl-1 marker:text-gray-500">生成したいイメージを文章で書き、比率や雰囲気を追記します。</li>
@@ -332,13 +321,13 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="dalle" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="dalle">
             ChatGPT（画像生成）の使い方
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             ChatGPT上で画像生成が利用できる場合、会話しながら「どこを直すか」を詰めやすいのが利点です。資料文章と画像を同じ会話内で整えたいときに相性が良い傾向があります。
           </p>
-          <h3 className="mt-7 text-xl font-semibold text-gray-900">ステップ（会話で精度を上げる）</h3>
+          <ArticleH3>ステップ（会話で精度を上げる）</ArticleH3>
           <ol className="mt-5 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">用途とターゲット（誰に見せるか）を文章で共有します。</li>
             <li className="pl-1 marker:text-gray-500">NG条件（ロゴ、人物の顔、特定ブランドを連想させる要素など）を明記します。</li>
@@ -355,13 +344,13 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="stable-diffusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="stable-diffusion">
             Stable Diffusionの使い方
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             Stable Diffusion系は自由度が高い一方、設定やライセンス確認が重要です。初心者はまずクラウドやGUIツールで触り、必要になった段階でローカル実行を検討するとスムーズです。
           </p>
-          <h3 className="mt-7 text-xl font-semibold text-gray-900">ステップ（安全に始める）</h3>
+          <ArticleH3>ステップ（安全に始める）</ArticleH3>
           <ol className="mt-5 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">目的に合う提供形態（クラウド/GUI/ローカル）を選びます。</li>
             <li className="pl-1 marker:text-gray-500">使うモデルや追加素材のライセンス（商用利用可否）を確認します。</li>
@@ -378,13 +367,13 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="business-use" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="business-use">
             業務での活用パターン
-          </h2>
+          </ArticleH2>
           <div className="mt-6 space-y-4">
             {usagePatterns.map((item) => (
-              <div key={item.title} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+              <div key={item.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.title}</ArticleH3>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{item.detail}</p>
               </div>
             ))}
@@ -399,13 +388,13 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="copyright" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="copyright">
             注意点（著作権・商用利用）
-          </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          </ArticleH2>
+          <Callout type="warning" title="商用利用の注意点">
             AI画像生成は便利ですが、商用利用では「ツールの規約」と「第三者権利」の両方を確認する必要があります。判断が難しい場合は、社内の法務/コンプライアンスと相談しながら運用ルールを整えるのが安全です。
-          </p>
-          <h3 className="mt-7 text-xl font-semibold text-gray-900">チェックリスト</h3>
+          </Callout>
+          <ArticleH3>チェックリスト</ArticleH3>
           <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {copyrightChecklist.map((item) => (
               <li key={item} className="pl-1 marker:text-gray-500">
@@ -423,104 +412,90 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="faq">
             よくある質問（FAQ）
-          </h2>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-            {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          </ArticleH2>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pt-12 pb-4">
-          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
             関連リンク
           </h2>
-          <ul className="space-y-2">
+          <ul className="grid gap-3 sm:grid-cols-2">
             <li>
-              <Link href="/academy/blog/what-is-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】 | AIリブート
+              <Link href="/academy/blog/what-is-generative-ai" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】
               </Link>
             </li>
             <li>
-              <Link href="/academy/blog/multimodal-ai-intro" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                マルチモーダルAIとは？テキスト・画像・音声を横断する次世代AIを解説 | AIリブート
+              <Link href="/academy/blog/multimodal-ai-intro" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                マルチモーダルAIとは？テキスト・画像・音声を横断する次世代AIを解説
               </Link>
             </li>
             <li>
-              <Link
-                href="/academy/blog/ai-video-tool-comparison"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                AI動画生成ツールおすすめ比較｜用途別の選び方と始め方 | AIリブート
+              <Link href="/academy/blog/ai-video-tool-comparison" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                AI動画生成ツールおすすめ比較｜用途別の選び方と始め方
               </Link>
             </li>
             <li>
-              <Link
-                href="/academy/blog/ai-presentation-workflow"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                AIでプレゼン資料を効率的に作る方法｜構成・デザイン・推敲まで | AIリブート
+              <Link href="/academy/blog/ai-presentation-workflow" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                AIでプレゼン資料を効率的に作る方法｜構成・デザイン・推敲まで
               </Link>
             </li>
             <li>
-              <Link
-                href="/academy/blog/prompt-template-for-work"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化 | AIリブート
+              <Link href="/academy/blog/prompt-template-for-work" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化
               </Link>
             </li>
             <li>
-              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              <Link href="/academy" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 AIリブートアカデミー TOP
               </Link>
             </li>
           </ul>
         </section>
 
-        
         <motion.section
-          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            まとめ
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">まずは目的（何の素材を作るか）を決めると、ツール選びとプロンプトがブレにくくなります。</li>
-            <li className="pl-1 marker:text-gray-500">Google Gemini（画像生成）は日本語で始めやすく、まず試したい人向きです（「Nano Banana（Pro）」と呼ばれることもあります）。</li>
-            <li className="pl-1 marker:text-gray-500">Midjourneyは高品質なアート表現に強く、世界観づくりに向きます（Discord/公式UI）。</li>
-            <li className="pl-1 marker:text-gray-500">ChatGPT（画像生成）は会話の流れで修正しやすく、文章作成と相性が良い傾向です。</li>
-            <li className="pl-1 marker:text-gray-500">商用利用は規約・著作権・商標・肖像権の確認が必須です。</li>
-          </ul>
+          <SummaryBox
+            title="まとめ"
+            items={[
+              "まずは目的（何の素材を作るか）を決めると、ツール選びとプロンプトがブレにくくなります。",
+              "Google Gemini（画像生成）は日本語で始めやすく、まず試したい人向きです（「Nano Banana（Pro）」と呼ばれることもあります）。",
+              "Midjourneyは高品質なアート表現に強く、世界観づくりに向きます（Discord/公式UI）。",
+              "ChatGPT（画像生成）は会話の流れで修正しやすく、文章作成と相性が良い傾向です。",
+              "商用利用は規約・著作権・商標・肖像権の確認が必須です。",
+            ]}
+          />
         </motion.section>
-<motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
+
+        <motion.section
+          id="next-step"
+          className="mt-14 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white shadow-floating"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 className="text-2xl font-bold">
             次に画像生成を業務に組み込みたい方へ
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
+          <p className="mt-4 text-base leading-relaxed text-gray-300">
             業務での使いどころ（SNS、提案資料、バナー）を決め、ルール（機密情報・権利確認・最終チェック）までセットで整えると、AI画像生成は継続的な時短になります。まずは無料セミナーで活用事例を確認し、個別相談で自社に合う運用の作り方を相談できます。
           </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/academy/seminars"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+              className="inline-flex items-center justify-center rounded-xl bg-will-primary px-6 py-3.5 text-sm font-bold text-white transition-all hover:scale-[1.02] hover:bg-will-primary/90 active:scale-[0.98]"
             >
               無料セミナーに参加する
             </Link>
@@ -528,7 +503,7 @@ export default function AiImageGenerationGuidePage({ faqItems }: AiImageGenerati
               href="https://bexn9pao.autosns.app/line"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+              className="inline-flex items-center justify-center rounded-xl bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-[0.98]"
             >
               個別相談を申し込む
             </a>

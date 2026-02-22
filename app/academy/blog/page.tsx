@@ -35,6 +35,159 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-search-tool-comparison-2026",
+    title: "情報収集はどのAIが最強？2026年版：Perplexity・ChatGPT・Gemini・Copilotを実際に使って比べた",
+    summary:
+      "2026年の情報収集AI4強を初心者目線で徹底比較。Perplexity・ChatGPT・Gemini・Copilotを同じ質問で試し、速さ・正確さ・無料範囲・使い分けのコツを実例付きで解説します。",
+    category: "最新AIツール",
+    publishedAt: "2026-02-23T12:00:00+09:00",
+    tags: ["Perplexity 使い方", "AI 情報収集 比較", "Perplexity ChatGPT 比較", "生成AI 検索 2026"],
+  },
+  {
+    slug: "apple-intelligence-guide",
+    title: "Apple Intelligence完全ガイド2026：iPhoneのAI機能を初心者向けに徹底解説",
+    summary:
+      "iPhone・MacのApple Intelligenceを初心者向けに解説。対応機種、日本語対応、Writing Tools、通知要約、画像生成、Siri進化、プライバシー設計まで1記事で理解できます。",
+    category: "最新AIツール",
+    publishedAt: "2026-02-23T09:00:00+09:00",
+    tags: ["Apple Intelligence", "iPhone AI機能", "Siri AI 進化", "Apple Intelligence 日本語"],
+  },
+  {
+    slug: "enterprise-ai-cost-governance-2026",
+    title: "生成AIのコストガバナンス完全ガイド2026：CFO・情シスが押さえるべきコスト最適化と予算設計",
+    summary:
+      "企業の生成AI投資コストを可視化し、ROI計測・コスト圧縮の具体策と稟議書のキーポイントを解説。Azure OpenAI・AWS Bedrock・Google Vertex AIの費用比較も掲載。",
+    category: "法人向け",
+    publishedAt: "2026-02-22T22:00:00+09:00",
+    tags: ["生成AI コスト", "企業AI 予算", "AI ROI", "コストガバナンス"],
+  },
+  {
+    slug: "grok-3-beginners-guide",
+    title: "Grok 3完全入門ガイド2026：イーロン・マスクの最新AIを初心者が試した正直レポート",
+    summary:
+      "2026年2月にリリースされたGrok 3を初心者目線で徹底解説。ChatGPT・Claude・Geminiとの違い、無料で始める方法、実際に試してわかった強み・弱みを正直レポート。",
+    category: "最新AIツール",
+    publishedAt: "2026-02-22T20:00:00+09:00",
+    tags: ["Grok 3", "xAI", "ChatGPT 比較", "AI選び"],
+  },
+  {
+    slug: "ai-learning-dropout-prevention-guide",
+    title: "AIの勉強が続かない…を卒業する：挫折する人と続く人の決定的な7つの違い",
+    summary:
+      "AI学習が続かない7つの本当の理由と、モチベーションなしで続けられる習慣を解説。初心者向けの再スタート方法と明日から使えるプロンプト付き。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-22T21:00:00+09:00",
+    tags: ["AI学習 続かない", "生成AI 挫折", "AI習慣化"],
+  },
+  {
+    slug: "chatgpt-exam-study-guide",
+    title: "ChatGPTで資格・試験勉強が変わる！暗記・過去問・弱点克服に使えるAI活用術【2026年版】",
+    summary:
+      "ChatGPTを使った資格勉強の活用法をプロンプト例付きで完全解説。暗記カードの自動生成・過去問の解説依頼・弱点分析・学習スケジュール作成まで網羅。FP・TOEIC・宅建・ITパスポートなど人気資格への応用ヒントとChatGPT vs Gemini比較付き。AIの限界と注意点も丁寧に解説します。",
+    category: "資格・スキル",
+    publishedAt: "2026-02-22T16:00:00+09:00",
+    tags: ["ChatGPT 資格勉強", "AI 試験対策", "暗記カード AI", "過去問 解説 AI", "TOEIC FP 宅建 AI"],
+  },
+  {
+    slug: "ai-pet-care-guide",
+    title: "AIでペットのお世話がもっと楽しく安心に！ChatGPTを使った犬・猫のケア＆相談術",
+    summary:
+      "ChatGPTをペットケアに活用する5つの場面を解説。体調変化の相談・食事選び・しつけアドバイス・Vision機能で品種推定・用品比較まで、プロンプト例付きで紹介。AIはあくまで情報収集のサポーターという前提を大切に、緊急時の対応方針も丁寧に解説します。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T17:00:00+09:00",
+    tags: ["AI ペット", "ChatGPT 犬 猫", "ペット 体調 相談 AI", "ChatGPT Vision 品種", "犬 猫 しつけ AI"],
+  },
+  {
+    slug: "ai-morning-habits-guide",
+    title: "AIを朝の5分ルーティンに入れるだけで1日が変わる！毎朝続けたいAI活用習慣術",
+    summary:
+      "朝5分でできるAI活用ルーティン6選。TODOの整理・振り返り日記・ニュースまとめ・気分に合わせたアドバイス・学習1問1答・目標宣言まで、毎朝コピペして使えるプロンプトテンプレート付き。習慣化のコツ・ChatGPTカスタム指示の活用法まで初心者向けに解説。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T18:00:00+09:00",
+    tags: ["AI 朝活", "ChatGPT 朝ルーティン", "AI 習慣化", "毎朝 AI 活用", "生産性 AI"],
+  },
+  {
+    slug: "ai-book-reading-guide",
+    title: "AIで読書が変わる！ChatGPT・Claudeを使った本の要約・理解・アウトプット活用術【2026年版】",
+    summary:
+      "読書×AIの6つの方法を解説。本の概要把握・PDFをClaudeで要約・ラバーダック学習法・疑問の深掘り・仕事への活用アイデア・感想文作成まで、コピペで使えるプロンプト例付き。Claude vs ChatGPT読書活用比較・著作権の注意点も丁寧に解説します。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T18:00:00+09:00",
+    tags: ["AI 読書活用", "ChatGPT 本 要約", "Claude PDF 要約", "読書 AI 活用術", "読書習慣 AI"],
+  },
+  {
+    slug: "ai-novel-creative-writing-guide",
+    title: "AIで小説・創作文章が書ける！ChatGPT・Claudeを使った創作入門ガイド【2026年版】",
+    summary:
+      "「アイデアはあるのに書き出せない」「途中で行き詰まる」——そんな創作の悩みをAIが解消。プロット設計・キャラ設定・場面描写・セリフ磨き・行き詰まり打開の5場面でのAI活用法と、ジャンル別（ファンタジー・恋愛・ミステリー）コピーして使えるプロンプト集を収録。著作権の考え方もわかりやすく解説。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T15:00:00+09:00",
+    tags: ["AI 小説 書き方", "ChatGPT 創作", "Claude 創作", "創作 プロンプト", "AI 物語 書き方"],
+  },
+  {
+    slug: "ai-job-interview-prep-guide",
+    title: "AIで面接対策が変わる！ChatGPTを使った自己分析・想定質問・模擬面接の完全ガイド【2026年版】",
+    summary:
+      "面接の不安をAIで解消。ChatGPTを面接官役にした模擬面接・自己分析から自己PR磨き・STAR法での回答構造化・業界別想定質問リスト作成・面接後の振り返りまで、就職・転職活動に即使えるプロンプト付きで完全解説。「失敗が怖い」という壁がなくなります。",
+    category: "キャリア・転職",
+    publishedAt: "2026-02-22T15:00:00+09:00",
+    tags: ["AI 面接対策", "ChatGPT 就活", "模擬面接 AI", "自己分析 AI", "転職 AI 活用"],
+  },
+  {
+    slug: "ai-cooking-recipe-guide",
+    title: "AIで料理が楽しくなる！ChatGPT・Geminiを使ったレシピ&料理活用術入門",
+    summary:
+      "冷蔵庫の食材を伝えるだけでレシピ提案・1週間献立の自動生成・アレルギー対応・カロリー計算・料理の失敗リカバリーまで、AI×料理の活用法をプロンプト例付きで網羅。初心者から忙しい方・ダイエット中の方まで、今日の夕食の悩みが消えます。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T15:00:00+09:00",
+    tags: ["AI 料理 レシピ", "ChatGPT 献立", "冷蔵庫 食材 レシピ AI", "AI 料理 初心者", "Gemini 料理"],
+  },
+  {
+    slug: "chatgpt-web-search-guide",
+    title: "ChatGPTの検索機能が超便利！使い方・活用術を初心者向けに解説【2026年最新】",
+    summary:
+      "ChatGPTのウェブ検索機能（Search）を初心者向けに徹底解説。無料プランでも使える方法・Googleとの使い分け・日常活用ユースケース8選・ハルシネーション対策・もっと便利に使う5つのコツ付き。情報収集の質と速度が劇的に変わります。",
+    category: "ChatGPT",
+    publishedAt: "2026-02-22T15:00:00+09:00",
+    tags: ["ChatGPT 検索機能", "ChatGPT Search 使い方", "ChatGPT Google 違い", "ChatGPT Search 無料", "AI 検索 活用術"],
+  },
+  {
+    slug: "claude-artifacts-guide",
+    title: "Claude Artifactsとは？コードなしでHTMLページ・ツール・スライドを作る方法【初心者向け】",
+    summary:
+      "ClaudeのArtifacts機能を徹底解説。プログラミング知識ゼロで計算ツール・ゲーム・HTML名刺・プレゼンスライドが作れる仕組みと使い方。無料プランでの利用可否・ChatGPT Canvasとの違い・今すぐ試せるプロンプト12選・使いこなす5つのコツを初心者向けに丁寧に解説します。",
+    category: "最新AIツール",
+    publishedAt: "2026-02-22T12:00:00+09:00",
+    tags: ["Claude Artifacts", "Artifacts 使い方", "コードなし HTML作成", "Claude 初心者", "AI ツール作成"],
+  },
+  {
+    slug: "ai-travel-planning-guide",
+    title: "AIで旅行計画が変わる！ChatGPT・Geminiを使った旅行準備の完全ガイド",
+    summary:
+      "ChatGPT・GeminiでAI旅行計画を徹底解説。行き先選び・旅程表作成・持ち物リスト・費用シミュレーション・英会話フレーズ準備まで旅行の全ステップをAIで効率化。国内旅行・海外旅行両対応、今すぐ使えるプロンプト15選付き。AIの情報の注意点も丁寧に解説します。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T12:00:00+09:00",
+    tags: ["AI 旅行計画", "ChatGPT 旅行", "Gemini 旅行", "旅程表 自動作成", "旅行 AI 活用"],
+  },
+  {
+    slug: "chatgpt-canvas-guide",
+    title: "ChatGPTのCanvas（キャンバス）とは？文書・コード作成に革命！初心者でも使える新機能完全ガイド2026",
+    summary:
+      "ChatGPTのCanvas機能を徹底解説。2024年10月に追加された共同編集機能の使い方・起動方法・3つの主要用途（文書作成・コード・プレゼン）・特に役立つ場面8選・使いこなすコツ5つをステップバイステップで紹介。修正のたびにコピペ不要でAIとリアルタイム編集できるようになります。",
+    category: "ChatGPT",
+    publishedAt: "2026-02-22T12:00:00+09:00",
+    tags: ["ChatGPT Canvas", "Canvas 使い方", "ChatGPT 新機能", "AI 文書作成", "共同編集"],
+  },
+  {
+    slug: "ai-healthy-usage-guide",
+    title: "AIに頼りすぎていない？健全なAI活用のための7つのルール｜思考力・判断力を守りながら使う方法",
+    summary:
+      "「ChatGPTに何でも頼って自分で考えなくなった」という不安に正直に向き合う。AI依存の正体・使うべき場面と自分でやるべき場面の見分け方・健全なAI活用の7つのルール・1週間改善プランを解説。思考力・判断力を守りながらAIを最大限活用する方法。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T13:00:00+09:00",
+    tags: ["AI 頼りすぎ", "AI 依存", "健全なAI活用", "AI 思考力", "AI 付き合い方"],
+  },
+  {
     slug: "ai-hobby-lifestyle-guide",
     title: "AIで趣味が10倍楽しくなる！料理・旅行・読書・音楽・映画の活用術2026｜初心者でも今日からできる55の使い方",
     summary:

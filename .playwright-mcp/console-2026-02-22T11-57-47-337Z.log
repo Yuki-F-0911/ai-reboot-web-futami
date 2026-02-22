@@ -1,0 +1,75 @@
+[     368ms] [ERROR] In HTML, %s cannot be a child of <%s>.%s
+This will cause a hydration error.%s <table> table  
+
+  ...
+    <RedirectBoundary>
+      <RedirectErrorBoundary router={{...}}>
+        <InnerLayoutRouter url="/academy/b..." tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+          <ChatgptAdvancedTipsRoute>
+            <Script>
+            <Script>
+            <Script>
+            <ChatgptAdvancedTipsRoute>
+              <ChatgptAdvancedTipsPage faqItems={[...]}>
+                <main className="bg-white p...">
+                  <article className="mx-auto ma..." data-blog-article-body={true}>
+                    <AcademyBreadcrumb>
+                    <motion.header>
+                    <p>
+                    <ArticleTOC>
+                    <motion.section>
+                    <LineCtaBox>
+                    <motion.section>
+                    <motion.section>
+                    <motion.section>
+                    <motion.section>
+                    <motion.section>
+                    <motion.section>
+                    <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{once:true, ...}} ...>
+                      <section className="mt-14" style={{opacity:0, ...}} ref={function}>
+                        <ArticleH2>
+                        <p>
+                        <p>
+                        <RichTable className="mt-6">
+                          <div className="my-10 over...">
+                            <div className="overflow-x...">
+>                             <table className="w-full text-left text-sm leading-6 text-gray-700 sm:text-base">
+>                               <table
+>                                 className="w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gra..."
+>                               >
+                        ...
+                    ...
+          ...
+ @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:56
+[     368ms] [ERROR] <%s> cannot contain a nested %s.
+See this log for the ancestor stack trace. table <table> @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:56
+[     418ms] Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+    at throwOnHydrationMismatch (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:4508:11)
+    at beginWork (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:10929:17)
+    at runWithFiberInDEV (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:873:30)
+    at performUnitOfWork (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:15678:22)
+    at workLoopConcurrentByScheduler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:15672:9)
+    at renderRootConcurrent (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:15647:15)
+    at performWorkOnRoot (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14941:13)
+    at performWorkOnRootViaSchedulerTask (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:16767:7)
+    at MessagePort.performWorkUntilDeadline (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/scheduler/cjs/scheduler.development.js:45:48)
+[     399ms] [WARNING] Image with src "/images/logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/utils/warn-once.js:15
+[ 2199148ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/css/app/layout.css?v=1771763666163:0
+[ 2199182ms] Event
+[ 2260663ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/css/app/layout.css?v=1771763727954:0
+[ 2260693ms] Event
+[ 9572131ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/academy/blog/chatgpt-advanced-tips?_rsc=tmm7q:0
+[ 9572548ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/chunks/main-app.js?v=1771771039562:0
+[ 9572550ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/chunks/app/academy/blog/chatgpt-advanced-tips/page.js:0
+[ 9572550ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/chunks/app-pages-internals.js:0
+[ 9572551ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/chunks/app/academy/layout.js:0

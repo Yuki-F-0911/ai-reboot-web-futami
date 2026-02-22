@@ -7,6 +7,7 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable, Callout } from "@/components/blog/ArticleBody";
 
 type FAQItem = {
   question: string;
@@ -235,14 +236,14 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
             AI文字起こしアプリ比較2026｜Notta・Clova Note後継・Whisper・Otter・Google Recorderの選び方
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
-          <p className="blog-p mt-6 text-base leading-8 text-gray-700">
+          <p className="mt-6 text-base leading-8 text-gray-700">
             AI文字起こしツールは、会議ログを残すだけの道具ではなく、議事録作成フロー全体を短縮する基盤です。2026年時点では、Notta・LINE WORKS
             AiNote（旧Clova Note後継）・Whisper・Otter.ai・Google Recorderで、無料枠、連携、運用負荷が大きく異なります。
           </p>
-          <p className="blog-p mt-3 text-base leading-8 text-gray-700">
+          <p className="mt-3 text-base leading-8 text-gray-700">
             本記事では「リアルタイム」「録音ファイル」「Zoom/Meet/Teams連携」「日本語精度」「無料と有料の境界」を軸に比較し、最後にChatGPTを使った議事録自動生成まで一連の運用を整理します。
           </p>
-          <p className="blog-p mt-3 text-sm leading-7 text-gray-600">
+          <p className="mt-3 text-sm leading-7 text-gray-600">
             価格・仕様の確認日: 2026-02-20（変動情報は導入前に再確認してください）
           </p>
           <figure className="my-8">
@@ -275,28 +276,22 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
 
         <motion.section
           id="summary"
-          className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-blue-900">結論: 文字起こしツールは「連携要件」と「校正負荷」で選ぶ</h2>
-          <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-blue-900">
-            <li className="blog-li pl-1 marker:text-blue-700">
-              日本語会議中心なら Notta または AiNote を起点に比較するのが実務的。
-            </li>
-            <li className="blog-li pl-1 marker:text-blue-700">
-              Clova Note は 2025-07-31 に終了済み。2026年比較では後継の LINE WORKS AiNote を見る。
-            </li>
-            <li className="blog-li pl-1 marker:text-blue-700">
-              Whisper は高い柔軟性があるが、Zoom/Meet/Teams連携や運用画面は自前実装が前提。
-            </li>
-            <li className="blog-li pl-1 marker:text-blue-700">
-              どのツールでも「文字起こしをそのまま配布」は非推奨。固有名詞・数値の校正工程を固定する。
-            </li>
-          </ul>
+          <SummaryBox
+            title="結論: 文字起こしツールは「連携要件」と「校正負荷」で選ぶ"
+            items={[
+              "日本語会議中心なら Notta または AiNote を起点に比較するのが実務的。",
+              "Clova Note は 2025-07-31 に終了済み。2026年比較では後継の LINE WORKS AiNote を見る。",
+              "Whisper は高い柔軟性があるが、Zoom/Meet/Teams連携や運用画面は自前実装が前提。",
+              "どのツールでも「文字起こしをそのまま配布」は非推奨。固有名詞・数値の校正工程を固定する。",
+            ]}
+          />
         </motion.section>
 
         <WebtoonBannerSection />
@@ -310,37 +305,35 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="what-you-can-do">
             AI文字起こしでできること（リアルタイム・録音ファイル・会議連携）
-          </h2>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
+          </ArticleH2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
             AI文字起こしの価値は、単なる変換速度ではなく、会議後のアクション整理までを短い時間で回せる点です。特に法人運用では、会議ログの検索性と共有速度が成果に直結します。
           </p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[780px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="px-4 py-3 font-semibold text-gray-900">機能</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">業務価値</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">注意点</th>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">機能</th>
+                <th className="py-4 px-6 font-bold text-gray-900">業務価値</th>
+                <th className="py-4 px-6 font-bold text-gray-900">注意点</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {capabilityRows.map((row) => (
+                <tr key={row.useCase} className="hover:bg-gray-50/50 transition-colors align-top">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.useCase}</th>
+                  <td className="py-4 px-6 text-gray-700">{row.value}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.caution}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {capabilityRows.map((row) => (
-                  <tr key={row.useCase} className="border-b border-gray-200 align-top">
-                    <th className="px-4 py-4 font-semibold text-gray-900">{row.useCase}</th>
-                    <td className="px-4 py-4">{row.value}</td>
-                    <td className="px-4 py-4">{row.caution}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
+              ))}
+            </tbody>
+          </RichTable>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
             会議向け導入を考える場合は、
             <Link
               href="/academy/blog/ai-meeting-tools-comparison"
-              className="blog-link mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
             >
               AI議事録ツール比較
             </Link>
@@ -361,42 +354,40 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="comparison">
             主要5サービス比較（Notta / AiNote / Whisper / Otter / Google Recorder）
-          </h2>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
+          </ArticleH2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
             価格だけで選ぶと、導入後に連携不足や校正工数で逆にコストが増えるケースが出ます。比較では無料枠、会議連携、日本語運用の現実を同時に確認してください。
           </p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[1080px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="px-4 py-3 font-semibold text-gray-900">サービス</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">無料枠</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">有料価格目安</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">Zoom/Meet/Teams</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">日本語運用</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">向いている用途</th>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-4 font-bold text-gray-900">サービス</th>
+                <th className="py-4 px-4 font-bold text-gray-900">無料枠</th>
+                <th className="py-4 px-4 font-bold text-gray-900">有料価格目安</th>
+                <th className="py-4 px-4 font-bold text-gray-900">Zoom/Meet/Teams</th>
+                <th className="py-4 px-4 font-bold text-gray-900">日本語運用</th>
+                <th className="py-4 px-4 font-bold text-gray-900">向いている用途</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {comparisonRows.map((row) => (
+                <tr key={row.service} className="hover:bg-gray-50/50 transition-colors align-top">
+                  <th className="py-4 px-4 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.service}</th>
+                  <td className="py-4 px-4 text-gray-700">{row.freePlan}</td>
+                  <td className="py-4 px-4 text-gray-700">{row.paidPlan}</td>
+                  <td className="py-4 px-4 text-gray-700">{row.integrations}</td>
+                  <td className="py-4 px-4 text-gray-700">{row.japanese}</td>
+                  <td className="py-4 px-4 text-gray-700">{row.bestFor}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row) => (
-                  <tr key={row.service} className="border-b border-gray-200 align-top">
-                    <th className="px-4 py-4 font-semibold text-gray-900">{row.service}</th>
-                    <td className="px-4 py-4">{row.freePlan}</td>
-                    <td className="px-4 py-4">{row.paidPlan}</td>
-                    <td className="px-4 py-4">{row.integrations}</td>
-                    <td className="px-4 py-4">{row.japanese}</td>
-                    <td className="px-4 py-4">{row.bestFor}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="blog-p mt-4 text-xs leading-6 text-gray-500">
+              ))}
+            </tbody>
+          </RichTable>
+          <p className="mt-4 text-xs leading-6 text-gray-500">
             注記: Clova Noteは終了済みのため、現行比較は LINE WORKS AiNote を基準に記載。
           </p>
-          <p className="blog-p mt-2 text-xs leading-6 text-gray-500">
+          <p className="mt-2 text-xs leading-6 text-gray-500">
             注記: Otterの言語サポートは公式ヘルプ内で記載差分があるため、導入前に最新ドキュメントを再確認してください。
           </p>
         </motion.section>
@@ -410,23 +401,23 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">無料で使える範囲と有料プランの価値</h2>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
+          <ArticleH2 id="free-vs-paid">無料で使える範囲と有料プランの価値</ArticleH2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
             無料プランは「相性確認」には十分ですが、継続運用では分数上限と連携制限が先にボトルネックになります。有料化の判断は、利用時間ではなく業務インパクトで決めると失敗しにくくなります。
           </p>
-          <h3 className="blog-h3 mt-8 text-lg font-semibold text-gray-900">有料移行を検討する4つのサイン</h3>
-          <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+          <ArticleH3>有料移行を検討する4つのサイン</ArticleH3>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {upgradeSignals.map((signal) => (
-              <li key={signal.trigger} className="blog-li pl-1 marker:text-gray-500">
+              <li key={signal.trigger} className="pl-1 marker:text-gray-500">
                 <strong className="text-gray-900">{signal.trigger}</strong>：{signal.reason}
               </li>
             ))}
           </ul>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
+          <p className="mt-5 text-sm leading-7 text-gray-700">
             予算設計まで含めて導入判断したい場合は、
             <Link
               href="/academy/blog/corporate-ai-adoption-guide"
-              className="blog-link mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
             >
               法人向けAI導入ガイド
             </Link>
@@ -443,26 +434,26 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">日本語精度の実態（方言・専門用語・話者分離）</h2>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
+          <ArticleH2 id="japanese-accuracy">日本語精度の実態（方言・専門用語・話者分離）</ArticleH2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
             どのサービスも「高精度」を訴求しますが、公式に公開される日本語WER/CERは限定的です。実務では、モデル性能そのものより録音条件と校正フローの差が品質差になります。
           </p>
           <div className="mt-6 grid gap-4">
             {accuracyCheckpoints.map((item) => (
-              <section key={item.point} className="rounded-lg border border-gray-200 bg-gray-50 p-5">
-                <h3 className="blog-h3 text-lg font-semibold text-gray-900">{item.point}</h3>
-                <p className="blog-p mt-3 text-sm leading-7 text-gray-700">{item.detail}</p>
+              <section key={item.point} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.point}</ArticleH3>
+                <p className="mt-3 text-sm leading-7 text-gray-700">{item.detail}</p>
               </section>
             ))}
           </div>
-          <p className="blog-p mt-6 text-sm leading-7 text-gray-700">
+          <Callout type="info" title="精度より運用設計が重要">
             第三者の実利用者レビューでも「初稿生成は速いが、提出前の確認は必須」という傾向が共通しています。精度議論を数値だけで終わらせず、運用ルールまで設計することが現実的です。
-          </p>
-          <p className="blog-p mt-3 text-sm leading-7 text-gray-700">
+          </Callout>
+          <p className="mt-3 text-sm leading-7 text-gray-700">
             要約品質を上げるプロンプト設計は、
             <Link
               href="/academy/blog/prompt-template-for-work"
-              className="blog-link mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
             >
               仕事で使えるプロンプトテンプレート集
             </Link>
@@ -483,22 +474,22 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="minutes-workflow">
             議事録自動生成との組み合わせ（ChatGPT等で要約）
-          </h2>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
+          </ArticleH2>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
             文字起こしの次に行うべきは、要約そのものではなく「要約前のチェック」です。誤変換を直してから要約するだけで、議事録の再編集時間を大きく下げられます。
           </p>
           <div className="mt-6 grid gap-4">
             {workflowSteps.map((item) => (
-              <section key={item.step} className="rounded-lg border border-gray-200 bg-white p-5">
-                <h3 className="blog-h3 text-base font-semibold text-gray-900">{item.step}</h3>
-                <p className="blog-p mt-3 text-sm leading-7 text-gray-700">{item.description}</p>
+              <section key={item.step} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.step}</ArticleH3>
+                <p className="mt-3 text-sm leading-7 text-gray-700">{item.description}</p>
               </section>
             ))}
           </div>
-          <h3 className="blog-h3 mt-8 text-lg font-semibold text-gray-900">議事録要約プロンプト例</h3>
-          <pre className="mt-4 overflow-x-auto rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm leading-7 text-gray-700">
+          <ArticleH3>議事録要約プロンプト例</ArticleH3>
+          <pre className="mt-4 overflow-x-auto rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm leading-7 text-gray-700">
 あなたは会議議事録作成アシスタントです。
 以下の文字起こしテキストを、次の形式で整理してください。
 
@@ -512,11 +503,11 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
 - 推測で補わない
 - 各項目は箇条書きで簡潔に
           </pre>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
+          <p className="mt-5 text-sm leading-7 text-gray-700">
             会議ファシリテーションまで含めて改善する場合は、
             <Link
               href="/academy/blog/ai-presentation-workflow"
-              className="blog-link mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700"
             >
               AIでプレゼン資料を効率化するワークフロー
             </Link>
@@ -533,15 +524,8 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-            {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          <ArticleH2 id="faq">よくある質問（FAQ）</ArticleH2>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
         <motion.section
@@ -553,29 +537,23 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">関連記事</h2>
-          <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="blog-li pl-1 marker:text-gray-500">
-              <Link
-                href="/academy/blog/ai-meeting-tools-comparison"
-                className="blog-link text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
+          <h2 className="scroll-mt-28 mb-6 text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
+            関連記事
+          </h2>
+          <ul className="grid gap-3 sm:grid-cols-2">
+            <li>
+              <Link href="/academy/blog/ai-meeting-tools-comparison" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 AI議事録ツール比較2026｜会議用途での選び方
               </Link>
             </li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              <Link
-                href="/academy/blog/prompt-template-for-work"
-                className="blog-link text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
+            <li>
+              <Link href="/academy/blog/prompt-template-for-work" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 仕事で使えるプロンプトテンプレート集
               </Link>
             </li>
-            <li className="blog-li pl-1 marker:text-gray-500">
-              <Link
-                href="/academy/blog/corporate-ai-adoption-guide"
-                className="blog-link text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
+            <li>
+              <Link href="/academy/blog/corporate-ai-adoption-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 企業のAI導入ガイド｜定着までの進め方
               </Link>
             </li>
@@ -584,27 +562,41 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
 
         <motion.section
           id="academy-cta"
-          className="mt-14 rounded-lg border border-will-primary/20 bg-will-lighter p-6"
+          className="mt-14 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white shadow-floating"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 text-xl font-bold text-will-primary">AI活用の判断軸とキャリア設計を同時に整える</h2>
-          <p className="blog-p mt-4 text-sm leading-7 text-gray-700">
+          <h2 className="text-xl font-bold">AI活用の判断軸とキャリア設計を同時に整える</h2>
+          <p className="mt-4 text-sm leading-7 text-gray-300">
             AIリブートアカデミーでは、特定ツールの操作習得だけに偏らず、次の3本柱で学習プロセスを設計しています。
           </p>
-          <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="blog-li pl-1 marker:text-gray-500">生成AI活用力: 実務で使えるAI活用の型を体系化する</li>
-            <li className="blog-li pl-1 marker:text-gray-500">
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-300">
+            <li className="pl-1 marker:text-gray-400">生成AI活用力: 実務で使えるAI活用の型を体系化する</li>
+            <li className="pl-1 marker:text-gray-400">
               自己理解・キャリアデザイン: AIを鏡に強みと価値観を言語化し、次の役割を設計する
             </li>
-            <li className="blog-li pl-1 marker:text-gray-500">仲間と共に学ぶ環境: 対話と協働で実践を継続し、変化を定着させる</li>
+            <li className="pl-1 marker:text-gray-400">仲間と共に学ぶ環境: 対話と協働で実践を継続し、変化を定着させる</li>
           </ul>
-          <p className="blog-p mt-4 text-sm leading-7 text-gray-700">
+          <p className="mt-4 text-sm leading-7 text-gray-300">
             文字起こしツールの選定をきっかけに、業務設計とキャリアの両方を更新したい方は、学習プロセス全体の見直しが有効です。
           </p>
+          <div className="mt-6 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-xl bg-will-primary px-6 py-3.5 text-sm font-bold text-white transition-all hover:scale-[1.02] hover:bg-will-primary/90 active:scale-[0.98]"
+            >
+              AIリブートアカデミーを見る
+            </Link>
+            <Link
+              href="/academy/blog"
+              className="inline-flex items-center justify-center rounded-xl bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-[0.98]"
+            >
+              他の記事も読む
+            </Link>
+          </div>
         </motion.section>
 
         <section id="line-cta-final" className="mt-14">

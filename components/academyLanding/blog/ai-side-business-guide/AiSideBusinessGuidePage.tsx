@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable, Callout } from "@/components/blog/ArticleBody";
 
 type FAQItem = {
   question: string;
@@ -187,20 +188,22 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
         <ArticleTOC items={tocItems} />
 
         <motion.section
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            要点まとめ
-          </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            副業でAIを活用する際は、まず対象領域を絞り、成果物の品質を担保できる運用を作ることが重要です。一般的には、学習と小規模実績の蓄積を並行するほど、
-            継続案件へつながりやすい傾向があります。
-          </p>
+          <SummaryBox
+            title="要点まとめ（AIO向け：結論先出し）"
+            items={[
+              "副業でAIを活用する際は、まず対象領域を絞り、成果物の品質を担保できる運用を作ることが重要です。",
+              "一般的には、学習と小規模実績の蓄積を並行するほど、継続案件へつながりやすい傾向があります。",
+              "最初は「自分の経験に近い領域」から始めるのが安全です。",
+              "必要スキルは「AI操作」よりも、納品品質を担保するための業務スキル（前提整理・修正対応・例外処理）で決まります。",
+            ]}
+          />
         </motion.section>
 
         <motion.section
@@ -211,9 +214,9 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="side-business-types" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="side-business-types">
             AIスキルで始められる副業の種類（ライティング支援、データ分析、自動化構築、コンサル等）
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             最初は「自分の経験に近い領域」から始めるのが安全です。提案と納品の精度が上がり、継続案件につながりやすくなります。
           </p>
@@ -226,9 +229,9 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
                 viewport={{ once: true, amount: 0.05 }}
                 variants={sectionReveal}
                 transition={{ duration: 0.45, delay: index * 0.04, ease: "easeOut" }}
-                className="rounded-lg border border-gray-200 p-5"
+                className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow"
               >
-                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                <ArticleH3>{item.title}</ArticleH3>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{item.description}</p>
                 <p className="mt-3 text-sm font-medium leading-7 text-gray-900">{item.fit}</p>
               </motion.section>
@@ -244,17 +247,17 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="learning-steps" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="learning-steps">
             副業を始めるまでの学習ステップ
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             学習を長期化させないために、最初から「実務化」を前提に段階を区切りましょう。準備と実践を並行すると進みやすくなります。
           </p>
           <div className="mt-7 space-y-4">
             {learningSteps.map((item) => (
-              <section key={item.step} className="rounded-lg border border-gray-200 p-5">
+              <section key={item.step} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
                 <p className="text-sm font-semibold tracking-wide text-orange-600">{item.step}</p>
-                <h3 className="mt-2 text-lg font-semibold text-gray-900">{item.title}</h3>
+                <ArticleH3>{item.title}</ArticleH3>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{item.detail}</p>
               </section>
             ))}
@@ -269,32 +272,30 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="skill-level" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="skill-level">
             必要なスキルレベルの目安（職種別）
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             必要スキルは「AI操作」よりも、納品品質を担保するための業務スキル（前提整理・修正対応・例外処理）で決まります。目安として整理します。
           </p>
-          <div className="mt-7 overflow-x-auto">
-            <table className="w-full min-w-[820px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">職種</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">ベーススキル</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">AI活用で求められやすい力</th>
+          <RichTable className="mt-7">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">職種</th>
+                <th className="py-4 px-6 font-bold text-gray-900">ベーススキル</th>
+                <th className="py-4 px-6 font-bold text-gray-900">AI活用で求められやすい力</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {skillLevelRows.map((row) => (
+                <tr key={row.role} className="hover:bg-gray-50/50 transition-colors align-top">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.role}</th>
+                  <td className="py-4 px-6 text-gray-700">{row.baseline}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.aiSkill}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {skillLevelRows.map((row) => (
-                  <tr key={row.role} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.role}</th>
-                    <td className="py-4 px-4">{row.baseline}</td>
-                    <td className="py-4 pl-4">{row.aiSkill}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </RichTable>
         </motion.section>
 
         <motion.section
@@ -305,16 +306,16 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="cautions" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="cautions">
             注意点（就業規則、確定申告、クライアントとの期待値調整）
-          </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+          </ArticleH2>
+          <Callout type="warning" title="始める前に確認すべき3つのポイント">
             トラブル回避の鍵は、就業規則（副業可否）、税務（確定申告の準備）、クライアントとの期待値（AI活用範囲と品質担保）の3点を先に揃えることです。
-          </p>
+          </Callout>
           <div className="mt-6 space-y-4">
             {cautions.map((item) => (
-              <section key={item.title} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+              <section key={item.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.title}</ArticleH3>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{item.body}</p>
               </section>
             ))}
@@ -329,104 +330,97 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="faq">
             よくある質問（FAQ）
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             まずは「避けるべき地雷」を先に潰すのが安全です。未経験からの始め方、説明責任、社内ルール、税務をQ&Aで整理します。
           </p>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-            {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
-          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+          <h2 id="related-links" className="scroll-mt-28 mb-6 text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
             関連リンク
           </h2>
-          <ul className="space-y-2">
+          <ul className="grid gap-3 sm:grid-cols-2">
             <li>
-              <Link href="/academy/blog/prompt-template-for-work" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化 | AIリブート
+              <Link href="/academy/blog/prompt-template-for-work" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                仕事で使えるプロンプトテンプレート集｜メール・議事録・資料作成をAIで効率化
               </Link>
             </li>
             <li>
-              <Link href="/academy/blog/ai-coding-for-beginners" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方 | AIリブート
+              <Link href="/academy/blog/ai-coding-for-beginners" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                AIコーディング入門｜非エンジニアでも始められるコード生成AIの使い方
               </Link>
             </li>
             <li>
-              <Link
-                href="/academy/blog/ai-course-ranking"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                AI講座ランキング2026｜選び方の基準と目的別おすすめを解説 | AIリブート
+              <Link href="/academy/blog/ai-course-ranking" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                AI講座ランキング2026｜選び方の基準と目的別おすすめを解説
               </Link>
             </li>
             <li>
-              <Link href="/academy/blog/ai-certification-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】 | AIリブート
+              <Link href="/academy/blog/ai-certification-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                AI資格おすすめ一覧｜難易度・費用・活かせる仕事を徹底比較【2026年版】
               </Link>
             </li>
             <li>
-              <Link
-                href="/academy/blog/g-e-certification-comparison"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説 | AIリブート
+              <Link href="/academy/blog/g-e-certification-comparison" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                G検定とE検定の違いを徹底比較｜難易度・費用・向いている人を解説
               </Link>
             </li>
             <li>
-              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              <Link href="/academy/blog/ai-freelance-work-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                フリーランス・副業のAI活用術｜提案・作業・請求まで効率化する実践ガイド
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 AIリブートアカデミー TOP
               </Link>
             </li>
           </ul>
         </section>
 
-        
         <motion.section
-          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            まとめ
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">副業でAIを活用する際は、まず対象領域を絞り、成果物の品質を担保できる運用を作ることが重要です。</li>
-            <li className="pl-1 marker:text-gray-500">一般的には、学習と小規模実績の蓄積を並行するほど、 継続案件へつながりやすい傾向があります。</li>
-            <li className="pl-1 marker:text-gray-500">最初は「自分の経験に近い領域」から始めるのが安全です。</li>
-            <li className="pl-1 marker:text-gray-500">学習を長期化させないために、最初から「実務化」を前提に段階を区切りましょう。</li>
-            <li className="pl-1 marker:text-gray-500">必要スキルは「AI操作」よりも、納品品質を担保するための業務スキル（前提整理・修正対応・例外処理）で決まります。</li>
-          </ul>
+          <SummaryBox
+            title="まとめ"
+            items={[
+              "副業でAIを活用する際は、まず対象領域を絞り、成果物の品質を担保できる運用を作ることが重要です。",
+              "一般的には、学習と小規模実績の蓄積を並行するほど、継続案件へつながりやすい傾向があります。",
+              "最初は「自分の経験に近い領域」から始めるのが安全です。",
+              "学習を長期化させないために、最初から「実務化」を前提に段階を区切りましょう。",
+              "必要スキルは「AI操作」よりも、納品品質を担保するための業務スキル（前提整理・修正対応・例外処理）で決まります。",
+            ]}
+          />
         </motion.section>
-<motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
+
+        <motion.section
+          className="mt-14 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white shadow-floating"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="cta" className="text-2xl font-bold">
             副業の第一歩を具体化したい方へ
           </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+          <p className="mt-4 text-base leading-relaxed text-gray-300">
             無理のない範囲で継続できる計画を作るのが最優先です。無料セミナー/個別相談で、あなたの経験に合う進め方を整理できます。
           </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/academy/seminars"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+              className="inline-flex items-center justify-center rounded-xl bg-will-primary px-6 py-3.5 text-sm font-bold text-white transition-all hover:scale-[1.02] hover:bg-will-primary/90 active:scale-[0.98]"
             >
               無料セミナーに参加する
             </Link>
@@ -434,23 +428,12 @@ export default function AiSideBusinessGuidePage({ faqItems }: AiSideBusinessGuid
               href="https://bexn9pao.autosns.app/line"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+              className="inline-flex items-center justify-center rounded-xl bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-[0.98]"
             >
               個別相談を申し込む
             </a>
           </div>
         </motion.section>
-
-        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
-          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事</h2>
-          <ul className="space-y-2">
-            <li>
-              <Link href="/academy/blog/ai-freelance-work-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                フリーランス・副業のAI活用術｜提案・作業・請求まで効率化する実践ガイド
-              </Link>
-            </li>
-          </ul>
-        </section>
       </article>
     </main>
   );

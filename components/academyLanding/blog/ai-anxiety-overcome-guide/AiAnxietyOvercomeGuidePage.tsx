@@ -2,6 +2,24 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { 
+  CheckCircle2, 
+  AlertCircle, 
+  Lightbulb, 
+  ArrowRight, 
+  ShieldCheck, 
+  Zap, 
+  Smartphone, 
+  CreditCard,
+  Calendar,
+  Clock,
+  BookOpen,
+  Quote,
+  Lock,
+  MessageSquare,
+  Sparkles,
+  ChevronRight
+} from "lucide-react";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
@@ -18,9 +36,9 @@ type Props = {
 };
 
 const sectionReveal = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+} as const;
 
 const keywordTags = ["AI 怖い", "生成AI 不安", "AI 難しい", "AI 始め方 不安", "AI 初心者 怖い"] as const;
 
@@ -39,6 +57,7 @@ const tocItems = [
 const fiveAnxieties = [
   {
     id: "anxiety-job",
+    icon: <Zap className="h-6 w-6 text-amber-500" />,
     question: "不安1：AIに仕事を奪われる？",
     answer: `世界経済フォーラム（WEF）の「Future of Jobs Report 2025」によると、2030年までにAI関連で1億7,000万の新しい仕事が生まれ、9,200万の仕事が置き換わると予測されています。差し引き＋7,800万の純増です。
 
@@ -52,6 +71,7 @@ const fiveAnxieties = [
   },
   {
     id: "anxiety-privacy",
+    icon: <ShieldCheck className="h-6 w-6 text-emerald-500" />,
     question: "不安2：個人情報が漏れない？",
     answer: `ChatGPT・Claude・Geminiの3大ツールはいずれもプライバシー設定を用意しています。
 
@@ -69,18 +89,20 @@ const fiveAnxieties = [
   },
   {
     id: "anxiety-difficult",
+    icon: <Smartphone className="h-6 w-6 text-blue-500" />,
     question: "不安3：使いこなせない？難しくない？",
     answer: `AIを使うのに専門知識は不要です。ChatGPTもClaudeもGeminiも、LINEやメッセンジャーと同じ感覚で「文字を打って送るだけ」で動きます。
 
 たとえば、ChatGPTを開いて「明日の会議で使う挨拶文を考えて」と打てば、それだけで回答が返ってきます。プログラミングも英語も必要ありません。
 
-「プロンプト（指示文）が難しそう」と感じるかもしれませんが、最初はふつうの日本語で大丈夫です。「もっと短くして」「もう少しカジュアルに」と追加で指示すれば、AIが調整してくれます。
+「プロンプト（指示文）が難しそう」と感じるかもしれませんが、最初はふつうの日本語で大丈夫です。「もっと短くして」「もう少しカジュアルに」と伝えれば、AIが調整してくれます。
 
 使いこなすコツは、最初から完璧な指示を出そうとしないこと。会話を重ねて、一緒に答えを作っていく感覚です。`,
     sources: [],
   },
   {
     id: "anxiety-hallucination",
+    icon: <AlertCircle className="h-6 w-6 text-rose-500" />,
     question: "不安4：間違った情報を信じてしまう？",
     answer: `AIが事実と異なる情報を生成する現象は「ハルシネーション（幻覚）」と呼ばれます。これは確かに起こります。ただし、最新モデルでは大幅に改善されています。
 
@@ -100,6 +122,7 @@ AIを「正解を教えてくれる先生」ではなく、「一緒に考えて
   },
   {
     id: "anxiety-cost",
+    icon: <CreditCard className="h-6 w-6 text-slate-500" />,
     question: "不安5：お金がかかる？",
     answer: `ChatGPT・Claude・Geminiはいずれも無料プランがあります。
 
@@ -188,7 +211,7 @@ const stories = [
   },
   {
     role: "50代・営業マネージャー",
-    quote: "部下が使い始めたのを見て焦りました。でも実際に触ってみたら、提案書の骨子を作るのが劇的に速くなって。『もう少し具体的に』って追加で指示する感覚が、部下に仕事を振るのと似ていて意外と馴染みました。",
+    quote: "部下が使い始めたのを見て焦りました。部下を信頼するのと同じで、AIにも具体的な仕事を振ってみたら、提案書の骨子を作るのが劇的に速くなって。今は強力な参謀がいる感覚です。",
   },
   {
     role: "30代・フリーランスデザイナー",
@@ -223,10 +246,10 @@ const privacySettings = [
 
 export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
   return (
-    <main className="bg-white pb-20 pt-28 sm:pt-32">
-      <article className="mx-auto max-w-5xl px-5 sm:px-6" data-blog-article-body>
+    <main className="bg-white pb-24 pt-28 sm:pt-32 overflow-hidden">
+      <article className="mx-auto max-w-5xl px-5 sm:px-6 markdown-content" data-blog-article-body>
         <AcademyBreadcrumb
-          className="mb-6"
+          className="mb-8"
           items={[
             { label: "ホーム", href: "/" },
             { label: "アカデミー", href: "/academy" },
@@ -239,169 +262,176 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="relative"
         >
-          <div className="flex flex-wrap gap-2">
+          {/* 装飾的な背景 */}
+          <div className="absolute -left-20 -top-20 w-64 h-64 bg-will-primary/5 rounded-full blur-3xl -z-10" />
+          
+          <div className="flex flex-wrap gap-2 mb-8">
             {keywordTags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+                className="rounded-full border border-will-primary/10 bg-will-lighter/50 px-4 py-1.5 text-[11px] font-bold tracking-widest text-will-primary uppercase"
               >
                 {tag}
               </span>
             ))}
           </div>
-          <div className="mt-6 flex">
-            <div className="ml-auto w-full sm:w-auto">
-              <CopyAsMarkdownButton
-                title="「AIが怖い・難しい」を乗り越える安心スタートガイド2026"
-                sourceSelector="[data-blog-article-body]"
-              />
-            </div>
-          </div>
-          <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            「AIが怖い・難しい」を乗り越える安心スタートガイド2026
+          
+          <h1 className="text-3xl font-bold leading-tight text-slate-900 sm:text-5xl tracking-tight">
+            「AIが怖い・難しい」を<br className="hidden sm:block" />乗り越える安心スタートガイド2026
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">公開日: 2026年2月21日</p>
-          <p className="mt-6 text-base leading-8 text-gray-700">
-            「AIって難しそう」「情報が漏れたら怖い」「仕事がなくなるかも」——こうした不安を感じるのは、あなただけではありません。
-            2025年の調査では、日本人の72.6%がAIの進化に対して不安を感じていると回答しています（PR
-            TIMES/ビズヒッツ調査）。しかしその不安の多くは、AIを実際に使ったことがない段階で生まれています。
-            この記事では、5つの代表的な不安にデータと公式情報で正直にお答えし、「最初の3日間」で何をすればいいかを具体的にご案内します。
-            一緒に、最初の一歩を踏み出してみましょう。
-          </p>
+          
+          <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-slate-100 pb-8">
+            <div className="flex items-center gap-4">
+              <div className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center">
+                <Calendar className="h-5 w-5 text-slate-500" />
+              </div>
+              <div>
+                <p className="text-[10px] font-bold text-slate-400 tracking-widest uppercase">Published on</p>
+                <time className="text-sm font-semibold text-slate-700">2026年2月21日</time>
+              </div>
+            </div>
+            
+            <CopyAsMarkdownButton
+              title="「AIが怖い・難しい」を乗り越える安心スタートガイド2026"
+              sourceSelector="[data-blog-article-body]"
+            />
+          </div>
+          
+          <div className="mt-10 p-6 sm:p-8 rounded-3xl bg-slate-50/50 border border-slate-100 relative">
+            <Quote className="absolute top-6 right-8 h-12 w-12 text-slate-200 -z-10 opacity-50" />
+            <p className="text-lg sm:text-xl leading-relaxed text-slate-700 font-medium">
+              「AIって難しそう」「情報が漏れたら怖い」「仕事がなくなるかも」——こうした不安を感じるのは、あなただけではありません。
+              2025年の調査では、日本人の72.6%がAIの進化に対して不安を感じていると回答しています。しかしその不安の多くは、AIを実際に使ったことがない段階で生まれています。
+            </p>
+            <p className="mt-6 text-base leading-relaxed text-slate-600">
+              この記事では、5つの代表的な不安にデータと公式情報で正直にお答えし、「最初の3日間」で何をすればいいかを具体的にご案内します。一緒に、最初の一歩を踏み出してみましょう。
+            </p>
+          </div>
         </motion.header>
 
-        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
-          関連テーマを先に押さえるなら
-          <Link href="/academy/blog/ai-for-non-engineers" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-            非エンジニア向けAI活用
-          </Link>
-          ・
-          <Link href="/academy/blog/chatgpt-start-guide-smartphone" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-            ChatGPTスマホ開始ガイド
-          </Link>
-          ・
-          <Link href="/academy/blog/ai-first-30-days-work-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-            生成AI最初の30日ガイド
-          </Link>
-          ・
-          <Link href="/academy/blog/what-is-generative-ai" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-            生成AIとは？初心者向け解説
-          </Link>
-          ・
-          <Link href="/academy/blog/ai-beginners-guide-over-50" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-            50代からのAI初心者ガイド
-          </Link>
-          ・質問するのが不安な方へ
-          <Link href="/academy/blog/how-to-ask-ai-beginners" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
-            AIへの聞き方完全入門
-          </Link>
-          もあわせて読むと、実務へのつながりが明確になります。
-        </p>
+        <div data-seo-internal-links="true" className="mt-12 p-6 rounded-2xl border border-will-lighter bg-will-lighter/20 flex flex-wrap items-center gap-y-3 gap-x-1">
+          <BookOpen className="h-4 w-4 text-will-primary mr-2" />
+          <span className="text-sm font-bold text-slate-500 mr-2">関連テーマ：</span>
+          <Link href="/academy/blog/ai-for-non-engineers" className="text-sm font-semibold text-will-primary hover:underline underline-offset-4">非エンジニア向けAI活用</Link>
+          <span className="text-slate-300 mx-1">/</span>
+          <Link href="/academy/blog/chatgpt-start-guide-smartphone" className="text-sm font-semibold text-will-primary hover:underline underline-offset-4">スマホ開始ガイド</Link>
+          <span className="text-slate-300 mx-1">/</span>
+          <Link href="/academy/blog/ai-first-30-days-work-guide" className="text-sm font-semibold text-will-primary hover:underline underline-offset-4">最初の30日ガイド</Link>
+          <span className="text-slate-300 mx-1">/</span>
+          <Link href="/academy/blog/what-is-generative-ai" className="text-sm font-semibold text-will-primary hover:underline underline-offset-4">生成AIとは？</Link>
+          <span className="text-slate-300 mx-1">/</span>
+          <Link href="/academy/blog/ai-beginners-guide-over-50" className="text-sm font-semibold text-will-primary hover:underline underline-offset-4">50代からのAI</Link>
+          <span className="text-slate-300 mx-1">/</span>
+          <Link href="/academy/blog/how-to-ask-ai-beginners" className="text-sm font-semibold text-will-primary hover:underline underline-offset-4">AIへの聞き方</Link>
+        </div>
+
         <ArticleTOC items={tocItems} />
 
         {/* 要点まとめ */}
         <motion.section
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          className="check-box mt-20 group"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            要点まとめ（AIO向け：結論先出し）
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">
-              AIは仕事を「奪う」のではなく「変える」。WEFの予測では2030年までに純増+7,800万の雇用が生まれる
+          <h4 id="conclusion" className="scroll-mt-28 flex items-center gap-2">
+            <CheckCircle2 className="h-6 w-6 text-emerald-500" />
+            要点まとめ
+          </h4>
+          <ul className="mt-6 space-y-4">
+            <li className="flex items-start gap-3 text-base leading-relaxed text-slate-700">
+              <span className="mt-1.5 flex h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
+              <span>AIは仕事を「奪う」のではなく<strong>「変える」</strong>。WEFの予測では2030年までに純増+7,800万の雇用が生まれる</span>
             </li>
-            <li className="pl-1 marker:text-gray-500">
-              ChatGPT・Claude・Geminiは無料で始められ、プライバシー設定で学習利用をオフにできる
+            <li className="flex items-start gap-3 text-base leading-relaxed text-slate-700">
+              <span className="mt-1.5 flex h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
+              <span>ChatGPT・Claude・Geminiは無料で始められ、プライバシー設定で<strong>学習利用をオフ</strong>にできる</span>
             </li>
-            <li className="pl-1 marker:text-gray-500">
-              使い方はLINEと同じ感覚——日本語で話しかけるだけ。最初の3日間の具体ステップで始められる
+            <li className="flex items-start gap-3 text-base leading-relaxed text-slate-700">
+              <span className="mt-1.5 flex h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
+              <span>使い方はLINEと同じ感覚——日本語で話しかけるだけ。最初の3日間の具体ステップで始められる</span>
             </li>
-            <li className="pl-1 marker:text-gray-500">
-              AIの間違い（ハルシネーション）は減少傾向。重要な情報は一次ソースで確認する習慣をつければ安全
+            <li className="flex items-start gap-3 text-base leading-relaxed text-slate-700">
+              <span className="mt-1.5 flex h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
+              <span>AIの間違い（ハルシネーション）は減少傾向。重要な情報は一次ソースで確認する習慣をつければ安全</span>
             </li>
           </ul>
         </motion.section>
 
         {/* AIが怖いと感じるのは自然なこと */}
         <motion.section
-          className="mt-14"
+          className="mt-20"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="why-anxious" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="why-anxious" className="scroll-mt-28">
             AIが怖いと感じるのは自然なこと
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            まず伝えたいのは、<strong>AIに不安を感じること自体はまったく普通の反応</strong>だということです。
-          </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            2025年4月、男女500人を対象にした調査では、72.6%が「AIの進化に恐怖や不安を感じる」と回答しました。不安の内訳は「フェイク情報の増加」が34.2%、「人間の仕事がなくなる」が27.8%、「人間の能力が低下する」が17.6%。
-          </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            興味深いのは、<strong>回答者の35%が「不安のきっかけとなる具体的な経験がない」</strong>と答えている点です。つまり、多くの不安は実体験ではなく、ニュースやSNSで見聞きした情報から生まれています。
-          </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            BCGの「AI at Work 2025」調査でも、日本のAI活用率は51%でAPAC最低水準。「使ったことがないから怖い」→「怖いから使わない」という循環が起きています。
-          </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            この記事は、その循環を一緒に抜け出すためのガイドです。不安を否定するのではなく、一つひとつ丁寧に向き合って、安心できる材料を揃えていきましょう。
-          </p>
-          <p className="mt-3 text-xs text-gray-500">
-            出典：
-            <a href="https://prtimes.jp/main/html/rd/p/000000029.000053076.html" target="_blank" rel="noopener noreferrer" className="text-gray-500 underline hover:text-gray-700">
-              PR TIMES: AI進化に対する恐怖や不安ランキング（2025年4月）
-            </a>
-            ｜
-            <a href="https://web-assets.bcg.com/80/28/18c9f7e44966a7c286adae9a8e00/20250613-ai-at-work-2025-slides-japanese.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-500 underline hover:text-gray-700">
-              BCG: AI at Work 2025 日本語版
-            </a>
-          </p>
+          <div className="mt-8 space-y-6">
+            <p className="text-lg leading-relaxed text-slate-700">
+              まず伝えたいのは、<strong className="text-will-primary">AIに不安を感じること自体はまったく普通の反応</strong>だということです。
+            </p>
+            <p className="text-base leading-relaxed text-slate-600">
+              2025年4月、男女500人を対象にした調査では、72.6%が「AIの進化に恐怖や不安を感じる」と回答しました。不安の内訳は「フェイク情報の増加」が34.2%、「人間の仕事がなくなる」が27.8%、「人間の能力が低下する」が17.6%。
+            </p>
+            <div className="p-6 rounded-2xl bg-slate-50 border-l-4 border-slate-300">
+              <p className="text-base leading-relaxed text-slate-700 italic">
+                興味深いのは、<strong>回答者の35%が「不安のきっかけとなる具体的な経験がない」</strong>と答えている点です。つまり、多くの不安は実体験ではなく、ニュースやSNSで見聞きした情報から生まれています。
+              </p>
+            </div>
+            <p className="text-base leading-relaxed text-slate-600">
+              BCGの「AI at Work 2025」調査でも、日本のAI活用率は51%でAPAC最低水準。「使ったことがないから怖い」→「怖いから使わない」という循環が起きています。
+            </p>
+            <p className="text-base leading-relaxed text-slate-600 font-medium">
+              この記事は、その循環を一緒に抜け出すためのガイドです。不安を否定するのではなく、一つひとつ丁寧に向き合って、安心できる材料を揃えていきましょう。
+            </p>
+            <p className="mt-3 flex items-center gap-2 text-xs text-slate-400">
+              <AlertCircle className="h-3 w-3" />
+              出典：PR TIMES（2025年4月）｜BCG: AI at Work 2025 日本語版
+            </p>
+          </div>
         </motion.section>
 
         {/* 5つの不安と正直な答え */}
         <motion.section
-          className="mt-14"
+          className="mt-24"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="five-anxieties" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="five-anxieties" className="scroll-mt-28">
             AIへの5つの不安と、正直な答え
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-6 text-base leading-relaxed text-slate-600">
             不安はあいまいなままだと大きく見えます。一つずつ分解して、データと事実で向き合ってみましょう。
           </p>
-          <div className="mt-8 space-y-8">
+          <div className="mt-12 space-y-12">
             {fiveAnxieties.map((item) => (
-              <section key={item.id} id={item.id} className="scroll-mt-28 rounded-xl border border-gray-200 p-6">
-                <h3 className="text-xl font-bold text-gray-900">{item.question}</h3>
-                <div className="mt-4 whitespace-pre-line text-sm leading-8 text-gray-700">{item.answer}</div>
+              <section key={item.id} id={item.id} className="point-box scroll-mt-28 group hover:shadow-elevated transition-shadow duration-300">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-soft group-hover:scale-110 transition-transform duration-300">
+                    {item.icon}
+                  </div>
+                  <h4 className="text-xl font-bold text-slate-900 border-none m-0">{item.question}</h4>
+                </div>
+                <div className="mt-4 whitespace-pre-line text-[15px] leading-8 text-slate-700">{item.answer}</div>
                 {item.sources.length > 0 && (
-                  <p className="mt-4 text-xs text-gray-500">
-                    出典：
+                  <div className="mt-8 pt-4 border-t border-slate-100 flex flex-wrap gap-4">
+                    <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Sources:</span>
                     {item.sources.map((src, i) => (
-                      <span key={src.url}>
-                        {i > 0 && "｜"}
-                        <a href={src.url} target="_blank" rel="noopener noreferrer" className="text-gray-500 underline hover:text-gray-700">
-                          {src.label}
-                        </a>
-                      </span>
+                      <a key={src.url} href={src.url} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-slate-500 underline decoration-slate-300 underline-offset-4 hover:text-will-primary transition-colors">
+                        {src.label}
+                      </a>
                     ))}
-                  </p>
+                  </div>
                 )}
               </section>
             ))}
@@ -410,190 +440,247 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
 
         {/* 中間CTA */}
         <motion.section
-          className="mt-14"
+          className="mt-24"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <MidArticleCtaBox slug="ai-anxiety-overcome-guide" />
         </motion.section>
 
         {/* 最初の3日間 */}
         <motion.section
-          className="mt-14"
+          className="mt-24"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="first-3-days" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            最初の3日間でやること（超具体的なステップ）
+          <h2 id="first-3-days" className="scroll-mt-28">
+            最初の3日間でやること
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-6 text-base leading-relaxed text-slate-600">
             「いつか始めよう」だといつまでも始まりません。ここでは「今日から3日間」の具体ステップをご案内します。必要なのはスマホかパソコンと、10〜15分の時間だけです。
           </p>
-          <div className="mt-8 space-y-10">
-            {daySteps.map((day) => (
-              <section key={day.day} className="rounded-xl border-2 border-will-primary/15 bg-will-lighter/30 p-6">
-                <div className="flex items-center gap-3">
-                  <h3 className="text-xl font-bold text-gray-900">{day.day}</h3>
-                  <span className="rounded-full bg-will-primary/10 px-3 py-1 text-xs font-semibold text-will-primary">{day.time}</span>
+          <div className="mt-12 space-y-12 relative">
+            {/* 進行状況を示すライン */}
+            <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-gradient-to-b from-will-primary via-will-secondary to-will-tertiary opacity-10 hidden sm:block" />
+            
+            {daySteps.map((day, idx) => (
+              <section key={day.day} className="relative z-10">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-3xl bg-will-primary text-white font-black text-2xl shadow-floating shadow-will-primary/20">
+                    {idx + 1}
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-900 m-0 border-none pb-0">{day.day}</h3>
+                    <div className="mt-1 flex items-center gap-2 text-sm font-bold text-will-primary">
+                      <Clock className="h-4 w-4" />
+                      <span>{day.time}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="mt-5 space-y-4">
+                
+                <div className="grid gap-6 sm:ml-20">
                   {day.steps.map((step) => (
-                    <div key={step.title} className="rounded-lg bg-white p-4 shadow-subtle">
-                      <h4 className="text-base font-semibold text-gray-900">{step.title}</h4>
-                      <p className="mt-2 text-sm leading-7 text-gray-700">{step.body}</p>
+                    <div key={step.title} className="rounded-2xl bg-slate-50 p-6 border border-slate-100 hover:bg-white hover:shadow-soft transition-all duration-300">
+                      <h4 className="text-base font-bold text-slate-900 m-0 border-none flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-will-primary/40" />
+                        {step.title}
+                      </h4>
+                      <p className="mt-3 text-[14px] leading-relaxed text-slate-600">{step.body}</p>
                     </div>
                   ))}
                 </div>
               </section>
             ))}
           </div>
-          <p className="mt-6 text-base leading-8 text-gray-700">
-            3日間が終わるころには、「AIって難しい」が「AIって意外とふつう」に変わっているはずです。もっと具体的な使い方を知りたくなったら、
-            <Link href="/academy/blog/chatgpt-prompt-beginner" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-              ChatGPTプロンプトの書き方入門
+          <div className="mt-12 p-8 rounded-3xl bg-gradient-to-br from-will-primary/5 to-will-secondary/5 border border-will-primary/10">
+            <p className="text-lg leading-relaxed text-slate-700 font-medium">
+              3日間が終わるころには、「AIって難しい」が「AIって意外とふつう」に変わっているはずです。
+            </p>
+            <Link href="/academy/blog/chatgpt-prompt-beginner" className="mt-6 inline-flex items-center gap-2 text-will-primary font-bold hover:gap-3 transition-all">
+              <span>次は「ChatGPTプロンプトの書き方」へ進む</span>
+              <ArrowRight className="h-5 w-5" />
             </Link>
-            へ進んでみてください。
-          </p>
+          </div>
         </motion.section>
 
         {/* 先輩たちのエピソード */}
         <motion.section
-          className="mt-14"
+          className="mt-24"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="stories" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="stories" className="scroll-mt-28">
             先輩たちの「最初は怖かった」エピソード
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-6 text-base leading-relaxed text-slate-600">
             実際にAIを使い始めた方たちの声をご紹介します。最初は皆さん、同じように不安を感じていました。
           </p>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
             {stories.map((story) => (
-              <blockquote key={story.role} className="rounded-xl border border-gray-200 bg-gray-50 p-5">
-                <p className="text-sm font-semibold text-will-primary">{story.role}</p>
-                <p className="mt-3 text-sm leading-7 text-gray-700 before:content-['「'] after:content-['」']">
+              <blockquote key={story.role} className="rounded-3xl border border-slate-100 bg-white p-8 shadow-soft relative overflow-hidden group">
+                <div className="absolute top-0 left-0 w-1.5 h-full bg-slate-100 group-hover:bg-will-primary transition-colors duration-300" />
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="h-8 w-8 rounded-full bg-will-lighter flex items-center justify-center">
+                    <MessageSquare className="h-4 w-4 text-will-primary" />
+                  </div>
+                  <span className="text-xs font-bold text-will-primary tracking-widest uppercase">{story.role}</span>
+                </div>
+                <p className="text-base leading-relaxed text-slate-700 font-medium relative">
+                  <Quote className="absolute -left-2 -top-2 h-8 w-8 text-slate-100 -z-10" />
                   {story.quote}
                 </p>
               </blockquote>
             ))}
           </div>
-          <p className="mt-4 text-xs text-gray-500">
-            ※ AIリブートが収集した利用者の声をもとに、プライバシーに配慮して再構成したエピソードです。
+          <p className="mt-6 flex items-center gap-2 text-xs text-slate-400 font-medium italic">
+            <Sparkles className="h-3 w-3" />
+            AIリブートが収集した利用者の声をもとに再構成したエピソードです。
           </p>
         </motion.section>
 
         {/* プライバシー設定 */}
         <motion.section
-          className="mt-14"
+          className="mt-24"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="privacy-settings" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            安心して使うためのプライバシー設定（3ツール対応）
+          <h2 id="privacy-settings" className="scroll-mt-28">
+            安心して使うためのプライバシー設定
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-6 text-base leading-relaxed text-slate-600">
             AIを使う前に、この設定だけは済ませておきましょう。どのツールも1〜2分で完了します。
           </p>
-          <div className="mt-6 space-y-4">
+          <div className="mt-10 grid gap-6">
             {privacySettings.map((item) => (
-              <section key={item.tool} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{item.tool}</h3>
-                <p className="mt-3 text-sm leading-7 text-gray-700">
-                  <span className="font-semibold">設定手順：</span>{item.steps}
-                </p>
-                <p className="mt-2 text-sm leading-7 text-gray-700">{item.note}</p>
-                <a href={item.url} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-xs text-gray-500 underline hover:text-gray-700">
-                  公式ドキュメントを確認する →
+              <section key={item.tool} className="rounded-2xl border border-slate-100 bg-slate-50/30 p-8 hover:bg-white hover:shadow-soft transition-all duration-300 group">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-bold text-slate-900 m-0 border-none pb-0">{item.tool}</h3>
+                  <Lock className="h-5 w-5 text-slate-300 group-hover:text-emerald-500 transition-colors" />
+                </div>
+                <div className="space-y-4">
+                  <div className="flex gap-4">
+                    <span className="shrink-0 flex h-6 w-16 items-center justify-center rounded bg-slate-200 text-[10px] font-bold text-slate-600 uppercase tracking-tighter">Setting</span>
+                    <p className="text-base font-semibold text-slate-800 leading-relaxed">{item.steps}</p>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="shrink-0 flex h-6 w-16 items-center justify-center rounded bg-emerald-100 text-[10px] font-bold text-emerald-700 uppercase tracking-tighter">Benefit</span>
+                    <p className="text-sm leading-relaxed text-slate-600">{item.note}</p>
+                  </div>
+                </div>
+                <a href={item.url} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-1 text-[11px] font-bold text-slate-400 hover:text-will-primary uppercase tracking-widest transition-colors">
+                  Check official doc <ArrowRight className="h-3 w-3" />
                 </a>
               </section>
             ))}
           </div>
-          <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4">
-            <p className="text-sm font-semibold text-amber-800">共通の基本ルール</p>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-7 text-amber-900">
-              <li className="pl-1 marker:text-amber-400">氏名・住所・電話番号・クレジットカード番号は入力しない</li>
-              <li className="pl-1 marker:text-amber-400">社内の機密情報や顧客情報は入力しない</li>
-              <li className="pl-1 marker:text-amber-400">会社にAI利用ガイドラインがある場合はそちらに従う</li>
+          
+          <div className="caution-box mt-12 bg-orange-50/30 border-orange-100 relative group overflow-hidden">
+            <div className="absolute -right-8 -bottom-8 opacity-5 group-hover:scale-110 transition-transform duration-500">
+              <ShieldCheck className="h-40 w-40 text-orange-500" />
+            </div>
+            <h4 className="flex items-center gap-2 text-orange-900 border-none">
+              <AlertCircle className="h-5 w-5" />
+              共通の基本ルール
+            </h4>
+            <ul className="mt-4 space-y-3">
+              {[
+                "氏名・住所・電話番号・クレジットカード番号は入力しない",
+                "社内の機密情報や顧客情報は入力しない",
+                "会社にAI利用ガイドラインがある場合はそちらに従う"
+              ].map((text) => (
+                <li key={text} className="flex items-start gap-3 text-base leading-relaxed text-orange-800/80">
+                  <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-orange-400" />
+                  <span className="font-semibold">{text}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </motion.section>
 
         {/* FAQ */}
         <motion.section
-          className="mt-14"
+          className="mt-24"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="faq" className="scroll-mt-28">
             よくある質問（FAQ）
           </h2>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
+          <div className="mt-10 divide-y divide-slate-100 border-t border-slate-100">
             {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
+              <div key={item.question} className="py-8 group">
+                <dt className="text-lg font-bold leading-relaxed text-slate-900 flex items-start gap-4 transition-colors group-hover:text-will-primary">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-[12px] font-black text-slate-400 group-hover:bg-will-primary/10 group-hover:text-will-primary transition-colors">Q</span>
+                  {item.question}
+                </dt>
+                <dd className="mt-4 pl-11 text-base leading-relaxed text-slate-600 flex items-start gap-4">
+                  {item.answer}
+                </dd>
               </div>
             ))}
-          </dl>
+          </div>
         </motion.section>
 
         {/* まとめ */}
         <motion.section
-          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          className="mt-24 rounded-[2.5rem] border border-slate-100 bg-gradient-to-br from-slate-50 via-white to-slate-50 p-10 sm:p-14 shadow-soft relative overflow-hidden"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <Sparkles className="absolute -right-4 -top-4 h-32 w-32 text-will-primary/5" />
+          
+          <h2 id="summary" className="scroll-mt-28 text-2xl font-black text-slate-900 m-0 border-none pb-0">
             まとめ：一歩踏み出した人だけが見える景色
           </h2>
-          <p className="mt-5 text-base leading-8 text-gray-700">
+          <p className="mt-8 text-lg leading-relaxed text-slate-700 font-medium">
             この記事では、AIに対する5つの代表的な不安を一つずつ整理しました。
           </p>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">仕事は「奪われる」のではなく「変わる」——WEF/ILOのデータが示すとおりです</li>
-            <li className="pl-1 marker:text-gray-500">プライバシーは設定1つで守れます</li>
-            <li className="pl-1 marker:text-gray-500">使い方は日本語で話しかけるだけ。専門知識は不要です</li>
-            <li className="pl-1 marker:text-gray-500">AIの間違いは減っていますが、重要な情報は人が確認するのが基本です</li>
-            <li className="pl-1 marker:text-gray-500">無料プランだけで十分に試せます</li>
-          </ul>
-          <p className="mt-5 text-base leading-8 text-gray-700">
-            不安は、知ることで小さくなります。そして、触れることで消えていきます。
-          </p>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            あなたが「Day 1」を始めるのに、特別な準備は必要ありません。ChatGPTを開いて「こんにちは」と打つだけです。その小さな一歩が、半年後の働き方を変えるかもしれません。
-          </p>
-          <p className="mt-4 text-base font-semibold leading-8 text-gray-900">
-            AIで人生をリブートする——その最初の一歩を、今日踏み出してみませんか。
-          </p>
+          <div className="mt-10 grid gap-4">
+            {[
+              "仕事は「奪われる」のではなく「変える」——WEF/ILOのデータが示すとおりです",
+              "プライバシーは設定1つで守れます",
+              "使い方は日本語で話しかけるだけ。専門知識は不要です",
+              "AIの間違いは減っていますが、重要な情報は人が確認するのが基本です",
+              "無料プランだけで十分に試せます"
+            ].map((text) => (
+              <div key={text} className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-50 shadow-subtle">
+                <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0" />
+                <span className="text-base font-semibold text-slate-700">{text}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 space-y-6">
+            <p className="text-lg leading-relaxed text-slate-700">
+              不安は、知ることで小さくなります。そして、触れることで消えていきます。
+            </p>
+            <p className="text-lg leading-relaxed text-slate-700">
+              あなたが「Day 1」を始めるのに、特別な準備は必要ありません。ChatGPTを開いて「こんにちは」と打つだけです。その小さな一歩が、半年後の働き方を変えるかもしれません。
+            </p>
+            <p className="text-2xl font-black leading-tight text-slate-900 tracking-tight">
+              AIで人生をリブートする——<br />その最初の一歩を、今日踏み出してみませんか。
+            </p>
+          </div>
         </motion.section>
 
         {/* LINE CTA */}
         <motion.section
-          className="mt-14"
+          className="mt-20"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <LineCtaBox
             title="AIの第一歩を、一人で悩まないでください"
@@ -604,30 +691,33 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
 
         {/* CTA：次に学ぶ */}
         <motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
+          className="mt-24 pt-16 border-t border-slate-100"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="academy-cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <h2 id="academy-cta" className="scroll-mt-28 flex items-center gap-3">
+            <Lightbulb className="h-8 w-8 text-will-primary" />
             次のステップ：もっとAIを活用したくなったら
           </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
+          <p className="mt-6 text-lg leading-relaxed text-slate-600">
             3日間の体験で「もっと使いたい」と感じたら、次のステップに進んでみましょう。
             プロンプトの書き方を学ぶと、AIの回答品質が格段に上がります。
           </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/academy/blog/chatgpt-prompt-beginner"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+              className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-slate-900 px-8 py-5 text-lg font-bold text-white shadow-elevated transition-all hover:scale-[1.02] hover:bg-slate-800 active:scale-95"
             >
-              プロンプトの書き方を学ぶ
+              <span className="relative z-10 flex items-center gap-2">
+                プロンプトの書き方を学ぶ
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </span>
             </Link>
             <Link
               href="/academy"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
+              className="inline-flex items-center justify-center rounded-2xl border-2 border-slate-200 px-8 py-5 text-lg font-bold text-slate-700 transition-all hover:border-slate-900 hover:text-slate-900 active:scale-95"
             >
               AIリブートアカデミーを見る
             </Link>
@@ -635,59 +725,36 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
         </motion.section>
 
         {/* 関連リンク */}
-        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
-          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
-          <ul className="space-y-2">
-            <li>
-              <Link href="/academy/blog/chatgpt-start-guide-smartphone" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                ChatGPTをスマホで始める方法｜iPhone・Android対応の初期設定ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/chatgpt-claude-beginners-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                ChatGPT・Claude初心者ガイド｜最初の1週間でできること
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/chatgpt-prompt-beginner" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                ChatGPTプロンプトの書き方入門｜初心者がすぐ使える15の型とNG/OK例
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/ai-for-non-engineers" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                文系・非エンジニアのAI活用ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/how-to-learn-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                生成AIの学び方【2026年版】社会人向け3ステージ学習ロードマップ
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/ai-beginners-guide-over-50" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                50代からのAI初心者ガイド｜不安を減らす学習順序と実践法
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/ai-hallucination-fact-check-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AIのハルシネーション対策ガイド｜誤情報を見抜くファクトチェック手順
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/reskilling-over-40" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                40代・50代からのAIリスキリング完全ガイド
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/ai-data-leak-patterns" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                生成AIで情報漏えいが起きるパターン10選｜現場のNG例とルール
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AIリブートアカデミー TOP
-              </Link>
-            </li>
+        <section id="related-links" className="mt-24 border-t border-slate-100 pt-16 pb-12">
+          <div className="flex items-center gap-3 mb-10">
+            <div className="h-10 w-10 rounded-xl bg-slate-100 flex items-center justify-center">
+              <BookOpen className="h-5 w-5 text-slate-500" />
+            </div>
+            <h2 className="scroll-mt-28 m-0 border-none pb-0 text-2xl font-bold text-slate-900">関連リンク</h2>
+          </div>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {[
+              { href: "/academy/blog/chatgpt-start-guide-smartphone", label: "ChatGPTをスマホで始める方法" },
+              { href: "/academy/blog/chatgpt-claude-beginners-guide", label: "ChatGPT・Claude初心者ガイド" },
+              { href: "/academy/blog/chatgpt-prompt-beginner", label: "ChatGPTプロンプトの書き方入門" },
+              { href: "/academy/blog/ai-for-non-engineers", label: "文系・非エンジニアのAI活用ガイド" },
+              { href: "/academy/blog/how-to-learn-generative-ai", label: "生成AIの学び方【2026年版】" },
+              { href: "/academy/blog/ai-beginners-guide-over-50", label: "50代からのAI初心者ガイド" },
+              { href: "/academy/blog/ai-hallucination-fact-check-guide", label: "AIのハルシネーション対策ガイド" },
+              { href: "/academy/blog/reskilling-over-40", label: "40代・50代からのAIリスキリング" },
+              { href: "/academy/blog/ai-data-leak-patterns", label: "生成AIで情報漏えいが起きるパターン" },
+              { href: "/academy", label: "AIリブートアカデミー TOP" }
+            ].map((link) => (
+              <li key={link.href}>
+                <Link 
+                  href={link.href} 
+                  className="flex items-center justify-between p-5 rounded-2xl border border-slate-100 bg-white hover:border-will-primary/30 hover:shadow-soft transition-all group"
+                >
+                  <span className="text-sm font-semibold text-slate-700 group-hover:text-will-primary transition-colors">{link.label}</span>
+                  <ChevronRight className="h-4 w-4 text-slate-300 group-hover:text-will-primary group-hover:translate-x-1 transition-all" />
+                </Link>
+              </li>
+            ))}
           </ul>
         </section>
       </article>

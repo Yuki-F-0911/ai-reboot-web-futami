@@ -25,6 +25,7 @@ const sectionReveal = {
 const keywordTags = ["生成AI 仕事 始め方", "AI 最初の30日", "ChatGPT 業務活用"] as const;
 
 const tocItems = [
+  { id: "answer-box", label: "この記事で分かること / 結論" },
   { id: "roadmap", label: "30日ロードマップ早見表" },
   { id: "week1", label: "Week 1：AIに聞く習慣をつける" },
   { id: "week2", label: "Week 2：定番タスクにAIを組み込む" },
@@ -353,6 +354,28 @@ export default function AiFirst30DaysWorkGuidePage({ faqItems }: Props) {
             先輩が後輩に「まずこれやってみて」と渡すつもりで書きました。30日後には「AIが使える人」として周囲から頼られる存在になれます。
           </p>
         </motion.header>
+
+        <motion.section
+          id="answer-box"
+          className="mt-10 rounded-xl border border-amber-200 bg-amber-50 p-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="scroll-mt-28 text-xl font-bold text-gray-900">この記事で分かること</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">生成AIを仕事で使い始める最初の30日を、週単位で迷わず進めるロードマップ</li>
+            <li className="pl-1 marker:text-gray-500">メール・議事録・調査でそのまま使える実務向けプロンプトテンプレート</li>
+            <li className="pl-1 marker:text-gray-500">途中で挫折しやすい失敗パターンと、続けるための具体的な対処法</li>
+          </ul>
+          <h3 className="mt-6 text-base font-semibold text-gray-900">この記事の結論</h3>
+          <p className="mt-2 text-sm leading-7 text-gray-700">
+            30日で成果を出す鍵は、難しいことを学ぶより「毎日1回使う習慣」を先に作ることです。完璧なプロンプトは不要で、短い質問と追加指示を重ねるだけで、
+            AIは実務で使える武器になります。
+          </p>
+        </motion.section>
 
         <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
           関連テーマを先に押さえるなら

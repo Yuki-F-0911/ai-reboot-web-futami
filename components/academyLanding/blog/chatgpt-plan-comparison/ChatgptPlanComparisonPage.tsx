@@ -7,6 +7,7 @@ import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable, Callout } from "@/components/blog/ArticleBody";
 
 type FAQItem = {
   question: string;
@@ -239,13 +240,9 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           </ul>
         </section>
 
-        {/* Answer Box */}
-        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
-          <p className="mt-2 text-sm leading-7 text-slate-700">
-            ChatGPTのプラン選びは料金より「利用上限」と「使うモデル」で決めるのが正解です。毎日業務で使うならまずPlus、Proは高頻度のコーディングや重い比較分析を長時間回す人向けです。無料で始める場合も、上限到達が続くなら早めにPlusへ切り替えると作業停止を減らせます。GPT-5-Codexを本格利用したいなら有料プランが前提です。
-          </p>
-        </section>
+        <Callout type="info" title="この記事の結論">
+          ChatGPTのプラン選びは料金より「利用上限」と「使うモデル」で決めるのが正解です。毎日業務で使うならまずPlus、Proは高頻度のコーディングや重い比較分析を長時間回す人向けです。無料で始める場合も、上限到達が続くなら早めにPlusへ切り替えると作業停止を減らせます。GPT-5-Codexを本格利用したいなら有料プランが前提です。
+        </Callout>
 
         <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
           関連テーマを先に押さえるなら
@@ -273,27 +270,22 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
         <ArticleTOC items={tocItems} />
 
         <motion.section
-          id="conclusion"
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">要点まとめ</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">Plusは月額20ドル、Proは月額200ドル。無料は料金ゼロですが上限が小さい設計です。</li>
-            <li className="pl-1 marker:text-gray-500">
-              無料でもGPT-5は使えますが、上限に達すると軽量モデルへ切り替わるなど制限があります。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              GPT-5-Codexは有料ChatGPTプラン向けです。コーディング用途の頻度が高いほどPlus/Proの差が出ます。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              初心者はFreeで開始し、上限に当たる頻度と作業時間を2週間記録してからPlus判定する方法が失敗しにくいです。
-            </li>
-          </ul>
+          <SummaryBox
+            title="要点まとめ"
+            items={[
+              "Plusは月額20ドル、Proは月額200ドル。無料は料金ゼロですが上限が小さい設計です。",
+              "無料でもGPT-5は使えますが、上限に達すると軽量モデルへ切り替わるなど制限があります。",
+              "GPT-5-Codexは有料ChatGPTプラン向けです。コーディング用途の頻度が高いほどPlus/Proの差が出ます。",
+              "初心者はFreeで開始し、上限に当たる頻度と作業時間を2週間記録してからPlus判定する方法が失敗しにくいです。",
+            ]}
+          />
         </motion.section>
 
         <motion.section
@@ -321,34 +313,32 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="plan-diff">
             無料・Plus・Proの料金と機能差は「上限」と「使えるモデル」で見る
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             初心者向けに結論から言うと、差が出るのは価格より上限です。無料でも始められますが、毎日使うほど上限差が効いてきます。
           </p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">比較軸</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">Free</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">Plus</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">Pro</th>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">比較軸</th>
+                <th className="py-4 px-6 font-bold text-gray-900">Free</th>
+                <th className="py-4 px-6 font-bold text-gray-900">Plus</th>
+                <th className="py-4 px-6 font-bold text-gray-900">Pro</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {planComparisonRows.map((row) => (
+                <tr key={row.axis} className="hover:bg-gray-50/50 transition-colors">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.axis}</th>
+                  <td className="py-4 px-6 text-gray-700">{row.free}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.plus}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.pro}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {planComparisonRows.map((row) => (
-                  <tr key={row.axis} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.axis}</th>
-                    <td className="px-4 py-4">{row.free}</td>
-                    <td className="px-4 py-4">{row.plus}</td>
-                    <td className="py-4 pl-4">{row.pro}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </RichTable>
           <p className="mt-5 text-sm leading-7 text-gray-700">
             補足として、PlusとProの料金はOpenAI Helpでそれぞれ「20ドル/月」「200ドル/月」と案内されています。上限・機能は更新されるため、必ず最新の公式ページで再確認してください。
           </p>
@@ -364,12 +354,12 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">無料で十分な人の条件と、Plusに課金すべき人の条件</h2>
+          <ArticleH2 id="free-or-plus">無料で十分な人の条件と、Plusに課金すべき人の条件</ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             「無料で十分か」は、月額ではなく利用密度で判断します。無料プランでもGPT-5は使えますが、利用上限は需要や会話の重さで変動します。添付ファイルや長い会話を使うほど上限到達が早くなるため、実利用で確認するのが確実です。
           </p>
 
-          <h3 className="mt-8 text-xl font-bold text-gray-900">無料で十分な人のチェック</h3>
+          <ArticleH3>無料で十分な人のチェック</ArticleH3>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {freeEnoughChecks.map((check) => (
               <li key={check} className="pl-1 marker:text-gray-500">
@@ -378,7 +368,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
             ))}
           </ul>
 
-          <h3 className="mt-10 text-xl font-bold text-gray-900">Plusに課金すべき人のチェック</h3>
+          <ArticleH3>Plusに課金すべき人のチェック</ArticleH3>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {plusUpgradeChecks.map((check) => (
               <li key={check} className="pl-1 marker:text-gray-500">
@@ -404,34 +394,32 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="model-access">
             GPT-5.2（標準）とGPT-5-Codex（コーディング特化）のアクセス制限はここが違う
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             GPT-5.2はChatGPT標準の利用軸です。一方でGPT-5-Codexはコーディング特化モデルとして、Codex app・CLI・IDE連携などの面で提供されます。ポイントは、GPT-5-Codexが有料プラン対象であることです。
           </p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">モデル</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">用途</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">Free</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">Plus/Pro</th>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">モデル</th>
+                <th className="py-4 px-6 font-bold text-gray-900">用途</th>
+                <th className="py-4 px-6 font-bold text-gray-900">Free</th>
+                <th className="py-4 px-6 font-bold text-gray-900">Plus/Pro</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {modelAccessRows.map((row) => (
+                <tr key={row.model} className="hover:bg-gray-50/50 transition-colors">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.model}</th>
+                  <td className="py-4 px-6 text-gray-700">{row.feature}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.free}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.paid}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {modelAccessRows.map((row) => (
-                  <tr key={row.model} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.model}</th>
-                    <td className="px-4 py-4">{row.feature}</td>
-                    <td className="px-4 py-4">{row.free}</td>
-                    <td className="py-4 pl-4">{row.paid}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </RichTable>
           <p className="mt-5 text-sm leading-7 text-gray-700">
             エンジニア用途で比較したい場合は、
             <Link href="/academy/blog/gpt-vs-claude-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -463,32 +451,30 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">実務別おすすめプラン（副業・学習・エンジニア・ビジネス）</h2>
+          <ArticleH2 id="usecase-recommendation">実務別おすすめプラン（副業・学習・エンジニア・ビジネス）</ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             迷ったときは、まず「1週間で何時間使うか」を先に決めると選びやすくなります。利用時間が短いのに高額プランへ進むと、費用対効果が出にくくなります。
           </p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">利用タイプ</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">主な作業</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">推奨</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">判断理由</th>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">利用タイプ</th>
+                <th className="py-4 px-6 font-bold text-gray-900">主な作業</th>
+                <th className="py-4 px-6 font-bold text-gray-900">推奨</th>
+                <th className="py-4 px-6 font-bold text-gray-900">判断理由</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {usecaseRows.map((row) => (
+                <tr key={row.user} className="hover:bg-gray-50/50 transition-colors">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.user}</th>
+                  <td className="py-4 px-6 text-gray-700">{row.tasks}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.plan}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.reason}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {usecaseRows.map((row) => (
-                  <tr key={row.user} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.user}</th>
-                    <td className="px-4 py-4">{row.tasks}</td>
-                    <td className="px-4 py-4">{row.plan}</td>
-                    <td className="py-4 pl-4">{row.reason}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </RichTable>
           <p className="mt-5 text-sm leading-7 text-gray-700">
             学習段階の人は、
             <Link href="/academy/blog/how-to-learn-generative-ai" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -507,36 +493,35 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">プラン変更・解約の方法（Web/iOS/Android）</h2>
+          <ArticleH2 id="manage-plan">プラン変更・解約の方法（Web/iOS/Android）</ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             変更・解約は「どこで契約したか」で手順が変わります。Web契約なのにApp Store側で探すと解約できないため、契約経路を先に確認してください。
           </p>
 
-          <h3 className="mt-8 text-xl font-bold text-gray-900">Webで契約した場合</h3>
+          <ArticleH3>Webで契約した場合</ArticleH3>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1">ChatGPT画面右上のプロフィールから設定を開く</li>
             <li className="pl-1">`Subscription` を開き、`Manage` からプラン管理へ進む</li>
             <li className="pl-1">変更または解約を選択する（解約は次回請求24時間前までが安全）</li>
           </ol>
 
-          <h3 className="mt-8 text-xl font-bold text-gray-900">iOSで契約した場合</h3>
+          <ArticleH3>iOSで契約した場合</ArticleH3>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1">iPhoneの `設定` → Apple ID → `サブスクリプション` を開く</li>
             <li className="pl-1">ChatGPTを選び、解約または変更を実行する</li>
             <li className="pl-1">FreeからProへの直接アップグレードはWebのみ対応なので注意する</li>
           </ol>
 
-          <h3 className="mt-8 text-xl font-bold text-gray-900">Androidで契約した場合</h3>
+          <ArticleH3>Androidで契約した場合</ArticleH3>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1">Google Playの定期購入管理を開く</li>
             <li className="pl-1">ChatGPTサブスクリプションを選択して解約する</li>
             <li className="pl-1">同一アカウントでWebとアプリの二重契約になっていないか確認する</li>
           </ol>
 
-          <p className="mt-6 text-sm leading-7 text-gray-700">
-            日本での支払いは、Web契約ではクレジットカード/デビットカードが公式案内です。iOSはApple課金、AndroidはGoogle課金になるため、請求明細の確認先も分かれます。Apple
-            Payの表示可否はApple ID設定と地域条件に依存するため、購入画面で最終確認してください。
-          </p>
+          <Callout type="tip" title="支払い方法の確認">
+            日本での支払いは、Web契約ではクレジットカード/デビットカードが公式案内です。iOSはApple課金、AndroidはGoogle課金になるため、請求明細の確認先も分かれます。Apple Payの表示可否はApple ID設定と地域条件に依存するため、購入画面で最終確認してください。
+          </Callout>
         </motion.section>
 
         <motion.section
@@ -571,15 +556,8 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
-          <div className="mt-6 space-y-4">
-            {faqItems.map((item) => (
-              <section key={item.question} className="rounded-lg border border-gray-200 bg-white p-5">
-                <h3 className="text-lg font-semibold text-gray-900">Q. {item.question}</h3>
-                <p className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</p>
-              </section>
-            ))}
-          </div>
+          <ArticleH2 id="faq">よくある質問（FAQ）</ArticleH2>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
         <section id="related-links" className="mt-12 rounded-xl border border-gray-200 bg-white p-6">

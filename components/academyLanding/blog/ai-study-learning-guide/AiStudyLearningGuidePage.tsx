@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable } from "@/components/blog/ArticleBody";
 
 type FAQItem = {
   question: string;
@@ -222,8 +223,8 @@ const thirtyDayPlan = [
 
 function PromptCard({ title, purpose, prompt }: PromptItem) {
   return (
-    <section className="rounded-lg border border-gray-200 bg-white p-5">
-      <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+    <section className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+      <ArticleH3>{title}</ArticleH3>
       <p className="mt-3 text-sm leading-7 text-gray-700">{purpose}</p>
       <p className="mt-4 text-xs font-semibold tracking-wide text-gray-500">コピペ用プロンプト</p>
       <pre className="mt-2 overflow-x-auto rounded-md bg-slate-900 p-4 text-xs leading-6 text-slate-100">
@@ -332,27 +333,22 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
         <ArticleTOC items={tocItems} />
 
         <motion.section
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          id="conclusion"
+          className="scroll-mt-28 mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            要点まとめ
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">
-              AI学習で成果を出すには、試験対策・語学・業務スキルを別々に管理せず、同じ学習ループで回すことが有効です。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              資格勉強は「問題生成→誤答分析→再出題」、語学学習は「会話練習→フィードバック→再発話」の順で進めると定着しやすくなります。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              30日計画を週次で見直し、進捗に合わせてプロンプトを更新すれば、忙しい社会人でも継続しやすい学習設計を作れます。
-            </li>
-          </ul>
+          <SummaryBox
+            title="要点まとめ"
+            items={[
+              "AI学習で成果を出すには、試験対策・語学・業務スキルを別々に管理せず、同じ学習ループで回すことが有効です。",
+              "資格勉強は「問題生成→誤答分析→再出題」、語学学習は「会話練習→フィードバック→再発話」の順で進めると定着しやすくなります。",
+              "30日計画を週次で見直し、進捗に合わせてプロンプトを更新すれば、忙しい社会人でも継続しやすい学習設計を作れます。",
+            ]}
+          />
         </motion.section>
 
         <motion.section
@@ -363,17 +359,15 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="why-ai-study-works" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            独学で続かない理由とAIで変わる点
-          </h2>
+          <ArticleH2 id="why-ai-study-works">独学で続かない理由とAIで変わる点</ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             独学の失速は、意志の強さより設計不足で起きることが多いです。AIを活用すると、計画・実行・振り返りを短い単位で回せるため、学習の停滞を減らせます。
             特に社会人は、毎日まとまった時間を確保しにくいため、1回30分の学習パッケージ化が効果的です。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {painPoints.map((item) => (
-              <section key={item.title} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+              <section key={item.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.title}</ArticleH3>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{item.solution}</p>
               </section>
             ))}
@@ -397,9 +391,7 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="ai-for-certification" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            資格勉強でのAI活用は「問題集生成」と「弱点分析」の自動化が効果的
-          </h2>
+          <ArticleH2 id="ai-for-certification">資格勉強でのAI活用は「問題集生成」と「弱点分析」の自動化が効果的</ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             資格学習では、教材を読む時間より「解く→直す→再挑戦」の反復回数が合格率に直結します。AIでミニ問題集を作り、誤答分析まで一体で回すと、
             勉強時間が限られる社会人でも改善速度を上げられます。
@@ -427,9 +419,7 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="ai-for-language" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            語学学習でのAI活用は「会話回数」と「発音フィードバック」を増やす設計が有効
-          </h2>
+          <ArticleH2 id="ai-for-language">語学学習でのAI活用は「会話回数」と「発音フィードバック」を増やす設計が有効</ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             語学はインプットだけでは伸びにくく、発話回数を増やす仕組みが必要です。AIを会話コーチとして使うと、1日10分でも実践量を確保できます。
             特に「その場で言い換えを提案してもらう」運用は、表現の幅を広げるのに有効です。
@@ -449,9 +439,7 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="ai-for-skill-up" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            スキルアップ学習でのAI活用は「計画作成」と「週次レビュー」の固定化が重要
-          </h2>
+          <ArticleH2 id="ai-for-skill-up">スキルアップ学習でのAI活用は「計画作成」と「週次レビュー」の固定化が重要</ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             スキルアップ学習では、教材選びよりも継続できる学習サイクルを作ることが成果につながります。AIに学習コーチの役割を持たせると、
             目標分解、進捗レビュー、計画修正を短時間で回せます。学習ログをそのまま渡して分析させると、自己評価の偏りを抑えやすくなります。
@@ -471,26 +459,24 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="thirty-day-plan" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            30日学習プランテンプレは「週単位の目標」と「日次タスク」のセットで作ると回りやすい
-          </h2>
+          <ArticleH2 id="thirty-day-plan">30日学習プランテンプレは「週単位の目標」と「日次タスク」のセットで作ると回りやすい</ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             30日計画は、1週間ごとのテーマと毎日の最小行動を先に固定するのが実務的です。以下のひな形をそのまま使い、資格・語学・スキルアップの配分を調整してください。
           </p>
-          <div className="mt-6 overflow-x-auto">
+          <RichTable className="mt-6">
             <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">週</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">重点テーマ</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">実行タスク</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">成果物</th>
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="py-3 pr-4 bg-gray-50/30 whitespace-nowrap font-semibold text-gray-900">週</th>
+                  <th className="py-3 px-4 bg-gray-50/30 whitespace-nowrap font-semibold text-gray-900">重点テーマ</th>
+                  <th className="py-3 px-4 bg-gray-50/30 whitespace-nowrap font-semibold text-gray-900">実行タスク</th>
+                  <th className="py-3 pl-4 bg-gray-50/30 whitespace-nowrap font-semibold text-gray-900">成果物</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="divide-y divide-gray-100">
                 {thirtyDayPlan.map((row) => (
-                  <tr key={row.week} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.week}</th>
+                  <tr key={row.week} className="hover:bg-gray-50/50 transition-colors align-top">
+                    <th className="py-4 pr-4 font-semibold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.week}</th>
                     <td className="py-4 px-4">{row.focus}</td>
                     <td className="py-4 px-4">{row.actions}</td>
                     <td className="py-4 pl-4">{row.output}</td>
@@ -498,7 +484,7 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
                 ))}
               </tbody>
             </table>
-          </div>
+          </RichTable>
           <p className="mt-5 text-sm leading-7 text-gray-700">
             LINEでは、毎週の学習改善ヒントに加えて、無料個別相談とAI活用ロードマップの案内をしています。自分に合う学習の進め方を整理したい方は活用してください。
           </p>
@@ -514,9 +500,7 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="academy-support" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            独学を卒業する学習環境は「活用力・自己理解・仲間」の3要素で選ぶと継続しやすい
-          </h2>
+          <ArticleH2 id="academy-support">独学を卒業する学習環境は「活用力・自己理解・仲間」の3要素で選ぶと継続しやすい</ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             学習環境を選ぶ際は、単にツール操作を教える場かどうかではなく、実務に使える形で定着する設計になっているかを確認してください。
             <Link href="/academy" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
@@ -548,20 +532,11 @@ export default function AiStudyLearningGuidePage({ faqItems }: AiStudyLearningGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            よくある質問（FAQ）
-          </h2>
+          <ArticleH2 id="faq">よくある質問（FAQ）</ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             導入前に迷いやすいポイントを先に確認すると、学習計画の停滞を減らせます。現場で相談が多い論点を簡潔にまとめました。
           </p>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-            {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">

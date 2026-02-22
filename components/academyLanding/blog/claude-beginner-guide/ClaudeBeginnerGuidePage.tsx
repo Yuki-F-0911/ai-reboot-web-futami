@@ -6,6 +6,7 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable, Callout } from "@/components/blog/ArticleBody";
 
 type FAQItem = {
   question: string;
@@ -235,12 +236,9 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             Claudeの使い方入門｜登録から最初のチャットまで初心者向け解説【2026年版】
           </h1>
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
-            <p className="text-sm font-semibold text-amber-700 mb-1">この記事でわかること</p>
-            <p className="text-gray-700 text-sm leading-relaxed">
-              Claudeの使い方は、最新モデルの位置づけと無料枠の特性を最初に押さえると失敗しにくくなります。この記事では、登録から初回チャットまでの手順、無料プランとProの違い、日本語利用時の注意点、ChatGPTとの使い分け、回答品質を安定させる指示テンプレート、Claude Codeとの対象範囲の違いまでを2026年2月時点の情報で整理し、非エンジニアでも今日から実務で使える状態を目指します。登録直後のつまずき対策も含めて解説します。
-            </p>
-          </div>
+          <Callout type="info" title="この記事でわかること">
+            Claudeの使い方は、最新モデルの位置づけと無料枠の特性を最初に押さえると失敗しにくくなります。この記事では、登録から初回チャットまでの手順、無料プランとProの違い、日本語利用時の注意点、ChatGPTとの使い分け、回答品質を安定させる指示テンプレート、Claude Codeとの対象範囲の違いまでを2026年2月時点の情報で整理し、非エンジニアでも今日から実務で使える状態を目指します。登録直後のつまずき対策も含めて解説します。
+          </Callout>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             Claudeを初めて使う人が迷いやすいのは、「最新モデルはどれか」「無料でどこまでできるか」「どう指示すれば結果が安定するか」の3点です。
@@ -282,21 +280,17 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
 
         <motion.section
           id="conclusion"
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">要点まとめ（確認日: 2026-02-20）</h2>
-          <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            {summaryPoints.map((point) => (
-              <li key={point} className="blog-li pl-1 marker:text-gray-500">
-                {point}
-              </li>
-            ))}
-          </ul>
+          <SummaryBox
+            title="要点まとめ（確認日: 2026-02-20）"
+            items={summaryPoints}
+          />
         </motion.section>
 
         <WebtoonBannerSection />
@@ -310,38 +304,36 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="what-is-claude">
             Claudeとは何か: Anthropic製AIとして、長文整理と実務文章の下書きに強い
-          </h2>
-          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
+          </ArticleH2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             ClaudeはAnthropicが提供する対話型AIです。はじめて使う人は、まず「万能ツール」としてではなく、文章整理と意思決定メモを補助する実務アシスタントとして導入すると成果が出やすくなります。
           </p>
-          <p className="blog-p mt-4 text-sm leading-7 text-gray-700">
+          <p className="mt-4 text-sm leading-7 text-gray-700">
             ChatGPTとの比較は、優劣で決めるより用途で分ける方が現実的です。以下は、初心者が使い分けるときに確認しやすい観点です。
           </p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">比較軸</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">Claude</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">ChatGPT</th>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">比較軸</th>
+                <th className="py-4 px-6 font-bold text-gray-900">Claude</th>
+                <th className="py-4 px-6 font-bold text-gray-900">ChatGPT</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {compareRows.map((row) => (
+                <tr key={row.axis} className="hover:bg-gray-50/50 transition-colors">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.axis}</th>
+                  <td className="py-4 px-6 text-gray-700">{row.claude}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.chatgpt}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {compareRows.map((row) => (
-                  <tr key={row.axis} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.axis}</th>
-                    <td className="px-4 py-4">{row.claude}</td>
-                    <td className="py-4 pl-4">{row.chatgpt}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
+              ))}
+            </tbody>
+          </RichTable>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
             ChatGPTとの基礎比較を先に整理したい場合は、
-            <Link href="/academy/blog/chatgpt-claude-beginners-guide" className="mx-1 blog-link text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            <Link href="/academy/blog/chatgpt-claude-beginners-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               ChatGPT・Claude初心者ガイド
             </Link>
             をあわせて確認すると、導入判断がしやすくなります。
@@ -361,21 +353,21 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="signup-first-chat">
             Claudeの登録方法: 無料アカウント作成から最初のチャット開始まで
-          </h2>
-          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
+          </ArticleH2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             ここでは「画面でどこを押すか」を想定した、スクリーンショット代替の手順で説明します。手順は5ステップだけです。
           </p>
           <div className="mt-6 space-y-4">
             {signupSteps.map((item) => (
-              <section key={item.step} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="blog-h3 text-lg font-semibold text-gray-900">{item.step}</h3>
-                <p className="blog-p mt-3 text-sm leading-7 text-gray-700">{item.detail}</p>
+              <section key={item.step} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.step}</ArticleH3>
+                <p className="mt-3 text-sm leading-7 text-gray-700">{item.detail}</p>
               </section>
             ))}
           </div>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
+          <p className="mt-5 text-sm leading-7 text-gray-700">
             Claudeは対応地域と年齢要件があります。登録前に公式ヘルプの最新条件を確認し、社内利用ならアカウント管理ルールを先に決めておくと運用が安定します。
           </p>
         </motion.section>
@@ -389,24 +381,24 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="strengths">
             Claudeの強み: 長文理解・コード補助・論理整理・日本語運用をまとめて扱える
-          </h2>
-          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
+          </ArticleH2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             「Claude 3.7の使い方」を探している人も多いですが、2026年時点で最新ラインは4.6世代です。入門では旧モデル名の情報より、実務で再現しやすい使い方を先に押さえる方が効果的です。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {strengthCards.map((card) => (
-              <section key={card.title} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="blog-h3 text-base font-semibold text-gray-900">{card.title}</h3>
-                <p className="blog-p mt-3 text-sm leading-7 text-gray-700">{card.body}</p>
-                <p className="blog-p mt-3 text-xs leading-6 text-gray-600">{card.point}</p>
+              <section key={card.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{card.title}</ArticleH3>
+                <p className="mt-3 text-sm leading-7 text-gray-700">{card.body}</p>
+                <p className="mt-3 text-xs leading-6 text-gray-600">{card.point}</p>
               </section>
             ))}
           </div>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
+          <p className="mt-5 text-sm leading-7 text-gray-700">
             より詳細な比較が必要なら、
-            <Link href="/academy/blog/gpt-vs-claude-comparison" className="mx-1 blog-link text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            <Link href="/academy/blog/gpt-vs-claude-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               GPT系とClaudeの比較記事
             </Link>
             を参照してください。用途別の判断がしやすくなります。
@@ -422,41 +414,39 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="plans">
             無料プランとClaude Pro（月額20ドル）の違い: まず無料で型を作り、必要時に課金する
-          </h2>
-          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
+          </ArticleH2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             課金判断は「使い込んでから」が基本です。無料で運用パターンを固め、制限が業務ボトルネックになった段階でProを検討すると、コスト判断の失敗を減らせます。
           </p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[760px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">比較軸</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">無料プラン</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">Claude Pro</th>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">比較軸</th>
+                <th className="py-4 px-6 font-bold text-gray-900">無料プラン</th>
+                <th className="py-4 px-6 font-bold text-gray-900">Claude Pro</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {planRows.map((row) => (
+                <tr key={row.axis} className="hover:bg-gray-50/50 transition-colors">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.axis}</th>
+                  <td className="py-4 px-6 text-gray-700">{row.free}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.pro}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {planRows.map((row) => (
-                  <tr key={row.axis} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.axis}</th>
-                    <td className="px-4 py-4">{row.free}</td>
-                    <td className="py-4 pl-4">{row.pro}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <h3 className="blog-h3 mt-7 text-lg font-semibold text-gray-900">無料利用で誤解しやすいポイント</h3>
-          <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+              ))}
+            </tbody>
+          </RichTable>
+          <ArticleH3>無料利用で誤解しやすいポイント</ArticleH3>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {usageCautions.map((item) => (
-              <li key={item} className="blog-li pl-1 marker:text-gray-500">
+              <li key={item} className="pl-1 marker:text-gray-500">
                 {item}
               </li>
             ))}
           </ul>
-          <p className="blog-p mt-4 text-xs leading-6 text-gray-500">
+          <p className="mt-4 text-xs leading-6 text-gray-500">
             利用制限・料金情報の確認日: 2026-02-20（更新される可能性があります）
           </p>
         </motion.section>
@@ -474,26 +464,26 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="use-cases">
             非エンジニア向け実務活用: 文書作成・要約・分析の3パターンから始める
-          </h2>
-          <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
+          </ArticleH2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             初心者が成果を出しやすいのは、毎週発生する定型業務にClaudeを当てる方法です。以下の3パターンは、今日から試せる実務導線です。
           </p>
           <div className="mt-6 space-y-5">
             {useCases.map((item) => (
-              <section key={item.title} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="blog-h3 text-lg font-semibold text-gray-900">{item.title}</h3>
-                <p className="blog-p mt-3 text-sm leading-7 text-gray-700">{item.point}</p>
+              <section key={item.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.title}</ArticleH3>
+                <p className="mt-3 text-sm leading-7 text-gray-700">{item.point}</p>
                 <pre className="mt-4 overflow-x-auto rounded-lg border border-gray-200 bg-gray-50 p-4 text-xs leading-6 text-gray-700">
 {item.prompt}
                 </pre>
               </section>
             ))}
           </div>
-          <p className="blog-p mt-5 text-sm leading-7 text-gray-700">
+          <p className="mt-5 text-sm leading-7 text-gray-700">
             プロンプトの型を増やしたい場合は、
-            <Link href="/academy/blog/prompt-template-for-work" className="mx-1 blog-link text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            <Link href="/academy/blog/prompt-template-for-work" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               仕事で使えるプロンプトテンプレート集
             </Link>
             を併用すると、再利用しやすい運用に移行できます。
@@ -509,15 +499,8 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">よくある質問（FAQ）</h2>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-            {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          <ArticleH2 id="faq">よくある質問（FAQ）</ArticleH2>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
         <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={sectionReveal}>
@@ -579,14 +562,14 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
 
         <section className="mt-14 rounded-2xl border border-will-primary/20 bg-will-lighter p-8">
           <p className="text-sm font-semibold tracking-[0.08em] text-will-primary">AIリブートアカデミー</p>
-          <h2 className="blog-h2 mt-3 text-2xl font-bold text-gray-900">AI活用の判断軸とキャリアを同時に設計する</h2>
-          <p className="blog-p mt-4 text-sm leading-7 text-gray-700">
+          <ArticleH2 id="academy-cta">AI活用の判断軸とキャリアを同時に設計する</ArticleH2>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
             AIリブートアカデミーは、特定ツールの操作習得を目的にした講座ではありません。生成AIを実務で使う力を伸ばしながら、自己理解とキャリア設計を深め、仲間と継続的に学ぶ環境を一体で設計します。
           </p>
-          <ul className="blog-ul mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="blog-li pl-1 marker:text-will-primary">生成AI活用力: 実務で使える型を身につける</li>
-            <li className="blog-li pl-1 marker:text-will-primary">自己理解・キャリアデザイン: 強みと価値観を言語化し、次の選択を明確にする</li>
-            <li className="blog-li pl-1 marker:text-will-primary">仲間と共に学ぶ環境: 対話と協働で実践の継続率を高める</li>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-will-primary">生成AI活用力: 実務で使える型を身につける</li>
+            <li className="pl-1 marker:text-will-primary">自己理解・キャリアデザイン: 強みと価値観を言語化し、次の選択を明確にする</li>
+            <li className="pl-1 marker:text-will-primary">仲間と共に学ぶ環境: 対話と協働で実践の継続率を高める</li>
           </ul>
           <div className="mt-6">
             <Link

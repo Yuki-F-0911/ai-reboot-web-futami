@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable } from "@/components/blog/ArticleBody";
 
 type FAQItem = {
   question: string;
@@ -506,28 +507,22 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
         <ArticleTOC items={tocItems} />
 
         <motion.section
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          id="conclusion"
+          className="scroll-mt-28 mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            要点まとめ
-          </h2>
-          <p className="mt-5 text-sm leading-7 text-gray-700">先に全体像を押さえ、次のセクションで業務別テンプレへ落とし込むと導入が速くなります。</p>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">
-              使いこなしの差は「質問力」より「運用設計」で生まれます。目的・前提・制約・出力形式を固定すると再現性が上がります。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              業務別にテンプレを持つと、毎回の入力時間とレビュー時間の両方を短縮できます。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              2026年2月20日時点では、ChatGPTの通常UI利用とAPI利用は別運用です。用途ごとに選び分ける必要があります。
-            </li>
-          </ul>
+          <SummaryBox
+            title="要点まとめ"
+            items={[
+              "使いこなしの差は「質問力」より「運用設計」で生まれます。目的・前提・制約・出力形式を固定すると再現性が上がります。",
+              "業務別にテンプレを持つと、毎回の入力時間とレビュー時間の両方を短縮できます。",
+              "2026年2月20日時点では、ChatGPTの通常UI利用とAPI利用は別運用です。用途ごとに選び分ける必要があります。",
+            ]}
+          />
         </motion.section>
 
         <LineCtaBox />
@@ -540,27 +535,25 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="setup" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            入門の次にやるべき運用設計
-          </h2>
+          <ArticleH2 id="setup">入門の次にやるべき運用設計</ArticleH2>
           <p className="mt-5 text-base font-medium text-gray-900">
             入門段階を抜けるには、単発利用から「型の運用」へ切り替えるのが最短です。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
-            <section className="rounded-lg border border-gray-200 p-5">
-              <h3 className="text-lg font-semibold text-gray-900">1. 頻出業務を3つ決める</h3>
+            <section className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+              <ArticleH3>1. 頻出業務を3つ決める</ArticleH3>
               <p className="mt-3 text-sm leading-7 text-gray-700">
                 まずはメール、会議要約、報告文など、毎週必ず発生する業務を対象にします。
               </p>
             </section>
-            <section className="rounded-lg border border-gray-200 p-5">
-              <h3 className="text-lg font-semibold text-gray-900">2. プロンプトをテンプレ化する</h3>
+            <section className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+              <ArticleH3>2. プロンプトをテンプレ化する</ArticleH3>
               <p className="mt-3 text-sm leading-7 text-gray-700">
                 目的・前提・制約・出力形式を固定し、案件情報だけ差し替える運用にします。
               </p>
             </section>
-            <section className="rounded-lg border border-gray-200 p-5">
-              <h3 className="text-lg font-semibold text-gray-900">3. 検証ルールを先に決める</h3>
+            <section className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+              <ArticleH3>3. 検証ルールを先に決める</ArticleH3>
               <p className="mt-3 text-sm leading-7 text-gray-700">
                 事実確認、社内ルール適合、最終判断者を明確にすると、安全に継続利用できます。
               </p>
@@ -588,16 +581,14 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
             variants={sectionReveal}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <h2 id={category.id} className="scroll-mt-28 text-2xl font-bold text-gray-900">
-              {category.title}
-            </h2>
+            <ArticleH2 id={category.id}>{category.title}</ArticleH2>
             <p className="mt-5 text-base font-medium text-gray-900">{category.conclusion}</p>
             <div className="mt-6 space-y-4">
               {category.tips.map((tip, tipIndex) => (
-                <section key={tip.title} className="rounded-lg border border-gray-200 p-5">
-                  <h3 className="text-lg font-semibold text-gray-900">
+                <section key={tip.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                  <ArticleH3>
                     Tip {String(categoryIndex * 10 + tipIndex + 1).padStart(2, "0")}：{tip.title}
-                  </h3>
+                  </ArticleH3>
                   <p className="mt-3 text-sm leading-7 text-gray-700">{tip.description}</p>
                   <p className="mt-4 text-xs font-semibold tracking-wide text-gray-500">コピペ用プロンプト</p>
                   <pre className="mt-2 overflow-x-auto rounded-md bg-slate-900 p-4 text-xs leading-6 text-slate-100">
@@ -618,9 +609,7 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="gpt5-chatgpt-api" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            OpenAIモデルとChatGPTの使い分け、APIとの違い（2026年2月時点）
-          </h2>
+          <ArticleH2 id="gpt5-chatgpt-api">OpenAIモデルとChatGPTの使い分け、APIとの違い（2026年2月時点）</ArticleH2>
           <p className="mt-5 text-base font-medium text-gray-900">
             「ChatGPTを使う」と「OpenAI APIを業務実装する」は同じではなく、運用責任と課金体系が異なります。
           </p>
@@ -628,44 +617,44 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
             OpenAIのリリースノートやヘルプ情報でも、ChatGPTで選べるモデルや上限は更新されます。過去の入門情報だけで判断すると現在の仕様とずれることがあるため、
             導入時は確認日付きで運用してください。
           </p>
-          <div className="mt-6 overflow-x-auto">
+          <RichTable className="mt-6">
             <table className="w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">比較軸</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">ChatGPT（アプリ利用）</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">API（OpenAIモデルをコード利用）</th>
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="py-3 pr-4 bg-gray-50/30 whitespace-nowrap font-semibold text-gray-900">比較軸</th>
+                  <th className="py-3 px-4 bg-gray-50/30 whitespace-nowrap font-semibold text-gray-900">ChatGPT（アプリ利用）</th>
+                  <th className="py-3 pl-4 bg-gray-50/30 whitespace-nowrap font-semibold text-gray-900">API（OpenAIモデルをコード利用）</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr className="border-b border-gray-200 align-top">
-                  <th className="py-4 pr-4 font-semibold text-gray-900">主用途</th>
+              <tbody className="divide-y divide-gray-100">
+                <tr className="hover:bg-gray-50/50 transition-colors align-top">
+                  <th className="py-4 pr-4 font-semibold text-gray-900 bg-gray-50/30 whitespace-nowrap">主用途</th>
                   <td className="py-4 px-4">個人やチームの対話、下書き、軽い分析</td>
                   <td className="py-4 pl-4">業務システム連携、自動化、独自ワークフロー実装</td>
                 </tr>
-                <tr className="border-b border-gray-200 align-top">
-                  <th className="py-4 pr-4 font-semibold text-gray-900">導入ハードル</th>
+                <tr className="hover:bg-gray-50/50 transition-colors align-top">
+                  <th className="py-4 pr-4 font-semibold text-gray-900 bg-gray-50/30 whitespace-nowrap">導入ハードル</th>
                   <td className="py-4 px-4">低い（すぐ使える）</td>
                   <td className="py-4 pl-4">中〜高（開発・監視・ログ設計が必要）</td>
                 </tr>
-                <tr className="border-b border-gray-200 align-top">
-                  <th className="py-4 pr-4 font-semibold text-gray-900">課金</th>
+                <tr className="hover:bg-gray-50/50 transition-colors align-top">
+                  <th className="py-4 pr-4 font-semibold text-gray-900 bg-gray-50/30 whitespace-nowrap">課金</th>
                   <td className="py-4 px-4">プラン契約ベース</td>
                   <td className="py-4 pl-4">トークン従量課金（ChatGPT契約とは別）</td>
                 </tr>
-                <tr className="border-b border-gray-200 align-top">
-                  <th className="py-4 pr-4 font-semibold text-gray-900">向いている段階</th>
+                <tr className="hover:bg-gray-50/50 transition-colors align-top">
+                  <th className="py-4 pr-4 font-semibold text-gray-900 bg-gray-50/30 whitespace-nowrap">向いている段階</th>
                   <td className="py-4 px-4">まず成果を出す段階、個人最適</td>
                   <td className="py-4 pl-4">部署標準化、他ツール連携、再現性運用</td>
                 </tr>
-                <tr className="align-top">
-                  <th className="py-4 pr-4 font-semibold text-gray-900">注意点</th>
+                <tr className="hover:bg-gray-50/50 transition-colors align-top">
+                  <th className="py-4 pr-4 font-semibold text-gray-900 bg-gray-50/30 whitespace-nowrap">注意点</th>
                   <td className="py-4 px-4">モデル提供状況は更新される</td>
                   <td className="py-4 pl-4">APIキー管理、コスト監視、障害時の代替設計が必要</td>
                 </tr>
               </tbody>
             </table>
-          </div>
+          </RichTable>
           <p className="mt-6 text-sm leading-7 text-gray-700">
             キャリア活用まで広げる場合は、
             <Link
@@ -686,20 +675,11 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            よくある質問（FAQ）
-          </h2>
+          <ArticleH2 id="faq">よくある質問（FAQ）</ArticleH2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
             ここでは、導入時に判断が分かれやすい運用ルールを先に短く整理します。
           </p>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-            {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
         <LineCtaBox />
@@ -770,9 +750,7 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="next-step" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            次のステップ
-          </h2>
+          <ArticleH2 id="next-step">次のステップ</ArticleH2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             AIリブートアカデミーでは、業務で即使える
             <span className="font-semibold text-gray-900">生成AI活用力</span>

@@ -10,21 +10,21 @@
 }
 
 .markdown-content h2 {
-  @apply text-2xl font-bold text-gray-900 mt-16 mb-8 pl-4 relative scroll-mt-28 sm:text-3xl;
+  @apply text-2xl font-bold text-gray-900 mt-16 mb-8 pl-4 py-3 relative scroll-mt-28 sm:text-3xl bg-gradient-to-r from-will-lighter to-transparent rounded-r-lg flex items-center;
 }
 
 .markdown-content h2::before {
   content: '';
-  @apply absolute left-0 top-1 bottom-1 w-1.5 bg-gradient-to-b from-will-primary to-will-secondary rounded-full opacity-80;
+  @apply absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-will-primary via-will-secondary to-will-tertiary rounded-full;
 }
 
 .markdown-content h3 {
-  @apply text-xl font-bold text-gray-900 mt-10 mb-4 flex items-center gap-2 sm:text-2xl;
+  @apply text-xl font-bold text-gray-900 mt-10 mb-6 flex items-center gap-3 sm:text-2xl border-b border-gray-100 pb-2;
 }
 
 .markdown-content h3::before {
   content: '';
-  @apply h-1.5 w-1.5 rounded-full bg-will-primary shrink-0;
+  @apply h-5 w-1.5 rounded-full bg-will-primary shrink-0 opacity-70;
 }
 
 .markdown-content h4 {
@@ -150,33 +150,78 @@
   @apply border-0 my-12 h-px bg-gradient-to-r from-transparent via-depth-300 to-transparent;
 }
 
-/* テーブルスタイル */
+/* ポイントボックス・装飾ボックス */
+.point-box, .check-box, .caution-box {
+  @apply my-10 p-6 sm:p-8 rounded-2xl border relative overflow-hidden shadow-subtle;
+}
+
+.point-box {
+  @apply border-blue-100 bg-gradient-to-br from-blue-50 to-white;
+}
+.point-box::before {
+  content: 'POINT';
+  @apply absolute top-0 right-0 bg-blue-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg tracking-wider;
+}
+
+.check-box {
+  @apply border-emerald-100 bg-gradient-to-br from-emerald-50 to-white;
+}
+.check-box::before {
+  content: 'CHECK';
+  @apply absolute top-0 right-0 bg-emerald-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg tracking-wider;
+}
+
+.caution-box {
+  @apply border-orange-100 bg-gradient-to-br from-orange-50 to-white;
+}
+.caution-box::before {
+  content: 'CAUTION';
+  @apply absolute top-0 right-0 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg tracking-wider;
+}
+
+.point-box h4, .check-box h4, .caution-box h4 {
+  @apply mt-0 mb-3 text-lg font-bold flex items-center gap-2 border-none pb-0;
+}
+
+.point-box h4 { @apply text-blue-900; }
+.check-box h4 { @apply text-emerald-900; }
+.caution-box h4 { @apply text-orange-900; }
+
+/* テーブルスタイル強化 */
 .markdown-content table {
-  @apply my-10 w-full rounded-xl overflow-hidden shadow-sm border border-gray-100 border-collapse;
+  @apply my-10 w-full rounded-2xl overflow-hidden shadow-soft border border-gray-100 border-collapse bg-white;
 }
 
 .markdown-content thead {
-  @apply bg-gray-50 border-b border-gray-200;
+  @apply bg-gray-900 text-white border-none;
 }
 
 .markdown-content th {
-  @apply px-6 py-4 text-left text-gray-900 font-bold text-sm uppercase tracking-wider;
+  @apply px-6 py-5 text-left text-white font-bold text-sm sm:text-base tracking-wider border-none;
 }
 
 .markdown-content tbody {
-  @apply bg-white divide-y divide-gray-100;
+  @apply divide-y divide-gray-100;
 }
 
 .markdown-content tr {
-  @apply transition-colors;
+  @apply transition-all duration-200;
 }
 
-.markdown-content tbody tr:hover {
+.markdown-content tbody tr:nth-child(even) {
   @apply bg-gray-50/50;
 }
 
+.markdown-content tbody tr:hover {
+  @apply bg-will-lighter/30;
+}
+
 .markdown-content td {
-  @apply px-6 py-4 text-gray-700 text-sm sm:text-base;
+  @apply px-6 py-5 text-gray-700 text-sm sm:text-base leading-relaxed;
+}
+
+.markdown-content td strong {
+  @apply text-will-primary font-bold;
 }
 
 /* 定義リスト */

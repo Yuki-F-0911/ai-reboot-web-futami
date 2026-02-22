@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable } from "@/components/blog/ArticleBody";
 
 type FAQItem = {
   question: string;
@@ -191,27 +192,21 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
         <ArticleTOC items={tocItems} />
 
         <motion.section
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            要点まとめ
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">
-              初心者は、アカウント作成後に用途を1つ決めて、短い質問と追質問で使い方を習得するのが効果的です。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              無料プランで基本運用を試し、必要機能が明確になってから有料プランを比較する流れが一般的です。
-            </li>
-            <li className="pl-1 marker:text-gray-500">
-              ChatGPTとClaudeは同じ質問で比較し、目的に合う出力を選ぶスタンスが実務で使いやすくなります。
-            </li>
-          </ul>
+          <SummaryBox
+            title="要点まとめ"
+            items={[
+              "初心者は、アカウント作成後に用途を1つ決めて、短い質問と追質問で使い方を習得するのが効果的です。",
+              "無料プランで基本運用を試し、必要機能が明確になってから有料プランを比較する流れが一般的です。",
+              "ChatGPTとClaudeは同じ質問で比較し、目的に合う出力を選ぶスタンスが実務で使いやすくなります。",
+            ]}
+          />
         </motion.section>
 
         <motion.section
@@ -222,16 +217,16 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="getting-started-flow" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="getting-started-flow">
             アカウント作成から最初の質問までの手順（ChatGPT / Claude共通）
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             最初は「アカウント作成 → 1つの用途で試す → 同じ質問で比較」の順に進めると、最短で使い分けの感覚が掴めます。
           </p>
           <div className="mt-6 space-y-4">
             {gettingStartedFlow.map((item) => (
-              <section key={item.step} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{item.step}</h3>
+              <section key={item.step} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.step}</ArticleH3>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{item.body}</p>
               </section>
             ))}
@@ -246,33 +241,31 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="free-vs-paid" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="free-vs-paid">
             無料プランでできること・有料プランとの違い
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             最初から有料を前提にせず、無料範囲で利用目的を固めるのが堅実です。用途と利用頻度が明確になった段階で、各プランを比較して選びましょう。
             例として、ChatGPT（Plus/Pro、地域によってはGoなど）やClaude（Pro/Maxなど）のように、個人向けにも複数の有料プランが用意されることがあります（2026年2月時点、名称/料金/提供内容は更新されます）。
           </p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[840px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">比較軸</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">無料プラン</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">有料プラン</th>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">比較軸</th>
+                <th className="py-4 px-6 font-bold text-gray-900">無料プラン</th>
+                <th className="py-4 px-6 font-bold text-gray-900">有料プラン</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {planComparison.map((row) => (
+                <tr key={row.axis} className="hover:bg-gray-50/50 transition-colors">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.axis}</th>
+                  <td className="py-4 px-6 text-gray-700">{row.freePlan}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.paidPlan}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {planComparison.map((row) => (
-                  <tr key={row.axis} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.axis}</th>
-                    <td className="py-4 px-4">{row.freePlan}</td>
-                    <td className="py-4 pl-4">{row.paidPlan}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </RichTable>
         </motion.section>
 
         <motion.section
@@ -283,16 +276,16 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="first-week-usage" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="first-week-usage">
             最初の1週間で試すべき7つの使い方
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             1週間で幅広く試しておくと、自分の業務に合う活用パターンが見つけやすくなります。以下の7つは初心者でも着手しやすい基本用途です。
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {firstWeekUseCases.map((item) => (
-              <section key={item.title} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-base font-semibold text-gray-900">{item.title}</h3>
+              <section key={item.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.title}</ArticleH3>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{item.detail}</p>
               </section>
             ))}
@@ -307,16 +300,16 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="beginner-mistakes" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="beginner-mistakes">
             よくある初心者の失敗と対策
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             失敗の多くは「曖昧な質問」と「1回で終わらせようとする運用」から起きます。型（目的・前提・出力形式）と追質問を前提にすると、安定して成果が出ます。
           </p>
           <div className="mt-6 space-y-4">
             {beginnerMistakes.map((item) => (
-              <section key={item.mistake} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{item.mistake}</h3>
+              <section key={item.mistake} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.mistake}</ArticleH3>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{item.countermeasure}</p>
               </section>
             ))}
@@ -331,17 +324,8 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            よくある質問（FAQ）
-          </h2>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-            {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          <ArticleH2 id="faq">よくある質問（FAQ）</ArticleH2>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
@@ -398,9 +382,9 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="free-seminar-consultation">
             無料セミナー / 個別相談
-          </h2>
+          </ArticleH2>
           <p className="mt-4 text-base leading-8 text-gray-700">
             ChatGPTとClaudeのどちらを中心に使うべきか迷う場合は、無料セミナーで基本方針を整理し、個別相談で業務内容に合った導入順序を確認する方法が実践的です。
           </p>
@@ -421,23 +405,23 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             </a>
           </div>
         </motion.section>
-      
+
         <motion.section
-          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            まとめ
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">初心者は、アカウント作成後に用途を1つ決めて、短い質問と追質問で使い方を習得するのが効果的です。</li>
-            <li className="pl-1 marker:text-gray-500">無料プランで基本運用を試し、必要機能が明確になってから有料プランを比較する流れが一般的です。</li>
-            <li className="pl-1 marker:text-gray-500">ChatGPTとClaudeは同じ質問で比較し、目的に合う出力を選ぶスタンスが実務で使いやすくなります。</li>
-          </ul>
+          <SummaryBox
+            title="まとめ"
+            items={[
+              "初心者は、アカウント作成後に用途を1つ決めて、短い質問と追質問で使い方を習得するのが効果的です。",
+              "無料プランで基本運用を試し、必要機能が明確になってから有料プランを比較する流れが一般的です。",
+              "ChatGPTとClaudeは同じ質問で比較し、目的に合う出力を選ぶスタンスが実務で使いやすくなります。",
+            ]}
+          />
         </motion.section>
 
         <motion.section
@@ -448,9 +432,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            次のアクション
-          </h2>
+          <ArticleH2 id="cta">次のアクション</ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
           </p>

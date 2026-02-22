@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable, Callout } from "@/components/blog/ArticleBody";
 
 type FAQItem = {
   question: string;
@@ -179,23 +180,14 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
         <ArticleTOC items={tocItems} />
 
         <motion.section
-          className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
+          className="mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="conclusion" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            要点まとめ
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            {conclusionPoints.map((point) => (
-              <li key={point} className="pl-1 marker:text-gray-500">
-                {point}
-              </li>
-            ))}
-          </ul>
+          <SummaryBox title="要点まとめ（AIO向け：結論先出し）" items={conclusionPoints} />
         </motion.section>
 
         <motion.section
@@ -206,13 +198,13 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="what-is-gemini" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="what-is-gemini">
             Geminiとは？（Google AI概要）
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             Geminiは、文章生成や要約などを自然文で依頼できるGoogleの生成AIの一つです。Googleアカウントで試しやすく、Googleのサービスを使う人ほど運用に組み込みやすい傾向があります。
           </p>
-          <h3 className="mt-7 text-xl font-semibold text-gray-900">初心者が押さえるポイント</h3>
+          <ArticleH3>初心者が押さえるポイント</ArticleH3>
           <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             {geminiDefinitionPoints.map((point) => (
               <li key={point} className="pl-1 marker:text-gray-500">
@@ -230,45 +222,42 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="gemini-vs-chatgpt-claude" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="gemini-vs-chatgpt-claude">
             Gemini vs ChatGPT vs Claude（比較表）
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             どれが正解というより「あなたの業務タスク」と「利用環境」に合うかで選ぶのが正解です。まずは同じ依頼文で出力を比較すると判断が早くなります。
           </p>
           <p className="mt-4 text-sm leading-7 text-gray-700">比較情報の更新日: 2026年2月17日（提供条件は変動します）</p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
-              <thead>
-                <tr className="border-b border-gray-300">
-                  <th className="py-3 pr-4 font-semibold text-gray-900">サービス</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">無料プラン</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">得意領域</th>
-                  <th className="py-3 px-4 font-semibold text-gray-900">注意点</th>
-                  <th className="py-3 pl-4 font-semibold text-gray-900">向いている人</th>
+          <RichTable className="mt-6">
+            <thead className="bg-gray-50">
+              <tr className="border-b border-gray-200">
+                <th className="py-4 px-6 font-bold text-gray-900">サービス</th>
+                <th className="py-4 px-6 font-bold text-gray-900">無料プラン</th>
+                <th className="py-4 px-6 font-bold text-gray-900">得意領域</th>
+                <th className="py-4 px-6 font-bold text-gray-900">注意点</th>
+                <th className="py-4 px-6 font-bold text-gray-900">向いている人</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {comparisonRows.map((row) => (
+                <tr key={row.service} className="hover:bg-gray-50/50 transition-colors align-top">
+                  <th className="py-4 px-6 font-bold text-gray-900 bg-gray-50/30 whitespace-nowrap">{row.service}</th>
+                  <td className="py-4 px-6 text-gray-700">{row.freePlan}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.strength}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.caution}</td>
+                  <td className="py-4 px-6 text-gray-700">{row.fit}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row) => (
-                  <tr key={row.service} className="border-b border-gray-200 align-top">
-                    <th className="py-4 pr-4 font-semibold text-gray-900">{row.service}</th>
-                    <td className="py-4 px-4">{row.freePlan}</td>
-                    <td className="py-4 px-4">{row.strength}</td>
-                    <td className="py-4 px-4">{row.caution}</td>
-                    <td className="py-4 pl-4">{row.fit}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="mt-7 rounded-lg border border-gray-200 bg-gray-50 p-5">
-            <h3 className="text-lg font-semibold text-gray-900">初心者向けの選び方（迷ったら）</h3>
-            <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-7 text-gray-700">
-              <li className="pl-1 marker:text-gray-500">普段の業務タスクを1つだけ決める（例: 返信文、要約、議事録）。</li>
-              <li className="pl-1 marker:text-gray-500">同じ依頼文を3サービスに投げ、出力と修正しやすさを比べる。</li>
-              <li className="pl-1 marker:text-gray-500">「続けられるほう」を1つ選んで1週間使い、必要に応じて乗り換える。</li>
+              ))}
+            </tbody>
+          </RichTable>
+          <Callout type="tip" title="初心者向けの選び方（迷ったら）">
+            <ol className="list-decimal space-y-1 pl-4">
+              <li>普段の業務タスクを1つだけ決める（例: 返信文、要約、議事録）。</li>
+              <li>同じ依頼文を3サービスに投げ、出力と修正しやすさを比べる。</li>
+              <li>「続けられるほう」を1つ選んで1週間使い、必要に応じて乗り換える。</li>
             </ol>
-          </div>
+          </Callout>
         </motion.section>
 
         <motion.section
@@ -279,22 +268,22 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="getting-started" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="getting-started">
             Geminiの始め方（ステップバイステップ）
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
             初心者は「Googleアカウントで触る → 1タスクで試す → 型を作る → 必要なら上位プラン検討」の順に進めると迷いません。注: 画面構成や提供条件は変更されます。
           </p>
           <div className="mt-6 space-y-4">
             {gettingStartedFlow.map((item) => (
-              <section key={item.step} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{item.step}</h3>
+              <section key={item.step} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.step}</ArticleH3>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{item.body}</p>
               </section>
             ))}
           </div>
-          <h3 className="mt-10 text-xl font-semibold text-gray-900">まずはこのテンプレで質問する</h3>
-          <pre className="mt-4 overflow-x-auto rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm leading-7 text-gray-700">
+          <ArticleH3>まずはこのテンプレで質問する</ArticleH3>
+          <pre className="mt-4 overflow-x-auto rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm leading-7 text-gray-700">
 目的: 何を達成したいか
 前提: 背景・対象者・文脈
 制約: 文字数、トーン、NG事項
@@ -310,16 +299,16 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="work-use-cases" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="work-use-cases">
             業務での活用パターン
-          </h2>
+          </ArticleH2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
             生成AIは「考える時間」を増やすために、前処理（要約・整理・下書き）を肩代わりさせるのが最も効果的です。最初は小さく始め、うまくいった型を横展開します。
           </p>
           <div className="mt-6 space-y-4">
             {workUseCases.map((item) => (
-              <section key={item.title} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+              <section key={item.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-soft transition-shadow">
+                <ArticleH3>{item.title}</ArticleH3>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{item.body}</p>
               </section>
             ))}
@@ -334,182 +323,111 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 id="faq" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+          <ArticleH2 id="faq">
             よくある質問（FAQ）
-          </h2>
-          <dl className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-            {faqItems.map((item) => (
-              <div key={item.question} className="py-5">
-                <dt className="text-base font-semibold leading-7 text-gray-900">Q. {item.question}</dt>
-                <dd className="mt-3 text-sm leading-7 text-gray-700">A. {item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          </ArticleH2>
+          <RichFAQ items={faqItems} />
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">
-          <h2 id="related-links" className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">
+          <h2 id="related-links" className="scroll-mt-28 mb-6 text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
             関連リンク
           </h2>
-          <ul className="space-y-2">
+          <ul className="grid gap-3 sm:grid-cols-2">
             <li>
-              <Link href="/academy/blog/what-is-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】 | AIリブート
+              <Link href="/academy/blog/what-is-generative-ai" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                生成AIとは？初心者向けにわかりやすく解説｜ChatGPT・Claude・Geminiの違いと始め方【2026年版】
               </Link>
             </li>
             <li>
-              <Link
-                href="/academy/blog/chatgpt-claude-beginners-guide"
-                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
-              >
-                ChatGPT・Claude初心者ガイド｜最初の1週間でできること | AIリブート
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/gpt-vs-claude-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                GPT-5.2とClaude 4.6を比較｜性能・得意分野・料金の違いを解説【2026年版】 | AIリブート
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/notebooklm-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                NotebookLMの使い方完全ガイド｜AIで情報整理・学習を効率化する方法 | AIリブート
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/what-is-rag" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                RAGとは？検索拡張生成の仕組みと活用例をわかりやすく解説 | AIリブート
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/ai-agent-build-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AIエージェントの作り方ガイド｜業務で使える設計と導入手順 | AIリブート
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                AIリブートアカデミー TOP
-              </Link>
-            </li>
-          </ul>
-        </section>
-
-        <motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="free-seminar-consultation" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            無料セミナー / 個別相談
-          </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700">
-            Geminiを業務で使うべきか、ChatGPT/Claudeとどう使い分けるべきか迷う場合は、無料セミナーで基本方針を整理し、個別相談で業務内容に合った導入順序を確認する方法が実践的です。
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/academy/seminars"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
-            >
-              無料セミナーに参加する
-            </Link>
-            <a
-              href="https://bexn9pao.autosns.app/line"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
-            >
-              個別相談を申し込む
-            </a>
-          </div>
-        </motion.section>
-      
-        
-        <motion.section
-          className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            まとめ
-          </h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">Geminiは、文章生成や要約などを自然文で依頼できるGoogleの生成AIの一つです。</li>
-            <li className="pl-1 marker:text-gray-500">どれが正解というより「あなたの業務タスク」と「利用環境」に合うかで選ぶのが正解です。</li>
-            <li className="pl-1 marker:text-gray-500">初心者は「Googleアカウントで触る → 1タスクで試す → 型を作る → 必要なら上位プラン検討」の順に進めると迷いません。</li>
-            <li className="pl-1 marker:text-gray-500">生成AIは「考える時間」を増やすために、前処理（要約・整理・下書き）を肩代わりさせるのが最も効果的です。</li>
-          </ul>
-        </motion.section>
-<motion.section
-          className="mt-14 border-t border-gray-300 pt-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
-          variants={sectionReveal}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <h2 id="cta" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            次のアクション
-          </h2>
-          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            AI活用を最短で前に進めたい方へ。無料セミナーやアカデミーの全体像から、次の一歩を選べます。
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/academy/seminars"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
-            >
-              無料セミナーを見る
-            </Link>
-            <Link
-              href="/academy"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900"
-            >
-              アカデミーTOPへ
-            </Link>
-          </div>
-        </motion.section>
-
-        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
-          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連記事</h2>
-          <ul className="space-y-2">
-            <li>
-              <Link href="/academy/blog/google-ai-studio-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                Google AI Studio使い方完全ガイド｜Geminiモデルをすぐ試せるAI開発環境
-              </Link>
-            </li>
-            <li>
-              <Link href="/academy/blog/chatgpt-claude-beginners-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              <Link href="/academy/blog/chatgpt-claude-beginners-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 ChatGPT・Claude初心者ガイド｜最初の1週間でできること
               </Link>
             </li>
             <li>
-              <Link href="/academy/blog/gpt-vs-claude-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                GPT-4とClaude徹底比較｜性能・得意分野・料金の違い
+              <Link href="/academy/blog/gpt-vs-claude-comparison" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                GPT-5.2とClaude 4.6を比較｜性能・得意分野・料金の違いを解説【2026年版】
               </Link>
             </li>
             <li>
-              <Link href="/academy/blog/ai-free-plan-comparison-2026" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                ChatGPT・Claude・Gemini無料プラン比較【2026年2月版】
+              <Link href="/academy/blog/notebooklm-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                NotebookLMの使い方完全ガイド｜AIで情報整理・学習を効率化する方法
               </Link>
             </li>
             <li>
-              <Link href="/academy/blog/chatgpt-plan-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
-                ChatGPT料金プラン比較｜Free・Plus・Proの違い
+              <Link href="/academy/blog/what-is-rag" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                RAGとは？検索拡張生成の仕組みと活用例をわかりやすく解説
               </Link>
             </li>
             <li>
-              <Link href="/academy/blog/claude-beginner-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+              <Link href="/academy/blog/ai-agent-build-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                AIエージェントの作り方ガイド｜業務で使える設計と導入手順
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/google-ai-studio-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                Google AI Studio使い方完全ガイド｜Geminiモデルをすぐ試せるAI開発環境
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/claude-beginner-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 Claude入門ガイド｜始め方・使い方・ChatGPTとの違い
               </Link>
             </li>
           </ul>
         </section>
-</article>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <SummaryBox
+            title="まとめ"
+            items={[
+              "Geminiは、文章生成や要約などを自然文で依頼できるGoogleの生成AIの一つです。",
+              "どれが正解というより「あなたの業務タスク」と「利用環境」に合うかで選ぶのが正解です。",
+              "初心者は「Googleアカウントで触る → 1タスクで試す → 型を作る → 必要なら上位プラン検討」の順に進めると迷いません。",
+              "生成AIは「考える時間」を増やすために、前処理（要約・整理・下書き）を肩代わりさせるのが最も効果的です。",
+            ]}
+          />
+        </motion.section>
+
+        <motion.section
+          id="free-seminar-consultation"
+          className="mt-14 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white shadow-floating"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="text-2xl font-bold">
+            無料セミナー / 個別相談
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-gray-300">
+            Geminiを業務で使うべきか、ChatGPT/Claudeとどう使い分けるべきか迷う場合は、無料セミナーで基本方針を整理し、個別相談で業務内容に合った導入順序を確認する方法が実践的です。
+          </p>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/academy/seminars"
+              className="inline-flex items-center justify-center rounded-xl bg-will-primary px-6 py-3.5 text-sm font-bold text-white transition-all hover:scale-[1.02] hover:bg-will-primary/90 active:scale-[0.98]"
+            >
+              無料セミナーに参加する
+            </Link>
+            <Link
+              href="/academy"
+              className="inline-flex items-center justify-center rounded-xl bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-[0.98]"
+            >
+              アカデミーTOPへ
+            </Link>
+          </div>
+        </motion.section>
+      </article>
     </main>
   );
 }
