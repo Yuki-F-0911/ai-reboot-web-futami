@@ -158,23 +158,17 @@ const strengths = [
 
 const voiceTestimonials = [
   {
-    name: "田中 義男さん",
-    age: "62歳",
-    occupation: "元メーカー勤務・退職後",
+    name: "60代男性（元会社員）",
     quote: "息子に勧められてChatGPTを入れたんですが、最初は全然わかりませんでした。でも「旅行のプランを考えて」と話しかけたら、すごく丁寧に答えてくれて。今では妻との旅行計画はいつもAIに相談しています。先日は確定申告の書類で悩んでいたときも助けてもらいました。",
     started: "趣味の旅行計画がきっかけ。今は日常のあらゆる場面で活用。",
   },
   {
-    name: "佐藤 美恵子さん",
-    age: "57歳",
-    occupation: "パート勤務",
+    name: "50代女性（パート勤務）",
     quote: "パソコンは全然ダメなんですが、スマホの音声入力でChatGPTに話しかけたら、ちゃんと答えが返ってきて感動しました。町内会の回覧板の文面を考えてもらったり、パートの報告書の下書きを手伝ってもらったり。「こんなこともできるの？」って毎回驚いています。",
     started: "職場の若い同僚が使っているのを見て興味を持った。",
   },
   {
-    name: "山本 信二さん",
-    age: "68歳",
-    occupation: "年金生活",
+    name: "60代男性（年金生活）",
     quote: "定年後は時間があるので、趣味の俳句をAIと一緒に楽しんでいます。「この句の季語は合っていますか？」と聞くと、丁寧に解説してくれるんです。あと、孫がプログラミングの宿題で困っていたとき、AIに聞いて一緒に解決したのが嬉しかった。孫から「おじいちゃんすごい！」と言われましたよ。",
     started: "新聞でChatGPTの記事を読んで。俳句の相談がきっかけ。",
   },
@@ -243,6 +237,25 @@ export default function AiBeginnersGuideOver50Page({ faqItems }: Props) {
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/chatgpt-start-guide-smartphone" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTスマホ開始ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-anxiety-overcome-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI不安の乗り越え方ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-voice-mode-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT音声モード活用ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-hallucination-fact-check-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AIのハルシネーション対策ガイド
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         {/* 要点まとめ */}
@@ -559,6 +572,9 @@ export default function AiBeginnersGuideOver50Page({ faqItems }: Props) {
           <p className="mt-5 text-base leading-8 text-gray-700">
             実際にAIを始めた50代60代の方の体験をご紹介します。
           </p>
+          <p className="mt-2 text-sm text-gray-500">
+            ※ 掲載の事例は、AIを活用されている50代60代の方の典型的な利用パターンをもとに構成した代表例です。
+          </p>
           <div className="mt-6 space-y-5">
             {voiceTestimonials.map((person) => (
               <div key={person.name} className="rounded-xl border border-gray-200 bg-white p-6">
@@ -567,7 +583,7 @@ export default function AiBeginnersGuideOver50Page({ faqItems }: Props) {
                     <span className="text-lg">&#128100;</span>
                   </div>
                   <div>
-                    <p className="text-base font-bold text-gray-900">{person.name}（{person.age}・{person.occupation}）</p>
+                    <p className="text-base font-bold text-gray-900">{person.name}</p>
                   </div>
                 </div>
                 <blockquote className="mt-4 border-l-4 border-will-primary/30 pl-4 text-sm leading-8 text-gray-700 italic">
@@ -579,9 +595,6 @@ export default function AiBeginnersGuideOver50Page({ faqItems }: Props) {
               </div>
             ))}
           </div>
-          <p className="mt-4 text-xs text-gray-400">
-            ※ プライバシー保護のため、お名前は仮名を使用しています。
-          </p>
         </motion.section>
 
         {/* FAQ */}
@@ -681,6 +694,21 @@ export default function AiBeginnersGuideOver50Page({ faqItems }: Props) {
             <li>
               <Link href="/academy/blog/ai-hallucination-fact-check-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 ChatGPTが嘘をつく？｜ハルシネーションを見抜く7つの実践テクニック
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/how-to-learn-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                生成AIの学び方【2026年版】社会人向け3ステージ学習ロードマップ
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-for-non-engineers" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                文系・非エンジニア向けAI活用ガイド
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-voice-mode-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT音声モード活用ガイド｜話すだけでAIを使うコツ
               </Link>
             </li>
             <li>
