@@ -21,7 +21,8 @@ type BlogCategory =
   | "資格・スキル"
   | "キャリア・転職"
   | "副業・フリーランス"
-  | "法人向け";
+  | "法人向け"
+  | "AI学習";
 
 type BlogPost = {
   slug: string;
@@ -34,6 +35,33 @@ type BlogPost = {
 };
 
 const blogPosts: readonly BlogPost[] = [
+  {
+    slug: "ai-learning-cost-roi-guide-2026",
+    title: "AI学習にいくらかかる？無料と有料の境界線と、補助金で実質0円になる方法2026",
+    summary:
+      "AI学習の費用相場を徹底比較。無料YouTubeから有料スクールまで、本当のコストと価値を正直に解説。経産省リスキリング補助金を活用すれば最大70%補助。2026年最新の補助金情報と賢い選び方を届けます。",
+    category: "AI学習",
+    publishedAt: "2026-02-23T14:00:00+09:00",
+    tags: ["AI学習 費用", "リスキリング補助金 AI", "AI スクール 値段", "経産省 補助金 AI"],
+  },
+  {
+    slug: "ai-work-with-ai-180days-diary",
+    title: "AIと仕事して180日：失ったもの・得たもの・気づいたことをすべて話します",
+    summary:
+      "生成AIを仕事で使い始めて半年。便利になったこと、失敗したこと、変わった価値観を正直に記録。「AIを導入したら本当に効率が上がるの？」という疑問に、一人の会社員が正直に答えます。",
+    category: "AI活用術",
+    publishedAt: "2026-02-23T13:00:00+09:00",
+    tags: ["AI 仕事 体験談", "生成AI 使い続けた", "ChatGPT 仕事 変化", "AI 半年 効果", "AI 習慣化 仕事"],
+  },
+  {
+    slug: "ai-value-not-felt-honest-guide",
+    title: "AIを試したけど、正直よくわからなかった人へ：本当の価値に気づく3つの転換点",
+    summary:
+      "ChatGPTを触ってみたけど「だからなに？」と感じた経験はありますか？AI学習が続かない本当の理由は「使い方を知らないまま試した」こと。見落としていた3つの転換点と、AIが急に役立つようになる瞬間を正直に解説します。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-23T12:00:00+09:00",
+    tags: ["ChatGPT 使い方 わからない", "AI 価値 感じない", "AI 使いこなせない 初心者", "AI 始め方 2026"],
+  },
   {
     slug: "ai-business-document-templates-2026",
     title: "AIビジネス文書テンプレート完全版2026：議事録・報告書・メール・企画書をAIで10分で完成させる",
@@ -1524,6 +1552,7 @@ const categoryClassName: Record<BlogCategory, string> = {
   "キャリア・転職": "border border-amber-200 bg-amber-50 text-amber-700",
   "副業・フリーランス": "border border-emerald-200 bg-emerald-50 text-emerald-700",
   法人向け: "border border-will-primary/20 bg-will-lighter text-will-primary",
+  "AI学習": "border border-indigo-200 bg-indigo-50 text-indigo-700",
 };
 
 export const metadata: Metadata = {
