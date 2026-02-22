@@ -36,6 +36,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-try-fail-breakthrough-guide",
+    title: "AIを何度試しても続かなかった私が、やっと使いこなせた理由【2026年版】",
+    summary:
+      "何度もAIを試しては挫折した。ChatGPT、Gemini、Claude…「すごい」と聞いて始めるけど、気づけば使わなくなる。そのループを抜け出した実体験と、初心者が続くようになる5つの転換点をお伝えします。",
+    category: "AI学習",
+    publishedAt: "2026-02-23T10:00:00+09:00",
+    tags: ["AI 挫折 続かない 対策", "ChatGPT 使い続けられない", "生成AI 初心者 続け方", "AI学習 モチベーション", "生成AI 習慣化"],
+  },
+  {
     slug: "ai-learning-roadmap-2026",
     title: "AI学習ロードマップ2026：ゼロから100日間で仕事に使えるようになるまでの完全地図",
     summary:
