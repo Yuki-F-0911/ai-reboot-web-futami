@@ -120,7 +120,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -166,6 +166,14 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           <Link href="/academy/blog/ai-free-plan-comparison-2026" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
             生成AI無料プラン比較
           </Link>
+          ・
+          <Link href="/academy/blog/gpt-vs-claude-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            GPTとClaudeの性能比較
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-plan-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT料金プラン比較
+          </Link>
           もあわせて読むと、実務へのつながりが明確になります。
         </p>
         <ArticleTOC items={tocItems} />
@@ -174,7 +182,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -194,7 +202,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -218,7 +226,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -267,7 +275,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -298,7 +306,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -322,7 +330,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -389,7 +397,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -422,7 +430,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -440,7 +448,7 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -472,6 +480,31 @@ export default function GeminiBeginnersguidePage({ faqItems }: GeminiBeginnersgu
             <li>
               <Link href="/academy/blog/google-ai-studio-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 Google AI Studio使い方完全ガイド｜Geminiモデルをすぐ試せるAI開発環境
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-claude-beginners-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT・Claude初心者ガイド｜最初の1週間でできること
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/gpt-vs-claude-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                GPT-4とClaude徹底比較｜性能・得意分野・料金の違い
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-free-plan-comparison-2026" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT・Claude・Gemini無料プラン比較【2026年2月版】
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-plan-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT料金プラン比較｜Free・Plus・Proの違い
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/claude-beginner-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                Claude入門ガイド｜始め方・使い方・ChatGPTとの違い
               </Link>
             </li>
           </ul>

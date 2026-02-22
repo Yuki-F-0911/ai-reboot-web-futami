@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "ChatGPT無料・Plus・Proの違いを比較｜2026年版の料金と選び方 | AIリブート";
 const pageDescription =
-  "ChatGPTの無料プラン・Plus（月額20ドル）・Pro（月額200ドル）を2026年2月時点で比較。料金、上限、GPT-5.2とGPT-5.3-Codexのアクセス差、用途別のおすすめ、変更・解約方法まで初心者向けに整理します。";
+  "ChatGPTのFree・Plus・Team・Proを料金・機能・上限で徹底比較。あなたの利用目的に合う最適プランと、課金すべきタイミングを具体的に解説します。まずは診断ポイントを確認し、無料で試す順番まで明確にしましょう。更新時の見直しポイントも確認できます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/chatgpt-plan-comparison";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-20T10:00:00+09:00";

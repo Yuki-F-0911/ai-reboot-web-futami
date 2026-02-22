@@ -5,7 +5,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 const pageTitle =
   "生成AIとは？初心者向け解説｜ChatGPT・Claude・Gemini比較【2026年版】 | AIリブート";
 const pageDescription =
-  "生成AIとは何かを初心者向けにやさしく解説。ChatGPT/Claude/Geminiの違いと選び方、失敗しないプロンプトの基本、仕事で使う前に決めるルールまで1ページで整理します。";
+  "生成AIとは何かを、仕組み・できること・できないことの順で初心者向けに解説。ChatGPTや画像生成AIの活用例、注意点、学び始める手順までまとめています。基礎を押さえたら、無料ツール体験と安全ルール確認を同時に進めましょう。理解チェックの観点も載せています。";
 const pageUrl = "https://ai-reboot.io/academy/blog/what-is-generative-ai";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-16T09:00:00+09:00";
@@ -41,6 +41,16 @@ const faqItems = [
     question: "次に何を学べば実務活用につながりますか？",
     answer:
       "まず1つのAIチャットを継続利用し、次に業務タスクを1つAI化し、最後に学習ロードマップで範囲を広げる順番が効率的です。詳しい手順は関連ページで確認できます。",
+  },
+  {
+    question: "生成AIは検索エンジンの代わりになりますか？",
+    answer:
+      "完全な代替ではありません。生成AIは要約や下書きに強い一方、最新情報や一次情報の確認は検索エンジンや公式資料が必要です。実務では『AIで叩き台を作り、根拠を検索で検証する』併用が安全です。",
+  },
+  {
+    question: "AIの回答をそのまま提出・公開しても問題ありませんか？",
+    answer:
+      "そのまま使う運用は推奨されません。事実誤認、表現の偏り、著作権リスクを防ぐため、根拠確認と文面調整を必ず行ってください。特に社外公開文書は人の最終編集を通すことで品質と安全性を担保できます。",
   },
 ] as const;
 

@@ -184,7 +184,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -211,6 +211,12 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             生成AIの学び方【2026年版】社会人向け3ステージ学習ロードマップ
           </h1>
+          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
+            <p className="text-sm font-semibold text-amber-700 mb-1">この記事でわかること</p>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              生成AIの学び方は、ツール比較を先にするより「基礎→実務→応用」の順で進めた方が短期間で成果につながります。この記事では、社会人向けに1日30〜45分で回す12週間ロードマップ、独学とスクールの判断軸、無料学習リソースの使い分け、学習ログを成果物に変える振り返り方法、忙しい週でも再開しやすい運用まで具体化し、挫折しにくい実行手順として提示します。今日から着手する最初の30分タスクまで具体化します。
+            </p>
+          </div>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 blog-p text-base leading-8 text-gray-700">
             生成AIを学びたい社会人が最初に詰まるのは、ツール選びではなく学習順序です。動画を見て終わる、プロンプトを試して終わる状態だと、仕事の成果に結び付きません。
@@ -234,6 +240,14 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <Link href="/academy/blog/ai-first-30-days-work-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
             生成AI最初の30日ガイド
           </Link>
+          ・
+          <Link href="/academy/blog/ai-for-non-engineers" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            文系・非エンジニア向けAI活用ガイド
+          </Link>
+          ・まず聞き方を知ろう
+          <Link href="/academy/blog/how-to-ask-ai-beginners" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AIへの聞き方完全入門
+          </Link>
           もあわせて読むと、実務へのつながりが明確になります。
         </p>
         <ArticleTOC items={tocItems} />
@@ -242,7 +256,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           id="conclusion"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -261,7 +275,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -300,7 +314,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -338,7 +352,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -401,7 +415,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -421,7 +435,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -434,7 +448,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           className="mt-20"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -463,6 +477,15 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
             </li>
             <li>
               <Link href="/academy/blog/ai-first-30-days-work-guide" className="text-blue-700 underline hover:text-blue-900">生成AI最初の30日ガイド</Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-start-guide-smartphone" className="text-blue-700 underline hover:text-blue-900">ChatGPTをスマホで始める方法</Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-beginners-guide-over-50" className="text-blue-700 underline hover:text-blue-900">50代からのAI初心者ガイド</Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-anxiety-overcome-guide" className="text-blue-700 underline hover:text-blue-900">AI不安の乗り越え方ガイド</Link>
             </li>
           </ul>
         </section>

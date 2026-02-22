@@ -58,7 +58,7 @@ const trends = [
 
 GPT-5の最大の特徴は「ハイブリッドアーキテクチャ」です。内部に複数の専門モデルを持ち、質問の難易度に応じて最適なモデルが自動で対応します。簡単な質問には軽いモデルが素早く、難しい質問には高性能モデルがじっくり回答する仕組みです。
 
-具体的な改善点として、AIの嘘（ハルシネーション）がGPT-4o比で約45%減少。さらに400,000トークン（日本語で約20万文字分）の長い文脈に対応し、長い資料の要約や分析がより正確になりました。`,
+具体的な改善点として、AIの嘘（ハルシネーション）が旧世代モデル（GPT-4o）比で約45%減少。さらに400,000トークン（日本語で約20万文字分）の長い文脈に対応し、長い資料の要約や分析がより正確になりました。`,
     forBeginners: `ChatGPTの無料プランでもGPT-5が限定的に使えます。以前のバージョンで「回答がいまいちだった」という経験がある方は、改めて試す価値があります。有料のPlusプラン（月額$20、約3,000円）にすると、GPT-5の全機能が制限なく使えます。`,
     actionItem: "chatgpt.com にアクセスして、以前試して微妙だったタスク（長文の要約や複雑な質問）をもう一度試してみましょう。精度の向上を実感できるはずです。",
     sources: [
@@ -159,7 +159,7 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -203,7 +203,7 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -231,7 +231,7 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -254,7 +254,7 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -308,7 +308,7 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -320,7 +320,7 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -357,7 +357,7 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -379,7 +379,7 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -410,7 +410,7 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -422,7 +422,7 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

@@ -213,7 +213,7 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -238,6 +238,12 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             ChatGPTプロンプトの書き方入門｜初心者がすぐ使える15の型とNG/OK例
           </h1>
+          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
+            <p className="text-sm font-semibold text-amber-700 mb-1">この記事でわかること</p>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              ChatGPTプロンプトは、長く書くほど良いわけではなく、目的・前提・制約・出力形式を分けて指示するだけで精度が安定します。この記事では初心者向けに、15の基本型、NGとOKの書き換え例、回答がズレたときの修正順、追質問を使う場面と使わない場面、APIでsystem/developerとuserを分離する実務ルールまでを一気通貫で整理し、明日から再現できる型に落とし込みます。初学者が最短で改善を実感できる順序で学べます。
+            </p>
+          </div>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="blog-p mt-6 text-base leading-8 text-gray-700">
             ChatGPTを使い始めた直後に多い悩みは、「思い通りの答えが返ってこない」ことです。問題はモデル性能だけでなく、質問の設計にあります。
@@ -260,6 +266,26 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           <Link href="/academy/blog/chatgpt-advanced-tips" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
             ChatGPT実践テクニック
           </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-prompt-templates-50" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTプロンプトテンプレート50選
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-voice-mode-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT音声モード活用ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-english-learning-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI英語学習ガイド
+          </Link>
+          ・日常での具体的な活用例は
+          <Link href="/academy/blog/ai-daily-life-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI×日常生活活用術20選
+          </Link>
+          ・プロンプト以前の基本的な聞き方は
+          <Link href="/academy/blog/how-to-ask-ai-beginners" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AIへの聞き方完全入門
+          </Link>
           もあわせて読むと、実務へのつながりが明確になります。
         </p>
         <ArticleTOC items={tocItems} />
@@ -268,7 +294,7 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           id="conclusion"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -291,7 +317,7 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -319,7 +345,7 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -351,7 +377,7 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -392,7 +418,7 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -417,7 +443,7 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -441,7 +467,7 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: true, amount: 0.055 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -470,6 +496,26 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
                 ChatGPT実践テクニック集
               </Link>
             </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-prompt-templates-50" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                ChatGPTプロンプトテンプレート50選
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-voice-mode-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                ChatGPT音声モード活用ガイド
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-english-learning-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                AI英語学習ガイド｜会話練習と添削の進め方
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-hallucination-fact-check-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                AIのハルシネーション対策ガイド
+              </Link>
+            </li>
           </ul>
         </section>
 
@@ -477,7 +523,7 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           className="mt-14 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white shadow-floating"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

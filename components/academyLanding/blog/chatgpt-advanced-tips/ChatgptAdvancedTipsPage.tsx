@@ -396,7 +396,7 @@ function LineCtaBox() {
       className="mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.05 }}
       variants={sectionReveal}
       transition={{ duration: 0.45, ease: "easeOut" }}
     >
@@ -435,7 +435,7 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -493,6 +493,14 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           <Link href="/academy/blog/ai-study-learning-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
             AI勉強法ガイド
           </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-prompt-templates-50" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTプロンプトテンプレート50選
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-voice-mode-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT音声モード活用ガイド
+          </Link>
           もあわせて読むと、実務へのつながりが明確になります。
         </p>
         <ArticleTOC items={tocItems} />
@@ -501,7 +509,7 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -528,7 +536,7 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -576,7 +584,7 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
             className="mt-14"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.05 }}
             variants={sectionReveal}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
@@ -606,7 +614,7 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -674,7 +682,7 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -731,6 +739,26 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
                 AI×転職完全ガイド｜職務経歴書・面接対策・企業研究の実践テクニック
               </Link>
             </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-prompt-templates-50" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPTプロンプトテンプレート50選｜仕事で使える例文集
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-voice-mode-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT音声モード活用ガイド｜話して使う実践フロー
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-english-learning-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI英語学習ガイド｜ChatGPT英会話と継続設計
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-hallucination-fact-check-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIのハルシネーション対策ガイド｜回答検証の実践手順
+              </Link>
+            </li>
           </ul>
         </section>
 
@@ -738,7 +766,7 @@ export default function ChatgptAdvancedTipsPage({ faqItems }: ChatgptAdvancedTip
           className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

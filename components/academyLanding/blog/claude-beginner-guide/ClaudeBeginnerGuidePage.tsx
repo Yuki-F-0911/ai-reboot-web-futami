@@ -213,7 +213,7 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -235,6 +235,12 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             Claudeの使い方入門｜登録から最初のチャットまで初心者向け解説【2026年版】
           </h1>
+          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
+            <p className="text-sm font-semibold text-amber-700 mb-1">この記事でわかること</p>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              Claudeの使い方は、最新モデルの位置づけと無料枠の特性を最初に押さえると失敗しにくくなります。この記事では、登録から初回チャットまでの手順、無料プランとProの違い、日本語利用時の注意点、ChatGPTとの使い分け、回答品質を安定させる指示テンプレート、Claude Codeとの対象範囲の違いまでを2026年2月時点の情報で整理し、非エンジニアでも今日から実務で使える状態を目指します。登録直後のつまずき対策も含めて解説します。
+            </p>
+          </div>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月20日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             Claudeを初めて使う人が迷いやすいのは、「最新モデルはどれか」「無料でどこまでできるか」「どう指示すれば結果が安定するか」の3点です。
@@ -262,6 +268,14 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           <Link href="/academy/blog/ai-for-non-engineers" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
             非エンジニア向けAI活用
           </Link>
+          ・
+          <Link href="/academy/blog/ai-free-plan-comparison-2026" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AI無料プラン比較
+          </Link>
+          ・
+          <Link href="/academy/blog/gpt-vs-claude-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            GPTとClaudeの性能比較
+          </Link>
           もあわせて読むと、実務へのつながりが明確になります。
         </p>
         <ArticleTOC items={tocItems} />
@@ -271,7 +285,7 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -292,7 +306,7 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -334,7 +348,7 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           </p>
         </motion.section>
 
-        <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sectionReveal}>
+        <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={sectionReveal}>
           <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
         </motion.section>
 
@@ -343,7 +357,7 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -371,7 +385,7 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -404,7 +418,7 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -447,7 +461,7 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           </p>
         </motion.section>
 
-        <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sectionReveal}>
+        <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={sectionReveal}>
           <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
         </motion.section>
 
@@ -456,7 +470,7 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -491,7 +505,7 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -506,7 +520,7 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
           </dl>
         </motion.section>
 
-        <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sectionReveal}>
+        <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={sectionReveal}>
           <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
         </motion.section>
 
@@ -538,6 +552,26 @@ export default function ClaudeBeginnerGuidePage({ faqItems }: ClaudeBeginnerGuid
             <li>
               <Link href="/academy/blog/what-is-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 生成AIとは？初心者向けにわかりやすく解説
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-free-plan-comparison-2026" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT・Claude・Gemini無料プラン比較【2026年2月版】
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-plan-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT料金プラン比較｜Free・Plus・Proの違い
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-voice-mode-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT音声モード活用ガイド｜会話で使う実践手順
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-hallucination-fact-check-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIのハルシネーション対策ガイド｜誤情報を見抜くコツ
               </Link>
             </li>
           </ul>

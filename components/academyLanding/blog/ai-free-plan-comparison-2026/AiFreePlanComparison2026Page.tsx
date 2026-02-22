@@ -221,7 +221,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -265,6 +265,10 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
           <Link href="/academy/blog/claude-beginner-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
             Claude入門ガイド
           </Link>
+          ・
+          <Link href="/academy/blog/gpt-vs-claude-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            GPTとClaudeの性能比較
+          </Link>
           もあわせて読むと、実務へのつながりが明確になります。
         </p>
         <ArticleTOC items={tocItems} />
@@ -274,7 +278,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -310,7 +314,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -352,7 +356,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -364,7 +368,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -404,7 +408,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -442,7 +446,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -484,7 +488,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -506,7 +510,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -533,7 +537,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -594,6 +598,30 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 Claude入門ガイド｜始め方・使い方・ChatGPTとの違い
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/chatgpt-plan-comparison"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                ChatGPT料金プラン比較｜Free・Plus・Proの違い
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/chatgpt-prompt-templates-50"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                ChatGPTプロンプトテンプレート50選｜無料プランで試せる実践例
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-hallucination-fact-check-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIのハルシネーション対策ガイド｜無料利用でも必須の検証手順
               </Link>
             </li>
             <li>

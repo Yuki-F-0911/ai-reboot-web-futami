@@ -25,7 +25,7 @@ const sectionReveal = {
 const lineUrl = "https://bexn9pao.autosns.app/line";
 const infoCheckedDate = "2026-02-21";
 
-const keywordTags = ["ChatGPT Claude 比較 2026", "GPT-4o vs Claude 4.6", "o3 / o4-mini 使い分け"] as const;
+const keywordTags = ["ChatGPT Claude 比較 2026", "GPT-5.2 vs Claude 4.6", "o3 使い分け"] as const;
 
 const tocItems = [
   { id: "conclusion", label: "要点まとめ" },
@@ -40,31 +40,31 @@ const tocItems = [
 const modelSpecRows = [
   {
     item: "比較対象",
-    gpt4o: "GPT-4o（ChatGPT / API）",
+    gpt4o: "GPT-5.2（ChatGPT標準）",
     sonnet: "Claude Sonnet 4.6（Claude / API）",
     opus: "Claude Opus 4.6（Claude / API）",
   },
   {
     item: "公開時期",
-    gpt4o: "2024-05-13公開（継続更新）",
+    gpt4o: "2025年12月リリース（2026年2月より標準）",
     sonnet: "2026-02-20公開",
     opus: "2026-02-20公開",
   },
   {
     item: "コンテキストウィンドウ",
-    gpt4o: "128K tokens",
+    gpt4o: "公式サイト参照",
     sonnet: "200K tokens（APIで1Mベータ対応）",
     opus: "200K tokens（APIで1Mベータ対応）",
   },
   {
     item: "最大出力",
-    gpt4o: "16,384 tokens",
+    gpt4o: "公式サイト参照",
     sonnet: "公開上限は利用チャネル依存",
     opus: "最大32K output tokens",
   },
   {
     item: "API単価（代表値）",
-    gpt4o: "input $2.50 / 1M, output $10 / 1M",
+    gpt4o: "公式サイト参照",
     sonnet: "input $3 / 1M, output $15 / 1M",
     opus: "input $5 / 1M, output $25 / 1M",
   },
@@ -73,14 +73,14 @@ const modelSpecRows = [
 const benchmarkRows = [
   {
     metric: "ベンダー公式の位置づけ",
-    gpt4o: "「非推論モデルで最も高性能」",
+    gpt4o: "ChatGPT標準モデル（2026年2月〜）",
     sonnet: "「Opus級の品質を低コストで」",
     opus: "「エージェントコーディングで最高性能」",
     note: "公開主張は各社定義のため、同条件検証が必要",
   },
   {
     metric: "長文コンテキスト運用",
-    gpt4o: "標準128Kで多用途に安定",
+    gpt4o: "公式サイト参照（GPT-4o旧比較：128K）",
     sonnet: "1Mベータで長文処理コストを抑えやすい",
     opus: "1Mベータで複雑な推論タスク向き",
     note: "必要長が200K未満なら体感差が小さい場合もある",
@@ -92,19 +92,19 @@ const useCaseRows = [
     useCase: "文章（下書き/構造化）",
     chatgpt: "見出し構造、箇条書き、JSON/表形式など形式指定の追従が安定しやすい。",
     claude: "Sonnet 4.6は長文推敲、Opus 4.6は論点の深掘りで強みが出やすい。",
-    recommendation: "下書きはGPT-4o、最終推敲はSonnet/Opusで分業すると再現性が高い。",
+    recommendation: "下書きはChatGPT（GPT-5.2）、最終推敲はSonnet/Opusで分業すると再現性が高い。",
   },
   {
     useCase: "コード",
     chatgpt: "実装速度と反復修正の回転が速く、日常開発の母数を稼ぎやすい。",
     claude: "Sonnet 4.6はコスト効率、Opus 4.6は高難度タスクでの精度に強み。",
-    recommendation: "通常実装はGPT-4o、難所のみOpusへ切替える運用が現実的。",
+    recommendation: "通常実装はChatGPT（GPT-5.2）、難所のみOpusへ切替える運用が現実的。",
   },
   {
     useCase: "分析（比較/意思決定）",
     chatgpt: "比較軸の展開や仮説分解を高速に回しやすい。",
     claude: "長文資料の一貫した要約や反対論点の洗い出しで安定しやすい。",
-    recommendation: "比較表はGPT-4o、最終メモはClaudeで整えると意思決定しやすい。",
+    recommendation: "比較表はChatGPT（GPT-5.2）、最終メモはClaudeで整えると意思決定しやすい。",
   },
   {
     useCase: "翻訳",
@@ -116,7 +116,7 @@ const useCaseRows = [
     useCase: "創作（企画/コピー）",
     chatgpt: "発散量を確保しやすく、案数を出しやすい。",
     claude: "Sonnet/Opusともにトーン統一に強く、長文の一体感を作りやすい。",
-    recommendation: "発散はGPT-4o、トーン統一はClaudeで仕上げる。",
+    recommendation: "発散はChatGPT（GPT-5.2）、トーン統一はClaudeで仕上げる。",
   },
 ] as const;
 
@@ -159,7 +159,7 @@ const personalPlanRows = [
 const decisionChartSteps = [
   {
     question: "Q1. コード生成と構造化アウトプットを毎日使うか？",
-    yes: "GPT-4o優先で開始",
+    yes: "ChatGPT（GPT-5.2）優先で開始",
     no: "Q2へ進む",
   },
   {
@@ -170,7 +170,7 @@ const decisionChartSteps = [
   {
     question: "Q3. 高難度推論タスクの比率が高いか？",
     yes: "難問だけo3またはClaude Opus 4.6へ切替える",
-    no: "標準はGPT-4o/Claude Sonnet 4.6の併用で最適化",
+    no: "標準はChatGPT（GPT-5.2）/Claude Sonnet 4.6の併用で最適化",
   },
 ] as const;
 
@@ -221,7 +221,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -238,25 +238,25 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           <div className="mt-6 flex">
             <div className="ml-auto w-full sm:w-auto">
               <CopyAsMarkdownButton
-                title="ChatGPTとClaude比較 2026年版｜GPT-4o vs Claude Sonnet 4.6 / Opus 4.6の選び方"
+                title="ChatGPTとClaude比較 2026年版｜GPT-5.2 vs Claude Sonnet 4.6 / Opus 4.6の選び方"
                 sourceSelector="[data-blog-article-body]"
               />
             </div>
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            ChatGPTとClaude比較 2026年版｜GPT-4o vs Claude Sonnet 4.6 / Opus 4.6の選び方
+            ChatGPTとClaude比較 2026年版｜GPT-5.2 vs Claude Sonnet 4.6 / Opus 4.6の選び方
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月21日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             「結局どっちを使うべきか」が決まらない理由は、モデル名の比較だけで判断しようとするからです。2026年時点では、
-            ChatGPT側はGPT-4oを中心にo3/o4-miniの推論モデルが並び、Claude側はSonnet 4.6とOpus 4.6を使い分ける構成になっています。
+            ChatGPT側はGPT-5.2を中心にo3の推論モデルが並び、Claude側はSonnet 4.6とOpus 4.6を使い分ける構成になっています。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
             本記事では、旧記事
             <Link href="/academy/blog/gpt-vs-claude-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
               GPT-4とClaude比較
             </Link>
-            から比較軸を更新し、GPT-4o vs Claude 4.6系を用途別・料金別で判断できる形に再設計します。
+            から比較軸を更新し、GPT-5.2 vs Claude 4.6系を用途別・料金別で判断できる形に再設計します。
           </p>
         </motion.header>
 
@@ -267,17 +267,17 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">要点まとめ</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">日常業務の主軸はGPT-4o、長文・難問はClaude Sonnet 4.6 / Opus 4.6の分業が実務で安定します。</li>
-            <li className="pl-1 marker:text-gray-500">API単価の代表値はGPT-4oが低く、頻繁実行の工程ほど差が出やすいです。</li>
+            <li className="pl-1 marker:text-gray-500">日常業務の主軸はChatGPT（GPT-5.2）、長文・難問はClaude Sonnet 4.6 / Opus 4.6の分業が実務で安定します。</li>
+            <li className="pl-1 marker:text-gray-500">API単価の詳細は各社公式サイトを参照してください。</li>
             <li className="pl-1 marker:text-gray-500">1Mコンテキストが必要なタスクはClaude 4.6系が優位になりやすいです。</li>
             <li className="pl-1 marker:text-gray-500">
-              高難度推論はo3またはOpus 4.6、反復タスクはo4-miniやGPT-4oへ寄せると費用対効果が出しやすくなります。
+              高難度推論はo3またはOpus 4.6、反復タスクはChatGPT（GPT-5.2）へ寄せると費用対効果が出しやすくなります。
             </li>
           </ul>
           <p className="mt-4 text-xs leading-6 text-gray-500">情報確認日: {infoCheckedDate}</p>
@@ -287,7 +287,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
         <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
-            2026年2月時点での実務最適は、標準運用をGPT-4oで回し、長文や高難度タスクをClaude Sonnet 4.6 / Opus 4.6へ切り替える分業です。さらに推論専用のo3と低コスト推論のo4-miniを工程単位で使い分けると、品質とコストの両立がしやすくなります。
+            2026年2月時点での実務最適は、標準運用をChatGPT（GPT-5.2）で回し、長文や高難度タスクをClaude Sonnet 4.6 / Opus 4.6へ切り替える分業です。さらに推論専用のo3を難問タスク向けに工程単位で使い分けると、品質とコストの両立がしやすくなります。
           </p>
         </section>
 
@@ -298,22 +298,22 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            GPT-4oとClaude Sonnet 4.6 / Opus 4.6の仕様差は、コンテキスト窓と単価で先に見分けると判断しやすい
+            ChatGPT（GPT-5.2）とClaude Sonnet 4.6 / Opus 4.6の仕様差は、コンテキスト窓と単価で先に見分けると判断しやすい
           </h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            乗り換えを検討するときは、体感より先に仕様を確認したほうが失敗が減ります。特にコンテキスト窓、最大出力、API単価は実運用コストに直結します。
+            乗り換えを検討するときは、体感より先に仕様を確認したほうが失敗が減ります。特にコンテキスト窓、最大出力、API単価は実運用コストに直結します。GPT-5.2の詳細スペックはOpenAI公式サイトでご確認ください。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="blog-table w-full min-w-[920px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">比較項目</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">GPT-4o</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">ChatGPT（GPT-5.2）</th>
                   <th className="px-4 py-3 font-semibold text-gray-900">Claude Sonnet 4.6</th>
                   <th className="py-3 pl-4 font-semibold text-gray-900">Claude Opus 4.6</th>
                 </tr>
@@ -344,7 +344,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -354,7 +354,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
               <thead>
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">指標</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">GPT-4o</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">ChatGPT（GPT-5.2）</th>
                   <th className="px-4 py-3 font-semibold text-gray-900">Claude Sonnet 4.6</th>
                   <th className="px-4 py-3 font-semibold text-gray-900">Claude Opus 4.6</th>
                   <th className="py-3 pl-4 font-semibold text-gray-900">読み方</th>
@@ -383,13 +383,13 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">o3・o4-miniは「主役」ではなく工程特化で使う</h2>
           <p className="mt-5 text-base font-medium leading-8 text-gray-900">
-            OpenAIの推論モデルは、GPT-4oを置き換えるより工程ごとに挿すほうが効果が出ます。
+            OpenAIの推論モデルは、ChatGPT（GPT-5.2）を置き換えるより工程ごとに挿すほうが効果が出ます。
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="blog-table w-full min-w-[860px] border-collapse text-left text-sm leading-7 text-gray-700">
@@ -412,7 +412,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
                   <th className="py-4 pr-4 font-semibold text-gray-900">o4-mini</th>
                   <td className="px-4 py-4">反復推論、テスト生成、下書き改善など母数重視の工程</td>
                   <td className="px-4 py-4">input $1.10 / output $4.40</td>
-                  <td className="py-4 pl-4">高速で回数を稼ぐ工程に向く。最終品質はGPT-4o/Claudeで確認する。</td>
+                  <td className="py-4 pl-4">高速で回数を稼ぐ工程に向く。最終品質はChatGPT（GPT-5.2）/Claudeで確認する。</td>
                 </tr>
               </tbody>
             </table>
@@ -425,7 +425,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -440,7 +440,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
               <thead>
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">用途</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">ChatGPT（GPT-4o）</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">ChatGPT（GPT-5.2）</th>
                   <th className="px-4 py-3 font-semibold text-gray-900">Claude Sonnet 4.6 / Opus 4.6</th>
                   <th className="py-3 pl-4 font-semibold text-gray-900">実務での使い分け</th>
                 </tr>
@@ -467,7 +467,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
               <thead>
                 <tr className="border-b border-gray-300">
                   <th className="py-3 pr-4 font-semibold text-gray-900">観点</th>
-                  <th className="px-4 py-3 font-semibold text-gray-900">ChatGPT（GPT-4o）</th>
+                  <th className="px-4 py-3 font-semibold text-gray-900">ChatGPT（GPT-5.2）</th>
                   <th className="py-3 pl-4 font-semibold text-gray-900">Claude Sonnet 4.6 / Opus 4.6</th>
                 </tr>
               </thead>
@@ -491,7 +491,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -503,7 +503,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -547,7 +547,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -559,7 +559,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -607,7 +607,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -621,7 +621,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: true, amount: 0.055 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

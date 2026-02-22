@@ -239,7 +239,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -287,6 +287,18 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           <Link href="/academy/blog/ai-first-30-days-work-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
             生成AI最初の30日ガイド
           </Link>
+          ・
+          <Link href="/academy/blog/what-is-generative-ai" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AIとは？初心者向け解説
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-beginners-guide-over-50" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            50代からのAI初心者ガイド
+          </Link>
+          ・質問するのが不安な方へ
+          <Link href="/academy/blog/how-to-ask-ai-beginners" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AIへの聞き方完全入門
+          </Link>
           もあわせて読むと、実務へのつながりが明確になります。
         </p>
         <ArticleTOC items={tocItems} />
@@ -296,7 +308,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -324,7 +336,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -363,7 +375,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -401,7 +413,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -413,7 +425,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -455,7 +467,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -485,7 +497,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -524,7 +536,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -546,7 +558,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -579,7 +591,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -595,7 +607,7 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -649,6 +661,16 @@ export default function AiAnxietyOvercomeGuidePage({ faqItems }: Props) {
             <li>
               <Link href="/academy/blog/how-to-learn-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 生成AIの学び方【2026年版】社会人向け3ステージ学習ロードマップ
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-beginners-guide-over-50" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                50代からのAI初心者ガイド｜不安を減らす学習順序と実践法
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-hallucination-fact-check-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIのハルシネーション対策ガイド｜誤情報を見抜くファクトチェック手順
               </Link>
             </li>
             <li>

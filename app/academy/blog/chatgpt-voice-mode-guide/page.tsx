@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "ChatGPT音声モード完全ガイド｜スマホで話しかけるだけのAI活用術【2026年版】 | AIリブート";
 const pageDescription =
-  "ChatGPTの音声モードの始め方から便利な活用シーンまで完全解説。通勤中・料理中・運転中・英会話練習・寝る前のブレストなど、ハンズフリーでAIを使いこなす方法を2026年2月最新情報で紹介。無料プランでも利用可能です。";
+  "ChatGPT音声モードの始め方から、通勤・家事・英会話で使える実践例まで解説。無料プランでの使い方、精度を上げる話し方、注意点もまとめました。スマホで今すぐ話しかけて、移動中の情報収集まで習慣化しましょう。設定手順は図解で迷わず進められます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/chatgpt-voice-mode-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-22T17:00:00+09:00";
@@ -14,7 +14,7 @@ const faqItems = [
   {
     question: "ChatGPTの音声モードは無料で使えますか？",
     answer:
-      "はい、無料プランでも音声モードは利用できます。無料プランではGPT-4o miniモデルで動作し、1日の利用時間に制限がありますが、日常的な音声会話には十分です。有料プラン（Plus: 月$20）にすると、GPT-4oモデルでほぼ無制限に使え、ビデオ通話・画面共有機能も利用可能になります。",
+      "はい、無料プランでも音声モードは利用できます。1日の利用時間に制限がありますが、日常的な音声会話には十分です。有料プラン（Plus: 月$20）にすると、GPT-5.2モデルでほぼ無制限に使え、ビデオ通話・画面共有機能も利用可能になります。",
   },
   {
     question: "音声モードは日本語に対応していますか？",

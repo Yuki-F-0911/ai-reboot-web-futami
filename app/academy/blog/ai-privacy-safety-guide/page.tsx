@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "生成AIに個人情報を入れても大丈夫？｜安全に使うための5つのルール【2026年版】 | AIリブート";
 const pageDescription =
-  "ChatGPT・Claude・Geminiに個人情報や会社の情報を入力しても安全？2026年2月時点の各ツールのデータポリシーを正確に比較し、オプトアウト設定の手順を図解。「何が危険で何は安全か」の境界線を5つのルールで明確にします。";
+  "生成AIに個人情報を入れてよいかを、ChatGPT・Claude・Geminiの最新ポリシーで比較。危険な入力と安全な入力の境界、オプトアウト設定手順を具体的に解説します。利用前に5つのルールを確認し、社内利用前の判断基準も整えましょう。図解手順で確認できます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-privacy-safety-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-22T13:00:00+09:00";

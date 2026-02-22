@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "MCP（Model Context Protocol）とは？できることと危険な落とし穴【2026年版】";
 const pageDescription =
-  "MCP（Model Context Protocol）の仕組み、できること、セキュリティリスクをわかりやすく解説。AIエージェントと外部ツールの安全な連携方法、導入時のチェックポイント付き。";
+  "MCP（Model Context Protocol）を初心者向けに解説。仕組み、従来連携との違い、AIエージェント開発で注目される理由を具体例で整理します。全体像をつかんだら、導入チェックポイントと安全運用の要点をまとめて確認しましょう。";
 const pageUrl = "https://ai-reboot.io/academy/blog/what-is-mcp";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-18";

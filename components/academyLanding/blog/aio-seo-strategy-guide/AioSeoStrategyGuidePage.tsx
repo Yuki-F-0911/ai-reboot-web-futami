@@ -171,7 +171,7 @@ function LineCtaBox({ tone }: { tone: "green" | "orange" }) {
       className={boxClass}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.05 }}
       variants={sectionReveal}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
@@ -206,7 +206,7 @@ export default function AioSeoStrategyGuidePage({ faqItems }: AioSeoStrategyGuid
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -249,7 +249,7 @@ export default function AioSeoStrategyGuidePage({ faqItems }: AioSeoStrategyGuid
           className="scroll-mt-28 mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -268,7 +268,7 @@ export default function AioSeoStrategyGuidePage({ faqItems }: AioSeoStrategyGuid
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -326,7 +326,7 @@ export default function AioSeoStrategyGuidePage({ faqItems }: AioSeoStrategyGuid
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -377,7 +377,7 @@ export default function AioSeoStrategyGuidePage({ faqItems }: AioSeoStrategyGuid
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -416,7 +416,7 @@ export default function AioSeoStrategyGuidePage({ faqItems }: AioSeoStrategyGuid
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -448,7 +448,7 @@ export default function AioSeoStrategyGuidePage({ faqItems }: AioSeoStrategyGuid
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -495,7 +495,7 @@ export default function AioSeoStrategyGuidePage({ faqItems }: AioSeoStrategyGuid
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

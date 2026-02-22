@@ -158,7 +158,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -204,6 +204,25 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/chatgpt-prompt-beginner" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTプロンプト入門
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-prompt-templates-50" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTプロンプトテンプレート50選
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-voice-mode-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT音声モード活用ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-anxiety-overcome-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI不安を乗り越える実践ガイド
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         {/* 要点まとめ */}
@@ -211,7 +230,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -245,7 +264,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -297,7 +316,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -335,7 +354,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -384,7 +403,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -434,7 +453,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -476,7 +495,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -488,7 +507,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -546,7 +565,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -597,7 +616,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -664,7 +683,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -715,7 +734,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -737,7 +756,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-gray-200 bg-white p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -772,7 +791,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -811,6 +830,26 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
             <li>
               <Link href="/academy/blog/what-is-generative-ai" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 生成AIとは？初心者にもわかる基礎知識
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-voice-mode-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT音声モード活用ガイド｜音声回答の確認手順も解説
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-prompt-templates-50" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPTプロンプトテンプレート50選｜検証しやすい質問型の作り方
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-english-learning-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI英語学習ガイド｜AI回答を学習に活かすチェック手順
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-beginners-guide-over-50" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                50代からのAI初心者ガイド｜不安を減らす安全な始め方
               </Link>
             </li>
             <li>

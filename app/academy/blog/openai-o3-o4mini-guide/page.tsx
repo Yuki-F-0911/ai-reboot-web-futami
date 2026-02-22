@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "OpenAI o3/o4-mini使い方ガイド｜推論モデルの実務選定と料金判断【2026年版】 | AIリブート";
 const pageDescription =
-  "OpenAI o3/o4-miniの違いを2026年2月20日時点の公開情報で整理。推論モデルを選ぶ理由、GPT-4oやGPT-5系との使い分け、o3 API運用、料金判断軸、実務向け選定チャートまで中級者向けに解説します。";
+  "OpenAI o3/o4-miniの違いを2026年2月20日時点の公開情報で整理。推論モデルを選ぶ理由、GPT-5.2（旧GPT-4o）との使い分け、o3 API運用、料金判断軸、実務向け選定チャートまで中級者向けに解説します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/openai-o3-o4mini-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-20T20:00:00+09:00";

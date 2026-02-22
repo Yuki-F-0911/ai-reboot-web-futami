@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "「AIが怖い・難しい」を乗り越える安心スタートガイド2026｜5つの不安と正直な答え | AIリブート";
 const pageDescription =
-  "AIに興味はあるけど怖い・難しそうと感じている方へ。仕事が奪われる？個人情報は？使いこなせる？——5つの不安にデータと公式情報で正直に答え、最初の3日間でやることを具体的に解説します。";
+  "AIが怖い・難しいと感じる人向けに、よくある不安5つへデータと公式情報で回答。個人情報、仕事への影響、使いこなしの壁をやさしく整理し、最初の3日でやることを提示します。まずは小さな1歩から、家族や職場と安心して始めましょう。不安を言語化する質問例も使えます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-anxiety-overcome-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-21T18:00:00+09:00";

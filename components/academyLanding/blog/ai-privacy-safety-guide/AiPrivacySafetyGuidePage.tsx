@@ -175,7 +175,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -226,7 +226,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -257,7 +257,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -323,7 +323,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -371,7 +371,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -418,7 +418,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -517,7 +517,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -644,7 +644,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -656,7 +656,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -713,7 +713,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -772,7 +772,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -813,7 +813,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -835,7 +835,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-gray-200 bg-white p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -865,7 +865,7 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -894,6 +894,11 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
             <li>
               <Link href="/academy/blog/chatgpt-start-guide-smartphone" className="text-will-primary underline hover:text-will-dark">
                 ChatGPTの始め方——スマホで5分で登録完了する手順
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-cybersecurity-defender-guide" className="text-will-primary underline hover:text-will-dark">
+                AIサイバーセキュリティ実践ガイド（Defender向け）
               </Link>
             </li>
           </ul>

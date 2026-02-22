@@ -229,7 +229,7 @@ const voiceTips = [
 const voiceComparison = [
   {
     name: "ChatGPT",
-    freeVoice: "利用可（GPT-4o mini / 時間制限あり）",
+    freeVoice: "利用可（最新GPT系モデル / 時間制限あり）",
     voices: "9種類",
     languages: "13言語（日本語対応）",
     video: "Plus/Pro のみ",
@@ -274,7 +274,7 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -321,6 +321,25 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/chatgpt-prompt-beginner" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTプロンプト入門
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-prompt-templates-50" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTプロンプトテンプレート50選
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-advanced-tips" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT実践テクニック
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-english-learning-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI英語学習ガイド
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         {/* 要点まとめ */}
@@ -328,7 +347,7 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -359,7 +378,7 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -414,8 +433,8 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
                 <tbody className="divide-y divide-gray-200">
                   <tr>
                     <td className="px-4 py-3 font-medium text-gray-900">音声会話</td>
-                    <td className="px-4 py-3">利用可（GPT-4o mini / 1日の時間制限あり）</td>
-                    <td className="px-4 py-3">ほぼ無制限（GPT-4o）</td>
+                    <td className="px-4 py-3">利用可（最新GPT系モデル / 1日の時間制限あり）</td>
+                    <td className="px-4 py-3">ほぼ無制限（GPT-5.2）</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 font-medium text-gray-900">ビデオ通話・カメラ共有</td>
@@ -455,7 +474,7 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -513,7 +532,7 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
             className="mt-14"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.05 }}
             variants={sectionReveal}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
@@ -552,7 +571,7 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -608,7 +627,7 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -724,7 +743,7 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -800,7 +819,7 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -822,7 +841,7 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-gray-200 bg-white p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -865,7 +884,7 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -922,6 +941,46 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
                 className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
               >
                 Gemini使い方ガイド｜初心者向け完全解説
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/chatgpt-prompt-templates-50"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                ChatGPTプロンプトテンプレート50選｜音声モードでも使える実例集
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/chatgpt-advanced-tips"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                ChatGPT上級テクニック｜仕事の質を上げる使い方
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-english-learning-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AI英語学習ガイド｜音声会話を伸ばす練習設計
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-hallucination-fact-check-guide"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                AIのハルシネーション対策ガイド｜音声回答の確認ポイント
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-beginners-guide-over-50"
+                className="text-orange-600 underline underline-offset-4 hover:text-orange-700"
+              >
+                50代からのAI初心者ガイド｜スマホで続ける活用法
               </Link>
             </li>
             <li>

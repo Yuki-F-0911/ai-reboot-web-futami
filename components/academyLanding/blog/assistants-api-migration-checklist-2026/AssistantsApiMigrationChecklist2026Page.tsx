@@ -207,7 +207,7 @@ export default function AssistantsApiMigrationChecklist2026Page({ faqItems }: As
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -245,7 +245,7 @@ export default function AssistantsApiMigrationChecklist2026Page({ faqItems }: As
           className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -265,7 +265,7 @@ export default function AssistantsApiMigrationChecklist2026Page({ faqItems }: As
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -295,7 +295,7 @@ export default function AssistantsApiMigrationChecklist2026Page({ faqItems }: As
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -320,7 +320,7 @@ export default function AssistantsApiMigrationChecklist2026Page({ faqItems }: As
           </p>
         </motion.section>
 
-        <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sectionReveal}>
+        <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={sectionReveal}>
           <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
         </motion.section>
 
@@ -329,7 +329,7 @@ export default function AssistantsApiMigrationChecklist2026Page({ faqItems }: As
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -364,7 +364,7 @@ export default function AssistantsApiMigrationChecklist2026Page({ faqItems }: As
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -409,7 +409,7 @@ export default function AssistantsApiMigrationChecklist2026Page({ faqItems }: As
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -424,7 +424,7 @@ export default function AssistantsApiMigrationChecklist2026Page({ faqItems }: As
           </dl>
         </motion.section>
 
-        <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sectionReveal}>
+        <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={sectionReveal}>
           <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
         </motion.section>
 

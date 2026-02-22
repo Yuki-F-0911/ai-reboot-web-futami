@@ -140,7 +140,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -186,6 +186,22 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           <Link href="/academy/blog/chatgpt-advanced-tips" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
             ChatGPT実践テクニック
           </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-voice-mode-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT音声モード活用ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/what-is-generative-ai" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AIとは？初心者向け解説
+          </Link>
+          ・日常生活での活用法は
+          <Link href="/academy/blog/ai-daily-life-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI×日常生活活用術20選
+          </Link>
+          ・何を聞けばいいか迷ったら
+          <Link href="/academy/blog/how-to-ask-ai-beginners" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AIへの聞き方完全入門
+          </Link>
           もあわせて読むと、実務へのつながりが明確になります。
         </p>
         <ArticleTOC items={tocItems} />
@@ -193,7 +209,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
         <motion.section
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -211,7 +227,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -237,7 +253,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -261,7 +277,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -285,7 +301,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -309,7 +325,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -346,7 +362,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -370,7 +386,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -382,7 +398,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           className="mt-20"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -435,6 +451,30 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
                 ChatGPT実践テクニック集
               </Link>
             </li>
+            <li>
+              <Link
+                href="/academy/blog/chatgpt-voice-mode-guide"
+                className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all"
+              >
+                ChatGPT音声モードガイド
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-beginners-guide-over-50"
+                className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all"
+              >
+                50代からのAI初心者ガイド
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/academy/blog/ai-hallucination-fact-check-guide"
+                className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all"
+              >
+                AIのハルシネーション対策ガイド
+              </Link>
+            </li>
           </ul>
         </section>
 
@@ -442,7 +482,7 @@ export default function ChatgptStartGuideSmartphonePage({ faqItems }: ChatgptSta
           className="mt-14 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white shadow-floating"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

@@ -1,0 +1,20 @@
+[    3527ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/_next/static/css/app/layout.css?v=1771691931902:0
+[    3552ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/_next/static/chunks/app/layout.js:0
+[    3552ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/_next/static/chunks/main-app.js?v=1771691931902:0
+[    3552ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/_next/static/chunks/app-pages-internals.js:0
+[    3552ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/_next/static/chunks/app/academy/layout.js:0
+[    3585ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fclaude-opus-4-6-guide%2Fslide-01.png&w=1200&q=75:0
+[    3692ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fai-customer-support-guide%2Fslide-01.png&w=1200&q=75:0
+[    3692ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fai-job-hunting-guide%2Fslide-01.png&w=1200&q=75:0
+[    3693ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fai-sales-prompt-templates%2Fslide-01.png&w=1200&q=75:0
+[    3725ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fnew-employee-ai-starter-guide%2Fslide-01.png&w=1200&q=75:0
+[    3725ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fgemini-workspace-guide%2Fslide-01.png&w=1200&q=75:0
+[    3832ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fai-meeting-tools-comparison%2Fslide-01.png&w=1200&q=75:0
+[    3832ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fvibe-coding-beginner-guide%2Fslide-01.png&w=1200&q=75:0
+[    3832ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fai-content-sns-guide%2Fslide-01.png&w=1200&q=75:0
+[    3860ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fworkflow-automation-comparison%2Fslide-01.png&w=1200&q=75:0
+[    3860ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fgoogle-ai-studio-guide%2Fslide-01.png&w=1200&q=75:0
+[    3921ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fgenerative-ai-passport-guide%2Fslide-01.png&w=1200&q=75:0
+[    3938ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fai-video-generation-comparison%2Fslide-01.png&w=1200&q=75:0
+[    3965ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fclaude-code-intro%2Fslide-01.png&w=1200&q=75:0
+[    3966ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://localhost:3000/_next/image?url=%2Fimages%2Fblog%2Fgoogle-ai-studio-app-build-guide%2Fslide-01.png&w=1200&q=75:0

@@ -17,6 +17,7 @@ type BlogCategory =
   | "実務活用"
   | "AIO/マーケ"
   | "最新AIツール"
+  | "ChatGPT"
   | "資格・スキル"
   | "キャリア・転職"
   | "副業・フリーランス"
@@ -33,6 +34,150 @@ type BlogPost = {
 };
 
 const blogPosts: readonly BlogPost[] = [
+  {
+    slug: "ai-hobby-lifestyle-guide",
+    title: "AIで趣味が10倍楽しくなる！料理・旅行・読書・音楽・映画の活用術2026｜初心者でも今日からできる55の使い方",
+    summary:
+      "「AIは仕事専用」という誤解を解消。料理・旅行・読書・音楽・映画・ガーデニング・ペット・スポーツ・DIY・写真など日常の趣味にAIを取り入れる具体的な方法を55例紹介。今日から始められる3ステップ付き。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T11:00:00+09:00",
+    tags: ["AI 趣味", "AI 料理", "AI 旅行", "AI 読書", "AI 音楽", "AI 映画"],
+  },
+  {
+    slug: "chatgpt-custom-instructions-guide",
+    title: "ChatGPTのカスタム指示（Custom Instructions）完全ガイド｜設定するだけで毎回の回答が劇的に変わる方法",
+    summary:
+      "ChatGPTのCustom Instructions（カスタム指示）の設定方法をPC・スマホ別に解説。「自分について」「回答の仕方」2つの項目の書き方と、職業別・用途別15のテンプレートを収録。設定前後の比較・メモリ機能との違いも丁寧に説明します。",
+    category: "ChatGPT",
+    publishedAt: "2026-02-22T11:00:00+09:00",
+    tags: ["ChatGPT カスタム指示", "Custom Instructions", "ChatGPT パーソナライズ", "ChatGPT 設定"],
+  },
+  {
+    slug: "chatgpt-custom-gpts-guide",
+    title: "ChatGPTのGPTs（カスタムGPT）完全入門2026｜無料で使える便利GPT15選と自分専用GPTの作り方",
+    summary:
+      "GPTsとは何か・GPT Storeの場所・今すぐ使えるおすすめGPT15選（英語学習・料理・プログラミング・文章作成・デザインなどカテゴリ別）・自分専用GPTの作り方をステップバイステップで解説。ChatGPT Plusの隠れた最強機能を使いこなす完全入門ガイド。",
+    category: "ChatGPT",
+    publishedAt: "2026-02-22T09:00:00+09:00",
+    tags: ["GPTs 使い方", "カスタムGPT 作り方", "GPT Store", "ChatGPT GPTs 初心者", "おすすめ GPT"],
+  },
+  {
+    slug: "chatgpt-memory-feature-guide",
+    title: "ChatGPTのメモリ機能とは？設定方法から活用術まで、会話を記憶するAIの使い方完全ガイド",
+    summary:
+      "毎回「私は〇〇の仕事をしていて…」と説明するのが面倒な人へ。ChatGPTのメモリ機能の仕組み・設定手順（スマホ/PC別）・覚えさせると便利なこと15選・確認&削除方法・Custom Instructionsとの違い・プライバシーの注意点まで徹底解説。",
+    category: "ChatGPT",
+    publishedAt: "2026-02-22T09:00:00+09:00",
+    tags: ["ChatGPT メモリ機能", "ChatGPT 記憶", "ChatGPT Memory 設定", "ChatGPT 覚えさせる", "カスタム指示"],
+  },
+  {
+    slug: "ai-overview-map-2026",
+    title: "2026年春のAI全体マップ｜初心者がまず知っておくべきツール・できること・始め方",
+    summary:
+      "ChatGPT・Claude・Gemini・Grok 3...AIツールが多すぎて迷っていませんか？2026年春時点の生成AI全体像を「地図」のように整理。テキスト・画像・音声・動画・コーディングの5カテゴリと、あなたに合った入り口を案内します。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-22T11:00:00+09:00",
+    tags: ["生成AI 全体像 2026", "AI ツール 種類 初心者", "ChatGPT Claude 違い", "生成AI 何から始める", "AI 地図 わかりやすい"],
+  },
+  {
+    slug: "ai-results-gap-honest-guide",
+    title: "AIで成果が出る人・出ない人の本当の差｜使い方よりも大切な3つのマインドセット",
+    summary:
+      "「AIを使っても変わらない」そのモヤモヤには理由があります。ツールの問題ではなく、思考の問題。①70点で動く ②対話を重ねる ③一緒に考える——成果を出している人が実践している3つのマインドセットを事例と共に解説します。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T12:00:00+09:00",
+    tags: ["AI 成果 出ない 理由", "生成AI 活用 できない", "ChatGPT うまく使えない", "AI マインドセット", "生成AI 使いこなし 差"],
+  },
+  {
+    slug: "chatgpt-wow-moments-guide",
+    title: "ChatGPTに「すごい」と感じた瞬間10選｜初めて使ったときの感動と活用法",
+    summary:
+      "「ChatGPTって何がすごいの？」その答えは、実際に使った人の感動体験にあります。メール3分・難しい書類の翻訳・思考整理——10の感動シーンをプロンプト例付きで紹介。読み終わったら今すぐ試したくなります。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T13:00:00+09:00",
+    tags: ["ChatGPT すごい 体験", "生成AI 感動", "ChatGPT 初めて 使った 感想", "AI 何がすごい", "ChatGPT びっくりした"],
+  },
+  {
+    slug: "ai-30min-challenge-beginner",
+    title: "生成AIを今日から実感！初心者でも30分で体験できる7つのチャレンジ",
+    summary:
+      "コピペで試せる7つのプロンプトチャレンジで、AIの手触り感を30分以内に実感。メール・翻訳・悩み相談・献立・SNS・仕事整理まで、難しい知識ゼロ・スマホだけで今日から始められます。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-22T14:00:00+09:00",
+    tags: ["生成AI 初心者 試し方", "ChatGPT 使い方 初めて", "AI すぐ試せる", "生成AI 体験 方法", "ChatGPT 始め方 簡単"],
+  },
+  {
+    slug: "ai-mindset-3habits",
+    title: "AI時代に「使いこなせる人」になるための3つの思考習慣【2026年版】",
+    summary:
+      "AIがうまく使えない原因はツールではなく思考の癖。「60点のラフ案を育てる」「背景を毎回渡す」「失敗を探索と捉える」3つの思考習慣と30日プランを、具体的なBefore/After例とともに解説。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T12:00:00+09:00",
+    tags: ["AI 活用 思考法", "生成AI うまく使う コツ", "AI 使いこなせない 原因", "AI思考習慣", "AIリテラシー 高める"],
+  },
+  {
+    slug: "chatgpt-3month-journey",
+    title: "ChatGPTを3ヶ月使い続けたら、こんな変化が起きた｜AI初心者が正直に語る体験記【2026年版】",
+    summary:
+      "「AIを使ってみたいけど続けられるか不安」という方へ。AI初心者がChatGPTを3ヶ月使い続けて感じたリアルな変化を正直に語ります。1週間後の小さな驚き、1ヶ月後の活用シーン15例、3ヶ月後の思考の変化、続けるコツを体験談形式で解説。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T23:00:00+09:00",
+    tags: ["ChatGPT 使い続けた 変化", "AI 生活 変わった", "生成AI 体験談", "ChatGPT 続けるコツ", "AI習慣化"],
+  },
+  {
+    slug: "bolt-new-beginners-guide",
+    title: "Bolt.new完全入門ガイド｜AIでWebサイトを一瞬で作る方法【2026年最新版】",
+    summary:
+      "プログラミング経験ゼロでもOK。Bolt.newの始め方をステップバイステップで解説。プロンプトの書き方、v0・Lovable・Replitとの比較、無料枠の活用法、料金プラン、初心者がつまずきやすいポイントまで2026年2月最新情報でまとめました。",
+    category: "最新AIツール",
+    publishedAt: "2026-02-22T22:00:00+09:00",
+    tags: ["Bolt.new 使い方", "Bolt.new 入門", "AIでWebサイト作成", "ノーコード AI Web制作", "Bolt.new 無料"],
+  },
+  {
+    slug: "ai-parenting-guide",
+    title: "AI×子育て・育児活用ガイド｜忙しいパパ・ママのためのChatGPT実践術20選【2026年版】",
+    summary:
+      "献立の自動提案、宿題サポート、PTA文書作成、育児の悩み相談まで。忙しい子育て世代がAIを味方にする20の実践術を、そのまま使えるプロンプト例つきで紹介。ChatGPT・Claude・Geminiの無料プランで今日から始められます。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T22:00:00+09:00",
+    tags: ["AI 子育て 活用", "ChatGPT 育児", "AI 子育て 便利", "生成AI ママ パパ 使い方", "ChatGPT 子供 教育"],
+  },
+  {
+    slug: "ai-job-future-career-guide",
+    title: "AIに仕事を奪われる？不安の正体と、今日から始めるAI時代のキャリア戦略【2026年版】",
+    summary:
+      "「AIに仕事を奪われるかも」という不安の正体をデータで整理し、職種別の影響度マトリクスと今日から始められる3ステップのキャリア戦略を解説。煽りでも楽観でもない、2026年最新の事実に基づくAI時代のキャリアガイド。",
+    category: "キャリア・転職",
+    publishedAt: "2026-02-22T21:00:00+09:00",
+    tags: ["AI 仕事 奪われる", "AI時代 キャリア", "生成AI 仕事 なくなる", "AI 転職 不安", "ChatGPT 仕事への影響"],
+  },
+  {
+    slug: "chatgpt-free-guide-2026",
+    title: "ChatGPT無料版でここまでできる！2026年最新｜有料版との違いと賢い使い方",
+    summary:
+      "2026年2月最新のChatGPT無料版を徹底解説。GPT-5.2・画像生成・音声会話・Web検索まで無料で使える時代に。有料版との違い、Claude・Geminiとの比較、無料で最大限活用する5つのコツをプロンプト例つきで紹介します。",
+    category: "ChatGPT",
+    publishedAt: "2026-02-22T20:00:00+09:00",
+    tags: ["ChatGPT 無料 できること", "ChatGPT 無料版 使い方", "ChatGPT 無料 有料 違い", "ChatGPT Free 制限", "ChatGPT Plus 必要"],
+  },
+  {
+    slug: "how-to-ask-ai-beginners",
+    title: "ChatGPTに何を聞けばいい？｜AIへの質問・相談の仕方がわかる完全入門ガイド",
+    summary:
+      "ChatGPTをインストールしたけど「何を聞けばいいかわからない」方へ。AIは検索ではなく相談相手。5つの質問パターン、今日すぐ試せる10のアイデア、会話のコツを実例付きで解説。下手でもOK、AIは怒りません。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-22T19:00:00+09:00",
+    tags: ["ChatGPT 何を聞けばいい", "AI 質問の仕方", "ChatGPT 使い方 わからない", "生成AI 何ができる", "ChatGPT 聞き方 コツ"],
+  },
+  {
+    slug: "ai-daily-life-guide",
+    title: "AIで暮らしが変わる｜日常生活×生成AI活用術20選【2026年版】",
+    summary:
+      "食事の献立・冷蔵庫の残り物レシピ・健康相談・子育て・趣味まで、日常生活でAIを活用する20の方法をプロンプト例つきで紹介。ChatGPT・Claude・Geminiの無料プランで今日から始められます。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T18:00:00+09:00",
+    tags: ["生成AI 日常生活 活用", "ChatGPT 生活 便利", "AI 暮らし 使い方", "ChatGPT 日常 活用例", "AI できること 日常"],
+  },
   {
     slug: "chatgpt-voice-mode-guide",
     title: "ChatGPT音声モード完全ガイド｜スマホで話しかけるだけのAI活用術【2026年版】",
@@ -124,15 +269,6 @@ const blogPosts: readonly BlogPost[] = [
     tags: ["AI 怖い", "生成AI 不安", "AI 難しい", "AI 始め方 不安"],
   },
   {
-    slug: "claude-sonnet-4-6-guide",
-    title: "Claude Sonnet 4.6使い方ガイド｜料金・Opus 4.6比較・API実装【2026年2月】",
-    summary:
-      "Claude Sonnet 4.6を2026年2月時点で解説。公開日、Opus 4.6との使い分け、API呼び出し例、文書作成・要約・コード補助の実務活用、Claude.aiとAPIの料金比較まで整理した中級者向けガイドです。",
-    category: "最新AIツール",
-    publishedAt: "2026-02-21T09:00:00+09:00",
-    tags: ["Claude Sonnet 4.6 使い方", "Claude Sonnet 4.6 料金", "Claude Sonnet 4.6 API"],
-  },
-  {
     slug: "assistants-api-migration-checklist-2026",
     title: "Assistants API移行チェックリスト2026｜Responses API/Chat Completions移行手順",
     summary:
@@ -140,6 +276,15 @@ const blogPosts: readonly BlogPost[] = [
     category: "法人向け",
     publishedAt: "2026-02-21T09:30:00+09:00",
     tags: ["Assistants API 移行 2026", "Assistants API sunset", "OpenAI Responses API 移行"],
+  },
+  {
+    slug: "claude-sonnet-4-6-guide",
+    title: "Claude Sonnet 4.6使い方ガイド｜料金・Opus 4.6比較・API実装【2026年2月】",
+    summary:
+      "Claude Sonnet 4.6を2026年2月時点で解説。公開日、Opus 4.6との使い分け、API呼び出し例、文書作成・要約・コード補助の実務活用、Claude.aiとAPIの料金比較まで整理した中級者向けガイドです。",
+    category: "最新AIツール",
+    publishedAt: "2026-02-21T09:00:00+09:00",
+    tags: ["Claude Sonnet 4.6 使い方", "Claude Sonnet 4.6 料金", "Claude Sonnet 4.6 API"],
   },
   {
     slug: "github-copilot-agent-hq-guide",
@@ -187,7 +332,7 @@ const blogPosts: readonly BlogPost[] = [
     slug: "openai-o3-o4mini-guide",
     title: "OpenAI o3/o4-mini使い方ガイド｜推論モデルの実務選定と料金判断【2026年版】",
     summary:
-      "OpenAI o3/o4-miniの違いを2026年2月時点で整理。推論モデルを選ぶ理由、GPT-4oやGPT-5系との役割分担、o3 API運用、料金の判断基準、実務向け選定チャートまで中級者向けに解説したガイドです。",
+      "OpenAI o3/o4-miniの違いを2026年2月時点で整理。推論モデルを選ぶ理由、GPT-5系との役割分担、o3 API運用、料金の判断基準、実務向け選定チャートまで中級者向けに解説したガイドです。",
     category: "実務活用",
   },
   {
@@ -1122,7 +1267,62 @@ const blogPosts: readonly BlogPost[] = [
       "AIO SEOと従来SEOの違い、AI Overviews・Perplexity・ChatGPT Searchで引用される条件、3行要約・比較表・FAQSchemaの実装手順をまとめた実務ガイドです。",
     category: "AIO/マーケ",
   },
+  {
+    slug: "ai-study-continue-habits",
+    title: "生成AIを続けるための習慣デザイン｜初心者が3ヶ月後も使い続けられる7つのコツ",
+    summary:
+      "AIを始めたのに続かない原因は意欲ではなく習慣設計の問題。続けられた人の共通点、挫折しやすいポイント、今日から試せる7つのテクニックと3ヶ月ロードマップを解説します。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T09:00:00+09:00",
+    tags: ["生成AI 続けられない", "AI 習慣化 方法", "ChatGPT 継続 コツ", "AI 学習 モチベーション", "生成AI 初心者 続け方"],
+  },
+  {
+    slug: "eu-ai-act-2026-compliance-jp",
+    title: "EU AI法（EU AI Act）2026年対応ガイド｜日本企業が今すぐ確認すべき7つのポイント",
+    summary:
+      "2026年8月から本格適用のEU AI法。日本企業でも対応が必要なケースと不要なケースを整理。リスクレベル別分類、義務一覧、今すぐ確認すべき7つのポイントをわかりやすく解説。",
+    category: "法人向け",
+    publishedAt: "2026-02-22T10:00:00+09:00",
+    tags: ["EU AI Act 2026", "EU AI法 日本", "EU AI規制 対応", "AI規制 日本企業", "EU AI Act コンプライアンス"],
+  },
+  {
+    slug: "ai-first-month-honest-diary",
+    title: "AIを始めて1ヶ月、正直に日記にしてみた｜戸惑いから小さな奇跡まで全部書いた",
+    summary:
+      "「AIって難しそう」から始まった1ヶ月。最初の混乱、小さな感動、失敗、そして習慣になる瞬間まで正直に記録。AIを始めようか迷っているあなたへ、飾らない等身大の体験談をお届けします。",
+    category: "AI活用術",
+    publishedAt: "2026-02-22T15:00:00+09:00",
+    tags: ["AI 始め方 体験談", "生成AI 初心者 1ヶ月", "ChatGPT リアル感想", "AI 初めて 正直", "生成AI 使い続けた 体験"],
+  },
+  {
+    slug: "chatgpt-vision-camera-guide",
+    title: "ChatGPT画像認識（Vision）の使い方完全ガイド｜スマホで写真を撮るだけでAIが解説してくれる",
+    summary:
+      "ChatGPTは文字だけじゃない。写真を送れば料理のカロリー計算・英語の看板翻訳・複雑な書類の解読まで何でも分析。2026年最新の画像認識機能を初心者向けに完全解説。",
+    category: "ChatGPT",
+    publishedAt: "2026-02-22T16:00:00+09:00",
+    tags: ["ChatGPT 画像認識 使い方", "ChatGPT カメラ 機能", "ChatGPT 写真 送り方", "AI 画像 分析", "ChatGPT Vision 入門"],
+  },
 ] as const;
+
+function parsePublishedTimestamp(publishedAt?: string): number {
+  if (!publishedAt) return Number.NEGATIVE_INFINITY;
+  const timestamp = Date.parse(publishedAt);
+  return Number.isNaN(timestamp) ? Number.NEGATIVE_INFINITY : timestamp;
+}
+
+const sortedBlogPosts = [...blogPosts].sort((left, right) => {
+  const leftTimestamp = parsePublishedTimestamp(left.publishedAt);
+  const rightTimestamp = parsePublishedTimestamp(right.publishedAt);
+
+  if (rightTimestamp !== leftTimestamp) {
+    if (rightTimestamp === Number.NEGATIVE_INFINITY) return -1;
+    if (leftTimestamp === Number.NEGATIVE_INFINITY) return 1;
+    return rightTimestamp - leftTimestamp;
+  }
+
+  return blogPosts.indexOf(left) - blogPosts.indexOf(right);
+});
 
 const categoryClassName: Record<BlogCategory, string> = {
   "AI基礎知識": "border border-harmony-light bg-harmony-lighter text-harmony",
@@ -1130,6 +1330,7 @@ const categoryClassName: Record<BlogCategory, string> = {
   実務活用: "border border-orange-200 bg-orange-50 text-orange-700",
   "AIO/マーケ": "border border-sky-200 bg-sky-50 text-sky-700",
   "最新AIツール": "border border-cyan-200 bg-cyan-50 text-cyan-700",
+  ChatGPT: "border border-teal-200 bg-teal-50 text-teal-700",
   "資格・スキル": "border border-wisdom-light bg-wisdom-lighter text-wisdom",
   "キャリア・転職": "border border-amber-200 bg-amber-50 text-amber-700",
   "副業・フリーランス": "border border-emerald-200 bg-emerald-50 text-emerald-700",
@@ -1230,7 +1431,7 @@ export default function AcademyBlogPage() {
           </section>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {blogPosts.map((post) => (
+            {sortedBlogPosts.map((post) => (
               <article
                 key={post.slug}
                 className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-subtle transition-all duration-300 hover:-translate-y-0.5 hover:border-will-primary/25 hover:shadow-soft"

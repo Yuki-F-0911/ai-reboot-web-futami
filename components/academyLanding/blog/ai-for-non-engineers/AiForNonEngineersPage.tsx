@@ -128,7 +128,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -150,6 +150,12 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             文系・非エンジニアのAI活用ガイド
           </h1>
+          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
+            <p className="text-sm font-semibold text-amber-700 mb-1">この記事でわかること</p>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              文系・非エンジニアでも、AIはプログラミングなしで仕事に活用できます。大切なのは難しい理論を覚えることではなく、文章作成・情報整理・議事録要約など日常タスクを1つ決め、プロンプト改善と確認手順を繰り返すことです。この記事では「AIが怖い」と感じる理由を分解し、不安を減らす始め方、誤情報や情報漏えいを防ぐ運用、継続しやすい学習設計まで実務目線で整理し、最初の1週間で動ける形にします。迷いを減らす判断基準も示します。
+            </p>
+          </div>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             「AIは怖い」という感覚は、未知・役割変化・誤情報への懸念が重なって生まれます。
@@ -181,6 +187,14 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <Link href="/academy/blog/ai-first-30-days-work-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
             生成AI最初の30日ガイド
           </Link>
+          ・
+          <Link href="/academy/blog/ai-anxiety-overcome-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI不安を乗り越える実践ガイド
+          </Link>
+          ・生活でのAI活用は
+          <Link href="/academy/blog/ai-daily-life-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI×日常生活活用術20選
+          </Link>
           もあわせて読むと、実務へのつながりが明確になります。
         </p>
         <ArticleTOC items={tocItems} />
@@ -189,7 +203,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           id="conclusion"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -210,7 +224,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -244,7 +258,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -281,7 +295,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -306,7 +320,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -342,7 +356,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: true, amount: 0.055 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -372,6 +386,21 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
               </Link>
             </li>
             <li>
+              <Link href="/academy/blog/ai-mastery-tips-for-beginners" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                AI初心者が最短で伸びる7つのコツ
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-beginners-guide-over-50" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                50代からのAI初心者ガイド
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-hallucination-fact-check-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                AIのハルシネーション対策と検証手順
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 AIリブートアカデミー TOP
               </Link>
@@ -383,7 +412,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           className="mt-14 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white shadow-floating"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

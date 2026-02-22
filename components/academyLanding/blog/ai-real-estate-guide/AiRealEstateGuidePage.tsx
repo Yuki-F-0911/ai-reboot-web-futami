@@ -178,7 +178,7 @@ function LineCtaBox({ className }: { className: string }) {
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.05 }}
       variants={sectionReveal}
       transition={{ duration: 0.45, ease: "easeOut" }}
     >
@@ -215,7 +215,7 @@ export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePag
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -253,7 +253,7 @@ export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePag
           className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -274,7 +274,7 @@ export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -322,7 +322,7 @@ export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -376,7 +376,7 @@ export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -422,7 +422,7 @@ export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -456,7 +456,7 @@ export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -496,7 +496,7 @@ export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -518,7 +518,7 @@ export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePag
           className="mt-14 rounded-2xl border border-will-primary/20 bg-gradient-to-br from-white via-will-lighter/30 to-will-lighter p-6 sm:p-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

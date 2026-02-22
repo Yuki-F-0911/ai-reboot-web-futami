@@ -143,7 +143,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -165,6 +165,12 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             生成AIとは？初心者向けにわかりやすく解説
           </h1>
+          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
+            <p className="text-sm font-semibold text-amber-700 mb-1">この記事でわかること</p>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              生成AIとは、文章・画像・コードなど新しいコンテンツを作るAIで、従来の分類・予測中心のAIとは役割が異なります。この記事では初心者向けに、生成AIでできることと限界、ChatGPT・Claude・Geminiの選び方、無料プランから始める手順、失敗しにくいプロンプトの基本型、業務利用で守る安全ルールまでをまとめ、基礎理解から最初の実務活用まで迷わず進める判断軸を示します。理解チェックの観点も最後に確認できます。
+            </p>
+          </div>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月18日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             生成AIという言葉は聞くけれど、仕組みや違いがぼんやりして不安…という方向けです。
@@ -190,6 +196,18 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           <Link href="/academy/blog/chatgpt-plan-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
             ChatGPT料金プラン比較
           </Link>
+          ・
+          <Link href="/academy/blog/ai-for-non-engineers" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            文系・非エンジニアのAI活用ガイド
+          </Link>
+          ・生成AIの日常活用は
+          <Link href="/academy/blog/ai-daily-life-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI×日常生活活用術20選
+          </Link>
+          ・AIへの質問の仕方は
+          <Link href="/academy/blog/how-to-ask-ai-beginners" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AIへの聞き方完全入門
+          </Link>
           もあわせて読むと、実務へのつながりが明確になります。
         </p>
         <ArticleTOC items={tocItems} />
@@ -198,7 +216,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -232,7 +250,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -273,7 +291,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -314,7 +332,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -358,7 +376,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -381,7 +399,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -398,7 +416,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -428,6 +446,21 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
               </Link>
             </li>
             <li>
+              <Link href="/academy/blog/chatgpt-start-guide-smartphone" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                ChatGPTをスマホで始める方法
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-beginners-guide-over-50" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                50代からのAI初心者ガイド
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-hallucination-fact-check-guide" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
+                AIのハルシネーション対策とファクトチェック実践ガイド
+              </Link>
+            </li>
+            <li>
               <Link href="/academy/seminars" className="block rounded-xl border border-gray-100 p-4 text-sm text-gray-700 hover:border-orange-200 hover:bg-orange-50 transition-all">
                 無料セミナー一覧
               </Link>
@@ -439,7 +472,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           className="mt-14 rounded-2xl bg-orange-50/50 border-2 border-orange-100 p-8 shadow-sm"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -471,7 +504,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           className="mt-14 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white shadow-floating"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

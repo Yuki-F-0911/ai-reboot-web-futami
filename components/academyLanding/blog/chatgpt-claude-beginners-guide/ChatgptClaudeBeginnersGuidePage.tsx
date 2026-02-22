@@ -135,7 +135,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -178,6 +178,14 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           <Link href="/academy/blog/gemini-beginners-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
             Gemini入門ガイド
           </Link>
+          ・
+          <Link href="/academy/blog/ai-free-plan-comparison-2026" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AI無料プラン比較
+          </Link>
+          ・
+          <Link href="/academy/blog/gpt-vs-claude-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            GPTとClaudeの性能比較
+          </Link>
           もあわせて読むと、実務へのつながりが明確になります。
         </p>
         <ArticleTOC items={tocItems} />
@@ -186,7 +194,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -210,7 +218,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -234,7 +242,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -271,7 +279,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -295,7 +303,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -319,7 +327,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -386,7 +394,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -418,7 +426,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -436,7 +444,7 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -468,6 +476,31 @@ export default function ChatgptClaudeBeginnersGuidePage({ faqItems }: ChatgptCla
             <li>
               <Link href="/academy/blog/chatgpt-advanced-tips" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 ChatGPTを仕事で使いこなす実践テクニック集｜基本から応用まで50のTips
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/gpt-vs-claude-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                GPT-4とClaude徹底比較｜性能・得意分野・料金の違いを解説
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-free-plan-comparison-2026" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT・Claude・Gemini無料プラン比較【2026年2月版】
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-plan-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT料金プラン比較｜Free・Plus・Proの違い
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/claude-beginner-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                Claude入門ガイド｜始め方・使い方・ChatGPTとの違い
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-voice-mode-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT音声モード活用ガイド｜会話で使いこなす手順
               </Link>
             </li>
           </ul>

@@ -221,7 +221,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -264,7 +264,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
           className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -292,7 +292,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
           className="mt-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -307,7 +307,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -353,7 +353,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -405,7 +405,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
           className="mt-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -420,7 +420,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -481,7 +481,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -547,7 +547,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -575,7 +575,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
           className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -609,7 +609,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -634,7 +634,7 @@ export default function PowerAutomateAiGuidePage({ faqItems }: PowerAutomateAiGu
           className="mt-14 rounded-xl border border-will-primary/20 bg-will-lighter/40 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

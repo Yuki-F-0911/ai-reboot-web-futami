@@ -1,0 +1,32 @@
+[    1214ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/academy/blog/ai-hallucination-fact-check-guide:0
+[    1377ms] Error: ENOENT: no such file or directory, open '/Users/mocchalera/Dev/ai-reboot-web/.next/routes-manifest.json'
+    at readFileSync (node:fs:440:20)
+    at loadManifest (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/load-manifest.external.js:41:41)
+    at loadManifestFromRelativePath (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/load-manifest.external.js:84:16)
+    at PagesRouteModule.loadManifests (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/compiled/next-server/pages.runtime.dev.js:1:128882)
+    at PagesRouteModule.prepare (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/compiled/next-server/pages.runtime.dev.js:1:136704)
+    at async handler (webpack-internal:///(pages-dir-node)/./node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js?kind=PAGES&page=%2F_error&preferredRegion=&absolutePagePath=next%2Fdist%2Fpages%2F_error&absoluteAppPath=next%2Fdist%2Fpages%2F_app&absoluteDocumentPath=next%2Fdist%2Fpages%2F_document&middlewareConfigBase64=e30%3D!:135:27)
+    at async doRender (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/base-server.js:1592:34)
+    at async DevServer.renderToResponseWithComponentsImpl (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/base-server.js:1934:13)
+    at async DevServer.renderErrorToResponseImpl (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/base-server.js:2670:24)
+    at async pipe.req.req (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/base-server.js:2536:30)
+    at async DevServer.pipeImpl (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/base-server.js:1035:25)
+    at async NextNodeServer.handleCatchallRenderRequest (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/next-server.js:408:21)
+    at async DevServer.handleRequestImpl (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/base-server.js:925:17)
+    at async (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/dev/next-dev-server.js:398:20)
+    at async Span.traceAsyncFn (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/dev/next-dev-server.js:394:24)
+    at async invokeRender (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/lib/router-server.js:239:21)
+    at async handleRequest (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/lib/router-server.js:436:24)
+    at async requestHandlerImpl (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/lib/router-server.js:464:13)
+    at async Server.requestListener (file:///Users/mocchalera/Dev/ai-reboot-web/node_modules/next/dist/server/lib/start-server.js:218:13)
+[    7565ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed:  @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:88
+[    8568ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:88
+[   13932ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:339

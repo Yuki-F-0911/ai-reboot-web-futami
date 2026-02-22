@@ -587,7 +587,7 @@ export default function ChatgptPromptTemplates50Page({ faqItems }: Props) {
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -633,6 +633,25 @@ export default function ChatgptPromptTemplates50Page({ faqItems }: Props) {
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/chatgpt-prompt-beginner" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTプロンプト入門
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-advanced-tips" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT実践テクニック
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-voice-mode-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT音声モード活用ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-english-learning-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            AI英語学習ガイド
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         {/* 要点まとめ */}
@@ -640,7 +659,7 @@ export default function ChatgptPromptTemplates50Page({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -671,7 +690,7 @@ export default function ChatgptPromptTemplates50Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -727,7 +746,7 @@ export default function ChatgptPromptTemplates50Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -748,7 +767,7 @@ export default function ChatgptPromptTemplates50Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -785,7 +804,7 @@ export default function ChatgptPromptTemplates50Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -807,7 +826,7 @@ export default function ChatgptPromptTemplates50Page({ faqItems }: Props) {
           className="mt-14 rounded-lg border border-gray-200 bg-white p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -848,7 +867,7 @@ export default function ChatgptPromptTemplates50Page({ faqItems }: Props) {
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -892,6 +911,26 @@ export default function ChatgptPromptTemplates50Page({ faqItems }: Props) {
             <li>
               <Link href="/academy/blog/ai-coding-for-beginners" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 プログラミング未経験でも安心！AIコーディング入門
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-voice-mode-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT音声モード活用ガイド｜話して使う実践ワークフロー
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-english-learning-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI英語学習ガイド｜スピーキング練習と添削の回し方
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-hallucination-fact-check-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIのハルシネーション対策ガイド｜回答検証の手順
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-beginners-guide-over-50" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                50代からのAI初心者ガイド｜スマホで続ける学習法
               </Link>
             </li>
             <li>

@@ -162,7 +162,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -202,7 +202,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
           className="mt-10 overflow-x-auto rounded-lg border border-slate-200 bg-slate-50 p-5"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -233,7 +233,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -280,7 +280,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
           className="mt-14 rounded-lg border border-green-200 bg-green-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -306,7 +306,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -359,7 +359,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -431,7 +431,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -457,7 +457,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -509,7 +509,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
           className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -550,7 +550,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -592,7 +592,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -690,7 +690,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
           className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -710,7 +710,7 @@ export default function NewEmployeeAiStarterGuidePage({ faqItems }: NewEmployeeA
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

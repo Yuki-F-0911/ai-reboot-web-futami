@@ -99,7 +99,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -138,7 +138,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           className="mt-10 rounded-lg border border-amber-200 bg-amber-50 p-5"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -151,7 +151,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -168,7 +168,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
                 key={caseStudy.title}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.05 }}
                 variants={sectionReveal}
                 transition={{ duration: 0.45, delay: index * 0.05, ease: "easeOut" }}
                 className="rounded-lg border border-gray-200 p-6"
@@ -188,7 +188,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -225,7 +225,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -248,7 +248,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -328,7 +328,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -347,7 +347,7 @@ export default function AiCareerChangeCasesPage({ faqItems }: AiCareerChangeCase
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

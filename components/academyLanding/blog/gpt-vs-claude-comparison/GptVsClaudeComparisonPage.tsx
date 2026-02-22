@@ -43,7 +43,7 @@ const basicInfoRows = [
   },
   {
     label: "代表的なモデル系統（例）",
-    gpt: "GPT系（例: GPT-5.2（Instant/Thinking）/ o3 / o4-mini / GPT-4o（API）など。提供名や選択肢は時期により変動）",
+    gpt: "GPT系（例: GPT-5.2（Instant/Thinking）/ o3 など。提供名や選択肢は時期により変動するため公式サイトで要確認）",
     claude: "Claude系（例: Claude Opus 4.1 / Claude Sonnet 4 / Claude Haiku 3.5 など。提供名や選択肢は時期により変動）",
   },
   {
@@ -191,7 +191,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -224,13 +224,32 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/chatgpt-claude-beginners-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT・Claude初心者ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/ai-free-plan-comparison-2026" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            生成AI無料プラン比較
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-plan-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT料金プラン比較
+          </Link>
+          ・
+          <Link href="/academy/blog/claude-beginner-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            Claude入門ガイド
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         <motion.section
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -265,7 +284,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -304,7 +323,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -317,7 +336,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -353,7 +372,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -386,7 +405,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -410,7 +429,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -434,7 +453,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -458,7 +477,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -523,6 +542,26 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
               </Link>
             </li>
             <li>
+              <Link href="/academy/blog/chatgpt-plan-comparison" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT料金プラン比較｜Free・Plus・Proの違い
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-free-plan-comparison-2026" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT・Claude・Gemini無料プラン比較【2026年2月版】
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/claude-beginner-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                Claude入門ガイド｜始め方・使い方・ChatGPTとの違い
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-voice-mode-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT音声モード活用ガイド｜会話型AIの実践手順
+              </Link>
+            </li>
+            <li>
               <Link href="/academy" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
                 AIリブートアカデミー TOP
               </Link>
@@ -535,7 +574,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           className="mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -553,7 +592,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
 	        >

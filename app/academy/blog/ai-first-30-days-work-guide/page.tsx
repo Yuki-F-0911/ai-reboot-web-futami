@@ -5,7 +5,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 const pageTitle =
   "生成AIを仕事で使い始めた人の「最初の30日」完全ガイド｜週別ロードマップ＆プロンプト例つき | AIリブート";
 const pageDescription =
-  "生成AIを仕事に取り入れたい社会人向け。Week 1〜4の週別ロードマップで、アカウント作成からチームへの展開まで30日で「AI使える人」になる手順をコピペ可能なプロンプト例つきで解説します。";
+  "生成AIを仕事で使い始める最初の30日を、週別ロードマップで具体化。アカウント準備から実務導入、チーム展開までをプロンプト例付きで解説します。今日の業務1つを選び、再現しやすいチェックリストでWeek1から着手しましょう。進捗管理の目安も掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-first-30-days-work-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-21T09:00:00+09:00";

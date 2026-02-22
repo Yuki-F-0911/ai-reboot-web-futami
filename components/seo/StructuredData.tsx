@@ -1,4 +1,5 @@
 import Script from 'next/script'
+import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd'
 
 interface ArticleStructuredDataProps {
   title: string
@@ -20,49 +21,15 @@ export function ArticleStructuredData({
   publishedTime,
   modifiedTime,
   imageUrl,
-  authorName = 'AIリブート編集部',
-  articleType = 'Article',
-  publisherName = 'AI REBOOT',
-  publisherLogoUrl = 'https://ai-reboot.io/images/logo.png',
 }: ArticleStructuredDataProps) {
-  const authorType = authorName.includes('編集部') ? 'Organization' : 'Person'
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': articleType,
-    headline: title,
-    description: description,
-    url: url,
-    datePublished: publishedTime,
-    dateModified: modifiedTime || publishedTime,
-    author: {
-      '@type': authorType,
-      name: authorName,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: publisherName,
-      logo: {
-        '@type': 'ImageObject',
-        url: publisherLogoUrl,
-      },
-    },
-    image: imageUrl ? {
-      '@type': 'ImageObject',
-      url: imageUrl,
-    } : undefined,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': url,
-    },
-  }
-
   return (
-    <Script
-      id="article-structured-data"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(structuredData),
-      }}
+    <ArticleJsonLd
+      title={title}
+      description={description}
+      url={url}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime || publishedTime}
+      imageUrl={imageUrl}
     />
   )
 }

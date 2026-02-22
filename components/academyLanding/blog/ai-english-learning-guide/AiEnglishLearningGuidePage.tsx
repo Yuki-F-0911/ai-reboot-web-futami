@@ -238,7 +238,7 @@ function LineCtaBox({ className }: { className: string }) {
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.05 }}
       variants={sectionReveal}
       transition={{ duration: 0.45, ease: "easeOut" }}
     >
@@ -275,7 +275,7 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -306,6 +306,25 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
           </p>
         </motion.header>
 
+        <p data-seo-internal-links="true" className="mt-4 text-sm leading-7 text-gray-700">
+          関連テーマを先に押さえるなら
+          <Link href="/academy/blog/chatgpt-voice-mode-guide" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT音声モード活用ガイド
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-prompt-templates-50" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTプロンプトテンプレート50選
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-prompt-beginner" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTプロンプト入門
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-advanced-tips" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPT実践テクニック
+          </Link>
+          もあわせて読むと、実務へのつながりが明確になります。
+        </p>
         <ArticleTOC items={tocItems} />
 
         <motion.section
@@ -313,7 +332,7 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
           className="mt-14 rounded-lg border border-blue-200 bg-blue-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -332,7 +351,7 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -365,7 +384,7 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -397,7 +416,7 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -444,7 +463,7 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -471,7 +490,7 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -523,7 +542,7 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -540,12 +559,48 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
 
         <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-emerald-200 bg-emerald-50 p-6" />
 
+        <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
+          <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連リンク</h2>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/academy/blog/chatgpt-voice-mode-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT音声モード活用ガイド｜話して学ぶAI活用術
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-prompt-templates-50" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPTプロンプトテンプレート50選｜英語学習に使える例文付き
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-prompt-beginner" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPTプロンプト入門｜初心者がすぐ使える15の型
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-advanced-tips" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPT上級テクニック｜仕事の質を上げる使い方
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-hallucination-fact-check-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIのハルシネーション対策ガイド｜英語学習でも必要な検証手順
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-study-learning-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AI×勉強・資格・語学学習完全ガイド
+              </Link>
+            </li>
+          </ul>
+        </section>
+
         <motion.section
           id="academy-cta"
           className="mt-14 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

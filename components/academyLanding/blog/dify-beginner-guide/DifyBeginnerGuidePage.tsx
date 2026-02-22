@@ -96,7 +96,7 @@ const buildSteps = [
     num: "Step 3",
     title: "LLMとシステムプロンプトを設定する",
     detail:
-      "「オーケストレーション」画面でモデル（GPT-4o / Claude / Gemini 等）を選択し、システムプロンプトを入力します。プロンプトには役割・制約・回答できない場合の対応を明示すると品質が安定します。",
+      "「オーケストレーション」画面でモデル（GPT-5.2 / Claude Sonnet 4.6 / Gemini 等）を選択し、システムプロンプトを入力します。プロンプトには役割・制約・回答できない場合の対応を明示すると品質が安定します。",
     tip: "プロンプト例：「あなたは〇〇株式会社のサポートアシスタントです。登録されたナレッジから回答し、情報がない質問には『担当者に確認の上、ご連絡します』と返答してください。」",
   },
   {
@@ -197,7 +197,7 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -254,7 +254,7 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -282,7 +282,7 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
           className="mt-8 rounded-lg border border-green-200 bg-green-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -307,7 +307,7 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -407,7 +407,7 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -519,7 +519,7 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -575,7 +575,7 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -624,7 +624,7 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
           className="mt-10 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -649,7 +649,7 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -708,7 +708,7 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -771,7 +771,7 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
           className="mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -802,7 +802,7 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
           className="mt-14 border-t border-gray-300 pt-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

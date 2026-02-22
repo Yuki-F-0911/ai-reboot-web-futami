@@ -195,7 +195,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
         <motion.header
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -260,6 +260,14 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           <Link href="/academy/blog/ai-free-plan-comparison-2026" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
             生成AI無料プラン比較
           </Link>
+          ・
+          <Link href="/academy/blog/gpt-vs-claude-comparison" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            GPTとClaudeの性能比較
+          </Link>
+          ・
+          <Link href="/academy/blog/chatgpt-prompt-templates-50" className="mx-1 text-orange-600 underline underline-offset-4 hover:text-orange-700">
+            ChatGPTプロンプトテンプレート50選
+          </Link>
           もあわせて読むと、実務へのつながりが明確になります。
         </p>
         <ArticleTOC items={tocItems} />
@@ -269,7 +277,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -292,7 +300,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -309,7 +317,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -352,7 +360,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -392,7 +400,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -437,7 +445,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -451,7 +459,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -495,7 +503,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -535,7 +543,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           className="mt-14 rounded-2xl border border-will-primary/20 bg-will-lighter/40 p-6 sm:p-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -559,7 +567,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -589,13 +597,25 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
             <li>
               <Link href="/academy/blog/chatgpt-claude-beginners-guide" className="text-blue-700 underline hover:text-blue-900">ChatGPT・Claude初心者ガイド</Link>
             </li>
+            <li>
+              <Link href="/academy/blog/gpt-vs-claude-comparison" className="text-blue-700 underline hover:text-blue-900">GPTとClaudeの性能比較ガイド</Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-prompt-templates-50" className="text-blue-700 underline hover:text-blue-900">ChatGPTプロンプトテンプレート50選</Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/chatgpt-voice-mode-guide" className="text-blue-700 underline hover:text-blue-900">ChatGPT音声モード活用ガイド</Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-hallucination-fact-check-guide" className="text-blue-700 underline hover:text-blue-900">AIのハルシネーション対策ガイド</Link>
+            </li>
           </ul>
         </section>
         <motion.section
           className="mt-14"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -612,7 +632,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           className="mt-8 rounded-lg border border-gray-200 bg-gray-50 p-5"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >

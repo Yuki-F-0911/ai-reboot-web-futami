@@ -4,7 +4,7 @@ import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } fr
 
 const pageTitle = "【2026年2月】生成AIの最新トレンド5選｜初心者が\u201C今\u201D知っておくべきこと | AIリブート";
 const pageDescription =
-  "Claude 4.6、GPT-5.2、Gemini 3、AIエージェント、日本のリスキリング政策——2026年2月の生成AI最新動向を初心者目線でわかりやすく解説。各トレンドの「あなたへの影響」と「今日からできること」を整理しました。";
+  "2026年2月の生成AIトレンド5選を、初心者にもわかる言葉で整理。Claude・GPT・Geminiの変化と、あなたの仕事や学習への影響を具体的に解説します。まずは1トレンドを押さえ、変化の早い領域でも迷わず行動計画を作りましょう。要点だけ短時間で把握できます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-trends-february-2026";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-22T11:00:00+09:00";
