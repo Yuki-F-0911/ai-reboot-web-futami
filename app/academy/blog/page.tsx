@@ -36,6 +36,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-learning-start-now-2026",
+    title: "AIを学ぶなら2026年の今がベストな理由：「後でいいか」が取り返しのつかない差になる前に",
+    summary:
+      "「AIはそのうち学べばいい」と思っていませんか？AI活用スキルの格差は今、静かに広がっています。今学ぶのが最善な5つの理由と、始め方の最短ルートを正直に解説します。補助金活用で実質0円で学べるチャンスも今だけです。",
+    category: "AI学習",
+    publishedAt: "2026-02-23T16:00:00+09:00",
+    tags: ["AI いつから学ぶ", "AI 学習 今すぐ", "生成AI 始める 理由 2026", "AI 後回し", "リスキリング 今すぐ"],
+  },
+  {
     slug: "ai-learning-cost-roi-guide-2026",
     title: "AI学習にいくらかかる？無料と有料の境界線と、補助金で実質0円になる方法2026",
     summary:
