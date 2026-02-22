@@ -36,6 +36,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-learning-roadmap-2026",
+    title: "AI学習ロードマップ2026：ゼロから100日間で仕事に使えるようになるまでの完全地図",
+    summary:
+      "AI学習を始めたいのに何から手をつければいいかわからない方へ。0から100日間で仕事に活用できるレベルに達するための段階的ロードマップを完全公開。挫折しない学び方の秘訣と、各フェーズの具体的な目標・行動を解説します。",
+    category: "AI学習",
+    publishedAt: "2026-02-23T15:00:00+09:00",
+    tags: ["AI学習 ロードマップ", "AI 勉強 方法 初心者", "生成AI 学習 計画", "AI 初心者 何から始める"],
+  },
+  {
     slug: "ai-learning-start-now-2026",
     title: "AIを学ぶなら2026年の今がベストな理由：「後でいいか」が取り返しのつかない差になる前に",
     summary:
