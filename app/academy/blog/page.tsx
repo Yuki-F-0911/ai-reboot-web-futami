@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-prompt-writing-basics",
+    title: "AIプロンプトの書き方入門：初心者が知っておくべき10のコツ【2026年版】",
+    summary:
+      "ChatGPTやClaudeへの「聞き方」で、AIの答えは劇的に変わります。初心者向けにAIプロンプトの基本的な書き方・コツを10個まとめました。今日からすぐ使える実践的な方法です。",
+    category: "AI学習",
+    publishedAt: "2026-02-24T17:00:00+09:00",
+    tags: ["プロンプト 書き方 初心者", "ChatGPT プロンプト コツ", "AI 聞き方 上手", "プロンプトエンジニアリング 基本"],
+  },
+  {
     slug: "ai-writing-copyright-guide",
     title: "AIに書かせた文章は自分の文章か？著作権・倫理・クレジット問題を初心者向けに解説",
     summary:
