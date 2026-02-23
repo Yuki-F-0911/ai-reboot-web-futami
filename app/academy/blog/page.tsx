@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-side-job-guide",
+    title: "AIで副業を始める：現実的な可能性と3つの注意点【2026年版】",
+    summary:
+      "「AIを使って副業できないか？」という疑問に正直に答えます。2026年現在、AIで実際に稼げる副業の種類と、失敗しないための注意点を初心者向けに解説します。",
+    category: "AI活用術",
+    publishedAt: "2026-02-24T18:00:00+09:00",
+    tags: ["AI 副業 始め方", "ChatGPT 副業 2026", "AI 副業 現実", "生成AI 副業 稼げる"],
+  },
+  {
     slug: "ai-prompt-writing-basics",
     title: "AIプロンプトの書き方入門：初心者が知っておくべき10のコツ【2026年版】",
     summary:
