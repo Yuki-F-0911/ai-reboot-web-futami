@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-spring-2026-whats-new",
+    title: "2026年春、生成AIは何が変わったか：初心者が驚く最新5つの進化と、今すぐ試せること",
+    summary:
+      "「AIって最近どう変わったの？」2026年春現在の生成AIの最新動向を初心者向けに解説します。ChatGPT・Claude・Geminiが大幅に賢くなった今、何が変わり、初心者はどう使えばいいのかを丁寧にお伝えします。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-24T11:00:00+09:00",
+    tags: ["AI 2026年 最新", "ChatGPT 何が変わった", "生成AI 2026 初心者", "AI 最新機能 使い方"],
+  },
+  {
     slug: "ai-time-saving-calculation",
     title: "AIは本当に時間を節約してくれるのか：会社員・主婦・フリーランス別に具体的な数字で試算してみた【2026年版】",
     summary:
