@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-30days-honest-diary",
+    title: "AIと30日間使い続けた正直な記録：速くなったこと、期待外れだったこと、続けて気づいたこと【2026年版】",
+    summary:
+      "「AIって本当に使えるの？」その疑問に正直に答えます。30日間、仕事でAIを使い続けて気づいた、良かったこと・悪かったこと・意外な発見を日記形式で正直にまとめました。",
+    category: "AI活用術",
+    publishedAt: "2026-02-23T22:00:00+09:00",
+    tags: ["AI 30日間 体験", "ChatGPT 使い続けた 感想", "AI 仕事 効果 正直", "生成AI 使った結果"],
+  },
+  {
     slug: "ai-workplace-introduction-guide",
     title: "職場でAIを広めたい：上司・同僚を説得する実践的な方法と、社内導入でつまずかないための準備【2026年版】",
     summary:
