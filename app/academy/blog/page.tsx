@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-freelance-guide",
+    title: "フリーランスがAIを使うと収入・時間はどう変わる？実践ガイド【2026年版】",
+    summary:
+      "フリーランサーがAIを活用して生産性を高め、収入アップする方法を解説。提案書作成・見積り・納品物品質向上から、営業・クライアント対応まで実践的に紹介します。",
+    category: "AI活用術",
+    publishedAt: "2026-02-26T09:00:00+09:00",
+    tags: ["フリーランス AI 活用", "フリーランス ChatGPT", "フリーランス AI 効率化", "フリーランス 生成AI"],
+  },
+  {
     slug: "ai-guide-for-homemakers",
     title: "主婦がAIを使うと何が変わる？家事・育児・仕事探しに役立つ実践ガイド【2026年版】",
     summary:
