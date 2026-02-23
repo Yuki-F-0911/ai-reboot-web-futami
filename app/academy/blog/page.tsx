@@ -5,13 +5,13 @@ import { ChevronRight } from "lucide-react";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import { BreadcrumbStructuredData } from "@/components/seo/StructuredData";
 import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "@/components/academyLanding/sections/academyDesignTokens";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 const pageTitle = "アカデミーブログ一覧 | AIリブート";
 const pageDescription =
   "AIリブートアカデミーのブログ一覧です。生成AIの基礎知識、実務活用、最新AIツール、資格・スキル、キャリア、法人向け導入ガイドまで多数の記事をカテゴリ別に掲載しています。";
 const pageUrl = "https://ai-reboot.io/academy/blog";
 const pageOgImagePath = "/academy/opengraph-image";
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 type BlogCategory =
   | "AI基礎知識"
@@ -1862,40 +1862,7 @@ export default function AcademyBlogPage() {
             </p>
           </header>
 
-          <section 
-            className="mt-6 rounded-xl border p-6 sm:p-8 bg-white"
-            style={{ borderColor: ACADEMY_COLORS.lineSoft }}
-          >
-            <p 
-              className="text-[10px] font-bold tracking-[0.2em] uppercase mb-2"
-              style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric, color: ACADEMY_COLORS.ctaLine }}
-            >
-              Line Bonus
-            </p>
-            <h2 className="text-2xl font-bold leading-tight text-slate-900 sm:text-3xl">
-              記事で学んだ内容を、LINEで実務アクションに落とし込む
-            </h2>
-            <p className="mt-3 text-sm leading-7 text-slate-700 sm:text-base">
-              LINE登録で「3行要約テンプレート」「補助金対象の簡易診断」「次に読むべき記事の優先順位表」を無料配布しています。
-            </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={lineUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-lg bg-[#06C755] px-8 py-3.5 text-base font-bold text-white transition-opacity hover:opacity-90"
-              >
-                LINEで無料特典を受け取る
-              </a>
-              <Link
-                href="/academy/seminars"
-                className="inline-flex items-center justify-center rounded-lg border px-8 py-3 text-base font-bold transition-opacity hover:opacity-70"
-                style={{ backgroundColor: ACADEMY_COLORS.bgPanel, borderColor: ACADEMY_COLORS.lineSoft, color: ACADEMY_COLORS.textBody }}
-              >
-                無料セミナーを見る
-              </Link>
-            </div>
-          </section>
+          <LineCtaBox className="mt-6" />
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {sortedBlogPosts.map((post) => (
