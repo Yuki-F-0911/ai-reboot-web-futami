@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-workplace-introduction-guide",
+    title: "職場でAIを広めたい：上司・同僚を説得する実践的な方法と、社内導入でつまずかないための準備【2026年版】",
+    summary:
+      "「自分だけAIを使っていて、職場に広められない...」そんな悩みを持つ方へ。上司への提案の仕方、抵抗感のある同僚への伝え方、社内ルール整備の始め方まで、具体的に解説します。",
+    category: "AI活用術",
+    publishedAt: "2026-02-23T21:00:00+09:00",
+    tags: ["職場 AI 導入 方法", "社内 AI 普及", "上司 AI 説得", "職場 ChatGPT 使い方"],
+  },
+  {
     slug: "ai-first-week-mistakes-guide",
     title: "AIを使い始めた最初の1週間でやりがちな5つのミス【2026年版】今からでも遅くない正しい使い方",
     summary:
