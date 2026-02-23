@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-comeback-guide",
+    title: "AIを一度諦めた人が再挑戦できた理由：挫折と再スタートの分岐点【2026年版】",
+    summary:
+      "「一度やめてしまったAI学習、もう一度始められますか？」AIを諦めた人が再挑戦できた理由と、できなかった人との違いを正直に分析します。「また始めてもどうせ同じ」と思っているあなたに読んでほしい記事です。",
+    category: "AI学習",
+    publishedAt: "2026-02-24T09:00:00+09:00",
+    tags: ["AI学習 挫折 再挑戦", "ChatGPT やめた またやる", "AI 諦めた もう一度", "生成AI 続かない 解決"],
+  },
+  {
     slug: "ai-30days-honest-diary",
     title: "AIと30日間使い続けた正直な記録：速くなったこと、期待外れだったこと、続けて気づいたこと【2026年版】",
     summary:
