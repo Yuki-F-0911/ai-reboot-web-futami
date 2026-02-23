@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "chatgpt-free-vs-paid-2026",
+    title: "ChatGPTに課金すべき？無料と有料（Plus/Pro）の違いを正直に解説【2026年版】",
+    summary:
+      "ChatGPTの無料版と有料版（Plus月額20ドル/Pro月額200ドル）の違いを2026年最新情報で比較。課金する価値があるかを、使い方別に迷わず判断できる形で整理しました。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-24T12:00:00+09:00",
+    tags: ["ChatGPT 課金 すべき", "ChatGPT 無料 有料 違い", "ChatGPT Plus 料金", "ChatGPT 月額 元が取れる"],
+  },
+  {
     slug: "ai-spring-2026-whats-new",
     title: "2026年春、生成AIは何が変わったか：初心者が驚く最新5つの進化と、今すぐ試せること",
     summary:
