@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-time-saving-calculation",
+    title: "AIは本当に時間を節約してくれるのか：会社員・主婦・フリーランス別に具体的な数字で試算してみた【2026年版】",
+    summary:
+      "「AIで仕事が速くなる」は本当？会社員・主婦・フリーランスそれぞれのシナリオで、AIを使った場合とそうでない場合の時間を具体的に試算しました。数字で見るAIの価値をお伝えします。",
+    category: "AI活用術",
+    publishedAt: "2026-02-24T10:00:00+09:00",
+    tags: ["AI 時間節約 効果", "ChatGPT 時短 どのくらい", "AI 仕事 効率化 時間", "生成AI コスパ"],
+  },
+  {
     slug: "ai-comeback-guide",
     title: "AIを一度諦めた人が再挑戦できた理由：挫折と再スタートの分岐点【2026年版】",
     summary:
