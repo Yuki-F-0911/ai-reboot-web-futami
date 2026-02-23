@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-job-anxiety-guide",
+    title: "AIに仕事を奪われる？という不安に正直に答える【2026年版】",
+    summary:
+      "「AIに仕事を奪われるのでは」という不安は多くの人が感じています。2026年現在の現実を正直に伝えながら、不安と向き合い、今から準備できることを解説します。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-24T19:00:00+09:00",
+    tags: ["AI 仕事 奪われる", "AI 雇用 影響 2026", "AI 失業 不安", "生成AI 仕事 なくなる"],
+  },
+  {
     slug: "ai-side-job-guide",
     title: "AIで副業を始める：現実的な可能性と3つの注意点【2026年版】",
     summary:
