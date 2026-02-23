@@ -661,7 +661,7 @@ export default function AiWorkplaceIntroductionGuidePage({ faqItems }: Props) {
                 title: "「失敗談」も共有することで信頼性が上がる",
                 body: "「AIに頼んだら的外れな回答が来た」「こんな業務には向かなかった」という失敗談も積極的に共有しましょう。「良いことしか言わない人」より「リアルな体験を話してくれる人」の方が信頼されます。",
               },
-            ].map((item, idx) => (
+            ].map((item) => (
               <div
                 key={item.step}
                 className="flex gap-6 p-8 rounded-xl border bg-white hover:border-orange-200 transition-colors"
