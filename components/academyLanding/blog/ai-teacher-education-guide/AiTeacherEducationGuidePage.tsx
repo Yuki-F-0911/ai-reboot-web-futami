@@ -319,9 +319,6 @@ export default function AiTeacherEducationGuidePage({ faqItems }: AiTeacherEduca
             {implementationSteps.map((step, index) => (
               <section key={step.title} className="rounded-lg border border-gray-200 p-5">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="inline-flex h-7 min-w-7 items-center justify-center rounded-full bg-will-primary px-2 text-xs font-bold text-white">
-                    {index + 1}
-                  </span>
                   <h3 className="blog-h3 text-lg font-semibold text-gray-900">{step.title}</h3>
                 </div>
                 <p className="blog-p mt-3 text-sm leading-7 text-gray-700">{step.body}</p>

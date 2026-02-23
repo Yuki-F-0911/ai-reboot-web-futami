@@ -128,7 +128,7 @@ export default function AiTryFailBreakthroughGuidePage({ faqItems }: Props) {
             {keywordTags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+                className="rounded-full border border-will-primary/20/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
               >
                 {tag}
               </span>
@@ -291,7 +291,7 @@ export default function AiTryFailBreakthroughGuidePage({ faqItems }: Props) {
           </p>
           <div className="mt-8 space-y-5">
             {turningPoints.map((item) => (
-              <section key={item.number} className="rounded-xl border-l-4 border-will-primary bg-white p-5 shadow-subtle">
+              <section key={item.number} className="rounded-xl border border-will-primary/20 bg-white p-5 shadow-subtle">
                 <div className="flex items-start gap-4">
                   <span className="min-w-[2rem] text-2xl font-bold text-will-primary/40">{item.number}</span>
                   <div>
@@ -366,7 +366,7 @@ export default function AiTryFailBreakthroughGuidePage({ faqItems }: Props) {
                 <li>• 情報が多すぎてどれを信じていいかわからない</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-will-primary/20 bg-will-lighter p-5">
+            <div className="rounded-xl border border-will-primary/20/20 bg-will-lighter p-5">
               <h3 className="text-sm font-bold text-gray-900">仲間・環境があるときの変化</h3>
               <ul className="mt-3 space-y-2 text-sm leading-7 text-gray-700">
                 <li>• うまくいかなかった原因を一緒に考えてもらえる</li>

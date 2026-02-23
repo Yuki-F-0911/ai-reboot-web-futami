@@ -306,9 +306,6 @@ export default function Ai30MinChallengeBeginnerPage({ faqItems }: Props) {
                 className="scroll-mt-28 rounded-xl border-2 border-will-primary/15 bg-white p-6"
               >
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="flex-shrink-0 rounded-full bg-will-primary px-3 py-1 text-sm font-bold text-white">
-                    チャレンジ {index + 1}
-                  </span>
                   <h3 className="text-xl font-bold text-gray-900">{challenge.title}</h3>
                   <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
                     ⏱ {challenge.time}

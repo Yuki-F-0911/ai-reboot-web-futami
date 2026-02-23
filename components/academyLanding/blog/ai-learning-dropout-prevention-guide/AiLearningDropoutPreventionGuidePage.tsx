@@ -502,12 +502,7 @@ export default function AiLearningDropoutPreventionGuidePage({ faqItems }: Props
           <div className="mt-6 space-y-6">
             {todayPrompts.map((item, index) => (
               <div key={item.title} className="rounded-xl border border-gray-200 p-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-will-primary/10 text-sm font-bold text-will-primary">
-                    {index + 1}
-                  </span>
-                  <h3 className="text-base font-bold text-gray-900">{item.title}</h3>
-                </div>
+                <h3 className="text-base font-bold text-gray-900">{item.title}</h3>
                 <div className="mt-4 rounded-lg border border-gray-100 bg-gray-50 p-4">
                   <p className="whitespace-pre-line font-mono text-sm leading-7 text-gray-800">{item.prompt}</p>
                 </div>

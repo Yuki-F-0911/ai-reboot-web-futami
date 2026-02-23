@@ -427,12 +427,7 @@ export default function AiHealthyUsageGuidePage({ faqItems }: Props) {
                 <div className="flex items-start gap-4">
                   <span className="text-3xl">{rule.icon}</span>
                   <div>
-                    <div className="flex items-center gap-2">
-                      <span className="rounded-full bg-will-primary/10 px-3 py-1 text-xs font-bold text-will-primary">
-                        {rule.number}
-                      </span>
-                      <h3 className="text-xl font-bold text-gray-900">{rule.title}</h3>
-                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">{rule.title}</h3>
                     <p className="mt-4 text-sm leading-8 text-gray-700">{rule.content}</p>
                   </div>
                 </div>

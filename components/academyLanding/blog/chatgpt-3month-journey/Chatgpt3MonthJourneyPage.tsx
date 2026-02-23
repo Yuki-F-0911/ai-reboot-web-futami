@@ -444,9 +444,6 @@ export default function Chatgpt3MonthJourneyPage({ faqItems }: Props) {
           <div className="mt-6 space-y-3">
             {useCases.map((item) => (
               <div key={item.num} className="flex gap-4 rounded-lg border border-gray-200 p-4">
-                <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-will-primary/10 text-sm font-bold text-will-primary">
-                  {item.num}
-                </div>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="text-base font-semibold text-gray-900">{item.scene}</p>
@@ -556,9 +553,6 @@ export default function Chatgpt3MonthJourneyPage({ faqItems }: Props) {
             {adviceItems.map((item) => (
               <section key={item.num} className="rounded-xl border-2 border-will-primary/15 bg-will-lighter/30 p-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {item.num}
-                  </div>
                   <div>
                     <h3 className="text-base font-bold text-gray-900">{item.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-gray-700">{item.detail}</p>

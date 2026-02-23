@@ -357,7 +357,6 @@ export default function AiMasteryTipsForBeginnersPage({ faqItems }: Props) {
             ].map((prompt, i) => (
               <div key={i} className="rounded-lg border border-gray-200 bg-white px-4 py-3">
                 <p className="text-sm leading-7 text-gray-700">
-                  <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-will-primary/10 text-xs font-bold text-will-primary">{i + 1}</span>
                   {prompt}
                 </p>
               </div>
@@ -541,9 +540,6 @@ export default function AiMasteryTipsForBeginnersPage({ faqItems }: Props) {
               { step: "3", time: "10分", title: "追加指示を試す", body: "気に入った回答に「もう少しカジュアルに」「データを入れたスライドも提案して」と追加指示を出してみましょう。ツールごとの対応力の違いが体感できます。" },
             ].map((item) => (
               <div key={item.step} className="flex gap-4 rounded-lg border border-gray-200 bg-white p-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-will-primary/10">
-                  <span className="text-sm font-bold text-will-primary">{item.step}</span>
-                </div>
                 <div>
                   <div className="flex items-center gap-2">
                     <h4 className="text-base font-semibold text-gray-900">{item.title}</h4>
@@ -626,9 +622,6 @@ export default function AiMasteryTipsForBeginnersPage({ faqItems }: Props) {
             {mindsets.map((item, i) => (
               <div key={item.title} className="rounded-xl border-2 border-will-primary/15 bg-white p-6">
                 <div className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {i + 1}
-                  </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
                     <p className="mt-3 text-sm leading-8 text-gray-700">{item.body}</p>

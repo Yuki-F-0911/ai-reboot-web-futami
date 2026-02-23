@@ -272,7 +272,7 @@ export default function WorkflowAutomationComparisonPage({
         </motion.section>
 
         {/* Answer Box */}
-        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+        <section className="mb-8 rounded-xl border border-blue-500 bg-blue-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
             初導入で最短成果を狙うならZapier、コスト効率と複雑フローの両立を狙うならMake、機密データ運用や長期コスト最適化ならn8n（セルフホスト）が適しています。選定は「接続先SaaS」「月次処理量」「セキュリティ要件」の3点で決まります。迷う場合はZapierかMakeで1業務を先行自動化し、処理量が増えた段階でn8n移行を検討するのが現実的です。
@@ -502,9 +502,6 @@ export default function WorkflowAutomationComparisonPage({
                 className="rounded-lg border border-gray-200 bg-gray-50 p-5"
               >
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {index + 1}
-                  </span>
                   <h3 className="text-base font-bold text-gray-900">{uc.department}部門</h3>
                   <span className="ml-auto text-xs font-medium text-will-primary">{uc.tool}</span>
                 </div>
@@ -569,9 +566,6 @@ export default function WorkflowAutomationComparisonPage({
             {startingSteps.map((step) => (
               <div key={step.step} className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {step.step}
-                  </span>
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-gray-900">{step.title}</h3>

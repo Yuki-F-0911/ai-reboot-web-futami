@@ -349,7 +349,7 @@ export default function AiValueNotFeltHonestGuidePage({ faqItems }: Props) {
             <p className="text-base leading-relaxed text-slate-600">
               「こんにちは」と打ったら「こんにちは！何かお手伝いできますか？」と返ってきた。「旅行おすすめ」と打ったら当たり障りのない観光地リストが返ってきた。「これがAIの革命？」と拍子抜けした経験は、多くの人が持っています。
             </p>
-            <div className="p-6 rounded-2xl bg-slate-50 border-l-4 border-slate-300">
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-300">
               <p className="text-base leading-relaxed text-slate-700 italic">
                 あなたの感覚は間違っていません。<strong>ただ、まだ本当の使い方を知らないだけです。</strong>
               </p>

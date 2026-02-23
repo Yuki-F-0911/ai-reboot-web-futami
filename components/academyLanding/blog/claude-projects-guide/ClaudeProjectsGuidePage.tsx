@@ -435,9 +435,6 @@ export default function ClaudeProjectsGuidePage({ faqItems }: Props) {
           <div className="mt-6 space-y-4">
             {stepItems.map((item) => (
               <div key={item.step} className="flex gap-4 rounded-xl border border-gray-200 p-5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                  {item.step.replace("STEP ", "")}
-                </div>
                 <div>
                   <p className="font-semibold text-gray-900">{item.title}</p>
                   <p className="mt-2 text-sm leading-7 text-gray-700">{item.body}</p>

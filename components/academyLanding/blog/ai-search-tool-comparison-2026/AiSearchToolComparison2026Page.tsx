@@ -221,7 +221,7 @@ export default function AiSearchToolComparison2026Page({ faqItems }: Props) {
 
         <motion.section
           id="answer-box"
-          className="mt-14 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-6"
+          className="mt-14 rounded-xl border border-blue-500 bg-blue-50 p-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}

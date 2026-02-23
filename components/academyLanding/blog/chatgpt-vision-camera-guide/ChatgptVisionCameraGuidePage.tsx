@@ -256,9 +256,6 @@ export default function ChatgptVisionCameraGuidePage({ faqItems }: Props) {
               },
             ].map((item) => (
               <section key={item.step} className="flex gap-4 rounded-xl border-2 border-will-primary/15 p-5">
-                <span className="flex-shrink-0 rounded-full bg-will-primary px-3 py-1 text-sm font-bold text-white h-fit">
-                  {item.step}
-                </span>
                 <div>
                   <h3 className="text-base font-bold text-gray-900">{item.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-gray-700">{item.body}</p>
@@ -287,9 +284,6 @@ export default function ChatgptVisionCameraGuidePage({ faqItems }: Props) {
             {useCases.map((item) => (
               <section key={item.number} className="rounded-xl border border-gray-200 p-5">
                 <div className="flex items-start gap-3">
-                  <span className="flex-shrink-0 rounded-full bg-will-primary px-2.5 py-0.5 text-sm font-bold text-white">
-                    {item.number}
-                  </span>
                   <h3 className="text-base font-bold text-gray-900">{item.title}</h3>
                 </div>
                 <p className="mt-3 text-xs leading-6 text-gray-500">{item.scene}</p>

@@ -304,9 +304,6 @@ export default function AiResultsGapHonestGuidePage({ faqItems }: Props) {
             {mindsets.map((mindset) => (
               <section key={mindset.id} id={mindset.id} className="scroll-mt-28 rounded-xl border-2 border-will-primary/20 p-6">
                 <div className="flex items-center gap-4">
-                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-will-primary text-base font-bold text-white">
-                    {mindset.number}
-                  </span>
                   <div>
                     <p className="text-sm text-gray-500 line-through">{mindset.before}</p>
                     <h3 className="text-lg font-bold text-gray-900">→ {mindset.after}</h3>

@@ -202,7 +202,7 @@ export default function AiCodingToolComparison2026Page({ faqItems }: AiCodingToo
           </ul>
         </section>
 
-        <section className="mb-8 mt-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+        <section className="mb-8 mt-8 rounded-xl border border-blue-500 bg-blue-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">Answer Box</p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
             2026年の実務選定は、GitHub中心ならCopilot Agent HQ、CLI自動化ならCodex App、IDEでの高速改修ならCursorが主軸です。

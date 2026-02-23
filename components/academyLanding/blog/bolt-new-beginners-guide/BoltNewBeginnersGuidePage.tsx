@@ -545,9 +545,6 @@ export default function BoltNewBeginnersGuidePage({ faqItems }: Props) {
             {handsonSteps.map((s) => (
               <div key={s.step} className="rounded-xl border border-gray-200 bg-white p-5">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-will-primary text-lg font-bold text-white">
-                    {s.step}
-                  </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-base font-bold text-gray-900">{s.title}</h3>
                     <p className="mt-2 text-sm leading-7 text-gray-700">{s.desc}</p>

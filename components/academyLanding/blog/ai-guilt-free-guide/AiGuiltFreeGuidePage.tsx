@@ -260,7 +260,7 @@ export default function AiGuiltFreeGuidePage({ faqItems }: Props) {
               「AIが書いた文章を自分の成果として出していいのか」「こんなに楽していいのか」「考えることをサボっているんじゃないか」——
               こうした問いを持つこと自体が、道具の正しい使い方を考えているということを意味します。
             </p>
-            <div className="p-6 rounded-2xl bg-slate-50 border-l-4 border-slate-300">
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-300">
               <p className="text-base leading-relaxed text-slate-700 italic">
                 反対に、罪悪感をまったく感じずにAIを使っている人の中には、「自分の判断をAIに委ねている」ことへの自覚がない人もいます。
                 倫理的な問いを持てること——それはAI時代に必要な感性の一つです。
@@ -446,7 +446,7 @@ export default function AiGuiltFreeGuidePage({ faqItems }: Props) {
               </div>
             </div>
 
-            <div className="mt-8 p-6 rounded-2xl bg-slate-50 border-l-4 border-will-primary/30">
+            <div className="mt-8 p-6 rounded-2xl bg-slate-50 border border-will-primary/30">
               <p className="text-base leading-relaxed text-slate-700">
                 一つの問いを立ててみましょう。<strong>「AIを道具として使う人は、道具を使わない人より考えなくなるか？」</strong>
               </p>
@@ -518,7 +518,7 @@ export default function AiGuiltFreeGuidePage({ faqItems }: Props) {
               「何も考えずに使いこなしている」人と、「使いながら問いを持ち続けている」人——
               どちらが道具の正しい主人になれるか、おそらく想像がつくはずです。
             </p>
-            <div className="p-6 rounded-2xl bg-slate-50 border-l-4 border-amber-300">
+            <div className="p-6 rounded-2xl bg-slate-50 border border-amber-300">
               <p className="text-base leading-relaxed text-slate-700 italic">
                 技術の進化の歴史を振り返ると、新しい道具が登場するたびに「それを使うのは楽すぎる」「本来の能力が失われる」という声が上がってきました。
                 印刷機、電話、コンピューター、インターネット——それぞれの時代に「怠惰への誘惑」と向き合った人々がいました。

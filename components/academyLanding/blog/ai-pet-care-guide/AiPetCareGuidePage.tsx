@@ -460,7 +460,7 @@ export default function AiPetCareGuidePage({ faqItems }: Props) {
             {cautionItems.map((caution) => (
               <div
                 key={caution.title}
-                className={`rounded-xl border-l-4 p-5 ${caution.style}`}
+                className={`rounded-xl border p-5 ${caution.style}`}
               >
                 <p className={`text-sm font-bold ${caution.titleStyle}`}>
                   {caution.level === "緊急" ? "🚨" : "⚠"} {caution.title}

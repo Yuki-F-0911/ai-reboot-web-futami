@@ -159,7 +159,7 @@ export default function ChatgptCanvasGuidePage({ faqItems }: Props) {
             {keywordTags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+                className="rounded-full border border-will-primary/20/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
               >
                 {tag}
               </span>
@@ -383,9 +383,6 @@ export default function ChatgptCanvasGuidePage({ faqItems }: Props) {
           <div className="mt-8 space-y-6">
             {howToSteps.map((step, index) => (
               <div key={step.step} className="flex gap-5 rounded-xl border border-gray-200 p-6">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-will-primary text-white font-bold text-lg">
-                  {index + 1}
-                </div>
                 <div>
                   <h3 className="text-lg font-bold text-gray-900">{step.step}</h3>
                   <p className="mt-3 text-sm leading-7 text-gray-700">{step.content}</p>
@@ -484,11 +481,8 @@ export default function ChatgptCanvasGuidePage({ faqItems }: Props) {
           </p>
           <div className="mt-8 space-y-6">
             {fiveTips.map((item, index) => (
-              <div key={item.tip} className="rounded-xl border-l-4 border-will-primary bg-gray-50 p-6">
+              <div key={item.tip} className="rounded-xl border border-will-primary/20 bg-gray-50 p-6">
                 <div className="flex items-start gap-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {index + 1}
-                  </span>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">{item.tip}</h3>
                     <p className="mt-3 text-sm leading-7 text-gray-700">{item.detail}</p>

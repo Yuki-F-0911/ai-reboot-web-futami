@@ -505,9 +505,6 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-4 rounded-xl border border-gray-200 bg-white p-5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-will-primary text-lg font-bold text-white">
-                  {item.step}
-                </div>
                 <div>
                   <h3 className="text-base font-bold text-gray-900">{item.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-gray-700">{item.body}</p>
@@ -587,9 +584,6 @@ export default function ChatgptVoiceModeGuidePage({ faqItems }: Props) {
             {voiceTips.map((tip, i) => (
               <div key={tip.title} className="rounded-xl border-2 border-will-primary/15 bg-white p-6">
                 <div className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {i + 1}
-                  </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">{tip.title}</h3>
                     <p className="mt-3 text-sm leading-8 text-gray-700">{tip.body}</p>

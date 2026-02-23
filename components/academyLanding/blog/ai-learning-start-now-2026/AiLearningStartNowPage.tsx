@@ -325,7 +325,7 @@ export default function AiLearningStartNowPage({ faqItems }: Props) {
             <p className="text-base leading-relaxed text-slate-600">
               一方、あなたはまだ「そのうち始めよう」と思っています。Aさんとあなたの仕事量は同じです。でも6ヶ月後、Aさんは1日1〜2時間分の「AIが代わりにやってくれる作業」を積み上げ、その時間で新しいことに挑戦しています。
             </p>
-            <div className="p-6 rounded-2xl bg-amber-50/50 border-l-4 border-amber-300">
+            <div className="p-6 rounded-2xl bg-amber-50/50 border border-amber-300">
               <p className="text-base leading-relaxed text-slate-700 font-medium">
                 これは極端な話ではありません。今まさに、あなたの周りで起きていることです。
                 BCGの「AI at Work 2025」調査では、<strong>AI活用者と非活用者の生産性差が平均40%に達する</strong>という結果が出ています。

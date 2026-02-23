@@ -302,7 +302,7 @@ export default function AiFreePlanComparison2026Page({ faqItems }: Props) {
         </motion.section>
 
         {/* Answer Box */}
-        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+        <section className="mb-8 rounded-xl border border-blue-500 bg-blue-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
             無料プランでも3ツールを使い分ければ、ビジネスの基本タスクの8割はカバーできます。まずは全部登録し、同じ質問を投げて回答の質と使い勝手を比較するのが最短の選び方です。課金は「毎日上限に引っかかるようになってから」で遅くありません。

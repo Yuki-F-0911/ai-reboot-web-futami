@@ -600,9 +600,6 @@ export default function AiCookingRecipeGuidePage({ faqItems }: Props) {
             {startSteps.map((item, i) => (
               <div key={item.step} className="rounded-xl border-2 border-will-primary/15 bg-will-lighter/30 p-5">
                 <div className="flex items-start gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-will-primary text-base font-bold text-white">
-                    {i + 1}
-                  </span>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">{item.step}</h3>
                     <p className="mt-2 text-sm leading-7 text-gray-700">{item.description}</p>

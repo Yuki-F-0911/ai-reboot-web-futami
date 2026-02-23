@@ -138,7 +138,7 @@ export default function AiLearner3monthChallengesPage({ faqItems }: Props) {
             {keywordTags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+                className="rounded-full border border-will-primary/20/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
               >
                 {tag}
               </span>
@@ -224,12 +224,7 @@ export default function AiLearner3monthChallengesPage({ faqItems }: Props) {
             variants={sectionReveal}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <div className="flex items-center gap-3">
-              <span className="rounded-full bg-will-primary px-4 py-1 text-sm font-bold text-white">
-                {wall.number}
-              </span>
-              <h2 className="text-2xl font-bold text-gray-900">{wall.title}</h2>
-            </div>
+            <h2 className="text-2xl font-bold text-gray-900">{wall.title}</h2>
 
             <div className="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-5">
               <p className="text-sm font-semibold text-gray-600">こんな状態になっていませんか？</p>
@@ -241,7 +236,7 @@ export default function AiLearner3monthChallengesPage({ faqItems }: Props) {
               <p className="mt-3 text-sm leading-7 text-blue-900">{wall.reframe}</p>
             </div>
 
-            <div className="mt-4 rounded-xl border-l-4 border-will-primary bg-white p-5 shadow-subtle">
+            <div className="mt-4 rounded-xl border border-will-primary/20 bg-white p-5 shadow-subtle">
               <p className="text-base font-bold text-will-primary">{wall.howTo}</p>
               <p className="mt-3 text-sm leading-7 text-gray-700">{wall.howToBody}</p>
             </div>

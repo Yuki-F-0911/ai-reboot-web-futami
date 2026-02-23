@@ -246,7 +246,7 @@ export default function AiFirstMonthHonestDiaryPage({ faqItems }: Props) {
             {keywordTags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+                className="rounded-full border border-will-primary/20/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
               >
                 {tag}
               </span>
@@ -351,7 +351,7 @@ export default function AiFirstMonthHonestDiaryPage({ faqItems }: Props) {
               ))}
             </div>
             {phase.lesson && (
-              <div className="mt-4 rounded-lg border-l-4 border-will-primary bg-will-lighter/40 p-5">
+              <div className="mt-4 rounded-lg border border-will-primary/20 bg-will-lighter/40 p-5">
                 <p className="text-xs font-bold uppercase tracking-widest text-will-primary">{phase.lesson.label}</p>
                 <p className="mt-2 text-sm leading-7 text-gray-700">{phase.lesson.text}</p>
               </div>
@@ -420,9 +420,6 @@ export default function AiFirstMonthHonestDiaryPage({ faqItems }: Props) {
           <ol className="mt-6 space-y-5">
             {adviceItems.map((item) => (
               <li key={item.no} className="flex gap-4">
-                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                  {item.no}
-                </span>
                 <div>
                   <h3 className="text-base font-bold text-gray-900">{item.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-gray-700">{item.body}</p>

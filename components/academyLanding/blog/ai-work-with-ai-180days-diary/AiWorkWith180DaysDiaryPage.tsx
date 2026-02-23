@@ -301,7 +301,7 @@ export default function AiWorkWith180DaysDiaryPage({ faqItems }: Props) {
               転機は、同じチームの後輩が「ChatGPTで議事録作ったらめちゃ早かったです」と言い出したことです。
               え、議事録？それって私が毎回1時間かけてやっているやつ？
             </p>
-            <div className="p-6 rounded-2xl bg-slate-50 border-l-4 border-slate-300">
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-300">
               <p className="text-base leading-relaxed text-slate-700 italic">
                 その日の帰り道、スマホでChatGPTのアプリをダウンロードしました。
                 使ったこともないのに、なんか取り残される気がして。

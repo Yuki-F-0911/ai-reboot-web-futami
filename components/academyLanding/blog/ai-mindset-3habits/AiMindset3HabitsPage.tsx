@@ -464,14 +464,9 @@ export default function AiMindset3HabitsPage({ faqItems }: Props) {
               variants={sectionReveal}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <div className="flex items-center gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-will-primary text-lg font-bold text-white">
-                  {habit.number}
-                </span>
-                <h2 className="text-2xl font-bold text-gray-900">
+              <h2 className="text-2xl font-bold text-gray-900">
                   思考習慣{habit.number}：{habit.title}
                 </h2>
-              </div>
               <p className="mt-3 text-base font-medium text-will-primary">{habit.subtitle}</p>
 
               <div className="mt-5 whitespace-pre-line text-base leading-8 text-gray-700">{habit.core}</div>
@@ -557,16 +552,11 @@ export default function AiMindset3HabitsPage({ faqItems }: Props) {
             週単位でテーマを絞って取り組むことで、無理なく習慣化できます。
           </p>
           <div className="mt-8 space-y-6">
-            {thirtyDayPlan.map((week, idx) => (
+            {thirtyDayPlan.map((week) => (
               <section key={week.week} className="rounded-xl border-2 border-will-primary/15 bg-will-lighter/30 p-6">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {idx + 1}週
-                  </span>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900">{week.week}：{week.theme}</h3>
-                    <p className="mt-1 text-sm text-gray-600">{week.goal}</p>
-                  </div>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900">{week.week}：{week.theme}</h3>
+                  <p className="mt-1 text-sm text-gray-600">{week.goal}</p>
                 </div>
                 <ul className="mt-4 space-y-2 pl-4">
                   {week.tasks.map((task, i) => (

@@ -211,7 +211,7 @@ export default function HowToLearnGenerativeAiPage({ faqItems }: HowToLearnGener
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             生成AIの学び方【2026年版】社会人向け3ステージ学習ロードマップ
           </h1>
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
+          <div className="bg-amber-50 border border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
             <p className="text-sm font-semibold text-amber-700 mb-1">この記事でわかること</p>
             <p className="text-gray-700 text-sm leading-relaxed">
               生成AIの学び方は、ツール比較を先にするより「基礎→実務→応用」の順で進めた方が短期間で成果につながります。この記事では、社会人向けに1日30〜45分で回す12週間ロードマップ、独学とスクールの判断軸、無料学習リソースの使い分け、学習ログを成果物に変える振り返り方法、忙しい週でも再開しやすい運用まで具体化し、挫折しにくい実行手順として提示します。今日から着手する最初の30分タスクまで具体化します。

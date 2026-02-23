@@ -217,10 +217,7 @@ function MethodSection({ method }: { method: MethodItem }) {
       variants={sectionReveal}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="flex items-center gap-3">
-        <span className="inline-flex rounded-full bg-will-primary px-3 py-1 text-xs font-bold text-white">{method.number}</span>
-        <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">{method.title}</h2>
-      </div>
+      <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">{method.title}</h2>
       <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">{method.lead}</p>
       <div className="mt-4 space-y-3">
         {method.body.map((paragraph, i) => (
@@ -235,7 +232,7 @@ function MethodSection({ method }: { method: MethodItem }) {
           <code>{method.prompt}</code>
         </pre>
       </div>
-      <div className="mt-4 rounded-lg border-l-4 border-will-primary bg-will-lighter px-5 py-4">
+      <div className="mt-4 rounded-lg border border-will-primary/20 bg-will-lighter px-5 py-4">
         <p className="text-sm font-semibold text-will-primary">この方法の効果</p>
         <p className="mt-1 text-sm leading-7 text-gray-700">{method.effect}</p>
       </div>
@@ -412,9 +409,6 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
             <ul className="mt-4 space-y-3">
               {continuationTips.map((tip, i) => (
                 <li key={i} className="flex gap-3 rounded-lg border border-gray-200 bg-white p-4">
-                  <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-will-primary text-xs font-bold text-white">
-                    {i + 1}
-                  </span>
                   <p className="text-sm leading-7 text-gray-700">{tip}</p>
                 </li>
               ))}

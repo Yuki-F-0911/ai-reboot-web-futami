@@ -224,7 +224,7 @@ export default function AiVideoGenerationComparisonPage({ faqItems }: AiVideoGen
         </motion.section>
 
         {/* Answer Box */}
-        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+        <section className="mb-8 rounded-xl border border-blue-500 bg-blue-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
             動画生成AIの比較は、用途を決めたうえで商用条件と1本あたりコストを先に確認するのが最短です。短尺の高速検証はMidjourney V1 Video、案件運用はRunway Gen-3 Alpha、動き重視素材はKling AIが有力候補になります。SoraやSeedanceを含めて同一シーンで無料検証し、再現性が出るツールだけに課金するのが安全です。

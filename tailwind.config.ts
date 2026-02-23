@@ -77,7 +77,6 @@ const config: Config = {
         sans: ['Noto Sans JP', 'Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
         serif: ['Noto Serif JP', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'Consolas', 'Monaco', 'monospace'],
-        black: ['Anton', 'Impact', 'sans-serif'],
       },
       fontSize: {
         // Refined typography scale with 1.25 ratio

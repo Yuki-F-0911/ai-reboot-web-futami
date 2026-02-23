@@ -130,12 +130,7 @@ function UseCaseSection({ item }: { item: UseCaseItem }) {
       variants={sectionReveal}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="flex items-center gap-3">
-        <span className="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-          {item.number}
-        </span>
-        <h3 className="blog-h3 text-lg font-bold text-gray-900">{item.title}</h3>
-      </div>
+      <h3 className="blog-h3 text-lg font-bold text-gray-900">{item.title}</h3>
       <p className="mt-3 text-base font-medium text-gray-700">{item.scene}</p>
       <div className="mt-4">
         <p className="text-xs font-semibold tracking-wide text-gray-500">実際の入力例（コピーして使えます）</p>
@@ -143,7 +138,7 @@ function UseCaseSection({ item }: { item: UseCaseItem }) {
           {item.example}
         </div>
       </div>
-      <div className="mt-4 rounded-lg border-l-4 border-will-primary bg-will-lighter px-5 py-4">
+      <div className="mt-4 rounded-lg border border-will-primary/20 bg-will-lighter px-5 py-4">
         <p className="text-sm font-semibold text-will-primary">使い方のポイント</p>
         <p className="mt-1 text-sm leading-7 text-gray-700">{item.tip}</p>
       </div>
@@ -368,9 +363,6 @@ export default function AiGuideForSeniorsPage({ faqItems }: AiGuideForSeniorsPag
             ].map((item, i) => (
               <div key={i} className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-will-primary text-xs font-bold text-white">
-                    {i + 1}
-                  </span>
                 </div>
                 <div className="flex-1">
                   <p className="text-xs font-semibold tracking-widest text-will-primary">{item.step}</p>
@@ -498,9 +490,6 @@ export default function AiGuideForSeniorsPage({ faqItems }: AiGuideForSeniorsPag
               },
             ].map((item, i) => (
               <div key={i} className="flex gap-4 rounded-lg border border-gray-200 bg-white p-4">
-                <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-will-primary text-xs font-bold text-white">
-                  {i + 1}
-                </span>
                 <div>
                   <p className="text-sm font-semibold text-gray-900">{item.title}</p>
                   <p className="mt-1 text-sm leading-7 text-gray-700">{item.body}</p>

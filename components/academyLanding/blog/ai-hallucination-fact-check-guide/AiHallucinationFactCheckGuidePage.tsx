@@ -106,7 +106,7 @@ function PromptComparison({
 
 function HallucinationQuote({ text, truth }: { text: string; truth: string }) {
   return (
-    <div className="mt-4 rounded-xl border-l-4 border-red-300 bg-gray-50 p-4">
+    <div className="mt-4 rounded-xl border border-red-300 bg-gray-50 p-4">
       <p className="text-sm leading-7 text-gray-700">
         <span className="mr-1 font-semibold text-red-600">AIの回答例：</span>
         {text}
@@ -285,7 +285,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
                 <div className="flex items-center gap-2">
                   <span className="rounded-full bg-red-100 px-3 py-0.5 text-xs font-bold text-red-700">{item.label}</span>
                 </div>
-                <div className="mt-3 rounded-lg border-l-4 border-red-300 bg-gray-50 px-4 py-3">
+                <div className="mt-3 rounded-lg border border-red-300 bg-gray-50 px-4 py-3">
                   <p className="text-sm leading-7 text-gray-700">{item.example}</p>
                 </div>
                 <p className="mt-3 text-sm leading-7 text-gray-600">{item.desc}</p>
@@ -375,7 +375,7 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
             ].map((item) => (
               <div key={item.category} className="rounded-xl border border-gray-200 bg-white p-4">
                 <p className="text-sm font-bold text-gray-900">{item.category}</p>
-                <div className="mt-2 rounded-lg border-l-4 border-red-300 bg-red-50/50 px-3 py-2">
+                <div className="mt-2 rounded-lg border border-red-300 bg-red-50/50 px-3 py-2">
                   <p className="text-xs leading-6 text-gray-600">{item.example}</p>
                 </div>
                 <p className="mt-2 text-xs leading-6 text-emerald-700">
@@ -438,9 +438,6 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
             ].map((prompt, i) => (
               <div key={i} className="rounded-lg border border-gray-200 bg-white px-4 py-3">
                 <p className="text-sm leading-7 text-gray-700">
-                  <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-will-primary/10 text-xs font-bold text-will-primary">
-                    {i + 1}
-                  </span>
                   {prompt}
                 </p>
               </div>
@@ -541,9 +538,6 @@ export default function AiHallucinationFactCheckGuidePage({ faqItems }: Props) {
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-4 rounded-lg border border-gray-200 bg-white p-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-will-primary/10">
-                  <span className="text-sm font-bold text-will-primary">{item.step}</span>
-                </div>
                 <div>
                   <h4 className="text-base font-semibold text-gray-900">{item.title}</h4>
                   <p className="mt-1 text-sm leading-7 text-gray-700">{item.body}</p>

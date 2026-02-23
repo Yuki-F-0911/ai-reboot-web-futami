@@ -782,9 +782,6 @@ export default function ChatgptPromptTemplates50Page({ faqItems }: Props) {
             {proTips.map((tip, i) => (
               <div key={tip.title} className="rounded-xl border-2 border-will-primary/15 bg-white p-6">
                 <div className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {i + 1}
-                  </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">{tip.title}</h3>
                     <p className="mt-2 text-sm leading-8 text-gray-700">{tip.body}</p>

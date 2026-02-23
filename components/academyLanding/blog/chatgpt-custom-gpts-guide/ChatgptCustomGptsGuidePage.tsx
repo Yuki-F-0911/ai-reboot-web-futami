@@ -507,9 +507,6 @@ export default function ChatgptCustomGptsGuidePage({ faqItems }: Props) {
           <div className="mt-6 space-y-4">
             {howToUseSteps.map((item, index) => (
               <div key={item.step} className="flex gap-4 rounded-xl border border-gray-200 p-5">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                  {index + 1}
-                </div>
                 <div>
                   <p className="text-base font-semibold text-gray-900">{item.step}</p>
                   <p className="mt-2 text-sm leading-7 text-gray-700">{item.body}</p>
@@ -551,9 +548,6 @@ export default function ChatgptCustomGptsGuidePage({ faqItems }: Props) {
           <div className="mt-6 space-y-4">
             {createGptSteps.map((item, index) => (
               <div key={item.step} className="flex gap-4 rounded-xl border-2 border-will-primary/15 bg-will-lighter/30 p-5">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                  {index + 1}
-                </div>
                 <div>
                   <p className="text-base font-semibold text-gray-900">{item.step}</p>
                   <p className="mt-2 text-sm leading-7 text-gray-700">{item.body}</p>

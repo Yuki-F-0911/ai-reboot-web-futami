@@ -238,7 +238,7 @@ export default function ChatgptPromptBeginnerPage({ faqItems }: ChatgptPromptBeg
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             ChatGPTプロンプトの書き方入門｜初心者がすぐ使える15の型とNG/OK例
           </h1>
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
+          <div className="bg-amber-50 border border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
             <p className="text-sm font-semibold text-amber-700 mb-1">この記事でわかること</p>
             <p className="text-gray-700 text-sm leading-relaxed">
               ChatGPTプロンプトは、長く書くほど良いわけではなく、目的・前提・制約・出力形式を分けて指示するだけで精度が安定します。この記事では初心者向けに、15の基本型、NGとOKの書き換え例、回答がズレたときの修正順、追質問を使う場面と使わない場面、APIでsystem/developerとuserを分離する実務ルールまでを一気通貫で整理し、明日から再現できる型に落とし込みます。初学者が最短で改善を実感できる順序で学べます。

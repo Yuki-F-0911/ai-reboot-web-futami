@@ -117,12 +117,7 @@ function SceneSection({ item }: { item: SceneItem }) {
       variants={sectionReveal}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="flex items-center gap-3">
-        <span className="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-          {item.number}
-        </span>
-        <h3 className="blog-h3 text-lg font-bold text-gray-900">{item.title}</h3>
-      </div>
+      <h3 className="blog-h3 text-lg font-bold text-gray-900">{item.title}</h3>
       <p className="mt-3 text-base font-medium text-gray-700">{item.scene}</p>
       <div className="mt-4">
         <p className="text-xs font-semibold tracking-wide text-gray-500">プロンプト例（コピーして使えます）</p>
@@ -130,7 +125,7 @@ function SceneSection({ item }: { item: SceneItem }) {
           {item.promptExample}
         </div>
       </div>
-      <div className="mt-4 rounded-lg border-l-4 border-will-primary bg-will-lighter px-5 py-4">
+      <div className="mt-4 rounded-lg border border-will-primary/20 bg-will-lighter px-5 py-4">
         <p className="text-sm font-semibold text-will-primary">AIを使うとどうなるか</p>
         <p className="mt-1 text-sm leading-7 text-gray-700">{item.result}</p>
       </div>

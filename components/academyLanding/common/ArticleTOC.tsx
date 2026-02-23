@@ -142,38 +142,54 @@ export default function ArticleTOC({ items, className = "" }: ArticleTOCProps) {
               transition={{ duration: 0.4, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <ol className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1 mt-2">
+              <div role="list" className="grid grid-cols-1 gap-y-2 mt-2">
                 {items.map((item, index) => {
                   const isActive = activeId === item.id;
                   return (
-                    <li key={item.id} className="group">
+                    <div key={item.id} role="listitem">
                       <a
                         href={`#${item.id}`}
                         onClick={(event) => handleAnchorClick(event, item.id)}
-                        className={`flex items-start gap-4 py-2.5 px-3 rounded-lg text-[14px] sm:text-[15px] leading-relaxed transition-all duration-300 ${
-                          isActive 
-                            ? "font-bold" 
-                            : "text-stone-600 hover:bg-stone-50"
-                        }`}
-                        style={{ 
+                        className="flex items-start gap-3 py-1.5 text-[14px] sm:text-[15px] leading-relaxed transition-colors duration-300"
+                        style={{
                           color: isActive ? ACADEMY_COLORS.accentMain : ACADEMY_COLORS.textBody,
-                          backgroundColor: isActive ? ACADEMY_COLORS.bgWarm : 'transparent'
+                          fontWeight: isActive ? 700 : 500,
+                          borderBottom: "none",
+                          textDecoration: "none",
+                        }}
+                        onMouseEnter={(e) => {
+                          if (!isActive) {
+                            e.currentTarget.style.color = ACADEMY_COLORS.accentMain;
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!isActive) {
+                            e.currentTarget.style.color = ACADEMY_COLORS.textBody;
+                          }
                         }}
                       >
-                        <span 
-                          className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded text-[11px] font-bold transition-all duration-300 ${
-                            isActive ? "text-white" : "bg-stone-100 text-stone-500"
-                          }`}
-                          style={isActive ? { backgroundColor: ACADEMY_COLORS.accentMain } : {}}
+                        <span
+                          className="shrink-0 pt-0.5 text-[13px] leading-none"
+                          style={{ color: isActive ? ACADEMY_COLORS.accentMain : ACADEMY_COLORS.textMuted }}
+                          aria-hidden="true"
+                        >
+                          •
+                        </span>
+                        <span
+                          className="shrink-0 pt-0.5 text-[11px] tracking-[0.12em]"
+                          style={{
+                            fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                            color: isActive ? ACADEMY_COLORS.accentMain : ACADEMY_COLORS.textMuted,
+                          }}
                         >
                           {(index + 1).toString().padStart(2, '0')}
                         </span>
-                        <span className="flex-1 transition-transform duration-300 group-hover:translate-x-0.5">{item.label}</span>
+                        <span className="flex-1">{item.label}</span>
                       </a>
-                    </li>
+                    </div>
                   );
                 })}
-              </ol>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

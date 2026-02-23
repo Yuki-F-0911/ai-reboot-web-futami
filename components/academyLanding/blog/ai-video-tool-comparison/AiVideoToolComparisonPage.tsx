@@ -253,7 +253,7 @@ export default function AiVideoToolComparisonPage({ faqItems }: AiVideoToolCompa
         </motion.section>
 
         {/* Answer Box */}
-        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+        <section className="mb-8 rounded-xl border border-blue-500 bg-blue-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
             AI動画は「生成AIだけで完結」より、生成と編集を分業した方が品質と速度を両立できます。Sora・Runway・Pika・Kling・Veo・Lumaは素材カット作成、CapCut AIやOpus Clipは仕上げ工程で使うのが実践的です。SNS量産は編集重視、広告や教育用途は構成を先に固めて生成を補助利用するのが失敗しにくい選び方です。

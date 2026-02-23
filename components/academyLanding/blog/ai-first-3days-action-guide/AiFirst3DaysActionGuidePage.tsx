@@ -250,12 +250,7 @@ export default function AiFirst3DaysActionGuidePage({ faqItems }: Props) {
           <div className="mt-6 space-y-5">
             {day1Actions.map((action) => (
               <div key={action.number} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-xs font-bold text-white">
-                    {action.number.replace("Action ", "")}
-                  </span>
-                  <h3 className="text-base font-bold text-gray-900">{action.title}</h3>
-                </div>
+                <h3 className="text-base font-bold text-gray-900">{action.title}</h3>
                 <p className="mt-1 text-xs font-medium text-gray-400">⏱ {action.time}</p>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{action.body}</p>
                 {action.tip && (
@@ -296,12 +291,7 @@ export default function AiFirst3DaysActionGuidePage({ faqItems }: Props) {
           <div className="mt-6 space-y-5">
             {day2Actions.map((action) => (
               <div key={action.number} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-xs font-bold text-white">
-                    {action.number.replace("Action ", "")}
-                  </span>
-                  <h3 className="text-base font-bold text-gray-900">{action.title}</h3>
-                </div>
+                <h3 className="text-base font-bold text-gray-900">{action.title}</h3>
                 <p className="mt-1 text-xs font-medium text-gray-400">⏱ {action.time}</p>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{action.body}</p>
                 {"prompts" in action && action.prompts && (
@@ -351,12 +341,7 @@ export default function AiFirst3DaysActionGuidePage({ faqItems }: Props) {
           <div className="mt-6 space-y-5">
             {day3Actions.map((action) => (
               <div key={action.number} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-xs font-bold text-white">
-                    {action.number.replace("Action ", "")}
-                  </span>
-                  <h3 className="text-base font-bold text-gray-900">{action.title}</h3>
-                </div>
+                <h3 className="text-base font-bold text-gray-900">{action.title}</h3>
                 <p className="mt-1 text-xs font-medium text-gray-400">⏱ {action.time}</p>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{action.body}</p>
                 {"tips" in action && action.tips && (

@@ -341,16 +341,13 @@ export default function ChatgptWowMomentsGuidePage({ faqItems }: Props) {
             {wowMoments.map((moment) => (
               <section key={moment.id} id={moment.id} className="scroll-mt-28 rounded-xl border border-gray-200 p-6">
                 <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 rounded-full bg-will-primary px-3 py-1 text-sm font-bold text-white">
-                    {moment.number}
-                  </span>
                   <h3 className="text-xl font-bold text-gray-900">{moment.title}</h3>
                 </div>
                 <div className="mt-5 rounded-lg bg-gray-50 p-4">
                   <p className="text-sm font-semibold text-gray-700">シーン</p>
                   <p className="mt-2 text-sm leading-7 text-gray-700">{moment.scene}</p>
                 </div>
-                <blockquote className="mt-4 rounded-lg border-l-4 border-will-primary/40 bg-will-lighter/30 p-4">
+                <blockquote className="mt-4 rounded-lg border border-will-primary/40 bg-will-lighter/30 p-4">
                   <p className="text-sm leading-7 text-gray-700 before:content-['「'] after:content-['」']">
                     {moment.voice}
                   </p>

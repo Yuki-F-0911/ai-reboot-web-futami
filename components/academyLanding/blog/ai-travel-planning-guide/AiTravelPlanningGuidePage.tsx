@@ -335,9 +335,6 @@ export default function AiTravelPlanningGuidePage({ faqItems }: Props) {
             {domesticExamples.map((item, index) => (
               <div key={item.title} className="rounded-xl border border-gray-200 overflow-hidden">
                 <div className="bg-will-lighter/30 px-5 py-3 flex items-center gap-2">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-will-primary text-xs font-bold text-white">
-                    {index + 1}
-                  </span>
                   <span className="text-sm font-semibold text-gray-700">{item.situation}</span>
                 </div>
                 <div className="p-5">
@@ -376,9 +373,6 @@ export default function AiTravelPlanningGuidePage({ faqItems }: Props) {
             {overseasExamples.map((item, index) => (
               <div key={item.title} className="rounded-xl border border-gray-200 overflow-hidden">
                 <div className="bg-will-lighter/30 px-5 py-3 flex items-center gap-2">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-will-primary text-xs font-bold text-white">
-                    {index + 1}
-                  </span>
                   <span className="text-sm font-semibold text-gray-700">{item.situation}</span>
                 </div>
                 <div className="p-5">

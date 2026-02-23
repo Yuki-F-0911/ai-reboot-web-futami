@@ -30,22 +30,17 @@ export default function LineCtaBox({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`rounded-xl border p-8 sm:p-10 relative overflow-hidden bg-white shadow-sm ${className} group`}
+      className={`rounded-xl border p-8 sm:p-10 bg-white shadow-sm ${className}`}
       style={{ borderColor: ACADEMY_COLORS.lineSoft }}
     >
-      <div 
-        className="absolute left-0 top-0 bottom-0 w-1" 
-        style={{ backgroundColor: ACADEMY_COLORS.ctaLine }}
-      />
-      
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 relative z-10">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
         <div className="flex-1">
-          <h3 
+          <p
             className="text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl leading-tight"
             style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
           >
             {title}
-          </h3>
+          </p>
           <p className="mt-4 text-base leading-relaxed text-slate-600 max-w-2xl">
             {description}
           </p>
@@ -59,7 +54,7 @@ export default function LineCtaBox({
             whileHover={{ opacity: 0.9 }}
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center justify-center rounded-lg px-10 py-4 text-base font-bold text-white transition-all duration-300"
-            style={{ backgroundColor: ACADEMY_COLORS.ctaLine }}
+            style={{ backgroundColor: ACADEMY_COLORS.ctaLine, color: 'white', border: 'none' }}
           >
             <span className="mr-3">
               <MessageCircle className="h-5 w-5 fill-white" />

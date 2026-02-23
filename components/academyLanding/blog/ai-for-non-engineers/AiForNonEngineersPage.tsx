@@ -150,7 +150,7 @@ export default function AiForNonEngineersPage({ faqItems }: AiForNonEngineersPag
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             文系・非エンジニアのAI活用ガイド
           </h1>
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
+          <div className="bg-amber-50 border border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
             <p className="text-sm font-semibold text-amber-700 mb-1">この記事でわかること</p>
             <p className="text-gray-700 text-sm leading-relaxed">
               文系・非エンジニアでも、AIはプログラミングなしで仕事に活用できます。大切なのは難しい理論を覚えることではなく、文章作成・情報整理・議事録要約など日常タスクを1つ決め、プロンプト改善と確認手順を繰り返すことです。この記事では「AIが怖い」と感じる理由を分解し、不安を減らす始め方、誤情報や情報漏えいを防ぐ運用、継続しやすい学習設計まで実務目線で整理し、最初の1週間で動ける形にします。迷いを減らす判断基準も示します。

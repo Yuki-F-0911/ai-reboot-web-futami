@@ -326,7 +326,7 @@ export default function AiMeetingToolsComparisonPage({
         </motion.section>
 
         {/* Answer Box */}
-        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+        <section className="mb-8 rounded-xl border border-blue-500 bg-blue-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
             日本語会議を主軸にするならNotta、英語中心や国際会議ならFireflies.ai/Otter.aiの選定が基本です。まず無料で運用検証したい場合は、録画と文字起こしを無制限で試せるtl;dvが最も始めやすい選択です。Notion AIは録音機能がないため、文字起こしツールと組み合わせて導入する前提で設計してください。
@@ -650,9 +650,6 @@ export default function AiMeetingToolsComparisonPage({
           </h3>
           <div className="mt-5 space-y-4">
             <div className="flex gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4">
-              <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                1
-              </span>
               <div>
                 <p className="text-sm font-semibold text-gray-900">
                   録音・文字起こし（会議中〜終了直後）
@@ -663,9 +660,6 @@ export default function AiMeetingToolsComparisonPage({
               </div>
             </div>
             <div className="flex gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4">
-              <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                2
-              </span>
               <div>
                 <p className="text-sm font-semibold text-gray-900">AI要約・確認（終了後30分以内）</p>
                 <p className="mt-1 text-xs leading-6 text-gray-700">
@@ -674,9 +668,6 @@ export default function AiMeetingToolsComparisonPage({
               </div>
             </div>
             <div className="flex gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4">
-              <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                3
-              </span>
               <div>
                 <p className="text-sm font-semibold text-gray-900">共有・保存（当日中）</p>
                 <p className="mt-1 text-xs leading-6 text-gray-700">
@@ -685,9 +676,6 @@ export default function AiMeetingToolsComparisonPage({
               </div>
             </div>
             <div className="flex gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4">
-              <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                4
-              </span>
               <div>
                 <p className="text-sm font-semibold text-gray-900">
                   アクションアイテムのタスク化（翌営業日まで）

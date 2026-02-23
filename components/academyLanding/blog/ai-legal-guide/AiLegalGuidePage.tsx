@@ -190,7 +190,7 @@ export default function AiLegalGuidePage({ faqItems }: AiLegalGuidePageProps) {
           </p>
         </motion.header>
 
-        <section className="mb-8 mt-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+        <section className="mb-8 mt-8 rounded-xl border border-blue-500 bg-blue-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">Answer Box</p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
             法務で生成AIを安全に使う結論は、契約レビューの最終判断を人間に固定し、AIは差分抽出と論点整理に限定することです。加えて、EU AI

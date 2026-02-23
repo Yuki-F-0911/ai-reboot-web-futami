@@ -384,9 +384,6 @@ export default function ChatgptMemoryFeatureGuidePage({ faqItems }: Props) {
               { step: "5", title: "「Manage（管理）」ボタンで内容を確認", body: "「Manage Memory（メモリを管理する）」ボタンをクリックすると、現在保存されているメモリの一覧を確認できます。" },
             ].map((item) => (
               <div key={item.step} className="flex gap-4 rounded-lg border border-gray-200 p-4">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                  {item.step}
-                </div>
                 <div>
                   <p className="font-semibold text-gray-900">{item.title}</p>
                   <p className="mt-1 text-sm leading-7 text-gray-700">{item.body}</p>
@@ -404,9 +401,6 @@ export default function ChatgptMemoryFeatureGuidePage({ faqItems }: Props) {
               { step: "5", title: "トグルをオンにする", body: "メモリのトグルをオンにして設定完了。「Manage Memory（メモリを管理）」からメモリ内容の確認・削除も行えます。" },
             ].map((item) => (
               <div key={item.step} className="flex gap-4 rounded-lg border border-gray-200 p-4">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                  {item.step}
-                </div>
                 <div>
                   <p className="font-semibold text-gray-900">{item.title}</p>
                   <p className="mt-1 text-sm leading-7 text-gray-700">{item.body}</p>

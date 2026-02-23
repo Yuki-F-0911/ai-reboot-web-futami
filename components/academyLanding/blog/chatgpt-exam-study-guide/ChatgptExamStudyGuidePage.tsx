@@ -511,9 +511,6 @@ export default function ChatgptExamStudyGuidePage({ faqItems }: Props) {
             {weaknessAnalysisSteps.map((item, i) => (
               <div key={item.step} className="rounded-xl border-2 border-will-primary/15 bg-will-lighter/30 p-5">
                 <div className="flex items-start gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-will-primary text-base font-bold text-white">
-                    {i + 1}
-                  </span>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">{item.step}</h3>
                     <p className="mt-2 text-sm leading-7 text-gray-700">{item.description}</p>
@@ -649,9 +646,6 @@ export default function ChatgptExamStudyGuidePage({ faqItems }: Props) {
                 <ul className="mt-3 space-y-3">
                   {qual.hints.map((hint, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm leading-7 text-gray-700">
-                      <span className="mt-1.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-will-primary/10 text-xs font-bold text-will-primary">
-                        {i + 1}
-                      </span>
                       <span>{hint}</span>
                     </li>
                   ))}
@@ -683,7 +677,7 @@ export default function ChatgptExamStudyGuidePage({ faqItems }: Props) {
           </p>
           <div className="mt-6 space-y-4">
             {cautionItems.map((item, i) => (
-              <div key={item.title} className="rounded-xl border-l-4 border-amber-400 bg-amber-50 p-5">
+              <div key={item.title} className="rounded-xl border border-amber-400 bg-amber-50 p-5">
                 <h3 className="text-base font-bold text-gray-900">
                   <span className="mr-2 text-amber-600">⚠ 注意点 {i + 1}：</span>
                   {item.title}

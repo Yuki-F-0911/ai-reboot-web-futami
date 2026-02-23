@@ -273,7 +273,7 @@ export default function GptVsClaudeComparisonPage({ faqItems }: GptVsClaudeCompa
         </motion.section>
 
         {/* Answer Box */}
-        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+        <section className="mb-8 rounded-xl border border-blue-500 bg-blue-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
             GPT-4系とClaudeは単純な優劣ではなく、工程で使い分けるのが最も実務成果につながります。構造化や実装速度を重視する工程はGPT-4系、長文の推敲やトーン統一はClaudeが機能しやすい傾向です。最初は同じプロンプトで5軸比較し、主軸1つ＋補助1つの併用設計にすると運用が安定します。

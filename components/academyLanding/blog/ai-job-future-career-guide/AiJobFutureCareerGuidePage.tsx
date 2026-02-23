@@ -259,7 +259,7 @@ export default function AiJobFutureCareerGuidePage({ faqItems }: Props) {
             {keywordTags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+                className="rounded-full border border-will-primary/20/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
               >
                 {tag}
               </span>
@@ -584,9 +584,6 @@ export default function AiJobFutureCareerGuidePage({ faqItems }: Props) {
             {aiSkills.map((skill) => (
               <div key={skill.number} className="rounded-xl border border-gray-200 bg-white p-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-will-primary text-lg font-bold text-white">
-                    {skill.number}
-                  </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-lg font-bold text-gray-900">{skill.title}</h3>
                     <p className="mt-0.5 text-sm font-medium text-gray-500">{skill.subtitle}</p>
@@ -642,12 +639,6 @@ export default function AiJobFutureCareerGuidePage({ faqItems }: Props) {
             {careerSteps.map((step) => (
               <div key={step.step} className="overflow-hidden rounded-xl border border-gray-200 bg-white">
                 <div className="flex items-center gap-4 bg-gray-50 px-6 py-4">
-                  <span
-                    className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-will-primary text-2xl font-bold text-white"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {step.step}
-                  </span>
                   <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
                 </div>
                 <div className="px-6 py-5">
@@ -657,9 +648,6 @@ export default function AiJobFutureCareerGuidePage({ faqItems }: Props) {
                     <ul className="mt-2 space-y-2">
                       {step.actions.map((action, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm leading-7 text-gray-700">
-                          <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-will-primary/10 text-xs font-bold text-will-primary">
-                            {i + 1}
-                          </span>
                           {action}
                         </li>
                       ))}
@@ -798,7 +786,7 @@ export default function AiJobFutureCareerGuidePage({ faqItems }: Props) {
           <p className="mt-5 text-base leading-8 text-gray-700">
             この記事を通じてお伝えしたかったのは、一つのシンプルなメッセージです。
           </p>
-          <div className="mt-6 rounded-lg border-l-4 border-will-primary bg-white p-6">
+          <div className="mt-6 rounded-lg border border-will-primary/20 bg-white p-6">
             <p className="text-lg font-bold leading-8 text-gray-900" style={{ fontFamily: "'Noto Serif JP', serif" }}>
               仕事がなくなるのではなく、仕事の&ldquo;やり方&rdquo;が変わる。
               <br />

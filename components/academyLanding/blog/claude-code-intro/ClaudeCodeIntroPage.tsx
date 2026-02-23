@@ -496,12 +496,7 @@ claude
           <div className="mt-6 space-y-6">
             {firstTasks.map((task) => (
               <div key={task.number} className="rounded-lg border border-gray-200 bg-gray-50 p-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {task.number}
-                  </span>
-                  <h3 className="text-base font-bold text-gray-900">{task.title}</h3>
-                </div>
+                <h3 className="text-base font-bold text-gray-900">{task.title}</h3>
                 <div className="mt-3 overflow-x-auto rounded border border-gray-200 bg-white p-3">
                   <p className="text-xs leading-6 text-gray-500">プロンプト例：</p>
                   <p className="mt-1 text-sm leading-6 text-gray-800">「{task.prompt}」</p>

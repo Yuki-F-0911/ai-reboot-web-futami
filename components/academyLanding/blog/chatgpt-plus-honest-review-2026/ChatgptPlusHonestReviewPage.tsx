@@ -211,7 +211,7 @@ export default function ChatgptPlusHonestReviewPage({ faqItems }: Props) {
             {keywordTags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+                className="rounded-full border border-will-primary/20/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
               >
                 {tag}
               </span>
@@ -502,10 +502,7 @@ export default function ChatgptPlusHonestReviewPage({ faqItems }: Props) {
           </p>
           <div className="mt-6 space-y-4">
             {payingScenes.map((item, i) => (
-              <div key={item.scene} className="flex gap-4 rounded-xl border border-will-primary/20 bg-will-lighter/40 p-5">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-will-primary/15 text-sm font-bold text-will-primary">
-                  {i + 1}
-                </span>
+              <div key={item.scene} className="flex gap-4 rounded-xl border border-will-primary/20/20 bg-will-lighter/40 p-5">
                 <div>
                   <h3 className="text-base font-semibold text-gray-900">{item.scene}</h3>
                   <p className="mt-2 text-sm leading-7 text-gray-700">{item.detail}</p>
@@ -542,7 +539,7 @@ export default function ChatgptPlusHonestReviewPage({ faqItems }: Props) {
           <p className="mt-4 text-base leading-8 text-gray-700">
             浅い問いには無料版で十分です。深い問いをぶつけたときに、Plusは初めてその真価を発揮します。だから私は今でも「使い方を学ぶ前に課金するのは順番が逆だ」と思っています。
           </p>
-          <blockquote className="mt-6 rounded-xl border-l-4 border-will-primary bg-will-lighter/30 p-5">
+          <blockquote className="mt-6 rounded-xl border border-will-primary/20 bg-will-lighter/30 p-5">
             <p className="text-sm leading-8 text-gray-700 italic">
               「Plusへの3,000円を無駄にしたくないなら、まず使い方を3週間学んでください。その後に課金すれば、最初の月から元が取れます。」
             </p>
@@ -684,19 +681,16 @@ export default function ChatgptPlusHonestReviewPage({ faqItems }: Props) {
           <p className="mt-4 text-base leading-8 text-gray-700">
             逆に言えば、<strong>使い方を学んだ後に課金すれば、最初の月から「課金してよかった」と感じられる</strong>はずです。
           </p>
-          <div className="mt-6 rounded-xl border border-will-primary/20 bg-will-lighter/30 p-6">
+          <div className="mt-6 rounded-xl border border-will-primary/20/20 bg-will-lighter/30 p-6">
             <h3 className="text-lg font-bold text-gray-900">賢い順番</h3>
             <ol className="mt-4 space-y-3 text-sm leading-7 text-gray-700">
               <li className="flex gap-3">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-will-primary/15 text-xs font-bold text-will-primary">1</span>
                 <span><strong>無料版を2〜3週間使い込む</strong>——どんな場面でAIが役立つかを体感する</span>
               </li>
               <li className="flex gap-3">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-will-primary/15 text-xs font-bold text-will-primary">2</span>
                 <span><strong>プロンプト（指示の書き方）を学ぶ</strong>——質問の仕方が変わると、出力の質が劇的に変わる</span>
               </li>
               <li className="flex gap-3">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-will-primary/15 text-xs font-bold text-will-primary">3</span>
                 <span><strong>「毎日使っている・制限が気になる・画像生成したい」になったら課金する</strong>——このタイミングなら確実に元が取れる</span>
               </li>
             </ol>

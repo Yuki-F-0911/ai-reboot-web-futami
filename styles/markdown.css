@@ -20,6 +20,14 @@
   background-color: #d46a1f; /* accentMain */
 }
 
+.markdown-content h2.plain-h2 {
+  @apply pl-0 py-0 bg-transparent rounded-none;
+}
+
+.markdown-content h2.plain-h2::before {
+  content: none;
+}
+
 .markdown-content h3 {
   @apply text-xl font-bold text-slate-900 mt-10 mb-6 flex items-center gap-3 sm:text-2xl border-b pb-2;
   border-color: #e7e5e4; /* lineSoft */
@@ -98,6 +106,21 @@
   @apply absolute left-0 top-0.5 w-6 h-6 border rounded flex items-center justify-center text-[11px] font-bold;
   border-color: #d6d3d1; /* lineStrong */
   color: #78716c; /* textMuted */
+}
+
+/* パンくずの番号バッジ化を防ぐ */
+.markdown-content nav[aria-label='パンくず'] ol {
+  list-style: none;
+  counter-reset: none;
+}
+
+.markdown-content nav[aria-label='パンくず'] li::before {
+  content: none;
+}
+
+.markdown-content nav[aria-label='パンくず'] a {
+  color: inherit;
+  border-bottom: none;
 }
 
 /* ネストしたリスト */

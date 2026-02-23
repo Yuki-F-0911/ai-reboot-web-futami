@@ -354,9 +354,6 @@ export default function AiBeginnersGuideOver50Page({ faqItems }: Props) {
           <div className="mt-6 space-y-4">
             {setupSteps.map((item) => (
               <div key={item.step} className="flex gap-4 rounded-xl border border-gray-200 bg-white p-5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-will-primary">
-                  <span className="text-lg font-bold text-white">{item.step}</span>
-                </div>
                 <div className="min-w-0 flex-1">
                   <h3 className="text-base font-bold text-gray-900">{item.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-gray-700">{item.body}</p>
@@ -440,12 +437,7 @@ export default function AiBeginnersGuideOver50Page({ faqItems }: Props) {
             {useCaseScenarios.map((scenario, i) => (
               <div key={scenario.title} className="overflow-hidden rounded-xl border border-gray-200 bg-white">
                 <div className="border-b border-gray-100 bg-gray-50 px-5 py-3">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-will-primary text-xs font-bold text-white">
-                      {i + 1}
-                    </span>
-                    <h3 className="text-base font-bold text-gray-900">{scenario.title}</h3>
-                  </div>
+                  <h3 className="text-base font-bold text-gray-900">{scenario.title}</h3>
                   <p className="mt-1 ml-10 text-sm text-gray-600">{scenario.situation}</p>
                 </div>
                 <div className="space-y-4 p-5">
@@ -544,9 +536,6 @@ export default function AiBeginnersGuideOver50Page({ faqItems }: Props) {
             {strengths.map((item, i) => (
               <div key={item.title} className="rounded-xl border-2 border-will-primary/15 bg-white p-6">
                 <div className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {i + 1}
-                  </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
                     <p className="mt-3 text-sm leading-8 text-gray-700">{item.body}</p>

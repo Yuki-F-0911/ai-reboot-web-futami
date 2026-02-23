@@ -23,6 +23,9 @@ import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 import LineCtaBox from "@/components/blog/LineCtaBox";
+import PromptBlock from "@/components/blog/blocks/PromptBlock";
+import ResultBlock from "@/components/blog/blocks/ResultBlock";
+import AlertBlock from "@/components/blog/blocks/AlertBlock";
 import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY, ACADEMY_SPACING } from "../../sections/academyDesignTokens";
 
 type FAQItem = {
@@ -262,12 +265,7 @@ export default function AiTaxReturnGuide2026Page({ faqItems }: Props) {
             {keywordTags.map((tag) => (
               <span
                 key={tag}
-                className="rounded px-2 py-0.5 text-[10px] font-bold border"
-                style={{
-                  backgroundColor: ACADEMY_COLORS.bgSection,
-                  color: ACADEMY_COLORS.textMuted,
-                  borderColor: ACADEMY_COLORS.lineSoft,
-                }}
+                className="inline-flex rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
               >
                 {tag}
               </span>
@@ -392,7 +390,7 @@ export default function AiTaxReturnGuide2026Page({ faqItems }: Props) {
           viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
         >
-          <h2 id="what-ai-can-do" className="scroll-mt-28">
+          <h2 id="what-ai-can-do" className="plain-h2 scroll-mt-28">
             AIが確定申告で実際に役立つこと・役立たないこと
           </h2>
           <p className="mt-6 text-base leading-relaxed" style={{ color: ACADEMY_COLORS.textBody }}>
@@ -427,17 +425,12 @@ export default function AiTaxReturnGuide2026Page({ faqItems }: Props) {
               </div>
             ))}
           </div>
-          <div
-            className="mt-8 p-6 rounded-xl border-l-4"
-            style={{ backgroundColor: ACADEMY_COLORS.bgWarm, borderColor: ACADEMY_COLORS.accentMain }}
-          >
-            <p className="text-base leading-relaxed font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
-              💡 AIは「有能なアシスタント」であり「公認会計士の代替」ではありません。
-            </p>
-            <p className="mt-3 text-sm leading-relaxed" style={{ color: ACADEMY_COLORS.textBody }}>
-              この認識を持った上で使うと、AIは本当に頼もしい存在になります。それでは、具体的な使い方を5つのSTEPで見ていきましょう。
-            </p>
-          </div>
+          <p className="mt-8 text-base leading-relaxed font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
+            💡 AIは「有能なアシスタント」であり「公認会計士の代替」ではありません。
+          </p>
+          <p className="mt-3 text-sm leading-relaxed" style={{ color: ACADEMY_COLORS.textBody }}>
+            この認識を持った上で使うと、AIは本当に頼もしい存在になります。それでは、具体的な使い方を5つのSTEPで見ていきましょう。
+          </p>
         </motion.section>
 
         {/* STEP 1〜2 */}
@@ -450,14 +443,8 @@ export default function AiTaxReturnGuide2026Page({ faqItems }: Props) {
             viewport={{ once: true, amount: 0.1 }}
             variants={sectionReveal}
           >
-            <div className="flex items-center gap-4 mb-8">
-              <div
-                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl font-bold text-xl text-white"
-                style={{ backgroundColor: ACADEMY_COLORS.accentMain }}
-              >
-                {step.number}
-              </div>
-              <h2 id={step.id} className="scroll-mt-28 text-2xl font-bold text-slate-900 m-0 border-none pb-0">
+            <div className="mb-8">
+              <h2 id={step.id} className="plain-h2 scroll-mt-28 text-2xl font-bold text-slate-900 m-0 border-none pb-0">
                 {step.title}
               </h2>
             </div>
@@ -465,50 +452,22 @@ export default function AiTaxReturnGuide2026Page({ faqItems }: Props) {
               {step.lead}
             </p>
 
-            <div className="mt-8 rounded-xl border overflow-hidden" style={{ borderColor: ACADEMY_COLORS.lineSoft }}>
-              <div
-                className="px-6 py-4 text-xs font-bold uppercase tracking-widest"
-                style={{ backgroundColor: ACADEMY_COLORS.bgSection, color: ACADEMY_COLORS.textMuted }}
-              >
-                プロンプト例（コピーして使えます）
-              </div>
-              <pre
-                className="px-6 py-6 text-sm leading-relaxed whitespace-pre-wrap font-mono"
-                style={{ color: ACADEMY_COLORS.textBody, backgroundColor: "#fafaf9" }}
-              >
-                {step.prompt}
-              </pre>
+            <div className="mt-8">
+              <PromptBlock>{step.prompt}</PromptBlock>
             </div>
 
-            <div
-              className="mt-6 rounded-xl border p-6"
-              style={{ backgroundColor: ACADEMY_COLORS.bgWarm, borderColor: ACADEMY_COLORS.lineSoft }}
-            >
-              <p className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: ACADEMY_COLORS.textMuted }}>
-                AIの回答イメージ
-              </p>
-              <pre
-                className="text-sm leading-relaxed whitespace-pre-wrap"
-                style={{ color: ACADEMY_COLORS.textBody }}
-              >
-                {step.result}
-              </pre>
+            <div className="mt-4">
+              <ResultBlock>{step.result}</ResultBlock>
             </div>
 
-            <div
-              className="mt-6 flex gap-4 p-5 rounded-xl border"
-              style={{ backgroundColor: ACADEMY_COLORS.bgSection, borderColor: ACADEMY_COLORS.lineSoft }}
-            >
-              <Lightbulb className="h-5 w-5 shrink-0 mt-0.5" style={{ color: ACADEMY_COLORS.accentMain }} />
-              <p className="text-sm leading-relaxed font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
-                {step.point}
-              </p>
-            </div>
+            <p className="mt-4 flex items-start gap-2 text-sm leading-relaxed" style={{ color: ACADEMY_COLORS.textBody }}>
+              <Lightbulb className="mt-0.5 h-4 w-4 shrink-0" style={{ color: ACADEMY_COLORS.accentMain }} />
+              <span>{step.point}</span>
+            </p>
 
             {"warning" in step && step.warning && (
-              <div className="mt-4 flex gap-4 p-5 rounded-xl border border-amber-200 bg-amber-50">
-                <ShieldAlert className="h-5 w-5 shrink-0 mt-0.5 text-amber-600" />
-                <p className="text-sm leading-relaxed font-bold text-amber-800">{step.warning}</p>
+              <div className="mt-3">
+                <AlertBlock>{step.warning}</AlertBlock>
               </div>
             )}
           </motion.section>
@@ -535,14 +494,8 @@ export default function AiTaxReturnGuide2026Page({ faqItems }: Props) {
             viewport={{ once: true, amount: 0.1 }}
             variants={sectionReveal}
           >
-            <div className="flex items-center gap-4 mb-8">
-              <div
-                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl font-bold text-xl text-white"
-                style={{ backgroundColor: ACADEMY_COLORS.accentMain }}
-              >
-                {step.number}
-              </div>
-              <h2 id={step.id} className="scroll-mt-28 text-2xl font-bold text-slate-900 m-0 border-none pb-0">
+            <div className="mb-8">
+              <h2 id={step.id} className="plain-h2 scroll-mt-28 text-2xl font-bold text-slate-900 m-0 border-none pb-0">
                 {step.title}
               </h2>
             </div>
@@ -550,45 +503,18 @@ export default function AiTaxReturnGuide2026Page({ faqItems }: Props) {
               {step.lead}
             </p>
 
-            <div className="mt-8 rounded-xl border overflow-hidden" style={{ borderColor: ACADEMY_COLORS.lineSoft }}>
-              <div
-                className="px-6 py-4 text-xs font-bold uppercase tracking-widest"
-                style={{ backgroundColor: ACADEMY_COLORS.bgSection, color: ACADEMY_COLORS.textMuted }}
-              >
-                プロンプト例（コピーして使えます）
-              </div>
-              <pre
-                className="px-6 py-6 text-sm leading-relaxed whitespace-pre-wrap font-mono"
-                style={{ color: ACADEMY_COLORS.textBody, backgroundColor: "#fafaf9" }}
-              >
-                {step.prompt}
-              </pre>
+            <div className="mt-8">
+              <PromptBlock>{step.prompt}</PromptBlock>
             </div>
 
-            <div
-              className="mt-6 rounded-xl border p-6"
-              style={{ backgroundColor: ACADEMY_COLORS.bgWarm, borderColor: ACADEMY_COLORS.lineSoft }}
-            >
-              <p className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: ACADEMY_COLORS.textMuted }}>
-                AIの回答イメージ
-              </p>
-              <pre
-                className="text-sm leading-relaxed whitespace-pre-wrap"
-                style={{ color: ACADEMY_COLORS.textBody }}
-              >
-                {step.result}
-              </pre>
+            <div className="mt-4">
+              <ResultBlock>{step.result}</ResultBlock>
             </div>
 
-            <div
-              className="mt-6 flex gap-4 p-5 rounded-xl border"
-              style={{ backgroundColor: ACADEMY_COLORS.bgSection, borderColor: ACADEMY_COLORS.lineSoft }}
-            >
-              <Lightbulb className="h-5 w-5 shrink-0 mt-0.5" style={{ color: ACADEMY_COLORS.accentMain }} />
-              <p className="text-sm leading-relaxed font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
-                {step.point}
-              </p>
-            </div>
+            <p className="mt-4 flex items-start gap-2 text-sm leading-relaxed" style={{ color: ACADEMY_COLORS.textBody }}>
+              <Lightbulb className="mt-0.5 h-4 w-4 shrink-0" style={{ color: ACADEMY_COLORS.accentMain }} />
+              <span>{step.point}</span>
+            </p>
           </motion.section>
         ))}
 
@@ -600,7 +526,7 @@ export default function AiTaxReturnGuide2026Page({ faqItems }: Props) {
           viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
         >
-          <h2 id="cautions" className="scroll-mt-28">
+          <h2 id="cautions" className="plain-h2 scroll-mt-28">
             注意事項：AIを使う前に知っておくこと
           </h2>
           <div className="mt-10 grid gap-6">
@@ -647,7 +573,7 @@ export default function AiTaxReturnGuide2026Page({ faqItems }: Props) {
           viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
         >
-          <h2 id="faq" className="scroll-mt-28">
+          <h2 id="faq" className="plain-h2 scroll-mt-28">
             よくある質問（FAQ）
           </h2>
           <div className="mt-10 divide-y border-t" style={{ borderColor: ACADEMY_COLORS.lineSoft }}>
@@ -678,7 +604,7 @@ export default function AiTaxReturnGuide2026Page({ faqItems }: Props) {
         >
           <Sparkles className="absolute -right-4 -top-4 h-32 w-32 opacity-5" style={{ color: ACADEMY_COLORS.accentMain }} />
 
-          <h2 id="summary" className="scroll-mt-28 text-2xl font-bold m-0 border-none pb-0" style={{ color: ACADEMY_COLORS.textStrong }}>
+          <h2 id="summary" className="plain-h2 scroll-mt-28 text-2xl font-bold m-0 border-none pb-0" style={{ color: ACADEMY_COLORS.textStrong }}>
             まとめ：AIは「税務の先生」ではなく「賢い相談相手」
           </h2>
           <p className="mt-8 text-lg leading-relaxed font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
@@ -739,7 +665,7 @@ export default function AiTaxReturnGuide2026Page({ faqItems }: Props) {
           viewport={{ once: true, amount: 0.1 }}
           variants={sectionReveal}
         >
-          <h2 id="academy-cta" className="scroll-mt-28 flex items-center gap-3 text-2xl font-bold" style={{ color: ACADEMY_COLORS.textStrong, fontFamily: ACADEMY_TYPOGRAPHY.serif }}>
+          <h2 id="academy-cta" className="plain-h2 scroll-mt-28 flex items-center gap-3 text-2xl font-bold" style={{ color: ACADEMY_COLORS.textStrong, fontFamily: ACADEMY_TYPOGRAPHY.serif }}>
             <Lightbulb className="h-8 w-8" style={{ color: ACADEMY_COLORS.accentMain }} />
             次のステップ：AIをもっと使いこなしたくなったら
           </h2>
@@ -772,7 +698,7 @@ export default function AiTaxReturnGuide2026Page({ faqItems }: Props) {
             <div className="h-10 w-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: ACADEMY_COLORS.bgSection }}>
               <BookOpen className="h-5 w-5" style={{ color: ACADEMY_COLORS.textMuted }} />
             </div>
-            <h2 className="scroll-mt-28 m-0 border-none pb-0 text-2xl font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
+            <h2 className="plain-h2 scroll-mt-28 m-0 border-none pb-0 text-2xl font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
               関連リンク
             </h2>
           </div>

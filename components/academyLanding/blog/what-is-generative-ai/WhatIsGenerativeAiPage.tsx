@@ -165,7 +165,7 @@ export default function WhatIsGenerativeAiPage({ faqItems }: WhatIsGenerativeAiP
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             生成AIとは？初心者向けにわかりやすく解説
           </h1>
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
+          <div className="bg-amber-50 border border-amber-400 p-4 mb-8 rounded-r-lg" id="answer-box">
             <p className="text-sm font-semibold text-amber-700 mb-1">この記事でわかること</p>
             <p className="text-gray-700 text-sm leading-relaxed">
               生成AIとは、文章・画像・コードなど新しいコンテンツを作るAIで、従来の分類・予測中心のAIとは役割が異なります。この記事では初心者向けに、生成AIでできることと限界、ChatGPT・Claude・Geminiの選び方、無料プランから始める手順、失敗しにくいプロンプトの基本型、業務利用で守る安全ルールまでをまとめ、基礎理解から最初の実務活用まで迷わず進める判断軸を示します。理解チェックの観点も最後に確認できます。

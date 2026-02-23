@@ -181,7 +181,7 @@ export default function AiJobInterviewPrepGuidePage({ faqItems }: Props) {
             {keywordTags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
+                className="rounded-full border border-will-primary/20/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
               >
                 {tag}
               </span>
@@ -255,7 +255,7 @@ export default function AiJobInterviewPrepGuidePage({ faqItems }: Props) {
           </p>
 
           <div className="mt-6 space-y-4">
-            <div className="rounded-xl border-l-4 border-will-primary bg-gray-50 p-5">
+            <div className="rounded-xl border border-will-primary/20 bg-gray-50 p-5">
               <h3 className="text-base font-bold text-gray-900">① 「失敗が怖い」という壁がなくなる</h3>
               <p className="mt-2 text-sm leading-7 text-gray-700">
                 友人や家族に面接練習を頼むのは気恥ずかしかったり、忙しくて頼めなかったりします。
@@ -263,7 +263,7 @@ export default function AiJobInterviewPrepGuidePage({ faqItems }: Props) {
                 「変な回答をして笑われたら」という恐怖がゼロ——これが最大の心理的なメリットです。
               </p>
             </div>
-            <div className="rounded-xl border-l-4 border-will-primary bg-gray-50 p-5">
+            <div className="rounded-xl border border-will-primary/20 bg-gray-50 p-5">
               <h3 className="text-base font-bold text-gray-900">② 深掘り質問まで練習できる</h3>
               <p className="mt-2 text-sm leading-7 text-gray-700">
                 面接で苦手な人が多いのは「最初の回答」ではなく、「なぜ？」「具体的には？」と続く深掘り質問への対応です。
@@ -271,7 +271,7 @@ export default function AiJobInterviewPrepGuidePage({ faqItems }: Props) {
                 これを繰り返すことで、どんな質問が来ても動じない地力がつきます。
               </p>
             </div>
-            <div className="rounded-xl border-l-4 border-will-primary bg-gray-50 p-5">
+            <div className="rounded-xl border border-will-primary/20 bg-gray-50 p-5">
               <h3 className="text-base font-bold text-gray-900">③ 24時間・何社分でも準備できる</h3>
               <p className="mt-2 text-sm leading-7 text-gray-700">
                 転職活動中は、複数社を同時に受けることが多いですよね。AIなら「A社向け」「B社向け」と会社ごとに
@@ -305,12 +305,7 @@ export default function AiJobInterviewPrepGuidePage({ faqItems }: Props) {
           <div className="mt-8 space-y-6">
             {selfAnalysisSteps.map((item, index) => (
               <div key={item.step} className="rounded-xl border border-gray-200 p-6">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-will-primary text-white font-bold">
-                    {index + 1}
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900">{item.step}</h3>
-                </div>
+                <h3 className="text-lg font-bold text-gray-900">{item.step}</h3>
                 <p className="mt-4 text-sm leading-8 text-gray-700">{item.body}</p>
                 <div className="mt-4 rounded-lg bg-gray-50 p-4">
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">プロンプト例</p>
@@ -350,12 +345,7 @@ export default function AiJobInterviewPrepGuidePage({ faqItems }: Props) {
           <div className="mt-8 space-y-6">
             {prSteps.map((item, index) => (
               <div key={item.step} className="rounded-xl border border-gray-200 p-6">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-will-primary text-white font-bold">
-                    {index + 1}
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900">{item.step}</h3>
-                </div>
+                <h3 className="text-lg font-bold text-gray-900">{item.step}</h3>
                 <p className="mt-4 text-sm leading-8 text-gray-700">{item.body}</p>
                 <div className="mt-4 rounded-lg bg-gray-50 p-4">
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">プロンプト例</p>

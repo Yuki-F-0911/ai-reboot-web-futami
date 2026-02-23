@@ -179,7 +179,7 @@ export default function AiComebackGuidePage({ faqItems }: Props) {
             {keywordTags.map((tag) => (
               <span
                 key={tag}
-                className="rounded px-2 py-0.5 text-[10px] font-bold border"
+                className="inline-flex rounded-full border border-will-primary/20 bg-will-lighter px-3 py-1 text-xs font-semibold tracking-wide text-will-primary"
                 style={{
                   backgroundColor: ACADEMY_COLORS.bgSection,
                   color: ACADEMY_COLORS.textMuted,

@@ -261,7 +261,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
         </motion.section>
 
         {/* Answer Box */}
-        <section className="mb-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+        <section className="mb-8 rounded-xl border border-blue-500 bg-blue-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">この記事の結論</p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
             2026年2月時点での実務最適は、標準運用をChatGPT（GPT-5.2）で回し、長文や高難度タスクをClaude Sonnet 4.6 / Opus 4.6へ切り替える分業です。さらに推論専用のo3を難問タスク向けに工程単位で使い分けると、品質とコストの両立がしやすくなります。

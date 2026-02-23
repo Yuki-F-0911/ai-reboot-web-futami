@@ -289,9 +289,6 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-4 rounded-xl border border-gray-200 bg-white p-5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-will-primary/10 text-sm font-bold text-will-primary">
-                  {item.step.split(".")[0]}
-                </div>
                 <div>
                   <p className="text-base font-bold text-gray-900">{item.step}</p>
                   <p className="mt-1 text-sm leading-7 text-gray-600">{item.desc}</p>
@@ -439,9 +436,6 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
             <div className="mt-4 space-y-3">
               {optOutSteps.chatgpt.map((item) => (
                 <div key={item.step} className="flex gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-will-primary/10 text-xs font-bold text-will-primary">
-                    {item.step}
-                  </span>
                   <p className="text-sm leading-7 text-gray-700">{item.text}</p>
                 </div>
               ))}
@@ -465,9 +459,6 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
             <div className="mt-4 space-y-3">
               {optOutSteps.claude.map((item) => (
                 <div key={item.step} className="flex gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-will-primary/10 text-xs font-bold text-will-primary">
-                    {item.step}
-                  </span>
                   <p className="text-sm leading-7 text-gray-700">{item.text}</p>
                 </div>
               ))}
@@ -491,9 +482,6 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
             <div className="mt-4 space-y-3">
               {optOutSteps.gemini.map((item) => (
                 <div key={item.step} className="flex gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-will-primary/10 text-xs font-bold text-will-primary">
-                    {item.step}
-                  </span>
                   <p className="text-sm leading-7 text-gray-700">{item.text}</p>
                 </div>
               ))}
@@ -691,9 +679,6 @@ export default function AiPrivacySafetyGuidePage({ faqItems }: Props) {
               },
             ].map((item) => (
               <div key={item.title} className="rounded-xl border border-gray-200 bg-white p-5 text-center">
-                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-will-primary/10 text-sm font-bold text-will-primary">
-                  {item.emoji}
-                </div>
                 <p className="mt-3 text-sm font-bold text-gray-900">{item.title}</p>
                 <p className="mt-2 text-xs leading-6 text-gray-600">{item.desc}</p>
               </div>

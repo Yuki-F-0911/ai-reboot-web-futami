@@ -486,7 +486,6 @@ export default function ChatgptFreeGuide2026Page({ faqItems }: Props) {
           {scenarios.map((scenario, idx) => (
             <div key={scenario.title} className="mt-8">
               <h3 className="text-lg font-bold text-gray-900">
-                <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-will-primary text-xs font-bold text-white">{idx + 1}</span>
                 {scenario.title}
               </h3>
               <p className="mt-3 text-sm leading-7 text-gray-700">{scenario.desc}</p>
@@ -814,9 +813,6 @@ export default function ChatgptFreeGuide2026Page({ faqItems }: Props) {
             {usageTips.map((tip, i) => (
               <div key={tip.title} className="rounded-xl border border-gray-200 bg-white p-5">
                 <div className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {i + 1}
-                  </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-base font-bold text-gray-900">{tip.title}</h3>
                     <p className="mt-2 text-sm leading-7 text-gray-700">{tip.body}</p>

@@ -268,9 +268,6 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
             {trends.map((item) => (
               <section key={item.id} id={item.id} className="scroll-mt-28 rounded-xl border border-gray-200 p-6">
                 <div className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {item.number}
-                  </span>
                   <h3 className="font-serif text-xl font-bold text-gray-900">{item.title}</h3>
                 </div>
                 <div className="mt-4 whitespace-pre-line text-sm leading-8 text-gray-700">{item.body}</div>
@@ -333,12 +330,7 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
           <div className="mt-8 space-y-6">
             {actionSteps.map((step) => (
               <section key={step.number} className="rounded-xl border-2 border-will-primary/15 bg-will-lighter/30 p-6">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary/10 text-sm font-bold text-will-primary">
-                    {step.number}
-                  </span>
-                  <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
-                </div>
+                <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-gray-700">{step.body}</p>
               </section>
             ))}

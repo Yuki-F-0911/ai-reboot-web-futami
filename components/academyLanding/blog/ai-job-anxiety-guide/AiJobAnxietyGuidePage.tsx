@@ -452,9 +452,6 @@ export default function AiJobAnxietyGuidePage({ faqItems }: AiJobAnxietyGuidePag
             {threeSteps.map((step) => (
               <section key={step.step} className="flex gap-4 rounded-lg border border-gray-200 bg-gray-50 p-5">
                 <div className="flex-shrink-0">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {step.step.replace("Step ", "")}
-                  </span>
                 </div>
                 <div>
                   <h3 className="text-base font-semibold text-gray-900">{step.title}</h3>

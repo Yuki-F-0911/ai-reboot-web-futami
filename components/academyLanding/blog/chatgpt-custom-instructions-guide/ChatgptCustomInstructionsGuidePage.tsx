@@ -324,9 +324,6 @@ export default function ChatgptCustomInstructionsGuidePage({ faqItems }: Props) 
               { step: "5", title: "2つの欄に入力して保存", body: "「What would you like ChatGPT to know about you?」と「How would you like ChatGPT to respond?」の2つの欄に入力し、「Save（保存）」をクリックして完了です。" },
             ].map((item) => (
               <div key={item.step} className="flex gap-4 rounded-lg border border-gray-200 p-4">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                  {item.step}
-                </div>
                 <div>
                   <p className="font-semibold text-gray-900">{item.title}</p>
                   <p className="mt-1 text-sm leading-7 text-gray-700">{item.body}</p>
@@ -344,9 +341,6 @@ export default function ChatgptCustomInstructionsGuidePage({ faqItems }: Props) 
               { step: "5", title: "2つの欄に入力して保存", body: "2つの入力欄にそれぞれ内容を入力し、右上の「Save（保存）」をタップして完了です。" },
             ].map((item) => (
               <div key={item.step} className="flex gap-4 rounded-lg border border-gray-200 p-4">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                  {item.step}
-                </div>
                 <div>
                   <p className="font-semibold text-gray-900">{item.title}</p>
                   <p className="mt-1 text-sm leading-7 text-gray-700">{item.body}</p>
@@ -568,9 +562,6 @@ export default function ChatgptCustomInstructionsGuidePage({ faqItems }: Props) 
           <div className="mt-6 space-y-4">
             {fiveTips.map((tip, i) => (
               <div key={tip.title} className="flex gap-4 rounded-xl border border-gray-200 p-5">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-will-primary/10 text-sm font-bold text-will-primary">
-                  {i + 1}
-                </div>
                 <div>
                   <p className="font-bold text-gray-900">{tip.title}</p>
                   <p className="mt-2 text-sm leading-7 text-gray-700">{tip.body}</p>

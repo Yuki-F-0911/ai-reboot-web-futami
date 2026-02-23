@@ -514,9 +514,6 @@ export default function AiNovelCreativeWritingGuidePage({ faqItems }: Props) {
           <div className="mt-6 space-y-5">
             {threeSteps.map((step, index) => (
               <div key={step.step} className="flex gap-5 rounded-xl border border-gray-200 bg-white p-5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-will-primary text-white font-bold text-lg">
-                  {index + 1}
-                </div>
                 <div>
                   <h3 className="text-base font-bold text-gray-900">{step.step}</h3>
                   <p className="mt-2 text-sm leading-7 text-gray-700">{step.detail}</p>

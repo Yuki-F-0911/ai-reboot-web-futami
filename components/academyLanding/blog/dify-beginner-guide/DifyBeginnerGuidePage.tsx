@@ -544,14 +544,9 @@ export default function DifyBeginnerGuidePage({ faqItems }: DifyBeginnerGuidePag
           <div className="mt-6 space-y-6">
             {buildSteps.map((step, i) => (
               <div key={step.num} className="rounded-lg border border-gray-200 bg-white p-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {i + 1}
-                  </span>
-                  <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-lg font-semibold text-gray-900">
                     {step.num}：{step.title}
                   </h3>
-                </div>
                 <p className="mt-3 text-sm leading-7 text-gray-700">{step.detail}</p>
                 <div className="mt-3 rounded-lg border border-blue-200 bg-blue-50 px-4 py-3">
                   <p className="text-xs font-semibold text-blue-800">💡 実務のコツ</p>

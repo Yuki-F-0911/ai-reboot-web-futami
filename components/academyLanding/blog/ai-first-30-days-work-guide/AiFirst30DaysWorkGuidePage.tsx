@@ -452,9 +452,6 @@ export default function AiFirst30DaysWorkGuidePage({ faqItems }: Props) {
             {week1Steps.map((item, index) => (
               <div key={item.day} className="rounded-lg border border-slate-200 bg-white p-5">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-will-primary text-xs font-bold text-white">
-                    {index + 1}
-                  </span>
                   <p className="text-sm font-semibold text-gray-900">
                     {item.day}：{item.title}
                   </p>

@@ -478,9 +478,6 @@ export default function HowToAskAiBeginnersPage({ faqItems }: Props) {
             {questionIdeas.map((idea, i) => (
               <div key={i} className="rounded-xl border border-gray-200 bg-white p-4 transition-colors hover:border-will-primary/30 hover:bg-will-lighter/30">
                 <div className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {i + 1}
-                  </div>
                   <div className="min-w-0 flex-1">
                     <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
                       {idea.category}
@@ -521,9 +518,6 @@ export default function HowToAskAiBeginnersPage({ faqItems }: Props) {
             {levelUpTips.map((tip, i) => (
               <div key={tip.title} className="rounded-xl border-2 border-will-primary/15 bg-white p-6">
                 <div className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-will-primary text-sm font-bold text-white">
-                    {i + 1}
-                  </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-lg font-bold text-gray-900">{tip.title}</h3>
                     <p className="mt-1 text-xs font-medium text-will-primary">{tip.subtitle}</p>
