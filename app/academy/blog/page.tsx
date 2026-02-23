@@ -1169,10 +1169,11 @@ const blogPosts: readonly BlogPost[] = [
   },
   {
     slug: "ai-english-learning-guide",
-    title: "AI英語学習ガイド2026｜ChatGPT英会話・アプリ比較・継続設計",
+    title: "AIを使った英語学習：初心者でも続けられる5つの方法と正直な効果【2026年版】",
     summary:
-      "ChatGPT/Gemini英会話のプロンプト実践、Duolingo Max・ELSA Speak・Speak比較、ビジネス英語への落とし込み、30日継続設計まで社会人向けに整理した実践ガイドです。",
-    category: "資格・スキル",
+      "ChatGPTやClaudeを使った英語学習の方法を初心者向けに解説。続けやすく効果が出やすい添削・会話・単語・コンテンツ理解・英語思考の5つの活用法を実際のプロンプト例付きで紹介します。",
+    category: "AI活用術",
+    publishedAt: "2026-02-24T13:00:00+09:00",
   },
   {
     slug: "generative-ai-passport-guide",
