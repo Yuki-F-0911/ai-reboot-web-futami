@@ -38,6 +38,24 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-first-week-mistakes-guide",
+    title: "AIを使い始めた最初の1週間でやりがちな5つのミス【2026年版】今からでも遅くない正しい使い方",
+    summary:
+      "「ChatGPTを試してみたけど、思ったほど使えない...」そう感じているなら、最初の使い方に少し問題があるかもしれません。多くのAI初心者が最初の1週間でやりがちなミスを正直に解説し、今日からできる正しい使い方を提示します。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-23T20:00:00+09:00",
+    tags: ["ChatGPT 使い方 間違い", "AI 初心者 失敗", "生成AI うまくいかない 理由", "ChatGPT 使いこなせない"],
+  },
+  {
+    slug: "ai-tax-return-guide-2026",
+    title: "2026年確定申告をAIで乗り越える：書類整理から申告まで、初心者でもできる完全ガイド",
+    summary:
+      "「確定申告、今年こそAIに手伝ってもらいたい...」そんなあなたへ。ChatGPTやClaudeを使って確定申告の準備を楽にする具体的な方法を、AI初心者でも実践できるように丁寧に解説します。",
+    category: "AI活用術",
+    publishedAt: "2026-02-23T19:00:00+09:00",
+    tags: ["確定申告 AI", "ChatGPT 確定申告", "確定申告 2026 AI活用", "AI 税務 初心者"],
+  },
+  {
     slug: "ai-guilt-free-guide",
     title: "AIを使うと「ズルい気がする」あなたへ：罪悪感の正体と、AI時代の正しい向き合い方【2026年版】",
     summary:
