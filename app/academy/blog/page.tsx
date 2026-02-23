@@ -315,6 +315,24 @@ const blogPosts: readonly BlogPost[] = [
     tags: ["AI 趣味", "AI 料理", "AI 旅行", "AI 読書", "AI 音楽", "AI 映画"],
   },
   {
+    slug: "claude-projects-guide",
+    title: "Claude Projectsとは？使い方から活用術まで完全ガイド｜長い資料や仕事を一元管理する新習慣",
+    summary:
+      "Claude Projectsの始め方・使い方を初心者向けにわかりやすく解説。通常の会話との違い、Pro限定機能の全貌、活用シーン、GPTsとの比較、ベストプラクティス5つを網羅しています。",
+    category: "最新AIツール",
+    publishedAt: "2026-02-22T11:00:00+09:00",
+    tags: ["Claude Projects", "Claude Pro", "AI 資料管理", "GPTs 比較", "Claude ワークフロー"],
+  },
+  {
+    slug: "ai-tool-cost-guide-2026",
+    title: "AI有料プランの費用対効果を正直比較2026｜ChatGPT・Claude・Gemini、月いくら払うべき？",
+    summary:
+      "ChatGPT Plus・Claude Pro・Gemini Advanced・Perplexity Proを価格・性能・コスパで正直比較。無料プランでできることとできないことを整理し、ユーザータイプ別のおすすめプランと有料化すべきタイミングの目安を解説します。",
+    category: "最新AIツール",
+    publishedAt: "2026-02-22T10:00:00+09:00",
+    tags: ["AI 有料プラン 比較", "ChatGPT Plus", "Claude Pro", "Gemini Advanced", "AI コスパ"],
+  },
+  {
     slug: "chatgpt-custom-instructions-guide",
     title: "ChatGPTのカスタム指示（Custom Instructions）完全ガイド｜設定するだけで毎回の回答が劇的に変わる方法",
     summary:
