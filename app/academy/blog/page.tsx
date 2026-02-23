@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-writing-copyright-guide",
+    title: "AIに書かせた文章は自分の文章か？著作権・倫理・クレジット問題を初心者向けに解説",
+    summary:
+      "AIが書いた文章の著作権はどうなる？学校のレポートや仕事の文書にAIを使っていいの？初心者が疑問に思う「AIと著作権・倫理」の問題を、難しい法律用語を使わずに解説します。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-24T16:00:00+09:00",
+    tags: ["AI 著作権 文章", "ChatGPT 著作権 問題", "AI 文章 使っていい", "生成AI 著作権 2026"],
+  },
+  {
     slug: "ai-guide-for-seniors",
     title: "60代・70代がはじめてAIを使う：シニア世代のための優しいAI入門ガイド",
     summary:
