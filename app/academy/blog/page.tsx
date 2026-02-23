@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-guide-for-seniors",
+    title: "60代・70代がはじめてAIを使う：シニア世代のための優しいAI入門ガイド",
+    summary:
+      "60代・70代のシニア世代がはじめてAIを使うための入門ガイドです。「AIって難しそう」という不安を解消し、スマートフォンさえあれば今日から使える方法を丁寧に解説します。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-24T15:00:00+09:00",
+    tags: ["シニア AI 入門", "高齢者 ChatGPT 使い方", "60代 AI 初めて", "シニア 生成AI"],
+  },
+  {
     slug: "chatgpt-free-vs-paid-2026",
     title: "ChatGPTに課金すべき？無料と有料（Plus/Pro）の違いを正直に解説【2026年版】",
     summary:
