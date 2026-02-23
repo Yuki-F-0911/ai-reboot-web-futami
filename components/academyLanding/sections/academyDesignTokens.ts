@@ -25,6 +25,6 @@ export const ACADEMY_TYPOGRAPHY = {
 } as const;
 
 export const ACADEMY_SPACING = {
-  sectionPy: 'py-24 lg:py-32',
+  sectionPy: 'py-16 lg:py-32',
   container: 'max-w-6xl mx-auto px-6 lg:px-8',
 } as const;

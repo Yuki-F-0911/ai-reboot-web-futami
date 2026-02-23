@@ -9,7 +9,7 @@ const baseLineUrl = "https://bexn9pao.autosns.app/line";
 
 export default function MidArticleCtaBox({
   slug = "academy-blog",
-  className = "blog-cta-box rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 via-white to-green-50/50 p-8 shadow-elevated relative overflow-hidden",
+  className = "",
 }: MidArticleCtaBoxProps) {
   const href = `${baseLineUrl}?${new URLSearchParams({
     src: "blog",

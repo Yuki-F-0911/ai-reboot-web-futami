@@ -85,7 +85,7 @@ export default function ArticleTOC({ items, className = "" }: ArticleTOCProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         aria-label="記事目次"
-        className="mt-12 sticky top-24 z-30 rounded-2xl border bg-white p-6 sm:p-8 shadow-sm overflow-hidden"
+        className="mt-12 sticky top-24 z-30 rounded-xl border bg-white p-6 sm:p-8 shadow-sm overflow-hidden"
         style={{ borderColor: ACADEMY_COLORS.lineSoft }}
         data-copy-exclude
       >
@@ -181,4 +181,3 @@ export default function ArticleTOC({ items, className = "" }: ArticleTOCProps) {
     </div>
   );
 }
-

@@ -54,7 +54,7 @@ export default function FloatingLineCta() {
             className="fixed bottom-6 left-1/2 z-[70] w-[calc(100%-2rem)] max-w-md -translate-x-1/2 sm:hidden"
           >
             <div 
-              className="relative overflow-hidden rounded-2xl border bg-white/95 p-1 shadow-sm backdrop-blur-md"
+              className="relative overflow-hidden rounded-xl border bg-white/95 p-1 shadow-md backdrop-blur-md"
               style={{ borderColor: ACADEMY_COLORS.lineSoft }}
             >
               <div className="flex items-center gap-2 p-1">
@@ -63,7 +63,7 @@ export default function FloatingLineCta() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileTap={{ scale: 0.98 }}
-                  className="relative flex flex-1 items-center justify-center gap-3 overflow-hidden rounded-xl px-4 py-4 text-base font-bold text-white transition-opacity hover:opacity-90"
+                  className="relative flex flex-1 items-center justify-center gap-3 overflow-hidden rounded-lg px-4 py-4 text-base font-bold text-white transition-opacity hover:opacity-90"
                   style={{ backgroundColor: ACADEMY_COLORS.ctaLine }}
                 >
                   <LineIcon className="h-5 w-5" />
@@ -76,7 +76,7 @@ export default function FloatingLineCta() {
                   type="button"
                   onClick={close}
                   aria-label="閉じる"
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors hover:bg-stone-100 text-stone-400"
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg transition-colors hover:bg-stone-100 text-stone-400"
                   style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}
                 >
                   <X className="h-5 w-5" />
@@ -101,7 +101,7 @@ export default function FloatingLineCta() {
                   rel="noopener noreferrer"
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-3 rounded-full pl-5 pr-7 py-3.5 text-base font-bold text-white shadow-sm transition-all hover:opacity-90"
+                  className="flex items-center gap-3 rounded-lg pl-5 pr-7 py-3.5 text-base font-bold text-white shadow-md transition-all hover:opacity-90"
                   style={{ backgroundColor: ACADEMY_COLORS.ctaLine }}
                 >
                   <LineIcon className="h-5 w-5" />
@@ -116,7 +116,7 @@ export default function FloatingLineCta() {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   aria-label="閉じる"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border bg-white/80 text-stone-400 shadow-sm backdrop-blur-sm transition-all hover:bg-stone-50"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg border bg-white/80 text-stone-400 shadow-sm backdrop-blur-sm transition-all hover:bg-stone-50"
                   style={{ borderColor: ACADEMY_COLORS.lineSoft }}
                 >
                   <X className="h-4 w-4" />
@@ -137,4 +137,3 @@ function LineIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-

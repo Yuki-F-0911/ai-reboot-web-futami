@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "./academyDesignTokens";
+import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY, ACADEMY_SPACING } from "./academyDesignTokens";
 
 const FinalCtaSection = () => {
   return (
-    <section className="py-24 lg:py-32" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
+    <section className={ACADEMY_SPACING.sectionPy} style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
       <div className="container mx-auto max-w-5xl px-6 lg:px-12">
         <div className="mb-10 h-px w-full" style={{ backgroundColor: ACADEMY_COLORS.lineStrong }} />
 

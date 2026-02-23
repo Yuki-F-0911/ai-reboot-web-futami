@@ -1,10 +1,10 @@
-import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "./academyDesignTokens";
+import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY, ACADEMY_SPACING } from "./academyDesignTokens";
 
 const PricingSection = () => {
     return (
         <section 
             id="pricing" 
-            className="border-y py-24 lg:py-32"
+            className={ACADEMY_SPACING.sectionPy}
             style={{ 
                 backgroundColor: ACADEMY_COLORS.bgCanvas,
                 borderColor: ACADEMY_COLORS.lineSoft

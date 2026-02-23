@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "./academyDesignTokens";
+import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY, ACADEMY_SPACING } from "./academyDesignTokens";
 
 const instructors = [
     {
@@ -39,7 +39,7 @@ const instructors = [
 const InstructorsSection = () => {
     return (
         <section 
-            className="py-24 lg:py-32"
+            className={ACADEMY_SPACING.sectionPy}
             style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}
         >
             <div className="container mx-auto px-6 lg:px-12 max-w-6xl">

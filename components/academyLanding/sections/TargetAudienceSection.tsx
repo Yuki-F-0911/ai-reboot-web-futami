@@ -1,4 +1,4 @@
-import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "./academyDesignTokens";
+import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY, ACADEMY_SPACING } from "./academyDesignTokens";
 
 const targetAudience = [
     {
@@ -27,7 +27,7 @@ const targetAudience = [
 const TargetAudienceSection = () => {
     return (
         <section 
-            className="py-24 lg:py-32"
+            className={ACADEMY_SPACING.sectionPy}
             style={{ backgroundColor: ACADEMY_COLORS.bgSection }}
         >
             <div className="container mx-auto px-6 lg:px-12 max-w-5xl">
