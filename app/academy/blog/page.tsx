@@ -56,6 +56,15 @@ const blogPosts: readonly BlogPost[] = [
     tags: ["AI 議事録 テンプレート", "ChatGPT ビジネスメール", "AI 報告書 作成", "AI 企画書 プロンプト"],
   },
   {
+    slug: "ai-beginners-faq-30",
+    title: "AIを始める前に知っておきたい30の疑問に、全部正直に答えます【2026年最新版】",
+    summary:
+      "「AIって安全なの？」「無料で使える？」「英語が苦手でも大丈夫？」「仕事を奪われる？」AI初心者が抱くリアルな30の疑問に、マーケティングトークなしで正直に答えます。",
+    category: "AI基礎知識",
+    publishedAt: "2026-02-23T17:00:00+09:00",
+    tags: ["AI初心者 よくある質問", "AI 始め方 2026", "ChatGPT 安全性", "生成AI 疑問", "AI 無料"],
+  },
+  {
     slug: "ai-learner-3month-challenges",
     title: "AIを使い始めた人が3ヶ月後に直面する5つの壁と、それぞれの乗り越え方【2026年版】",
     summary:
