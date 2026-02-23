@@ -6,6 +6,7 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -20,9 +21,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaBody = "毎週1本、実務で使える生成AI活用のヒントとAIニュースをLINEで配信しています（無料）。読むだけで、AI活用の「知っておくべきこと」が自然と身につきます。受講前の不安や、自分に合うか確認したい方は、個別LINE相談もできます。";
 
 const keywordTags = ["Midjourney 動画生成 使い方", "Midjourney V1 Video", "AI動画 静止画から動画"] as const;
 
@@ -188,30 +186,6 @@ const academyPillars = [
   },
 ] as const;
 
-function LineCtaBox({ tone }: { tone: "green" | "orange" }) {
-  const boxClass =
-    tone === "green"
-      ? "blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
-      : "blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6";
-
-  return (
-    <section className={boxClass}>
-      <p className="text-base font-semibold text-gray-900">{lineCtaBody}</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        Midjourneyや動画生成AIの更新情報を、実務で判断しやすい形に整理して配信しています。情報の追従コストを下げたい方に向けた無料チャンネルです。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </section>
-  );
-}
-
 export default function MidjourneyVideoGuidePage({ faqItems }: MidjourneyVideoGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -286,7 +260,7 @@ export default function MidjourneyVideoGuidePage({ faqItems }: MidjourneyVideoGu
             ))}
           </ul>
           <div className="mt-6">
-            <LineCtaBox tone="green" />
+            <LineCtaBox />
           </div>
         </motion.section>
 
@@ -425,7 +399,7 @@ export default function MidjourneyVideoGuidePage({ faqItems }: MidjourneyVideoGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox tone="orange" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -578,7 +552,7 @@ export default function MidjourneyVideoGuidePage({ faqItems }: MidjourneyVideoGu
             ))}
           </dl>
           <div className="mt-6">
-            <LineCtaBox tone="green" />
+            <LineCtaBox />
           </div>
         </motion.section>
 

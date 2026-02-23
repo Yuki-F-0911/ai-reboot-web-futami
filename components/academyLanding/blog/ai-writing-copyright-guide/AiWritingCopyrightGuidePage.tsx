@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -19,10 +20,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaTitle = "AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）";
-const lineCtaButtonLabel = "今すぐ無料で登録する（30秒）";
 
 const keywordTags = ["AI 著作権 文章", "ChatGPT 著作権 問題", "AI 文章 使っていい", "生成AI 著作権 2026"] as const;
 
@@ -91,32 +88,6 @@ const sceneChartItems = [
     note: "正確性・信頼性が特に求められる文書です。AIを参考程度に使い、必ず人間が確認・編集してください。",
   },
 ];
-
-function LineCtaBox({ className }: { className: string }) {
-  return (
-    <motion.section
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-    >
-      <p className="text-base font-semibold text-gray-900">{lineCtaTitle}</p>
-      <p className="blog-p mt-2 text-sm leading-7 text-gray-700">
-        AI著作権・倫理の最新動向から、仕事でAIを正しく使うノウハウまで、毎週わかりやすく届けています。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        {lineCtaButtonLabel}
-      </a>
-    </motion.section>
-  );
-}
 
 export default function AiWritingCopyrightGuidePage({ faqItems }: AiWritingCopyrightGuidePageProps) {
   return (
@@ -286,7 +257,7 @@ export default function AiWritingCopyrightGuidePage({ faqItems }: AiWritingCopyr
           </div>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-green-200 bg-green-50 p-6" />
+        <LineCtaBox />
 
         {/* Q2: 学校 */}
         <motion.section
@@ -416,7 +387,7 @@ export default function AiWritingCopyrightGuidePage({ faqItems }: AiWritingCopyr
           </div>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6" />
+        <LineCtaBox />
 
         {/* Q4: コピー */}
         <motion.section
@@ -558,7 +529,7 @@ export default function AiWritingCopyrightGuidePage({ faqItems }: AiWritingCopyr
           </p>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-emerald-200 bg-emerald-50 p-6" />
+        <LineCtaBox />
 
         {/* FAQ */}
         <motion.section

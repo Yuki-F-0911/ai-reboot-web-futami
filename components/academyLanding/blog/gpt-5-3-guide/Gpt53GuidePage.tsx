@@ -6,6 +6,7 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -20,8 +21,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const keywordTags = ["GPT-5.2", "thinkingレベル", "GPT-5.3-codex", "Claude Opus 4.6比較"] as const;
 
@@ -141,31 +140,6 @@ const vsClaudeRows = [
     claude: "長文中心の業務では優先候補として検討しやすい",
   },
 ] as const;
-
-type LineCtaBoxProps = {
-  className: string;
-};
-
-function LineCtaBox({ className }: LineCtaBoxProps) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-gray-900">
-        AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）
-      </p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        OpenAIモデルの更新点と実務運用の判断軸を、毎週わかりやすく整理して配信しています。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </section>
-  );
-}
 
 export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
   return (
@@ -343,7 +317,7 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -435,7 +409,7 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -502,7 +476,7 @@ export default function Gpt53GuidePage({ faqItems }: Gpt53GuidePageProps) {
             ))}
           </dl>
           <div className="mt-6">
-            <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+            <LineCtaBox />
           </div>
         </motion.section>
 

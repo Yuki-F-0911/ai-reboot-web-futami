@@ -6,6 +6,7 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -114,29 +115,6 @@ const decisionChecklist = [
   "Fine-tuning用の教師データ作成体制を確認した",
   "評価指標（品質・安全性・運用性）を合意した",
 ] as const;
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaTitle = "📩 LINEで毎週AI知識を配信中";
-const lineCtaBody =
-  "AIリブートのLINEでは、毎週1本・仕事で使えるAI知識とニュース解説を配信しています。講座に来る前に基礎を揃えておきたい方に最適です。";
-const lineCtaButtonLabel = "今すぐ無料で登録する（30秒）";
-
-function LineCtaBox() {
-  return (
-    <div className="rounded-lg border border-gray-200 bg-white p-5">
-      <h3 className="text-lg font-semibold text-gray-900">{lineCtaTitle}</h3>
-      <p className="mt-3 text-sm leading-7 text-gray-700">{lineCtaBody}</p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4 inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
-      >
-        {lineCtaButtonLabel}
-      </a>
-    </div>
-  );
-}
 
 export default function RagVsFinetunigGuidePage({ faqItems }: RagVsFinetunigGuidePageProps) {
   return (

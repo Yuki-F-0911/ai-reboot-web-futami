@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -19,8 +20,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const keywordTags = [
   "Claude Sonnet 4.6 使い方",
@@ -165,29 +164,6 @@ const pricingChecklist = [
   "月次上限を部門単位で決め、上限到達時のフォールバックモデルを用意する",
   "価格改定に備えて確認日を運用ドキュメントに残す",
 ] as const;
-
-type LineCtaBoxProps = {
-  className: string;
-};
-
-function LineCtaBox({ className }: LineCtaBoxProps) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-gray-900">AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        ClaudeやOpenAIの最新情報を、仕事にすぐ使える形で毎週整理して届けています。Claude活用の実践ノウハウを無料で受け取れます。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        LINEで週1AI通信を受け取る（無料）
-      </a>
-    </section>
-  );
-}
 
 export default function ClaudeSonnet46GuidePage({ faqItems }: ClaudeSonnet46GuidePageProps) {
   return (
@@ -343,7 +319,7 @@ export default function ClaudeSonnet46GuidePage({ faqItems }: ClaudeSonnet46Guid
         </motion.section>
 
         <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={sectionReveal}>
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -475,7 +451,7 @@ export default function ClaudeSonnet46GuidePage({ faqItems }: ClaudeSonnet46Guid
         </motion.section>
 
         <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={sectionReveal}>
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -20,8 +21,6 @@ const sectionReveal = {
   visible: { opacity: 1, y: 0 },
 };
 
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaBody = "毎週1本、実務で使える生成AI活用のヒントとAIニュースをLINEで配信しています（無料）。読むだけで、AI活用の「知っておくべきこと」が自然と身につきます。受講前の不安や、自分に合うか確認したい方は、個別LINE相談もできます。";
 const infoCheckedDate = "2026-02-24";
 
 const keywordTags = ["AI 副業 始め方", "ChatGPT 副業 2026", "AI 副業 現実", "生成AI 副業 稼げる"] as const;
@@ -151,36 +150,6 @@ function PossibilityBadge({ level, color }: { level: string; color: string }) {
   );
 }
 
-function LineCtaBox({ tone }: { tone: "green" | "orange" }) {
-  const boxClass =
-    tone === "green"
-      ? "mt-14 rounded-lg border border-green-200 bg-green-50 p-6"
-      : "mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6";
-  const titleClass = tone === "green" ? "text-base font-semibold text-green-800" : "text-base font-semibold text-orange-800";
-
-  return (
-    <motion.section
-      className={boxClass}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
-      <p className={titleClass}>AIリブート通信</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">{lineCtaBody}</p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </motion.section>
-  );
-}
-
 export default function AiSideJobGuidePage({ faqItems }: AiSideJobGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -305,7 +274,7 @@ export default function AiSideJobGuidePage({ faqItems }: AiSideJobGuidePageProps
           </div>
         </motion.section>
 
-        <LineCtaBox tone="green" />
+        <LineCtaBox />
 
         <motion.section
           id="cautions"
@@ -341,7 +310,7 @@ export default function AiSideJobGuidePage({ faqItems }: AiSideJobGuidePageProps
           </div>
         </motion.section>
 
-        <LineCtaBox tone="orange" />
+        <LineCtaBox />
 
         <motion.section
           id="how-to-start"
@@ -425,7 +394,7 @@ export default function AiSideJobGuidePage({ faqItems }: AiSideJobGuidePageProps
           </div>
         </motion.section>
 
-        <LineCtaBox tone="green" />
+        <LineCtaBox />
 
         <motion.section
           id="academy-cta"

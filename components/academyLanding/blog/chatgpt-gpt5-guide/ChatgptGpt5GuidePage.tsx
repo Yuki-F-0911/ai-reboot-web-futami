@@ -6,6 +6,7 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -20,8 +21,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const keywordTags = ["ChatGPT GPT-5 違い", "GPT-5.2", "モデル選び", "API比較"] as const;
 
@@ -107,31 +106,6 @@ const workflowSteps = [
     body: "出力の最終品質はモデル選択だけで決まりません。レビュー項目を固定し、チームで同じチェックを回すことで、誤回答リスクを下げられます。",
   },
 ] as const;
-
-type LineCtaBoxProps = {
-  className: string;
-};
-
-function LineCtaBox({ className }: LineCtaBoxProps) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-gray-900">
-        AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）
-      </p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        ChatGPTや最新モデルのアップデートを、業務判断に使える要点だけで受け取りたい方向けに配信しています。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </section>
-  );
-}
 
 export default function ChatgptGpt5GuidePage({ faqItems }: ChatgptGpt5GuidePageProps) {
   return (
@@ -265,7 +239,7 @@ export default function ChatgptGpt5GuidePage({ faqItems }: ChatgptGpt5GuidePageP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -364,7 +338,7 @@ export default function ChatgptGpt5GuidePage({ faqItems }: ChatgptGpt5GuidePageP
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -427,7 +401,7 @@ export default function ChatgptGpt5GuidePage({ faqItems }: ChatgptGpt5GuidePageP
             ))}
           </dl>
           <div className="mt-6">
-            <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+            <LineCtaBox />
           </div>
         </motion.section>
 

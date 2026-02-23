@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -19,12 +20,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaTitle = "📩 LINEで毎週AI知識を配信中";
-const lineCtaBody =
-  "AIリブートのLINEでは、毎週1本・仕事で使えるAI知識とニュース解説を配信しています。講座に来る前に基礎を揃えておきたい方に最適です。";
-const lineCtaButtonLabel = "今すぐ無料で登録する（30秒）";
 
 const keywordTags = ["生成AI カスタマーサポート", "AI FAQ ボット", "CS AI 導入", "問い合わせ対応 AI 自動化"] as const;
 
@@ -91,28 +86,6 @@ const qualityMetrics = [
     operation: "不満コメントを毎週3件以上レビューし、回答文を改善する",
   },
 ] as const;
-
-type LineCtaBoxProps = {
-  className: string;
-  titleClassName: string;
-};
-
-function LineCtaBox({ className, titleClassName }: LineCtaBoxProps) {
-  return (
-    <div className={className}>
-      <p className={titleClassName}>{lineCtaTitle}</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">{lineCtaBody}</p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        {lineCtaButtonLabel}
-      </a>
-    </div>
-  );
-}
 
 export default function AiCustomerSupportGuidePage({ faqItems }: AiCustomerSupportGuidePageProps) {
   return (
@@ -204,7 +177,7 @@ export default function AiCustomerSupportGuidePage({ faqItems }: AiCustomerSuppo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" titleClassName="text-base font-semibold text-green-800" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -339,7 +312,7 @@ export default function AiCustomerSupportGuidePage({ faqItems }: AiCustomerSuppo
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" titleClassName="text-base font-semibold text-orange-800" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -489,7 +462,7 @@ export default function AiCustomerSupportGuidePage({ faqItems }: AiCustomerSuppo
           </div>
 
           <div className="mt-10">
-            <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" titleClassName="text-base font-semibold text-green-800" />
+            <LineCtaBox />
           </div>
 
           <p className="mt-8 text-sm leading-7 text-gray-700">

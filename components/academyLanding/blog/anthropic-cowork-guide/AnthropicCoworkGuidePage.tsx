@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -19,10 +20,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaBody =
-  "AIリブートのLINEでは、毎週1本・仕事で使えるAI知識とニュース解説を配信しています。講座に来る前に基礎を揃えておきたい方に最適です。";
 
 const keywordTags = [
   "Anthropic Cowork 使い方",
@@ -168,39 +165,6 @@ const riskChecklist = [
   "規制対応が必要な業務は、監査要件と記録要件を満たせるまで対象外にする。",
 ] as const;
 
-function LineCtaBox({ tone }: { tone: "green" | "orange" | "gray" }) {
-  const className =
-    tone === "green"
-      ? "mt-12 rounded-lg border border-green-200 bg-green-50 p-6"
-      : tone === "orange"
-        ? "mt-12 rounded-lg border border-orange-200 bg-orange-50 p-6"
-        : "mt-12 rounded-lg border border-gray-200 bg-gray-50 p-6";
-
-  return (
-    <motion.section
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-    >
-      <p className="text-sm font-semibold text-gray-900">📩 LINEで毎週AI知識を配信中</p>
-      <p className="mt-3 text-sm leading-7 text-gray-700">{lineCtaBody}</p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="line-cta-button inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-        >
-          今すぐ無料で登録する（30秒）
-        </a>
-      </div>
-    </motion.section>
-  );
-}
-
 export default function AnthropicCoworkGuidePage({ faqItems }: AnthropicCoworkGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -279,7 +243,7 @@ export default function AnthropicCoworkGuidePage({ faqItems }: AnthropicCoworkGu
           </ul>
         </motion.section>
 
-        <LineCtaBox tone="gray" />
+        <LineCtaBox />
 
         <motion.section
           id="what-is-cowork"
@@ -370,7 +334,7 @@ export default function AnthropicCoworkGuidePage({ faqItems }: AnthropicCoworkGu
           </p>
         </motion.section>
 
-        <LineCtaBox tone="green" />
+        <LineCtaBox />
 
         <motion.section
           id="use-cases"
@@ -466,7 +430,7 @@ export default function AnthropicCoworkGuidePage({ faqItems }: AnthropicCoworkGu
           </p>
         </motion.section>
 
-        <LineCtaBox tone="orange" />
+        <LineCtaBox />
 
         <motion.section
           id="limitations"
@@ -540,7 +504,7 @@ export default function AnthropicCoworkGuidePage({ faqItems }: AnthropicCoworkGu
           </p>
         </motion.section>
 
-        <LineCtaBox tone="green" />
+        <LineCtaBox />
       </article>
     </main>
   );

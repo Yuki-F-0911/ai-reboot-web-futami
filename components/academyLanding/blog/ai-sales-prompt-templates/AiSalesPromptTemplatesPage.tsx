@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -27,8 +28,6 @@ type PromptCategory = {
   conclusion: string;
   prompts: readonly PromptItem[];
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
@@ -207,34 +206,6 @@ const promptCategories: readonly PromptCategory[] = [
     ],
   },
 ] as const;
-
-function LineCtaBox() {
-  return (
-    <motion.section
-      className="mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-    >
-      <p className="text-sm font-semibold text-gray-900">📩 LINEで毎週AI知識を配信中</p>
-      <p className="mt-3 text-sm leading-7 text-gray-700">
-        AIリブートのLINEでは、毎週1本・仕事で使えるAI知識とニュース解説を配信しています。講座に来る前に基礎を揃えておきたい方に最適です。
-      </p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
-        >
-          今すぐ無料で登録する（30秒）
-        </a>
-      </div>
-    </motion.section>
-  );
-}
 
 export default function AiSalesPromptTemplatesPage({ faqItems }: AiSalesPromptTemplatesPageProps) {
   return (

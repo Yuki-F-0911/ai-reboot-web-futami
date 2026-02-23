@@ -6,6 +6,7 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -191,32 +192,6 @@ function MidArticleCtaBox() {
       <p className="text-base font-semibold text-emerald-900">AIで仕事を変えたい方へ｜LINEで無料相談する</p>
       <p className="mt-2 text-sm leading-7 text-emerald-900/90">
         経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」について、LINEで気軽に相談できます。生成AIを仕事で活用する方法を一緒に考えます。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        LINEで無料相談する（登録無料）
-      </a>
-    </motion.section>
-  );
-}
-
-function LineCtaBox() {
-  return (
-    <motion.section
-      className="mt-14 rounded-lg border border-green-200 bg-green-50 p-6"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
-      <p className="text-base font-semibold text-green-800">AIで仕事を変えたい方へ｜LINEで無料相談する</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」について、LINEで気軽に相談できます。補助金の使い方・カリキュラム・学習イメージを無料でお伝えします。
       </p>
       <a
         href={lineUrl}

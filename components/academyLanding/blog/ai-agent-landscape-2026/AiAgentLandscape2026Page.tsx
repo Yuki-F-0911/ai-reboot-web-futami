@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -21,8 +22,6 @@ const sectionReveal = {
 };
 
 const infoCheckedDate = "2026-02-20";
-const lineUrl = "https://bexn9pao.autosns.app/line";
-
 const keywordTags = [
   "AIエージェント 比較 2026",
   "ChatGPT Operator",
@@ -234,39 +233,6 @@ const academyPillars = [
   "仲間と共に学ぶ環境: 対話と協働で学習継続率を高める",
 ] as const;
 
-function LineCtaBox({ tone }: { tone: "gray" | "green" | "orange" }) {
-  const className =
-    tone === "green"
-      ? "blog-cta-box mt-10 rounded-lg border border-green-200 bg-green-50 p-6"
-      : tone === "orange"
-        ? "blog-cta-box mt-10 rounded-lg border border-orange-200 bg-orange-50 p-6"
-        : "blog-cta-box mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6";
-
-  return (
-    <motion.section
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-    >
-      <p className="text-base font-semibold text-gray-900">AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）</p>
-      <p className="mt-3 text-sm leading-7 text-gray-700">
-        価格変更や提供状況の更新を、導入判断で使える要点に絞って配信しています。導入検討の情報更新を追いかけたい方向けの無料チャンネルです。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </motion.section>
-  );
-}
-
 export default function AiAgentLandscape2026Page({ faqItems }: AiAgentLandscape2026PageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -342,7 +308,7 @@ export default function AiAgentLandscape2026Page({ faqItems }: AiAgentLandscape2
           <p className="mt-4 text-xs leading-6 text-gray-500">情報確認日: {infoCheckedDate}</p>
         </motion.section>
 
-        <LineCtaBox tone="gray" />
+        <LineCtaBox />
 
         <motion.section
           id="landscape"
@@ -472,7 +438,7 @@ export default function AiAgentLandscape2026Page({ faqItems }: AiAgentLandscape2
           </p>
         </motion.section>
 
-        <LineCtaBox tone="orange" />
+        <LineCtaBox />
 
         <motion.section
           id="risk-security"
@@ -600,7 +566,7 @@ export default function AiAgentLandscape2026Page({ faqItems }: AiAgentLandscape2
             ))}
           </dl>
           <div className="mt-6">
-            <LineCtaBox tone="green" />
+            <LineCtaBox />
           </div>
         </motion.section>
 

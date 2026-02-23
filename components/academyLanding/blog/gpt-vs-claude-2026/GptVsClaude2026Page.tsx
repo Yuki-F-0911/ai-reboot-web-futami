@@ -7,6 +7,7 @@ import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -22,7 +23,6 @@ const sectionReveal = {
   visible: { opacity: 1, y: 0 },
 };
 
-const lineUrl = "https://bexn9pao.autosns.app/line";
 const infoCheckedDate = "2026-02-21";
 
 const keywordTags = ["ChatGPT Claude 比較 2026", "GPT-5.2 vs Claude 4.6", "o3 使い分け"] as const;
@@ -180,29 +180,6 @@ const oneWeekTestSteps = [
   "評価軸を固定（正確性、修正追従、読みやすさ、速度）",
   "7日後に「時間削減率」と「再編集量」で決定",
 ] as const;
-
-type LineCtaBoxProps = {
-  className: string;
-};
-
-function LineCtaBox({ className }: LineCtaBoxProps) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-gray-900">
-        AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）
-      </p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">モデル更新や料金変更を、実務判断で使える要点だけに絞って配信しています。</p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </section>
-  );
-}
 
 export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PageProps) {
   return (
@@ -495,7 +472,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -551,7 +528,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -635,7 +612,7 @@ export default function GptVsClaude2026Page({ faqItems }: GptVsClaude2026PagePro
             ))}
           </dl>
           <div className="mt-6">
-            <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+            <LineCtaBox />
           </div>
         </motion.section>
 

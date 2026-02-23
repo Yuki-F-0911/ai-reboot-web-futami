@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -113,29 +114,6 @@ const commercialChecks = [
   "社内レビューで誤情報と不適切表現を最終チェックする",
   "クライアントへはAI生成利用の範囲を事前共有する",
 ] as const;
-
-type LineCtaBoxProps = {
-  className?: string;
-};
-
-function LineCtaBox({ className = "blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" }: LineCtaBoxProps) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-green-800">AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        週1回、実務で使うための要点だけを受け取りたい方向けに配信しています。ツール更新の追従に時間を使いすぎない運用設計に役立ちます。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </section>
-  );
-}
 
 export default function KlingAiGuidePage({ faqItems }: KlingAiGuidePageProps) {
   return (
@@ -440,7 +418,7 @@ export default function KlingAiGuidePage({ faqItems }: KlingAiGuidePageProps) {
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section

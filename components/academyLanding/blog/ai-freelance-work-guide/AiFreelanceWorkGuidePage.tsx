@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -19,8 +20,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const promptExamples = [
   {
@@ -127,33 +126,6 @@ const tocItems = [
   { id: "operation-rules", label: "運用ルール: 品質と信頼を落とさない方法" },
   { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
-
-type LineCtaBoxProps = {
-  className: string;
-  titleClassName: string;
-};
-
-function LineCtaBox({ className, titleClassName }: LineCtaBoxProps) {
-  return (
-    <div className={className}>
-      <p className={titleClassName}>📩 LINEで毎週AI知識を配信中</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        AIリブートのLINEでは、毎週1本・仕事で使えるAI知識とニュース解説を配信しています。講座に来る前に基礎を揃えておきたい方に最適です。
-      </p>
-      <p className="mt-2 text-xs leading-6 text-gray-600">
-        登録者向けに「フリーランス向けAIワークフロー図＋提案書テンプレ」も案内しています。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </div>
-  );
-}
 
 export default function AiFreelanceWorkGuidePage({ faqItems }: AiFreelanceWorkGuidePageProps) {
   return (
@@ -267,7 +239,7 @@ export default function AiFreelanceWorkGuidePage({ faqItems }: AiFreelanceWorkGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="rounded-lg border border-green-200 bg-green-50 p-6" titleClassName="text-base font-semibold text-green-800" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -411,7 +383,7 @@ export default function AiFreelanceWorkGuidePage({ faqItems }: AiFreelanceWorkGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="rounded-lg border border-orange-200 bg-orange-50 p-6" titleClassName="text-base font-semibold text-orange-800" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -468,7 +440,7 @@ export default function AiFreelanceWorkGuidePage({ faqItems }: AiFreelanceWorkGu
           </dl>
 
           <div className="mt-8">
-            <LineCtaBox className="rounded-lg border border-green-200 bg-green-50 p-6" titleClassName="text-base font-semibold text-green-800" />
+            <LineCtaBox />
           </div>
         </motion.section>
 

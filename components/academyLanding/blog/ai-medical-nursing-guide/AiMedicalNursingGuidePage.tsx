@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -14,8 +15,6 @@ type FAQItem = {
 type AiMedicalNursingGuidePageProps = {
   faqItems: readonly FAQItem[];
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
@@ -138,27 +137,6 @@ const burdenCases = [
   },
 ] as const;
 
-function LineCtaBox({ className = "" }: { className?: string }) {
-  return (
-    <section className={`blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6 ${className}`}>
-      <p className="text-base font-semibold text-green-900">AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）</p>
-      <p className="mt-3 text-sm leading-7 text-green-900">
-        医療現場のAI活用は、制度・運用・現場実装の更新が速い領域です。毎週の要点を短く受け取り、院内展開の判断材料を継続的に集める用途で活用できます。
-      </p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="line-cta-button inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-        >
-          今すぐ無料で登録する（30秒）
-        </a>
-      </div>
-    </section>
-  );
-}
-
 export default function AiMedicalNursingGuidePage({ faqItems }: AiMedicalNursingGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -231,7 +209,7 @@ export default function AiMedicalNursingGuidePage({ faqItems }: AiMedicalNursing
           </ul>
         </motion.section>
 
-        <LineCtaBox className="mt-10" />
+        <LineCtaBox />
 
         <motion.section
           className="mt-14"
@@ -364,7 +342,7 @@ export default function AiMedicalNursingGuidePage({ faqItems }: AiMedicalNursing
           </p>
         </motion.section>
 
-        <LineCtaBox className="mt-10" />
+        <LineCtaBox />
 
         <motion.section
           className="mt-14"
@@ -457,7 +435,7 @@ export default function AiMedicalNursingGuidePage({ faqItems }: AiMedicalNursing
           </section>
         </motion.section>
 
-        <LineCtaBox className="mt-10" />
+        <LineCtaBox />
       </article>
     </main>
   );

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -28,10 +29,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaTitle = "AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）";
-const lineCtaButtonLabel = "今すぐ無料で登録する（30秒）";
 
 const keywordTags = ["シニア AI 入門", "高齢者 ChatGPT 使い方", "60代 AI 初めて", "シニア 生成AI"] as const;
 
@@ -151,32 +148,6 @@ function UseCaseSection({ item }: { item: UseCaseItem }) {
         <p className="mt-1 text-sm leading-7 text-gray-700">{item.tip}</p>
       </div>
     </motion.div>
-  );
-}
-
-function LineCtaBox({ className }: { className: string }) {
-  return (
-    <motion.section
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-    >
-      <p className="text-base font-semibold text-gray-900">{lineCtaTitle}</p>
-      <p className="blog-p mt-2 text-sm leading-7 text-gray-700">
-        シニア世代のAI活用事例から、日常生活に役立つAIの使い方まで、毎週わかりやすい言葉でお届けしています。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        {lineCtaButtonLabel}
-      </a>
-    </motion.section>
   );
 }
 
@@ -425,7 +396,7 @@ export default function AiGuideForSeniorsPage({ faqItems }: AiGuideForSeniorsPag
           </div>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-green-200 bg-green-50 p-6" />
+        <LineCtaBox />
 
         {/* TOP5 */}
         <motion.section
@@ -446,7 +417,7 @@ export default function AiGuideForSeniorsPage({ faqItems }: AiGuideForSeniorsPag
           ))}
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6" />
+        <LineCtaBox />
 
         {/* 不安への回答 */}
         <motion.section
@@ -539,7 +510,7 @@ export default function AiGuideForSeniorsPage({ faqItems }: AiGuideForSeniorsPag
           </div>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-emerald-200 bg-emerald-50 p-6" />
+        <LineCtaBox />
 
         {/* FAQ */}
         <motion.section

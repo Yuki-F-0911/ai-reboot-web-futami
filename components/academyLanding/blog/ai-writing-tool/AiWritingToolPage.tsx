@@ -6,6 +6,7 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -165,30 +166,6 @@ const detectorRows = [
   },
 ] as const;
 
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaTitle = "📩 LINEで毎週AI知識を配信中";
-const lineCtaBody = "毎週1本、実務で使える生成AI活用のヒントとAIニュースをLINEで配信しています（無料）。読むだけで、AI活用の「知っておくべきこと」が自然と身につきます。受講前の不安や、自分に合うか確認したい方は、個別LINE相談もできます。";
-const lineCtaButtonLabel = "今すぐ無料で登録する（30秒）";
-
-function LineCtaBox({ className = "blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" }: { className?: string }) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-green-900">{lineCtaTitle}</p>
-      <p className="mt-3 text-sm leading-7 text-green-900">{lineCtaBody}</p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="line-cta-button inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-        >
-          {lineCtaButtonLabel}
-        </a>
-      </div>
-    </section>
-  );
-}
-
 export default function AiWritingToolPage({ faqItems }: AiWritingToolPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -318,7 +295,7 @@ export default function AiWritingToolPage({ faqItems }: AiWritingToolPageProps) 
           </div>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-12 rounded-lg border border-green-200 bg-green-50 p-6" />
+        <LineCtaBox />
 
         <motion.section
           id="tools-comparison"
@@ -406,7 +383,7 @@ export default function AiWritingToolPage({ faqItems }: AiWritingToolPageProps) 
           </div>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6" />
+        <LineCtaBox />
 
         <motion.section
           id="avoid-ai-sounding"
@@ -548,7 +525,7 @@ export default function AiWritingToolPage({ faqItems }: AiWritingToolPageProps) 
           </div>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-green-200 bg-green-50 p-6" />
+        <LineCtaBox />
 
         <motion.section
           id="related-links"

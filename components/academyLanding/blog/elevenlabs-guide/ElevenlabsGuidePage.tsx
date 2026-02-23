@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -136,41 +137,6 @@ const licenseChecks = [
   "規約更新日を月1回点検し、利用ルールを更新する。",
 ] as const;
 
-function LineCtaBox({ tone }: { tone: "gray" | "green" | "orange" }) {
-  const className =
-    tone === "green"
-      ? "mt-14 rounded-lg border border-green-200 bg-green-50 p-6"
-      : tone === "orange"
-        ? "mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
-        : "mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6";
-
-  return (
-    <motion.section
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-    >
-      <p className="text-sm font-semibold text-gray-900">AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）</p>
-      <p className="mt-3 text-sm leading-7 text-gray-700">
-        ツール情報だけで終わらせず、業務に落とす視点を毎週1本で受け取れます。実務導入前の判断軸を整えたい方に向けた無料配信です。
-      </p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="line-cta-button inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-        >
-          今すぐ無料で登録する（30秒）
-        </a>
-      </div>
-    </motion.section>
-  );
-}
-
 export default function ElevenlabsGuidePage({ faqItems }: ElevenlabsGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -279,7 +245,7 @@ export default function ElevenlabsGuidePage({ faqItems }: ElevenlabsGuidePagePro
           </p>
         </motion.section>
 
-        <LineCtaBox tone="gray" />
+        <LineCtaBox />
 
         <motion.section
           id="getting-started"
@@ -405,7 +371,7 @@ export default function ElevenlabsGuidePage({ faqItems }: ElevenlabsGuidePagePro
           </p>
         </motion.section>
 
-        <LineCtaBox tone="orange" />
+        <LineCtaBox />
 
         <motion.section
           id="comparison"
@@ -518,7 +484,7 @@ export default function ElevenlabsGuidePage({ faqItems }: ElevenlabsGuidePagePro
           </dl>
         </motion.section>
 
-        <LineCtaBox tone="green" />
+        <LineCtaBox />
 
         <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
           <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連リンク</h2>

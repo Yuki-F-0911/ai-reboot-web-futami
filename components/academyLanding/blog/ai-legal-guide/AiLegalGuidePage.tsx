@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -14,8 +15,6 @@ type FAQItem = {
 type AiLegalGuidePageProps = {
   faqItems: readonly FAQItem[];
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
@@ -136,32 +135,6 @@ const japanCompanyChecklist = [
   "法務・情報システム・事業部で四半期ごとの監査と教育を運用に組み込む。",
 ] as const;
 
-function LineCtaBox({ withChecklistNote = false }: { withChecklistNote?: boolean }) {
-  return (
-    <section className="blog-cta-box mt-10 rounded-lg border border-green-200 bg-green-50 p-6">
-      {withChecklistNote && (
-        <p className="text-sm leading-7 text-green-900">
-          法務導入の進め方は、LINEの無料個別相談で状況に合わせて整理できます。AI活用ロードマップの案内も行っています。
-        </p>
-      )}
-      <p className="mt-2 text-base font-semibold text-green-900">📩 LINEで毎週AI知識を配信中</p>
-      <p className="mt-3 text-sm leading-7 text-green-900">
-        AIリブートのLINEでは、毎週1本・仕事で使えるAI知識とニュース解説を配信しています。講座に来る前に基礎を揃えておきたい方に最適です。
-      </p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="line-cta-button inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-        >
-          今すぐ無料で登録する（30秒）
-        </a>
-      </div>
-    </section>
-  );
-}
-
 export default function AiLegalGuidePage({ faqItems }: AiLegalGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -252,7 +225,7 @@ export default function AiLegalGuidePage({ faqItems }: AiLegalGuidePageProps) {
           </ul>
         </motion.section>
 
-        <LineCtaBox withChecklistNote />
+        <LineCtaBox />
 
         <motion.section
           className="mt-14"
@@ -483,7 +456,7 @@ export default function AiLegalGuidePage({ faqItems }: AiLegalGuidePageProps) {
           </ul>
         </motion.section>
 
-        <LineCtaBox withChecklistNote />
+        <LineCtaBox />
 
         <motion.section
           className="mt-14"
@@ -591,7 +564,7 @@ export default function AiLegalGuidePage({ faqItems }: AiLegalGuidePageProps) {
           </p>
         </motion.section>
 
-        <LineCtaBox withChecklistNote />
+        <LineCtaBox />
       </article>
     </main>
   );

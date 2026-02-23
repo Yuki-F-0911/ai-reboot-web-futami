@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -37,10 +38,6 @@ const tocItems = [
   { id: "q6-next", label: "Q6. 次の学習導線と実務導入の進め方" },
   { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaBody =
-  "AIリブートのLINEでは、毎週1本・仕事で使えるAI知識とニュース解説を配信しています。講座に来る前に基礎を揃えておきたい方に最適です。";
 
 const summaryPoints = [
   "App Buildは、Google AI Studioの中で「要件を自然言語で伝えてアプリ試作を回す」ことに特化した機能です。検証スピードを上げる目的で使うと成果が出ます。",
@@ -259,36 +256,6 @@ const executionRoadmap = [
   "4週目: 評価指標（時間短縮、再利用率、手戻り率）を測定し、次の改善テーマを決める。",
 ] as const;
 
-function LineCtaBox({ tone }: { tone: "green" | "orange" }) {
-  const boxClass =
-    tone === "green"
-      ? "mt-14 rounded-lg border border-green-200 bg-green-50 p-6"
-      : "mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6";
-  const titleClass = tone === "green" ? "text-base font-semibold text-green-800" : "text-base font-semibold text-orange-800";
-
-  return (
-    <motion.section
-      className={boxClass}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
-      <p className={titleClass}>📩 LINEで毎週AI知識を配信中</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">{lineCtaBody}</p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </motion.section>
-  );
-}
-
 export default function GoogleAiStudioAppBuildGuidePage({ faqItems }: GoogleAiStudioAppBuildGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -482,7 +449,7 @@ export default function GoogleAiStudioAppBuildGuidePage({ faqItems }: GoogleAiSt
           </p>
         </motion.section>
 
-        <LineCtaBox tone="green" />
+        <LineCtaBox />
 
         <motion.section
           id="q4-three-patterns"
@@ -542,7 +509,7 @@ export default function GoogleAiStudioAppBuildGuidePage({ faqItems }: GoogleAiSt
           </p>
         </motion.section>
 
-        <LineCtaBox tone="orange" />
+        <LineCtaBox />
 
         <motion.section
           id="q5-fit-limit"
@@ -667,7 +634,7 @@ export default function GoogleAiStudioAppBuildGuidePage({ faqItems }: GoogleAiSt
           </dl>
         </motion.section>
 
-        <LineCtaBox tone="green" />
+        <LineCtaBox />
       </article>
     </main>
   );

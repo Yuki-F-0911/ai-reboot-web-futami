@@ -8,6 +8,7 @@ import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBann
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable, Callout } from "@/components/blog/ArticleBody";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -22,8 +23,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const keywordTags = [
   "ChatGPT 無料 有料 違い",
@@ -149,36 +148,6 @@ const usecaseRows = [
   },
 ] as const;
 
-type LineCtaBoxProps = {
-  className: string;
-  slug: string;
-};
-
-function LineCtaBox({
-  className,
-  slug,
-}: LineCtaBoxProps) {
-  const lineHref = `${lineUrl}?${new URLSearchParams({
-    src: "blog",
-    slug,
-  }).toString()}`;
-
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-gray-900">AIで仕事を変えたい方へ｜LINEで無料相談する</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」について、LINEで気軽に相談できます。補助金の使い方・カリキュラム・学習イメージを無料でお伝えします。</p>
-      <a
-        href={lineHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        LINEで無料相談する（登録無料）
-      </a>
-    </section>
-  );
-}
-
 export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanComparisonPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -296,10 +265,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox
-            className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
-            slug="chatgpt-plan-comparison"
-          />
+          <LineCtaBox />
         </motion.section>
 
         <WebtoonBannerSection />
@@ -597,10 +563,7 @@ export default function ChatgptPlanComparisonPage({ faqItems }: ChatgptPlanCompa
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox
-            className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
-            slug="chatgpt-plan-comparison"
-          />
+          <LineCtaBox />
           <p className="mt-4 text-xs leading-6 text-gray-500">
             ※料金・上限・機能は2026年2月21日時点の公開情報に基づきます。最新情報は公式サイトで再確認してください。
           </p>

@@ -8,6 +8,7 @@ import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 import { ArticleH2, ArticleH3, SummaryBox, RichFAQ, RichTable, Callout } from "@/components/blog/ArticleBody";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -164,32 +165,6 @@ const workflowSteps = [
       "事実確認後にNotion/Slack/メールへ共有。自動送信前に責任者を1人決める運用が、誤配布リスクを下げる。",
   },
 ] as const;
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaBody = "毎週1本、実務で使える生成AI活用のヒントとAIニュースをLINEで配信しています（無料）。読むだけで、AI活用の「知っておくべきこと」が自然と身につきます。受講前の不安や、自分に合うか確認したい方は、個別LINE相談もできます。";
-
-function LineCtaBox({
-  className = "blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6",
-}: {
-  className?: string;
-}) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-green-900">LINEで毎週AI知識を配信中</p>
-      <p className="mt-3 text-sm leading-7 text-green-900">{lineCtaBody}</p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="line-cta-button inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-        >
-          今すぐ無料で登録する（30秒）
-        </a>
-      </div>
-    </section>
-  );
-}
 
 export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGuidePageProps) {
   return (
@@ -462,7 +437,7 @@ export default function AiTranscriptionGuidePage({ faqItems }: AiTranscriptionGu
         </motion.section>
 
         <section className="mt-10">
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+          <LineCtaBox />
         </section>
 
         <motion.section

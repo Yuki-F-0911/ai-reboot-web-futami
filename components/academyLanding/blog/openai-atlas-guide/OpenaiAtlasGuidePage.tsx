@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -39,9 +40,6 @@ const tocItems = [
 ] as const;
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaBody =
-  "AIリブートのLINEでは、毎週1本・仕事で使えるAI知識とニュース解説を配信しています。講座に来る前に基礎を揃えておきたい方に最適です。";
-
 const summaryPoints = [
   "OpenAI Atlasは、Web閲覧の画面上でAIに要約・質問・フォーム操作補助を任せられるAIブラウザです。",
   "通常ブラウザとの実務差は、操作の前後にある「調べる→整える→入力する」を連続処理しやすい点です。",
@@ -149,39 +147,6 @@ const atlasVsOperatorRows = [
   },
 ] as const;
 
-function LineCtaBox({ tone }: { tone: "gray" | "green" | "orange" }) {
-  const className =
-    tone === "green"
-      ? "mt-14 rounded-lg border border-green-200 bg-green-50 p-6"
-      : tone === "orange"
-        ? "mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
-        : "mt-14 rounded-lg border border-gray-200 bg-gray-50 p-6";
-
-  return (
-    <motion.section
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-    >
-      <p className="text-sm font-semibold text-gray-900">📩 LINEで毎週AI知識を配信中</p>
-      <p className="mt-3 text-sm leading-7 text-gray-700">{lineCtaBody}</p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="line-cta-button inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-        >
-          今すぐ無料で登録する（30秒）
-        </a>
-      </div>
-    </motion.section>
-  );
-}
-
 export default function OpenaiAtlasGuidePage({ faqItems }: OpenaiAtlasGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -256,7 +221,7 @@ export default function OpenaiAtlasGuidePage({ faqItems }: OpenaiAtlasGuidePageP
           </ul>
         </motion.section>
 
-        <LineCtaBox tone="gray" />
+        <LineCtaBox />
 
         <motion.section
           id="what-is-atlas"
@@ -407,7 +372,7 @@ export default function OpenaiAtlasGuidePage({ faqItems }: OpenaiAtlasGuidePageP
           </p>
         </motion.section>
 
-        <LineCtaBox tone="orange" />
+        <LineCtaBox />
 
         <motion.section
           id="atlas-vs-operator"
@@ -468,7 +433,7 @@ export default function OpenaiAtlasGuidePage({ faqItems }: OpenaiAtlasGuidePageP
           </dl>
         </motion.section>
 
-        <LineCtaBox tone="green" />
+        <LineCtaBox />
 
         <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">
           <h2 className="scroll-mt-28 mb-4 text-lg font-bold text-slate-900">関連リンク</h2>

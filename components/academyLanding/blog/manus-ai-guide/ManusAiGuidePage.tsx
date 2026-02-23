@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -35,10 +36,6 @@ const tocItems = [
   { id: "business-automation-cases", label: "ビジネス自動化シーン" },
   { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaBody =
-  "AIリブートのLINEでは、毎週1本・仕事で使えるAI知識とニュース解説を配信しています。講座に来る前に基礎を揃えておきたい方に最適です。";
 
 const summaryPoints = [
   "Manus AIは、質問応答だけでなくタスク実行まで進めるAIエージェントとして設計されています。",
@@ -144,39 +141,6 @@ const secureOperationChecklist = [
   "ログ保存と差し戻し手順を事前に定義する。",
 ] as const;
 
-function LineCtaBox({ tone }: { tone: "gray" | "green" | "orange" }) {
-  const className =
-    tone === "green"
-      ? "mt-10 rounded-lg border border-green-200 bg-green-50 p-6"
-      : tone === "orange"
-        ? "mt-10 rounded-lg border border-orange-200 bg-orange-50 p-6"
-        : "mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6";
-
-  return (
-    <motion.section
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-    >
-      <p className="text-sm font-semibold text-gray-900">📩 LINEで毎週AI知識を配信中</p>
-      <p className="mt-3 text-sm leading-7 text-gray-700">{lineCtaBody}</p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
-        >
-          今すぐ無料で登録する（30秒）
-        </a>
-      </div>
-    </motion.section>
-  );
-}
-
 export default function ManusAiGuidePage({ faqItems }: ManusAiGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -258,7 +222,7 @@ export default function ManusAiGuidePage({ faqItems }: ManusAiGuidePageProps) {
           </ul>
         </motion.section>
 
-        <LineCtaBox tone="gray" />
+        <LineCtaBox />
 
         <motion.section
           className="mt-14"
@@ -379,7 +343,7 @@ export default function ManusAiGuidePage({ faqItems }: ManusAiGuidePageProps) {
           </ul>
         </motion.section>
 
-        <LineCtaBox tone="green" />
+        <LineCtaBox />
 
         <motion.section
           className="mt-14"
@@ -497,7 +461,7 @@ export default function ManusAiGuidePage({ faqItems }: ManusAiGuidePageProps) {
           </p>
         </motion.section>
 
-        <LineCtaBox tone="orange" />
+        <LineCtaBox />
       </article>
     </main>
   );

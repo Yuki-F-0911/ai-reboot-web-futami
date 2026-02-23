@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -35,8 +36,6 @@ const tocItems = [
   { id: "related-links", label: "関連記事" },
   { id: "next-action", label: "次のアクション" },
 ] as const;
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const comparisonRows = [
   {
@@ -83,33 +82,6 @@ const oneDayStorySteps = [
     detail: "誤字・リンク切れ・表示速度を確認して公開。初稿から公開まで約8時間で完了。",
   },
 ] as const;
-
-function LineCtaBox({ tone }: { tone: "green" | "orange" | "gray" }) {
-  const toneClass =
-    tone === "orange"
-      ? "border-orange-200 bg-orange-50"
-      : tone === "gray"
-        ? "border-slate-200 bg-slate-50"
-        : "border-green-200 bg-green-50";
-  const titleClass = tone === "orange" ? "text-orange-800" : tone === "gray" ? "text-slate-800" : "text-green-800";
-
-  return (
-    <div className={`rounded-lg border p-6 ${toneClass}`}>
-      <p className={`text-base font-semibold ${titleClass}`}>📩 LINEで毎週AI知識を配信中</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        AIリブートのLINEでは、毎週1本・仕事で使えるAI知識とニュース解説を配信しています。講座に来る前に基礎を揃えておきたい方に最適です。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </div>
-  );
-}
 
 export default function CursorAiCodingGuidePage({ faqItems }: CursorAiCodingGuidePageProps) {
   return (
@@ -232,7 +204,7 @@ export default function CursorAiCodingGuidePage({ faqItems }: CursorAiCodingGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox tone="green" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -539,7 +511,7 @@ export default function CursorAiCodingGuidePage({ faqItems }: CursorAiCodingGuid
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox tone="orange" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -606,7 +578,7 @@ export default function CursorAiCodingGuidePage({ faqItems }: CursorAiCodingGuid
             Cursorで最初の1本を作れたら、次は再現性を作る段階です。AIリブートアカデミーでは、生成AI活用力の習得だけでなく、自己理解とキャリアデザイン、仲間と学ぶ環境づくりまで含めて、仕事で継続的に成果を出す設計をサポートしています。
           </p>
           <div className="mt-7">
-            <LineCtaBox tone="gray" />
+            <LineCtaBox />
           </div>
           <div className="mt-4 flex flex-col gap-3 sm:flex-row">
             <Link

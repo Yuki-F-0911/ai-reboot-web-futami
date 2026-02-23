@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -138,31 +139,6 @@ const evaluationChecklist = [
   "障害時の暫定運用（フェイルオーバー/復旧手順）を決める",
   "埋め込みモデル更新時の再インデックス手順を手順化する",
 ] as const;
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaTitle = "📩 LINEで毎週AI知識を配信中";
-const lineCtaBody =
-  "AIリブートのLINEでは、毎週1本・仕事で使えるAI知識とニュース解説を配信しています。講座に来る前に基礎を揃えておきたい方に最適です。";
-const lineCtaButtonLabel = "今すぐ無料で登録する（30秒）";
-
-function LineCtaBox({ className = "blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" }: { className?: string }) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-green-900">{lineCtaTitle}</p>
-      <p className="mt-3 text-sm leading-7 text-green-900">{lineCtaBody}</p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="line-cta-button inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-        >
-          {lineCtaButtonLabel}
-        </a>
-      </div>
-    </section>
-  );
-}
 
 export default function VectorDbIntroPage({ faqItems }: VectorDbIntroPageProps) {
   return (
@@ -428,7 +404,7 @@ export default function VectorDbIntroPage({ faqItems }: VectorDbIntroPageProps) 
         </motion.section>
 
         <div className="mt-10">
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+          <LineCtaBox />
         </div>
 
         <motion.section
@@ -553,7 +529,7 @@ export default function VectorDbIntroPage({ faqItems }: VectorDbIntroPageProps) 
         </motion.section>
 
         <section id="cta" className="mt-14">
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <LineCtaBox />
         </section>
       </article>
     </main>

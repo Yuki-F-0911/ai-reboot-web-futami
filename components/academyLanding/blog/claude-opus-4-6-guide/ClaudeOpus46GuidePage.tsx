@@ -6,6 +6,7 @@ import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcr
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import WebtoonBannerSection from "@/components/academyLanding/common/WebtoonBannerSection";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -20,8 +21,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const keywordTags = ["Claude Opus 4.6 使い方", "Claude 4.6 新機能", "Anthropic 最新モデル", "1Mトークン Claude"] as const;
 
@@ -207,29 +206,6 @@ const useCases = [
   },
 ] as const;
 
-type LineCtaBoxProps = {
-  className: string;
-};
-
-function LineCtaBox({ className }: LineCtaBoxProps) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-gray-900">AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        ClaudeやOpenAI、Geminiの仕様更新を、実務判断に必要な粒度で整理して配信しています。変化の早いモデル運用の情報を追跡したい方向けの無料チャンネルです。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </section>
-  );
-}
-
 export default function ClaudeOpus46GuidePage({ faqItems }: ClaudeOpus46GuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -351,7 +327,7 @@ export default function ClaudeOpus46GuidePage({ faqItems }: ClaudeOpus46GuidePag
         </motion.section>
 
         <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={sectionReveal}>
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -516,7 +492,7 @@ export default function ClaudeOpus46GuidePage({ faqItems }: ClaudeOpus46GuidePag
         </motion.section>
 
         <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={sectionReveal}>
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -575,7 +551,7 @@ export default function ClaudeOpus46GuidePage({ faqItems }: ClaudeOpus46GuidePag
         </motion.section>
 
         <motion.section className="mt-14" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={sectionReveal}>
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <section className="mt-14 border-t border-slate-200 pb-4 pt-12">

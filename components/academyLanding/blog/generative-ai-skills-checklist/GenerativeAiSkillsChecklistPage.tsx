@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -34,9 +35,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaTitle = "AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）";
 
 const keywordTags = ["生成AI スキル 身につける", "AI活用スキル チェックリスト", "AIリテラシー 向上"] as const;
 
@@ -135,25 +133,6 @@ const diagnosisQuestions: readonly DiagnosisQuestion[] = [
   },
 ] as const;
 
-function LineCtaBox({ className }: { className: string }) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-gray-900">{lineCtaTitle}</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        AI活用の最新トピックを、週1本で実務目線で整理して届けています。学習優先順位の見直しに使ってください。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </section>
-  );
-}
-
 function scoreRangeLabel(total: number) {
   if (total <= 3) {
     return "Lv1〜Lv2（入門〜実用初級）";
@@ -250,7 +229,7 @@ export default function GenerativeAiSkillsChecklistPage({ faqItems }: Generative
           variants={sectionReveal}
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -388,7 +367,7 @@ export default function GenerativeAiSkillsChecklistPage({ faqItems }: Generative
           variants={sectionReveal}
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -418,7 +397,7 @@ export default function GenerativeAiSkillsChecklistPage({ faqItems }: Generative
             </li>
           </ul>
           <div className="mt-6">
-            <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-white p-6" />
+            <LineCtaBox />
           </div>
         </motion.section>
 

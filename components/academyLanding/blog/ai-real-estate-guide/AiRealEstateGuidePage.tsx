@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -19,10 +20,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaTitle = "AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）";
-const lineCtaButtonLabel = "今すぐ無料で登録する（30秒）";
 
 const keywordTags = ["AI 不動産 活用", "不動産 AI 査定 2026", "物件探し AI", "不動産 業務効率化 AI"] as const;
 
@@ -172,32 +169,6 @@ const academyPillars = [
   },
 ] as const;
 
-function LineCtaBox({ className }: { className: string }) {
-  return (
-    <motion.section
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-    >
-      <p className="text-base font-semibold text-gray-900">{lineCtaTitle}</p>
-      <p className="blog-p mt-2 text-sm leading-7 text-gray-700">
-        仕様更新が速いAI活用を、毎週の要点と実務活用の判断軸で整理して配信しています。不動産業務での活用事例も継続的に取り上げます。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        {lineCtaButtonLabel}
-      </a>
-    </motion.section>
-  );
-}
-
 export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -267,7 +238,7 @@ export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePag
           </ul>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-12 rounded-lg border border-green-200 bg-green-50 p-6" />
+        <LineCtaBox />
 
         <motion.section
           id="three-domains"
@@ -369,7 +340,7 @@ export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePag
           </p>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6" />
+        <LineCtaBox />
 
         <motion.section
           id="agent-operations"
@@ -511,7 +482,7 @@ export default function AiRealEstateGuidePage({ faqItems }: AiRealEstateGuidePag
           </div>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-emerald-200 bg-emerald-50 p-6" />
+        <LineCtaBox />
 
         <motion.section
           id="academy-cta"

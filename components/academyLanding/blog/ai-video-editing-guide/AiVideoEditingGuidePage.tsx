@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -161,27 +162,6 @@ const rightsChecklist = [
   "AI生成/自動翻訳の内容は事実誤認チェックを実施する",
   "規約更新日をメモし、月1回は条件差分を見直す",
 ] as const;
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaBody = "毎週1本、実務で使える生成AI活用のヒントとAIニュースをLINEで配信しています（無料）。読むだけで、AI活用の「知っておくべきこと」が自然と身につきます。受講前の不安や、自分に合うか確認したい方は、個別LINE相談もできます。";
-
-function LineCtaBox({ className = "blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" }: { className?: string }) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-green-900">{lineCtaBody}</p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="line-cta-button inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-        >
-          今すぐ無料で登録する（30秒）
-        </a>
-      </div>
-    </section>
-  );
-}
 
 export default function AiVideoEditingGuidePage({ faqItems }: AiVideoEditingGuidePageProps) {
   return (
@@ -457,7 +437,7 @@ export default function AiVideoEditingGuidePage({ faqItems }: AiVideoEditingGuid
         </motion.section>
 
         <section className="mt-10">
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+          <LineCtaBox />
         </section>
 
         <motion.section

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -30,10 +31,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaTitle = "AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）";
-const lineCtaButtonLabel = "今すぐ無料で登録する（30秒）";
 
 const keywordTags = ["AI 英語学習", "ChatGPT 英語 勉強", "AI 英語 初心者", "英語学習 AI 方法"] as const;
 
@@ -246,32 +243,6 @@ function MethodSection({ method }: { method: MethodItem }) {
   );
 }
 
-function LineCtaBox({ className }: { className: string }) {
-  return (
-    <motion.section
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={sectionReveal}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-    >
-      <p className="text-base font-semibold text-gray-900">{lineCtaTitle}</p>
-      <p className="blog-p mt-2 text-sm leading-7 text-gray-700">
-        AI×英語学習の最新情報から、仕事で使えるAI活用術まで毎週届けます。英語だけでなく、AI全般を仕事に活かしたい方にぴったりの内容です。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        {lineCtaButtonLabel}
-      </a>
-    </motion.section>
-  );
-}
-
 export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearningGuidePageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -398,7 +369,7 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
           <MethodSection key={method.id} method={method} />
         ))}
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-green-200 bg-green-50 p-6" />
+        <LineCtaBox />
 
         {/* 正直な効果と限界 */}
         <motion.section
@@ -458,7 +429,7 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
           </p>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6" />
+        <LineCtaBox />
 
         {/* FAQ */}
         <motion.section
@@ -481,7 +452,7 @@ export default function AiEnglishLearningGuidePage({ faqItems }: AiEnglishLearni
           </div>
         </motion.section>
 
-        <LineCtaBox className="blog-cta-box mt-14 rounded-lg border border-emerald-200 bg-emerald-50 p-6" />
+        <LineCtaBox />
 
         {/* 関連リンク */}
         <section id="related-links" className="mt-14 border-t border-slate-200 pb-4 pt-12">

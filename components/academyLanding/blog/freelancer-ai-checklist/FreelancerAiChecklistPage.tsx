@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -28,17 +29,10 @@ type ChecklistSection = {
   items: readonly ChecklistItem[];
 };
 
-type LineCtaBoxProps = {
-  className: string;
-  titleClassName: string;
-};
-
 const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const keywordTags = ["個人事業主 生成AI", "フリーランス AI チェックリスト", "副業 AI ツール"] as const;
 
@@ -166,25 +160,6 @@ const checklistSections: readonly ChecklistSection[] = [
   },
 ] as const;
 
-function LineCtaBox({ className, titleClassName }: LineCtaBoxProps) {
-  return (
-    <div className={className}>
-      <p className={titleClassName}>📩 LINEで毎週AI知識を配信中</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        AIリブートのLINEでは、毎週1本・仕事で使えるAI知識とニュース解説を配信しています。講座に来る前に基礎を揃えておきたい方に最適です。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </div>
-  );
-}
-
 export default function FreelancerAiChecklistPage({ faqItems }: FreelancerAiChecklistPageProps) {
   return (
     <main className="bg-white pb-20 pt-28 sm:pt-32">
@@ -270,7 +245,7 @@ export default function FreelancerAiChecklistPage({ faqItems }: FreelancerAiChec
           variants={sectionReveal}
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" titleClassName="text-base font-semibold text-green-800" />
+          <LineCtaBox />
         </motion.section>
 
         {checklistSections.map((section, sectionIndex) => (
@@ -347,7 +322,7 @@ export default function FreelancerAiChecklistPage({ faqItems }: FreelancerAiChec
           variants={sectionReveal}
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" titleClassName="text-base font-semibold text-orange-800" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -398,7 +373,7 @@ export default function FreelancerAiChecklistPage({ faqItems }: FreelancerAiChec
             単発の時短で終わらせず、働き方そのものを更新したい方は、この記事のチェックリストを起点に運用してください。
           </p>
           <div className="mt-6">
-            <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-white p-6" titleClassName="text-base font-semibold text-green-800" />
+            <LineCtaBox />
           </div>
         </motion.section>
       </article>

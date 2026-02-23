@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -21,8 +22,6 @@ type WorkflowStep = {
   humanRole: string;
   output: string;
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
 
 const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
@@ -153,30 +152,6 @@ const shortsTips = [
   "YouTube自動吹替は公開前に言語ごとのレビュー状態を確認し、誤変換を防ぐ。",
   "Creator Musicは提供範囲に制約があるため、利用可否をチャンネル画面で確認してから企画に組み込む。",
 ] as const;
-
-type LineCtaBoxProps = {
-  className: string;
-  titleClassName: string;
-};
-
-function LineCtaBox({ className, titleClassName }: LineCtaBoxProps) {
-  return (
-    <div className={className}>
-      <p className={titleClassName}>AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）</p>
-      <p className="mt-2 text-sm leading-7 text-gray-700">
-        毎週1本、実務で使える生成AIの要点を短く整理して配信します。情報収集だけで終わらず、実際に手を動かす順番まで揃えたい方に向いています。
-      </p>
-      <a
-        href={lineUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="line-cta-button mt-4 inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-      >
-        今すぐ無料で登録する（30秒）
-      </a>
-    </div>
-  );
-}
 
 export default function AiYoutubeContentGuidePage({ faqItems }: AiYoutubeContentGuidePageProps) {
   return (
@@ -310,7 +285,7 @@ export default function AiYoutubeContentGuidePage({ faqItems }: AiYoutubeContent
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" titleClassName="text-base font-semibold text-green-800" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -405,7 +380,7 @@ export default function AiYoutubeContentGuidePage({ faqItems }: AiYoutubeContent
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" titleClassName="text-base font-semibold text-orange-800" />
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
@@ -493,7 +468,7 @@ export default function AiYoutubeContentGuidePage({ faqItems }: AiYoutubeContent
             ))}
           </dl>
           <div className="mt-8">
-            <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" titleClassName="text-base font-semibold text-green-800" />
+            <LineCtaBox />
           </div>
         </motion.section>
 

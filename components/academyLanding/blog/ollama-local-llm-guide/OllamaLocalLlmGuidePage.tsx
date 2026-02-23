@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -97,31 +98,6 @@ const decisionMatrix = [
     hybrid: "認証設計、料金変動、権限管理の複雑化",
   },
 ] as const;
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaTitle = "AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）";
-const lineCtaBody =
-  "業務で再利用できるAI活用の型、導入判断で迷いやすい論点、最新ニュースの要点を毎週1本で整理して届けます。";
-const lineCtaButtonLabel = "今すぐ無料で登録する（30秒）";
-
-function LineCtaBox({ className = "blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" }: { className?: string }) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-green-900">{lineCtaTitle}</p>
-      <p className="mt-3 text-sm leading-7 text-green-900">{lineCtaBody}</p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="line-cta-button inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-        >
-          {lineCtaButtonLabel}
-        </a>
-      </div>
-    </section>
-  );
-}
 
 export default function OllamaLocalLlmGuidePage({ faqItems }: OllamaLocalLlmGuidePageProps) {
   return (
@@ -339,7 +315,7 @@ export default function OllamaLocalLlmGuidePage({ faqItems }: OllamaLocalLlmGuid
         </motion.section>
 
         <div className="mt-10">
-          <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+          <LineCtaBox />
         </div>
 
         <motion.section
@@ -495,7 +471,7 @@ export default function OllamaLocalLlmGuidePage({ faqItems }: OllamaLocalLlmGuid
         </motion.section>
 
         <section id="cta" className="mt-14">
-          <LineCtaBox className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6" />
+          <LineCtaBox />
         </section>
       </article>
     </main>

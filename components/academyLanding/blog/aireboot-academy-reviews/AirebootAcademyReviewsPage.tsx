@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -19,9 +20,6 @@ const sectionReveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const lineUrl = "https://bexn9pao.autosns.app/line";
-const lineCtaBody = "毎週1本、実務で使える生成AI活用のヒントとAIニュースをLINEで配信しています（無料）。読むだけで、AI活用の「知っておくべきこと」が自然と身につきます。受講前の不安や、自分に合うか確認したい方は、個別LINE相談もできます。";
 
 const sourceRows = [
   {
@@ -126,35 +124,6 @@ const tocItems = [
   { id: "changes-after-course", label: "受講後に身につくスキルと変化" },
   { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
-
-function LineCtaBox({
-  title = "LINEで毎週AI知識を配信中",
-  body = lineCtaBody,
-  buttonLabel = "今すぐ無料で登録する（30秒）",
-  className = "blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6",
-}: {
-  title?: string;
-  body?: string;
-  buttonLabel?: string;
-  className?: string;
-}) {
-  return (
-    <section className={className}>
-      <p className="text-base font-semibold text-green-900">{title}</p>
-      <p className="mt-3 text-sm leading-7 text-green-900">{body}</p>
-      <div className="mt-4">
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="line-cta-button inline-flex items-center justify-center rounded-lg bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#05b04b]"
-        >
-          {buttonLabel}
-        </a>
-      </div>
-    </section>
-  );
-}
 
 export default function AirebootAcademyReviewsPage({ faqItems }: AirebootAcademyReviewsPageProps) {
   return (
@@ -338,7 +307,7 @@ export default function AirebootAcademyReviewsPage({ faqItems }: AirebootAcademy
             ))}
           </dl>
           <div className="mt-7">
-            <LineCtaBox className="blog-cta-box rounded-lg border border-orange-200 bg-orange-50 p-6" />
+            <LineCtaBox />
           </div>
         </motion.section>
 
@@ -512,11 +481,7 @@ export default function AirebootAcademyReviewsPage({ faqItems }: AirebootAcademy
         </motion.section>
 
         <section id="line-cta-final" className="mt-14">
-          <LineCtaBox
-            title="まずはLINEで無料相談"
-            body="AIリブート通信｜週1本、仕事で使えるAI知識＋ニュース解説をLINEで届ける（無料）。受講前の不安や向き不向きの確認は、LINEで個別相談できます。"
-            buttonLabel="まずはLINEで無料相談する"
-          />
+          <LineCtaBox />
         </section>
       </article>
     </main>
