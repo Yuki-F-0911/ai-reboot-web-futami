@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "ai-guide-for-homemakers",
+    title: "主婦がAIを使うと何が変わる？家事・育児・仕事探しに役立つ実践ガイド【2026年版】",
+    summary:
+      "専業主婦・兼業主婦がAIを使って日常を改善する方法を解説。献立作り・育児相談・家計管理から、将来の仕事探しまで。「主婦こそAIを使うべき」理由を正直にお伝えします。",
+    category: "AI活用術",
+    publishedAt: "2026-02-25T09:00:00+09:00",
+    tags: ["主婦 AI 活用", "専業主婦 ChatGPT 使い方", "主婦 生成AI", "家事 AI 効率化"],
+  },
+  {
     slug: "ai-job-anxiety-guide",
     title: "AIに仕事を奪われる？という不安に正直に答える【2026年版】",
     summary:
