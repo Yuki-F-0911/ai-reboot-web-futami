@@ -40,16 +40,6 @@ export default function LineCtaBox({
       
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 relative z-10">
         <div className="flex-1">
-          <div 
-            className="mb-4 inline-flex items-center gap-2 rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest border"
-            style={{ 
-              backgroundColor: ACADEMY_COLORS.bgSection, 
-              color: ACADEMY_COLORS.textMuted,
-              borderColor: ACADEMY_COLORS.lineSoft
-            }}
-          >
-            <span>Support & Consultation</span>
-          </div>
           <h3 
             className="text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl leading-tight"
             style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif }}
