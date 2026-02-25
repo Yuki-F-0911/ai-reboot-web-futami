@@ -4068,6 +4068,296 @@ QAが重要な理由は、「検索してからページを読む」という従
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "llm-as-judge",
+    term: "LLM-as-a-Judge",
+    reading: "エルエルエムアズジャッジ",
+    category: "評価",
+    summary:
+      "LLM-as-a-Judgeとは、LLM自身を評価者として使い、他のLLMの出力品質を自動採点する評価手法です。人間評価のスケールアップを実現し、RAGシステムやチャットボットの品質監視に広く活用されています。",
+    description: `LLM-as-a-Judge（LLMを審判として使う）とは、人間の評価者の代わりに強力なLLM（主にGPT-4・Claude等）を使って、別のLLMやAIシステムの出力を自動評価する手法です。Zhengらが2023年に「MT-BenchとChatbot Arenaを使ったLLMの評価」論文で体系化し、LLMの評価フレームワークとして急速に普及しました。
+
+LLM-as-a-Judgeが重要な理由は、LLMの出力評価の難しさにあります。翻訳のBLEUスコアや分類のAccuracyと違い、「この回答は役に立つか」「この要約は正確か」という品質は自動計算が難しく、従来は人間評価が必要でした。LLMを審判として使うことで、人間と高い相関を持つ品質評価を大規模・低コストで自動化できます。
+
+評価方式として、単一回答スコアリング（1〜10点スケール）、ペアワイズ比較（A vs Bどちらが良いか）、参照ベース評価（正解と比較）の3種類があります。課題として、評価LLM自身のバイアス（長い回答や自社モデルを好む傾向）・ポジションバイアス（最初の回答を好む傾向）があり、複数の評価LLMを使ったり順序をランダム化したりすることで対策します。RAGEvalsやRagas等のフレームワークがLLM-as-a-Judgeを組み込んだRAG評価を自動化しています。`,
+    relatedSlugs: ["evaluation-metrics", "benchmark", "llm", "rag", "llmops"],
+    sources: [
+      {
+        title: "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+        url: "https://arxiv.org/abs/2306.05685",
+        publisher: "arXiv / Zheng et al. (2023)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "LLM-as-a-judge - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/LLM-as-a-judge",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "data-annotation",
+    term: "データアノテーション",
+    reading: "データアノテーション",
+    category: "基礎概念",
+    summary:
+      "データアノテーションとは、機械学習の学習データに対して人間がラベル・タグ・説明などの正解情報を付与する作業です。AIモデルの品質に直結する重要なプロセスで、RLHFでは人間の好みを学習させるための比較評価が中心です。",
+    description: `データアノテーション（Data Annotation）とは、機械学習・深層学習モデルを訓練するために必要な「正解ラベル（教師信号）」を人間が生データに付与する作業の総称です。ラベリング・タギングとも呼ばれます。教師あり学習においてモデルの性能はアノテーションの品質・量・多様性に大きく依存します。
+
+データアノテーションが重要な理由は、「AIの品質はデータの品質で決まる」という原則があるためです。ChatGPTの成功を支えたRLHFでは、数千〜数万件の人間による「どちらの回答が良いか」という比較評価（プリファレンスデータ）が学習の核心です。また画像認識では物体の境界線を正確に描くセマンティックセグメンテーション、音声認識では音声と文字起こしのアライメントなど、タスクによって様々な形式のアノテーションが必要です。
+
+アノテーションのコスト・速度・品質のバランスが実務上の大きな課題です。Scale AI・Appen・Labelboxなどの専業プラットフォームや、クラウドソーシング（Amazon Mechanical Turk等）が活用されます。品質管理のためにアノテーター間一致率（Inter-Annotator Agreement、IAA）の測定が重要です。active-learningを使ったアノテーション効率化や、synthetic-dataによるアノテーション削減も研究されています。`,
+    relatedSlugs: ["supervised-learning", "rlhf", "sft", "active-learning", "benchmark"],
+    sources: [
+      {
+        title: "Data annotation - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Data_annotation",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Scale AI - Data Annotation Platform",
+        url: "https://scale.com/",
+        publisher: "Scale AI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "overfitting",
+    term: "過学習（オーバーフィッティング）",
+    reading: "かがくしゅう",
+    category: "基礎概念",
+    summary:
+      "過学習とは、モデルが学習データに適合しすぎて未見データへの汎化性能が低下する現象です。正則化・ドロップアウト・データ拡張・早期終了などが対策として使われます。LLMのfine-tuningでも起きやすい問題です。",
+    description: `過学習（Overfitting）とは、機械学習モデルが訓練データのパターンを「覚えすぎて」しまい、訓練データに対する性能は高いのに未見のテストデータに対しては精度が低下する現象です。モデルが訓練データのノイズや特殊事例まで記憶してしまい、本質的なパターンの汎化に失敗した状態です。
+
+過学習が重要な問題として認識されている理由は、実際の機械学習アプリケーションでは訓練データではなく「新しいデータに対する性能」が重要だからです。訓練データで99%の精度を達成しても、実運用で70%しか出なければ意味がありません。特にモデルサイズに比べて訓練データが少ない場合、深層モデルは過学習しやすい傾向があります。
+
+対策として、正則化（L1/L2正則化でパラメータの過剰な増大を抑制）、ドロップアウト（学習中にランダムにニューロンを無効化）、データ拡張（既存データを変換して多様性を増やす）、早期終了（検証データの性能が悪化し始めたら学習を止める）、バッチ正規化などがあります。LLMのfine-tuning文脈では、少量のドメイン固有データで大きなモデルをfine-tuningすると過学習が起きやすく、LoRAなどのPEFT手法が過学習を抑えながら効率的な適応を実現します。`,
+    relatedSlugs: ["machine-learning", "deep-learning", "fine-tuning", "benchmark", "evaluation-metrics"],
+    sources: [
+      {
+        title: "Overfitting - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Overfitting",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Deep Learning - Goodfellow, Bengio & Courville (2016)",
+        url: "https://www.deeplearningbook.org/",
+        publisher: "MIT Press",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "gradient-descent",
+    term: "勾配降下法",
+    reading: "こうばいこうかほう",
+    category: "基礎概念",
+    summary:
+      "勾配降下法とは、損失関数の勾配（微分）を計算してパラメータを更新するニューラルネットワーク学習の基本アルゴリズムです。SGD・Adam・AdamWなどが派生形で、LLMのfine-tuningでも中心的な最適化手法です。",
+    description: `勾配降下法（Gradient Descent）とは、最小化したい目的関数（損失関数）の各パラメータに対する偏微分（勾配）を計算し、損失が小さくなる方向（勾配の逆方向）にパラメータを少しずつ更新することでモデルを学習させるアルゴリズムです。ニューラルネットワーク学習の中心的な手法です。
+
+勾配降下法が重要な理由は、数十億のパラメータを持つニューラルネットワークに対して「損失を最小化するパラメータ」を効率的に探索する方法として、理論的に有効であり実装も可能な唯一のスケーラブルな手法だからです。バックプロパゲーションと組み合わせることで、出力の誤差を逆方向に伝播させながら各パラメータの勾配を計算できます。
+
+主な変種として、確率的勾配降下法（SGD：全データの代わりに1サンプルの勾配を使う）、ミニバッチ勾配降下法（少数のサンプルの平均勾配を使う）、Momentum（過去の勾配の方向を考慮）、Adam（適応的学習率、現在最も広く使われる）、AdamW（Adamに重み減衰を追加、LLM fine-tuningの標準）などがあります。learning-rateの設定が収束速度と最終性能に大きく影響し、warm-up・コサインアニーリングなどのスケジューリングが実務で多用されます。`,
+    relatedSlugs: ["deep-learning", "neural-network", "parameter", "learning-rate", "fine-tuning"],
+    sources: [
+      {
+        title: "Gradient descent - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Gradient_descent",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "An overview of gradient descent optimization algorithms",
+        url: "https://arxiv.org/abs/1609.04747",
+        publisher: "arXiv / Ruder (2016)",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "learning-rate",
+    term: "学習率",
+    reading: "がくしゅうりつ",
+    category: "基礎概念",
+    summary:
+      "学習率とは、勾配降下法で各ステップにパラメータを更新する大きさを制御するハイパーパラメータです。LLMのfine-tuningでも最重要のチューニングパラメータで、高すぎると発散、低すぎると収束が遅くなります。",
+    description: `学習率（Learning Rate）とは、勾配降下法においてパラメータをどの程度の大きさで更新するかを制御するハイパーパラメータです。数式では「新しいパラメータ = 古いパラメータ − 学習率 × 勾配」と表されます。学習率αが大きいと1ステップの更新量が大きく、小さいと小さくなります。
+
+学習率が重要な理由は、ニューラルネットワークの学習において最も影響力の高いハイパーパラメータの一つだからです。学習率が高すぎると、損失関数の最小値を飛び越えて発散してしまいます。低すぎると収束が非常に遅く、局所最小値に陥りやすくなります。「ちょうど良い学習率」を見つけることが学習成功の鍵であり、これがhyperparameterチューニングの最重要タスクです。
+
+実務的な手法として、learning rate warmup（最初は小さい学習率から始めて徐々に増やす）、cosine annealing（コサイン関数に従って学習率を減衰させる）、learning rate finder（最適な学習率を自動探索する）、cyclical learning rate（周期的に学習率を変動させる）などのスケジューリング手法が普及しています。LLMのfine-tuningでは、ベースモデルを壊さないよう通常1e-5〜1e-4程度の低い学習率が使われます。AdamWオプティマイザと組み合わせるのが現在の標準的な実践です。`,
+    relatedSlugs: ["gradient-descent", "fine-tuning", "hyperparameter", "deep-learning", "sft"],
+    sources: [
+      {
+        title: "Learning rate - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Learning_rate",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Practical Deep Learning for Coders - fast.ai",
+        url: "https://course.fast.ai/",
+        publisher: "fast.ai",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "hyperparameter",
+    term: "ハイパーパラメータ",
+    reading: "ハイパーパラメータ",
+    category: "基礎概念",
+    summary:
+      "ハイパーパラメータとは、学習前に人間が設定するモデル外部のパラメータです（学習率・バッチサイズ・エポック数・レイヤー数等）。モデルの性能に大きく影響し、AutoMLや手動チューニングで最適値を探索します。",
+    description: `ハイパーパラメータ（Hyperparameter）とは、機械学習モデルの訓練プロセス自体を制御するパラメータであり、データから自動的に学習されるモデルパラメータ（重み）とは異なり、学習開始前に人間（または自動化ツール）が設定する外部パラメータです。
+
+ハイパーパラメータが重要な理由は、同じモデルアーキテクチャとデータを使っても、ハイパーパラメータの設定によって性能が大きく変わるためです。最適なハイパーパラメータを見つけることは「ハイパーパラメータ最適化（HPO）」と呼ばれる独立した研究・実践領域です。
+
+主なハイパーパラメータとして、learning-rate（更新量の大きさ）、バッチサイズ（一度に処理するサンプル数）、エポック数（訓練データを何周するか）、モデルの層数・幅（アーキテクチャパラメータ）、正則化係数、ドロップアウト率、temperature（LLMの出力多様性）などがあります。LLMのfine-tuning文脈では、learning-rate・warm-upステップ数・LoRAのrank値などが重要なハイパーパラメータです。探索手法としてグリッドサーチ・ランダムサーチ・ベイズ最適化があり、automlがこれを自動化します。Weights & Biases（W&B）Sweepなどのツールが体系的な探索を支援します。`,
+    relatedSlugs: ["learning-rate", "fine-tuning", "automl", "deep-learning", "benchmark"],
+    sources: [
+      {
+        title: "Hyperparameter optimization - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Hyperparameter_optimization",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Random Search for Hyper-Parameter Optimization",
+        url: "https://jmlr.org/papers/v13/bergstra12a.html",
+        publisher: "JMLR / Bergstra & Bengio (2012)",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "recurrent-neural-network",
+    term: "RNN（リカレントニューラルネットワーク）",
+    reading: "リカレントニューラルネットワーク",
+    category: "モデル",
+    summary:
+      "RNNとは、前の出力を次の入力に使う再帰的な構造で時系列・系列データを処理するニューラルネットワークです。LSTMやGRUが発展形で、Transformerの登場前はNLPの主力アーキテクチャでした。",
+    description: `RNN（Recurrent Neural Network：リカレントニューラルネットワーク）とは、前の時刻の隠れ状態（hidden state）を次の時刻の入力に持ち込む「フィードバック接続」を持つニューラルネットワークです。時系列データ・テキスト・音声など「順序が意味を持つ系列データ」の処理に設計されています。
+
+RNNが重要だった理由は、固定長の入力しか受け取れないFNNとは異なり、可変長の系列データを扱える点です。2010年代のNLP・音声認識の主要アーキテクチャとして、機械翻訳・言語モデル・音声認識システムに広く使われました。
+
+しかしRNNは「勾配消失問題（長い系列で古い情報の勾配が消えてしまう）」という本質的な課題を抱えます。LSTM（Long Short-Term Memory）とGRU（Gated Recurrent Unit）はゲーティング機構でこの問題を緩和した発展形です。2017年のTransformerの登場により、RNN・LSTMはNLPの主役の座をAttentionメカニズムベースのモデルに譲りました。現在も軽量なオンデバイス推論や時系列予測の一部での活用が続いていますが、LLMはほぼすべてtransformerアーキテクチャを採用しています。encoder-decoderアーキテクチャも元々はRNNで実装されていました。`,
+    relatedSlugs: ["neural-network", "deep-learning", "transformer", "natural-language-processing", "encoder-decoder"],
+    sources: [
+      {
+        title: "Finding Structure in Time",
+        url: "https://onlinelibrary.wiley.com/doi/abs/10.1207/s15516709cog1402_1",
+        publisher: "Cognitive Science / Elman (1990)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Recurrent neural network - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Recurrent_neural_network",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "convolutional-neural-network",
+    term: "CNN（畳み込みニューラルネットワーク）",
+    reading: "たたみこみニューラルネットワーク",
+    category: "モデル",
+    summary:
+      "CNNとは、局所フィルタ（畳み込み層）を使って画像の特徴を階層的に抽出するニューラルネットワークです。画像分類・物体検出の主要アーキテクチャで、VisionTransformerへの移行後も医療・製造分野で広く使われています。",
+    description: `CNN（Convolutional Neural Network：畳み込みニューラルネットワーク）とは、画像処理に特化した「畳み込み層（Convolutional Layer）」を持つニューラルネットワークです。小さなフィルタ（カーネル）を画像全体にスライドさせながら適用することで、エッジ・テクスチャ・形状などの局所的特徴を階層的に抽出します。
+
+CNNが重要な理由は、2012年のAlexNet（ImageNetでのエラー率を劇的に改善）がCNNの有効性を証明して以来、画像認識AIの中核技術となってきたためです。LeNet・AlexNet・VGG・ResNet・EfficientNetと進化し、医療画像診断・顔認識・自動運転・製造業の外観検査など多様な産業用途に採用されました。
+
+技術的な特徴として、重み共有（同じフィルタを画像全体に適用することでパラメータを大幅削減）、局所受容野（近傍ピクセルのみを考慮）、プーリング層（次元削減・空間不変性の獲得）があります。2020年代にはTransformerベースのVision Transformer（ViT）が画像認識でも高性能を示しており、大規模モデルではViTがCNNに取って代わりつつあります。ただしCNNは計算効率・解釈可能性の面でまだ優位性を持つ分野があり、vision-language-modelのビジュアルエンコーダーとしても使われています。`,
+    relatedSlugs: ["neural-network", "deep-learning", "text-to-image", "vision-language-model", "transfer-learning"],
+    sources: [
+      {
+        title: "ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)",
+        url: "https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
+        publisher: "NeurIPS / Krizhevsky et al. (2012)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Convolutional neural network - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Convolutional_neural_network",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "semantic-chunking",
+    term: "セマンティックチャンキング",
+    reading: "セマンティックチャンキング",
+    category: "実装",
+    summary:
+      "セマンティックチャンキングとは、RAGにおいてドキュメントを意味的な塊（チャンク）に分割する手法です。固定文字数分割と異なり意味的な境界で分割するため、検索精度と回答品質が向上します。",
+    description: `セマンティックチャンキング（Semantic Chunking）とは、RAGシステムにおいて長文ドキュメントをベクトル化・検索可能な単位（チャンク）に分割する際、文字数や段落番号などの表面的な基準ではなく、「意味的なまとまり」を基準に分割する手法です。テキストの内容的なまとまりを保ちながら分割することで、検索時のコンテキスト整合性が向上します。
+
+セマンティックチャンキングが重要な理由は、固定文字数（例：512トークン）での機械的な分割では文章の途中で切れてしまい、意味的な文脈が失われた不完全なチャンクが生成されるためです。「質問：○○とは何か」→検索されたチャンクが文の途中で切れていて答えが含まれない、というケースが頻発します。セマンティックチャンキングによって各チャンクが意味的に完結した情報単位になり、検索と回答生成の品質が改善します。
+
+主な実装アプローチとして、文埋め込みの類似度を使って近い意味の文を同じチャンクにまとめる手法（LangChain SemanticChunker）、LLMを使って意味的な段落境界を検出する手法、文書の構造（見出し・リスト・表）を活用する構造ベース分割があります。チャンクサイズのオーバーラップ（連続するチャンクが一部のテキストを共有）と組み合わせることでコンテキストの切断を防ぐことも一般的です。information-retrievalの精度向上に直結する重要な前処理ステップです。`,
+    relatedSlugs: ["rag", "retrieval", "embedding", "vector-db", "information-retrieval"],
+    sources: [
+      {
+        title: "Semantic Chunker - LangChain Documentation",
+        url: "https://python.langchain.com/docs/how_to/semantic-chunker/",
+        publisher: "LangChain",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Chunking Strategies for LLM Applications - Pinecone",
+        url: "https://www.pinecone.io/learn/chunking-strategies/",
+        publisher: "Pinecone",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "tpu",
+    term: "TPU（テンソル処理ユニット）",
+    reading: "ティーピーユー",
+    category: "基礎概念",
+    summary:
+      "TPUとは、Googleが開発したAI推論・学習専用のカスタムASIC（Tensor Processing Unit）です。行列演算を特化設計で高効率に処理し、GPUと比較してGoogle規模のLLM学習に大きなコスト・速度優位があります。",
+    description: `TPU（Tensor Processing Unit：テンソル処理ユニット）とは、Googleが機械学習・深層学習のワークロード、特にニューラルネットワークで大量に行われる行列演算（テンソル演算）を高効率に処理するために設計・開発したカスタムASIC（Application-Specific Integrated Circuit）です。Googleが2016年に内部利用を開始し、2017年に論文で公開しました。
+
+TPUが重要な理由は、汎用GPU（グラフィクス処理も考慮した設計）と比べて、AI推論・学習に特化した設計により特定のワークロードで高いコスト効率・電力効率を実現するためです。GoogleのGemini・PaLMなどの大規模モデルはTPU Podsで学習されており、研究規模での性能実績があります。
+
+Google Cloud上でCloud TPUとして外部提供されており、Google Colabでも一部利用可能です。TPU v4・v5シリーズでは積層型メモリとHBM（High Bandwidth Memory）を採用し、大規模LLMの学習効率を高めています。NVIDIAのGPU（H100・A100）が業界標準としてデファクトになっている一方、TPUはGoogle製品・研究での主力ハードウェアです。量子化や混合精度（bfloat16）との組み合わせでTPUの効率をさらに引き出すことができます。vramの概念はGPUに特有ですが、TPUではHBM帯域幅が対応するボトルネックとなります。`,
+    relatedSlugs: ["gpu", "inference", "deep-learning", "vram", "quantization"],
+    sources: [
+      {
+        title: "In-Datacenter Performance Analysis of a Tensor Processing Unit",
+        url: "https://arxiv.org/abs/1704.04760",
+        publisher: "arXiv / Jouppi et al. / Google (2017)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Tensor Processing Unit - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Tensor_Processing_Unit",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
