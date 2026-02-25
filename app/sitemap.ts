@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { News } from "@/lib/microcms";
 import { getAllBlogArticles, getAllNewsArticles } from "@/lib/microcms-helper";
+import { glossaryTerms } from "@/data/glossary";
 import type { Dirent } from "node:fs";
 import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
@@ -181,5 +182,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...academyBlogPages, ...newsPages, ...blogPages];
+  const glossaryIndexPage: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/glossary`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+  ];
+
+  const glossaryDetailPages: MetadataRoute.Sitemap = glossaryTerms.map((term) => ({
+    url: `${baseUrl}/glossary/${term.slug}`,
+    lastModified: new Date(term.updatedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...glossaryIndexPage, ...glossaryDetailPages, ...academyBlogPages, ...newsPages, ...blogPages];
 }
