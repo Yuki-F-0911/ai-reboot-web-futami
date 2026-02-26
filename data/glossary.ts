@@ -14121,6 +14121,376 @@ AI: Pythonコードを生成・実行
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "activation-steering",
+    term: "アクティベーションステアリング",
+    reading: "アクティベーションステアリング",
+    category: "基礎概念",
+    summary:
+      "アクティベーションステアリングとは、LLMの中間層の活性化ベクトルを直接操作してモデルの振る舞いを制御する技術で、特定の概念ベクトルを加算・減算することで感情・トピック・スタイルを誘導できます。",
+    description: `アクティベーションステアリング（Activation Steering）とは、LLMの内部表現（中間層の活性化ベクトル）を直接操作することで、プロンプトを変えることなくモデルの出力を誘導する技術です。解釈可能性研究から生まれた実験的アプローチです。
+
+なぜ重要かというと、プロンプトエンジニアリングでは誘導しにくいモデルの深層的な振る舞い（感情トーン・概念的傾向）を、より直接的に制御できるためです。また、モデルが内部でどのように概念を表現しているかを解明する手がかりにもなります。
+
+具体的には、「怒り」「喜び」「フランス語」などの概念に対応する「概念ベクトル」を事前に抽出し、推論時にそのベクトルを活性化に加算・減算します。例えば怒りベクトルを減算すれば、より穏やかな応答を引き出せます。
+
+Anthropicの研究では、Claudeの活性化を操作してキャラクター設定への反応を変えたり、Sparse Autoencoderと組み合わせて特定の概念を制御したりする実験が行われています。将来的には、アライメントやセーフティの新しいアプローチとして注目されています。`,
+    relatedSlugs: [
+      "mechanistic-interpretability",
+      "latent-space",
+      "alignment",
+      "ai-safety",
+      "sparse-autoencoder",
+    ],
+    sources: [
+      {
+        title: "Activation Addition: Steering Language Models Without Optimization",
+        url: "https://arxiv.org/abs/2308.10248",
+        publisher: "arXiv / Turner et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Steering Claude's Behavior with Activation Engineering",
+        url: "https://www.anthropic.com/research/steering-language-models-activation-engineering",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "llm-twin",
+    term: "LLMツイン",
+    reading: "エルエルエムツイン",
+    category: "実装",
+    summary:
+      "LLMツインとは、特定の人物の文章・思考・スタイルをファインチューニングしたパーソナルAIで、SNS・メール・記事などのデータで学習し、その人の「デジタル分身」として機能する新興コンセプトです。",
+    description: `LLMツイン（LLM Twin）とは、特定の個人のコミュニケーションスタイル・知識・思考パターンを模倣するようにカスタマイズされたLLMです。その人が書いたSNS投稿・メール・ブログ記事・書籍などを学習データとして使い、「デジタル分身」を構築します。
+
+デジタルツインの概念をAI・LLMに応用したもので、近年特に注目を集めています。Paul Iusztinの著書「LLM Twin Book」が実装方法を体系化したことで知名度が上がりました。
+
+主な活用場面として、コンテンツクリエイターが自分のスタイルでコンテンツ量産するアシスタント、著名な専門家の知識を継承するシステム、個人の考え方を学習した対話エージェントなどがあります。
+
+技術的には、個人データの収集・クリーニング、LoRAなどのファインチューニング手法、プライバシー保護の仕組みが重要な要素となります。倫理面では、本人の同意なく他者のLLMツインを作成することへの懸念も議論されています。`,
+    relatedSlugs: [
+      "fine-tuning",
+      "personalization",
+      "digital-twin",
+      "ai-companion",
+      "synthetic-data",
+    ],
+    sources: [
+      {
+        title: "LLM Twin Book",
+        url: "https://github.com/PacktPublishing/LLM-Engineers-Handbook",
+        publisher: "Paul Iusztin / Packt Publishing",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "AI Personalization and Digital Twins",
+        url: "https://towardsdatascience.com/llm-twin-build-your-digital-twin-with-llms",
+        publisher: "Towards Data Science",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "document-grounding",
+    term: "ドキュメントグラウンディング",
+    reading: "ドキュメントグラウンディング",
+    category: "実装",
+    summary:
+      "ドキュメントグラウンディングとは、LLMが回答を特定のドキュメント・ソースに基づかせ、引用元を示す技術で、ハルシネーション防止と回答の検証可能性向上を目的とした企業RAGシステムの信頼性確保に不可欠な手法です。",
+    description: `ドキュメントグラウンディング（Document Grounding）とは、LLMの回答を特定のドキュメントや情報源に紐付け、「どの文書のどの部分を根拠としているか」を明示的にする技術です。RAGシステムの信頼性を高める中核的な手法です。
+
+なぜ重要かというと、LLMは学習データから事実を「記憶」しているため、情報が古かったり、存在しない事実を作り出すハルシネーションが起きることがあります。ドキュメントグラウンディングは、回答を提示されたドキュメントのみに基づかせることでこのリスクを軽減します。
+
+実装では、検索で取得したドキュメントのチャンクをプロンプトに含め、「この文書だけを根拠に答えてください」と指示します。Anthropicのドキュメントモード（Claude）やMicrosoftのAzure AI Document Intelligenceが代表例です。
+
+引用機能（Citation）との組み合わせにより、「この回答はドキュメントXのY段落に基づいています」という形式で出力できます。法律・医療・金融など、情報の正確性と根拠が特に重視される業界での導入が進んでいます。`,
+    relatedSlugs: [
+      "grounding",
+      "rag",
+      "hallucination",
+      "document-qa",
+      "retrieval-pipeline",
+    ],
+    sources: [
+      {
+        title: "Anthropic Claude Documents Mode",
+        url: "https://docs.anthropic.com/claude/docs/document-types",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Azure AI Document Intelligence",
+        url: "https://learn.microsoft.com/azure/ai-services/document-intelligence/",
+        publisher: "Microsoft",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "agentic-rag",
+    term: "エージェンティックRAG",
+    reading: "エージェンティックラグ",
+    category: "実装",
+    summary:
+      "エージェンティックRAGとは、従来の単純なRAGをエージェントが動的に制御する高度なアーキテクチャで、クエリ分解・複数ソース選択・結果の評価・再検索を自律的に行い、複雑な質問に対応します。",
+    description: `エージェンティックRAG（Agentic RAG）とは、AIエージェントがRAG（検索拡張生成）パイプライン全体を動的に制御する高度なアーキテクチャです。単純な「検索→生成」の一方向フローを超え、複数の推論ステップを経て最適な回答を得ます。
+
+従来のRAGが「1回の検索で取得したドキュメントをそのまま使う」のに対し、エージェンティックRAGは以下を動的に実行します。複雑な質問の分解（クエリ分解）、複数のデータソースや検索ツールの選択、検索結果の評価と不十分な場合の再検索、段階的な推論による最終回答の構築です。
+
+LangGraphやLlamaIndexのAgentic RAGフレームワークが代表的な実装基盤です。マルチホップ質問（複数の推論ステップを要する質問）や、異なる種類のデータソース（テキスト・コード・表・グラフ）を組み合わせる必要がある場面で特に有効です。
+
+課題としては、複数の検索・推論ステップによるレイテンシの増加と、エラーの伝播（途中の推論が誤ると最終回答も誤る）があります。`,
+    relatedSlugs: [
+      "rag",
+      "agent",
+      "agentic-workflow",
+      "retrieval-pipeline",
+      "graph-rag",
+    ],
+    sources: [
+      {
+        title: "Agentic RAG with LangGraph",
+        url: "https://langchain-ai.github.io/langgraph/tutorials/rag/langgraph_agentic_rag/",
+        publisher: "LangChain / LangGraph",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "LlamaIndex Agentic RAG Documentation",
+        url: "https://docs.llamaindex.ai/en/stable/use_cases/agents/",
+        publisher: "LlamaIndex",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "tabular-llm",
+    term: "テーブル型LLM",
+    reading: "テーブルがたエルエルエム",
+    category: "実装",
+    summary:
+      "テーブル型LLMとは、表形式データ（CSV・データベース・スプレッドシート）を理解・操作するLLM技術で、Text-to-SQL・表の質問応答・構造データ分析が含まれ、企業データ活用において重要な役割を担います。",
+    description: `テーブル型LLM（Tabular LLM）とは、CSV・Excelスプレッドシート・データベーステーブルなどの表形式（構造化）データを理解・分析・操作するために特化・最適化されたLLM技術です。
+
+企業が扱うデータの多くは表形式であるため、このカテゴリの重要性は高まっています。主要な機能として、Text-to-SQL（自然言語でSQLクエリを生成）、表の質問応答（"売上が最も高い月は？"への回答）、表データの要約・分析、異なる表の結合や比較があります。
+
+代表的な研究・モデルとして、GoogleのTAPAS（Weakly supervised table parsing）、MicrosoftのTAPEX（Table Pre-training）、Meta AIのTableLlamaがあります。また、GPT-4やClaudeも表形式データを直接プロンプトに含めることで高い精度で処理できます。
+
+実務では、BIツールへのAI統合（自然言語でデータを問い合わせ）や、ノーコードでのデータ分析ツールの実現に活用されています。課題は大規模な表（数万行）の処理と、複数テーブルをまたぐ複雑なジョインクエリの精度です。`,
+    relatedSlugs: [
+      "text-to-sql",
+      "dataset",
+      "data-science",
+      "code-interpreter",
+      "natural-language-understanding",
+    ],
+    sources: [
+      {
+        title: "TableLlama: Towards Open Large Generalist Models for Tables",
+        url: "https://arxiv.org/abs/2311.09206",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "TAPEX: Table Pre-training via Learning a Neural SQL Executor",
+        url: "https://arxiv.org/abs/2107.07653",
+        publisher: "arXiv / Microsoft Research",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "long-form-generation",
+    term: "長文生成",
+    reading: "ちょうぶんせいせい",
+    category: "実装",
+    summary:
+      "長文生成とは、LLMが書籍・報告書・技術文書など数千〜数万トークンの長いコンテンツを一貫性を保ちながら生成する技術で、アウトライン生成・段階的執筆・一貫性維持が主な課題です。",
+    description: `長文生成（Long-form Generation）とは、LLMが短い回答や要約にとどまらず、数千〜数万トークンに及ぶ長いコンテンツ（技術レポート・ビジネス文書・小説・学術論文など）を一貫性を持って生成する技術です。
+
+短文生成と比べて独自の課題があります。一貫性の維持（冒頭で述べた内容を後半で矛盾なく継続する）、構造の管理（章・節・段落の論理的な流れ）、コンテキストウィンドウの制限（長くなるほど前半の情報が薄れる「long-range dependency問題」）、繰り返し・発散の防止などです。
+
+実装アプローチとして、まずアウトラインを生成してから各セクションを展開する「アウトライン駆動生成」、前のセクションの要約を次のコンテキストに組み込む「ローリングサマリー」、複数エージェントが分担して書く「マルチエージェント執筆」などがあります。
+
+AnthropicのClaudeはProjectsとExtended Thinking機能を組み合わせることで長文生成の品質が向上しています。OpenAIはo1・o3モデルでの長文タスク対応を強化しています。`,
+    relatedSlugs: [
+      "text-generation",
+      "long-context",
+      "context-window",
+      "ai-writing",
+      "ai-content-creation",
+    ],
+    sources: [
+      {
+        title: "OpenAI Long-form Writing Guide",
+        url: "https://platform.openai.com/docs/guides/text-generation",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Anthropic Claude Projects Documentation",
+        url: "https://docs.anthropic.com/claude/docs/projects",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "model-alignment-tax",
+    term: "モデルアラインメントコスト",
+    reading: "モデルアラインメントコスト",
+    category: "評価",
+    summary:
+      "モデルアラインメントコストとは、安全性・倫理的制約を加えることで生じるモデルの能力低下で、ハルシネーション対策や有害コンテンツフィルタリングが有用な回答の抑制につながるトレードオフを指します。",
+    description: `モデルアラインメントコスト（Model Alignment Tax）とは、LLMに安全性・倫理的制約・人間の価値観への整合（アライメント）を施す過程で、モデルの一部の能力や回答の有用性が低下してしまうトレードオフ現象を指す概念です。
+
+「税金（tax）」という比喩は、アライメントが安全性という利益をもたらす一方、能力という「コスト」を課すことを表しています。
+
+具体的な現象として、有害なコンテンツを避けようとしすぎて、医学・法律・セキュリティなど合法的なトピックまで拒否するオーバーリファーサル（過剰拒否）、RLHFで「無難な回答」を学習しすぎることによる冗長性・断定力の低下、フィルタリングによるクリエイティブな表現の制限などがあります。
+
+Ouyang et al.（2022）のInstructGPT論文はRLHFによるアライメントを実証しつつ、SFT単独よりも性能が下がる領域があることも示しました。近年はDPOやCritique-based手法により、アライメントコストを最小化しながら安全性を高めるアプローチが研究されています。`,
+    relatedSlugs: [
+      "alignment",
+      "rlhf",
+      "dpo",
+      "benchmark",
+      "responsible-ai",
+    ],
+    sources: [
+      {
+        title: "Training language models to follow instructions with human feedback (InstructGPT)",
+        url: "https://arxiv.org/abs/2203.02155",
+        publisher: "arXiv / OpenAI (Ouyang et al., 2022)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "The Alignment Tax: How RLHF Can Hurt Your Model",
+        url: "https://huggingface.co/blog/rlhf",
+        publisher: "Hugging Face Blog",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "continuous-batching",
+    term: "継続的バッチ処理",
+    reading: "けいぞくてきバッチしょり",
+    category: "実装",
+    summary:
+      "継続的バッチ処理とは、LLM推論サーバーがリクエストを動的にバッチ化し、GPU利用率を最大化する技術で、トークン生成中に新しいリクエストをバッチに追加してスループットを大幅に向上させます。",
+    description: `継続的バッチ処理（Continuous Batching）とは、LLM推論時に複数のリクエストを動的にまとめて処理することで、GPUの利用率とシステム全体のスループットを最大化する技術です。vLLMの開発で広く知られるようになりました。
+
+従来の静的バッチ処理では、バッチ内の全リクエストが完了するまで新しいリクエストを受け付けられませんでした。生成する文章の長さがリクエストごとに異なるため、短い応答が完了してもGPUアイドル時間が発生していました。
+
+継続的バッチ処理（別名：インフライトバッチング）では、あるリクエストの生成が1トークン完了するたびに、待機中の新しいリクエストをバッチに追加できます。これにより、GPUが常に最大限に活用され、サービス全体のスループットを数倍向上できます。
+
+Yu et al.（2022）の「Orca」論文でこの概念が提唱され、vLLMがPagedAttentionと組み合わせて実用化しました。現在はvLLM・TensorRT-LLM・Text Generation Inferenceなどの主要推論フレームワークに標準実装されています。本番環境でのLLMサービング最適化の基本技術です。`,
+    relatedSlugs: [
+      "inference",
+      "vllm",
+      "model-serving",
+      "gpu",
+      "latency",
+    ],
+    sources: [
+      {
+        title: "Orca: A Distributed Serving System for Transformer-Based Generative Models",
+        url: "https://www.usenix.org/conference/osdi22/presentation/yu",
+        publisher: "USENIX OSDI 2022 / Yu et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "vLLM: Easy, Fast, and Cheap LLM Serving with PagedAttention",
+        url: "https://arxiv.org/abs/2309.06180",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-hallucination-mitigation",
+    term: "AIハルシネーション軽減",
+    reading: "エーアイハルシネーションけいげん",
+    category: "評価",
+    summary:
+      "AIハルシネーション軽減とは、LLMの事実誤認・虚偽生成を検出・防止・軽減する技術と戦略の総称で、RAG・グラウンディング・自己一貫性・チェーンオブベリフィケーションなど複数のアプローチがあります。",
+    description: `AIハルシネーション軽減（AI Hallucination Mitigation）とは、LLMが事実に反する情報・存在しない引用・誤った数値などを生成してしまう「ハルシネーション」を検出・防止・削減するための技術・手法・戦略の総称です。
+
+ハルシネーションが発生する主な原因として、学習データの偏りや欠如、モデルが「それらしい回答」を生成するように学習されていること、コンテキストウィンドウを超えた情報の不正確な記憶などがあります。
+
+軽減アプローチは複数あります。予防的アプローチとして、RAGによる外部知識の動的取得、ドキュメントグラウンディングによる引用元の明示化があります。検出・修正アプローチとして、自己一貫性（複数の回答を生成して多数決）、チェーンオブベリフィケーション（生成後に自己チェック質問を行う）、LLM-as-Judgeによるファクトチェックがあります。
+
+また、「わかりません」と答えられるモデルの訓練（知識境界の学習）や、温度パラメータを下げて確定的な回答を促す方法も効果的です。企業導入では複数の手法を組み合わせることが推奨されます。`,
+    relatedSlugs: [
+      "hallucination",
+      "grounding",
+      "rag",
+      "chain-of-verification",
+      "ai-hallucination-detection",
+    ],
+    sources: [
+      {
+        title: "Survey of Hallucination in Natural Language Generation",
+        url: "https://arxiv.org/abs/2202.03629",
+        publisher: "arXiv / Ji et al. (2023)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Retrieval-Augmented Generation for Large Language Models: A Survey",
+        url: "https://arxiv.org/abs/2312.10997",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "synthetic-pretraining",
+    term: "合成事前学習",
+    reading: "ごうせいじぜんがくしゅう",
+    category: "基礎概念",
+    summary:
+      "合成事前学習とは、実データ不足を補うために合成データで事前学習を行う手法で、Phi-1・Phi-2・Phi-3がコード・教科書品質の合成データのみで高性能を達成し、「小さいモデルで大きな性能」の可能性を示しました。",
+    description: `合成事前学習（Synthetic Pre-training）とは、インターネット上のWebクロールデータや実際の人間が書いたテキストの代わりに、AIが生成した高品質な合成データを使ってLLMの事前学習を行う手法です。
+
+なぜ注目されるかというと、Microsoftのφ（Phi）シリーズがこの手法で大きな成果を上げたためです。Phi-1（1.3Bパラメータ）は、GPT-4で生成した「教科書品質」のコードデータのみで学習し、はるかに大きいモデルに匹敵するコーディング性能を達成しました（"Textbooks Are All You Need"論文）。
+
+合成データが有効な理由は、Webデータはノイズ・重複・有害コンテンツが多いのに対し、合成データは特定のスキルや知識を密度高く含められるためです。少ないデータ量でも質が高ければ、大量の低品質データより優れた学習効果を生む「データ効率性」が実現できます。
+
+課題としてモデル崩壊（Model Collapse）のリスクがあります。合成データで学習したモデルが次世代の合成データを生成し続けると、多様性が失われて性能が劣化する可能性があります。実データとの混合比率の最適化が重要な研究課題です。`,
+    relatedSlugs: [
+      "synthetic-data",
+      "pretraining",
+      "phi",
+      "data-curation",
+      "scaling-law",
+    ],
+    sources: [
+      {
+        title: "Textbooks Are All You Need (Phi-1)",
+        url: "https://arxiv.org/abs/2306.11644",
+        publisher: "arXiv / Gunasekar et al. (2023) / Microsoft Research",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Phi-3 Technical Report",
+        url: "https://arxiv.org/abs/2404.14219",
+        publisher: "arXiv / Microsoft Research",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
