@@ -8562,6 +8562,378 @@ Anthropicのtool_use形式・OpenAIのfunction形式・Geminiのtool形式はそ
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "ai-search-engine",
+    term: "AI検索エンジン",
+    reading: "エーアイけんさくエンジン",
+    category: "実装",
+    summary:
+      "LLMを活用してキーワードマッチではなく意味・文脈で検索結果を返す次世代検索。Perplexity・You.com・Bing AI・Google AIオーバービューが代表例。",
+    description: `AI検索エンジン（AI Search Engine）とは、従来のキーワードマッチング型検索に対して、LLMや意味検索技術を組み合わせてユーザーの意図・文脈を理解し、単なるリンクリストではなく直接的な回答・要約・情報統合を提供する次世代の検索サービスです。
+
+代表的なサービスとして、(1)Perplexity AI：質問に対してウェブを検索して引用付きで回答を生成するAI検索エンジン。ソース引用の透明性が高く研究・調査用途に人気、(2)Microsoft Bing AI（Copilot）：GPT-4ベースの対話型検索でウェブ情報をリアルタイムで参照、(3)Google AI Overview（旧SGE）：Google検索結果の上部にLLM生成の要約回答を表示する機能、(4)You.com：カスタマイズ可能なAI検索でコーディング・研究・一般検索の専門モードを提供があります。
+
+従来の検索エンジンとの違いとして、(1)意図理解：「2024年のAIトレンドを教えて」という自然言語クエリを処理、(2)回答合成：複数ソースから情報を統合して直接回答を生成（RAGの応用）、(3)対話的絞り込み：追加質問で検索を深化させる会話型インターフェース、(4)マルチモーダル検索：画像・音声からの検索クエリに対応があります。
+
+ビジネス活用として、社内ドキュメント・ナレッジベースにAI検索を実装する「エンタープライズ検索」が急速に普及しています。SharePoint Copilot・Google Cloud Vertex AI Search等が代表的なソリューションです。SEO観点では、AIオーバービューの普及により検索結果のクリック率（CTR）が変化しており、「AIに引用される」コンテンツ戦略の重要性が高まっています。`,
+    relatedSlugs: [
+      "ai-search",
+      "semantic-search",
+      "rag",
+      "llm",
+      "retrieval",
+    ],
+    sources: [
+      {
+        title: "Perplexity AI – Ask Anything",
+        url: "https://www.perplexity.ai/",
+        publisher: "Perplexity AI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Google AI Overviews – Search Help",
+        url: "https://support.google.com/websearch/answer/14901683",
+        publisher: "Google",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-pair-programmer",
+    term: "AIペアプログラマー",
+    reading: "エーアイペアプログラマー",
+    category: "実装",
+    summary:
+      "開発者と対話しながらリアルタイムでコード提案・レビュー・デバッグを行うAI。GitHub Copilot・Cursor・Claude Code等が代表例。",
+    description: `AIペアプログラマー（AI Pair Programmer）とは、ソフトウェア開発者とリアルタイムで協働し、コードの補完・生成・説明・レビュー・デバッグ・リファクタリングを行うAIツールです。従来のペアプログラミング（2人の開発者がペアを組む手法）の概念をAIで実現したものとも言えます。
+
+代表的なツールと特徴として、(1)GitHub Copilot：VS Code・JetBrains等のIDEに統合。コンテキストを読んでリアルタイムにコード補完を提案。GitHubとMicrosoftが提供、(2)Cursor：AIネイティブなコードエディタ。コードベース全体をインデックス化してチャット・編集・差分適用を一体化、(3)Anthropic Claude Code：ターミナルベースのエージェント型ペアプログラマー。ファイル操作・テスト実行・コミットまで自律的に実行、(4)Cline（VS Code拡張）：Claude/GPT等を切り替え可能なコーディングエージェントがあります。
+
+GitHubの調査（2022年）では、Copilot利用開発者は利用しない開発者より55%速くタスクを完了し、55%の時間を「フロー状態（集中状態）」で過ごせると報告されています。特にボイラープレートコード・テストコード・ドキュメント生成で時間削減効果が大きいです。
+
+活用上の注意点として、(1)セキュリティ脆弱性を含むコードを提案する場合があり、コードレビューは必須、(2)ライセンスが不明なコードが提案される可能性があるため、商用利用時はライセンス確認が重要、(3)提案コードをそのまま使うと「コードの理解なき使用」につながるリスクがあります。「AIに書いてもらいつつ理解する」姿勢が重要です。`,
+    relatedSlugs: [
+      "ai-coding-assistant",
+      "code-generation",
+      "copilot",
+      "llm",
+      "prompt-engineering",
+    ],
+    sources: [
+      {
+        title: "GitHub Copilot Research: Quantifying GitHub Copilot's impact on developer productivity and happiness",
+        url: "https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        publisher: "GitHub",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Cursor – The AI Code Editor",
+        url: "https://www.cursor.com/",
+        publisher: "Cursor",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-workflow",
+    term: "AIワークフロー",
+    reading: "エーアイワークフロー",
+    category: "実装",
+    summary:
+      "複数のLLM呼び出し・ツール実行・条件分岐を組み合わせた自動化された処理フロー。n8n・Zapier AI・Dify・Langflowで実装できる。",
+    description: `AIワークフロー（AI Workflow）とは、複数のLLM呼び出し・外部ツール実行・データ変換・条件分岐・ループを組み合わせて、特定の業務プロセスや情報処理タスクを自動化するパイプライン構成です。単一のLLMへの問い合わせを超えた、複雑な複数ステップの処理を構造化して自動実行します。
+
+AIワークフローの主要パターンとして、(1)シーケンシャルワークフロー：A→B→Cと順番に処理する線形フロー、(2)並列ワークフロー：複数のサブタスクを同時並行で実行して結果をマージ、(3)条件分岐ワークフロー：LLMの出力や条件によって処理経路を分岐、(4)ループワークフロー：評価→修正→再評価という反復処理、(5)マルチエージェントワークフロー：専門エージェントが協調して複合タスクを解決があります。
+
+代表的な実装ツールとして、(1)n8n：ノーコードのワークフロー自動化プラットフォーム。400以上のサービス統合とAIノードを提供、(2)Dify：LLMアプリ開発のオープンソースプラットフォーム。視覚的なフロービルダーでRAG・エージェント・ワークフローを設計、(3)Langflow：LangChainのビジュアルビルダー。コンポーネントをドラッグ&ドロップで接続してパイプラインを構築、(4)Zapier AI：既存の5000以上のZapier連携にAIステップを追加があります。
+
+実際のビジネスユースケースとして、(1)問い合わせメールを自動分類→部門別に転送→LLMで返信下書きを生成→担当者確認、(2)ウェブ記事を収集→要約→翻訳→Slackに投稿、(3)商品レビューを感情分析→ネガティブ案件をCRMに登録→担当者に通知などが実装されています。`,
+    relatedSlugs: [
+      "agentic-workflow",
+      "multi-agent",
+      "orchestration",
+      "langchain",
+      "tool-use",
+    ],
+    sources: [
+      {
+        title: "n8n – Workflow Automation Tool",
+        url: "https://docs.n8n.io/",
+        publisher: "n8n",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Dify – Open Source LLM App Development Platform",
+        url: "https://docs.dify.ai/",
+        publisher: "Dify",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "document-qa",
+    term: "ドキュメントQ&A",
+    reading: "ドキュメントキューアンドエー",
+    category: "実装",
+    summary:
+      "PDFや文書ファイルをアップロードしてLLMに質問できるシステム。RAGを活用してドキュメント内の情報を根拠として回答を生成する。",
+    description: `ドキュメントQ&A（Document Q&A）とは、PDFや Word・Excel・テキストファイルなどのドキュメントをシステムに読み込ませ、そのドキュメントの内容についてLLMに質問して回答を得るシステムです。RAG（Retrieval-Augmented Generation）の最も代表的なユースケースの一つで、「ドキュメントと対話する」体験を実現します。
+
+典型的なシステム構成として、(1)ドキュメント読み込み：PDF・Word等をテキスト抽出、(2)チャンキング：テキストを適切なサイズのチャンクに分割、(3)埋め込み・インデックス：各チャンクをベクトル化してベクトルDBに保存、(4)クエリ処理：ユーザーの質問をベクトル化して関連チャンクを検索、(5)回答生成：関連チャンクとLLMを使って引用付きの回答を生成、という流れです。
+
+実装ツール・サービスとして、(1)ChatGPT（GPT-4 with Files）：PDFをアップロードして対話できる公式機能、(2)Claude（Anthropic）：最大200Kトークンのコンテキストに直接PDFを読み込む方式、(3)LlamaIndex・LangChain：ドキュメントQ&Aパイプライン構築フレームワーク、(4)NotebookLM（Google）：複数ドキュメントを知識ソースとして管理する専門サービスがあります。
+
+ビジネス活用シーンとして、(1)社内規定・マニュアルへのチャットボット型アクセス、(2)契約書・法律文書の条項検索・質疑応答、(3)技術仕様書・製品マニュアルの問い合わせ自動応答、(4)研究論文・学術文献の内容分析があります。品質向上のポイントは、適切なチャンキング設計・埋め込みモデルの選択・リランキングの導入です。`,
+    relatedSlugs: [
+      "rag",
+      "question-answering",
+      "document-ai",
+      "retrieval",
+      "embedding",
+    ],
+    sources: [
+      {
+        title: "Building a RAG system – LlamaIndex Documentation",
+        url: "https://docs.llamaindex.ai/en/stable/understanding/rag/",
+        publisher: "LlamaIndex",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Google NotebookLM",
+        url: "https://notebooklm.google.com/",
+        publisher: "Google",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "chat-memory",
+    term: "チャットメモリ",
+    reading: "チャットメモリ",
+    category: "実装",
+    summary:
+      "会話履歴を保持・管理してLLMに過去の文脈を提供する仕組み。短期メモリ（会話内）・長期メモリ（DB永続化）の2種類がある。",
+    description: `チャットメモリ（Chat Memory）とは、LLMベースのチャットシステムにおいて、過去の会話履歴をLLMのコンテキストとして提供する仕組みです。LLM自体は会話の状態を保持しないステートレスなモデルであるため、チャットシステム側でメモリ管理を実装する必要があります。
+
+メモリの種類として、(1)短期メモリ（In-context Memory）：コンテキストウィンドウ内に会話履歴を保持する最もシンプルな方式。会話が長くなるとトークン制限に達するため、古いメッセージを切り捨てるか要約する処理が必要、(2)長期メモリ（External Memory）：会話履歴・ユーザー情報・重要な事実をDBやベクトルストアに永続化し、関連情報を都度取得する方式。セッションをまたいで情報を保持できる、(3)エピソードメモリ：特定のイベント・経験を構造化して保存し後から参照する方式、(4)セマンティックメモリ：一般的な知識・ファクトを整理して保存する方式があります。
+
+実装パターンとして、LangChainはConversationBufferMemory（全履歴）・ConversationSummaryMemory（要約して圧縮）・ConversationBufferWindowMemory（直近N件のみ）など複数のメモリクラスを提供しています。
+
+専門的なメモリ管理サービスとして、Mem0（旧Memory）はユーザーごとの長期記憶をベクトルDBで管理するAPIを提供し、Zepはエンタープライズ向けの会話メモリ・事実抽出・エンティティ管理を担います。OpenAI Assistants APIにもメモリ相当のThread機能があります。
+
+マルチエージェントシステムでは、エージェント間で共有するメモリ（Shared Memory）の設計がシステム全体の一貫性に関わる重要な設計要素です。`,
+    relatedSlugs: [
+      "agent-memory",
+      "context-window",
+      "conversational-ai",
+      "chatbot",
+      "context-length",
+    ],
+    sources: [
+      {
+        title: "Memory – LangChain Documentation",
+        url: "https://python.langchain.com/docs/concepts/memory/",
+        publisher: "LangChain",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Mem0 – The Memory Layer for AI Apps",
+        url: "https://mem0.ai/",
+        publisher: "Mem0",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-content-creation",
+    term: "AIコンテンツ生成",
+    reading: "エーアイコンテンツせいせい",
+    category: "実装",
+    summary:
+      "LLMを使ってブログ・SNS・広告コピー・メールなどのテキストコンテンツを自動生成する実践。SEO最適化や多言語展開に活用される。",
+    description: `AIコンテンツ生成（AI Content Creation）とは、LLMやマルチモーダル生成AIを活用して、ブログ記事・SNS投稿・広告コピー・メール文面・プレスリリース・製品説明文・スクリプト等のコンテンツを自動または半自動で生成する実践です。コンテンツマーケティングのスケールアップ・多言語展開・パーソナライゼーションの大量処理に特に有効です。
+
+主要なユースケースとして、(1)SEOコンテンツ：キーワード調査に基づいた検索上位を狙うブログ記事の下書き生成。Surfer SEO・Jasper等のツールがAI生成とSEO最適化を統合、(2)SNSマーケティング：X・Instagram・LinkedInへの投稿文・ハッシュタグの自動生成。ブランドトーンを維持しながら大量の投稿バリエーションを作成、(3)メールマーケティング：セグメント別にパーソナライズされた件名・本文の生成、(4)ECサイト：商品説明文の多言語自動生成・最適化があります。
+
+代表的なツールとして、(1)Jasper：マーケティング特化のAIライティングアシスタント。ブランドボイス機能でトーンを統一、(2)Copy.ai：コピーライティング特化で広告文・LP・メール等のテンプレートが充実、(3)Claude/ChatGPT：長文記事・専門的コンテンツの生成に強みがあります。
+
+品質管理のポイントとして、(1)ファクトチェック：AI生成コンテンツにはハルシネーションが含まれる可能性があり、事実確認が必須、(2)ブランドトーン：企業固有の文体・用語集をシステムプロンプトに組み込む、(3)SEO最適化：生成後の内部リンク・メタデータ・見出し構造の人手調整、(4)オリジナリティ：重複コンテンツペナルティ回避のため差別化が必要です。`,
+    relatedSlugs: [
+      "text-generation",
+      "generative-ai",
+      "natural-language-generation",
+      "ai-generated-content",
+      "prompt-engineering",
+    ],
+    sources: [
+      {
+        title: "Jasper – AI Marketing Platform",
+        url: "https://www.jasper.ai/",
+        publisher: "Jasper",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Copy.ai – AI-powered content generation",
+        url: "https://www.copy.ai/",
+        publisher: "Copy.ai",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "retrieval-augmentation",
+    term: "検索拡張",
+    reading: "けんさくかくちょう",
+    category: "基礎概念",
+    summary:
+      "LLMの応答を外部知識・リアルタイムデータで補強する技術の総称。RAGの核となる概念で、モデルの知識カットオフや幻覚を補完する。",
+    description: `検索拡張（Retrieval Augmentation）とは、LLMが生成する回答の品質・正確性・最新性を高めるために、外部の知識ベース・データベース・ウェブ検索結果などを動的に取得してLLMのコンテキストに組み込む技術の総称です。RAG（Retrieval-Augmented Generation）の核となる概念であり、LLMの本質的な制約（知識カットオフ・ハルシネーション・特定ドメイン知識の不足）を補完します。
+
+検索拡張が解決する問題として、(1)知識カットオフ：LLMの学習データには最終更新日があり、最新情報を知らない。リアルタイム検索で補完、(2)ハルシネーション：根拠なく事実を「創作」する問題。検索した信頼できるソースを参照文書として与えることでグラウンディングを強化、(3)ドメイン特化：医療・法律・社内情報など専門知識は汎用LLMに含まれないことが多い。専門データベースを検索して補完があります。
+
+検索拡張のバリエーションとして、(1)Naive RAG：質問→検索→LLM生成というシンプルなパイプライン、(2)Advanced RAG：クエリ拡張・リランキング・階層検索を加えた高精度版、(3)Modular RAG：プラグイン的にコンポーネントを入れ替え可能な柔軟な設計、(4)Graph RAG：知識グラフを検索源として活用、(5)Web Augmented Generation：リアルタイムウェブ検索をLLMに統合（Perplexity・Bing AI等）があります。
+
+評価フレームワークとして、検索の正確性（Retrieval Precision/Recall）と生成の忠実性（Generation Faithfulness）を独立して評価することが重要で、RagasやTruLensが評価パイプラインを提供しています。`,
+    relatedSlugs: [
+      "rag",
+      "retrieval",
+      "grounding",
+      "vector-db",
+      "hallucination",
+    ],
+    sources: [
+      {
+        title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+        url: "https://arxiv.org/abs/2005.11401",
+        publisher: "arXiv / Lewis et al. (2020)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Advanced RAG Techniques – LlamaIndex",
+        url: "https://docs.llamaindex.ai/en/stable/optimizing/advanced_retrieval/",
+        publisher: "LlamaIndex",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "output-parser",
+    term: "出力パーサー",
+    reading: "しゅつりょくパーサー",
+    category: "実装",
+    summary:
+      "LLMの自然言語出力を構造化データ（JSON・リスト・オブジェクト）に変換するコンポーネント。LangChainのOutputParserが代表例。",
+    description: `出力パーサー（Output Parser）とは、LLMが生成した自然言語テキストを、プログラムで処理可能な構造化データ（JSONオブジェクト・Pythonデータクラス・リスト・数値等）に変換するコンポーネントです。LLMの出力を後続のシステムやアプリケーションに接続する際の「橋渡し」役を担います。
+
+LangChainが提供する主要なOutputParserとして、(1)StrOutputParser：テキストをそのまま文字列として返す最もシンプルなパーサー、(2)JsonOutputParser：LLMの出力をJSONとしてパース。JSON Modeと組み合わせて安定性を高める、(3)PydanticOutputParser：Pydanticモデルの定義に従ってLLM出力を型付きオブジェクトに変換。スキーマをプロンプトに自動挿入する機能付き、(4)CommaSeparatedListOutputParser：カンマ区切りのリストを分割してPythonリストに変換、(5)DatetimeOutputParser：日時形式の出力をdatetimeオブジェクトに変換があります。
+
+出力パーサーが必要な理由として、LLMは確率的な生成モデルであるため、「必ずJSON形式で回答してください」と指示しても完全な準拠を保証できません。パーサーがパース失敗を検出した際に、エラーメッセージとともにLLMに再生成を依頼するリトライロジックを組み込むことで堅牢なシステムを構築できます。
+
+instructorライブラリはPydanticモデルをベースにOpenAI/Anthropic APIの出力を自動的にパース・バリデーションし、失敗時の自動リトライまで統合した実用的な選択肢として開発者に広く採用されています。`,
+    relatedSlugs: [
+      "structured-output",
+      "structured-generation",
+      "json-mode",
+      "langchain",
+      "prompt-engineering",
+    ],
+    sources: [
+      {
+        title: "Output parsers – LangChain Documentation",
+        url: "https://python.langchain.com/docs/concepts/output_parsers/",
+        publisher: "LangChain",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "instructor – Structured outputs from LLMs",
+        url: "https://python.useinstructor.com/",
+        publisher: "instructor",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-no-code",
+    term: "AIノーコード",
+    reading: "エーアイノーコード",
+    category: "実装",
+    summary:
+      "コードを書かずにAI機能を組み込んだアプリ・ワークフローを構築できるプラットフォーム。Dify・Flowise・Botpress・Voiceflowが代表例。",
+    description: `AIノーコード（AI No-code）とは、プログラミング知識なしにAI機能（LLMチャットボット・RAGシステム・AIワークフロー・音声エージェント等）を組み込んだアプリケーションやオートメーションを構築できるプラットフォーム・ツール群の総称です。「誰でもAIを作れる」民主化を推進し、ビジネスユーザーが自ら業務課題にAIを適用できる環境を提供します。
+
+代表的なプラットフォームとして、(1)Dify：オープンソースのLLMアプリ開発プラットフォーム。RAGパイプライン・エージェント・ワークフローをビジュアルに設計可能。セルフホストが可能でプライバシー重視の企業に人気、(2)Flowise：LangChainのビジュアルビルダー。ノードをドラッグ&ドロップで接続してLLMパイプラインを構築。OSSでセルフホスト可能、(3)Botpress：会話型AIボットの構築プラットフォーム。エンタープライズ向けチャネル統合（Web・Slack・WhatsApp等）、(4)Voiceflow：音声・テキストのコンバーセーションAI設計に特化、(5)Bubble + AIプラグイン：汎用ノーコードWebアプリにAI機能を追加があります。
+
+使い分けとして、チャットボット・FAQボット構築にはBotpress・Voiceflow、RAGシステム・AIナレッジベースにはDify・Flowise、業務ワークフロー自動化にはn8n・Zapier AI、データ分析・可視化にはMicrosoft Copilot Studio・Power Automateが適しています。
+
+限界として、ノーコードツールは標準ユースケースには強力ですが、複雑なビジネスロジック・高度なカスタマイズ・大規模トラフィック対応・セキュリティ要件の厳格な環境では、コードベースの実装に移行する必要が生じます。`,
+    relatedSlugs: [
+      "no-code-ai",
+      "ai-workflow",
+      "llm",
+      "chatbot",
+      "ai-agent-framework",
+    ],
+    sources: [
+      {
+        title: "Dify – Open Source LLM App Development Platform",
+        url: "https://dify.ai/",
+        publisher: "Dify",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Flowise – Open source UI visual tool for LangChain",
+        url: "https://flowiseai.com/",
+        publisher: "Flowise",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-ops",
+    term: "AI Ops",
+    reading: "エーアイオプス",
+    category: "実装",
+    summary:
+      "AIシステムの本番環境での運用・監視・改善を体系化したプロセス（AI Operations）。LLMOpsの上位概念でインフラ・セキュリティ・コストも含む。",
+    description: `AI Ops（AI Operations）とは、AIシステム・モデル・サービスを本番環境で安定的に運用・監視・改善するための実践・プロセス・ツール群の総称です。MLOps（機械学習モデルの運用）やLLMOps（LLMの運用）の上位概念として、AIインフラ管理・セキュリティ・コンプライアンス・コスト最適化・インシデント対応まで包括します。
+
+AI Opsの主要領域として、(1)モデル監視（Model Monitoring）：本番モデルの精度劣化・データドリフト・分布シフトをリアルタイムで検出してアラートを発報、(2)インフラ管理：GPU/TPUクラスター・推論サーバー・スケーリングの自動化、(3)コスト最適化：APIコスト・クラウドリソースコストの追跡・最適化、(4)セキュリティ・コンプライアンス：モデルへの不正アクセス・プロンプトインジェクション・データ漏洩の防止と監査ログ管理、(5)継続的改善：フィードバックループによるモデル・プロンプトの継続的な改善サイクルがあります。
+
+LLMOpsとの違いとして、LLMOpsがプロンプト管理・評価・ファインチューニングなどLLM固有の課題に焦点を当てるのに対し、AI OpsはAIシステム全体の運用体制・ガバナンス・組織的プロセスまで含む広い概念です。
+
+ツールエコシステムとして、監視にはLangSmith・Langfuse・Weights & Biases・Datadog AI Monitoring、インフラには Kubernetes・Ray Serve・Triton Inference Server、セキュリティにはLakera Guard・Prompt Shields（Azure）が使われています。大規模企業では、AI運用を専担するAIプラットフォームチームを設置するケースが増えています。`,
+    relatedSlugs: [
+      "llmops",
+      "ai-observability",
+      "model-serving",
+      "experiment-tracking",
+      "ai-cost-optimization",
+    ],
+    sources: [
+      {
+        title: "MLOps: Continuous delivery and automation pipelines in machine learning – Google Cloud",
+        url: "https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+        publisher: "Google Cloud",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "AI Operations – Gartner Glossary",
+        url: "https://www.gartner.com/en/information-technology/glossary/aiops-artificial-intelligence-for-it-operations",
+        publisher: "Gartner",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
