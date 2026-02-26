@@ -15079,6 +15079,394 @@ Googleが公開しているPAIR（People + AI Research）Guidebookや、Nielsen 
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "logprobs",
+    term: "対数確率",
+    reading: "ログプロブス（対数確率）",
+    category: "基礎概念",
+    summary:
+      "対数確率（logprobs）とは、LLMが各トークンに割り当てる確率の対数値で、モデルの確信度測定・カリブレーション評価・ビーム探索・制約付き生成に活用される指標です。",
+    description: `対数確率（Log Probabilities / logprobs）とは、言語モデルが次のトークンを予測する際に各候補トークンへ割り当てる確率を対数スケールで表した値です。確率pに対してlog(p)で計算され、値は常に0以下（確率1のとき0、確率0に近づくほど負の無限大）となります。
+
+OpenAI APIやAnthropicのAPIでは、レスポンス時にlogprobsパラメータを有効にすることで、生成された各トークンのlogprobs値を取得できます。
+
+logprobsの主な活用場面：
+**確信度の測定**：logprobsが高い（0に近い）トークンはモデルが高確率で予測したもの、低い（負に大きい）トークンは不確実な生成を示します。
+**カリブレーション評価**：モデルが出力する確率がどれだけ実際の正確さと一致しているかを評価するperplexity計算に使われます。
+**ビーム探索との連携**：ビーム探索では各ステップのlogprobsを累積して最も高確率なシーケンスを選択します。
+**制約付き生成**：特定のトークンのlogprobsを操作することで生成を特定の方向に誘導できます。
+**ハルシネーション検出**：低logprobsのトークン連続は事実関係が不確かな生成（ハルシネーション）の指標となる場合があります。
+
+logprobsはLLMアプリケーションのデバッグ・品質保証・高度な生成制御において強力なツールとなります。ただし、logprobsが高くても生成内容が正確とは限らず、あくまでモデルの内部的な確信度の指標であることに注意が必要です。`,
+    relatedSlugs: ["token", "inference", "perplexity", "beam-search", "temperature"],
+    sources: [
+      {
+        title: "OpenAI API Reference - logprobs parameter",
+        url: "https://platform.openai.com/docs/api-reference/chat/create#chat-create-logprobs",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Language Model Calibration with Better Probability Estimates",
+        url: "https://arxiv.org/abs/2205.14334",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "knowledge-editing",
+    term: "ナレッジ編集",
+    reading: "ナレッジ編集",
+    category: "実装",
+    summary:
+      "ナレッジ編集とは、再学習なしでLLMが持つ特定の事実的知識を標的型に修正・追加・削除する技術で、ROME・MEMITが代表的手法として知られています。",
+    description: `ナレッジ編集（Knowledge Editing）とは、大規模言語モデルが内部に持つ特定の事実的知識を、モデル全体の再学習を行わずに標的を絞って修正・追加・削除する技術です。モデルが誤った知識を持っている場合や、世界が変化して情報が古くなった場合に、効率的な知識更新を可能にします。
+
+代表的な手法：
+**ROME（Rank-One Model Editing）**：Meng et al.（2022）が提案した手法で、Transformerの特定の層（特にFFN層）が事実的知識を格納していることを発見し、その重みを直接編集することで特定の知識を書き換えます。例えば「エッフェル塔はパリにある」という知識を「ローマにある」に変更できます。
+**MEMIT（Mass-Editing Memory In a Transformer）**：ROMEの後継手法で、一度に数千件の知識を効率的に編集できます。複数の層に分散して編集を適用することでスケーラビリティを実現します。
+**GRACE**：コードブックを使って新しい知識を外部メモリとして追加するアプローチで、既存の重みを変更しません。
+
+ナレッジ編集の課題：
+**リップル効果**：一つの知識を変更すると、関連する知識が整合性を失う可能性があります。
+**汎化の難しさ**：編集した知識が適切に汎化されず、言い換えた質問に正しく答えられない場合があります。
+**スケール問題**：大量の知識を同時に編集するとモデルの汎用性能が劣化することがあります。
+
+RAGによる外部知識付与と比較すると、ナレッジ編集はモデルの内部表現を直接変更するため、推論コストが低いという利点があります。一方で安全性の保証が難しく、研究段階の技術です。`,
+    relatedSlugs: ["fine-tuning", "hallucination", "continual-learning", "machine-unlearning", "pretraining"],
+    sources: [
+      {
+        title: "Locating and Editing Factual Associations in GPT (ROME)",
+        url: "https://arxiv.org/abs/2202.05262",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Mass-Editing Memory in a Transformer (MEMIT)",
+        url: "https://arxiv.org/abs/2210.07229",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-debate",
+    term: "AIディベート",
+    reading: "AIディベート",
+    category: "評価",
+    summary:
+      "AIディベートとは、複数のAIエージェントが議論を行い人間審判が正解を判定するスケーラブル監督の手法で、Irving et al.が提案し、人間が直接評価困難な複雑な質問でもAI同士の論争を通じて誤りを検出できます。",
+    description: `AIディベート（AI Debate / AI Safety via Debate）とは、AI安全性研究の文脈でIrving et al.（2018）が提案したスケーラブル監督の手法です。2つ以上のAIエージェントが互いに議論し、人間の審判がどちらの主張が正しいかを判定することで、人間が直接評価できないほど複雑な質問でも安全性を確保しようとするアプローチです。
+
+基本的なセットアップ：
+**エージェントA**：ある主張を提示し、その正当性を論証します。
+**エージェントB**：エージェントAの主張の誤りや欠陥を指摘する反論を展開します。
+**人間の審判**：両者の議論を見て、どちらが正しいかを判定します。
+
+ディベートの有効性の仮定：
+AIが嘘をついたり誤解を招く回答をした場合、もう一方のAIがその誤りを指摘できます。正直に正確な情報を提供することが最善戦略（ナッシュ均衡）になるよう設計されています。これにより人間審判は専門知識なしでも正確な評価が可能になると期待されます。
+
+応用と限界：
+**scalable oversight**の文脈では、超人的なAIの行動を監督するための手法として研究が進んでいます。ただし、両方のエージェントが共謀して人間を欺く可能性（collusion）や、ディベートのゲーム的な性質が真の正確性を担保しないという批判もあります。スーパーアライメント研究の重要なアプローチの一つとして位置づけられています。`,
+    relatedSlugs: ["scalable-oversight", "alignment", "multi-agent", "ai-safety", "superalignment"],
+    sources: [
+      {
+        title: "AI safety via debate",
+        url: "https://arxiv.org/abs/1805.00899",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Scalable agent alignment via reward modeling: a research direction",
+        url: "https://arxiv.org/abs/1811.07871",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "agent-loop",
+    term: "エージェントループ",
+    reading: "エージェントループ",
+    category: "実装",
+    summary:
+      "エージェントループとは、AIエージェントが環境を認識→推論→行動→観察を繰り返すサイクルで、ReActフレームワークの「Thought→Action→Observation」反復がエージェントAIの基本アーキテクチャとして広く採用されています。",
+    description: `エージェントループ（Agent Loop）とは、AIエージェントが自律的にタスクを達成するために繰り返す基本的なサイクルです。「知覚→推論→行動→観察」のループを何度も繰り返すことで、複雑なタスクを段階的に解決します。
+
+最も広く使われるReActフレームワーク（Yao et al., 2022）では以下のサイクルが基本となります：
+**Thought（思考）**：現在の状況を分析し、次に何をすべきかを推論します。
+**Action（行動）**：ツールの呼び出し・ファイル操作・APIリクエストなど具体的な行動を実行します。
+**Observation（観察）**：行動の結果（ツールの出力・エラーメッセージ等）を受け取り次の思考に活かします。
+
+このThought→Action→ObservationのサイクルをLLMが繰り返すことで、単一のプロンプト・レスポンスでは解決できない複雑なタスク（ウェブ検索→情報統合→レポート作成など）を自律的に達成できます。
+
+エージェントループの重要な設計要素：
+**停止条件**：無限ループを防ぐためのmax_iterations設定と、タスク完了の判定ロジックが必要です。
+**メモリ管理**：ループが長くなるとコンテキストウィンドウを消費するため、重要な観察のみを保持する戦略が求められます。
+**エラーハンドリング**：ツール呼び出し失敗時の再試行・代替手段の選択ロジックが信頼性に直結します。
+**Human-in-the-loop**：重要な行動の前に人間確認を挟む設計もあります。
+
+LangChain・LlamaIndex・AutoGen・CrewAIなどのエージェントフレームワークはすべてこのエージェントループを実装の核に置いており、現代のAIエージェント開発の基本概念です。`,
+    relatedSlugs: ["agent", "agentic-workflow", "tool-use", "reasoning-model", "autonomous-agent"],
+    sources: [
+      {
+        title: "ReAct: Synergizing Reasoning and Acting in Language Models",
+        url: "https://arxiv.org/abs/2210.03629",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Cognitive Architectures for Language Agents",
+        url: "https://arxiv.org/abs/2309.02427",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-forecasting",
+    term: "AI予測分析",
+    reading: "AI予測分析",
+    category: "実装",
+    summary:
+      "AI予測分析とは、時系列データ・ビジネスメトリクス・需要予測にAI/MLを活用する技術で、LLMを組み込んだ予測システムも登場し、小売・金融・サプライチェーンで精度向上と自動化が進んでいます。",
+    description: `AI予測分析（AI Forecasting）とは、機械学習・深層学習・大規模言語モデルを活用して、時系列データや複雑なビジネスメトリクスの将来値を高精度で予測する技術・アプローチ群です。
+
+従来の統計的予測手法（ARIMA・指数平滑法）と比較して、AIベースの手法は複数の変量・非線形パターン・外部要因を同時に考慮できる点が強みです。
+
+主要なAI予測アプローチ：
+**深層学習ベース**：NHiTS・PatchTST・Temporal Fusion Transformerなどのニューラルアーキテクチャが長期予測で高精度を実現します。
+**Foundation Models for Time Series**：Amazon Chronos・TimeGPT・LagLlamaなど時系列特化の基盤モデルが登場し、事前学習済みモデルのゼロショット予測が可能になっています。
+**LLM統合型**：テキスト情報（ニュース・決算報告・SNS）と時系列データを組み合わせてLLMで予測精度を向上させる研究が進んでいます。
+
+主要ユースケース：
+**需要予測**：小売・ECでの在庫最適化と発注自動化。
+**金融予測**：株価・為替・リスク指標の予測。
+**エネルギー需要予測**：電力グリッドの需給バランス管理。
+**サプライチェーン**：製造・物流の需要変動予測と最適化。
+
+NeuralForecast（Nixtlaが開発）はPythonベースの高性能ライブラリとして広く使われており、Amazon ForecastやAzure Time Series Insightsといったクラウドサービスも普及しています。`,
+    relatedSlugs: ["predictive-analytics", "machine-learning", "data-science", "regression", "data-pipeline"],
+    sources: [
+      {
+        title: "Amazon Chronos: Learning the Language of Time Series",
+        url: "https://arxiv.org/abs/2403.07815",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "NeuralForecast: User friendly state-of-the-art Neural Forecasting models",
+        url: "https://github.com/Nixtla/neuralforecast",
+        publisher: "Nixtla",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "text-classification",
+    term: "テキスト分類",
+    reading: "テキスト分類",
+    category: "基礎概念",
+    summary:
+      "テキスト分類とは、テキストをカテゴリに自動分類するNLPの基本タスクで、感情分析・スパム検出・トピック分類・意図認識などが含まれ、BERTベースモデルからLLMまで多様な手法が使われます。",
+    description: `テキスト分類（Text Classification）とは、入力されたテキストを事前に定義されたカテゴリ（クラス）に自動的に割り当てるNLP（自然言語処理）の基本タスクです。機械学習の中でも最も広く応用されているタスクの一つです。
+
+主要なテキスト分類タスク：
+**感情分析（Sentiment Analysis）**：テキストがポジティブ・ネガティブ・中立かを判定します。レビュー・SNS投稿の感情スコアリングに広く使われます。
+**スパム検出**：メール・コメントがスパムか正当なコンテンツかを分類します。
+**トピック分類**：ニュース記事・文書がどのカテゴリ（政治・スポーツ・テクノロジー等）に属するかを判定します。
+**意図認識（Intent Classification）**：チャットボットでユーザーの発話意図（質問・購入・問い合わせ等）を判定します。
+**有害コンテンツ検出**：ヘイトスピーチ・不適切コンテンツを自動検出します。
+
+主要な手法の変遷：
+**古典的機械学習**：TF-IDFベクトル + SVM/Naive Bayesが長く主流でした。
+**BERTベース**：事前学習済みTransformerをファインチューニングすることで精度が大幅向上（2018年以降の主流）。
+**LLMベース**：GPT-4・Claude等の大規模モデルをZero-shot/Few-shotで利用する手法が精度・コスト両面で実用的になっています。
+**小型特化モデル**：蒸留によって軽量化した分類専用モデルを本番環境で使うケースも多いです。
+
+HuggingFaceのTransformersライブラリを使えば、数行のコードで事前学習済み分類モデルを利用できます。テキスト分類はNLPの入門として最も取り組みやすいタスクであり、実際のビジネス価値も高い領域です。`,
+    relatedSlugs: ["classification", "sentiment-analysis", "natural-language-understanding", "bert", "fine-tuning"],
+    sources: [
+      {
+        title: "Character-level Convolutional Networks for Text Classification",
+        url: "https://arxiv.org/abs/1509.01626",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "HuggingFace Text Classification Documentation",
+        url: "https://huggingface.co/docs/transformers/tasks/sequence_classification",
+        publisher: "HuggingFace",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "semantic-similarity",
+    term: "意味的類似度",
+    reading: "意味的類似度",
+    category: "基礎概念",
+    summary:
+      "意味的類似度とは、二つのテキストの意味的な近さを数値化する技術で、コサイン類似度・BERTScore・文章埋め込みの内積などで計算し、RAG・重複検出・意味検索・評価指標に広く使われます。",
+    description: `意味的類似度（Semantic Similarity）とは、二つのテキスト（単語・文・段落）が意味的にどれだけ近いかを数値で表す技術・タスクです。表面的な文字列の一致ではなく、意味的な内容の類似性を捉える点が特徴です。
+
+主要な計算手法：
+**コサイン類似度**：二つのテキストをベクトル表現に変換し、ベクトル間の角度のコサイン値で類似度を計算します。1に近いほど類似、0に近いほど非類似、-1は反対の意味を示します。
+**BERTScore**：参照文と生成文のBERT埋め込みをトークン単位でマッチングし、精度・再現率・F1スコアを計算する評価指標です。
+**Sentence-BERT（SBERT）**：文全体の意味を単一ベクトルで表現するために設計された埋め込みモデルで、意味的類似度計算に最適化されています。
+**クロスエンコーダー**：二つの文を同時に入力して類似度スコアを出力する高精度だが低速なアプローチです。
+
+主要な応用先：
+**RAG（検索拡張生成）**：クエリと文書の意味的類似度でランキングしてコンテキストを選択します。
+**重複検出**：FAQや文書ベースの重複コンテンツを意味ベースで検出します。
+**意味検索（Semantic Search）**：キーワード一致ではなく意味的な関連性で検索結果を返します。
+**質問応答評価**：生成された回答と参照回答の意味的な一致度を測定します。
+**推薦システム**：ユーザーの好みと商品説明の意味的な近さで推薦します。
+
+RAGシステムの評価フレームワークであるRAGASも、意味的類似度を中心指標の一つとして採用しており、LLMアプリケーション評価の基礎技術となっています。`,
+    relatedSlugs: ["cosine-similarity", "embedding", "semantic-search", "ragas", "evaluation-metrics"],
+    sources: [
+      {
+        title: "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+        url: "https://arxiv.org/abs/1908.10084",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "BERTScore: Evaluating Text Generation with BERT",
+        url: "https://arxiv.org/abs/1904.09675",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "batch-inference",
+    term: "バッチ推論",
+    reading: "バッチ推論",
+    category: "実装",
+    summary:
+      "バッチ推論とは、複数のリクエストをまとめてLLMに処理させスループットを最大化する技術で、大量文書処理・評価・データ生成に使用され、OpenAI・Anthropic共にバッチAPIを提供しています。",
+    description: `バッチ推論（Batch Inference）とは、複数のリクエストを一括でまとめてLLMに処理させることで、スループット（単位時間あたりの処理量）を最大化し、コストを削減する技術・アーキテクチャパターンです。
+
+リアルタイムの対話型ユースケース（チャット・API応答）とは対照的に、時間的な制約が緩い大量処理タスクに適しています。
+
+主要なユースケース：
+**大量文書の処理**：数千件の記事・レポートの要約・分類・分析を一括実行します。
+**評価パイプライン**：LLMの評価セット（数百〜数万件のサンプル）を一括で採点します。
+**合成データ生成**：ファインチューニング用の大量の合成データを効率的に生成します。
+**オフライン翻訳**：大量ドキュメントの一括翻訳処理に使われます。
+**埋め込み生成**：大規模なテキストコーパスのベクトル化をバッチで実行します。
+
+クラウドAPIのバッチ機能：
+**OpenAI Batch API**：24時間以内の処理を約50%割引で提供。JSONLファイルで一括入力し結果を非同期で取得します。
+**Anthropic Message Batches API**：複数のメッセージを一括送信し、処理完了後に結果を取得する仕組みです。コストとレート制限の最適化に活用できます。
+
+サーバーサイドのバッチ処理では、continuous batching（連続バッチ処理）と組み合わせることでGPUの利用効率が大幅に向上します。vLLMやTGI（Text Generation Inference）などの推論サーバーはcontinuous batchingを標準実装しており、大規模デプロイで重要な技術です。`,
+    relatedSlugs: ["inference", "continuous-batching", "model-serving", "ai-cost-optimization", "gpu"],
+    sources: [
+      {
+        title: "OpenAI Batch API Documentation",
+        url: "https://platform.openai.com/docs/guides/batch",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Anthropic Message Batches API",
+        url: "https://docs.anthropic.com/en/docs/build-with-claude/message-batches",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "token-budget",
+    term: "トークンバジェット",
+    reading: "トークンバジェット",
+    category: "実装",
+    summary:
+      "トークンバジェットとは、LLMアプリケーションで使用できるトークン数の上限を管理する概念で、プロンプト・応答・コンテキストのトークン配分を最適化しコスト制御とコンテキスト枯渇防止を実現する設計手法です。",
+    description: `トークンバジェット（Token Budget）とは、LLMアプリケーションにおいて、一回のリクエストまたはセッション全体で使用できるトークン数の上限を事前に計画・管理する設計概念です。モデルのコンテキストウィンドウという物理的制約と、APIコストという経済的制約の両方を同時に最適化するための実践的なエンジニアリング手法です。
+
+トークンバジェット管理の主要な要素：
+**プロンプトトークン**：System Prompt・ユーザーメッセージ・Few-shot例示など入力側のトークン消費を管理します。
+**応答トークン（max_tokens）**：モデルが生成できる最大トークン数を制限し、コストと品質のバランスを取ります。
+**コンテキストトークン**：RAGで取得した文書・会話履歴など動的に追加されるコンテキストのトークン配分を制御します。
+
+実践的なバジェット戦略：
+**動的圧縮**：コンテキストが上限に近づいたら古い会話履歴を要約・削除してバジェットを回収します。
+**優先度付き切り捨て**：重要度スコアに基づいてコンテキストを優先順に選別し、バジェット内に収めます。
+**階層的バジェット配分**：System Prompt・Few-shot・RAGコンテキスト・会話履歴それぞれにサブバジェットを割り当てます。
+**コスト見積もり**：リクエスト送信前にトークン数を推定（tiktoken等を使用）してコストを予算管理します。
+
+Anthropicは「token budget」という概念をAPIドキュメントで明示的に使用しており、extended thinkingでの思考トークンの上限管理など、実装レベルでの重要性が増しています。LLMOpsの観点では、トークンバジェット管理は運用コスト最適化の中心的な実践です。`,
+    relatedSlugs: ["token-limit", "context-window", "ai-cost-optimization", "prompt-compression", "token-economics"],
+    sources: [
+      {
+        title: "Anthropic Token Counting Documentation",
+        url: "https://docs.anthropic.com/en/docs/build-with-claude/token-counting",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "OpenAI Tokenizer",
+        url: "https://platform.openai.com/tokenizer",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "attention-map",
+    term: "アテンションマップ",
+    reading: "アテンションマップ",
+    category: "基礎概念",
+    summary:
+      "アテンションマップとは、トランスフォーマーの各アテンションヘッドがどのトークンに注意を向けているかを可視化した熱マップで、モデルの解釈可能性研究・デバッグ・エラー分析にBertVizなどのツールで描画されます。",
+    description: `アテンションマップ（Attention Map）とは、Transformerモデルの自己注意機構（Self-Attention）において、各トークンが他のどのトークンに対してどれだけ「注意を向けているか」を2次元の熱マップ（ヒートマップ）として可視化したものです。モデルの内部動作を人間が理解しやすい形式で表現します。
+
+アテンションマップの読み方：
+行と列それぞれが入力トークン（単語）に対応し、セルの色の濃さがアテンションウェイトの大きさを表します。行のトークンが列のトークンにどれだけ注目しているかを示します。
+
+活用場面：
+**モデル解釈可能性**：モデルがどの入力部分に基づいて予測しているかを可視化し、判断根拠の理解に役立てます。
+**デバッグ**：モデルが期待通りの箇所に注目していない場合、アテンションパターンから問題の手がかりを得られます。
+**エラー分析**：誤った予測が発生した際、アテンションマップで何が起きたかを診断します。
+**研究**：言語構造（構文・照応関係等）がアテンションパターンと対応するか検証する言語学的研究に使われます。
+
+可視化ツール：
+**BertViz**：BERTやGPTのマルチヘッドアテンションを対話的に可視化するライブラリです。
+**Captum**：PyTorchベースのモデル解釈可能性ライブラリで、アテンション可視化を含む多様な分析を提供します。
+**Transformer Explainability**：アテンションとグラジェント情報を組み合わせた高精度な帰属分析を行います。
+
+重要な注意点として、アテンション重みが高いからといって必ずしもそのトークンが予測に重要というわけではなく（「Attention is not Explanation」論争）、アテンションマップはあくまでモデル内部の一側面に過ぎません。機械論的解釈可能性（Mechanistic Interpretability）研究では、アテンションパターンより回路（circuit）レベルの分析が重要視される傾向があります。`,
+    relatedSlugs: ["attention-mechanism", "mechanistic-interpretability", "transformer", "explainability", "multi-head-attention"],
+    sources: [
+      {
+        title: "A Multiscale Visualization of Attention in the Transformer Model (BertViz)",
+        url: "https://arxiv.org/abs/1906.05714",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Attention is not Explanation",
+        url: "https://arxiv.org/abs/1902.10186",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
