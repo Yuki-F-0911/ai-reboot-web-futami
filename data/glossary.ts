@@ -4938,6 +4938,296 @@ AIウォーターマーキングが重要な理由は、生成AIによるdeepfak
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "chatbot",
+    term: "チャットボット",
+    reading: "チャットボット",
+    category: "実装",
+    summary:
+      "チャットボットとは、テキストや音声で人間と自動的に会話するソフトウェアです。ChatGPTの登場でLLMベースの高精度チャットボットが急速に普及し、カスタマーサポート・社内ヘルプデスク・教育など幅広い場面で活用されています。",
+    description: `チャットボット（Chatbot）とは、テキストまたは音声インターフェースを通じて人間との会話をシミュレートするコンピュータプログラムです。1966年にJoseph Weizenbaumが開発した「ELIZA」が最初期の例として知られています。ルールベース（if-then型）から統計モデル、そして現在のLLMベースへと進化してきました。
+
+チャットボットが重要な理由は、24時間365日対応・同時多数の問い合わせ処理・人的コスト削減という実務上の価値に加え、2022年末のChatGPTの登場でLLMベースチャットボットの品質が劇的に向上し、複雑な質問への対応・文脈理解・多言語対応が実現されたためです。
+
+活用分野として、カスタマーサポート自動化（FAQ対応・問い合わせ振り分け）、社内ヘルプデスク（IT・HR問い合わせ）、Eコマース（商品案内・購買支援）、医療（初期症状確認）、教育（個別指導・Q&A）などがあります。RAGと組み合わせることで社内文書・製品マニュアルなどのドメイン固有知識に基づいた回答が可能になります。チャットボット評価の指標として、理解率・解決率・エスカレーション率などが使われます。`,
+    relatedSlugs: ["llm", "natural-language-processing", "chatgpt", "agent", "prompt"],
+    sources: [
+      {
+        title: "Chatbot - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Chatbot",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "ChatGPT - OpenAI",
+        url: "https://openai.com/chatgpt",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "computer-vision",
+    term: "コンピュータビジョン",
+    reading: "コンピュータビジョン",
+    category: "基礎概念",
+    summary:
+      "コンピュータビジョンとは、画像・動画から情報を抽出・理解するAI技術の総称です。画像認識・物体検出・セグメンテーション・OCRを包含し、自動運転・医療・製造・小売など幅広い産業に応用されています。",
+    description: `コンピュータビジョン（Computer Vision、CV）とは、デジタル画像・動画・映像からコンピュータが視覚情報を自動的に取得・解析・理解するAI技術の総称です。人間の視覚システムをコンピュータで再現・超越することを目指した研究分野であり、深層学習の発展により急速に実用化が進みました。
+
+コンピュータビジョンが重要な理由は、現実世界の情報の多くが視覚情報として存在しており、それを自動処理できることで多様な産業の自動化が可能になるためです。工場の外観検査（製造）・手術支援（医療）・レジなし決済（小売）・信号無視検知（公共安全）・顔認証（セキュリティ）など、従来は人間の目が不可欠だったタスクをAIが代替しています。
+
+主要タスクとして、image-recognition（画像分類）、object-detection（物体検出・位置推定）、semantic-segmentation（ピクセルレベルの分類）、顔認識、ポーズ推定、光学文字認識（ocr）、深度推定などがあります。技術的な基盤はconvolutional-neural-networkからvision-transformerへと進化し、現在ではvision-language-modelによって「画像に関する自然言語での質問・指示」も処理できるようになっています。`,
+    relatedSlugs: ["image-recognition", "object-detection", "semantic-segmentation", "convolutional-neural-network", "vision-language-model"],
+    sources: [
+      {
+        title: "Computer vision - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Computer_vision",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Computer Vision: Algorithms and Applications (2nd ed.)",
+        url: "https://szeliski.org/Book/",
+        publisher: "Szeliski (2022) / Springer",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "recommendation-system",
+    term: "レコメンデーションシステム",
+    reading: "レコメンデーションシステム",
+    category: "実装",
+    summary:
+      "レコメンデーションシステムとは、ユーザーの行動・嗜好を分析して最適なコンテンツや商品を推薦するAIシステムです。Netflix・Amazon・Spotify・YouTubeで活用され、現代のWebサービスの中心的なAI応用です。",
+    description: `レコメンデーションシステム（Recommendation System）とは、ユーザーの過去の行動履歴・評価・属性などのデータを分析し、そのユーザーが興味を持つであろうアイテム（商品・コンテンツ・情報）を自動的に推薦するAIシステムです。情報過多の現代において、ユーザーが求めるものを効率的に発見できるようにする重要な技術です。
+
+レコメンデーションシステムが重要な理由は、NetflixのコンテンツのうちTV視聴の80%以上がレコメンドから始まるとされるなど、ユーザーエンゲージメントと収益に直結するためです。AmazonはEコマースの売上の35%程度がレコメンドによるものと推定されています。SpotifyのDiscover Weeklyは毎週3,000万人以上に使われています。
+
+主なアルゴリズムとして、協調フィルタリング（類似したユーザーや類似したアイテムをベースに推薦）、コンテンツベースフィルタリング（アイテムの特徴に基づく）、Matrix Factorization（Netflixコンペで有名なSVD系手法）、深層学習ベース（embeddingを活用したニューラルネットワーク）があります。近年はLLMを活用した「会話型レコメンド」も登場しており、「最近見た映画に似た作品を教えて」という自然言語での推薦が可能になっています。`,
+    relatedSlugs: ["machine-learning", "embedding", "deep-learning", "supervised-learning", "natural-language-processing"],
+    sources: [
+      {
+        title: "Matrix Factorization Techniques for Recommender Systems",
+        url: "https://ieeexplore.ieee.org/document/5197422",
+        publisher: "IEEE Computer / Koren et al. (2009)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Recommender system - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Recommender_system",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ocr",
+    term: "OCR（光学文字認識）",
+    reading: "オーシーアール",
+    category: "実装",
+    summary:
+      "OCR（Optical Character Recognition）とは、画像やスキャン文書に含まれる文字を認識してデジタルテキストに変換する技術です。Document AIの基盤技術で、請求書・契約書・名刺などの自動デジタル化に不可欠です。",
+    description: `OCR（Optical Character Recognition：光学文字認識）とは、印刷物・手書き文字・画像内の文字をコンピュータが認識してデジタルのテキストデータに変換する技術です。スキャナで取り込んだPDF・スマートフォンで撮影した書類・看板の文字など、様々なシーンで文字のデジタル化を自動化します。
+
+OCRが重要な理由は、世界中には膨大な量の紙の書類・印刷物が存在しており、これらをデジタル化することがビジネスのデジタルトランスフォーメーション（DX）の基礎となるためです。請求書の自動処理・契約書のデジタルアーカイブ・名刺管理・レシート管理・古文書のデジタル保存など、幅広い用途があります。
+
+技術的には、従来のルールベースOCRから深層学習ベースのOCRへと進化し、精度が大幅に向上しました。Google Cloud Vision API・Amazon Textract・Microsoft Azure Form Recognizerなどのクラウドサービスや、オープンソースのTesseract OCRが広く使われています。近年はvision-language-modelを使ったマルチモーダルアプローチにより、文字認識だけでなく文書の構造（表・フォーム・見出し）も理解できる高精度なdocument-aiが実現しています。日本語OCRは縦書き・変体仮名・旧字体など独自の課題があります。`,
+    relatedSlugs: ["document-ai", "computer-vision", "image-recognition", "natural-language-processing", "vision-language-model"],
+    sources: [
+      {
+        title: "Optical character recognition - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Optical_character_recognition",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Google Cloud Vision API",
+        url: "https://cloud.google.com/vision",
+        publisher: "Google Cloud",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "dataset",
+    term: "データセット",
+    reading: "データセット",
+    category: "基礎概念",
+    summary:
+      "データセットとは、AI・機械学習モデルの学習・評価に使う構造化されたデータの集合です。品質・量・多様性がモデル性能に直結し、ImageNet・Wikipedia・Common Crawlなどが代表的なデータセットです。",
+    description: `データセット（Dataset）とは、機械学習・深層学習モデルの訓練・検証・評価に使用するために収集・整理されたデータの集合体です。ラベル付きデータ（教師あり学習用）・ラベルなしデータ（事前学習用）・人間の好みペアデータ（RLHF用）など、用途に応じて様々な形式があります。
+
+データセットが重要な理由は、「AIの品質はデータの品質で決まる」という機械学習の根本原則があるためです。いくら優れたモデルアーキテクチャやアルゴリズムを使っても、学習データが少ない・偏っている・品質が低いと高性能なモデルは作れません。逆に、適切なデータセットがあれば比較的シンプルなモデルでも高性能を達成できます。
+
+代表的なデータセットとして、ImageNet（1,400万枚の画像・1,000クラス分類、深層学習革命の礎）、Wikipedia・Common Crawl（LLM事前学習の主要テキストデータ）、SQuAD（質問応答）、MS COCO（物体検出・キャプション）、GLUE/SuperGLUE（NLU評価）などがあります。Hugging Face Datasetsプラットフォームに数万のデータセットが公開されており、Kaggleはデータサイエンスコンペとデータセット共有のコミュニティとして機能しています。synthetic-dataはデータ不足を補う合成データセット生成の手法です。`,
+    relatedSlugs: ["machine-learning", "supervised-learning", "data-annotation", "benchmark", "synthetic-data"],
+    sources: [
+      {
+        title: "Dataset - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Hugging Face Datasets",
+        url: "https://huggingface.co/datasets",
+        publisher: "Hugging Face",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "classification",
+    term: "分類（クラシフィケーション）",
+    reading: "ぶんるい",
+    category: "基礎概念",
+    summary:
+      "分類とは、入力データを事前定義されたカテゴリに振り分ける機械学習の基本タスクです。スパムフィルタ・感情分析・画像認識・医療診断など最も広く使われるAI応用の基盤であり、2値分類と多クラス分類があります。",
+    description: `分類（Classification）とは、入力データ（テキスト・画像・数値等）を事前定義された離散的なカテゴリ（クラス）のいずれかに割り当てる機械学習タスクです。「このメールはスパムか否か（2値分類）」「この画像は猫・犬・鳥・魚のどれか（多クラス分類）」のように、明確なラベル付きデータで訓練するsupervised-learningの代表的なタスクです。
+
+分類が重要な理由は、ビジネス上の意思決定の多くが「Aか、Bか、Cか」という選択の形式をとるためです。与信審査（承認・否決）、医療診断（良性・悪性）、コンテンツモデレーション（適切・不適切）、顧客セグメンテーション（優良・一般・離脱リスク）など、分類モデルが実務に直結しています。
+
+代表的なアルゴリズムとして、ロジスティック回帰・サポートベクターマシン（SVM）・決定木・ランダムフォレスト・勾配ブースティング（XGBoost・LightGBM）・ニューラルネットワークがあります。LLMは分類タスクを自然言語の指示で処理でき、「このレビューのセンチメントを判定して」というプロンプトでsentiment-analysisが実現します。評価指標として精度（Accuracy）・適合率（Precision）・再現率（Recall）・F1スコアが使われ、不均衡データではF1やROC-AUCが重視されます。`,
+    relatedSlugs: ["supervised-learning", "machine-learning", "deep-learning", "sentiment-analysis", "image-recognition"],
+    sources: [
+      {
+        title: "Statistical classification - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Statistical_classification",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Deep Learning - Goodfellow, Bengio & Courville (2016)",
+        url: "https://www.deeplearningbook.org/",
+        publisher: "MIT Press",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "regression",
+    term: "回帰（リグレッション）",
+    reading: "かいき",
+    category: "基礎概念",
+    summary:
+      "回帰とは、入力から連続値（数値）を予測する機械学習タスクです。株価予測・需要予測・不動産評価・気温予測など、「いくら？いくつ？どのくらい？」という量的な予測に使われる教師あり学習の基本形です。",
+    description: `回帰（Regression）とは、入力変数（特徴量）と出力変数（ターゲット）の間の数値的な関係を学習し、新しい入力に対して連続した数値を予測する機械学習タスクです。「明日の気温は何℃か」「この物件の売却価格はいくらか」「来月の需要は何個か」のように、離散的なカテゴリではなく連続値を予測します。
+
+回帰が重要な理由は、ビジネスにおける量的な予測・推定の需要が非常に高いためです。製品の需要予測（在庫管理）・広告クリック率の予測（CPA最適化）・顧客の生涯価値（LTV）推定・エネルギー消費量の予測・金融リスクのスコアリングなど、数値を予測することで合理的な意思決定ができます。
+
+代表的なアルゴリズムとして、線形回帰（最もシンプル）・多項式回帰・Ridge/Lasso回帰（正則化あり）・サポートベクター回帰（SVR）・決定木回帰・ランダムフォレスト回帰・勾配ブースティング回帰・ニューラルネットワーク回帰があります。評価指標として、MAE（Mean Absolute Error）・RMSE（Root Mean Squared Error）・R²（決定係数）が使われます。overfitting対策として正則化とクロスバリデーションが重要です。gradient-descentを使ったパラメータ最適化が学習の中心です。`,
+    relatedSlugs: ["supervised-learning", "machine-learning", "deep-learning", "gradient-descent", "overfitting"],
+    sources: [
+      {
+        title: "Regression analysis - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Regression_analysis",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "The Elements of Statistical Learning",
+        url: "https://hastie.su.domains/ElemStatLearn/",
+        publisher: "Hastie, Tibshirani & Friedman / Springer",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "natural-language-understanding",
+    term: "自然言語理解（NLU）",
+    reading: "しぜんげんごりかい",
+    category: "基礎概念",
+    summary:
+      "自然言語理解（NLU）とは、テキストの意味・意図・感情・文脈を機械が理解するNLPの下位分野です。質問応答・感情分析・意図分類の基盤で、BERTの登場により精度が飛躍的に向上しました。",
+    description: `自然言語理解（Natural Language Understanding、NLU）とは、人間が書いたり話したりするテキストの「意味・意図・感情・論理関係」をコンピュータが理解する技術・研究分野です。NLP（自然言語処理）の下位分野であり、文字を認識するだけでなく「この文章は何を言いたいのか」を機械が把握することを目指します。
+
+NLUが重要な理由は、人間のコミュニケーションの豊かさ（曖昧性・比喩・皮肉・省略・文脈依存）を機械が正確に処理できるかどうかが、AIの実用性の根幹を決定するためです。チャットボットが「キャンセルしたい」という発言を「注文のキャンセルか、予約のキャンセルか」と適切に意図分類できなければ役に立ちません。
+
+主なNLUタスクとして、意図分類（Intent Classification）・固有表現認識（NER）・感情分析（Sentiment Analysis）・関係抽出・含意認識（NLI：自然言語推論）・意味的類似度推定などがあります。BERTの登場（2018年）でGLUE・SuperGLUEベンチマークのスコアが人間レベルに到達し、現在のLLMはさらに高度なNLUを実現しています。NLUと対になる概念として「自然言語生成（NLG）」があり、両者を合わせた広い概念がNLPです。`,
+    relatedSlugs: ["natural-language-processing", "bert", "llm", "sentiment-analysis", "question-answering"],
+    sources: [
+      {
+        title: "Natural-language understanding - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Natural-language_understanding",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Speech and Language Processing (3rd ed.) - Jurafsky & Martin",
+        url: "https://web.stanford.edu/~jurafsky/slp3/",
+        publisher: "Stanford University",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-assistant",
+    term: "AIアシスタント",
+    reading: "エーアイアシスタント",
+    category: "実装",
+    summary:
+      "AIアシスタントとは、自然言語で指示を受けてタスクを実行するAIシステムの総称です。ChatGPT・Claude・Copilot・Geminiが代表例で、文章作成・情報検索・コーディング支援・スケジュール管理など幅広いタスクに対応します。",
+    description: `AIアシスタント（AI Assistant）とは、自然言語（テキストまたは音声）でユーザーから指示を受け取り、情報提供・タスク実行・コンテンツ生成・問題解決支援などを行うAIシステムの総称です。LLMの発展により、従来のルールベースのバーチャルアシスタント（Siri・Alexa初期版等）から、複雑な指示を理解して柔軟に対応する高度なAIアシスタントへと進化しました。
+
+AIアシスタントが重要な理由は、プログラミングや専門的なAI知識がなくても、自然言語で指示するだけでAIの恩恵を受けられるためです。文章作成・翻訳・要約・コード生成・データ分析・画像生成など、多様なタスクをテキストで依頼できる「万能ツール」として、ビジネスパーソン・クリエイター・学生など幅広い層に普及しています。
+
+代表的なAIアシスタントとして、OpenAI ChatGPT（GPT-4oベース）・Anthropic Claude・Google Gemini・Microsoft Copilot（Bing Chat）・Apple Intelligence（Siri再設計）があります。スマートフォン・PCに統合されたデバイスオンボードのAIアシスタントも急増しており、「AIネイティブ」なデジタル体験が標準になりつつあります。agentとの境界は曖昧になってきており、タスクを自律的に遂行するAIアシスタントはエージェントと呼ばれる場合も多いです。`,
+    relatedSlugs: ["llm", "chatgpt", "copilot", "agent", "tool-use"],
+    sources: [
+      {
+        title: "Intelligent personal assistant - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Intelligent_personal_assistant",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Claude - Anthropic",
+        url: "https://www.anthropic.com/claude",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "anomaly-detection",
+    term: "異常検知",
+    reading: "いじょうけんち",
+    category: "実装",
+    summary:
+      "異常検知とは、正常なパターンから逸脱したデータを自動的に検出するAI技術です。不正検出・製造品質管理・サイバーセキュリティ・予知保全など、異常や問題を早期に発見する幅広い産業用途で活用されています。",
+    description: `異常検知（Anomaly Detection）とは、データセット内で「正常なパターン」から大きく逸脱したデータポイント（外れ値・異常値）を自動的に識別する機械学習タスクです。外れ値検知（Outlier Detection）とも呼ばれます。異常なサンプルは正常なサンプルに比べて極端に少ないため、ラベルなしデータからの学習（教師なし学習）や、少量の異常サンプルを使った半教師あり学習が多く使われます。
+
+異常検知が重要な理由は、様々な産業で「問題を早期発見する」ことが大きな経済的価値を持つためです。クレジットカード不正検知（損失防止）・製造ラインの品質検査（不良品検出）・ネットワーク侵入検知（サイバーセキュリティ）・機械の予知保全（故障前メンテナンス）・医療での希少疾患検出など、「正常でないもの」を見つけることが求められます。
+
+代表的な手法として、統計的手法（z-スコア・IQR）、機械学習ベース（Isolation Forest・One-Class SVM・LOF：Local Outlier Factor）、深層学習ベース（Autoencoder、Variational Autoencoder：正常データを再構成し誤差が大きいものを異常とする、LSTM Autoencoderによる時系列異常検知）があります。LLMを活用した「ログ異常検知」（大量のシステムログから異常なパターンを検出）も実用化されています。`,
+    relatedSlugs: ["machine-learning", "unsupervised-learning", "deep-learning", "supervised-learning", "evaluation-metrics"],
+    sources: [
+      {
+        title: "Anomaly Detection: A Survey",
+        url: "https://dl.acm.org/doi/10.1145/1541880.1541882",
+        publisher: "ACM Computing Surveys / Chandola et al. (2009)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Anomaly detection - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Anomaly_detection",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
