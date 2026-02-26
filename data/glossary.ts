@@ -12638,6 +12638,410 @@ LLMへの応用として、(1)Constitutional AI：モデルが自分の出力を
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "diffusion-policy",
+    term: "ディフュージョンポリシー",
+    reading: "ディフュージョンポリシー",
+    category: "基礎概念",
+    summary:
+      "ディフュージョンポリシーとは、ロボット制御に拡散モデルを応用した手法で、人間のデモンストレーションから複雑な操作スキルを学習でき、ロボット工学とAIの融合を代表する注目技術です。",
+    description: `ディフュージョンポリシー（Diffusion Policy）とは、拡散モデル（Diffusion Model）の確率的生成プロセスをロボットの行動ポリシー学習に応用した手法です。2023年にChi et al.によって提案されました。
+
+従来の模倣学習（Imitation Learning）では、人間のデモンストレーションから平均的な行動を学ぼうとするため、複数の合理的な選択肢がある状況（マルチモーダルな行動分布）の扱いが困難でした。ディフュージョンポリシーはノイズから徐々に行動を精製するプロセスを使い、このマルチモーダル性を自然に表現できます。
+
+具体的な活用例として、部品の組み立て・食材の切断・布の折りたたみなど、高度な手先の器用さが求められる操作タスクにおいて、従来手法を大幅に上回る成功率が報告されています。また、視覚情報（カメラ画像）と力覚情報を組み合わせたビジュオモーター制御への応用も進んでいます。
+
+ロボット基盤モデル（Robot Foundation Model）の研究が加速する中で、ディフュージョンポリシーはデータ効率の高い汎用ロボット制御への重要なアプローチとして注目されています。`,
+    relatedSlugs: [
+      "diffusion-model",
+      "reinforcement-learning",
+      "deep-learning",
+      "neural-network",
+      "ai-for-science",
+    ],
+    sources: [
+      {
+        title: "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+        url: "https://arxiv.org/abs/2303.04137",
+        publisher: "arXiv / Chi et al.",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "world-model",
+    term: "ワールドモデル",
+    reading: "ワールドモデル",
+    category: "基礎概念",
+    summary:
+      "ワールドモデルとは、環境の状態・ダイナミクスを内部でシミュレートするAIモデルで、将来状態を予測して計画立案に活用します。Yann LeCun提唱のAGIへの道として注目され、MetaのJEPAモデルが代表例です。",
+    description: `ワールドモデル（World Model）とは、AIエージェントが外部環境の動作を内部的にシミュレートするための予測モデルです。「世界がどのように動くか」を学習し、実際に行動を起こす前に結果を予測・計画するために使用されます。
+
+なぜ重要かというと、人間や動物が持つ「直感的物理学」や「因果推論」能力に対応するからです。強化学習のエージェントが環境と直接インタラクションするだけでなく、内部モデルで試行錯誤することで、サンプル効率と汎化能力が大幅に向上します。
+
+MetaのYann LeCunは2022年に「自律的な機械知能への道（A Path Towards Autonomous Machine Intelligence）」を発表し、ワールドモデルをAGI実現の核心的要素として位置づけました。JEPAアーキテクチャ（Joint Embedding Predictive Architecture）はその具体的な実装として研究が進んでいます。
+
+Ha & Schmidhuberの2018年の研究では、ゲーム環境のワールドモデルをVAEとRNNで構築し、モデル内部のみでの「夢の中での学習」を実現しました。現在は映像・テキスト・センサーデータを統合したマルチモーダルワールドモデルへと発展しています。`,
+    relatedSlugs: [
+      "reinforcement-learning",
+      "agent",
+      "agi",
+      "deep-learning",
+      "self-play",
+    ],
+    sources: [
+      {
+        title: "World Models",
+        url: "https://arxiv.org/abs/1803.10122",
+        publisher: "arXiv / Ha & Schmidhuber",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "A Path Towards Autonomous Machine Intelligence",
+        url: "https://openreview.net/pdf?id=BZ5a1r-kVsf",
+        publisher: "Yann LeCun / Meta AI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-agent-benchmark",
+    term: "AIエージェントベンチマーク",
+    reading: "AIエージェントベンチマーク",
+    category: "評価",
+    summary:
+      "AIエージェントベンチマークとは、AIエージェントの能力を測定するための標準テスト群で、SWE-bench（コーディング）・WebArena（Web操作）・GAIA（汎用タスク）等がありエージェントAIの進歩を追跡します。",
+    description: `AIエージェントベンチマーク（AI Agent Benchmark）とは、AIエージェントが実際のタスクをどの程度こなせるかを定量的に評価するための標準的な評価セットです。単純な質問応答能力を測る従来のLLMベンチマークと異なり、複数ステップにわたる計画・実行・ツール使用能力を評価します。
+
+代表的なベンチマーク：
+- **SWE-bench**：GitHubの実際のissueを解決するコーディングエージェント評価。2024年に登場し、主要モデルの実用的なコード修正能力の比較に広く使われる
+- **WebArena**：Webブラウザ操作タスク（ショッピング・フォーラム投稿等）の評価環境
+- **GAIA**：検索・計算・ファイル操作等を組み合わせた汎用AIアシスタント能力の評価
+- **OSWorld**：OS操作タスクを通じてデスクトップエージェントを評価
+- **AgentBench**：コード・ゲーム・DB操作等多様な環境での総合評価
+
+これらのベンチマークへのスコアがLLMプロバイダーの競争指標となっており、エージェントAIの実用化進捗を追跡する上で不可欠な参照点になっています。`,
+    relatedSlugs: [
+      "benchmark",
+      "agent",
+      "evaluation-metrics",
+      "autonomous-agent",
+      "agentic-workflow",
+    ],
+    sources: [
+      {
+        title: "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+        url: "https://arxiv.org/abs/2310.06770",
+        publisher: "arXiv / Princeton NLP",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "GAIA: a benchmark for General AI Assistants",
+        url: "https://arxiv.org/abs/2311.12983",
+        publisher: "arXiv / Meta AI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "context-window-extension",
+    term: "コンテキストウィンドウ拡張",
+    reading: "コンテキストウィンドウカクチョウ",
+    category: "実装",
+    summary:
+      "コンテキストウィンドウ拡張とは、LLMのコンテキスト長を学習後に拡張する技術群で、RoPEスケーリング・ALiBi・YaRN等の手法により元の訓練長を超えた長文書処理を可能にします。",
+    description: `コンテキストウィンドウ拡張（Context Window Extension）とは、LLMが事前学習で対応できるトークン数を超えて、より長い入力を処理できるように後から拡張する技術の総称です。
+
+LLMは通常、事前学習時の最大コンテキスト長を超えると性能が急激に低下します。これを解決するための主要な手法：
+
+- **RoPE（Rotary Position Embedding）スケーリング**：回転位置埋め込みのベースを変更することで、訓練時より長い位置情報を処理可能にする。LlamaやMistralで広く採用
+- **YaRN（Yet another RoPE extensioN）**：RoPEの異なる周波数成分に応じて適応的にスケールを調整する手法。性能劣化を最小化
+- **ALiBi（Attention with Linear Biases）**：位置埋め込みの代わりに線形バイアスを使用し、学習時より長い系列への外挿を容易にする
+- **LongLoRA**：LoRAと疎なアテンションを組み合わせ、効率的に長コンテキストに対応
+
+Claude 3.5（200K）・Gemini 1.5（1M）・GPT-4 Turbo（128K）など、主要モデルのコンテキスト長競争においてこれらの技術が重要な役割を果たしています。`,
+    relatedSlugs: [
+      "context-window",
+      "long-context",
+      "positional-encoding",
+      "kv-cache",
+      "attention-mechanism",
+    ],
+    sources: [
+      {
+        title: "YaRN: Efficient Context Window Extension of Large Language Models",
+        url: "https://arxiv.org/abs/2309.00071",
+        publisher: "arXiv / Peng et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "LongLoRA: Efficient Fine-tuning of Long-Context Large Language Models",
+        url: "https://arxiv.org/abs/2309.12307",
+        publisher: "arXiv / Chen et al.",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-red-team",
+    term: "AIレッドチーム",
+    reading: "AIレッドチーム",
+    category: "評価",
+    summary:
+      "AIレッドチームとは、AIシステムの脆弱性・有害出力・セーフティ問題を意図的に探索する専門チームまたは活動で、OpenAI・Anthropic等が公開前に社内外の専門家によるモデル攻撃的評価を実施します。",
+    description: `AIレッドチーム（AI Red Team）とは、サイバーセキュリティの「レッドチーム」手法をAI安全性評価に応用した取り組みです。悪意ある攻撃者の視点でAIシステムを積極的にテストし、リリース前に問題を発見・修正することを目的とします。
+
+主な評価対象：
+- **ジェイルブレイク**：安全ガイドラインを迂回する手法の探索
+- **有害コンテンツ生成**：差別・暴力・危険情報の引き出し可否
+- **プロンプトインジェクション**：外部入力によるシステムプロンプトの上書き
+- **幻覚の誘発**：意図的に誤情報を生成させる手法
+- **プライバシー漏洩**：学習データに含まれる個人情報の抽出
+
+Anthropicはモデルの公開前に外部研究者・セキュリティ専門家・ドメイン専門家（生物兵器・サイバー等）を招いてレッドチーミングを実施し、その結果をシステムカードとして公開しています。OpenAIも同様の取り組みを行っており、GPT-4のシステムカードにはレッドチームの詳細な知見が記載されています。
+
+2024年には米国政府のAI安全性機関（AISI）や欧州の規制機関もレッドチーミングを正式な安全評価手順として義務化・推奨する動きが加速しています。`,
+    relatedSlugs: [
+      "red-teaming",
+      "ai-safety-evaluation",
+      "jailbreak",
+      "alignment",
+      "responsible-ai",
+    ],
+    sources: [
+      {
+        title: "Anthropic's Responsible Scaling Policy",
+        url: "https://www.anthropic.com/responsible-scaling-policy",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "GPT-4 System Card",
+        url: "https://cdn.openai.com/papers/gpt-4-system-card.pdf",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-search-grounding",
+    term: "AIサーチグラウンディング",
+    reading: "AIサーチグラウンディング",
+    category: "実装",
+    summary:
+      "AIサーチグラウンディングとは、LLMの回答をリアルタイムWeb検索結果に基づかせる技術で、知識カットオフ問題を解消して最新情報を提供します。Perplexity・Gemini with Search・ChatGPT Searchが代表例です。",
+    description: `AIサーチグラウンディング（AI Search Grounding）とは、LLMが回答を生成する際にリアルタイムのWeb検索結果を参照・引用することで、回答の正確性と最新性を確保する技術です。「グラウンディング（接地）」とは、AIの出力を検証可能な外部情報源に結びつけることを意味します。
+
+RAGとの違いを理解することが重要です。RAGは事前に構築したインデックスからの検索ですが、AIサーチグラウンディングはインターネットをリアルタイムで検索します。これにより：
+- **知識カットオフの克服**：学習データの期限を超えた最新情報に対応
+- **ソース引用**：回答の根拠となるURLを明示し検証可能性を高める
+- **幻覚の抑制**：検索結果という外部ファクトに基づくことで誤情報を削減
+
+代表的な実装：
+- **Perplexity AI**：検索特化型AIとして先駆。全回答に引用ソースを付与
+- **Gemini with Google Search**：Googleの検索インフラと直接統合
+- **ChatGPT Search**：OpenAIが2024年に一般提供開始
+- **Copilot（Microsoft）**：Bing検索と統合したMicrosoftのAIアシスタント
+
+企業のナレッジベース検索と組み合わせたハイブリッドアプローチも増えており、社内情報と最新公開情報を統合した回答生成が可能になっています。`,
+    relatedSlugs: [
+      "grounding",
+      "knowledge-cutoff",
+      "rag",
+      "ai-search-engine",
+      "hallucination",
+    ],
+    sources: [
+      {
+        title: "Perplexity AI - How It Works",
+        url: "https://www.perplexity.ai/",
+        publisher: "Perplexity AI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Grounding with Google Search - Gemini API Documentation",
+        url: "https://ai.google.dev/gemini-api/docs/grounding",
+        publisher: "Google AI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "model-spec",
+    term: "モデルスペック",
+    reading: "モデルスペック",
+    category: "法務・倫理",
+    summary:
+      "モデルスペックとは、AIモデルの価値観・行動方針・優先順位を詳細に定めた仕様書で、Anthropicが2024年に公開したClaude's Model Specが代表例として、AIの意思決定基準を透明化する試みです。",
+    description: `モデルスペック（Model Spec）とは、AIモデルがどのように振る舞うべきか、どのような価値観を持ち、何を優先すべきかを文書化した包括的な仕様書です。モデルカード（Model Card）が主に技術的特性を記述するのに対し、モデルスペックはAIの倫理的・行動的な「憲法」に相当します。
+
+Anthropicは2024年にClaude's Model Specを公開し、大きな注目を集めました。その内容：
+- **優先順位の明確化**：「安全で広く有益」→「倫理的」→「Anthropicの原則に沿う」→「Claude自身の判断でユーザーに有益」という明確な階層
+- **オペレーター・ユーザーの区別**：APIを使う企業（オペレーター）と実際のエンドユーザーの権限差を定義
+- **曖昧なケースの扱い**：ポルノグラフィー・危険情報等のグレーゾーンに対する方針を詳細に記述
+- **Claudeのアイデンティティ**：Claudeを「価値観を持つ存在」として位置づける哲学的立場
+
+モデルスペックは以下の意義を持ちます：透明性の向上（ユーザーがAIの行動原則を理解）、アカウンタビリティ（期待と実際の乖離を測定可能）、業界標準化への貢献（他社も同様の公開を検討）。EU AI Act等の規制においても、モデルの行動仕様の文書化が求められる方向にあります。`,
+    relatedSlugs: [
+      "alignment",
+      "constitutional-ai",
+      "responsible-ai",
+      "model-card",
+      "ai-safety",
+    ],
+    sources: [
+      {
+        title: "Claude's Model Spec",
+        url: "https://www.anthropic.com/claude/model-spec",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "tool-augmented-generation",
+    term: "ツール拡張生成",
+    reading: "ツールカクチョウセイセイ",
+    category: "実装",
+    summary:
+      "ツール拡張生成とは、LLMが外部ツール（電卓・検索・コード実行等）を呼び出して回答を生成するアーキテクチャで、RAGを超えた能動的な情報取得・処理が可能で、ReActフレームワークが代表的です。",
+    description: `ツール拡張生成（Tool-Augmented Generation、TAG）とは、LLMが単独で回答を生成するのではなく、外部ツールやAPIを動的に呼び出し、その結果を組み合わせて最終回答を生成するアーキテクチャです。
+
+RAGとの比較で理解するのが有効です：RAGは情報検索→読み込みという受動的なプロセスですが、TAGはLLMが「どのツールをどう使うか」を推論して能動的に行動します。
+
+主な活用ツール：
+- **検索エンジン**：最新情報の取得（Web検索）
+- **コード実行環境**：Python/JavaScriptを実行し計算・データ処理
+- **データベース・API**：外部サービスからの情報取得・更新
+- **電卓・数値計算**：正確な算術演算（LLMが苦手とする計算をアウトソース）
+- **ファイル操作**：ドキュメント読み取り・編集
+
+代表的な実装フレームワーク：
+- **ReAct**（2022年）：推論（Reasoning）と行動（Acting）を交互に繰り返すパターン
+- **OpenAI Function Calling / Tool Use**：JSONスキーマでツールを定義してLLMに渡す標準的手法
+- **LangChain Tools / LlamaIndex Tools**：ツール管理とエージェントを統合したフレームワーク
+
+現代のAIエージェントはほぼすべてTAGの考え方を基盤としており、Claude・GPT-4・Geminiいずれもネイティブなツール使用機能を持っています。`,
+    relatedSlugs: [
+      "tool-use",
+      "function-calling",
+      "rag",
+      "agent",
+      "agentic-workflow",
+    ],
+    sources: [
+      {
+        title: "ReAct: Synergizing Reasoning and Acting in Language Models",
+        url: "https://arxiv.org/abs/2210.03629",
+        publisher: "arXiv / Yao et al.",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-generated-video",
+    term: "AI生成動画",
+    reading: "AIセイセイドウガ",
+    category: "実装",
+    summary:
+      "AI生成動画とは、AIが生成した動画コンテンツで、Soraが2024年に登場して衝撃を与え、Runway Gen-3・Kling・Veo等が続きます。マーケティング・映画制作・教育コンテンツでの活用が広がっています。",
+    description: `AI生成動画（AI-Generated Video）とは、テキストプロンプトや画像から、AIが数秒〜数分の動画を生成する技術です。静止画生成の次の段階として、時間軸上の一貫性・物理法則の再現・動きの自然さが技術的な挑戦となります。
+
+技術的な仕組みとして、ほとんどのモデルは拡散モデルを時空間的に拡張した「ビデオ拡散モデル」を採用しています。トランスフォーマーとの組み合わせも進んでいます。
+
+主要なモデル・サービス：
+- **Sora（OpenAI）**：2024年2月に発表・12月に公開。最大1分の高品質動画生成で業界に衝撃を与えた。3Dの時空間パッチによる新アーキテクチャを採用
+- **Veo（Google DeepMind）**：4K画質対応、2分超の動画生成が可能
+- **Runway Gen-3**：クリエイター向けのプロフェッショナルツール。映画・広告業界での採用が進む
+- **Kling（Kuaishou）**：中国発の高品質動画生成モデル
+- **Hailuo / MiniMax**：リアルな人物動画生成に強みを持つ
+
+ビジネス活用として、広告クリエイティブの自動生成・製品デモ動画・eラーニングコンテンツ・映画のプリビジュアライゼーション等で実用化が進んでいます。一方でディープフェイクへの悪用リスクや、クリエイター・俳優の権利問題も議論されています。`,
+    relatedSlugs: [
+      "video-generation",
+      "sora",
+      "diffusion-model",
+      "text-to-image",
+      "multimodal-generation",
+    ],
+    sources: [
+      {
+        title: "Sora: Creating video from text - OpenAI",
+        url: "https://openai.com/sora",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Veo - Google DeepMind",
+        url: "https://deepmind.google/technologies/veo/",
+        publisher: "Google DeepMind",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "token-economics",
+    term: "トークンエコノミクス",
+    reading: "トークンエコノミクス",
+    category: "実装",
+    summary:
+      "トークンエコノミクスとは、LLM APIの利用コストをトークン単価・入出力比・キャッシュ効率で最適化する考え方で、プロンプト設計・モデル選択・バッチ処理戦略がROIに直結するビジネス重要概念です。",
+    description: `トークンエコノミクス（Token Economics）とは、LLM APIを活用したビジネスにおいて、トークン消費量とコストの関係を理解・最適化するための考え方と実践の総称です。
+
+LLM APIの課金構造の理解が前提となります。主要プロバイダーの課金は概ね「入力トークン単価 × 入力量 + 出力トークン単価 × 出力量」で計算されます。出力トークンは入力の3〜5倍高価なことが多いため、出力を抑える設計が重要です。
+
+主なコスト最適化戦略：
+
+**モデル選択の階層化**
+- 複雑なタスク：高性能モデル（GPT-4o、Claude 3.5 Sonnet等）
+- 単純なタスク：軽量・低コストモデル（GPT-4o mini、Claude Haiku等）
+- ルーターで自動振り分けするLLMルーティングも有効
+
+**プロンプト最適化**
+- 冗長なシステムプロンプトの削減
+- プロンプト圧縮（LLMLinguaなどのツール）
+- Few-shotサンプルの最小化
+
+**キャッシュの活用**
+- プロンプトキャッシング（同一prefix の再利用で50〜90%削減）
+- セマンティックキャッシュ（類似クエリへの既存回答の再利用）
+
+**バッチ処理**
+- リアルタイム不要なタスクをバッチAPIで処理（50%割引が多い）
+
+スケールする前の段階でトークンエコノミクスを設計に組み込むことが、AI事業のROI最大化の鍵です。`,
+    relatedSlugs: [
+      "token",
+      "ai-cost-optimization",
+      "prompt-caching",
+      "ai-roi",
+      "token-limit",
+    ],
+    sources: [
+      {
+        title: "OpenAI API Pricing",
+        url: "https://openai.com/pricing",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Anthropic API Pricing",
+        url: "https://www.anthropic.com/pricing",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
