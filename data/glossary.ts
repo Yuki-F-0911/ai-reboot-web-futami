@@ -5968,6 +5968,376 @@ LangChainのPromptTemplateクラスや、OpenAI・Anthropicの公式SDKがテン
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "ai-agent-sdk",
+    term: "AIエージェントSDK",
+    reading: "エーアイエージェントエスディーケー",
+    category: "実装",
+    summary:
+      "LLMエージェントの構築・デプロイを支援する開発キット。OpenAI Agents SDK・Anthropic Agent SDK・Google ADKが代表例。",
+    description: `AIエージェントSDK（AI Agent SDK）とは、LLMを核としたエージェントシステムの構築・実行・デプロイを簡素化するソフトウェア開発キットです。ツール呼び出し・メモリ管理・マルチエージェントの協調・実行トレーシングなど、エージェント開発に必要な共通機能をライブラリとして提供します。
+
+代表的なSDKとして、OpenAI Agents SDK（Python）はHandoff・Guardrails・トレーシングをビルトイン提供し、Anthropic Agent SDKはClaudeのツール使用と長文コンテキスト処理を最適化、Google Agent Development Kit（ADK）はVertex AIとのネイティブ統合を特徴としています。LangChainやLlamaIndexも広義のエージェントSDKとして利用されています。
+
+SDKを使うメリットは、エージェントループ（思考→ツール選択→実行→観察→再思考）の実装をゼロから書く必要がなくなる点です。再利用可能なエージェント定義・ワークフロー管理・エラー処理・監視ダッシュボードが標準提供されるため、開発速度が大幅に向上します。
+
+選定ポイントは、使用するLLMプロバイダー・デプロイ先クラウド・モニタリング要件・チームのPython/TypeScript習熟度です。ロックインを避けたい場合はLangChain・CrewAIなどプロバイダー非依存のフレームワークを検討します。`,
+    relatedSlugs: [
+      "agent",
+      "agentic-workflow",
+      "tool-use",
+      "llm",
+      "multi-agent",
+    ],
+    sources: [
+      {
+        title: "OpenAI Agents SDK Documentation",
+        url: "https://openai.github.io/openai-agents-python/",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Google Agent Development Kit (ADK)",
+        url: "https://google.github.io/adk-docs/",
+        publisher: "Google",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-hallucination-detection",
+    term: "ハルシネーション検出",
+    reading: "ハルシネーションけんしゅつ",
+    category: "実装",
+    summary:
+      "LLMが生成した回答の事実確認・信頼度評価を自動で行いハルシネーションを検出する技術・手法。",
+    description: `ハルシネーション検出（AI Hallucination Detection）とは、LLMが生成したテキストに含まれる事実誤認・根拠のない主張・矛盾を自動的に識別・スコアリングする技術と手法の総称です。RAGシステムや高精度が求められるビジネス用途において、品質保証の要として重要性が増しています。
+
+主なアプローチとして、(1)グラウンディング検証（生成文を出典文書と照合し根拠のない記述を検出）、(2)LLM-as-Judge（別のLLMが事実性・一貫性・忠実性を採点）、(3)確信度スコアリング（モデルのログ確率やトークン確率を用いた不確実性推定）、(4)外部知識ベース照合（WikidataなどのKGと突き合わせ検証）があります。
+
+ツールとしてはTruLens（RAGas評価ライブラリ）、Galileo（本番モニタリング）、Ragas（RAG評価フレームワーク）、FACTSCORE（Wikipedia事実性評価）などが利用されています。評価指標には忠実性（Faithfulness）・回答関連性（Answer Relevancy）・コンテキスト精度（Context Precision）が広く使われています。
+
+検出後の対策として、不確実な回答には「確認が取れていません」などの免責表示を付加するConfidence Calibration、または再検索・再生成をトリガーするフォールバック設計が有効です。`,
+    relatedSlugs: [
+      "hallucination",
+      "grounding",
+      "rag",
+      "llm-as-judge",
+      "evaluation-metrics",
+    ],
+    sources: [
+      {
+        title: "Ragas – Evaluation framework for RAG pipelines",
+        url: "https://docs.ragas.io/",
+        publisher: "Ragas",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "TruLens Documentation",
+        url: "https://www.trulens.org/",
+        publisher: "TruEra",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "embedding-model",
+    term: "埋め込みモデル",
+    reading: "うめこみモデル",
+    category: "モデル",
+    summary:
+      "テキスト・画像等をベクトル表現に変換する専用モデル。RAGやセマンティック検索の基盤として広く使われる。",
+    description: `埋め込みモデル（Embedding Model）とは、テキスト・画像・音声などの入力データを固定長の実数ベクトル（埋め込みベクトル）に変換する専用の機械学習モデルです。意味的に近いコンテンツは距離が近いベクトルに、意味的に遠いコンテンツは距離が遠いベクトルにマッピングされることで、類似検索・分類・クラスタリングを実現します。
+
+代表的なテキスト埋め込みモデルとして、OpenAIのtext-embedding-3-small/large（APIで利用可能）、MicrosoftのE5シリーズ、BAAIのBGE（BAAI General Embedding）、CohereのEmbed v3があります。多言語対応モデルではmultilingual-e5-large-instructが日本語を含む100言語以上で高性能を発揮します。
+
+埋め込みモデルの選定基準は、(1)ベクトル次元数（小さいほどストレージ・計算コスト削減）、(2)最大トークン長（長文書への対応度）、(3)言語対応（日本語精度）、(4)ドメイン適合性（法律・医療等の専門分野）です。RAGシステムでは埋め込みモデルの品質がそのまま検索精度に直結するため、ユースケースに合ったモデル評価が不可欠です。
+
+ファインチューニングによって特定ドメインの埋め込み精度を向上させることも可能で、対照学習（Contrastive Learning）ベースの手法が主流です。`,
+    relatedSlugs: [
+      "embedding",
+      "vector-db",
+      "semantic-search",
+      "rag",
+      "cosine-similarity",
+    ],
+    sources: [
+      {
+        title: "Text embeddings – OpenAI Documentation",
+        url: "https://platform.openai.com/docs/guides/embeddings",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "MTEB: Massive Text Embedding Benchmark",
+        url: "https://huggingface.co/spaces/mteb/leaderboard",
+        publisher: "Hugging Face",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "context-length",
+    term: "コンテキスト長",
+    reading: "コンテキストちょう",
+    category: "基礎概念",
+    summary:
+      "LLMが一度に処理できるトークン数の最大値。入力＋出力の合計上限を指し、長いほど長文書・会話履歴の処理が可能になる。",
+    description: `コンテキスト長（Context Length）とは、LLMが1回のリクエストで処理できるトークン数の上限値です。入力プロンプト（指示・会話履歴・参照文書）と出力テキストの合計トークン数がこの上限以内に収まる必要があります。一般に「コンテキストウィンドウ」と同義で使われることが多く、厳密にはモデルが一度に「参照できる」範囲を指します。
+
+モデルごとのコンテキスト長の目安（2025年時点）：GPT-4oは128Kトークン（約9万語相当）、Claude 3.5は200Kトークン（約14万語相当）、Gemini 1.5 Proは最大1Mトークン（長大なドキュメント処理向け）。100Kトークンで書籍1冊程度が収まる計算です。
+
+コンテキスト長が重要なビジネスシーンとして、(1)長文契約書・法律文書の一括分析、(2)長い会話履歴の保持（カスタマーサポートBot）、(3)大規模コードベースの解析・リファクタリング支援、(4)複数文書をまとめた比較レポート生成が挙げられます。
+
+ただし長いコンテキストを使うほどAPIコストと推論レイテンシが増加します。「Lost-in-the-Middle」問題（コンテキスト中央付近の情報を参照しにくくなる現象）も報告されており、重要情報は先頭・末尾に配置する工夫や、プロンプトキャッシュの活用で効率化が図れます。`,
+    relatedSlugs: [
+      "context-window",
+      "token",
+      "long-context",
+      "prompt-caching",
+      "llm",
+    ],
+    sources: [
+      {
+        title: "Context windows – Anthropic Documentation",
+        url: "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "OpenAI API Models",
+        url: "https://platform.openai.com/docs/models",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-coding-assistant",
+    term: "AIコーディングアシスタント",
+    reading: "エーアイコーディングアシスタント",
+    category: "実装",
+    summary:
+      "コード補完・生成・レビュー・デバッグを支援するAIツール。GitHub Copilot・Cursor・Windsurf・Clineが代表例。",
+    description: `AIコーディングアシスタント（AI Coding Assistant）とは、LLMを活用してコード補完・コード生成・バグ修正・リファクタリング・テスト生成・ドキュメント作成を支援するソフトウェアツールの総称です。IDE（統合開発環境）やエディタと連携し、開発者の作業フローに直接組み込まれます。
+
+代表的なツールとして、GitHub Copilot（VS Code・JetBrains連携、Microsoftが提供）、Cursor（AIネイティブなエディタ、コードベース全体をコンテキストに保持）、Windsurf（Codeiumが提供するAIファーストIDE）、Cline（Claude/GPTをオーケストレーション可能なVS Code拡張）、そしてAnthropicが提供するClaude Code（ターミナルベースの開発エージェント）があります。
+
+開発者の生産性への影響として、GitHubの調査では開発者の88%がコーディングアシスタントを使うことで「より多くの時間をやりがいある仕事に充てられる」と回答しており、反復的なボイラープレート記述・テスト作成・ドキュメント化の工数を大幅に削減できます。
+
+活用時の注意点として、生成コードにはセキュリティ脆弱性・ライセンス問題が含まれる可能性があるため、コードレビューは必須です。また「コンテキストウィンドウに何を与えるか」がアウトプット品質に直結するため、プロンプトエンジニアリングの知識が重要になります。`,
+    relatedSlugs: [
+      "code-generation",
+      "copilot",
+      "llm",
+      "ai-assistant",
+      "prompt-engineering",
+    ],
+    sources: [
+      {
+        title: "GitHub Copilot Documentation",
+        url: "https://docs.github.com/en/copilot",
+        publisher: "GitHub",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Cursor – The AI Code Editor",
+        url: "https://www.cursor.com/",
+        publisher: "Cursor",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-safety-evaluation",
+    term: "AI安全性評価",
+    reading: "エーアイあんぜんせいひょうか",
+    category: "法務・倫理",
+    summary:
+      "LLMの有害出力・誤用・セキュリティリスクを系統的に評価するプロセス。レッドチーミング・ベンチマーク・自動評価を組み合わせる。",
+    description: `AI安全性評価（AI Safety Evaluation）とは、LLMおよびAIシステムが有害なコンテンツを生成する、悪用される、意図しない動作をするといったリスクを系統的に特定・定量化・緩和するための評価プロセスです。モデルのリリース前・デプロイ後の継続的な監視の両フェーズで実施されます。
+
+評価の主要カテゴリとして、(1)有害コンテンツ生成（ヘイトスピーチ・暴力・違法情報の出力傾向）、(2)脱獄耐性（Jailbreakプロンプトへの対抗能力）、(3)プロンプトインジェクション耐性（外部入力による指示乗っ取り）、(4)幻覚・誤情報率、(5)プライバシー侵害リスク（学習データのメモリ化）があります。
+
+手法面では、人手によるレッドチーミング（セキュリティ専門家が攻撃シナリオを試行）と、自動レッドチーミング（LLMが攻撃プロンプトを大量生成）を組み合わせることが標準的になっています。ベンチマークとして、MT-Bench・HarmBench・AIR-Bench・HELM-Safetyなどが広く使われています。
+
+規制動向として、EU AI ActやNIST AI Risk Management Framework（AI RMF）は高リスクAIシステムに対して安全性評価の実施を義務付けており、エンタープライズ導入時には内部・第三者評価の証跡を求められる場面が増えています。`,
+    relatedSlugs: [
+      "ai-safety",
+      "red-teaming",
+      "alignment",
+      "benchmark",
+      "llm-as-judge",
+    ],
+    sources: [
+      {
+        title: "NIST AI Risk Management Framework (AI RMF)",
+        url: "https://www.nist.gov/system/files/documents/2023/01/26/AI%20RMF%201.0.pdf",
+        publisher: "NIST",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Responsible Scaling Policy – Anthropic",
+        url: "https://www.anthropic.com/news/anthropics-responsible-scaling-policy",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "chain-of-thought-prompting",
+    term: "チェーン・オブ・ソート・プロンプティング",
+    reading: "チェーンオブソートプロンプティング",
+    category: "実装",
+    summary:
+      "「ステップバイステップで考えてください」等の指示でLLMの推論過程を引き出すプロンプト手法。CoTの実践的応用。",
+    description: `チェーン・オブ・ソート・プロンプティング（Chain-of-Thought Prompting、CoTプロンプティング）とは、LLMに「ステップバイステップで考えてください（Let's think step by step）」のような指示を与え、最終回答に至る推論過程を段階的に出力させるプロンプト技法です。2022年にGoogleのWeiらが発表した論文で、数学・論理・常識推論タスクでの精度が大幅に向上することが示されました。
+
+CoTプロンプティングの主なバリエーションとして、(1)Zero-shot CoT（「ステップバイステップで」と指示するだけ）、(2)Few-shot CoT（推論ステップを含む例示を数件提示する）、(3)Auto-CoT（例示を自動生成してからCoTを実行）、(4)Tree of Thought（複数の推論経路を並列探索）があります。
+
+実際のビジネス活用例として、複雑な条件分岐を伴う稟議判断・財務計算の検証・多段階の文書レビュー・コードデバッグなど、単純なQ&Aでは正確な回答が得にくいタスクに有効です。「理由を説明しながら答えてください」という日本語表現でも同等の効果が得られます。
+
+注意点として、CoTは推論ステップが長くなるためトークン消費・レイテンシが増加します。GPT-4oやClaude 3.5 Sonnetなど高性能モデルで特に効果が顕著で、小型モデルでは効果が限定的な場合があります。o1・o3などの推論特化モデルはCoTをモデル内部で自動実行するため、明示的な指示が不要です。`,
+    relatedSlugs: [
+      "cot",
+      "prompt-engineering",
+      "reasoning-model",
+      "few-shot-learning",
+      "self-consistency",
+    ],
+    sources: [
+      {
+        title: "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+        url: "https://arxiv.org/abs/2201.11903",
+        publisher: "arXiv / Google",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Large Language Models are Zero-Shot Reasoners",
+        url: "https://arxiv.org/abs/2205.11916",
+        publisher: "arXiv / Google",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "vector-search",
+    term: "ベクトル検索",
+    reading: "ベクトルけんさく",
+    category: "実装",
+    summary:
+      "テキスト・画像をベクトル化してコサイン類似度等で意味的に近いデータを高速検索する技術。RAGの中核コンポーネント。",
+    description: `ベクトル検索（Vector Search）とは、テキスト・画像・音声などのデータを埋め込みモデルで高次元ベクトルに変換し、クエリベクトルとの類似度（コサイン類似度・内積・ユークリッド距離など）によって意味的に近いデータを高速に検索する技術です。キーワードの完全一致ではなく「意味的な近さ」で検索できる点が特徴です。
+
+内部アルゴリズムとして、全件比較（Exact Nearest Neighbor）では精度は完璧ですが大規模データでは遅すぎるため、実用上はHNSW（Hierarchical Navigable Small World）やIVF（Inverted File Index）などの近似最近傍探索（ANN）アルゴリズムが使われます。PineconeやWeaviate・Qdrant・pgvector（PostgreSQL拡張）などのベクトルデータベースがこれらを実装済みで提供しています。
+
+RAGシステムでのベクトル検索の流れは、(1)文書をチャンクに分割し埋め込みモデルでベクトル化してベクトルDBに保存、(2)ユーザーの質問をベクトル化、(3)質問ベクトルに近い上位K件の文書チャンクを取得、(4)取得チャンクをLLMのコンテキストに入れて回答生成、というパイプラインです。
+
+ハイブリッド検索（キーワード検索＋ベクトル検索の組み合わせ）を用いることで、固有名詞・コード・数字など意味ベクトルが弱い要素も拾える補完的な設計が推奨されています。`,
+    relatedSlugs: [
+      "vector-db",
+      "embedding",
+      "semantic-search",
+      "cosine-similarity",
+      "rag",
+    ],
+    sources: [
+      {
+        title: "Vector search overview – Pinecone Documentation",
+        url: "https://docs.pinecone.io/guides/get-started/overview",
+        publisher: "Pinecone",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Qdrant – Vector Database Documentation",
+        url: "https://qdrant.tech/documentation/",
+        publisher: "Qdrant",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-product-development",
+    term: "AIプロダクト開発",
+    reading: "エーアイプロダクトかいはつ",
+    category: "実装",
+    summary:
+      "LLMを組み込んだプロダクト・サービスの企画から設計・実装・評価・改善までのライフサイクル管理。",
+    description: `AIプロダクト開発（AI Product Development）とは、LLMやその他のAIモデルを核とした製品・サービスを企画・設計・実装・評価・改善するライフサイクル全体を指します。従来のソフトウェア開発と異なり、モデルの確率的な振る舞い・ハルシネーション・コスト最適化・プロンプト管理など、AI固有の課題への対処が求められます。
+
+Chip Huyen（「AI Engineering」著者）が提唱するAIプロダクト開発の主要フェーズとして、(1)ユースケース特定と実現可能性検証（PoC）、(2)モデル選定とベースラインの確立、(3)評価基盤の構築（評価データセット・メトリクス設計）、(4)プロンプトエンジニアリングとRAG設計、(5)ファインチューニングの要否判断、(6)本番デプロイとモニタリング、(7)フィードバックループによる継続改善があります。
+
+「評価なきAI開発は存在しない」と言われるほど評価（Evaluation）が重要で、LLM-as-Judge・人手評価・自動テストを組み合わせた評価パイプラインの早期整備が成功の鍵です。LLMOpsツール（LangSmith・Langfuse・Weights & Biases）による実験管理・トレーシング・コスト分析も不可欠です。
+
+日本市場では規制対応（個人情報保護法・AI利活用ガイドライン）とマルチベンダー戦略（特定クラウドへの依存リスク分散）も考慮すべき要素です。`,
+    relatedSlugs: [
+      "llmops",
+      "prompt-engineering",
+      "evaluation-metrics",
+      "ai-observability",
+      "rag",
+    ],
+    sources: [
+      {
+        title: "AI Engineering – Chip Huyen (2024)",
+        url: "https://www.oreilly.com/library/view/ai-engineering/9781098166298/",
+        publisher: "O'Reilly Media",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Building LLM applications – Anthropic Documentation",
+        url: "https://docs.anthropic.com/en/docs/build-with-claude/overview",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "token-limit",
+    term: "トークン制限",
+    reading: "トークンせいげん",
+    category: "基礎概念",
+    summary:
+      "APIリクエストごとの最大トークン数（入力＋出力）の上限値。コスト管理と長文処理の設計に直結する制約。",
+    description: `トークン制限（Token Limit）とは、LLMのAPIリクエスト1回あたりに処理できるトークン数の上限値です。入力トークン（プロンプト・会話履歴・文書）と出力トークン（生成テキスト）の合計がこの制限以内に収まる必要があります。上限を超えるとエラーが返されるか、テキストが途中で切り捨てられます。
+
+コンテキスト長（モデルが参照できる最大トークン数）とは密接に関連しますが、APIによっては入力上限・出力上限を別々に設定できる場合があります。例えば「max_tokens」パラメータで生成する最大出力トークン数を制限することで、コスト管理と応答時間の制御が可能です。
+
+トークン制限の実務上の影響として、(1)長い会話履歴の管理（古いメッセージをサマリー化して圧縮する）、(2)長文ドキュメントの分割処理（チャンキング戦略）、(3)バッチ処理時のコスト試算、(4)ストリーミング応答の設計（ユーザー体験向上のため出力をリアルタイム表示）が挙げられます。
+
+コスト計算の基本として、多くのAPIは「入力1Kトークンあたり$X、出力1Kトークンあたり$Y」という課金体系を採用しており、出力トークンの単価が入力より高い傾向があります。プロンプトキャッシュ機能（Anthropic・OpenAIが提供）を活用すると、繰り返し利用するシステムプロンプトのトークンコストを最大90%削減できます。`,
+    relatedSlugs: [
+      "token",
+      "context-window",
+      "context-length",
+      "prompt-caching",
+      "llm",
+    ],
+    sources: [
+      {
+        title: "Token usage and pricing – OpenAI Documentation",
+        url: "https://platform.openai.com/docs/guides/production-best-practices",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Pricing – Anthropic Documentation",
+        url: "https://www.anthropic.com/pricing",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
