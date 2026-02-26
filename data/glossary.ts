@@ -4648,6 +4648,296 @@ AIオブザーバビリティが重要な理由は、LLMシステムはブラッ
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "vision-transformer",
+    term: "ViT（ビジョントランスフォーマー）",
+    reading: "ビジョントランスフォーマー",
+    category: "モデル",
+    summary:
+      "ViT（Vision Transformer）とは、画像をパッチに分割してTransformerで処理する画像認識アーキテクチャです。CNNを超える性能を示し、GPT-4VやGeminiなどマルチモーダルモデルのビジュアルエンコーダーの基盤技術となっています。",
+    description: `ViT（Vision Transformer）とは、Dosovitskiyらが2020年に発表した、画像をCNNではなくTransformerで処理する画像認識アーキテクチャです。画像を16×16ピクセルのパッチに分割してフラット化し、BERTのように各パッチを「トークン」として扱いTransformerのself-attentionで処理します。
+
+ViTが重要な理由は、それまで画像認識の主流だったCNNを超える性能を示し、「Transformerは言語だけでなくあらゆるデータに応用できる」という新しいパラダイムを確立したためです。特に大規模データセットと大型モデルのスケール時にCNNより優れた性能を示しました。
+
+ViTの発展として、Swin Transformer（階層的な局所アテンションでCNNの強みを取り込む）、DeiT（データ効率化）、MAE（Masked Autoencoders、マスクパッチ予測での自己教師あり学習）などが登場しています。現在のvision-language-model（GPT-4V・Gemini・Claude 3等）はほぼすべてViT系のアーキテクチャをビジュアルエンコーダーとして採用しており、テキストと画像をCLIPやcontrastive-learningで対照学習してからLLMに接続するという設計が一般的です。`,
+    relatedSlugs: ["transformer", "image-recognition", "attention-mechanism", "convolutional-neural-network", "vision-language-model"],
+    sources: [
+      {
+        title: "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+        url: "https://arxiv.org/abs/2010.11929",
+        publisher: "arXiv / Dosovitskiy et al. / Google Brain (2020)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Vision transformer - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Vision_transformer",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "dpo",
+    term: "DPO（直接選好最適化）",
+    reading: "ディーピーオー",
+    category: "基礎概念",
+    summary:
+      "DPO（Direct Preference Optimization）とは、人間の好みデータから直接ポリシーを最適化するアライメント手法です。強化学習不要でRLHFより安定した学習が可能で、LLMのfine-tuningで広く採用されています。",
+    description: `DPO（Direct Preference Optimization：直接選好最適化）とは、Rafailovらが2023年に提案した、人間の好みデータ（どちらの回答が良いかの比較）から直接言語モデルのポリシーを最適化するアライメント手法です。RLHFで必要だった「報酬モデルの訓練」と「強化学習（PPO）」という複雑な2段階プロセスを、単一の分類タスクとして単純化しました。
+
+DPOが重要な理由は、RLHFの複雑さと不安定さという実装上の課題を解消し、より少ないコンピューティングで高品質なアライメントを実現できるためです。reward-modelを明示的に学習する必要がなく、好まれる回答と好まれない回答のペアから直接モデルを最適化します。これにより、個人・中小企業でもアライメントの実施が容易になりました。
+
+数学的には、RLHFの最適解が閉形式で書けることを利用して、強化学習を分類損失（Binary Cross-Entropy）に書き換えています。オープンソースコミュニティでの普及度が高く、Llama・Mistral・Phiなどのモデルのアライメントにも採用されています。DPOの変種として、SimPO・IPO・KTO・ORPOなどが提案されており、より安定した学習・少ないデータでの性能向上を目指しています。sftによる教師あり学習の後にDPOを適用する「SFT + DPO」パターンが現在の標準的なfine-tuningパイプラインです。`,
+    relatedSlugs: ["rlhf", "alignment", "sft", "reward-model", "fine-tuning"],
+    sources: [
+      {
+        title: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+        url: "https://arxiv.org/abs/2305.18290",
+        publisher: "arXiv / Rafailov et al. (2023)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "DPO - Hugging Face TRL Documentation",
+        url: "https://huggingface.co/docs/trl/dpo_trainer",
+        publisher: "Hugging Face",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "text-to-sql",
+    term: "Text-to-SQL",
+    reading: "テキストトゥーエスキューエル",
+    category: "実装",
+    summary:
+      "Text-to-SQLとは、自然言語の質問をSQLクエリに自動変換するNLPタスクです。データベースへの自然言語インターフェースを実現し、非エンジニアがデータを直接質問できる「データ民主化」ツールとして注目されています。",
+    description: `Text-to-SQL（テキストからSQLへの変換）とは、「2024年の売上上位10製品を教えて」のような自然言語の質問を、「SELECT product_name, SUM(revenue) FROM sales WHERE year=2024 GROUP BY product_name ORDER BY SUM(revenue) DESC LIMIT 10;」のようなSQLクエリに自動変換するNLPタスクです。NL2SQLとも呼ばれます。
+
+Text-to-SQLが重要な理由は、企業のデータ活用において「データはあるが、SQLが書けないビジネスユーザーが活用できない」というボトルネックを解消できるためです。BI（ビジネスインテリジェンス）ツールへの組み込みや、チャットで社内データベースに質問できる「データチャット」製品に応用されています。
+
+LLMの登場によりText-to-SQLの精度が大幅に向上しました。GPT-4はSpiderベンチマーク（複雑なSQL変換の評価データセット）で高精度を達成しています。実装上の課題として、テーブルスキーマをどのようにコンテキストに含めるか（スキーマリンキング）、複数テーブルをまたがる複雑なJOINクエリの生成、SQL実行エラーの自動修正（セルフデバッグ）などがあります。code-generationの特殊形態であり、structured-outputと組み合わせることで検証可能なSQLを生成できます。`,
+    relatedSlugs: ["natural-language-processing", "llm", "code-generation", "structured-output", "fine-tuning"],
+    sources: [
+      {
+        title: "Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task",
+        url: "https://arxiv.org/abs/1809.08887",
+        publisher: "arXiv / Yu et al. (2018)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Text-to-SQL - Papers With Code",
+        url: "https://paperswithcode.com/task/text-to-sql",
+        publisher: "Papers With Code",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "semantic-segmentation",
+    term: "セマンティックセグメンテーション",
+    reading: "セマンティックセグメンテーション",
+    category: "実装",
+    summary:
+      "セマンティックセグメンテーションとは、画像の各ピクセルをクラスに分類するコンピュータビジョンタスクです。自動運転・医療画像解析で必須の技術で、Segment Anything Model（SAM）の登場で汎用化が加速しました。",
+    description: `セマンティックセグメンテーション（Semantic Segmentation）とは、入力画像の各ピクセル（画素）に対してクラスラベル（道路・車・人・空等）を割り当てる、ピクセルレベルの画像分類タスクです。object-detectionが矩形ボックスで物体の位置を示すのに対し、セグメンテーションは物体の正確な輪郭・形状をピクセル精度で識別します。
+
+セマンティックセグメンテーションが重要な理由は、物体の「どこにあるか」ではなく「どこまでが何か」を正確に把握する必要がある用途に不可欠なためです。自動運転では「この領域は走行可能な道路か歩道か」、医療では「この領域が腫瘍か正常組織か」という判断がピクセル精度で必要です。
+
+2023年にMeta AIが発表した「Segment Anything Model（SAM）」は、あらゆる画像の任意の物体を指示に従って高精度にセグメントできる汎用モデルで、セマンティックセグメンテーションの可能性を大きく広げました。SAM 2（2024年）は動画への対応も実現しました。vision-language-modelとの統合により、「この画像の犬だけをセグメントして」という自然言語指示での精密なセグメンテーションも可能になっています。`,
+    relatedSlugs: ["image-recognition", "object-detection", "convolutional-neural-network", "deep-learning", "vision-language-model"],
+    sources: [
+      {
+        title: "Segment Anything",
+        url: "https://arxiv.org/abs/2304.02643",
+        publisher: "arXiv / Kirillov et al. / Meta AI (2023)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Semantic segmentation - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Image_segmentation",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "model-serving",
+    term: "モデルサービング",
+    reading: "モデルサービング",
+    category: "実装",
+    summary:
+      "モデルサービングとは、学習済みモデルをAPI経由で提供するインフラ・システムです。vLLM・TGI（Text Generation Inference）・Tritonなどがバッチ処理・メモリ管理・スケーリングを最適化したLLM向けフレームワークとして普及しています。",
+    description: `モデルサービング（Model Serving）とは、学習・評価済みの機械学習モデルをHTTP/gRPC等のAPIとして外部アプリケーションから利用可能にするシステム・インフラの構築・運用実践です。MLOps・llmopsの中心的な工程であり、推論リクエストを受け取り、モデルで処理し、結果を返す一連のパイプラインを担います。
+
+モデルサービングが重要な理由は、どれほど優れたモデルを作っても、実際にAPIとして使えなければビジネス価値を生まないためです。特にLLMはモデルサイズが大きく、メモリ管理・バッチ処理・並列推論などの最適化が性能に直結します。
+
+LLM特化のサービングフレームワークとして、vLLM（PagedAttentionによる効率的なKVキャッシュ管理、最大スループット重視）、TGI・Text Generation Inference（Hugging Face製、ストリーミング・量子化対応）、Triton Inference Server（NVIDIA製、汎用的な本番向け）などがあります。推論の最適化として、バッチ処理（Continuous Batching）、テンソル並列化（複数GPUへの分散）、speculative-decodingの統合、量子化（quantization）適用などが重要です。クラウドでのオートスケーリングやlatency SLAの管理もモデルサービングの重要な課題です。`,
+    relatedSlugs: ["inference", "llmops", "latency", "gpu", "streaming"],
+    sources: [
+      {
+        title: "Efficient Memory Management for Large Language Model Serving with PagedAttention (vLLM)",
+        url: "https://arxiv.org/abs/2309.06180",
+        publisher: "arXiv / Kwon et al. (2023)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Text Generation Inference - Hugging Face",
+        url: "https://huggingface.co/docs/text-generation-inference/",
+        publisher: "Hugging Face",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "positional-encoding",
+    term: "位置エンコーディング",
+    reading: "いちエンコーディング",
+    category: "基礎概念",
+    summary:
+      "位置エンコーディングとは、Transformerがシーケンスのトークンごとにどこにあるかという位置情報を取り込むための表現手法です。正弦波・RoPE・ALiBiなどの方式があり、長文（ロングコンテキスト）対応能力に直接影響します。",
+    description: `位置エンコーディング（Positional Encoding）とは、TransformerモデルがAttentionを計算する際に「このトークンはシーケンスの何番目にあるか」という位置情報を認識できるようにするための表現手法です。CNNやRNNと異なり、Transformerは全トークンを並列処理するため、位置情報を別途明示的に与える必要があります。
+
+位置エンコーディングが重要な理由は、テキストにおいて語順は意味を決定する重要な要素（「猫が犬を追う」と「犬が猫を追う」では意味が逆）であり、位置情報なしではTransformerが語順を無視した処理になるためです。また位置エンコーディングの設計が、モデルがどこまで長いコンテキストを扱えるかに直結します。
+
+主な方式として、元のTransformer論文の正弦波位置エンコーディング（絶対位置、事前定義）、学習可能な絶対位置埋め込み（BERTで採用）、RoPE（Rotary Position Embedding、回転行列で相対位置を表現、GPT-NeoX・LLaMAで採用）、ALiBi（Attention with Linear Biases、外挿性能が高い）などがあります。現代のLLMではRoPEが主流であり、RoPEのスケーリング手法によって訓練時より長いコンテキストへの対応（long-context拡張）が研究されています。`,
+    relatedSlugs: ["transformer", "attention-mechanism", "token", "context-window", "embedding"],
+    sources: [
+      {
+        title: "Attention Is All You Need",
+        url: "https://arxiv.org/abs/1706.03762",
+        publisher: "arXiv / Vaswani et al. (2017)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+        url: "https://arxiv.org/abs/2104.09864",
+        publisher: "arXiv / Su et al. (2021)",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ppo",
+    term: "PPO（近接方策最適化）",
+    reading: "ピーピーオー",
+    category: "基礎概念",
+    summary:
+      "PPO（Proximal Policy Optimization）とは、方策の更新幅をクリッピングで制限して安定した学習を実現する強化学習アルゴリズムです。ChatGPTやClaudeのRLHF訓練に広く採用されてきましたが、近年はDPOへの移行も進んでいます。",
+    description: `PPO（Proximal Policy Optimization：近接方策最適化）とは、OpenAIのSchulmanらが2017年に発表した強化学習アルゴリズムです。方策勾配法（Policy Gradient）の問題点（学習が不安定、更新幅が大きすぎると崩壊）を、クリッピングと呼ばれるシンプルな制約で解決しました。現在の方策と前の方策の比率を一定範囲にクリップすることで、1回の更新で方策が大きく変わりすぎることを防ぎます。
+
+PPOが重要な理由は、ロボティクス・ゲーム・LLMアライメントなど幅広い強化学習タスクで安定した性能を示す汎用アルゴリズムとして確立されており、特にRLHFによるLLMのアライメント訓練の標準アルゴリズムとして採用されてきたためです。ChatGPT・InstructGPT・Claude初期版はPPOベースのRLHFで訓練されました。
+
+実装上の課題として、PPOはreward-modelの訓練・参照モデルの維持・複数モデルの同時実行など複雑なインフラが必要で、ハイパーパラメータ調整も難しい点があります。この複雑さを解消するために開発されたdpoは、PPOなしで人間の好みデータから直接最適化するアプローチとして2023年以降急速に普及しています。PPOは報酬モデルを持つフルRLHFパイプラインでは現在も使われています。`,
+    relatedSlugs: ["reinforcement-learning", "rlhf", "reward-model", "alignment", "dpo"],
+    sources: [
+      {
+        title: "Proximal Policy Optimization Algorithms",
+        url: "https://arxiv.org/abs/1707.06347",
+        publisher: "arXiv / Schulman et al. / OpenAI (2017)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Proximal policy optimization - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Proximal_Policy_Optimization",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "state-space-model",
+    term: "状態空間モデル（SSM）",
+    reading: "じょうたいくうかんモデル",
+    category: "基礎概念",
+    summary:
+      "状態空間モデル（SSM）とは、系列データを状態変数で効率的に処理するアーキテクチャです。MambaがTransformerの代替として注目され、シーケンス長に対して線形の計算量でlong-contextを効率的に処理できます。",
+    description: `状態空間モデル（State Space Model、SSM）とは、信号処理・制御理論に起源を持つ数学的フレームワークで、入力系列から状態変数を介して出力系列を生成するモデルです。深層学習文脈では、Transformerの2乗計算量問題を解決する代替アーキテクチャとして2020年代に再注目されました。
+
+SSMが重要な理由は、Transformerのself-attentionはシーケンス長の2乗に比例する計算量が必要であるのに対し、SSMは線形の計算量で系列を処理できるためです。これにより非常に長い系列（数万〜数十万トークン）の処理でTransformerより効率的になる可能性があります。
+
+代表的なSSMアーキテクチャとして、S4（Structured State Spaces for Sequences）・Mamba（2023年、Gu & Dao、入力依存の選択的ゲーティングで精度を向上）があります。特にMambaは言語モデリングでTransformerに匹敵する性能を示し、「Mamba-2」やTransformerとの組み合わせ（Jamba：Mamba+Transformer）など様々な発展型が登場しています。現時点ではLLMの主流はTransformerですが、long-context処理・音声・生物配列など特定ドメインでSSMが活用されており、Transformer代替としての研究が続いています。`,
+    relatedSlugs: ["transformer", "attention-mechanism", "recurrent-neural-network", "long-context", "inference"],
+    sources: [
+      {
+        title: "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+        url: "https://arxiv.org/abs/2312.00752",
+        publisher: "arXiv / Gu & Dao (2023)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "State-space model - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/State-space_representation",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-watermarking",
+    term: "AIウォーターマーキング",
+    reading: "エーアイウォーターマーキング",
+    category: "法務・倫理",
+    summary:
+      "AIウォーターマーキングとは、AI生成コンテンツに統計的・不可視のマーカーを埋め込んでAI生成物を識別可能にする技術です。偽情報対策・著作権保護の手段としてEU AI Actでも義務化が検討されています。",
+    description: `AIウォーターマーキング（AI Watermarking）とは、LLMや画像生成AIが出力したコンテンツに、人間の目には見えない（または知覚されにくい）デジタルマーカーを埋め込み、そのコンテンツがAIによって生成されたことを事後的に検証可能にする技術です。テキスト・画像・音声・動画の各モダリティ向けの手法があります。
+
+AIウォーターマーキングが重要な理由は、生成AIによるdeepfakeや偽情報の拡散が社会問題となっており、AI生成コンテンツを識別する技術的手段が求められているためです。EU AI Actでは高リスクAIおよび一般目的AI（GPAI）のコンテンツへのウォーターマーク付与が要件として議論されています。米国でも大統領令（Executive Order on AI）でAI生成コンテンツのウォーターマーキングが推奨されています。
+
+技術的なアプローチとして、テキスト用ウォーターマーク（Kirchenbauer et al. 2023：LLMのトークン選択を統計的にバイアスし検出可能なパターンを埋め込む）、画像用ウォーターマーク（StegaStamp・Tree-Ring等）、メタデータによるコンテンツ来歴証明（C2PA：Content Credentials、Adobe・Microsoft・Google・Adobeが推進）があります。OpenAIはDALL-E・SoraにC2PAメタデータを付与しています。ウォーターマークの除去（攻撃）への耐性が課題です。`,
+    relatedSlugs: ["ai-regulation", "ai-governance", "deepfake", "ai-copyright", "responsible-ai"],
+    sources: [
+      {
+        title: "A Watermark for Large Language Models",
+        url: "https://arxiv.org/abs/2301.10226",
+        publisher: "arXiv / Kirchenbauer et al. (2023)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Content Credentials (C2PA) - Adobe",
+        url: "https://contentauthenticity.org/",
+        publisher: "Content Authenticity Initiative / Adobe",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "self-consistency",
+    term: "自己一貫性（Self-Consistency）",
+    reading: "セルフコンシステンシー",
+    category: "実装",
+    summary:
+      "自己一貫性（Self-Consistency）とは、同一プロンプトから複数の異なる推論パスを生成し、多数決で最終回答を決定するCoT精度向上手法です。単一パスのCoTより大幅に精度が向上し、数学・論理問題で特に効果的です。",
+    description: `自己一貫性（Self-Consistency）とは、Wangらが2022年に提案した、Chain-of-Thought（CoT）プロンプティングの精度を向上させるデコーディング戦略です。同じプロンプトに対して、temperatureをやや高めに設定してLLMを複数回実行し、多様な推論パスを生成します。その後、各推論パスの最終回答を集計し、最も多く選ばれた回答（多数決）を最終回答として採用します。
+
+自己一貫性が重要な理由は、LLMの推論はサンプリングの確率的性質から1回の実行では最適解に到達しないことがあるためです。複数の「独立した思考プロセス」から多数決を取ることで、単一のCoT実行より大幅に精度が向上します。算術推論・常識推論・象徴的推論タスクで10〜20%程度の精度向上が報告されています。
+
+実装は比較的シンプルで、temperatureを0より高く設定して同じプロンプトを3〜10回実行し、最終回答（数字・選択肢等）の多数決を取るだけです。計算コストが回数倍になるトレードオフがあります。tree-of-thoughtはself-consistencyをさらに発展させ、推論プロセスそのものを探索・評価する手法です。reasoning-modelの台頭により、モデル内部での思考探索が自動化されるようになり、外部からのself-consistency適用の必要性は変化しています。`,
+    relatedSlugs: ["cot", "prompt-engineering", "reasoning-model", "llm", "tree-of-thought"],
+    sources: [
+      {
+        title: "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+        url: "https://arxiv.org/abs/2203.11171",
+        publisher: "arXiv / Wang et al. (2022)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Self-consistency - Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Prompt_engineering#Self-consistency",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
