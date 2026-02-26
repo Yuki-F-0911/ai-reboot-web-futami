@@ -6338,6 +6338,376 @@ Chip Huyen（「AI Engineering」著者）が提唱するAIプロダクト開発
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "digital-twin",
+    term: "デジタルツイン",
+    reading: "デジタルツイン",
+    category: "実装",
+    summary:
+      "物理的な物体・プロセス・システムをリアルタイムでシミュレートする仮想モデル。AIと組み合わせて製造・都市・医療で活用される。",
+    description: `デジタルツイン（Digital Twin）とは、現実世界の物体・プロセス・システムをデジタル空間上に忠実に再現した仮想モデルです。センサーやIoTデバイスからリアルタイムデータを受け取ることで、物理的な実体の状態・挙動・性能を継続的に反映・シミュレートします。概念はNASAの宇宙機モデル（2000年代）に起源を持ち、製造業を中心に普及しました。
+
+AIとの組み合わせにより、デジタルツインは単なる「デジタルコピー」から「予測・最適化エンジン」に進化しています。機械学習モデルが故障予知（Predictive Maintenance）・生産ライン最適化・エネルギー効率改善を担い、シミュレーション環境でモデルを訓練してから現実世界に適用するSim-to-Real転移が可能です。
+
+主要ユースケースとして、(1)製造業：工場設備の故障予知・品質管理、(2)スマートシティ：交通流・エネルギー消費のリアルタイム最適化、(3)医療：患者の生体データに基づく治療シミュレーション、(4)建築・インフラ：BIM（建物情報モデリング）と連携した維持管理があります。
+
+NVIDIA Omniverse・Azure Digital Twins・AWS IoT TwinMakerなどがクラウドプラットフォームとして提供されています。日本でも製造業のDX推進においてデジタルツイン活用が国家戦略として位置づけられています。`,
+    relatedSlugs: [
+      "machine-learning",
+      "deep-learning",
+      "ai-automation",
+      "supervised-learning",
+      "dataset",
+    ],
+    sources: [
+      {
+        title: "Digital Twin – Gartner Glossary",
+        url: "https://www.gartner.com/en/information-technology/glossary/digital-twin",
+        publisher: "Gartner",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "NVIDIA Omniverse Digital Twins",
+        url: "https://www.nvidia.com/en-us/omniverse/solutions/digital-twins/",
+        publisher: "NVIDIA",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-ethics",
+    term: "AI倫理",
+    reading: "エーアイりんり",
+    category: "法務・倫理",
+    summary:
+      "AIの開発・運用における公平性・透明性・説明責任・プライバシー保護などの倫理的原則と実践。",
+    description: `AI倫理（AI Ethics）とは、AIシステムの設計・開発・デプロイ・利用において守るべき倫理的原則と、その実践の総称です。技術的な能力の急速な向上に伴い、AIが社会・個人に与える影響を適切に管理するための規範体系として、学術・産業・政府の各領域で整備が進んでいます。
+
+主要な倫理原則として、(1)公平性（Fairness）：性別・人種・年齢等による差別的な判断をしないこと、(2)透明性（Transparency）：AIがなぜその判断をしたか説明できること、(3)説明責任（Accountability）：AIの決定に対する責任の所在を明確にすること、(4)プライバシー保護：個人データの適切な取り扱い、(5)安全性（Safety）：意図しない有害な結果を防ぐことが挙げられます。
+
+実践フレームワークとして、EU「信頼できるAIのための倫理ガイドライン」（2019）、IEEEの「Ethically Aligned Design」、OECDのAI原則（2019）が国際的な参照基準となっています。日本では総務省・経済産業省が「AI利活用ガイドライン」「AI原則」を策定しています。
+
+企業レベルでの実装として、AIガバナンス委員会の設置・倫理チェックリストの運用・社外有識者による監査が普及しています。AI倫理は規制遵守（コンプライアンス）の観点からも重要性が増しており、EU AI Actでは高リスクAIへの倫理要件が法的義務として課されています。`,
+    relatedSlugs: [
+      "responsible-ai",
+      "ai-governance",
+      "bias",
+      "alignment",
+      "ai-regulation",
+    ],
+    sources: [
+      {
+        title: "Ethics Guidelines for Trustworthy AI – European Commission",
+        url: "https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai",
+        publisher: "European Commission",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "OECD Principles on AI",
+        url: "https://oecd.ai/en/ai-principles",
+        publisher: "OECD",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "few-shot-prompting",
+    term: "フューショット・プロンプティング",
+    reading: "フューショットプロンプティング",
+    category: "実装",
+    summary:
+      "プロンプト内に少数の入出力例（ショット）を示すことでLLMの出力形式や推論を誘導するプロンプト手法。",
+    description: `フューショット・プロンプティング（Few-shot Prompting）とは、LLMへの指示（プロンプト）の中に、タスクの入力と期待する出力のペアを数件（通常2〜8件程度）の例示として含めることで、モデルが新しいタスクを正確に実行できるよう誘導するプロンプト技法です。追加の学習や重みの更新を必要とせず、プロンプト内の例だけでモデルの振る舞いを調整できる点が特徴です。
+
+Few-shot Learningと密接に関連しますが、Few-shot Promptingはその推論時（Inference時）の実践的応用を指します。In-context Learningの一形態として、GPT-3論文（Brown et al. 2020）で大規模に実証され注目を集めました。
+
+具体的な活用例として、(1)出力フォーマットの統一（JSON・Markdown・特定の文体）、(2)分類タスクの例示（ポジティブ/ネガティブ判定など）、(3)翻訳の文体・専門用語の統一、(4)複雑な推論パターンの提示（CoTと組み合わせ）があります。
+
+例示の選び方が品質に大きく影響します。多様性・代表性・明確さを備えた例を選ぶことが重要で、例の数は多すぎると文脈長を消費しすぎるため、タスクと予算のバランスで決定します。ゼロショット（例示なし）でうまくいかない場合の最初の改善手段として有効です。`,
+    relatedSlugs: [
+      "few-shot-learning",
+      "prompt-engineering",
+      "in-context-learning",
+      "llm",
+      "prompt-template",
+    ],
+    sources: [
+      {
+        title: "Language Models are Few-Shot Learners (GPT-3)",
+        url: "https://arxiv.org/abs/2005.14165",
+        publisher: "arXiv / OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Few-shot prompting – Prompt Engineering Guide",
+        url: "https://www.promptingguide.ai/techniques/fewshot",
+        publisher: "DAIR.AI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-benchmark",
+    term: "AIベンチマーク",
+    reading: "エーアイベンチマーク",
+    category: "評価",
+    summary:
+      "AIモデルの能力を標準的なタスクで測定・比較する評価指標セット。MMLU・HumanEval・HELM・MT-Benchが代表例。",
+    description: `AIベンチマーク（AI Benchmark）とは、AIモデルの性能・能力・安全性を客観的に測定・比較するために設計された標準的な評価タスクセットとその評価フレームワークです。モデル選定・研究進捗の測定・開発目標設定において重要な役割を担います。
+
+主要なLLMベンチマークとして、(1)MMLU（Massive Multitask Language Understanding）：57分野の多肢選択問題で知識・推論を評価、(2)HumanEval：コード生成能力をプログラミング問題で評価、(3)HELM（Holistic Evaluation of Language Models）：精度・校正・ロバスト性・公平性等を多角的評価、(4)MT-Bench：マルチターン対話能力をLLM-as-Judgeで評価、(5)LMSYS Chatbot Arena：人間の嗜好によるEloレーティングがあります。
+
+日本語能力の評価には、JMT-Bench・JGLUE・JSQuADなど日本語特化ベンチマークが使われています。
+
+ベンチマークの限界として、特定のベンチマークに過学習した「ベンチマーク汚染（Benchmark Contamination）」が問題となっており、学習データとの重複を除いた評価や、継続的に更新される動的ベンチマークへの移行が進んでいます。ビジネス導入時は汎用ベンチマークと自社ユースケースに特化した評価の両方を実施することが推奨されます。`,
+    relatedSlugs: [
+      "benchmark",
+      "evaluation-metrics",
+      "llm",
+      "llm-as-judge",
+      "reasoning-model",
+    ],
+    sources: [
+      {
+        title: "MMLU: Measuring Massive Multitask Language Understanding",
+        url: "https://arxiv.org/abs/2009.03300",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "HELM – Holistic Evaluation of Language Models",
+        url: "https://crfm.stanford.edu/helm/",
+        publisher: "Stanford CRFM",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "grounding-technique",
+    term: "グラウンディング技術",
+    reading: "グラウンディングぎじゅつ",
+    category: "実装",
+    summary:
+      "LLMの出力を事実・データ・外部ソースに基づかせてハルシネーションを防ぐ技術群。RAG・検索連動・ツール使用を含む。",
+    description: `グラウンディング技術（Grounding Techniques）とは、LLMが生成するテキストを検証可能な事実・外部データ・信頼できるソースに根拠づけることで、ハルシネーション（事実誤認）を防止し回答の信頼性を高めるための技術・手法の総称です。RAGの普及によりグラウンディングは生成AIシステムの品質保証の中心的手法となっています。
+
+主要なグラウンディング手法として、(1)RAG（Retrieval-Augmented Generation）：回答生成前に関連文書を検索してコンテキストに含める、(2)ツール使用（Tool Use）：リアルタイム検索API・計算機・データベースクエリをLLMから呼び出す、(3)引用付き回答（Citation Generation）：回答の各主張に出典文書のスニペットを紐付ける、(4)検索連動型生成：Microsoft Copilot・Perplexity AIなどが実装するウェブ検索統合があります。
+
+グラウンディングの品質評価指標として、忠実性（Faithfulness：回答が取得文書に基づいているか）・引用精度（Citation Precision/Recall）・コンテキスト関連性（Context Relevancy）が広く使われています。
+
+実装上の課題として、取得した文書の品質・新鮮さの管理、複数ソースの矛盾する情報の処理、引用のハルシネーション（架空の引用生成）への対策が挙げられます。これらに対してはリランキング・クロスチェック・引用検証パイプラインの設計が有効です。`,
+    relatedSlugs: [
+      "grounding",
+      "rag",
+      "hallucination",
+      "retrieval",
+      "ai-hallucination-detection",
+    ],
+    sources: [
+      {
+        title: "Grounding – Google AI Documentation",
+        url: "https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview",
+        publisher: "Google Cloud",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+        url: "https://arxiv.org/abs/2005.11401",
+        publisher: "arXiv / Facebook AI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-fine-tuning-service",
+    term: "AIファインチューニングサービス",
+    reading: "エーアイファインチューニングサービス",
+    category: "実装",
+    summary:
+      "クラウド上でLLMをカスタムデータで追加学習できるマネージドサービス。OpenAI Fine-tuning API・Vertex AI・Amazon Bedrockが代表例。",
+    description: `AIファインチューニングサービス（AI Fine-tuning Service）とは、クラウドプロバイダーがマネージドサービスとして提供する、LLMをカスタムデータで追加学習（ファインチューニング）できるプラットフォームです。GPUクラスタの管理・分散学習の実装・モデルのデプロイといった技術的な複雑さを抽象化し、データの準備とAPIの設定だけで自社特化モデルを作成できます。
+
+代表的なサービスとして、(1)OpenAI Fine-tuning API：GPT-4o mini・GPT-3.5-Turboをカスタムデータでチューニング、会話ログのJSONLフォーマットで学習データを用意、(2)Google Vertex AI：Geminiシリーズのスーパービジョンファインチューニング・RLHF対応、(3)Amazon Bedrock：Titan・Claude・Llama 2のカスタムモデル作成、(4)Azure AI Studio：OpenAIモデルのマネージドファインチューニングがあります。
+
+ファインチューニングが有効なユースケースは、(1)特定の文体・トーン・フォーマットへの一貫した適応、(2)業界専門用語・社内用語の習得、(3)ゼロショット/フューショットプロンプティングでは品質が不十分なタスク、(4)レイテンシ・コストを下げるためのプロンプト短縮（指示を重みに組み込む）です。
+
+注意点として、学習データの品質がモデル品質に直結するため、クリーニング・ラベリングの精度管理が重要です。また、RAGで対応できるケースでは先にRAGを試し、それでも不十分な場合にファインチューニングを検討する段階的アプローチが推奨されます。`,
+    relatedSlugs: [
+      "fine-tuning",
+      "sft",
+      "lora",
+      "peft",
+      "openai-api",
+    ],
+    sources: [
+      {
+        title: "Fine-tuning – OpenAI Documentation",
+        url: "https://platform.openai.com/docs/guides/fine-tuning",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Supervised tuning – Google Vertex AI Documentation",
+        url: "https://cloud.google.com/vertex-ai/generative-ai/docs/models/tune-models",
+        publisher: "Google Cloud",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "retrieval-pipeline",
+    term: "検索パイプライン",
+    reading: "けんさくパイプライン",
+    category: "実装",
+    summary:
+      "RAGシステムにおいてドキュメントの前処理・チャンキング・インデックス作成・検索・リランキングを一連で処理するシステム構成。",
+    description: `検索パイプライン（Retrieval Pipeline）とは、RAG（Retrieval-Augmented Generation）システムにおいて、外部ドキュメントをLLMが参照できる形に整備し、クエリに対して最適なドキュメントチャンクを提供するまでの処理フロー全体を指します。RAGシステムの品質はこの検索パイプラインの設計に大きく依存します。
+
+検索パイプラインの主要コンポーネントは、(1)ドキュメント取り込み（Ingestion）：PDF・Word・HTML・Confluenceなど様々な形式のドキュメントを読み込み・正規化、(2)チャンキング（Chunking）：ドキュメントを適切なサイズのテキスト断片に分割（固定長・文境界・意味境界など）、(3)エンベディング（Embedding）：各チャンクを埋め込みモデルでベクトル化、(4)インデックス構築：ベクトルDBへの格納とANNインデックス作成、(5)検索（Retrieval）：クエリベクトルによる上位K件取得、(6)リランキング（Reranking）：クロスエンコーダーによる精密な関連度再評価です。
+
+高度な設計として、ハイブリッド検索（BM25キーワード検索＋ベクトル検索の組み合わせ）・階層インデックス（サマリー＋詳細の2段構成）・クエリ拡張（HyDE：仮想文書を生成してからベクトル検索）が採用されるケースが増えています。
+
+LlamaIndex・LangChain・Haystack・Difyなどのフレームワークがパイプライン構築を支援するコンポーネントを提供しています。`,
+    relatedSlugs: [
+      "rag",
+      "retrieval",
+      "semantic-chunking",
+      "reranking",
+      "vector-search",
+    ],
+    sources: [
+      {
+        title: "Building a RAG pipeline – LlamaIndex Documentation",
+        url: "https://docs.llamaindex.ai/en/stable/understanding/rag/",
+        publisher: "LlamaIndex",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "RAG – LangChain Documentation",
+        url: "https://python.langchain.com/docs/tutorials/rag/",
+        publisher: "LangChain",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "llm-evaluation",
+    term: "LLM評価",
+    reading: "エルエルエムひょうか",
+    category: "評価",
+    summary:
+      "LLMの出力品質を精度・一貫性・有害性・事実性等の観点で体系的に測定するプロセス。自動評価と人間評価を組み合わせる。",
+    description: `LLM評価（LLM Evaluation）とは、大規模言語モデルが生成するテキストの品質・安全性・有用性を多角的な指標で測定し、モデルの適切な選定・改善・モニタリングに役立てるプロセスです。LLMの確率的な挙動とオープンエンドな出力の特性から、従来の精度スコアのみでは評価が不十分であり、多次元的な評価フレームワークが必要とされます。
+
+評価の主要観点として、(1)タスク精度（回答の正確性・F1スコア等）、(2)忠実性（取得文書への根拠づけ度）、(3)有害性（ヘイトスピーチ・不適切コンテンツの生成率）、(4)一貫性（同じ質問への回答の安定性）、(5)流暢性・可読性、(6)レイテンシ・コスト効率があります。
+
+評価手法の分類として、(1)自動評価：BLEU・ROUGE等の参照ベース指標、埋め込みベースの意味類似度、(2)LLM-as-Judge：別のLLM（GPT-4oなど）が採点者として機能するMT-Bench方式、(3)人間評価：SBSテスト（Side-by-Side比較）・クラウドソーシング・専門家評価があります。
+
+実務では「評価データセットの構築」が最大の課題です。本番ログから収集した実際のユーザークエリに基づくゴールデンセットを作成し、継続的にモデルの改善効果を測定するCI/CDライクな評価パイプラインの整備が推奨されます。`,
+    relatedSlugs: [
+      "evaluation-metrics",
+      "llm-as-judge",
+      "benchmark",
+      "ai-observability",
+      "responsible-ai",
+    ],
+    sources: [
+      {
+        title: "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+        url: "https://arxiv.org/abs/2306.05685",
+        publisher: "arXiv / LMSYS",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "HELM: Holistic Evaluation of Language Models",
+        url: "https://crfm.stanford.edu/helm/latest/",
+        publisher: "Stanford CRFM",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "context-window-management",
+    term: "コンテキストウィンドウ管理",
+    reading: "コンテキストウィンドウかんり",
+    category: "実装",
+    summary:
+      "限られたコンテキスト長を効率的に活用するための戦略。プロンプト圧縮・要約・キャッシング・スライディングウィンドウ等を含む。",
+    description: `コンテキストウィンドウ管理（Context Window Management）とは、LLMが処理できるトークン数の上限（コンテキスト長）という制約の中で、最も重要な情報を適切に配置・管理するための戦略と実装手法の総称です。チャットボット・エージェント・RAGシステムなど、長いやり取りや大量の情報を扱うアプリケーションで特に重要です。
+
+主要な管理戦略として、(1)スライディングウィンドウ：会話履歴が長くなったら古いメッセージを削除し最新のN件のみ保持、(2)要約圧縮：古い会話履歴を要約してコンパクトなサマリーに置き換え、(3)プロンプトキャッシング：毎回変わらないシステムプロンプト部分をキャッシュしてコストとレイテンシを削減、(4)プロンプト圧縮：LLMLinguaなどのツールで不要なトークンを削減して重要情報の密度を高める、(5)RAGによる動的挿入：全情報を常時保持せず必要な情報のみ都度取得して挿入があります。
+
+配置戦略として「Lost-in-the-Middle」問題（長いコンテキスト中央の情報が参照されにくくなる現象）への対策が重要です。最も重要な情報はコンテキストの先頭または末尾に配置することで参照精度が向上します。
+
+マルチエージェントシステムでは、エージェント間でコンテキストを引き継ぐHandoff設計・共有メモリストアの活用・エージェントごとのコンテキスト分離など、より複雑な管理が求められます。`,
+    relatedSlugs: [
+      "context-window",
+      "context-length",
+      "prompt-compression",
+      "prompt-caching",
+      "long-context",
+    ],
+    sources: [
+      {
+        title: "Context windows – Anthropic Documentation",
+        url: "https://docs.anthropic.com/en/docs/build-with-claude/context-windows",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Best practices for managing tokens – OpenAI Documentation",
+        url: "https://platform.openai.com/docs/guides/production-best-practices",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-cost-optimization",
+    term: "AIコスト最適化",
+    reading: "エーアイコストさいてきか",
+    category: "実装",
+    summary:
+      "LLM API利用コストを削減するための手法。モデルの使い分け・プロンプト圧縮・キャッシング・バッチ処理・小型モデル活用等。",
+    description: `AIコスト最適化（AI Cost Optimization）とは、LLM APIの利用コストを最小化しながらサービス品質を維持するための戦略と実装手法の総称です。生成AIサービスのスケールアップに伴いAPI費用が急増するケースが多く、本番運用において収益性を確保するための重要な設計要素となっています。
+
+主要なコスト削減手法として、(1)モデルの使い分け（Model Routing）：複雑なタスクには高性能モデル、単純なタスクには安価な小型モデルを使い分けるルーティング戦略、(2)プロンプトキャッシング：繰り返し使うシステムプロンプトをキャッシュしてAnthropicは最大90%、OpenAIは最大50%のコスト削減、(3)プロンプト圧縮：LLMLinguaなどで入力トークンを削減、(4)バッチ処理（Batch API）：リアルタイム不要のタスクをバッチジョブとして処理しOpenAIは50%オフ、(5)量子化モデルの活用：INT4/INT8量子化モデルでコスト・レイテンシを低減があります。
+
+コスト計算の基本として、APIコストは「(入力トークン数×入力単価)＋(出力トークン数×出力単価)」で計算されます。出力単価が入力より高いため、詳細な出力を要するタスクのコストは特に高くなります。
+
+モニタリングツールとして、LangSmith・Langfuse・Weights & Biasesがトークン消費量・コスト・レイテンシをリアルタイムで可視化し、コスト異常検知・アラート設定に対応しています。`,
+    relatedSlugs: [
+      "llmops",
+      "prompt-caching",
+      "quantization",
+      "model-selection",
+      "latency",
+    ],
+    sources: [
+      {
+        title: "OpenAI API Pricing",
+        url: "https://openai.com/api/pricing/",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Anthropic API Pricing",
+        url: "https://www.anthropic.com/pricing",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
