@@ -7078,6 +7078,376 @@ LLMの文脈では、Transformerのヘッド数・層数・FFN幅の最適化に
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "top-k",
+    term: "Top-K サンプリング",
+    reading: "トップケーサンプリング",
+    category: "基礎概念",
+    summary:
+      "LLMのテキスト生成時に次トークン候補を確率上位K個に絞って選択するサンプリング手法。temperatureやtop-pと組み合わせて多様性と品質を制御する。",
+    description: `Top-K サンプリング（Top-K Sampling）とは、LLMがテキストを生成する際に、次のトークンを選ぶ候補を語彙全体からではなく確率スコア上位K個のトークンに制限するデコーディング手法です。低確率の「ありえない」トークンを候補から除外することで、生成テキストの品質を保ちながら適度な多様性を実現します。
+
+仕組みとして、LLMは各ステップで語彙全体（数万〜数十万トークン）に対して確率分布を出力します。Top-K=50の場合、確率上位50個のトークンのみを候補とし、残りの確率を0にして再正規化してからサンプリングします。K=1は毎回最も確率の高いトークンを選ぶ「貪欲デコーディング（Greedy Decoding）」と同義です。
+
+Top-K の課題として、最適なKの値がコンテキストによって異なる点があります。次のトークンの分布が広い場合（多様な続き方が考えられる場合）はKが小さすぎると質の高い候補を除外してしまい、分布が狭い場合（ほぼ1択の場合）はKが大きすぎると低確率の不自然なトークンが混入します。
+
+この問題を解決するためにTop-P（Nucleus Sampling）が提案されており、確率の累積和がPに達するまでの上位トークンを動的に選ぶことで、分布の形状に応じた適応的な候補数絞り込みを実現します。実際のAPIでは temperature・top-k・top-p を組み合わせて生成品質と創造性のバランスを調整します。`,
+    relatedSlugs: [
+      "temperature",
+      "top-p",
+      "inference",
+      "llm",
+      "token",
+    ],
+    sources: [
+      {
+        title: "Hierarchical Neural Story Generation",
+        url: "https://arxiv.org/abs/1805.04833",
+        publisher: "arXiv / Fan et al. (2018)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Text generation strategies – Hugging Face Documentation",
+        url: "https://huggingface.co/docs/transformers/generation_strategies",
+        publisher: "Hugging Face",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "beam-search",
+    term: "ビームサーチ",
+    reading: "ビームサーチ",
+    category: "基礎概念",
+    summary:
+      "複数の候補シーケンス（ビーム）を並行して保持しながら最も確率の高い出力を探索するデコーディング戦略。翻訳・要約で広く使用される。",
+    description: `ビームサーチ（Beam Search）とは、テキスト生成において複数の候補シーケンス（ビーム）を同時並行で追跡し、最終的に累積確率が最も高いシーケンスを選択するデコーディングアルゴリズムです。貪欲デコーディング（毎回最高確率のトークンのみ選択）が局所最適に陥る問題を緩和するために考案されました。
+
+ビーム幅（Beam Width）パラメータBを設定すると、各ステップでB本の候補シーケンスを保持します。例えばB=4の場合、各トークン生成ステップで各ビームの上位候補を展開し、全体でB本に絞り込みながら末尾（EOS）トークンまで探索を続けます。ビーム幅が大きいほど探索が広くなり品質が上がりますが、計算コストもB倍になります。
+
+機械翻訳・テキスト要約・コード生成など出力の決定性が重要なタスクではビームサーチが標準的に使われてきました。Google翻訳をはじめとする翻訳システムのデコーダーにも採用されています。
+
+一方、チャット・創作・ブレインストーミングなど多様な出力が望まれる用途では、ビームサーチより温度付きサンプリング（temperature sampling）が好まれます。LLM APIでは通常デフォルトがサンプリングであり、決定的な出力が必要な場合はtemperature=0（または=0に近い値）を指定することでビームサーチに近い挙動が得られます。`,
+    relatedSlugs: [
+      "inference",
+      "llm",
+      "token",
+      "machine-translation",
+      "top-k",
+    ],
+    sources: [
+      {
+        title: "Sequence to Sequence Learning with Neural Networks",
+        url: "https://arxiv.org/abs/1409.3215",
+        publisher: "arXiv / Sutskever et al. (2014)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Beam search – Hugging Face Documentation",
+        url: "https://huggingface.co/docs/transformers/generation_strategies#beam-search-decoding",
+        publisher: "Hugging Face",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ollama",
+    term: "Ollama",
+    reading: "オラマ",
+    category: "実装",
+    summary:
+      "LLaMA・Mistral・Phi等のオープンソースLLMをローカルPCで簡単に実行するためのツール。APIサーバーも起動でき開発・プライバシー重視の用途に人気。",
+    description: `Ollama（オラマ）とは、LLaMA・Mistral・Phi・Gemma・Qwenなどのオープンソース大規模言語モデルをローカルPC・サーバー上で簡単に実行できるツールです。Dockerのような感覚でモデルをpull・runでき、GPUがなくてもCPU推論に対応しているため、AIエンジニアや研究者がプライベートな環境でLLMを手軽に試せる点が支持されています。
+
+主な特徴として、(1)シンプルなCLI：「ollama run llama3.2」のような一行コマンドでモデルのダウンロードと起動が完結、(2)OpenAI互換API：「localhost:11434」でOpenAI APIと同じエンドポイント形式でアクセスでき、既存のLangChain・LlamaIndex等のコードをそのまま流用可能、(3)Modelfile：モデルのカスタマイズ（システムプロンプト・量子化設定）をDockerfileライクな形式で定義、(4)マルチプラットフォーム：macOS（Apple Silicon最適化）・Linux・Windows（WSL2）に対応があります。
+
+ビジネスでの活用シーンとして、(1)社内データをクラウドに送りたくないコンプライアンス要件への対応、(2)開発・テスト環境での無料API利用、(3)エッジデバイス・オンプレミス環境でのAI推論、(4)レイテンシが重要なユースケースでのローカル推論があります。
+
+AnthropicのClaude・OpenAIのGPTなどクローズドモデルには対応していませんが、Hugging Faceで公開されているGGUF形式のモデルを広くサポートしています。`,
+    relatedSlugs: [
+      "open-source-llm",
+      "llama",
+      "mistral",
+      "inference",
+      "model-serving",
+    ],
+    sources: [
+      {
+        title: "Ollama – Official Documentation",
+        url: "https://ollama.com/",
+        publisher: "Ollama",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "ollama/ollama – GitHub",
+        url: "https://github.com/ollama/ollama",
+        publisher: "GitHub",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "llm-security",
+    term: "LLMセキュリティ",
+    reading: "エルエルエムセキュリティ",
+    category: "法務・倫理",
+    summary:
+      "LLMアプリケーションを標的とした攻撃（プロンプトインジェクション・データ流出・モデル操作）への防御と脆弱性管理。",
+    description: `LLMセキュリティ（LLM Security）とは、LLMを組み込んだアプリケーション・サービスを標的とした固有の攻撃手法を理解し、適切な防御策・脆弱性管理・インシデント対応を設計するセキュリティ分野です。OWASP（Open Worldwide Application Security Project）が2023年に「LLM Top 10」を公開し、LLM固有のリスクを体系化しました。
+
+OWASP LLM Top 10の主要リスクとして、(1)プロンプトインジェクション：悪意ある指示をユーザー入力に埋め込み、モデルに意図しない動作をさせる（最重要リスク）、(2)インセキュアな出力処理：LLM出力をサニタイズせず直接実行しXSS・SQLインジェクションが発生、(3)訓練データポイズニング：学習データに悪意あるデータを混入してモデル挙動を操作、(4)モデルDoS：意図的に大量トークンを消費させてサービス不能にする、(5)過度な権限付与：エージェントに必要以上のツール・API権限を与えるリスクがあります。
+
+防御のベストプラクティスとして、(1)入力バリデーション：ユーザー入力の長さ制限・禁止パターン検出、(2)最小権限の原則：エージェントに必要最低限のツール権限のみ付与、(3)出力サニタイゼーション：LLM出力をHTML/SQLに渡す前にエスケープ処理、(4)プロンプトインジェクション対策：信頼できる指示と外部入力を明確に分離、(5)レート制限とコスト上限の設定があります。
+
+LLMセキュリティはWebアプリケーションセキュリティの知識を基礎としながら、AI固有のリスクモデルを追加した複合的な専門領域です。`,
+    relatedSlugs: [
+      "prompt-injection",
+      "jailbreak",
+      "red-teaming",
+      "ai-governance",
+      "responsible-ai",
+    ],
+    sources: [
+      {
+        title: "OWASP Top 10 for LLM Applications",
+        url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        publisher: "OWASP",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "NIST AI Risk Management Framework",
+        url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework",
+        publisher: "NIST",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-adoption",
+    term: "AI導入",
+    reading: "エーアイどうにゅう",
+    category: "実装",
+    summary:
+      "組織・企業がAI技術を業務プロセスや製品に取り入れるプロセス全体。技術選定・人材育成・変更管理・ROI測定を含む。",
+    description: `AI導入（AI Adoption）とは、組織・企業がAI技術を業務プロセス・製品・サービスに取り入れて価値を創出するまでの一連のプロセスを指します。単なるツールの購入・設定ではなく、技術選定・パイロット実施・社員教育・プロセス変更・ガバナンス整備・効果測定を包括したプログラムマネジメントです。
+
+AI導入の主要フェーズとして、(1)現状評価とユースケース特定：ビジネス課題をAIで解決できる領域の特定・優先順位付け、(2)実現可能性検証（PoC）：小規模な実証実験でROIと技術的実現可能性を確認、(3)パイロット展開：限定的な範囲での本格導入と効果測定、(4)スケールアップ：成功パターンの組織全体への展開、(5)継続的改善：モデル・プロセス・人材の継続的な最適化があります。
+
+McKinseyの調査（2024年）では、生成AI導入企業の72%が少なくとも1つのビジネス機能でAIを採用しており、最も普及している分野はマーケティング・IT・HR・法務です。一方、「PoC止まり」の課題も指摘されており、スケールアップ成功の鍵として経営層のコミットメント・データ基盤整備・AI人材育成が挙げられています。
+
+日本企業固有の課題として、AI活用に必要なデータ品質・整備状況の遅れ、AI人材不足、レガシーシステムとの統合コスト、意思決定の稟議プロセスとAIの高速サイクルの相性の悪さが報告されています。`,
+    relatedSlugs: [
+      "ai-strategy",
+      "ai-literacy",
+      "llmops",
+      "ai-governance",
+      "no-code-ai",
+    ],
+    sources: [
+      {
+        title: "The State of AI in 2024 – McKinsey",
+        url: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+        publisher: "McKinsey & Company",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "AI Adoption in the Enterprise – O'Reilly",
+        url: "https://www.oreilly.com/radar/ai-adoption-in-the-enterprise/",
+        publisher: "O'Reilly Media",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-roi",
+    term: "AI ROI",
+    reading: "エーアイアールオーアイ",
+    category: "実装",
+    summary:
+      "AI投資に対する経済的リターンの測定指標（Return on Investment）。コスト削減・生産性向上・売上増加を定量化して投資判断に活用する。",
+    description: `AI ROI（AI Return on Investment）とは、AIへの投資（ツール費用・インフラ・人件費・開発コスト）に対して得られる経済的リターン（コスト削減・生産性向上・売上増加・リスク低減）を定量化した指標です。AIプロジェクトの投資判断・優先順位付け・継続/撤退の評価に使われます。
+
+ROI計算の基本式は「ROI = (利益 − 投資額) ÷ 投資額 × 100%」ですが、AIの効果は定量化が難しいケースが多く、適切な指標設計が重要です。測定できるROI要素として、(1)直接コスト削減：人件費・外注費・オペレーションコストの削減額、(2)生産性向上：単位時間あたりのアウトプット増加、(3)品質改善：エラー率低下・顧客満足度向上、(4)収益増加：AIによる新規売上・クロスセル・解約率低下があります。
+
+McKinseyの分析では、AI投資のROIを最大化している企業（AI先進企業）は、特定タスクの自動化にとどまらず、AIを活用したビジネスモデル変革・新規事業創出まで取り組んでいる点が共通しています。
+
+ROI測定のベストプラクティスとして、(1)導入前のベースライン指標の記録、(2)A/Bテストによる効果の分離（他要因の影響排除）、(3)TCO（総所有コスト）の正確な把握（AIモデルコスト・運用・保守・再学習費用）、(4)6〜12ヶ月スパンでの継続的な効果追跡が推奨されます。`,
+    relatedSlugs: [
+      "ai-strategy",
+      "ai-adoption",
+      "ai-cost-optimization",
+      "llmops",
+      "evaluation-metrics",
+    ],
+    sources: [
+      {
+        title: "Measuring the ROI of AI – McKinsey",
+        url: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+        publisher: "McKinsey & Company",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "How to Calculate ROI for AI Projects – Harvard Business Review",
+        url: "https://hbr.org/2023/05/how-to-build-an-ai-roi-measurement-system",
+        publisher: "Harvard Business Review",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "data-pipeline",
+    term: "データパイプライン",
+    reading: "データパイプライン",
+    category: "実装",
+    summary:
+      "データの収集・クレンジング・変換・保存・配信を自動化する一連のプロセス。AI/MLシステムの学習・推論データ供給を担う。",
+    description: `データパイプライン（Data Pipeline）とは、データソースからデータを収集・変換・加工・保存・配信するまでの一連の自動化されたプロセスフローです。AI/MLシステムにとって「良質なデータが継続的に供給されること」は性能の根幹であり、データパイプラインはAI基盤の重要インフラです。
+
+データパイプラインの主要コンポーネントとして、(1)データ収集（Ingestion）：データベース・API・ファイル・ストリーミングデータの取り込み、(2)データ変換（Transform）：クレンジング・正規化・結合・集計・特徴量生成、(3)データストレージ：データウェアハウス（BigQuery・Snowflake）・データレイク（S3・GCS）への保存、(4)オーケストレーション：パイプライン全体のスケジューリング・依存関係管理・エラーリトライがあります。
+
+アーキテクチャとして、(1)バッチパイプライン：定期的（毎時・毎日）にデータを処理する方式、(2)ストリーミングパイプライン：Kafka・Flink等でリアルタイムにデータを処理する方式、(3)ラムダアーキテクチャ：バッチとストリーミングを組み合わせる方式があります。
+
+AI/ML向けのMLデータパイプラインでは、学習データのバージョン管理（DVC）・データ品質チェック（Great Expectations）・特徴量ストア（Feast）が追加コンポーネントとして重要です。RAGシステムでは文書の定期クロール・前処理・埋め込み生成・ベクトルDB更新を自動化する専用パイプラインが不可欠です。`,
+    relatedSlugs: [
+      "dataset",
+      "data-science",
+      "machine-learning",
+      "llmops",
+      "data-augmentation",
+    ],
+    sources: [
+      {
+        title: "Apache Airflow Documentation",
+        url: "https://airflow.apache.org/docs/",
+        publisher: "Apache Software Foundation",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Prefect – Modern Dataflow Automation",
+        url: "https://docs.prefect.io/",
+        publisher: "Prefect",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "experiment-tracking",
+    term: "実験管理",
+    reading: "じっけんかんり",
+    category: "実装",
+    summary:
+      "MLモデルの学習実験（パラメータ・メトリクス・成果物）を記録・比較・再現するためのMLOps実践。MLflow・Weights & Biasesが代表ツール。",
+    description: `実験管理（Experiment Tracking）とは、機械学習・深層学習モデルの学習実験において使用したハイパーパラメータ・評価メトリクス・モデルの重み・使用データセットなどを系統的に記録・比較・再現可能にするMLOpsの中核プラクティスです。「どの設定でどの結果が出たか」を追跡できない実験管理の欠如は、再現性問題・無駄な試行反復・チーム間の知識断絶を招きます。
+
+記録すべき実験要素として、(1)ハイパーパラメータ：学習率・バッチサイズ・エポック数・モデルアーキテクチャ設定、(2)評価メトリクス：各エポックの損失・精度・F1等の時系列ログ、(3)成果物（Artifacts）：モデルの重みファイル・特徴量エンジニアリングのコード・評価データセット、(4)環境情報：Pythonバージョン・ライブラリバージョン・ハードウェア構成があります。
+
+代表ツールとして、(1)MLflow（OSS）：実験ログ・モデルレジストリ・デプロイをオールインワンで提供するMLOpsプラットフォーム、(2)Weights & Biases（W&B）：リッチなビジュアライゼーション・チーム共有機能・ハイパーパラメータ最適化（Sweep）に強み、(3)Neptune.ai・Comet ML：類似機能を提供するサービスがあります。
+
+LLMのプロンプトエンジニアリング・ファインチューニング管理においても実験管理の重要性が高まっており、LangSmith・PromptLayerはLLM特化の実験管理ツールとして普及しています。`,
+    relatedSlugs: [
+      "llmops",
+      "hyperparameter",
+      "evaluation-metrics",
+      "model-card",
+      "ai-observability",
+    ],
+    sources: [
+      {
+        title: "MLflow – Open source platform for the ML lifecycle",
+        url: "https://mlflow.org/docs/latest/index.html",
+        publisher: "MLflow",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Weights & Biases Documentation",
+        url: "https://docs.wandb.ai/",
+        publisher: "Weights & Biases",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "model-registry",
+    term: "モデルレジストリ",
+    reading: "モデルレジストリ",
+    category: "実装",
+    summary:
+      "学習済みモデルのバージョン管理・メタデータ記録・デプロイ状態管理を行うMLOpsの中核コンポーネント。MLflow Model Registry等が代表。",
+    description: `モデルレジストリ（Model Registry）とは、学習済み機械学習モデルの成果物を一元管理するリポジトリです。モデルのバージョン管理・メタデータ（学習データ・評価指標・実験パラメータ）の記録・デプロイ状態（Staging/Production/Archived）の追跡・ガバナンス（承認ワークフロー）を担うMLOpsの中核コンポーネントです。
+
+モデルレジストリが解決する課題として、(1)「どのモデルが本番で動いているか」の追跡困難、(2)モデルのロールバック（性能劣化時に以前のバージョンへ戻す）の煩雑さ、(3)モデル更新の承認プロセスの欠如によるガバナンスリスク、(4)モデルの再現性（同じデータ・コードから同じモデルを再生成できるか）の担保があります。
+
+代表的なツールとして、(1)MLflow Model Registry（OSS）：ステージ管理（None/Staging/Production/Archived）・バージョン履歴・注釈付けに対応、(2)Hugging Face Model Hub：OSS・商用モデルの公開・共有・バージョン管理プラットフォームとして機能、(3)Amazon SageMaker Model Registry・Vertex AI Model Registry：クラウドネイティブのマネージドサービスがあります。
+
+LLM時代においては、ファインチューニングしたモデルのバージョン管理・本番デプロイのA/Bテスト・モデルカード（性能・バイアス・制限の文書）との紐付けが重要な運用要件となっています。`,
+    relatedSlugs: [
+      "llmops",
+      "model-serving",
+      "model-card",
+      "experiment-tracking",
+      "fine-tuning",
+    ],
+    sources: [
+      {
+        title: "MLflow Model Registry Documentation",
+        url: "https://mlflow.org/docs/latest/model-registry.html",
+        publisher: "MLflow",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Hugging Face Model Hub",
+        url: "https://huggingface.co/docs/hub/models-the-hub",
+        publisher: "Hugging Face",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-readiness",
+    term: "AIレディネス",
+    reading: "エーアイレディネス",
+    category: "実装",
+    summary:
+      "組織がAIを効果的に導入・活用するための準備状態の評価指標。データ品質・人材スキル・インフラ・ガバナンスの成熟度を測る。",
+    description: `AIレディネス（AI Readiness）とは、組織がAIを効果的に導入・運用・スケールするために必要な能力・インフラ・文化・プロセスがどの程度整備されているかを評価する成熟度フレームワークです。AI導入前の現状把握・ギャップ分析・優先的に整備すべき領域の特定に活用されます。
+
+AIレディネスの主要評価軸として、(1)データ成熟度：データの収集・品質・アクセス性・ガバナンスの整備状況（最も重要かつ日本企業が課題を抱えやすい領域）、(2)技術インフラ：クラウド・GPU・API連携・セキュリティ環境の整備状況、(3)人材・スキル：AIエンジニア・データサイエンティスト・AI活用ビジネスユーザーの在籍状況と育成計画、(4)組織・プロセス：AI推進専任チームの有無・意思決定プロセス・変更管理能力、(5)ガバナンス・倫理：AI利用ポリシー・リスク管理・コンプライアンス体制があります。
+
+主要なAIレディネスフレームワークとして、McKinseyのAI Maturity Model・Google Cloud AI Maturity Model・IDCのAI Maturity Scale・WEF（世界経済フォーラム）のAI Readiness Indexが参照されています。
+
+実践的なアセスメントとして、各評価軸を1〜5のスコアで評価し、スパイダーチャート化することで強み・弱みが可視化されます。スコアが低い領域から優先的に投資することで、AI導入の「PoC止まり」を防ぎ、本番スケールアップへの確実な道筋が描けます。`,
+    relatedSlugs: [
+      "ai-strategy",
+      "ai-adoption",
+      "ai-governance",
+      "ai-literacy",
+      "responsible-ai",
+    ],
+    sources: [
+      {
+        title: "The AI Readiness Report – Google Cloud",
+        url: "https://cloud.google.com/transform/ai-readiness",
+        publisher: "Google Cloud",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "AI Maturity Model – McKinsey",
+        url: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+        publisher: "McKinsey & Company",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
