@@ -13550,6 +13550,577 @@ Google DeepMindがKaplan則を修正した重要研究：
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "mechanistic-interpretability",
+    term: "メカニスティック解釈可能性",
+    reading: "メカニスティックかいしゃくかのうせい",
+    category: "基礎概念",
+    summary:
+      "メカニスティック解釈可能性とは、ニューラルネットワークの内部動作をアルゴリズムレベルで解明しようとする研究分野で、回路・特徴・注意パターンを分析してモデルが何を計算しているかを説明し、AI安全性研究の中核領域となっています。",
+    description: `メカニスティック解釈可能性（Mechanistic Interpretability）とは、ニューラルネットワーク、特にトランスフォーマー系LLMの内部動作を、アルゴリズムやコンポーネントのレベルまで分解・解明しようとする研究分野です。「モデルが何を学んだのか」を人間が理解できる形で説明することを目指します。
+
+**中心的な概念：**
+
+**1. 回路（Circuits）**
+ニューラルネットワーク内の、特定のタスクを実現するニューロンと重みの経路。Chris Olahらの研究で、画像認識モデルにおいて曲線検出・パターン合成が回路として実装されていることが示されました。
+
+**2. 特徴（Features）**
+個々のニューロンや方向が表現する概念・意味。スーパーポジション仮説：1つのニューロンが複数の特徴を同時に表現することがあり、解析を複雑にします。スパース自己符号化器（Sparse Autoencoder）でこれを分解する手法が研究されています。
+
+**3. 注意パターン（Attention Patterns）**
+トランスフォーマーのアテンションヘッドがどのトークン間の関係を学習しているかを可視化・分類する研究。
+
+**主な研究機関と成果：**
+- **Anthropic**：「Towards Monosemanticity」（2023年）でスパース自己符号化器を用いた特徴分解
+- **DeepMind**：大規模モデルへの適用研究
+- **EleutherAI**：オープンソースモデルを対象とした解析
+
+**AI安全性との関係：**
+モデルの内部を理解することで、有害な信念・バイアスを直接検出・修正できる可能性があり、アライメント研究の重要な柱となっています。ブラックボックスな評価から「透明な理解」へのパラダイム転換を目指す分野です。`,
+    relatedSlugs: [
+      "attention-mechanism",
+      "transformer",
+      "explainability",
+      "ai-safety",
+      "sparse-autoencoder",
+    ],
+    sources: [
+      {
+        title: "Zoom In: An Introduction to Circuits",
+        url: "https://distill.pub/2020/circuits/zoom-in/",
+        publisher: "Distill / Olah et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Towards Monosemanticity: Decomposing Language Models With Dictionary Learning",
+        url: "https://transformer-circuits.pub/2023/monosemantic-features/index.html",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "superalignment",
+    term: "スーパーアライメント",
+    reading: "スーパーアライメント",
+    category: "法務・倫理",
+    summary:
+      "スーパーアライメントとは、人間の知的能力を超えるAIシステムを安全に整合させる研究領域で、OpenAIが2023年に専任チームを設置し、AIを使って超知能AIのアライメント問題を自動的に解くことを目指す壮大な取り組みです。",
+    description: `スーパーアライメント（Superalignment）とは、将来登場するとされる「スーパーインテリジェンス（超知能）」—人間をはるかに超える知的能力を持つAI—を、人間の価値観や意図に沿って安全に動作させるための研究・技術開発の総称です。
+
+**なぜ特別な問題なのか：**
+現在のアライメント手法（RLHFなど）は人間がAIの出力を評価することが前提ですが、AIが人間の評価能力を超えた場合、人間はその判断の正誤を判定できなくなります。これがスーパーアライメントの本質的な難しさです。
+
+**OpenAIのアプローチ（2023年発表）：**
+2023年7月、OpenAIはスーパーアライメント専任チームを設置し、4年以内に解決策を見つける目標を掲げました。
+
+**中核的アイデア：「AIでAIを監督する」**
+- 現在の賢いAI（例：GPT-4レベル）を「弱い監督者」として使い、より強力なAIを評価させる
+- 徐々に監督能力を拡張し、最終的に超知能AIを監督できる体制を構築
+- **自動化された整合研究**：AIが自律的にアライメント研究を加速させる
+
+**スケーラブル監督との関係：**
+スーパーアライメントはスケーラブル監督（Scalable Oversight）の延長線上にある概念で、「人間の評価能力の拡張」をAIの助けを借りて実現しようとします。
+
+**批判と課題：**
+- 2024年にチーム創設者のIlya Sutskever・Jan Leike両氏がOpenAIを退社し、取り組みの継続性が注目されました
+- 「AIでAIを評価する」という循環論的アプローチへの批判
+- 実現タイムラインの不確実性
+
+AI安全性コミュニティでの最重要課題のひとつとして、各研究機関が独自のアプローチを競っています。`,
+    relatedSlugs: [
+      "alignment",
+      "agi",
+      "ai-safety",
+      "scalable-oversight",
+      "responsible-ai",
+    ],
+    sources: [
+      {
+        title: "Introducing Superalignment",
+        url: "https://openai.com/blog/introducing-superalignment",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Weak-to-Strong Generalization",
+        url: "https://arxiv.org/abs/2312.09390",
+        publisher: "arXiv / OpenAI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "latent-space",
+    term: "潜在空間",
+    reading: "せんざいくうかん",
+    category: "基礎概念",
+    summary:
+      "潜在空間とは、ニューラルネットワークが入力データを変換した高次元ベクトル表現の空間で、意味的に似たデータが近い位置に配置される性質を持ち、埋め込み・生成モデル・RAGすべての基盤となる概念です。",
+    description: `潜在空間（Latent Space）とは、ニューラルネットワークが入力データ（テキスト・画像・音声など）を内部で変換した際に生成される、連続的な高次元ベクトルの空間です。「潜在」とは、人間には直接観測できない隠れた表現という意味です。
+
+**なぜ潜在空間が重要なのか：**
+生のデータ（テキストや画像のピクセル）には冗長性が多く、そのままでは類似性の計算や生成が困難です。潜在空間では：
+- 意味的に近いデータは空間的にも近くなる
+- データの本質的な構造・関係が圧縮されて表現される
+- 連続空間内の補間や演算が意味のある変換に対応する
+
+**具体的なイメージ：**
+テキスト埋め込みでは「王様」「女王」「男性」「女性」という概念が、「女王 ≈ 王様 − 男性 + 女性」が成立するような幾何学的関係で配置されます。
+
+**主な利用場面：**
+
+**1. 埋め込み・セマンティック検索**
+文書をベクトル化し潜在空間に配置することで、意味的類似度でRAG検索を実現。
+
+**2. 生成モデル（VAE / 拡散モデル）**
+潜在空間内でランダムサンプリングや操作を行い、新しい画像・テキストを生成。Stable Diffusionはノイズを含む潜在ベクトルを段階的に除去して画像を生成します。
+
+**3. 異常検知・クラスタリング**
+学習データの分布から外れた点（異常）を潜在空間での距離で検出。
+
+**次元削減との関係：**
+PCA・t-SNE・UMAPは高次元潜在空間を2〜3次元に圧縮して可視化するツールとして使われます。これにより「モデルが何を学んだか」を直感的に確認できます。`,
+    relatedSlugs: [
+      "embedding",
+      "vector-db",
+      "semantic-search",
+      "diffusion-model",
+      "generative-model",
+    ],
+    sources: [
+      {
+        title: "Auto-Encoding Variational Bayes",
+        url: "https://arxiv.org/abs/1312.6114",
+        publisher: "arXiv / Kingma & Welling",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Deep Learning (Goodfellow et al.) Chapter 14",
+        url: "https://www.deeplearningbook.org/",
+        publisher: "MIT Press",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "data-curation",
+    term: "データキュレーション",
+    reading: "データキュレーション",
+    category: "実装",
+    summary:
+      "データキュレーションとは、LLM学習のためにデータを体系的に収集・選別・クリーニング・品質評価する工程で、FineWebやRedPajamaなどの高品質コーパス構築で重要性が増し、「データの質がモデル性能を左右する」ことが広く認識されています。",
+    description: `データキュレーション（Data Curation）とは、機械学習・LLM学習のために、生データを収集・選別・クリーニング・品質評価・整理する一連の工程です。「キュレーション」は博物館の学芸員（Curator）が展示品を選定・整理することが語源です。
+
+**なぜデータキュレーションが重要なのか：**
+スケーリング則の研究（Chinchilla等）により、「データの量だけでなく質が性能に大きく影響する」ことが明らかになりました。低品質データで大量学習するより、高品質データで適切な量を学習する方が効果的な場合が多くあります。
+
+**主なプロセス：**
+
+**1. データ収集（Collection）**
+- Webクロール（Common Crawl等）でテキストを大量収集
+- 書籍・論文・コード・多言語データなどを組み合わせ
+
+**2. フィルタリング（Filtering）**
+- **品質フィルター**：低品質・スパム・重複コンテンツの除去
+- **安全フィルター**：有害コンテンツ・個人情報の除去
+- **ドメインフィルター**：学術・ニュース等の高品質ソースを優先
+- **言語フィルター**：対象言語の特定
+
+**3. 重複除去（Deduplication）**
+完全一致・近傍重複の除去。同じ文章を何度も学習すると過学習・丸暗記のリスクがあります。
+
+**4. 品質スコアリング**
+- **FastText分類器**：高品質なWikipedia等に近いものを選別
+- **Perplexityフィルター**：小モデルで低確率（=品質が低い可能性）のテキストを除外
+
+**代表的な高品質コーパス：**
+- **FineWeb（HuggingFace、2024年）**：15Tトークン、厳格なフィルタリング
+- **RedPajama-Data**：オープンソースの学習データセット
+- **The Pile（EleutherAI）**：多様なドメインの混合データ
+
+データキュレーションは非常に労働集約的な作業であり、高品質なデータセットの作成はLLM開発における競争優位の源泉となっています。`,
+    relatedSlugs: [
+      "pretraining",
+      "dataset",
+      "synthetic-data",
+      "data-annotation",
+      "data-augmentation",
+    ],
+    sources: [
+      {
+        title: "The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale",
+        url: "https://arxiv.org/abs/2406.17557",
+        publisher: "arXiv / HuggingFace",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "RedPajama-Data: An Open Source Recipe to Reproduce LLaMA Training Dataset",
+        url: "https://github.com/togethercomputer/RedPajama-Data",
+        publisher: "Together AI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "multilingual-llm",
+    term: "多言語LLM",
+    reading: "たげんごエルエルエム",
+    category: "モデル",
+    summary:
+      "多言語LLMとは複数言語で学習・推論できるLLMで、mBERT・XLM-R・Ayaが代表的。日本語特化モデルにはSwallow・Tanukiがあり、言語間転移学習により少数言語でも高い性能を発揮します。",
+    description: `多言語LLM（Multilingual LLM）とは、英語だけでなく複数の言語のデータで学習し、それらの言語で理解・生成・推論ができる大規模言語モデルです。
+
+**なぜ多言語対応が重要なのか：**
+インターネットコンテンツの大半は英語ですが、世界人口の大多数は英語以外を母語とします。多言語LLMは英語以外の言語ユーザーへのAI恩恵の民主化と、言語の壁を超えたビジネス活用を実現します。
+
+**主要な多言語モデルの系譜：**
+
+**エンコーダー系（理解特化）：**
+- **mBERT（2019年）**：Googleが104言語でBERTを学習した先駆け
+- **XLM-R（2020年）**：Facebook AIが100言語・2.5TBのデータで学習。mBERTを大幅に上回る性能
+
+**デコーダー系（生成特化）：**
+- **Aya（Cohere、2024年）**：101言語対応の生成モデル。コミュニティ参加型で多様な言語のデータ収集
+- **Qwen（Alibaba）**：中国語・英語を中心とした多言語対応
+- **Llama 3（Meta）**：多言語対応を強化し日本語も含む
+
+**日本語特化・日本語強化モデル：**
+- **Swallow（東京科学大学）**：Llama 2をベースに日本語追加学習
+- **Tanuki（東京大学松尾研）**：日本語能力を重視した独自モデル
+- **Sarashina（SB Intuitions）**：日本語LLM
+
+**言語間転移学習の仕組み：**
+大量データがある英語で学んだ知識・推論能力が、少ないデータしかない言語にも転移（Transfer）します。ゼロショット言語転移と呼ばれ、学習時に見ていない言語でも一定の性能が出ます。
+
+**課題：**
+英語と非英語言語間の性能差（言語間格差）は依然として存在します。特に文字体系・語順・形態論が英語と大きく異なる言語では差が広がりやすく、継続的な研究と日本語特化学習（継続事前学習）が進められています。`,
+    relatedSlugs: [
+      "llm",
+      "machine-translation",
+      "bert",
+      "transfer-learning",
+      "fine-tuning",
+    ],
+    sources: [
+      {
+        title: "Unsupervised Cross-lingual Representation Learning at Scale (XLM-R)",
+        url: "https://arxiv.org/abs/1911.02116",
+        publisher: "arXiv / Conneau et al. / Facebook AI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Aya Model: An Instruction Finetuned Open-Access Multilingual Language Model",
+        url: "https://arxiv.org/abs/2402.07827",
+        publisher: "arXiv / Cohere For AI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-companion",
+    term: "AIコンパニオン",
+    reading: "AIコンパニオン",
+    category: "実装",
+    summary:
+      "AIコンパニオンとは感情的なつながりや会話パートナーとして機能するAIサービスで、Character.ai・Replika・Kindroidが代表例。精神的サポート・語学練習・エンタメ用途で急成長し、依存性・プライバシーなど倫理的課題も注目されています。",
+    description: `AIコンパニオン（AI Companion）とは、情報提供や業務支援だけでなく、感情的なつながり・友人関係・ロールプレイ・継続的な会話パートナーとして機能するAIサービスの総称です。
+
+**主なサービスと特徴：**
+
+**Character.ai（2023年〜急成長）**
+ユーザーが任意のキャラクター（実在の有名人・アニメキャラ・オリジナルキャラ）を作成・会話できるプラットフォーム。月間アクティブユーザーは1億人超に達し、特に10〜20代に人気。
+
+**Replika**
+ユーザーの分身となるAIを育成する形式。長期的な会話履歴を蓄積し、感情的サポートを提供。精神的な孤独感を抱えるユーザーに支持される一方、過度な依存の問題も報告されています。
+
+**Kindroid・PI（Inflection）**
+より現実的な会話体験を目指した次世代型AIコンパニオン。
+
+**主な用途：**
+
+1. **感情的サポート**：孤独感の軽減、悩み相談の聞き役
+2. **語学学習**：会話練習相手としてのAI活用
+3. **エンターテインメント**：ゲームキャラクター・フィクション体験
+4. **ソーシャルスキル練習**：コミュニケーションの練習場として
+
+**倫理的・社会的課題：**
+
+- **依存性**：人間関係の代替になるリスク、特に若年層への影響
+- **プライバシー**：感情・個人情報の大量収集と活用
+- **現実と虚構の混同**：AIを実際の人間と誤認するリスク
+- **コンテンツ安全性**：有害・不適切なロールプレイの制限
+- **突然のサービス変更**：Replicaが2023年にアダルトコンテンツを無断で制限し、ユーザーが強い拒絶反応を示した事例
+
+規制当局や研究者がAIコンパニオンの心理的影響を調査しており、特に未成年ユーザーの保護が国際的な議論の焦点となっています。`,
+    relatedSlugs: [
+      "chatbot",
+      "conversational-ai",
+      "personalization",
+      "ai-safety",
+      "content-moderation",
+    ],
+    sources: [
+      {
+        title: "Character.AI - Build and Chat with AI Characters",
+        url: "https://character.ai/",
+        publisher: "Character.AI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "OECD Policy Observatory: AI Companions and Social Robots",
+        url: "https://oecd.ai/en/wonk/ai-companions",
+        publisher: "OECD",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "chain-of-code",
+    term: "チェーンオブコード",
+    reading: "チェーンオブコード",
+    category: "基礎概念",
+    summary:
+      "チェーンオブコードとは、LLMがコードを記述・実行することで推論を行う手法で、数値計算・データ処理・論理演算をコードで正確に解き、プログラム実行結果を答えに組み込むことでCoTの計算ミスや論理の曖昧さを補います。",
+    description: `チェーンオブコード（Chain of Code、CoC）とは、LLMが複雑な推論をプログラムコードとして記述し、そのコードを実行した結果を推論過程に組み込む手法です。2023年にGoogle DeepMind・Stanford Universityの研究者らが提案しました。
+
+**Chain of Thought（CoT）との違い：**
+CoTは自然言語で推論ステップを記述しますが、数値計算や論理演算では曖昧さや計算ミスが発生します。CoCはこれらの処理をコードに委ねることで精度を向上させます。
+
+**動作の仕組み：**
+
+\`\`\`
+問題: 「東京の面積は2,194 km²、大阪は828 km²。
+       東京は大阪の何倍の面積か？小数点以下2桁で答えよ」
+
+CoT（通常）: 「東京÷大阪 = ... 約2.6倍」（計算ミスのリスク）
+
+CoC（コード実行）:
+  python: print(round(2194 / 828, 2))
+  実行結果: 2.65
+  答え: 2.65倍
+\`\`\`
+
+**強みが発揮される場面：**
+- **数値計算**：四則演算・統計・金融計算
+- **データ処理**：CSVの集計・フィルタリング・変換
+- **論理演算**：条件分岐・集合演算・真偽判定
+- **アルゴリズム的思考**：ソート・検索・パターンマッチング
+
+**拡張版：LMulator（言語モデルエミュレーター）**
+コード実行環境がない場合、LLM自身が「コードを実行するシミュレーター」として動作する概念も提案されています。
+
+**実装例：**
+- OpenAI Code Interpreter（Advanced Data Analysis）
+- LangChain の PythonREPLTool
+- Tool Useと組み合わせたコード実行エージェント
+
+CoCはAIエージェントがより正確に問題解決するための重要な推論パターンとして、アジェンティックワークフローの設計に活用されています。`,
+    relatedSlugs: [
+      "cot",
+      "code-generation",
+      "tool-use",
+      "function-calling",
+      "reasoning-model",
+    ],
+    sources: [
+      {
+        title: "Chain of Code: Reasoning with a Language Model-Augmented Code Emulator",
+        url: "https://arxiv.org/abs/2312.04474",
+        publisher: "arXiv / Li et al. / Google DeepMind",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Chain of Code Project Page",
+        url: "https://chain-of-code.github.io/",
+        publisher: "Chain of Code Authors",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "prefix-tuning",
+    term: "プレフィックスチューニング",
+    reading: "プレフィックスチューニング",
+    category: "実装",
+    summary:
+      "プレフィックスチューニングとは、学習可能な連続ベクトル（プレフィックス）をトランスフォーマーの各層に追加してタスク適応するパラメータ効率的な手法で、LoRA登場前に主流だったPEFT手法のひとつです。",
+    description: `プレフィックスチューニング（Prefix-Tuning）とは、事前学習済みLLMのパラメータを凍結したまま、各トランスフォーマー層の先頭に「学習可能な連続ベクトル（プレフィックス）」を追加し、タスク固有の適応を行うパラメータ効率的ファインチューニング（PEFT）手法です。2021年にStanfordのXiang Lisa Li・Percy Liangが提案しました。
+
+**通常のファインチューニングとの比較：**
+
+| 手法 | 更新パラメータ | モデルコピー | 推論コスト |
+|------|--------------|-----------|----------|
+| フルファインチューニング | 全パラメータ（100%） | タスク毎に必要 | 通常 |
+| プレフィックスチューニング | プレフィックスのみ（0.1%程度） | 共有 | プレフィックス長分増加 |
+| LoRA | 低ランク行列（0.1〜1%） | 共有 | ほぼ変わらず |
+
+**仕組み：**
+各トランスフォーマー層のアテンション計算時に、実際の入力トークン系列の前に「仮想トークン」（プレフィックス）を付加します。このプレフィックスのベクトル値のみを学習し、モデル本体は変更しません。
+
+\`\`\`
+通常：[入力トークン列] → トランスフォーマー層 → 出力
+プレフィックスチューニング：[プレフィックスベクトル] + [入力トークン列] → 同じ層 → 出力
+\`\`\`
+
+**PromptチューニングとLoRAとの違い：**
+- **ソフトプロンプト（Prompt Tuning）**：入力層のみにプレフィックス。最もシンプル
+- **プレフィックスチューニング**：全層にプレフィックスを追加。より高い表現力
+- **LoRA**：重み行列に低ランク分解行列を追加。現在最も主流なPEFT手法
+
+**現在の位置づけ：**
+LoRAの登場（2022年）以降、実用面ではLoRAが主流となりましたが、プレフィックスチューニングはPEFTの理論的理解において重要な位置を占めており、さまざまなPEFT手法の比較研究で基準手法として引用されます。`,
+    relatedSlugs: [
+      "peft",
+      "prompt-tuning",
+      "lora",
+      "fine-tuning",
+      "parameter",
+    ],
+    sources: [
+      {
+        title: "Prefix-Tuning: Optimizing Continuous Prompts for Generation",
+        url: "https://arxiv.org/abs/2101.00190",
+        publisher: "arXiv / Li & Liang / Stanford",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "The Power of Scale for Parameter-Efficient Prompt Tuning",
+        url: "https://arxiv.org/abs/2104.08691",
+        publisher: "arXiv / Lester et al. / Google",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "scalable-oversight",
+    term: "スケーラブル監督",
+    reading: "スケーラブルかんとく",
+    category: "評価",
+    summary:
+      "スケーラブル監督とは、AIが人間の評価能力を超えるタスクをこなすようになったときに正しいフィードバックを与え続けるための研究領域で、議論支援・AIが採点するAIなど、人間の監督能力を拡張する手法を探求します。",
+    description: `スケーラブル監督（Scalable Oversight）とは、AIシステムの能力が人間の個々の評価者を超えた際にも、正確で信頼できるフィードバック・監督を提供し続けるための研究領域です。現在のアライメント手法の「人間が評価できる」という前提が崩れた場合への備えとして、AI安全性研究の重要な柱のひとつです。
+
+**なぜ「スケーラブル」が必要なのか：**
+
+現在のRLHFでは、人間のラベラーがAI出力の良し悪しを判断します。しかし：
+- 高度な数学・科学の証明は専門家でないと評価できない
+- AIが生成した長大なコードのバグを人間がすべてチェックするのは不可能
+- 将来の超知能AIの出力は、人間には正しいか判断できない可能性がある
+
+**主なアプローチ：**
+
+**1. 議論による監督（Debate）**
+2人のAIが互いに議論・批判し合い、人間はその議論を評価する。人間は直接答えを評価できなくても、論理の矛盾を発見できるという仮定に基づく。Iriving et al.（2018年）が提案。
+
+**2. 増幅（Amplification）**
+弱い監督者（人間）と弱いAIを組み合わせて強い監督者を作り出す再帰的手法。強い監督者で強いAIを学習し、それをまた監督に使う。
+
+**3. 弱い→強い汎化（Weak-to-Strong Generalization）**
+OpenAIのスーパーアライメント研究。小さいモデルの監督で大きいモデルを学習しても性能が上がる可能性を検証。
+
+**4. 形式的検証（Formal Verification）**
+数学・コードの正しさを機械的に証明することで、人間の評価を補完。
+
+**実際の進捗：**
+2025年現在、現実の問題設定（長い思考連鎖の評価、科学的推論の検証）での実証研究が進んでいます。LLM-as-judgeの改善もスケーラブル監督の実用的な一形態として研究されています。`,
+    relatedSlugs: [
+      "alignment",
+      "rlhf",
+      "superalignment",
+      "human-in-the-loop",
+      "ai-safety",
+    ],
+    sources: [
+      {
+        title: "Measuring Progress on Scalable Oversight for Large Language Models",
+        url: "https://arxiv.org/abs/2211.03540",
+        publisher: "arXiv / Bowman et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "AI Safety via Debate",
+        url: "https://arxiv.org/abs/1805.00899",
+        publisher: "arXiv / Irving et al. / OpenAI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "code-interpreter",
+    term: "コードインタープリター",
+    reading: "コードインタープリター",
+    category: "実装",
+    summary:
+      "コードインタープリターとは、LLMがPythonコードを記述・実行してデータ分析・グラフ作成・ファイル処理をリアルタイムで行う機能で、ChatGPT Advanced Data Analysisが普及させ、AIの活用範囲を大きく広げました。",
+    description: `コードインタープリター（Code Interpreter）とは、LLMがその場でプログラムコード（主にPython）を生成・実行し、計算結果やグラフをリアルタイムで返せる機能です。2023年にOpenAIがChatGPTのプラグインとして導入し、後に「Advanced Data Analysis」として標準機能化されました。
+
+**何ができるのか：**
+
+**データ分析・可視化**
+- CSVやExcelファイルをアップロードし、その場で集計・グラフ化
+- 統計分析（平均・分散・相関・回帰）の自動実行
+- Matplotlibによるグラフ生成と画像として返答
+
+**ファイル処理**
+- PDF・画像・音声ファイルの変換・加工
+- ZIPファイルの圧縮・解凍
+- フォーマット変換（CSV ↔ JSON ↔ Excel）
+
+**数値・プログラミング的な計算**
+- 複雑な数値計算・方程式の求解
+- アルゴリズムのシミュレーション
+- 機械学習モデルの簡易実行（scikit-learn）
+
+**典型的な使い方：**
+\`\`\`
+ユーザー: [売上データ.csv をアップロード]
+         「月別売上推移のグラフを作って、前年比も計算して」
+
+AI: Pythonコードを生成・実行
+    → グラフ画像を生成して表示
+    → 前年比の数値を表として返答
+\`\`\`
+
+**技術的な仕組み：**
+サンドボックス化されたPython実行環境（Jupyter Notebook的な環境）でコードを動かし、標準出力・生成ファイル・エラーメッセージをAIが受け取って回答に統合します。
+
+**ビジネス活用での価値：**
+プログラミングができない非エンジニアが、データ分析・レポート作成・ファイル変換などの作業をAIと会話するだけで完結させられるようになり、「データ民主化」の観点で大きなインパクトをもたらしました。
+
+各社での展開：Claude（Artifacts機能）、Gemini（Code execution）でも類似機能が提供されています。`,
+    relatedSlugs: [
+      "code-generation",
+      "tool-use",
+      "function-calling",
+      "chain-of-code",
+      "agentic-workflow",
+    ],
+    sources: [
+      {
+        title: "ChatGPT Advanced Data Analysis (formerly Code Interpreter)",
+        url: "https://openai.com/blog/chatgpt-plugins",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "OpenAI Code Interpreter - What It Is and How to Use It",
+        url: "https://platform.openai.com/docs/assistants/tools/code-interpreter",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
