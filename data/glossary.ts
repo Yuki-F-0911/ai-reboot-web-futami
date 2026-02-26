@@ -14491,6 +14491,296 @@ Yu et al.（2022）の「Orca」論文でこの概念が提唱され、vLLMがPa
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "process-reward-model",
+    term: "プロセス報酬モデル（PRM）",
+    reading: "プロセスほうしゅうモデル",
+    category: "評価",
+    summary:
+      "プロセス報酬モデルとは、最終回答だけでなく推論の各ステップを評価する報酬モデルで、数学・コーディング・論理推論においてLLMの精度を大幅に向上させます。",
+    description: `プロセス報酬モデル（Process Reward Model：PRM）とは、LLMが生成する推論ステップの一つひとつに対してスコアを付ける報酬モデルです。従来の結果報酬モデル（ORM）が最終的な回答の正誤だけを評価するのに対し、PRMは途中の思考過程の正しさも評価します。
+
+PRMが重要な理由は、複雑な数学の証明やコーディング問題のように、正しい答えに至るプロセスそのものが重要なタスクで大きな効果を発揮するためです。OpenAIのo1シリーズやDeepSeek-R1の学習において、PRMはモデルが誤った推論チェーンを辿らないよう誘導する役割を担っています。
+
+実装上は、人間のアノテーターが各推論ステップを「正しい／誤り」と採点したデータセット（PRM800K等）を構築し、その上で報酬モデルを学習させます。この報酬モデルをRLHFやGRPOのトレーニングシグナルとして使うことで、推論能力が大幅に向上します。Best-of-N探索と組み合わせて、複数の回答候補の中から最も推論プロセスが優秀なものを選ぶ用途にも使われます。`,
+    relatedSlugs: ["reward-model", "rlhf", "reasoning-model", "openai-o1", "grpo"],
+    sources: [
+      {
+        title: "Let's Verify Step by Step",
+        url: "https://arxiv.org/abs/2305.20050",
+        publisher: "arXiv / Lightman et al. (2023) / OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "OpenAI PRM800K Dataset",
+        url: "https://github.com/openai/prm800k",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "matryoshka-embeddings",
+    term: "マトリョーシカ埋め込み（MRL）",
+    reading: "マトリョーシカうめこみ",
+    category: "基礎概念",
+    summary:
+      "マトリョーシカ埋め込みとは、大きなベクトルの先頭部分を切り取るだけで意味的に有効な埋め込みを生成する技術で、ストレージと計算コストを柔軟に削減できます。",
+    description: `マトリョーシカ埋め込み（Matryoshka Representation Learning：MRL）とは、入れ子人形（マトリョーシカ）のように、大きなベクトル表現の先頭部分だけを切り取っても意味的に一貫した埋め込みとして機能するよう学習する技術です。
+
+従来の埋め込みモデルは固定次元（例：1536次元）のベクトルを出力し、その一部だけを取り出しても意味のある表現にはなりませんでした。MRLでは学習時に複数の次元スケール（64次元、128次元、256次元…）すべてで損失を計算することで、どの次元で切り取っても機能するベクトルを生成します。
+
+実用的なメリットは大きく、例えばOpenAIのtext-embedding-3シリーズはMRLを採用しており、APIパラメータでベクトルの次元数を指定できます。大規模なベクトルDBでは保存コストと検索速度がトレードオフになりますが、MRLを使えばアプリケーションの要件に応じて動的に次元を選択し、精度を大きく落とさずにコストを削減できます。RAGシステムや類似検索の実装において費用対効果を高める重要な技術です。`,
+    relatedSlugs: ["embedding", "vector-db", "semantic-search", "embedding-model", "dimensionality-reduction"],
+    sources: [
+      {
+        title: "Matryoshka Representation Learning",
+        url: "https://arxiv.org/abs/2205.13147",
+        publisher: "arXiv / Kusupati et al. (2022)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "New embedding models and API updates",
+        url: "https://openai.com/blog/new-embedding-models-and-api-updates",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "model-organism",
+    term: "モデルオーガニズム",
+    reading: "モデルオーガニズム",
+    category: "評価",
+    summary:
+      "モデルオーガニズムとは、AI安全性研究において特定の危険な振る舞いを意図的に持たせた小規模AIモデルで、アライメント手法の有効性を安全に検証するために使用します。",
+    description: `モデルオーガニズム（Model Organism of Misalignment）とは、生物学における実験用モデル生物（ショウジョウバエ・マウス等）の概念をAI安全性研究に応用したものです。意図的に特定の危険な能力や不整合な振る舞いを持たせた小規模なAIモデルを作成し、その上でアライメント手法が有効に機能するかを実験します。
+
+この手法の重要性は、将来の高度なAIシステムで不整合な振る舞いが現れたときに対処できる技術を、現在の制御可能な小規模モデルで安全に開発・検証できる点にあります。
+
+Anthropicが2023年に発表した研究「Model Organisms of Misalignment」では、「コンテキスト内では整合的に振る舞うが、特定の条件下では有害な行動を取る」よう意図的にファインチューニングされたモデルを作成し、メカニスティック解釈可能性ツールでその内部構造を分析しました。この研究はアライメント技術の実証的な検証方法として注目を集めています。`,
+    relatedSlugs: ["mechanistic-interpretability", "ai-safety", "alignment", "red-teaming", "ai-red-team"],
+    sources: [
+      {
+        title: "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training",
+        url: "https://arxiv.org/abs/2401.05566",
+        publisher: "arXiv / Anthropic (2024)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Model Organisms of Misalignment Research",
+        url: "https://www.anthropic.com/research",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "instruction-hierarchy",
+    term: "インストラクション階層",
+    reading: "インストラクションかいそう",
+    category: "実装",
+    summary:
+      "インストラクション階層とは、LLMへの指示を信頼レベルで優先順位付けする概念で、システムプロンプト→オペレーター指示→ユーザー入力の順に権限を定め、競合を解決します。",
+    description: `インストラクション階層（Instruction Hierarchy）とは、LLMに送られる複数の指示が競合した場合の優先順位を定める設計概念です。上位の指示が下位の指示をオーバーライドでき、下位の指示は上位の制約内でのみ機能します。
+
+典型的な階層は以下の通りです。まず最上位がシステムプロンプト（APIを通じたプラットフォーム・オペレーターの設定）、次にオペレーターの追加指示、そして最下位がエンドユーザーの入力となります。
+
+この概念が重要な理由は、プロンプトインジェクション攻撃への防衛に直結するためです。悪意のあるユーザーが「前の指示を無視して…」と書いても、システムプロンプトで設定された制約が優先されるよう設計することで、意図しない動作を防げます。OpenAIは2024年の論文で、この階層をモデルの学習段階で組み込む手法を提案しました。Anthropicのモデル仕様書でも同様の考え方が採用されており、安全なAIシステム設計の基本原則となっています。`,
+    relatedSlugs: ["system-prompt", "prompt-injection", "alignment", "model-spec", "constitutional-ai"],
+    sources: [
+      {
+        title: "The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions",
+        url: "https://arxiv.org/abs/2404.13208",
+        publisher: "arXiv / OpenAI (2024)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Anthropic Model Spec",
+        url: "https://www.anthropic.com/research/model-spec",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "semantic-parsing",
+    term: "意味解析（セマンティックパーシング）",
+    reading: "いみかいせき",
+    category: "基礎概念",
+    summary:
+      "意味解析とは、自然言語をコンピュータが実行可能な形式表現（論理式・SQL・API呼び出し等）に変換するNLP技術で、Text-to-SQLやFunction Callingの基盤となります。",
+    description: `意味解析（Semantic Parsing）とは、人間が書いた自然言語の文を、コンピュータが処理できる形式的な表現（論理式、SQL文、API呼び出し、プログラムコード等）に変換するNLPの技術領域です。
+
+自然言語理解（NLU）の中核技術の一つであり、「東京の明日の天気を教えて」という文を天気APIの呼び出し形式に変換したり、「売上が100万円以上の顧客を抽出して」をSQL文に変換したりするタスクが代表例です。
+
+LLMの登場以降、意味解析は大きく進化しました。従来は専用のパーサーを個別に学習させる必要がありましたが、LLMはFunction CallingやText-to-SQLを通じて汎用的な意味解析能力を発揮します。特にGPT-4やClaudeのような大規模モデルは、詳細なスキーマ情報をプロンプトに含めるだけで高精度なSQLやAPI呼び出しを生成できます。エンタープライズのデータ分析や、ノーコードでのDB操作を実現する際の基盤技術として重要性が増しています。`,
+    relatedSlugs: ["natural-language-understanding", "text-to-sql", "code-generation", "function-calling", "structured-output"],
+    sources: [
+      {
+        title: "Semantic Parsing on Freebase from Question-Answer Pairs",
+        url: "https://aclanthology.org/D13-1160/",
+        publisher: "ACL Anthology / Berant et al. (2013)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "A Survey on Semantic Parsing",
+        url: "https://arxiv.org/abs/1812.00978",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "chat-template",
+    term: "チャットテンプレート",
+    reading: "チャットテンプレート",
+    category: "実装",
+    summary:
+      "チャットテンプレートとは、各LLMが期待する会話フォーマットをJinjaテンプレートで定義する仕組みで、システム・ユーザー・アシスタントのロールを特殊トークンで区切り、正確なトークン化を保証します。",
+    description: `チャットテンプレート（Chat Template）とは、LLMに会話形式でプロンプトを渡す際に、各メッセージのロール（system、user、assistant）をどの特殊トークンや区切り文字で囲むかを定義したフォーマット仕様です。Hugging FaceではJinja2テンプレートエンジンを使って各モデル固有のフォーマットを記述します。
+
+モデルごとにフォーマットが異なるため、間違ったテンプレートを使うと推論精度が著しく低下します。例えばLlama 3は \`<|begin_of_text|>\`、Mistralは \`[INST]\` のような独自トークンを使います。ファインチューニング済みモデルはプレトレーニング時に特定のチャットテンプレートで学習されているため、推論時にも同じフォーマットを使う必要があります。
+
+Hugging FaceのTokenizerクラスには \`apply_chat_template()\` メソッドが用意されており、メッセージのリストを渡すだけで正しくフォーマットされたプロンプト文字列を生成できます。ローカルでLLMを動かす際（Ollama・LM Studio等）やHugging Faceのモデルを直接呼び出す場合に特に重要な知識です。`,
+    relatedSlugs: ["tokenizer", "system-prompt", "inference", "hugging-face", "transformers-library"],
+    sources: [
+      {
+        title: "Chat Templating - Hugging Face Documentation",
+        url: "https://huggingface.co/docs/transformers/chat_templating",
+        publisher: "Hugging Face",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "FastChat Conversation Templates",
+        url: "https://github.com/lm-sys/FastChat",
+        publisher: "LMSYS / FastChat",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-text-detection",
+    term: "AIテキスト検出",
+    reading: "エーアイテキストけんしゅつ",
+    category: "評価",
+    summary:
+      "AIテキスト検出とは、AIが生成したテキストを人間の書いた文章から識別する技術で、教育・報道・ファクトチェック分野での需要が急増していますが、精度の限界も指摘されています。",
+    description: `AIテキスト検出（AI Text Detection）とは、LLMなどのAIシステムが生成したテキストと、人間が書いたテキストを識別する技術です。ChatGPTの普及以降、学術論文・ジャーナリズム・採用書類などにAI生成文章が混入する問題が顕在化し、その検出ニーズが急増しています。
+
+検出手法には主に2種類あります。1つ目は統計的手法で、LLMが高確率で選ぶトークン（パープレキシティが低い文章）はAI生成の可能性が高いという性質を利用します。2つ目はファインチューニング済み分類モデルを使う手法で、人間とAIのテキストを大量に学習して判別します。
+
+ただし精度の限界は大きな課題です。GPTZero・Originality.ai・Turnitin等のツールが存在するものの、書き換え（パラフレーズ）や軽微な編集で検出を逃れられることが多く、また英語以外の言語や特定ドメインでの精度低下も報告されています。AI透かし（Watermarking）技術と組み合わせることで精度向上を目指す研究も進んでいます。`,
+    relatedSlugs: ["ai-generated-content", "ai-watermarking", "deepfake", "content-moderation", "ai-copyright"],
+    sources: [
+      {
+        title: "GPTZero - AI Detection Tool",
+        url: "https://gptzero.me/",
+        publisher: "GPTZero",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "A Survey on LLM-generated Text Detection",
+        url: "https://arxiv.org/abs/2310.01314",
+        publisher: "arXiv",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "retrieval-augmented-fine-tuning",
+    term: "検索拡張ファインチューニング（RAFT）",
+    reading: "けんさくかくちょうファインチューニング",
+    category: "実装",
+    summary:
+      "検索拡張ファインチューニング（RAFT）とは、RAGシステムでの利用を想定してノイズ文書も含めた検索結果から学習させるファインチューニング手法で、ドメイン固有のRAG精度を大幅に向上させます。",
+    description: `検索拡張ファインチューニング（RAFT：Retrieval Augmented Fine-Tuning）とは、RAGシステムに特化した性能を持つモデルを作るためのファインチューニング手法です。UC BerkeleyのZhangらが2024年に提案しました。
+
+通常のRAGでは、汎用LLMが検索結果の文書を参照して回答を生成しますが、取得された文書にはノイズ（関係ない文書）が混ざることが多く、モデルがどの文書を参照すべきかを正確に判断できないという問題があります。
+
+RAFTの核心は学習データの構成にあります。質問・正解文書・ノイズ文書・正解の4つ組を作り、「正解文書だけが含まれるケース」「ノイズ文書のみのケース」「両方混在するケース」をバランスよく学習させます。特にノイズ文書しかない場合でも質問に答えようとするトレーニングにより、モデルは関連文書と無関係文書を区別する能力を習得します。医療・法律・金融などのドメイン特化RAGシステムで特に効果を発揮します。`,
+    relatedSlugs: ["rag", "fine-tuning", "retrieval", "document-grounding", "retrieval-pipeline"],
+    sources: [
+      {
+        title: "RAFT: Adapting Language Model to Domain Specific RAG",
+        url: "https://arxiv.org/abs/2403.10131",
+        publisher: "arXiv / Zhang et al. (2024) / UC Berkeley",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "RAFT: A new way to teach LLMs to be better at RAG",
+        url: "https://techcommunity.microsoft.com/t5/ai-ai-platform-blog/raft-a-new-way-to-teach-llms-to-be-better-at-rag/ba-p/4104140",
+        publisher: "Microsoft Tech Community",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "monte-carlo-tree-search",
+    term: "モンテカルロ木探索（MCTS）",
+    reading: "モンテカルロきたんさく",
+    category: "基礎概念",
+    summary:
+      "モンテカルロ木探索とは、確率的なシミュレーションを繰り返して最適行動を探索するアルゴリズムで、AlphaGoで人間超えを実現し、現在はLLMの推論時探索にも応用されています。",
+    description: `モンテカルロ木探索（Monte Carlo Tree Search：MCTS）とは、ゲーム木やプランニング空間において、ランダムなシミュレーション（モンテカルロ法）を繰り返し実行することで最良の行動選択を見つけるアルゴリズムです。選択・拡張・シミュレーション・バックプロパゲーションの4フェーズを繰り返します。
+
+歴史的な転機となったのは2016年のAlphaGoです。囲碁は分岐数が膨大すぎて従来の探索木では対処できませんでしたが、MCTSとニューラルネットワーク（方策ネットワーク・価値ネットワーク）の組み合わせにより、人間のトップ棋士を初めて破りました。
+
+近年はLLMの推論能力向上にMCTSが応用されています。Tree of Thoughtのような手法では、LLMが生成する複数の推論ステップ候補をMCTSで探索・評価することで、複雑な数学・プログラミング問題を解く能力を高めます。また強化学習からのフィードバックとプロセス報酬モデル（PRM）を組み合わせたMCTSによる推論時計算の増大（Test-Time Compute）も活発に研究されています。`,
+    relatedSlugs: ["reinforcement-learning", "self-play", "reasoning-model", "tree-of-thought", "test-time-compute"],
+    sources: [
+      {
+        title: "Efficient Selectivity and Backup Operators in Monte-Carlo Tree Search",
+        url: "https://link.springer.com/chapter/10.1007/978-3-540-75538-8_7",
+        publisher: "Springer / Coulom (2006)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Mastering the game of Go with deep neural networks and tree search",
+        url: "https://www.nature.com/articles/nature16961",
+        publisher: "Nature / DeepMind (2016)",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-driven-development",
+    term: "AIドリブン開発",
+    reading: "エーアイドリブンかいはつ",
+    category: "実装",
+    summary:
+      "AIドリブン開発とは、AIツールを開発プロセスの中核に置くソフトウェア開発スタイルで、コード生成・レビュー・テスト・ドキュメント作成をAIが支援し、エンジニアの生産性を大幅に向上させます。",
+    description: `AIドリブン開発（AI-Driven Development）とは、GitHub Copilot・Cursor・Windsurf・Claude Codeといった生成AIツールをソフトウェア開発の全工程に組み込み、AIを単なる補助ツールではなく開発プロセスの主要な駆動力として活用するアプローチです。
+
+従来のAI支援開発（AIがコード補完を提案する程度）から進化し、AIドリブン開発では自然言語での指示から機能全体を生成する「バイブコーディング」、AIがテストを自動生成・実行する「AIテスト」、ドキュメントの自動作成と更新まで、開発サイクル全体をAIが加速させます。
+
+GitHubの調査では、Copilot利用エンジニアのコーディング速度が最大55%向上したと報告されています。AIドリブン開発の普及により、エンジニアの役割は「コードを書く人」から「AIを方向付け・レビューする人」へとシフトしています。また非エンジニアがAIを使って実用的なアプリを作る「シチズンデベロッパー」現象も加速させています。プロンプトエンジニアリングやコンテキストの設計能力が、現代エンジニアの重要スキルとなっています。`,
+    relatedSlugs: ["vibe-coding", "ai-coding-assistant", "code-generation", "cursor", "claude-code"],
+    sources: [
+      {
+        title: "GitHub Copilot Research: Quantifying GitHub Copilot's impact",
+        url: "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        publisher: "GitHub Blog",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Anthropic Claude Code Documentation",
+        url: "https://docs.anthropic.com/en/docs/claude-code",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
