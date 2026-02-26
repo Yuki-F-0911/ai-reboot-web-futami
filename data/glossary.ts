@@ -5228,6 +5228,376 @@ AIアシスタントが重要な理由は、プログラミングや専門的な
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "data-science",
+    term: "データサイエンス",
+    reading: "データサイエンス",
+    category: "基礎概念",
+    summary:
+      "統計・機械学習・データエンジニアリングを組み合わせてデータから価値を引き出す学際的な分野。AI・ML開発の基盤となるスキルセット。",
+    description: `データサイエンスは、統計学・機械学習・データエンジニアリング・ビジネス知識を統合し、大量のデータから意味のある洞察や予測を引き出す学際的な分野です。データの収集・クリーニング・探索的分析・モデル構築・可視化・結果の伝達までを一貫して担います。
+
+AIや機械学習の実用化には、データサイエンスの基盤スキルが不可欠です。Pythonや統計の基礎から始まり、業務課題を数理モデルに落とし込む能力まで、幅広いスキルセットが求められます。
+
+近年はGenerative AI・LLMの登場により、コード生成や分析レポート自動化など、データサイエンスの作業効率が大幅に向上しています。一方で、データの品質管理・倫理的な利用判断など人間のリテラシーが依然として重要です。
+
+代表的なタスクには、回帰・分類・クラスタリング・異常検知・推薦・時系列予測などがあり、これらはそれぞれ教師あり学習・教師なし学習・強化学習の各パラダイムと対応しています。`,
+    relatedSlugs: [
+      "machine-learning",
+      "deep-learning",
+      "supervised-learning",
+      "dataset",
+      "natural-language-processing",
+    ],
+    sources: [
+      {
+        title: "Data Science – Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Data_science",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Data Science for Business",
+        url: "https://www.oreilly.com/library/view/data-science-for/9781449374273/",
+        publisher: "O'Reilly Media (Provost & Fawcett, 2013)",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "text-generation",
+    term: "テキスト生成",
+    reading: "テキストせいせい",
+    category: "実装",
+    summary:
+      "LLMがプロンプトに基づいて文章・記事・コード・詩等を自動生成する機能。生成AIの最も基本的なアウトプット形式。",
+    description: `テキスト生成（Text Generation）とは、大規模言語モデル（LLM）がユーザーのプロンプトを受け取り、次のトークンを逐次予測することで文章・コード・詩・要約などを自動生成する機能です。Transformerアーキテクチャの自己回帰的な推論プロセスが基盤となっています。
+
+生成の制御には、温度（Temperature）やTop-pサンプリングといったハイパーパラメータが使われます。Temperatureを低くすると決定論的・正確な出力に、高くすると多様で創造的な出力になります。
+
+応用範囲は非常に広く、マーケティングコピーの自動生成・カスタマーサポートの返答・プログラムコードの補完・レポートの下書きなど、あらゆるテキスト作成業務に活用されています。
+
+最新のLLMでは、単なるテキスト生成にとどまらず、構造化出力（JSON）・ツール呼び出し・マルチモーダルな生成（画像+テキスト）など高度な機能と組み合わせることで、複雑な業務タスクをこなすエージェントが実現しています。`,
+    relatedSlugs: [
+      "llm",
+      "generative-ai",
+      "natural-language-generation",
+      "transformer",
+      "token",
+    ],
+    sources: [
+      {
+        title: "Text generation – OpenAI Documentation",
+        url: "https://platform.openai.com/docs/guides/text-generation",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Text Generation – Hugging Face Docs",
+        url: "https://huggingface.co/docs/transformers/main/en/task_summary#text-generation",
+        publisher: "Hugging Face",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "image-generation",
+    term: "画像生成",
+    reading: "がぞうせいせい",
+    category: "実装",
+    summary:
+      "テキストや画像を入力としてAIが新たな画像を生成する技術の総称。Stable Diffusion・DALL-E・Midjourneyが代表例。",
+    description: `画像生成（Image Generation）は、テキストプロンプト・参照画像・スケッチなどを入力として、AIが新たな画像を合成する技術の総称です。拡散モデル（Diffusion Model）・GAN・VAEなど複数のアーキテクチャが存在し、現在は拡散モデルが主流となっています。
+
+代表的なモデルには、Stability AIのStable Diffusion（オープンソース）、OpenAIのDALL-E 3、Midjourneyなどがあります。いずれもテキストから高品質な画像を生成できるため、広告・イラスト・プロダクトデザイン・映像制作など多くのクリエイティブ分野に普及しています。
+
+技術的には、テキストエンコーダー（CLIPなど）で入力プロンプトをベクトル表現に変換し、デノイジングプロセスで徐々にノイズ画像をクリーンな画像へと変換します。LoRAなどの軽量ファインチューニング手法により、特定のスタイルやキャラクターを学習させることも容易になっています。
+
+著作権・肖像権・フェイク画像生成などの倫理・法的問題も浮上しており、AI生成コンテンツの透かし（Watermark）技術や開示規制が議論されています。`,
+    relatedSlugs: [
+      "text-to-image",
+      "diffusion-model",
+      "stable-diffusion",
+      "dall-e",
+      "generative-ai",
+    ],
+    sources: [
+      {
+        title: "DALL-E 3 – OpenAI",
+        url: "https://openai.com/dall-e-3",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Stable Diffusion – Stability AI",
+        url: "https://stability.ai/stable-image",
+        publisher: "Stability AI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-automation",
+    term: "AI自動化",
+    reading: "エーアイじどうか",
+    category: "実装",
+    summary:
+      "AIを活用して繰り返し業務・データ処理・意思決定を自動化する実践。LLMエージェントによるワークフロー自動化が急速に普及。",
+    description: `AI自動化（AI Automation）とは、機械学習・LLM・コンピュータービジョンなどのAI技術を使って、従来は人間が手動で行っていた業務プロセスを自動化することです。単純なルールベース自動化（RPA）を超え、文脈判断・自然言語理解・画像認識を伴う複雑なタスクにも対応できる点が特徴です。
+
+LLMエージェントを活用したワークフロー自動化が急速に普及しており、メール要約・データ抽出・レポート生成・コードレビューなどが代表的なユースケースです。n8n・Zapier・Make（旧Integromat）などのノーコードツールとLLM APIを組み合わせた実装も一般化しています。
+
+自動化の効果測定には、処理時間の削減率・エラー率・コスト削減額などのKPIが用いられます。一方で、自動化が適さないケース（高度な倫理判断・クリエイティブな意思決定・対人関係）の見極めも重要です。
+
+McKinseyの調査では、現在の業務の約70%が部分的にAI自動化可能とされており、特に反復的なデータ処理・文書作成・情報検索タスクで大きな効率化が期待されています。`,
+    relatedSlugs: [
+      "agent",
+      "agentic-workflow",
+      "tool-use",
+      "langchain",
+      "orchestration",
+    ],
+    sources: [
+      {
+        title: "The State of AI – McKinsey",
+        url: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+        publisher: "McKinsey & Company",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "OpenAI Agents SDK",
+        url: "https://platform.openai.com/docs/guides/agents",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "api-key",
+    term: "APIキー",
+    reading: "エーピーアイキー",
+    category: "実装",
+    summary:
+      "AI APIサービスへのアクセスを認証するためのシークレットキー文字列。OpenAI・Anthropic・Google等のAI APIを利用する際に必須。",
+    description: `APIキー（API Key）とは、外部サービスのAPI（Application Programming Interface）にアクセスする際に使用する認証用の文字列です。生成AIの文脈では、OpenAI・Anthropic・Google・Cohereなどが提供するLLM APIを呼び出す際に必須となります。
+
+APIキーは通常「sk-XXXX...」のような英数字の文字列で、サービスのダッシュボードから発行・管理できます。リクエストのHTTPヘッダーに含めることでサービス側がユーザーを識別し、使用量や課金を管理します。
+
+セキュリティ上の注意点として、APIキーはパスワードと同様に機密情報です。GitHubなどの公開リポジトリにAPIキーをコミットすると漏洩リスクがあり、第三者に悪用される危険があります。環境変数（.envファイル）に格納し、.gitignoreで除外するのがベストプラクティスです。
+
+APIキーには使用量制限（レートリミット）が設けられており、1分あたりのリクエスト数・トークン数が上限を超えるとエラーが返ります。本番環境では適切なエラーハンドリングとリトライロジックの実装が推奨されます。`,
+    relatedSlugs: [
+      "openai-api",
+      "llm",
+      "hugging-face",
+      "inference",
+      "streaming",
+    ],
+    sources: [
+      {
+        title: "API keys – OpenAI Documentation",
+        url: "https://platform.openai.com/docs/api-reference/authentication",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "API Keys – Anthropic Documentation",
+        url: "https://docs.anthropic.com/en/api/getting-started",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "content-moderation",
+    term: "コンテンツモデレーション",
+    reading: "コンテンツモデレーション",
+    category: "実装",
+    summary:
+      "AIを用いてプラットフォーム上の有害・違法・ポリシー違反コンテンツを自動検出・フィルタリングする技術。",
+    description: `コンテンツモデレーション（Content Moderation）とは、ユーザー生成コンテンツ（UGC）の中から、ヘイトスピーチ・暴力的表現・違法コンテンツ・スパムなどポリシー違反の内容を検出・除去・制限する仕組みです。AIを活用した自動モデレーションが、人海戦術によるレビューの限界を補う形で急速に普及しています。
+
+技術的には、テキスト分類モデル・画像認識モデル・マルチモーダルモデルが組み合わせて用いられます。OpenAI Moderation API・Google Perspective API・Meta AIなどが代表的なサービスです。
+
+課題として、文化的・言語的コンテキストの違いによる誤検知・過剰規制の問題があります。また、AI自体がバイアスを持つ場合、特定のコミュニティの発言が不当に制限されるリスクもあります。そのためヒューマンインザループによる人間のレビューとの組み合わせが推奨されます。
+
+生成AIの普及に伴い、AIが生成したディープフェイク・合成音声・自動スパムの検出も新たな課題として浮上しており、AI生成コンテンツの識別技術（AIウォーターマーキング）との連携が重要になっています。`,
+    relatedSlugs: [
+      "ai-governance",
+      "responsible-ai",
+      "bias",
+      "red-teaming",
+      "classification",
+    ],
+    sources: [
+      {
+        title: "OpenAI Moderation API",
+        url: "https://platform.openai.com/docs/guides/moderation",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Perspective API – Jigsaw (Google)",
+        url: "https://www.perspectiveapi.com/",
+        publisher: "Google / Jigsaw",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "claude",
+    term: "Claude",
+    reading: "クロード",
+    category: "モデル",
+    summary:
+      "Anthropicが開発する会話・分析・コーディングに優れたLLMシリーズ（Claude 3/3.5/4系）。Constitutional AIで安全性を重視した設計。",
+    description: `Claude（クロード）は、AI安全研究企業のAnthropicが開発・提供する大規模言語モデル（LLM）シリーズです。Claude 3（Haiku・Sonnet・Opus）→Claude 3.5→Claude 4系と世代を重ね、長文理解・コーディング・論理推論・日本語対応で高い評価を得ています。
+
+最大の特徴は、Constitutional AI（CAI）と呼ばれる安全性重視のトレーニング手法です。有害な出力を減らしつつ、透明性・誠実さ・有益性を高めるよう設計されています。また、100Kトークン以上の長いコンテキストウィンドウを早期から実現し、長文ドキュメントの分析や大規模コードベースの理解に強みを持ちます。
+
+APIはAnthropic APIとして提供されており、AWS Bedrockや Google Cloud Vertex AIからも利用可能です。claude.aiというWebインターフェースも提供されています。
+
+GeminiやGPT-4oとともに、現在のLLM市場を構成する主要モデルの一つとして位置づけられており、特に長文・企業向けユースケースでの採用が増えています。`,
+    relatedSlugs: [
+      "llm",
+      "generative-ai",
+      "alignment",
+      "constitutional-ai",
+      "rlhf",
+    ],
+    sources: [
+      {
+        title: "Claude – Anthropic",
+        url: "https://www.anthropic.com/claude",
+        publisher: "Anthropic",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Constitutional AI: Harmlessness from AI Feedback",
+        url: "https://arxiv.org/abs/2212.08073",
+        publisher: "Anthropic (Bai et al., 2022)",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "predictive-analytics",
+    term: "予測分析",
+    reading: "よそくぶんせき",
+    category: "実装",
+    summary:
+      "統計・機械学習を使って過去データから将来の事象を予測するビジネス分析手法。需要予測・リスク管理・顧客離脱予測に活用。",
+    description: `予測分析（Predictive Analytics）とは、統計モデルや機械学習アルゴリズムを使って、過去・現在のデータから将来の事象・トレンド・行動を予測するデータ分析手法です。回帰分析・決定木・ランダムフォレスト・勾配ブースティング（XGBoost等）・ニューラルネットワークなどが主要な手法として使われます。
+
+ビジネスでの活用例は多岐にわたります。ECサイトでの購買予測・金融機関での信用スコアリング・製造業での設備故障予測（予知保全）・小売業の需要予測・通信会社の顧客離脱予測（チャーン予測）などが代表的です。
+
+予測モデルの精度評価には、MAE（平均絶対誤差）・RMSE（二乗平均平方根誤差）・AUC-ROCなど目的に応じた指標が用いられます。また、過学習を防ぐための交差検証や正則化も重要です。
+
+近年はAutoML（自動機械学習）ツールの普及により、データエンジニアリングの専門知識がなくても予測モデルを構築できる環境が整いつつあります。一方でモデルの解釈可能性（XAI）の重要性も高まっており、なぜその予測をしたのかを説明できることが求められます。`,
+    relatedSlugs: [
+      "machine-learning",
+      "supervised-learning",
+      "regression",
+      "recommendation-system",
+      "dataset",
+    ],
+    sources: [
+      {
+        title: "Predictive Analytics – Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Predictive_analytics",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Predictive Analytics: The Power to Predict",
+        url: "https://www.wiley.com/en-us/Predictive+Analytics%3A+The+Power+to+Predict+Who+Will+Click%2C+Buy%2C+Lie%2C+or+Die-p-9781119145677",
+        publisher: "Wiley (Eric Siegel, 2016)",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "natural-language-generation",
+    term: "自然言語生成",
+    reading: "しぜんげんごせいせい",
+    category: "基礎概念",
+    summary:
+      "構造化データや内部表現から自然な文章を生成するNLPの下位分野（NLG）。LLMの文章生成・要約・翻訳の基盤技術。",
+    description: `自然言語生成（Natural Language Generation / NLG）とは、コンピューターが構造化データ・知識ベース・内部表現から、人間が読める自然な文章を生成するNLP（自然言語処理）の下位分野です。NLP全体はNLU（自然言語理解）とNLGの二つの側面から構成されます。
+
+古典的なNLGシステムはルールベースで、データベースの数値から定型文を生成するものでした（天気予報・財務レポートの自動生成など）。現代のLLMはTransformerベースの大規模モデルにより、はるかに流暢で文脈に合った文章を生成できるようになっています。
+
+NLGの主要タスクには、テキスト要約・機械翻訳・質問応答・対話生成・データ-to-テキスト変換などが含まれます。評価指標にはBLEU・ROUGE・BERTScoreなどが使われます。
+
+LLMの登場によりNLGの能力は飛躍的に向上し、従来は人間しかできなかった創造的な文章生成・論述・コーディングなどが実用的な品質で自動化できるようになりました。一方でハルシネーション（事実誤認）の問題は依然として課題であり、RAGや出典付き生成などの対策技術が発展しています。`,
+    relatedSlugs: [
+      "natural-language-processing",
+      "llm",
+      "transformer",
+      "text-generation",
+      "summarization",
+    ],
+    sources: [
+      {
+        title: "Natural Language Generation – Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Natural_language_generation",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Speech and Language Processing (3rd ed.)",
+        url: "https://web.stanford.edu/~jurafsky/slp3/",
+        publisher: "Stanford University (Jurafsky & Martin)",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "personalization",
+    term: "パーソナライゼーション",
+    reading: "パーソナライゼーション",
+    category: "実装",
+    summary:
+      "ユーザー個々の好み・行動・属性に合わせてAIがコンテンツ・UI・提案を最適化する技術。ECサイト・メディア・教育で広く活用。",
+    description: `パーソナライゼーション（Personalization）とは、ユーザーの過去行動・嗜好・属性・コンテキストを機械学習で分析し、そのユーザーに最適なコンテンツ・製品・UI・メッセージをリアルタイムで提供する技術です。「関係ないものを見せない」ことで離脱を防ぎ、エンゲージメントとコンバージョンを高めます。
+
+代表的な活用事例として、Netflix・YouTubeのコンテンツ推薦・Amazonの商品推薦・Spotifyのプレイリスト生成・ニュースアプリの記事フィードカスタマイズがあります。協調フィルタリング・コンテンツベースフィルタリング・ハイブリッドモデルなどの推薦アルゴリズムが基盤となります。
+
+LLMの普及により、パーソナライゼーションはさらに高度化しています。ユーザーの自然言語での問い合わせに基づいてリアルタイムにコンテンツをカスタマイズしたり、会話履歴から長期的な嗜好を学習したりすることが可能になりました。
+
+プライバシーの観点から、GDPRなどの規制に準拠したデータ収集・利用の透明性確保も重要な課題です。ユーザーが自分のデータ利用をコントロールできるオプトイン・オプトアウトの仕組みが求められます。`,
+    relatedSlugs: [
+      "recommendation-system",
+      "machine-learning",
+      "embedding",
+      "deep-learning",
+      "dataset",
+    ],
+    sources: [
+      {
+        title: "Netflix Research: Recommendations",
+        url: "https://research.netflix.com/research-area/recommendations",
+        publisher: "Netflix Research",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Amazon Personalize – AWS",
+        url: "https://aws.amazon.com/personalize/",
+        publisher: "Amazon Web Services",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
