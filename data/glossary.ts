@@ -15771,6 +15771,316 @@ Visual Groundingには主に2種類のサブタスクがあります。Referring
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "classifier-free-guidance",
+    term: "Classifier-Free Guidance（CFG）",
+    reading: "クラシファイアーフリーガイダンス",
+    category: "基礎概念",
+    summary:
+      "Classifier-Free Guidance（CFG）とは、拡散モデルで条件付き生成を制御するテクニックで、分類器なしにテキストプロンプトへの準拠度をガイダンススケールで調整します。値が高いほどプロンプトに忠実な生成結果が得られます。",
+    description: `Classifier-Free Guidance（CFG）とは、拡散モデルにおいてテキストなどの条件（プロンプト）への準拠度を制御するためのテクニックです。従来の分類器ガイダンスでは、別途訓練した分類器を使って生成方向を誘導する必要がありましたが、CFGはその分類器を不要にし、無条件生成と条件付き生成を組み合わせるシンプルな仕組みで同等以上の効果を実現します。
+
+仕組みを説明します。CFGでは、モデルが同時に「プロンプトなし（無条件）の予測」と「プロンプトあり（条件付き）の予測」を行います。最終的な生成方向は「無条件予測 + ガイダンススケール × （条件付き予測 − 無条件予測）」という式で求められます。ガイダンススケール（guidanceスケール、CFGスケール）を大きくするほどプロンプトへの忠実度が上がり、小さくすると多様性が増しますが忠実度は下がります。
+
+実際の利用シーンでは、Stable DiffusionのCFGスケールは通常7〜12程度が標準です。DALL-E・Imagen・Fluxなど主要な画像生成モデルほぼ全般でCFGが採用されています。ネガティブプロンプトはCFGの無条件サイドに入力することで、避けたい要素を効果的に排除できます。
+
+CFGは学習段階でも適用され、一定割合でプロンプトをドロップアウトさせることでモデルが無条件生成も学習します。これによりInference時のCFG計算が可能になります。`,
+    relatedSlugs: ["diffusion-model", "stable-diffusion", "text-to-image", "negative-prompting", "image-generation"],
+    sources: [
+      {
+        title: "Classifier-Free Diffusion Guidance",
+        url: "https://arxiv.org/abs/2207.12598",
+        publisher: "arXiv / Ho & Salimans",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "High-Resolution Image Synthesis with Latent Diffusion Models",
+        url: "https://arxiv.org/abs/2112.10752",
+        publisher: "arXiv / Rombach et al.",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "flow-matching",
+    term: "フローマッチング",
+    reading: "フローマッチング",
+    category: "基礎概念",
+    summary:
+      "フローマッチングとは、確率的フローを使ってノイズからデータへの変換経路を直接学習する生成モデル技術です。DDPMより学習が安定し、少ないステップで高品質な生成が可能で、Stable Diffusion 3・Fluxなど最新モデルに採用されています。",
+    description: `フローマッチング（Flow Matching）とは、生成モデルの学習パラダイムの一つで、単純な確率分布（例：ガウスノイズ）からデータ分布へと連続的に変換する「フロー」を学習します。従来の拡散モデル（DDPM）が逆拡散過程を徐々に学習するのに対し、フローマッチングは直線的・効率的な変換経路を直接学習するため、より高速で安定した生成を実現します。
+
+技術的な仕組みを説明します。フローマッチングはベクトル場（velocity field）を学習し、ノイズからデータへの最適輸送経路を近似します。Continuous Normalizing Flows（CNF）の理論を基盤としながら、Conditional Flow Matching（CFM）というシミュレーションフリーな方法で効率よく訓練できます。これにより100〜1000ステップが必要だったDDPMに対し、10〜20ステップ程度で同等品質の生成が可能です。
+
+採用事例を紹介します。Stable Diffusion 3はフローマッチングをベースとし、テキスト整合性と画像品質を大幅に向上させています。Black Forest LabsのFluxシリーズもフローマッチングを採用し、高解像度・高品質な画像生成を実現しています。Meta Voiceboxは音声生成にフローマッチングを適用した事例です。
+
+拡散モデルとの比較では、フローマッチングは学習の安定性・推論速度・サンプル品質の三点で優れており、2024年以降の最先端生成モデルのデファクトスタンダードになりつつあります。`,
+    relatedSlugs: ["diffusion-model", "generative-model", "stable-diffusion", "text-to-image", "consistency-model"],
+    sources: [
+      {
+        title: "Flow Matching for Generative Modeling",
+        url: "https://arxiv.org/abs/2210.02747",
+        publisher: "arXiv / Lipman et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Stable Diffusion 3: Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+        url: "https://arxiv.org/abs/2403.03206",
+        publisher: "arXiv / Esser et al.",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "natural-language-inference",
+    term: "自然言語推論（NLI）",
+    reading: "じぜんげんごすいろん",
+    category: "基礎概念",
+    summary:
+      "自然言語推論（NLI）とは、前提文と仮説文のペアから「含意・矛盾・中立」の関係を判定するNLPの基礎タスクです。LLMの言語理解能力の評価指標として使われ、ファクトチェックや情報抽出にも応用されます。",
+    description: `自然言語推論（Natural Language Inference、NLI）とは、「前提（Premise）」と「仮説（Hypothesis）」という二つの文を与えられ、その関係が「含意（Entailment）」「矛盾（Contradiction）」「中立（Neutral）」のどれかを判定するタスクです。テキスト間含意（Textual Entailment、TE）とも呼ばれます。
+
+三つのラベルの意味を説明します。含意（Entailment）は前提が正しければ仮説も必ず正しいケース、矛盾（Contradiction）は前提が正しければ仮説は必ず誤りになるケース、中立（Neutral）は前提から仮説の真偽が判断できないケースを指します。
+
+主要なベンチマークとしてSNLI（Stanford Natural Language Inference、57万件）、MultiNLI（マルチジャンル、43万件）、SciNLI（科学論文特化）などがあります。BERTなど初期のPretraining-Finetuningモデルの評価で中心的な役割を担いました。
+
+実用的な応用としては、ファクトチェックシステム（主張と証拠の関係判定）、質問応答（回答候補の検証）、情報抽出（関係の妥当性確認）、テキスト要約評価などが挙げられます。LLMの登場以降はゼロショット・フューショットでの高性能が当たり前となり、NLI自体がLLMの基礎能力の一部として内包されています。`,
+    relatedSlugs: ["natural-language-understanding", "classification", "bert", "benchmark", "semantic-similarity"],
+    sources: [
+      {
+        title: "A large annotated corpus for learning natural language inference (SNLI)",
+        url: "https://arxiv.org/abs/1508.05326",
+        publisher: "arXiv / Bowman et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "A Broad-Coverage Challenge Corpus for Sentence Understanding through Inference (MultiNLI)",
+        url: "https://arxiv.org/abs/1704.05426",
+        publisher: "arXiv / Williams et al.",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "meta-learning",
+    term: "メタ学習",
+    reading: "メタがくしゅう",
+    category: "基礎概念",
+    summary:
+      "メタ学習とは「学習の仕方を学習する」パラダイムで、少数サンプルから素早く新タスクに適応できるモデルを構築します。MAMLが代表的アルゴリズムで、few-shot learningの理論的基盤となっています。",
+    description: `メタ学習（Meta-Learning）とは、AIモデルが「どのように学習すべきか」自体を学習するアプローチです。通常の機械学習が大量のデータで特定タスクを学習するのに対し、メタ学習では多様なタスクを経験することで、新しいタスクに少数サンプルだけで素早く適応できる「汎用的な学習能力」を獲得します。
+
+主要なアルゴリズムを紹介します。MAML（Model-Agnostic Meta-Learning、2017年）は、「少数の勾配ステップで新タスクに適応できる初期パラメータ」を学習する手法で、あらゆるモデルアーキテクチャに適用可能です。ProtoNets（Prototypical Networks）はサポートサンプルからクラスのプロトタイプ表現を学習します。MAML++、Reptileなど多くの発展形が存在します。
+
+three種類のメタ学習アプローチがあります。最適化ベース（MAML等）はモデルパラメータを効果的な初期値に導く方法、メトリックベース（Siamese Nets等）は類似度空間を学習する方法、モデルベース（外部メモリを持つモデル）は少数例をメモリから参照する方法です。
+
+LLMとの関係として、LLMのIn-context learning（コンテキスト内学習）はメタ学習の一形態として理論的に解釈できます。大量の多様なデータで事前学習したLLMは、コンテキストで与えられた少数例からパターンを素早く掴む「暗黙的メタ学習」を行っていると考えられています。`,
+    relatedSlugs: ["few-shot-learning", "transfer-learning", "in-context-learning", "fine-tuning", "continual-learning"],
+    sources: [
+      {
+        title: "Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks (MAML)",
+        url: "https://arxiv.org/abs/1703.03400",
+        publisher: "arXiv / Finn et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Meta-Learning: A Survey",
+        url: "https://arxiv.org/abs/1810.03548",
+        publisher: "arXiv / Vanschoren",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "nerf",
+    term: "NeRF（ニューラルラジアンスフィールド）",
+    reading: "ニューラルラジアンスフィールド",
+    category: "実装",
+    summary:
+      "NeRFとは、複数の2D画像からニューラルネットワークで3Dシーンを暗黙的に表現する技術です。新視点からのレンダリングを可能にし、3D生成・AR/VR・ロボティクスに応用されています。",
+    description: `NeRF（Neural Radiance Field：ニューラルラジアンスフィールド）とは、複数方向から撮影した2D画像の集合から、ニューラルネットワークを使って3Dシーンを暗黙的に表現し、任意の新しい視点からのレンダリング（Novel View Synthesis）を可能にする技術です。
+
+仕組みを説明します。NeRFは3D空間の座標（x, y, z）と視線方向（θ, φ）を入力として受け取り、その点の色（RGB）と密度（不透明度）を出力するMLPを学習します。体積レンダリング（Volume Rendering）と呼ばれる古典的な手法でピクセル値を積分することで、新視点画像を合成します。このニューラルネットワーク自体がシーンの3D情報を暗黙的に保持します。
+
+発展形を紹介します。Instant-NGP（2022年）はハッシュエンコーディングで学習を数千倍高速化しました。3D Gaussian Splatting（2023年）は点群ベースの表現でリアルタイムレンダリングを実現し、NeRFより高速・高品質として注目されています。Mip-NeRFはアンチエイリアシングを改善し、Nerfactoは実用的なNeRFパイプラインを提供します。
+
+実用応用としては、映画・VFXでのフォトリアルな3Dシーン生成、AR/VRコンテンツ制作、建築・文化財のデジタルアーカイブ、自動運転のシーン理解、ロボットの環境マッピングなどがあります。生成AI分野ではtext-to-3Dへの応用も進んでいます。`,
+    relatedSlugs: ["text-to-3d", "computer-vision", "generative-model", "image-generation", "ai-for-science"],
+    sources: [
+      {
+        title: "NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis",
+        url: "https://arxiv.org/abs/2003.08934",
+        publisher: "arXiv / Mildenhall et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "3D Gaussian Splatting for Real-Time Radiance Field Rendering",
+        url: "https://arxiv.org/abs/2308.04079",
+        publisher: "arXiv / Kerbl et al.",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "consistency-model",
+    term: "一貫性モデル（Consistency Model）",
+    reading: "いっかんせいモデル",
+    category: "実装",
+    summary:
+      "一貫性モデルとは、拡散モデルを蒸留して1〜数ステップで高品質な画像を生成できる高速生成モデルです。LCM（Latent Consistency Model）が代表例で、SDXL比10〜50倍高速なリアルタイム画像生成を実現します。",
+    description: `一貫性モデル（Consistency Models）とは、拡散モデルの多ステップ生成プロセスを大幅に短縮し、1〜4ステップ程度で高品質な画像を生成できるようにした生成モデルのファミリーです。OpenAIのYang Songらが2023年に提案しました。
+
+核心的なアイデアは「一貫性関数（Consistency Function）」の学習です。拡散プロセスは同一の「ODE軌道（確率微分方程式の解軌道）」上の任意の点を、常に同じ元データに写像するという一貫性を持つべきだという発想です。この一貫性制約を学習することで、任意のノイズレベルから一回の順伝播で高品質な画像を生成できます。
+
+主要な実装として、Consistency Distillation（CD）は既存の拡散モデルを蒸留して一貫性モデルを作る方法で、Consistency Training（CT）は一貫性モデルを最初から訓練する方法です。LCM（Latent Consistency Models）はStable Diffusionの潜在空間に適用し、4ステップ以下での高品質生成を実現しました。LCM-LoRAを使えば任意のSD派生モデルに高速推論を追加できます。
+
+実用的な価値として、リアルタイム画像生成（毎秒数枚以上）を可能にし、インタラクティブなAIアート制作ツール、ストリーミング型画像編集、低スペック環境でのローカル生成などのユースケースを実現します。拡散モデルのサンプリング効率問題を解決する重要なブレイクスルーです。`,
+    relatedSlugs: ["diffusion-model", "flow-matching", "classifier-free-guidance", "stable-diffusion", "speculative-decoding"],
+    sources: [
+      {
+        title: "Consistency Models",
+        url: "https://arxiv.org/abs/2303.01469",
+        publisher: "arXiv / Song et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Latent Consistency Models: Synthesizing High-Resolution Images with Few-Step Inference",
+        url: "https://arxiv.org/abs/2310.04378",
+        publisher: "arXiv / Luo et al.",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-healthcare",
+    term: "AIヘルスケア",
+    reading: "エーアイヘルスケア",
+    category: "実装",
+    summary:
+      "AIヘルスケアとは、医療・ヘルスケア分野全般でAIを活用する領域です。診断支援・医療画像解析・電子カルテ処理・患者予後予測・パーソナルヘルスモニタリングなど幅広く、医療特化LLMの登場でさらに拡大しています。",
+    description: `AIヘルスケア（AI Healthcare）とは、人工知能技術を医療・ヘルスケア全般に応用する領域の総称です。画像診断から薬剤開発、患者管理、ウェアラブルデバイスによる予防医療まで、医療の全フェーズでAIが活用されつつあります。
+
+主要な応用分野を紹介します。医療画像解析では、胸部X線・CT・MRI・病理スライドをCNNやViTで分析し、がん早期発見・眼底疾患検出などで放射線科医と同等以上の精度を示すシステムが登場しています。IDx-DR（FDA承認）やDeepMind EyeやGoogles DERMoscopyなどが代表例です。
+
+医療特化LLMとして、Med-PaLM（Google、2022年）は米国医師資格試験（USMLE）の合格水準に達した最初のLLM、Med-PaLM 2は専門医と同等レベルに向上しました。BioGPT（Microsoft）は生物医学文献の理解に特化しています。電子カルテ（EHR）の要約・構造化・コーディングへの応用も急速に進んでいます。
+
+課題と展望として、医療AIはFDA・CE・薬機法などの厳格な規制審査が必要で、説明可能性（Explainability）と公平性（Bias）が特に重要視されます。プライバシー・データセキュリティ・患者同意の問題も複雑です。一方で、医師不足・コスト削減・医療の地域格差解消への貢献が期待されており、2030年代の医療を根本から変える可能性があります。`,
+    relatedSlugs: ["ai-drug-discovery", "alphafold", "ai-for-science", "deep-learning", "document-ai"],
+    sources: [
+      {
+        title: "Large Language Models Encode Clinical Knowledge (Med-PaLM)",
+        url: "https://arxiv.org/abs/2212.13138",
+        publisher: "arXiv / Singhal et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Towards Expert-Level Medical Question Answering with Large Language Models (Med-PaLM 2)",
+        url: "https://arxiv.org/abs/2305.09617",
+        publisher: "arXiv / Singhal et al.",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "dense-retrieval",
+    term: "密検索（Dense Retrieval）",
+    reading: "みつけんさく",
+    category: "実装",
+    summary:
+      "密検索（Dense Retrieval）とは、クエリと文書をベクトル化して意味的類似度で検索する手法です。BM25などのスパース検索と対比し、RAGシステムの中核技術として広く採用されています。",
+    description: `密検索（Dense Retrieval、Dense Passage Retrieval）とは、クエリ（検索質問）と文書の両方を密なベクトル表現（埋め込み）に変換し、ベクトル空間での類似度（コサイン類似度や内積）によって関連文書を検索する手法です。従来のBM25のようなスパース（疎な）キーワードマッチングと対比して「密（Dense）」と呼ばれます。
+
+スパース検索との違いを説明します。スパース検索（BM25、TF-IDF）は単語の完全一致や出現頻度に依存するため、「犬」と「イヌ」、「car」と「automobile」のような表現の違いに対応できません。密検索はニューラルエンコーダーで意味的に類似したテキストを近いベクトルに写像するため、言い換えや類義語を横断した意味的検索が可能です。
+
+代表的なモデルを紹介します。DPR（Dense Passage Retrieval、Facebook AI 2020）は二つのBERTエンコーダーを使いクエリと文書を独立にエンコードした草分け的モデルです。ColBERT（Late Interaction）はトークンレベルの精密なマッチングで高精度を実現します。E5（Microsoft）・BGE（BAAI）・GTE・jina-embeddingsなど高品質な汎用埋め込みモデルが多数公開されています。
+
+RAGシステムとの関係として、密検索はベクトルデータベース（Pinecone、Weaviate、Chroma等）と組み合わせて使用され、RAGの検索フェーズの中核を担います。BM25との組み合わせ（ハイブリッド検索）と、クロスエンコーダーによる再ランキングを組み合わせることで、さらに高精度な検索パイプラインが構築できます。`,
+    relatedSlugs: ["retrieval", "semantic-search", "embedding", "vector-db", "rag"],
+    sources: [
+      {
+        title: "Dense Passage Retrieval for Open-Domain Question Answering (DPR)",
+        url: "https://arxiv.org/abs/2004.04906",
+        publisher: "arXiv / Karpukhin et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+        url: "https://arxiv.org/abs/2004.12832",
+        publisher: "arXiv / Khattab & Zaharia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "video-llm",
+    term: "動画言語モデル（Video LLM）",
+    reading: "どうがげんごモデル",
+    category: "実装",
+    summary:
+      "動画言語モデル（Video LLM）とは、動画を入力として理解・分析・質問応答できるマルチモーダルLLMです。フレーム抽出と時系列理解が核心技術で、教育・監視・コンテンツ解析に活用されています。",
+    description: `動画言語モデル（Video LLM、Video Large Language Model）とは、静止画だけでなく動画（フレームの時系列）を入力として受け取り、動画の内容理解・質問応答・キャプション生成・時間的推論を行うことができるマルチモーダルLLMです。
+
+技術的な課題と解決策を説明します。動画はテキストや画像と異なり、時系列情報・動き・因果関係・長時間のコンテキストを扱う必要があります。主なアプローチとして、フレームサンプリング（代表フレームを均等または重要度ベースで抽出）、特徴圧縮（Q-Former等でフレーム特徴をLLMが扱いやすいトークンに変換）、時間エンコーディング（フレームの時間位置情報の埋め込み）などが使われます。
+
+代表的なモデルを紹介します。Gemini 1.5 Pro・Ultra（Google）は最大100万トークンのコンテキストで長時間動画を処理できる最高水準モデルです。GPT-4o（OpenAI）はフレームと音声を統合して動画を理解します。Qwen2-VL（Alibaba）は高解像度動画理解に優れています。InternVL・LLaVA-Video・Video-LLaMAなどのオープンソースモデルも急速に発展しています。
+
+実用応用として、教育動画の自動キャプション・要約・質問応答、監視カメラ映像の異常検知・行動認識、スポーツ映像の戦術分析、医療手術映像の解析、映画・コンテンツのシーン検索、工場ライン映像の品質管理など幅広い領域での活用が進んでいます。`,
+    relatedSlugs: ["vision-language-model", "multimodal", "video-generation", "multimodal-agent", "computer-vision"],
+    sources: [
+      {
+        title: "Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context",
+        url: "https://arxiv.org/abs/2403.05530",
+        publisher: "arXiv / Google",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Video-LLaMA: An Instruction-tuned Audio-Visual Language Model for Video Understanding",
+        url: "https://arxiv.org/abs/2306.02858",
+        publisher: "arXiv / Zhang et al.",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "multimodal-reasoning",
+    term: "マルチモーダル推論",
+    reading: "マルチモーダルすいろん",
+    category: "基礎概念",
+    summary:
+      "マルチモーダル推論とは、テキスト・画像・グラフ・表など複数のモダリティにまたがって論理的推論を行う能力です。数学的証明の図解理解・科学論文の図表解釈など高度なタスクを扱い、GPT-4o・Claude・Geminiが高い性能を示します。",
+    description: `マルチモーダル推論（Multimodal Reasoning）とは、テキストだけでなく画像・グラフ・表・図・動画など複数の情報モダリティを統合して、論理的な推論・問題解決・知識の抽出を行う能力です。単純な「画像の説明」を超えて、視覚情報とテキスト情報を組み合わせた高次の推論が求められます。
+
+要求される推論の種類を説明します。視覚的数学推論（グラフや幾何図形を使った数学問題）、科学的図表解釈（論文の実験結果グラフ・化学式・生物図の理解）、視覚的常識推論（日常シーンの状況・感情・因果関係の理解）、時空間推論（動画フレームの変化から動作・物語を理解）などがあります。
+
+主要なベンチマークを紹介します。MMMU（Massive Multidisciplinary Multimodal Understanding）は大学レベルの専門知識問題を視覚情報込みで問う難関ベンチマークです。MathVista・MATH-Vision（視覚的数学推論）、ScienceQA（科学的質問応答）、MMBench・MMStar（総合評価）などが評価に使われます。
+
+最新モデルの性能として、GPT-4o・Claude 3.5/3.7 Sonnet・Gemini 1.5 Pro・Gemini 2.0 Flashなどのフロンティアモデルが人間の専門家水準に近い性能を示しています。Chain-of-thought推論をマルチモーダルに拡張した「Multimodal CoT」（視覚的推論ステップを生成しながら解答）も重要な研究トレンドです。`,
+    relatedSlugs: ["multimodal", "vision-language-model", "reasoning-model", "cot", "video-llm"],
+    sources: [
+      {
+        title: "MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark",
+        url: "https://arxiv.org/abs/2311.16502",
+        publisher: "arXiv / Yue et al.",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "MathVista: Evaluating Mathematical Reasoning of Foundation Models in Visual Contexts",
+        url: "https://arxiv.org/abs/2310.02255",
+        publisher: "arXiv / Lu et al.",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
