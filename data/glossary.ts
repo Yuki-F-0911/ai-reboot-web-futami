@@ -7448,6 +7448,376 @@ AIレディネスの主要評価軸として、(1)データ成熟度：データ
     ],
     updatedAt: "2026-02-26",
   },
+  {
+    slug: "kv-cache",
+    term: "KVキャッシュ",
+    reading: "ケーブイキャッシュ",
+    category: "基礎概念",
+    summary:
+      "Transformerのアテンション計算でKey・Valueテンソルをキャッシュして再計算を省略し推論を高速化する技術。長いコンテキストほど効果が大きい。",
+    description: `KVキャッシュ（KV Cache、Key-Value Cache）とは、Transformerモデルのアテンション計算において、過去のトークンに対応するKey（K）とValue（V）テンソルをメモリに保持（キャッシュ）しておくことで、新しいトークンを生成する際に過去分を再計算せずに済むようにする推論最適化技術です。
+
+仕組みとして、自己回帰的なテキスト生成では各トークンを生成するたびにアテンション計算が必要ですが、過去トークンのKVは変化しないため再計算は無駄です。KVキャッシュはこの再計算を省略し、推論速度（トークン/秒）を大幅に向上させます。コンテキスト長が長いほど節約できる計算量が増えるため、長文処理・長い会話履歴での効果が特に顕著です。
+
+トレードオフとして、KVキャッシュはVRAMを消費します。バッチサイズ・シーケンス長・モデルの層数・ヘッド数に比例してメモリが増加するため、大規模モデルを長いコンテキストで動かす場合のメモリ管理が課題です。Multi-Query Attention（MQA）やGrouped Query Attention（GQA）はKVキャッシュのメモリ消費を削減するアーキテクチャ改善として注目されています。
+
+Anthropicの「プロンプトキャッシング」機能はこのKVキャッシュをAPI利用者向けに外部化したもので、同じシステムプロンプトを繰り返し使うアプリケーションでコストを最大90%削減できます。`,
+    relatedSlugs: [
+      "inference",
+      "attention-mechanism",
+      "transformer",
+      "latency",
+      "prompt-caching",
+    ],
+    sources: [
+      {
+        title: "Efficiently Scaling Transformer Inference",
+        url: "https://arxiv.org/abs/2211.05100",
+        publisher: "arXiv / Pope et al. (2022)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Attention Is All You Need",
+        url: "https://arxiv.org/abs/1706.03762",
+        publisher: "arXiv / Vaswani et al. (2017)",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "bpe",
+    term: "BPE（バイト対符号化）",
+    reading: "ビーピーイー（バイトついふごうか）",
+    category: "基礎概念",
+    summary:
+      "テキストを頻出サブワード単位に分割するトークン化手法（Byte Pair Encoding）。GPTシリーズやLlamaなど主要LLMで採用されている。",
+    description: `BPE（Byte Pair Encoding、バイト対符号化）とは、テキストを意味のあるサブワード単位に分割するトークナイザーアルゴリズムです。データ圧縮アルゴリズムに起源を持ち、Sennrichらが2016年に機械翻訳への適用を提案、その後GPTシリーズ・Llama・Mistral等の主要LLMに採用されています。
+
+アルゴリズムの動作として、(1)テキストを文字単位に分割した状態から開始、(2)コーパス中で最も頻繁に隣接する文字ペアを1つの新トークンとしてマージ、(3)指定した語彙サイズに達するまでマージを繰り返す、という手順で語彙を構築します。
+
+BPEの利点として、(1)未知語（OOV）問題への対応：単語を見たことがなくてもサブワード分割で表現できる、(2)語彙サイズの効率化：単語ベースより少ない語彙で多様な表現をカバー、(3)形態論的に豊かな言語（日本語・ドイツ語・フィンランド語）への適応性があります。
+
+日本語処理では、BPEが欧米語向けに設計されているため1文字が複数トークンに分割されやすく、日本語テキストは英語と比較してトークン効率が低い傾向があります。「東京タワー」は英語と同程度のトークン数がかかることも多く、日本語向けに最適化したSentencePiece（Unigram言語モデルベース）との比較が実用上重要です。`,
+    relatedSlugs: [
+      "tokenizer",
+      "token",
+      "natural-language-processing",
+      "llm",
+      "pretraining",
+    ],
+    sources: [
+      {
+        title: "Neural Machine Translation of Rare Words with Subword Units",
+        url: "https://arxiv.org/abs/1508.07909",
+        publisher: "arXiv / Sennrich et al. (2016)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Byte Pair Encoding – Hugging Face NLP Course",
+        url: "https://huggingface.co/learn/nlp-course/en/chapter6/5",
+        publisher: "Hugging Face",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "multi-head-attention",
+    term: "マルチヘッドアテンション",
+    reading: "マルチヘッドアテンション",
+    category: "基礎概念",
+    summary:
+      "異なる表現空間で並列にアテンションを計算することで多様な依存関係を同時に捉えるTransformerの中核機構。",
+    description: `マルチヘッドアテンション（Multi-Head Attention）とは、Transformerアーキテクチャの中核をなす機構で、入力を複数のサブ空間（ヘッド）に射影してそれぞれ独立にアテンションを計算し、その結果を結合する仕組みです。Vaswaniらの「Attention Is All You Need」（2017年）で提案され、現代の大規模言語モデルの基盤となっています。
+
+単一のアテンション計算だけでは捉えにくい多様な依存関係（例：文法的な主語-動詞関係・意味的な共参照・長距離の依存関係）を、各ヘッドが異なる視点で分担して学習できる点が強みです。例えば8ヘッドのTransformerでは、あるヘッドは構文的な関係を、別のヘッドは意味的な類似性を担当するように特化します。
+
+具体的な計算として、入力をH個のヘッドに分割（各ヘッドは次元数d/Hで計算）し、各ヘッドでQuery・Key・Valueの3つの行列による注意計算（Scaled Dot-Product Attention）を実行、最後に全ヘッドの出力を連結して線形変換します。
+
+現代のLLMでは、メモリ効率を改善するためにMulti-Query Attention（MQA）やGrouped Query Attention（GQA）という派生形が採用されています。MistralやLlamaシリーズはGQAを採用しており、KVキャッシュのメモリ消費を大幅に削減しています。`,
+    relatedSlugs: [
+      "attention-mechanism",
+      "transformer",
+      "positional-encoding",
+      "flash-attention",
+      "deep-learning",
+    ],
+    sources: [
+      {
+        title: "Attention Is All You Need",
+        url: "https://arxiv.org/abs/1706.03762",
+        publisher: "arXiv / Vaswani et al. (2017)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "The Illustrated Transformer – Jay Alammar",
+        url: "https://jalammar.github.io/illustrated-transformer/",
+        publisher: "Jay Alammar",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "residual-connection",
+    term: "残差接続",
+    reading: "ざんさせつぞく",
+    category: "基礎概念",
+    summary:
+      "層の入力を出力に直接加算するスキップ接続。勾配消失を防ぎ深いネットワークの学習を安定させる。Transformer・ResNetの基本構造。",
+    description: `残差接続（Residual Connection、スキップ接続とも）とは、ニューラルネットワークのある層への入力をその層の出力に直接加算（ショートカット）する接続パターンです。Heらが2016年に発表したResNet（Deep Residual Network）で提案され、それまで困難だった100層を超える深いネットワークの安定した学習を実現しました。
+
+数式で表すとY = F(X) + X で、F(X)が層による変換、Xが入力の直接加算（残差）です。層が恒等写像（F(X) = 0）を学習すれば入力がそのまま通過するため、深いネットワークでも勾配が消失せずに逆伝播できます。「ゼロから学習するより変化量（残差）を学習するほうが容易」という直感が名前の由来です。
+
+TransformerもResNetと同様に残差接続を各サブ層（アテンション層・フィードフォワード層）の後に採用しています。「Add & Norm」と呼ばれるパターンで、サブ層の出力に入力を加算してからLayerNormを適用します。この構造がなければ、100層超のLLMの安定した事前学習は困難です。
+
+実装上の注意として、残差接続を機能させるには入力と出力の次元が一致する必要があります。次元が異なる場合は射影行列（1×1畳み込みや線形層）を使って次元を合わせます。`,
+    relatedSlugs: [
+      "deep-learning",
+      "neural-network",
+      "transformer",
+      "layer-normalization",
+      "gradient-descent",
+    ],
+    sources: [
+      {
+        title: "Deep Residual Learning for Image Recognition",
+        url: "https://arxiv.org/abs/1512.03385",
+        publisher: "arXiv / He et al. (2016)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Residual connection – Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Residual_neural_network",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "layer-normalization",
+    term: "レイヤー正規化",
+    reading: "レイヤーせいきか",
+    category: "基礎概念",
+    summary:
+      "各層の活性化を正規化してTransformerの学習を安定させる手法（Layer Norm）。バッチ正規化と異なりシーケンス方向に正規化する。",
+    description: `レイヤー正規化（Layer Normalization、LayerNorm）とは、ニューラルネットワークの各層において、1つのサンプル内のすべての特徴量にわたって平均0・分散1に正規化する手法です。Baらが2016年に提案し、Transformerの標準的な構成要素として採用されています。
+
+バッチ正規化（Batch Normalization）との違いとして、バッチ正規化はミニバッチの方向（サンプル間）で正規化するため、バッチサイズが小さいと統計が不安定になります。一方レイヤー正規化は1サンプル内の特徴量次元方向で正規化するためバッチサイズに依存せず、可変長シーケンスや小バッチでの学習に適しています。これがTransformerでの採用理由です。
+
+Transformerでの配置パターンとして、元の「Attention Is All You Need」論文はアテンション・フィードフォワード層の後に適用する「Post-LN」方式を採用しましたが、現代の多くのLLM（GPT系・Llama等）は各層の前に適用する「Pre-LN」方式を採用しています。Pre-LNは学習安定性が高く大規模モデルの訓練に有利とされています。
+
+発展形としてRMSNorm（Root Mean Square Layer Normalization）がLlamaシリーズで採用されており、平均の計算を省略してRMSのみで正規化することで計算コストを削減しつつ同等の性能を実現しています。`,
+    relatedSlugs: [
+      "transformer",
+      "deep-learning",
+      "residual-connection",
+      "attention-mechanism",
+      "pretraining",
+    ],
+    sources: [
+      {
+        title: "Layer Normalization",
+        url: "https://arxiv.org/abs/1607.06450",
+        publisher: "arXiv / Ba et al. (2016)",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "Root Mean Square Layer Normalization",
+        url: "https://arxiv.org/abs/1910.07467",
+        publisher: "arXiv / Zhang & Sennrich (2019)",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "agi",
+    term: "AGI（汎用人工知能）",
+    reading: "エージーアイ（はんようじんこうちのう）",
+    category: "基礎概念",
+    summary:
+      "人間と同等以上のあらゆる知的タスクをこなせる汎用人工知能（Artificial General Intelligence）。現在のLLMはAGIの前段階とされる。",
+    description: `AGI（Artificial General Intelligence、汎用人工知能）とは、特定のタスクに限定されず、人間が行うあらゆる知的作業（推論・学習・計画・創造・常識的理解など）を人間と同等以上のレベルでこなせるAIシステムを指します。現在の特化型AI（Narrow AI）やLLMはAGIの前段階と位置づけられています。
+
+AGIと現在のLLMの主な違いとして、(1)継続学習：AGIは新しい情報を経験から継続的に学習できるが、現在のLLMは学習後に重みが固定される、(2)真の理解：LLMはパターンマッチングによる「統計的な言語処理」であり、人間的な概念理解・因果推論・物理的直観を持つかは議論中、(3)自律的目標設定：AGIは自ら目標を設定・追求できるが、LLMは与えられたタスクに応答する形式、(4)身体性：物理世界との相互作用能力があります。
+
+AGI実現の時期については、著名なAI研究者・起業家の間で大きく見解が分かれています。Altman（OpenAI CEO）は「数年以内」、Hintonは「20年以内」、Lecunは「現在のアーキテクチャでは実現不可能」と述べています。
+
+AGIは能力面での突破口であると同時に、アライメント問題（AGIが人間の価値観に従って行動するか）・経済・雇用・安全保障への影響という観点から、AI安全性研究とAI規制の中心的な議題となっています。`,
+    relatedSlugs: [
+      "llm",
+      "alignment",
+      "ai-safety",
+      "foundation-model",
+      "generative-ai",
+    ],
+    sources: [
+      {
+        title: "Artificial General Intelligence – Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Artificial_general_intelligence",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "OpenAI Mission: ensuring AGI benefits humanity",
+        url: "https://openai.com/about",
+        publisher: "OpenAI",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "llama-cpp",
+    term: "llama.cpp",
+    reading: "ラマシーピーピー",
+    category: "実装",
+    summary:
+      "C++で実装されたLLM推論ライブラリ。GGUF形式のモデルをCPU/GPU上で効率的に実行。OllamaやLM Studioの基盤として広く利用される。",
+    description: `llama.cpp（ラマ・シーピーピー）とは、Georgi Gerganovが開発したC++製のLLM推論ライブラリです。依存関係を最小限に抑えた純粋なC/C++実装により、NVIDIA GPU・Apple Silicon（Metal）・CPU（AVX/AVX2命令セット）など幅広いハードウェアで動作します。GGUFフォーマットの量子化モデルを効率的に実行でき、ローカルLLM実行エコシステムの基盤として多くのツールに組み込まれています。
+
+主な特徴として、(1)マルチプラットフォーム：macOS・Linux・Windows・iOS・Android・WebAssembly（ブラウザ内実行も可能）、(2)量子化サポート：2〜8ビット量子化（Q2_K〜Q8_0）により7Bモデルを4GB以下のRAMで実行可能、(3)OpenAI互換APIサーバー：内蔵のHTTPサーバーがOpenAI API形式でリクエストを受け付け既存コードをそのまま利用可能、(4)ツール連携：OllamaとLM StudioはllaMa.cppをバックエンドとして採用しています。
+
+GGUFフォーマットは2023年8月にGPTQの代替として登場したモデル保存形式で、量子化設定・トークナイザー情報・メタデータを単一ファイルにまとめています。Hugging Faceでは多数のモデルがGGUF形式で公開されており、「TheBloke」などのコミュニティが主要モデルのGGUF変換・配布を担っています。
+
+プライバシー重視の用途（社内文書処理・医療データ）や、インターネット接続なしの完全オフライン推論環境での活用が増えています。`,
+    relatedSlugs: [
+      "ollama",
+      "open-source-llm",
+      "llama",
+      "inference",
+      "quantization",
+    ],
+    sources: [
+      {
+        title: "ggerganov/llama.cpp – GitHub",
+        url: "https://github.com/ggerganov/llama.cpp",
+        publisher: "GitHub",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "GGUF Format Specification",
+        url: "https://github.com/ggerganov/ggml/blob/master/docs/gguf.md",
+        publisher: "GitHub / ggml",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-chip",
+    term: "AIチップ",
+    reading: "エーアイチップ",
+    category: "基礎概念",
+    summary:
+      "AI演算（行列計算・テンソル演算）に特化した半導体。NVIDIA GPU・Google TPU・Apple Neural Engine・Intel Gaudi等が代表例。",
+    description: `AIチップ（AI Chip、AI Accelerator）とは、機械学習・深層学習に必要な大規模な行列演算・テンソル演算を汎用CPUより高速・省電力で処理するために設計された専用半導体です。AIブームを背景に半導体産業の最重要分野となっており、AI覇権を巡る国際競争の焦点でもあります。
+
+主要なAIチップの分類として、(1)GPU（NVIDIA H100・A100・RTX 4090など）：並列演算能力が高くLLM訓練・推論の標準ハードウェア。CUDAエコシステムが業界標準として確立、(2)TPU（Google Tensor Processing Unit）：Googleが自社開発した行列乗算専用チップ。Google Cloudでのみ利用可能だが訓練効率が非常に高い、(3)Apple Neural Engine：iPhone・MacのApple Siliconに内蔵される推論特化チップ。Core MLを使ったエッジAIに対応、(4)Intel Gaudi・AMD Instinct：NVIDIA GPU対抗の汎用AI学習チップ、(5)各社の独自ASIC（Tesla Dojo・Amazon Trainium/Inferentia）があります。
+
+AIチップの性能指標として、FLOPS（浮動小数点演算性能）・TOPS（整数演算性能）・HBM帯域幅・TDP（熱設計電力）が重要です。LLM推論では演算性能よりメモリ帯域幅がボトルネックになるケースが多く、HBM（High Bandwidth Memory）の容量と速度がモデルの実行能力を決定します。
+
+日本でもさくらインターネット・GMO等がNVIDIA GPU搭載クラウドの国内提供を拡大しており、経済産業省主導のAI半導体政策も進められています。`,
+    relatedSlugs: [
+      "gpu",
+      "tpu",
+      "inference",
+      "deep-learning",
+      "vram",
+    ],
+    sources: [
+      {
+        title: "NVIDIA H100 Tensor Core GPU Architecture",
+        url: "https://www.nvidia.com/en-us/data-center/h100/",
+        publisher: "NVIDIA",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "AI chip – Wikipedia",
+        url: "https://en.wikipedia.org/wiki/AI_accelerator",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "ai-generated-content",
+    term: "AIジェネレーテッドコンテンツ",
+    reading: "エーアイジェネレーテッドコンテンツ",
+    category: "基礎概念",
+    summary:
+      "AIが自動生成したテキスト・画像・音声・動画などのコンテンツの総称（AIGC）。著作権・真偽判定・プラットフォーム規約で注目される概念。",
+    description: `AIジェネレーテッドコンテンツ（AI-Generated Content、AIGC）とは、LLM・拡散モデル・音声合成・動画生成モデル等のAI技術によって自動生成されたテキスト・画像・音声・動画・コードなどのコンテンツの総称です。生成AIの急速な普及により、検索エンジン・SNS・コンテンツプラットフォームでのAIGCの比率が急上昇しており、様々な法的・倫理的課題を生んでいます。
+
+主要な課題として、(1)著作権問題：AIGCの著作権帰属（人間か・AI提供企業か・公衆か）が各国で法整備の過渡期にあります。日本では2023年の文化庁ガイドラインがAI生成物の著作権を整理、(2)情報の真偽判定：AIGCとヒューマン生成コンテンツの区別が困難になり、フェイクニュース・ディープフェイク問題が深刻化、(3)プラットフォーム規制：各SNS・コンテンツプラットフォームがAIGCの開示義務・ラベリングポリシーを導入、(4)学習データの権利：AIモデルのウェブスクレイピングによる学習データ収集の適法性が訴訟で争われています。
+
+AI透明性の観点から、EU AI ActはDeep Fake・AI生成コンテンツへの明示的なラベリングを義務付けています。OpenAI・MicrosoftはC2PA（Coalition for Content Provenance and Authenticity）標準によるAI生成画像へのメタデータ埋め込みを採用しています。
+
+ビジネスでは、コンテンツマーケティング・製品説明文・サポートドキュメントの大量生成でAIGCの活用が急拡大しており、品質管理・ファクトチェック・ブランドトーン維持のプロセス設計が重要課題となっています。`,
+    relatedSlugs: [
+      "generative-ai",
+      "text-generation",
+      "image-generation",
+      "deepfake",
+      "ai-copyright",
+    ],
+    sources: [
+      {
+        title: "AI-generated content – Wikipedia",
+        url: "https://en.wikipedia.org/wiki/AI-generated_content",
+        publisher: "Wikipedia",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "EU AI Act – Content transparency requirements",
+        url: "https://artificialintelligenceact.eu/the-act/",
+        publisher: "European Parliament",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
+  {
+    slug: "frontier-model",
+    term: "フロンティアモデル",
+    reading: "フロンティアモデル",
+    category: "基礎概念",
+    summary:
+      "現時点で最先端の能力を持つ大規模AIモデル。GPT-4・Claude 3・Gemini Ultraが該当し、能力・リスク両面で国際的な規制議論の焦点となっている。",
+    description: `フロンティアモデル（Frontier Model）とは、現時点で最高水準の能力・規模・性能を持つ最先端の大規模AIモデルを指す概念です。研究・技術の「最前線（フロンティア）」にあるモデルという意味で、特定のモデルではなく「その時代の最高水準」を表す相対的な概念です。2023年以降、AI安全性・規制の文脈でのキーワードとして定着しました。
+
+現時点のフロンティアモデルの例として、OpenAIのGPT-4/o1/o3シリーズ、AnthropicのClaude 3/3.5シリーズ、GoogleのGemini Ultra/1.5 Proシリーズ、MetaのLlama 3.1 405Bが該当します。これらは数千億〜数兆パラメータ規模で学習されており、数学・コーディング・科学的推論など多様なベンチマークで人間専門家レベルに達しつつあります。
+
+フロンティアモデルが規制の焦点となる理由として、(1)能力の不確実性：新しい能力が予想外に出現するため安全性の事前評価が困難、(2)デュアルユース：高度な化学・生物兵器設計支援への悪用リスク、(3)社会インフラへの依存：金融・医療・国防システムへの組み込みによる社会的影響の増大があります。
+
+規制動向として、英国AI Safety Instituteはフロンティアモデルの安全評価を実施、EU AI Actはフロンティアモデルを「汎用AI（GPAI）モデル」として特別な義務を課し、米国大統領令（2023年10月）はフロンティアモデルの安全評価結果の政府報告を義務化しています。`,
+    relatedSlugs: [
+      "llm",
+      "foundation-model",
+      "scaling-law",
+      "ai-regulation",
+      "ai-safety",
+    ],
+    sources: [
+      {
+        title: "UK AI Safety Institute – Frontier AI",
+        url: "https://www.gov.uk/government/organisations/ai-safety-institute",
+        publisher: "UK Government",
+        accessedAt: "2026-02-26",
+      },
+      {
+        title: "EU AI Act – General Purpose AI Models",
+        url: "https://artificialintelligenceact.eu/the-act/",
+        publisher: "European Parliament",
+        accessedAt: "2026-02-26",
+      },
+    ],
+    updatedAt: "2026-02-26",
+  },
 ];
 
 export function getAllGlossaryTerms(): GlossaryTerm[] {
