@@ -87,8 +87,8 @@ export default async function GlossaryDetailPage({ params }: Props) {
       />
 
       <main className="min-h-screen bg-depth-100">
-        {/* ヘッダー帯 */}
-        <div className="bg-gradient-to-br from-depth-900 via-depth-800 to-depth-700 text-white pt-24 pb-10 px-4">
+        {/* ヘッダー帯 - bg-depth-900はgradientが適用されない場合のフォールバック */}
+        <div className="bg-depth-900 bg-gradient-to-br from-depth-900 via-depth-800 to-depth-700 text-white pt-24 pb-10 px-4">
           <div className="max-w-3xl mx-auto">
             {/* パンくず */}
             <nav aria-label="パンくずリスト" className="mb-5 text-xs text-depth-400 flex flex-wrap items-center gap-1">

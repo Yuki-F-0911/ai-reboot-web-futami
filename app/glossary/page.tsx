@@ -83,8 +83,8 @@ export default function GlossaryPage() {
 
   return (
     <main className="min-h-screen bg-depth-100">
-      {/* ヒーロー */}
-      <section className="bg-gradient-to-br from-depth-900 via-depth-800 to-depth-700 text-white pt-24 pb-14 px-4">
+      {/* ヒーロー - bg-depth-900はgradientが適用されない場合のフォールバック */}
+      <section className="bg-depth-900 bg-gradient-to-br from-depth-900 via-depth-800 to-depth-700 text-white pt-24 pb-14 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-will-primary text-sm font-semibold tracking-widest uppercase mb-3">
             Glossary
