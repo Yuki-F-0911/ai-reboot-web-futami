@@ -9,6 +9,14 @@ const config: Config = {
     "./lib/**/*.{js,ts}",
     "./types/**/*.{js,ts}",
   ],
+  safelist: [
+    "bg-depth-900",
+    "bg-depth-800",
+    "bg-depth-700",
+    "from-depth-900",
+    "via-depth-800",
+    "to-depth-700",
+  ],
   theme: {
     extend: {
       colors: {
