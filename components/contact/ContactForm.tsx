@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { trackEvent } from '@/lib/analytics';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Building2, User, Loader2 } from 'lucide-react';
 
@@ -95,6 +96,7 @@ export function ContactForm() {
       });
 
       if (response.ok) {
+        trackEvent.contactFormSubmit()
         setSubmitStatus('success');
         // フォームをリセット
         setFormData({

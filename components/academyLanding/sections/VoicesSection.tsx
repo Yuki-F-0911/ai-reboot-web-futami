@@ -110,13 +110,21 @@ const VoicesSection = () => {
                         </article>
                     ))}
                 </div>
-                <div className="mt-10">
+                <div className="mt-10 flex flex-wrap items-center gap-6">
                     <Link
                         href="/academy/reviews"
                         className="inline-flex items-center gap-2 border-b pb-1 text-sm font-bold transition-opacity hover:opacity-70"
                         style={{ color: ACADEMY_COLORS.textStrong, borderColor: ACADEMY_COLORS.textStrong }}
                     >
                         <span>受講生の評判・口コミをもっと見る</span>
+                        <span aria-hidden="true">→</span>
+                    </Link>
+                    <Link
+                        href="/rebooters"
+                        className="inline-flex items-center gap-2 border-b pb-1 text-sm font-bold transition-opacity hover:opacity-70"
+                        style={{ color: ACADEMY_COLORS.accentMain, borderColor: ACADEMY_COLORS.accentMain }}
+                    >
+                        <span>受講生の成果・実績を見る（REBOOTERS）</span>
                         <span aria-hidden="true">→</span>
                     </Link>
                 </div>

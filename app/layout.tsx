@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header, Footer } from "@/components/layout";
-import MainWrapper from "@/components/layout/MainWrapper";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import {
   OrganizationStructuredData,
@@ -61,9 +59,7 @@ export default function RootLayout({
           description="AIリブートを運営し、企業向けAI研修と個人向けAI講座を提供する教育・研修事業者。"
         />
         <BreadcrumbAutoStructuredData />
-        <Header />
-        <MainWrapper>{children}</MainWrapper>
-        <Footer />
+        {children}
       </body>
     </html>
   );

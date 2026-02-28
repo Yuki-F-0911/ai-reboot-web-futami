@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { ACADEMY_COLORS } from "../sections/academyDesignTokens";
+import { trackEvent } from "@/lib/analytics";
 
 const lineUrl = "https://bexn9pao.autosns.app/line";
 const dismissKey = "academy-floating-line-cta-dismissed";
@@ -63,6 +64,7 @@ export default function FloatingLineCta() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => trackEvent.lineRegisterClick('floating_cta_mobile')}
                   className="relative flex flex-1 items-center justify-center gap-3 overflow-hidden rounded-lg px-4 py-4 text-base font-bold text-white transition-opacity hover:opacity-90"
                   style={{ backgroundColor: ACADEMY_COLORS.ctaLine }}
                 >
@@ -101,6 +103,7 @@ export default function FloatingLineCta() {
                   rel="noopener noreferrer"
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => trackEvent.lineRegisterClick('floating_cta_desktop')}
                   className="flex items-center gap-3 rounded-lg pl-5 pr-7 py-3.5 text-base font-bold text-white shadow-md transition-all hover:opacity-90"
                   style={{ backgroundColor: ACADEMY_COLORS.ctaLine }}
                 >
