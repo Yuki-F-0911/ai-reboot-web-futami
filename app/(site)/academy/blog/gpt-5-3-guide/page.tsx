@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Gpt53GuidePage from "@/components/academyLanding/blog/gpt-5-3-guide/Gpt53GuidePage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "GPT-5.2使い方ガイド｜thinkingレベルとGPT-5.3-codexの使い分け【2026年2月版】 | AIリブート";
+const pageTitle = "GPT-5.3とは？ChatGPTの最新モデルの違い・使い方・無料で使えるか【2026年2月】 | AIリブート";
 const pageDescription =
-  "GPT-5.2（standard / thinking）と、Codex CLI専用のGPT-5.3-codexを2026年2月時点の公開情報ベースで整理。thinkingレベルごとの選び方、Claude Opus 4.6との比較、実務運用ルールを解説します。";
+  "OpenAIのGPT-5系最新モデル（GPT-5.2・GPT-5.3-codex）の違いをわかりやすく解説。「どれを使えばいい？」に答える用途別の選び方、Claude Opus 4.6との比較、無料・有料プランの差を2026年2月時点でまとめました。";
 const pageUrl = "https://ai-reboot.io/academy/blog/gpt-5-3-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-21T09:00:00+09:00";
@@ -99,7 +99,7 @@ export default function Gpt53GuideRoute() {
           { name: "ホーム", url: "https://ai-reboot.io" },
           { name: "アカデミー", url: "https://ai-reboot.io/academy" },
           { name: "ブログ", url: "https://ai-reboot.io/academy/blog" },
-          { name: "GPT-5.2使い方ガイド", url: pageUrl },
+          { name: "GPT-5.3使い方ガイド", url: pageUrl },
         ]}
       />
       <FAQStructuredData items={[...faqItems]} />

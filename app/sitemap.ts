@@ -148,10 +148,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  const academyBlogSlugs = await getAppRouteSlugs("academy/blog");
+  const academyBlogSlugs = await getAppRouteSlugs("(site)/academy/blog");
   const academyBlogPages: MetadataRoute.Sitemap = await Promise.all(
     academyBlogSlugs.map(async (slug) => {
-      const pagePath = path.join(process.cwd(), "app", "academy", "blog", slug, "page.tsx");
+      const pagePath = path.join(process.cwd(), "app", "(site)", "academy", "blog", slug, "page.tsx");
       const [modifiedTime, fileStats] = await Promise.all([
         getRouteLastModifiedFromPageConst(pagePath, "modifiedTime"),
         stat(pagePath).catch(() => null),

@@ -1,43 +1,33 @@
-# 実装レビュー結果
+# Codex Review: Phase 2 実装
 
-## 総合評価: CONDITIONAL_PASS
-理由:
-- Route Group 移行、LP noindex、ContactForm の成功時トラッキング、TypeScript strict チェックは問題ありません。
-- ただし、スクロール深度トラッキングがページ遷移後に欠落する実装上の不具合があり、修正が必要です。
+## 判定: CONDITIONAL_PASS
 
-## 必須修正 (MUST FIX)
-### 1. ScrollDepth が初回ページ以降で欠落する
-- 問題:
-- `components/layout/ScrollDepthTracker.tsx:11-30` では `fired` の初期化が `useEffect([])` で一度しか行われません。
-- `app/(site)/layout.tsx:16` に配置されているため、App Router のクライアント遷移後もコンポーネントが再マウントされず、既に発火済みの深度 (25/50/75/90) が次ページで再送信されません。
-- 結果として、GA4 のページ別スクロール深度データが欠落します。
-- 修正案:
-- `usePathname()` を使い、`pathname` 変更時に `fired.current = new Set()` でリセットする。
-- 遷移直後に `handleScroll()` を一度実行し、戻る遷移や途中位置からの閲覧でも正しく判定する。
+## MUST FIX
+- [app/(site)/academy/blog/ai-trends-february-2026/page.tsx](/Users/mocchalera/Dev/ai-reboot-web/app/(site)/academy/blog/ai-trends-february-2026/page.tsx):5  
+  `pageTitle` が 65 文字で、レビュー基準（60文字以内）を超過しています。SERP表示で末尾切れのリスクがあるため短縮が必要です。
 
-## 推奨修正 (SHOULD FIX)
-### 1. `window.gtag` 型が実ランタイムと乖離
-- 問題:
-- `types/global.d.ts:5-10` で `gtag` / `dataLayer` が必須になっていますが、GA未読込時には `undefined` になり得ます。
-- 修正案:
-- `gtag?: ...` / `dataLayer?: ...` の optional 化を推奨します。
-- 必要に応じて `gtag` のコマンド別オーバーロード型を定義し、型安全性を改善してください。
+## SHOULD FIX
+- [app/(site)/academy/blog/gpt-5-3-guide/page.tsx](/Users/mocchalera/Dev/ai-reboot-web/app/(site)/academy/blog/gpt-5-3-guide/page.tsx):102  
+  `BreadcrumbStructuredData` の最終要素が `GPT-5.2使い方ガイド` のままで、ページ主題（GPT-5.3）と不一致です。タイトル/本文/構造化データの整合を推奨します。
+- [scripts/validate-sitemap.js](/Users/mocchalera/Dev/ai-reboot-web/scripts/validate-sitemap.js):3  
+  既定値が `http://localhost:3000/sitemap.xml` のため、ローカルサーバー未起動時に失敗します。CI運用を安定させるなら、利用方法の明記または既定値見直しを推奨します。
 
-### 2. モバイル固定CTAのセーフエリア対応不足
-- 問題:
-- `components/ui/MobileStickyBar.tsx:17` の固定バーは iOS safe-area を考慮しておらず、端末によっては下端が詰まって見える可能性があります。
-- 修正案:
-- `pb-[calc(env(safe-area-inset-bottom)+1rem)]` 相当を追加し、必要ならページ末尾コンテンツとの重なり回避余白も設ける。
+## 確認済み
+- [app/sitemap.ts](/Users/mocchalera/Dev/ai-reboot-web/app/sitemap.ts):151,154  
+  `getAppRouteSlugs("(site)/academy/blog")` と `pagePath` の `app/(site)/academy/blog/...` 参照に修正され、Route Group `(site)` を正しく考慮できています。
+- [scripts/validate-sitemap.js](/Users/mocchalera/Dev/ai-reboot-web/scripts/validate-sitemap.js):14-15,21-29  
+  実装は正常動作を確認（`data:` URLの自己完結テストで `academy/blog=205` / `glossary=55` を検出し PASS）。
+- SEO文字数チェック  
+  - `ai-trends-february-2026`: title 65 / description 122  
+  - `generative-ai-passport-guide`: title 51 / description 122  
+  - `gpt-5-3-guide`: title 56 / description 125
+- 内部リンク実在性  
+  [components/academyLanding/blog/mcp-tool-integration-guide/McpToolIntegrationGuidePage.tsx](/Users/mocchalera/Dev/ai-reboot-web/components/academyLanding/blog/mcp-tool-integration-guide/McpToolIntegrationGuidePage.tsx):657 付近に追加された3リンクを含む全リンク先について、`app/(site)/academy/blog/<slug>/page.tsx` の存在を確認済みです。
+- 変更追跡  
+  [app/(site)/academy/blog/mcp-tool-integration-guide/page.tsx](/Users/mocchalera/Dev/ai-reboot-web/app/(site)/academy/blog/mcp-tool-integration-guide/page.tsx) には今回差分がなく、内部リンク追加は component 側の実装変更として確認しました。
+- 型/静的解析  
+  `npm run typecheck`: 成功（エラーなし）  
+  `npm run lint`: 成功（既存の `no-unused-vars` 警告のみ）
 
-## 承認事項 (OK)
-- `app/layout.tsx` のみが `html/body` を持ち、`app/(site)/layout.tsx` と `app/(lp)/layout.tsx` は二重定義になっていません。
-- Route Group (`(site)`, `(lp)`) は URL 非露出のため、公開URL変更は発生しません。`generateStaticParams` も `app/(site)` 配下で継続定義を確認しました。
-- `lib/analytics.ts` は `window.gtag` の存在チェック後のみ送信し、`window` 未定義環境を回避しています。
-- `components/contact/ContactForm.tsx:98-101` で `trackEvent.contactFormSubmit()` は `response.ok` 成功時のみ発火します。
-- 追加イベントの payload にメール・氏名などの個人情報は含まれていません。
-- `app/(lp)/lp/academy-ig/page.tsx:8` に `robots: { index: false, follow: false }` が設定されています。
-- LPはモバイルファーストな構成で、共通ヘッダー/フッターの自動挿入はありません。
-
-## 実行確認ログ
-- `npm run lint`: 既存ファイルで `@typescript-eslint/no-unused-vars` Warning のみ（今回レビュー対象外）。
-- `npx tsc --noEmit`: エラーなし。
+## 総評
+Phase 2-A の sitemap Route Group 修正は妥当で、検証スクリプト追加も有効です。Phase 2-B も概ね改善されていますが、SEO基準に対してタイトル1件が未達のため `CONDITIONAL_PASS` とします。該当タイトルを調整し、構造化データ表記を揃えれば `PASS` 相当です。

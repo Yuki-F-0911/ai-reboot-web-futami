@@ -11,7 +11,8 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "audit:microcms:blog": "node scripts/aio/audit-microcms-blog-aio.mjs",
-    "check:jsonld": "node scripts/check-jsonld.js"
+    "check:jsonld": "node scripts/check-jsonld.js",
+    "validate:sitemap": "node scripts/validate-sitemap.js"
   },
   "dependencies": {
     "framer-motion": "^12.23.6",

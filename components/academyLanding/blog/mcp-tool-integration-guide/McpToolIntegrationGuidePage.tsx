@@ -653,6 +653,21 @@ export default function McpToolIntegrationGuidePage({ faqItems }: McpToolIntegra
                 OpenAI Responses API実装ガイド
               </Link>
             </li>
+            <li>
+              <Link href="/academy/blog/claude-code-beginners-guide" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                Claude Code入門｜インストール・基本コマンド・Vibe Coding活用まで
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/ai-coding-tool-comparison-2026" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                AIコーディングツール比較 2026｜Copilot・Codex・Cursor・Windsurf の選び方
+              </Link>
+            </li>
+            <li>
+              <Link href="/academy/blog/gpt-vs-claude-2026" className="text-orange-600 underline underline-offset-4 hover:text-orange-700">
+                ChatGPTとClaude比較 2026年版｜GPT-5.2 vs Claude Sonnet 4.6 / Opus 4.6の選び方
+              </Link>
+            </li>
           </ul>
         </section>
 

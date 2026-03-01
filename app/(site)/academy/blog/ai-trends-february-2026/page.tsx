@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import AiTrendsFebruary2026Page from "@/components/academyLanding/blog/ai-trends-february-2026/AiTrendsFebruary2026Page";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "【2026年2月】生成AIの最新トレンド5選｜初心者が\u201C今\u201D知っておくべきこと | AIリブート";
+const pageTitle = "GPT-5・Claude・Gemini 3が揃った2026年2月のAI最前線｜初心者向けまとめ | AIリブート";
 const pageDescription =
-  "2026年2月の生成AIトレンド5選を、初心者にもわかる言葉で整理。Claude・GPT・Geminiの変化と、あなたの仕事や学習への影響を具体的に解説します。まずは1トレンドを押さえ、変化の早い領域でも迷わず行動計画を作りましょう。要点だけ短時間で把握できます。";
+  "GPT-5（ChatGPT）、Claude Opus 4.6（Anthropic）、Gemini 3（Google）が出揃った2026年2月。各モデルの変化点と「無料プランで使えるか」を具体的な数字で比較。5分で把握できる初心者向けまとめです。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-trends-february-2026";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-22T11:00:00+09:00";

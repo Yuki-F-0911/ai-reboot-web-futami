@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import GenerativeAiPassportGuidePage from "@/components/academyLanding/blog/generative-ai-passport-guide/GenerativeAiPassportGuidePage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "生成AIパスポート試験の合格法2026｜勉強時間・おすすめ教材・出題傾向まとめ | AIリブート";
+const pageTitle = "生成AIパスポートの勉強時間は20〜40時間｜2026年合格法・教材・出題傾向まとめ | AIリブート";
 const pageDescription =
-  "生成AIパスポート試験の合格法を2026年版で解説。難易度・合格率・費用、勉強時間の目安（20/30/40時間）、独学向け教材、頻出テーマ、合格後の活かし方まで1ページで整理します。";
+  "「生成AIパスポート 勉強時間」の目安を具体的に解説。普段AIを使う人は20時間・これから学ぶ人は40時間が目安です。週5〜7時間確保で1〜6週間で合格圏内へ。独学向け教材・頻出テーマ・合格後の活かし方まで2026年版で1ページにまとめました。";
 const pageUrl = "https://ai-reboot.io/academy/blog/generative-ai-passport-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
