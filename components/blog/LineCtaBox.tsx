@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "@/components/academyLanding/sections/academyDesignTokens";
+import { trackEvent } from "@/lib/analytics";
 
 type LineCtaBoxProps = {
   className?: string;
@@ -53,6 +54,7 @@ export default function LineCtaBox({
             rel="noopener noreferrer"
             whileHover={{ opacity: 0.9 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => trackEvent.lineRegisterClick("blog_cta_box")}
             className="inline-flex items-center justify-center rounded-lg px-10 py-4 text-base font-bold text-white transition-all duration-300"
             style={{ backgroundColor: ACADEMY_COLORS.ctaLine, color: 'white', border: 'none' }}
           >
