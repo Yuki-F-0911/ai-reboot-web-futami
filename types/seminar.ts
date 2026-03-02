@@ -1,0 +1,21 @@
+export type SeminarData = {
+  slug: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  tag: string;
+  date: string;
+  dateShort: string;
+  time: string;
+  place: string;
+  heroCopy: string;
+  problemHeadline?: string;
+  problemItems?: string[];
+  problemClosing?: string;
+  googleFormUrl: string;
+  ended: boolean;
+  hasLandingPage: boolean;
+  metaTitle: string;
+  metaDescription: string;
+  ogImageAlt: string;
+};
