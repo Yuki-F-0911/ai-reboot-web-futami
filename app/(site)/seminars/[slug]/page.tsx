@@ -71,6 +71,7 @@ export default async function SeminarPage({ params }: Props) {
                 dateShort={seminar.dateShort}
                 time={seminar.time}
                 place={seminar.place}
+                googleFormUrl={seminar.googleFormUrl}
             />
             <ProblemSection
                 headline={seminar.problemHeadline}

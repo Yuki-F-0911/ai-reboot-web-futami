@@ -10,9 +10,10 @@ type HeroSectionProps = {
     dateShort: string;
     time: string;
     place: string;
+    googleFormUrl: string;
 };
 
-const HeroSection = ({ title, subtitle, heroCopy, dateShort, time, place }: HeroSectionProps) => {
+const HeroSection = ({ title, subtitle, heroCopy, dateShort, time, place, googleFormUrl }: HeroSectionProps) => {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Background Image */}
@@ -97,7 +98,9 @@ const HeroSection = ({ title, subtitle, heroCopy, dateShort, time, place }: Hero
                         className="flex flex-col items-center gap-4"
                     >
                         <a
-                            href="#register"
+                            href={googleFormUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-bold text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 rounded-full transition-all duration-300 shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 hover:-translate-y-1"
                         >
                             <span>今すぐ無料で申し込む</span>
