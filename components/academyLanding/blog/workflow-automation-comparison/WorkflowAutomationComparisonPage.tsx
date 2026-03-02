@@ -604,8 +604,6 @@ export default function WorkflowAutomationComparisonPage({
         >
           <LineCtaBox
             href={`${lineUrl}?src=blog&slug=workflow-automation-comparison`}
-            title="AIツールの選び方、プロに相談しませんか？"
-            description="無料LINEカウンセリングで、あなたに最適なワークフロー自動化ツールをご提案します。Make・Zapier・n8nどれが自社に合うか、専門スタッフが個別にお答えします。"
           />
         </motion.section>
 
