@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import ChatgptPlusHonestReviewPage from "@/components/academyLanding/blog/chatgpt-plus-honest-review-2026/ChatgptPlusHonestReviewPage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "ChatGPT Plusに月3,000円払う価値はあるか？半年使った会社員の正直レビュー2026 | AIリブート";
+// [SEO-CTR改善] title変更: 2026-03-03 JST (A-4) 旧: ChatGPT Plusに月3,000円払う価値はあるか？半年使った会社員の正直レビュー2026 | AIリブート
+const pageTitle = "【2026年最新】ChatGPT Plus（月3,000円）は本当に価値ある？正直レビューと損益分岐点 | AIリブート";
 const pageDescription =
-  "ChatGPT Plusと無料版の本当の違いを半年使った視点から正直にレポート。o3・画像生成・メモリ機能など有料機能の価値を初心者向けに解説。「課金すべきか迷っている」あなたへの正直な答えを届けます。";
+  "ChatGPT Plus の月額料金は3,000円。プロや学生が使うべきか？実際の使用感・コスパ・無料版との違いを正直に比較。損益分岐点の計算付き。";
 const pageUrl = "https://ai-reboot.io/academy/blog/chatgpt-plus-honest-review-2026";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-23T10:00:00+09:00";
