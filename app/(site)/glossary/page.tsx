@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllGlossaryTerms } from "@/data/glossary";
 import GlossaryCard from "@/components/glossary/GlossaryCard";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 import type { GlossaryTerm } from "@/types/glossary";
 
 const baseUrl = "https://ai-reboot.io";
@@ -166,6 +167,11 @@ export default function GlossaryPage() {
               </section>
             );
           })}
+        </div>
+
+        {/* LINE CTA */}
+        <div className="mt-14">
+          <LineCtaBox />
         </div>
 
         {/* フッターリンク */}
