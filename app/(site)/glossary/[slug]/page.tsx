@@ -4,10 +4,19 @@ import Link from "next/link";
 import { getAllGlossaryTerms, getGlossaryTermBySlug, getRelatedTerms } from "@/data/glossary";
 import RelatedTerms from "@/components/glossary/RelatedTerms";
 import { getCategoryColor } from "@/components/glossary/categoryUtils";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 export const dynamicParams = false;
 
 const baseUrl = "https://ai-reboot.io";
+
+const glossaryMetadataOverrides: Record<string, { title: string; description: string }> = {
+  "ai-debate": {
+    title: "AIディベートとは | AI Reboot Glossary",
+    description:
+      "AIディベートとは何か？AIを使った討論・議論の最前線を解説。AI×ディベートの活用法を専門家がわかりやすく解説します。",
+  },
+};
 
 export function generateStaticParams() {
   return getAllGlossaryTerms().map((term) => ({ slug: term.slug }));
@@ -22,8 +31,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const term = getGlossaryTermBySlug(slug);
   if (!term) return {};
 
-  const title = `${term.term}とは？わかりやすく解説｜AI Reboot`;
-  const description = term.summary;
+  const metadataOverride = glossaryMetadataOverrides[slug];
+  const title = metadataOverride?.title ?? `${term.term}とは？わかりやすく解説｜AI Reboot`;
+  const description = metadataOverride?.description ?? term.summary;
   const url = `${baseUrl}/glossary/${slug}`;
 
   return {
@@ -65,6 +75,26 @@ export default async function GlossaryDetailPage({ params }: Props) {
 
   const relatedTerms = getRelatedTerms(term.relatedSlugs);
   const url = `${baseUrl}/glossary/${slug}`;
+  const descriptionParagraphs = term.description.split("\n\n");
+  const shouldInsertLineCta = slug === "ai-debate";
+  const lineCtaInsertIndex = (() => {
+    if (!shouldInsertLineCta || descriptionParagraphs.length < 2) {
+      return descriptionParagraphs.length;
+    }
+
+    const totalChars = descriptionParagraphs.reduce((sum, paragraph) => sum + paragraph.length, 0);
+    const threshold = Math.floor(totalChars * 0.7);
+    let runningChars = 0;
+
+    for (let i = 0; i < descriptionParagraphs.length; i += 1) {
+      runningChars += descriptionParagraphs[i].length;
+      if (runningChars >= threshold) {
+        return Math.min(i + 1, descriptionParagraphs.length - 1);
+      }
+    }
+
+    return descriptionParagraphs.length - 1;
+  })();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -135,11 +165,29 @@ export default async function GlossaryDetailPage({ params }: Props) {
             {/* 詳細解説 */}
             <section className="mb-8">
               <h2 className="text-xl font-bold text-depth-900 mb-4">詳細解説</h2>
-              <div className="prose prose-sm max-w-none text-depth-700 leading-relaxed space-y-4">
-                {term.description.split("\n\n").map((paragraph, i) => (
-                  <p key={i}>{paragraph}</p>
-                ))}
-              </div>
+              {shouldInsertLineCta ? (
+                <>
+                  <div className="prose prose-sm max-w-none text-depth-700 leading-relaxed space-y-4">
+                    {descriptionParagraphs.slice(0, lineCtaInsertIndex).map((paragraph, i) => (
+                      <p key={`before-cta-${i}`}>{paragraph}</p>
+                    ))}
+                  </div>
+                  <div className="my-8">
+                    <LineCtaBox />
+                  </div>
+                  <div className="prose prose-sm max-w-none text-depth-700 leading-relaxed space-y-4">
+                    {descriptionParagraphs.slice(lineCtaInsertIndex).map((paragraph, i) => (
+                      <p key={`after-cta-${i}`}>{paragraph}</p>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <div className="prose prose-sm max-w-none text-depth-700 leading-relaxed space-y-4">
+                  {descriptionParagraphs.map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
+              )}
             </section>
 
             {/* 出典 */}

@@ -45,8 +45,6 @@ const tocItems = [
   { id: "cta", label: "次のアクション" },
 ] as const;
 
-const lineUrl = "https://bexn9pao.autosns.app/line";
-
 const toolComparisonRows = [
   {
     tool: "Zapier",
@@ -350,10 +348,7 @@ export default function WorkflowAutomationComparisonPage({
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox
-            className="blog-cta-box rounded-lg border border-green-200 bg-green-50 p-6"
-            href="https://bexn9pao.autosns.app/line?src=blog&slug=workflow-automation-comparison"
-          />
+          <LineCtaBox />
         </motion.section>
 
         {/* H2-2: ツール比較 */}
@@ -497,7 +492,7 @@ export default function WorkflowAutomationComparisonPage({
           </p>
 
           <div className="mt-6 space-y-6">
-            {useCases.map((uc, index) => (
+            {useCases.map((uc) => (
               <div
                 key={uc.department}
                 className="rounded-lg border border-gray-200 bg-gray-50 p-5"
@@ -602,9 +597,7 @@ export default function WorkflowAutomationComparisonPage({
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <LineCtaBox
-            href={`${lineUrl}?src=blog&slug=workflow-automation-comparison`}
-          />
+          <LineCtaBox />
         </motion.section>
 
         {/* H2-6: よくある失敗 */}
@@ -789,7 +782,7 @@ export default function WorkflowAutomationComparisonPage({
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
-              href={`${lineUrl}?src=blog&slug=workflow-automation-comparison`}
+              href="https://bexn9pao.autosns.app/line?src=blog&slug=workflow-automation-comparison"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent.lineRegisterClick("blog_article_end")}

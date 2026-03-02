@@ -86,9 +86,9 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="container relative z-10 mx-auto flex flex-1 items-center px-6 pt-12 lg:px-12 lg:pt-0">
+      <div className="container relative z-10 mx-auto flex flex-1 items-center px-5 pt-8 sm:px-6 sm:pt-10 lg:px-12 lg:pt-0">
         <div className="w-full text-center lg:max-w-3xl lg:text-left">
-          <div className="mb-8 flex justify-center lg:justify-start">
+          <div className="mb-5 flex justify-center sm:mb-8 lg:justify-start">
             <span
               className="inline-block rounded-sm px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] lg:text-xs"
               style={{ backgroundColor: ACADEMY_COLORS.bgSection, color: ACADEMY_COLORS.textMuted }}
@@ -98,22 +98,22 @@ const HeroSection = () => {
           </div>
 
           <h1
-            className="mb-8 text-[clamp(2.1rem,5vw,3.8rem)] font-bold leading-[1.18] tracking-tight"
+            className="mb-6 text-[clamp(1.9rem,6.8vw,3.8rem)] font-bold leading-[1.22] tracking-tight sm:mb-8"
             style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif, color: ACADEMY_COLORS.textStrong }}
           >
             激変する時代に、<br />
             自分を再起動する
           </h1>
 
-          <div className="mb-10 space-y-4">
+          <div className="mb-8 space-y-3 sm:mb-10 sm:space-y-4">
             <p
-              className="text-xl font-medium leading-loose lg:text-2xl"
+              className="text-lg font-medium leading-relaxed sm:text-xl sm:leading-loose lg:text-2xl"
               style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif, color: ACADEMY_COLORS.textStrong }}
             >
               100日間で、変化する時代を味方につける。<br className="sm:hidden" />
               自分の可能性を再設計する。
             </p>
-            <p className="mx-auto max-w-xl text-base leading-loose lg:mx-0 lg:text-lg" style={{ color: ACADEMY_COLORS.textBody }}>
+            <p className="mx-auto max-w-xl text-[15px] leading-relaxed sm:text-base sm:leading-loose lg:mx-0 lg:text-lg" style={{ color: ACADEMY_COLORS.textBody }}>
               2日間の集中キャンプから始まり、実践と対話を重ねる100日間で、AI時代に通用する思考と行動を定着させます。
             </p>
           </div>
@@ -125,7 +125,7 @@ const HeroSection = () => {
             生成AI活用力 / 自己理解・キャリアデザイン / 仲間と共に学ぶ環境
           </p>
 
-          <div className="mb-12 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
+          <div className="mb-10 flex flex-col items-stretch gap-3 sm:mb-12 sm:flex-row sm:items-center sm:gap-4 lg:items-start">
             <Link
               href="/briefing?src=academy-hero"
               className="inline-flex w-full items-center justify-center gap-3 rounded-lg px-10 py-4 text-base font-bold text-white transition-opacity hover:opacity-90 sm:w-auto"
