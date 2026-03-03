@@ -50,7 +50,7 @@ const PricingSection = () => {
                     {/* General Plan */}
                     <div 
                         className="p-10 lg:p-12"
-                        style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}
+                        style={{ backgroundColor: ACADEMY_COLORS.bgSection }}
                     >
                         <div className="mb-12">
                             <h3 
@@ -124,7 +124,7 @@ const PricingSection = () => {
                     {/* Subsidy Plan */}
                     <div 
                         className="p-10 lg:p-12 relative"
-                        style={{ backgroundColor: ACADEMY_COLORS.bgSection }}
+                        style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}
                     >
                         <div className="mb-12">
                             <h3 

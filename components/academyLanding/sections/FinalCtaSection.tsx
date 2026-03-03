@@ -28,7 +28,7 @@ const FinalCtaSection = () => {
         </h2>
 
         <p className="mb-8 max-w-3xl text-base leading-loose lg:text-lg" style={{ color: ACADEMY_COLORS.textBody }}>
-          生成AI活用力・自己理解とキャリアデザイン・仲間と共に学ぶ環境。3つの軸を100日間で接続し、次の仕事と生き方を具体化していきます。
+          手を動かし、自分と向き合い、仲間と話す。その繰り返しが、あなたの人生を豊かにする。
         </p>
 
         <div className="mb-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center">

@@ -2,12 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY, ACADEMY_SPACING } from "./academyDesignTokens";
 
-const corePillars = [
-  "生成AI活用力",
-  "自己理解・キャリアデザイン",
-  "仲間と共に学ぶ環境",
-];
-
 const elements = [
   {
     id: "01",
@@ -19,7 +13,7 @@ const elements = [
   {
     id: "02",
     title: "マーケティング",
-    description: "価値を届け、人を動かすための戦略思考を身につける領域。",
+    description: "AI時代にこそ求められる、価値を届け人を動かす戦略思考を身につける領域。",
     details: ["マーケティング戦略", "コピーライティング", "データ分析"],
     illustration: "/images/skills-illustration.png",
   },
@@ -64,7 +58,13 @@ const ConceptSection = () => {
             人生をリブートする場所。
           </h2>
           <p className="mb-6 max-w-3xl text-base leading-loose lg:text-lg" style={{ color: ACADEMY_COLORS.textBody }}>
-            AIリブートアカデミーは、スキル習得だけで終わらないための設計です。3本柱を軸に、4つの実践領域で手を動かしながら変化を定着させます。
+            生成AI活用力・自己理解・仲間との学び。この3つを軸に、理解と実践を繰り返しながら、自ら手を動かし変化を習慣に落とし込んでいきます。
+          </p>
+          <p
+            className="mb-6 text-xs font-bold tracking-wider lg:text-sm"
+            style={{ color: ACADEMY_COLORS.accentMain, fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+          >
+            生成AI活用力 / 自己理解・キャリアデザイン / 仲間と共に学ぶ環境
           </p>
           <Link
             href="/academy/message"
@@ -79,53 +79,32 @@ const ConceptSection = () => {
           </Link>
         </div>
 
-        <div className="mb-12 border-y py-4" style={{ borderColor: ACADEMY_COLORS.lineSoft }}>
-          <p
-            className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em]"
-            style={{
-              fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-              color: ACADEMY_COLORS.accentMain,
-            }}
-          >
-            3 Pillars
-          </p>
-          <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-4">
-            {corePillars.map((pillar, index) => (
-              <p key={pillar} className="text-sm font-medium leading-loose lg:text-base" style={{ color: ACADEMY_COLORS.textStrong }}>
-                {pillar}
-                {index < corePillars.length - 1 && (
-                  <span className="ml-4 hidden lg:inline" style={{ color: ACADEMY_COLORS.lineStrong }}>
-                    /
-                  </span>
-                )}
-              </p>
-            ))}
-          </div>
-        </div>
-
-        <ol className="border-t" style={{ borderColor: ACADEMY_COLORS.lineSoft }}>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {elements.map((element) => (
-            <li
+            <div
               key={element.id}
-              className="grid gap-6 border-b py-8 lg:grid-cols-12 lg:gap-10 lg:py-10"
-              style={{ borderColor: ACADEMY_COLORS.lineSoft }}
+              className="relative overflow-hidden rounded-sm border p-8"
+              style={{
+                borderColor: ACADEMY_COLORS.lineSoft,
+                backgroundColor: ACADEMY_COLORS.bgCanvas,
+              }}
             >
-              <div className="lg:col-span-7">
-                <div className="mb-3 flex items-center gap-3">
-                  <span
-                    className="text-xs font-bold tracking-widest"
-                    style={{
-                      fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                      color: ACADEMY_COLORS.accentMain,
-                    }}
-                  >
-                    ELEMENT {element.id}
-                  </span>
-                </div>
-                <h3 className="mb-3 text-xl font-bold lg:text-2xl" style={{ color: ACADEMY_COLORS.textStrong }}>
+              <span
+                className="pointer-events-none absolute -top-2 right-4 select-none text-6xl font-bold leading-none opacity-[0.07]"
+                style={{
+                  fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                  color: ACADEMY_COLORS.textStrong,
+                }}
+                aria-hidden="true"
+              >
+                {element.id}
+              </span>
+
+              <div className="relative z-10 [text-shadow:0_0_12px_var(--card-bg),0_0_24px_var(--card-bg),0_0_40px_var(--card-bg)]" style={{ '--card-bg': ACADEMY_COLORS.bgCanvas } as React.CSSProperties}>
+                <h3 className="mb-3 text-xl font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
                   {element.title}
                 </h3>
-                <p className="mb-4 text-sm leading-loose lg:text-base" style={{ color: ACADEMY_COLORS.textBody }}>
+                <p className="mb-5 text-sm leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
                   {element.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -136,7 +115,7 @@ const ConceptSection = () => {
                       style={{
                         borderColor: ACADEMY_COLORS.lineSoft,
                         color: ACADEMY_COLORS.textMuted,
-                        backgroundColor: ACADEMY_COLORS.bgCanvas,
+                        backgroundColor: ACADEMY_COLORS.bgPanel,
                       }}
                     >
                       {detail}
@@ -145,26 +124,19 @@ const ConceptSection = () => {
                 </div>
               </div>
 
-              <div className="lg:col-span-5">
-                <div
-                  className="inline-flex rounded-md border p-4"
-                  style={{
-                    borderColor: ACADEMY_COLORS.lineSoft,
-                    backgroundColor: ACADEMY_COLORS.bgCanvas,
-                  }}
-                >
-                  <Image
-                    src={element.illustration}
-                    alt={element.title}
-                    width={170}
-                    height={140}
-                    className="h-auto w-auto object-contain"
-                  />
-                </div>
+              <div className="pointer-events-none absolute -bottom-4 -right-4 opacity-40">
+                <Image
+                  src={element.illustration}
+                  alt=""
+                  width={120}
+                  height={120}
+                  className="h-[120px] w-[120px] object-contain"
+                  aria-hidden="true"
+                />
               </div>
-            </li>
+            </div>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY, ACADEMY_SPACING } from "./academyDesignTokens";
 
 const levels = [
@@ -7,36 +6,24 @@ const levels = [
     level: "LEVEL 01",
     title: "AI基礎力",
     subtitle: "AIを自分事と捉え、変革に向けて行動できるレベル",
-    definition:
-      "生成AIの基礎知識を習得し、AIを恐れず活用する姿勢を身につけます。100日間の挑戦のスタートラインです。",
-    program: {
-      title: "AI時代のマインドセット形成",
-      action: "主要AIツールの特性理解と、継続的な学習習慣の確立",
-    },
+    action: "ChatGPT・Claude・Geminiなど主要なAIツールを毎日触り、使い方を試しながら自分の言葉でAIを動かす習慣をつくる。",
+    goal: "AIを「難しいもの」から「使えるもの」へ。変化のスタートラインに立つ。",
   },
   {
     id: "02",
     level: "LEVEL 02",
     title: "AI活用力",
     subtitle: "AIを活用して業務効率化・価値創出ができるレベル",
-    definition:
-      "ChatGPT、Claude、Geminiなど複数の生成AIを使いこなし、自分の仕事にAIを実装。生産性を飛躍的に向上させます。",
-    program: {
-      title: "実践的なAI共創スキル",
-      action: "プロンプトエンジニアリングの深化と業務フローの再設計",
-    },
+    action: "自分の業務を棚卸しし、AIで代替・補助できるタスクを特定。実際に組み込んで動かし、仕事のやり方を再設計する。",
+    goal: "単なる効率化ではなく、「AIと一緒に働く感覚」を体に染み込ませる。",
   },
   {
     id: "03",
     level: "LEVEL 03",
     title: "AI共創力",
     subtitle: "AIと共に新しい価値を創り出せるレベル",
-    definition:
-      "あなたの「やりたい」をAIと共に形にする力を養成。AI時代のリーダーとして活躍できる人材を目指します。",
-    program: {
-      title: "Will実現のためのキャリアデザイン",
-      action: "自己理解の深化と、AI時代における独自の提供価値確立",
-    },
+    action: "自分の強みと価値観を言語化し、AIを使って独自の視点や提供価値を設計・発信できるようにする。",
+    goal: "AI時代に、自分らしく活躍できる場所と役割を自分の手でつくる。",
   },
 ];
 
@@ -68,77 +55,78 @@ const SkillLevelSection = () => {
           </p>
         </div>
 
-        <ol className="border-b" style={{ borderColor: ACADEMY_COLORS.lineSoft }}>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {levels.map((item) => (
-            <li
+            <div
               key={item.id}
-              className="grid gap-8 border-t py-10 lg:grid-cols-12 lg:gap-12 lg:py-12"
-              style={{ borderColor: ACADEMY_COLORS.lineSoft }}
+              className="relative grid grid-rows-[auto_auto_1fr_auto] overflow-hidden rounded-sm border p-8 sm:grid-rows-subgrid sm:row-span-4"
+              style={{
+                borderColor: ACADEMY_COLORS.lineSoft,
+                backgroundColor: ACADEMY_COLORS.bgPanel,
+              }}
             >
-              <div className="lg:col-span-5">
-                <span
-                  className="mb-4 inline-block text-xs font-bold tracking-widest"
+              <span
+                className="pointer-events-none absolute -top-2 right-4 select-none text-6xl font-bold leading-none opacity-[0.07]"
+                style={{
+                  fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                  color: ACADEMY_COLORS.textStrong,
+                }}
+                aria-hidden="true"
+              >
+                {item.id}
+              </span>
+
+              <div className="relative z-10">
+                <p
+                  className="mb-4 text-[10px] font-bold uppercase tracking-widest"
                   style={{
                     fontFamily: ACADEMY_TYPOGRAPHY.numeric,
                     color: ACADEMY_COLORS.accentDeep,
                   }}
                 >
                   {item.level}
-                </span>
-                <h3 className="mb-3 text-xl font-bold lg:text-2xl" style={{ color: ACADEMY_COLORS.textStrong }}>
+                </p>
+                <h3 className="mb-2 text-xl font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
                   {item.title}
                 </h3>
-                <p className="mb-4 text-sm leading-loose" style={{ color: ACADEMY_COLORS.textMuted }}>
+                <p className="text-sm leading-loose" style={{ color: ACADEMY_COLORS.textMuted }}>
                   {item.subtitle}
                 </p>
+              </div>
+
+              <div className="relative z-10 border-t pt-4 mt-6" style={{ borderColor: ACADEMY_COLORS.lineStrong }}>
+                <p
+                  className="mb-2 text-[10px] font-bold uppercase tracking-widest"
+                  style={{
+                    fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                    color: ACADEMY_COLORS.accentMain,
+                  }}
+                >
+                  Action
+                </p>
                 <p className="text-sm leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
-                  {item.definition}
+                  {item.action}
                 </p>
               </div>
 
-              <div className="grid gap-6 lg:col-span-7 lg:grid-cols-2">
-                <div className="border-t pt-4" style={{ borderColor: ACADEMY_COLORS.lineStrong }}>
-                  <p
-                    className="mb-3 text-[10px] font-bold uppercase tracking-widest"
-                    style={{
-                      fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                      color: ACADEMY_COLORS.textMuted,
-                    }}
-                  >
-                    Program
-                  </p>
-                  <p className="text-base font-bold leading-loose" style={{ color: ACADEMY_COLORS.textStrong }}>
-                    {item.program.title}
-                  </p>
-                </div>
-                <div className="border-t pt-4" style={{ borderColor: ACADEMY_COLORS.lineStrong }}>
-                  <p
-                    className="mb-3 text-[10px] font-bold uppercase tracking-widest"
-                    style={{
-                      fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                      color: ACADEMY_COLORS.textMuted,
-                    }}
-                  >
-                    Action / Goal
-                  </p>
-                  <p className="text-sm leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
-                    {item.program.action}
-                  </p>
-                </div>
+              <div className="relative z-10 border-t pt-4 mt-4" style={{ borderColor: ACADEMY_COLORS.lineStrong }}>
+                <p
+                  className="mb-2 text-[10px] font-bold uppercase tracking-widest"
+                  style={{
+                    fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                    color: ACADEMY_COLORS.textMuted,
+                  }}
+                >
+                  Goal
+                </p>
+                <p className="text-sm leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
+                  {item.goal}
+                </p>
               </div>
-            </li>
+            </div>
           ))}
-        </ol>
-
-        <div className="mt-10 flex justify-end">
-          <Image
-            src="/images/skill-pyramid-illustration.png"
-            alt="スキル成長ピラミッド"
-            width={180}
-            height={180}
-            className="h-auto w-auto object-contain opacity-80"
-          />
         </div>
+
       </div>
     </section>
   );
