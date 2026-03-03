@@ -38,7 +38,7 @@ export default function MobileStickyBar() {
       return
     }
 
-    const threshold = 300
+    const threshold = 150
     const handleScroll = () => setVisible(window.scrollY > threshold)
 
     handleScroll()

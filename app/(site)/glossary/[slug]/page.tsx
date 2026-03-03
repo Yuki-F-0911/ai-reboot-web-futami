@@ -16,6 +16,11 @@ const glossaryMetadataOverrides: Record<string, { title: string; description: st
     description:
       "AIディベートとは何か？AIを使った討論・議論の最前線を解説。AI×ディベートの活用法を専門家がわかりやすく解説します。",
   },
+  "claude-code": {
+    title: "Claude Codeとは？CLIエージェントの特徴・Cursorとの違いを解説｜AI Reboot",
+    description:
+      "AnthropicのCLIベースAIコーディングエージェント。ターミナルから自然言語でコードの実装・テスト・デバッグ・git操作を自律実行。CursorやGitHub Copilotとの違い、主要機能・活用法をわかりやすく解説。",
+  },
 };
 
 export function generateStaticParams() {
@@ -76,7 +81,7 @@ export default async function GlossaryDetailPage({ params }: Props) {
   const relatedTerms = getRelatedTerms(term.relatedSlugs);
   const url = `${baseUrl}/glossary/${slug}`;
   const descriptionParagraphs = term.description.split("\n\n");
-  const shouldInsertLineCta = slug === "ai-debate";
+  const shouldInsertLineCta = slug === "ai-debate" || slug === "anthropic-api";
   const lineCtaInsertIndex = (() => {
     if (!shouldInsertLineCta || descriptionParagraphs.length < 2) {
       return descriptionParagraphs.length;

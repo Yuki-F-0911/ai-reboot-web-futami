@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import AiTrendsFebruary2026Page from "@/components/academyLanding/blog/ai-trends-february-2026/AiTrendsFebruary2026Page";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-// [SEO-CTR改善] title変更: 2026-03-03 JST (A-3) 旧: GPT-5・Claude・Gemini 3が揃った2026年2月のAI最前線｜初心者向けまとめ | AIリブート
-const pageTitle = "【2026年2月版】AI最新ニュース10選｜ChatGPT・Gemini・Claudeの最新動向まとめ | AIリブート";
+// [SEO-CTR改善] title変更: 2026-03-16 JST (A-3b) 旧: 【2026年2月版】AI最新ニュース10選｜ChatGPT・Gemini・Claudeの最新動向まとめ | AIリブート
+const pageTitle = "【速報】2026年2月 AI重大アップデート10選｜ChatGPT・Claude・Gemini 3の変化まとめ | AIリブート";
 const pageDescription =
-  "2026年2月のAI最新情報を専門家が厳選。ChatGPT・Gemini・Claude・GPT-4.5など主要モデルのアップデートを解説。今後の活用に役立つポイントを5分でわかる形にまとめました。";
+  "ChatGPT（GPT-5）・Gemini 3・Claudeが相次いでアップデートされた2026年2月。何が変わり、どれを使えばいいかを専門家が10項目で整理。「難しそう」と感じる方でも5分で今月のAI全体像をつかめます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/ai-trends-february-2026";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-22T11:00:00+09:00";

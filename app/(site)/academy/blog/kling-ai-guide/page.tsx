@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import KlingAiGuidePage from "@/components/academyLanding/blog/kling-ai-guide/KlingAiGuidePage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "Kling AI使い方ガイド2026｜登録・動画生成・料金・商用利用を解説 | AIリブート";
+const pageTitle = "Kling AI 料金・使い方ガイド【2026年最新】無料枠から有料プランを比較 | AIリブート";
 const pageDescription =
-  "Kling AIの使い方を初心者向けに解説。Kuaishou開発の動画生成AIとして、登録手順、Text to Video/ Image to Videoの実践、無料枠と料金、Runway Gen-3・Sora比較、商用利用時の注意点まで確認日付きで整理します。";
+  "Kling AIの料金プランを徹底比較。無料クレジット枠から有料プランの価格まで2026年最新情報で解説。登録手順・Text to Video・Image to Videoの使い方、Runway Gen-3・Sora比較、商用利用の注意点も網羅。";
 const pageUrl = "https://ai-reboot.io/academy/blog/kling-ai-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-20T09:00:00+09:00";
@@ -47,9 +47,10 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
+    "Kling AI 料金",
     "Kling AI 使い方",
+    "Kling AI 無料プラン",
     "Kling AI 動画生成",
-    "KuaiShou AI動画",
     "テキスト to 動画 2026",
     "Runway Gen-3 比較",
     "Sora 比較",

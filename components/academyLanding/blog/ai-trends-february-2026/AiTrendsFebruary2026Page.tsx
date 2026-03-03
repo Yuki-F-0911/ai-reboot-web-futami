@@ -185,6 +185,17 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
             【2026年2月】生成AIの最新トレンド5選｜初心者が&ldquo;今&rdquo;知っておくべきこと
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">公開日: 2026年2月22日</p>
+        </motion.header>
+
+        <ArticleTOC items={tocItems} />
+
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <p className="mt-6 text-base leading-8 text-gray-700">
             「ChatGPTが話題になったと思ったら、もうGPT-5？　Claudeって何？」——生成AIの世界は変化がとても速く、ついていけないと感じるのは自然なことです。
           </p>
@@ -194,9 +205,7 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
           <p className="mt-4 text-base leading-8 text-gray-700">
             変化が速い時代だからこそ、大切なのは「すべてを追いかける」ことではなく、「大きな流れを押さえる」こと。この記事を読めば、今のAI業界の全体像がつかめます。
           </p>
-        </motion.header>
-
-        <ArticleTOC items={tocItems} />
+        </motion.section>
 
         {/* 要点まとめ */}
         <motion.section
