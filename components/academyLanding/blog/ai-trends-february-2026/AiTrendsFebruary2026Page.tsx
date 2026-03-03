@@ -189,6 +189,23 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
 
         <ArticleTOC items={tocItems} />
 
+        {/* この記事でわかること */}
+        <motion.section
+          className="mt-8 rounded-lg border-l-4 border-will-primary bg-will-lighter/40 px-6 py-5"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <p className="text-sm font-bold text-will-primary">この記事でわかること</p>
+          <ul className="mt-3 space-y-1.5 text-sm leading-7 text-gray-700">
+            <li className="flex gap-2"><span className="mt-1 shrink-0 text-will-primary">✓</span><span>2026年2月の最重要AIトレンド3選（Claude・GPT-5・Gemini 3の一挙進化）</span></li>
+            <li className="flex gap-2"><span className="mt-1 shrink-0 text-will-primary">✓</span><span>各トレンドがあなたの仕事・ビジネスに与える具体的な影響</span></li>
+            <li className="flex gap-2"><span className="mt-1 shrink-0 text-will-primary">✓</span><span>無料ツールで今すぐ着手できるアクション（1日10分から）</span></li>
+          </ul>
+        </motion.section>
+
         <motion.section
           initial="hidden"
           whileInView="visible"
@@ -197,13 +214,13 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <p className="mt-6 text-base leading-8 text-gray-700">
-            「ChatGPTが話題になったと思ったら、もうGPT-5？　Claudeって何？」——生成AIの世界は変化がとても速く、ついていけないと感じるのは自然なことです。
+            <strong>「2026年2月、生成AIの世界で一体何が起きているのか？」</strong>——ChatGPT・Claude・Geminiが同時期に大型アップデートし、AIが自律的に動く&ldquo;エージェント&rdquo;まで登場。変化が速すぎてついていけないと感じるのは自然なことです。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            この記事では、2026年2月時点で初心者が知っておくべき最新トレンドを5つに絞って解説します。技術の細かいスペックではなく、<strong>「あなたの生活や仕事にどう関係するか」</strong>を中心にお伝えします。
+            答えはシンプルです。<strong>生成AIはいま&ldquo;次のステージ&rdquo;に入りました。</strong>3大ツールがすべてメジャーアップデートし、日本政府も1兆円規模のAI支援を打ち出しています。この流れを知っているかどうかで、仕事の効率に大きな差がつく時代になっています。
           </p>
           <p className="mt-4 text-base leading-8 text-gray-700">
-            変化が速い時代だからこそ、大切なのは「すべてを追いかける」ことではなく、「大きな流れを押さえる」こと。この記事を読めば、今のAI業界の全体像がつかめます。
+            この記事を読めば、<strong>今のAI業界の全体像が15分で把握できます。</strong>技術の細かいスペックより「あなたの仕事にどう関係するか」を中心に解説し、今日からすぐ試せるアクションも紹介します。
           </p>
         </motion.section>
 
@@ -274,7 +291,57 @@ export default function AiTrendsFebruary2026Page({ faqItems }: Props) {
             ここからは、2026年2月時点で初心者が押さえておくべきトレンドを5つご紹介します。それぞれ「何が起きたか」「初心者にとっての意味」「今日からできること」の3つの視点で解説します。
           </p>
           <div className="mt-8 space-y-8">
-            {trends.map((item) => (
+            {[...trends].slice(0, 3).map((item) => (
+              <section key={item.id} id={item.id} className="scroll-mt-28 rounded-xl border border-gray-200 p-6">
+                <div className="flex items-start gap-3">
+                  <h3 className="font-serif text-xl font-bold text-gray-900">{item.title}</h3>
+                </div>
+                <div className="mt-4 whitespace-pre-line text-sm leading-8 text-gray-700">{item.body}</div>
+
+                <div className="mt-5 rounded-lg border border-blue-100 bg-blue-50/60 p-4">
+                  <p className="text-sm font-semibold text-gray-900">初心者にとっての意味</p>
+                  <p className="mt-2 text-sm leading-7 text-gray-700">{item.forBeginners}</p>
+                </div>
+
+                <div className="mt-3 rounded-lg border border-green-100 bg-green-50/60 p-4">
+                  <p className="text-sm font-semibold text-gray-900">今日からできること</p>
+                  <p className="mt-2 text-sm leading-7 text-gray-700">{item.actionItem}</p>
+                </div>
+
+                {item.sources.length > 0 && (
+                  <p className="mt-4 text-xs text-gray-500">
+                    出典：
+                    {item.sources.map((src, i) => (
+                      <span key={src.url}>
+                        {i > 0 && "｜"}
+                        <a href={src.url} target="_blank" rel="noopener noreferrer" className="text-gray-500 underline hover:text-gray-700">
+                          {src.label}
+                        </a>
+                      </span>
+                    ))}
+                  </p>
+                )}
+              </section>
+            ))}
+
+            {/* 中間内部リンクCTA（トレンド3→4の間） */}
+            <div className="rounded-xl border border-will-primary/20 bg-will-lighter/50 p-5">
+              <p className="text-xs font-semibold uppercase tracking-widest text-will-primary">関連記事</p>
+              <p className="mt-2 text-base font-bold text-gray-900">
+                Gemini 3を使いこなしたい方へ
+              </p>
+              <p className="mt-1 text-sm leading-6 text-gray-600">
+                Gemini 3の実践的な活用法を詳しく解説しています。Googleサービスとの連携方法や、具体的な業務活用シーンを紹介。
+              </p>
+              <Link
+                href="/academy/blog/gemini-3-practical-guide"
+                className="mt-4 inline-flex items-center gap-1 rounded-lg bg-will-primary px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                Gemini 3 実践活用ガイドを読む →
+              </Link>
+            </div>
+
+            {[...trends].slice(3).map((item) => (
               <section key={item.id} id={item.id} className="scroll-mt-28 rounded-xl border border-gray-200 p-6">
                 <div className="flex items-start gap-3">
                   <h3 className="font-serif text-xl font-bold text-gray-900">{item.title}</h3>
