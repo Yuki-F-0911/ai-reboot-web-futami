@@ -182,17 +182,28 @@ export default function GenerativeAiPassportGuidePage({ faqItems }: GenerativeAi
             生成AIパスポート試験の合格法2026｜勉強時間・おすすめ教材・出題傾向まとめ
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月19日</p>
-          <p className="mt-6 text-base leading-8 text-gray-700">
-            生成AIパスポートは、AIツールを安全かつ実務で使うための基礎リテラシーを証明しやすい資格です。最短で合格するには、
-            「試験範囲を把握する」「勉強時間を自分のレベルに合わせる」「頻出テーマを先に固める」の3点が重要です。
-          </p>
-          <p className="mt-3 text-base leading-8 text-gray-700">
-            この記事では、試験概要、勉強時間の目安（20時間/30時間/40時間）、教材の選び方、出題傾向、合格後の活かし方までを一括で整理します。
-            独学で進める人が途中で迷わないよう、学習順序も具体化しています。
-          </p>
+
+          {/* この記事でわかること — FV離脱防止サマリーボックス */}
+          <div className="mt-5 rounded-xl border border-blue-200 bg-blue-50 p-5">
+            <p className="text-sm font-bold text-blue-900">📋 この記事でわかること</p>
+            <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+              <li>生成AIパスポートの概要・難易度・受験費用の目安</li>
+              <li>合格への最短学習ルート（AI経験別 20/30/40時間プラン）</li>
+              <li>資格取得後のキャリアへの活かし方（転職・副業・社内評価）</li>
+            </ul>
+          </div>
         </motion.header>
 
         <ArticleTOC items={tocItems} />
+
+        <p className="mt-6 text-base leading-8 text-gray-700">
+          生成AIパスポートを最短で取得したい方向けに、勉強時間・教材・出題傾向を1ページで整理します。
+          合格するには「試験範囲を把握する」「勉強時間を自分のレベルに合わせる」「頻出テーマを先に固める」の3点が重要です。
+        </p>
+        <p className="mt-3 text-base leading-8 text-gray-700">
+          試験概要から、勉強時間の目安（20時間/30時間/40時間）、教材の選び方、出題傾向、合格後の活かし方までを一括で整理します。
+          独学で進める人が途中で迷わないよう、学習順序も具体化しています。
+        </p>
 
         <motion.section
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
