@@ -63,65 +63,72 @@ const ProgramFlowSection = () => {
           </p>
         </div>
 
-        <div className="relative">
-          <div
-            className="absolute bottom-2 left-[11px] top-2 w-px lg:hidden"
-            style={{ backgroundColor: ACADEMY_COLORS.lineSoft }}
-          />
-          <ol className="space-y-12 lg:grid lg:grid-cols-12 lg:gap-10 lg:space-y-0">
-            {steps.map((step, index) => (
-              <li key={step.id} className="relative pl-9 lg:col-span-4 lg:pl-0">
-              <div className="mb-4 flex items-center justify-between border-t pt-4" style={{ borderColor: ACADEMY_COLORS.lineStrong }}>
-                <span
-                  className="text-xs font-bold tracking-widest"
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {steps.map((step) => (
+            <div
+              key={step.id}
+              className="relative overflow-hidden rounded-sm border p-8"
+              style={{
+                borderColor: ACADEMY_COLORS.lineSoft,
+                backgroundColor: ACADEMY_COLORS.bgCanvas,
+              }}
+            >
+              <span
+                className="pointer-events-none absolute -top-2 right-4 select-none text-6xl font-bold leading-none opacity-[0.07]"
+                style={{
+                  fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                  color: ACADEMY_COLORS.textStrong,
+                }}
+                aria-hidden="true"
+              >
+                {step.id}
+              </span>
+
+              <div className="relative z-10 [text-shadow:0_0_12px_var(--card-bg),0_0_24px_var(--card-bg),0_0_40px_var(--card-bg)]" style={{ '--card-bg': ACADEMY_COLORS.bgCanvas } as React.CSSProperties}>
+                <p
+                  className="mb-4 text-[10px] font-bold uppercase tracking-widest"
                   style={{
                     fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                    color: ACADEMY_COLORS.textMuted,
+                    color: ACADEMY_COLORS.accentMain,
                   }}
                 >
                   {step.label}
-                </span>
-                {index < steps.length - 1 && (
-                  <span
-                    className="hidden text-sm font-bold lg:inline"
-                    style={{
-                      fontFamily: ACADEMY_TYPOGRAPHY.numeric,
-                      color: ACADEMY_COLORS.accentMain,
-                    }}
-                  >
-                    →
-                  </span>
-                )}
+                </p>
+                <h3 className="mb-3 text-xl font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
+                  {step.title}
+                </h3>
+                <p className="mb-5 text-sm leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
+                  {step.description}
+                </p>
+                <ul className="relative space-y-2">
+                  {step.items.map((item) => (
+                    <li
+                      key={item}
+                      className="inline-flex gap-3 rounded-sm px-2 py-1 text-sm"
+                      style={{
+                        color: ACADEMY_COLORS.textMuted,
+                        backgroundColor: ACADEMY_COLORS.bgCanvas,
+                      }}
+                    >
+                      <span style={{ color: ACADEMY_COLORS.accentMain }}>—</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <h3 className="mb-4 text-xl font-bold lg:text-2xl" style={{ color: ACADEMY_COLORS.textStrong }}>
-                {step.title}
-              </h3>
-              <p className="mb-6 text-sm leading-loose lg:text-base" style={{ color: ACADEMY_COLORS.textBody }}>
-                {step.description}
-              </p>
-
-              <div className="mb-6 w-fit rounded-md border p-3" style={{ borderColor: ACADEMY_COLORS.lineSoft, backgroundColor: ACADEMY_COLORS.bgCanvas }}>
+              <div className="pointer-events-none absolute -bottom-4 -right-4 opacity-40">
                 <Image
                   src={step.illustration}
-                  alt={step.title}
-                  width={150}
+                  alt=""
+                  width={120}
                   height={120}
-                  className="h-auto w-auto object-contain"
+                  className="h-[120px] w-[120px] object-contain"
+                  aria-hidden="true"
                 />
               </div>
-
-              <ul className="space-y-3">
-                {step.items.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm" style={{ color: ACADEMY_COLORS.textMuted }}>
-                    <span style={{ color: ACADEMY_COLORS.accentMain }}>—</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              </li>
-            ))}
-          </ol>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -86,7 +86,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="container relative z-10 mx-auto flex flex-1 items-center px-5 pt-8 sm:px-6 sm:pt-10 lg:px-12 lg:pt-0">
+      <div className="container relative z-10 mx-auto flex flex-1 items-center px-5 pt-8 sm:px-6 sm:pt-10 lg:px-12 lg:pt-20">
         <div className="w-full text-center lg:max-w-3xl lg:text-left">
           <div className="mb-5 flex justify-center sm:mb-8 lg:justify-start">
             <span
@@ -110,8 +110,8 @@ const HeroSection = () => {
               className="text-lg font-medium leading-relaxed sm:text-xl sm:leading-loose lg:text-2xl"
               style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif, color: ACADEMY_COLORS.textStrong }}
             >
-              100日間で、変化する時代を味方につける。<br className="sm:hidden" />
-              自分の可能性を再設計する。
+              100日間で、変化する時代を味方につける。<br />
+              AIと共にあなたの人生を切り開く。
             </p>
             <p className="mx-auto max-w-xl text-[15px] leading-relaxed sm:text-base sm:leading-loose lg:mx-0 lg:text-lg" style={{ color: ACADEMY_COLORS.textBody }}>
               2日間の集中キャンプから始まり、実践と対話を重ねる100日間で、AI時代に通用する思考と行動を定着させます。
@@ -170,7 +170,7 @@ const HeroSection = () => {
               className="border-b pb-1 text-xs transition-opacity hover:opacity-70"
               style={{ color: ACADEMY_COLORS.textMuted, borderColor: ACADEMY_COLORS.lineSoft }}
             >
-              法人・導入検討の方はこちら
+              法人向け研修をご検討の方はこちら
             </Link>
           </div>
         </div>
