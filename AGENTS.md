@@ -1,123 +1,38 @@
----
-title: "AGENTS ガイド — プロジェクト内AIエージェント運用"
-version: "1.0"
-last_updated: "2025-08-08"
-author: "さかもと"
-reviewers: []
-related_docs: [
-  "CLAUDE.md",
-  "prompts/design-agent.md",
-  "prompts/image-prompt-engineer.md",
-  "docs/README.md"
-]
-status: "draft"
-dependencies:
-  upstream: ["../project-config.yaml"]
-  downstream: ["docs/02-design/*", "docs/04-development/*"]
-impact_level: "low"
----
+# AGENTS.md
 
-### 目的と範囲
-- **目的**: 本プロジェクトで運用するAIエージェントの役割、使い分け、出力基準、ガバナンスを定義します。
-- **対象**: コーディング支援、UI/UXデザイン、画像生成プロンプト設計に関わる全メンバー。
+## Scope
+- This file is the canonical agent context for this repository.
+- Keep `CLAUDE.md` and `GEMINI.md` aligned as symlinks to this file.
+- Apply these rules to coding, docs, and content tasks.
+- When editing academy-facing copy (blog/LP/CTA/FAQ), always reflect all three pillars:
+  - 生成AI活用力
+  - 自己理解・キャリアデザイン
+  - 仲間と共に学ぶ環境
 
-### エージェント一覧
-- **Coding Agent（GPT-5, インタラクティブCLI）**
-  - **役割**: 実装・修正・調査・軽微な設計整理・ドキュメント更新。
-  - **主要能力**: コード検索（ripgrep準拠）、安全なファイル編集、並列情報収集、ビルド/ lint 実行、Git 操作（指示時のみコミット/PR）。
-  - **制約**:
-    - 長時間常駐プロセスを起動しない（dev サーバー等）。
-    - 検索は `rg` ベースのツールを優先。`cat/ls/grep/find` 直接実行は不可。
-    - Git 設定を変更しない。空コミット禁止。秘密情報を含めない。
-    - コードはツールで直接編集し、回答に長大なコードを貼らない。
-  - **出力基準**:
-    - 必要最小限の説明＋要点の箇条書きサマリ。
-    - コード引用は `citing_code` 形式、その他は適切なコードフェンス。
+## Required Commands
+- Install: `npm install`
+- Lint: `npm run lint`
+- Typecheck: `npx tsc --noEmit`
+- Build validation: `npm run build`
+- Local dev (only when explicitly requested): `npm run dev`
 
-- **Design Agent（Aesthetic Abyssal）** — prompts/design-agent.md
-  - **役割**: 深層美学・意味駆動のUI/UXコンセプト、ビジュアル原則設計。
-  - **使用タイミング**: 新規セクションの表現設計、ブランド性の強いUI刷新、演出指針の策定。
-  - **出力**: 構造化された創造計画・観察・実装指針（同プロンプト内フォーマットに準拠）。
+## Hard Constraints
+- Use `rg` for search/discovery.
+- Do not start long-running background processes unless the user asks.
+- Do not commit secrets, credentials, or API keys.
+- Keep changes minimal and task-scoped; avoid unrelated refactors.
+- For analytics-loop/report tasks, follow `.codex/skills/analytics-operations/SKILL.md` and store outputs under `docs/05-operations/analytics-reports/`.
+- Avoid academy messaging that frames the offer as only “AIスキルを教えるスクール”.
 
-- **Image Prompt Engineer** — prompts/image-prompt-engineer.md
-  - **役割**: 画像生成AI向けの構造化YAMLプロンプト設計。
-  - **使用タイミング**: KV/OGP/キービジュアル/ヘッダー画像等の生成指示が必要な時。
-  - **出力**: YAML（サイズは 1024x1024／1536x1024／1024x1536 のみ）。
+## Task Workflow
+- Locate target files quickly with `rg`.
+- Implement the smallest valid patch first.
+- Run required checks for changed scope: `npm run lint` and `npx tsc --noEmit`; run `npm run build` when routes/config/rendering are affected.
+- Update docs only when behavior/policy changed.
+- If agent context files are edited, keep this file concise and make linked files point here.
 
-- **[TODO] Content Agent**
-  - **役割案**: コピー/メッセージング整備、情報設計の文案化。
-  - 仕様策定が未了のため、導入前に別途合意が必要。
-
-### 運用ルール（共通）
-- **ドキュメント更新**
-  - `.cursor/rules/project-design.mdc` の遵守。更新開始時に「============Rulesを確認============」を宣言。
-  - メタ情報（front matter）を必ず同期更新。`author` は `project-config.yaml` の `user.name` を使用。
-  - 依存関係は上流→下流の順に更新。判別不能な事項は `[TODO]` と明示。
-- **ファイル/コマンド操作**
-  - 路径に空白がある場合は必ず二重引用符でクォート。
-  - 可能な限りカレント変更を避け、絶対パス運用。結果が長大な常駐コマンドは実行不可。
-- **Git 運用**
-  - コミット/PRはユーザー指示時のみ。コミット時は差分・ステータス・ログを確認し、メッセージは WHY 中心、HEREDOC で渡す。
-  - pre-commit による変更が入った場合は一度だけ再試行し、必要なら amend。
-- **コード品質**
-  - `code_style` に準拠（明示的命名・型の明瞭化・早期リターン・多段ネスト回避）。
-  - 変更後はビルド/ lint を実行してグリーン確認。破綻した状態で終了しない。
-
-### タスク→エージェント選定ガイド
-- **実装/修正/調査/設定**: Coding Agent
-- **UI/体験設計/美学コンセプト/演出**: Design Agent
-- **画像生成プロンプト設計**: Image Prompt Engineer
-
-### 出力フォーマット規約
-- **見出し**: H2/H3 を中心に簡潔。重要語は太字。
-- **コード**: リポジトリ内の既存コードは `citing_code` で引用。新規サンプルは適切なフェンスと言語タグ。
-- **URL**: 素URLを避け、マークダウンリンクまたはバッククォートで表記。
-- **日本語表記**: 用語はプロジェクト内の既存表記に合わせる。
-
-### セキュリティ/コンプライアンス
-- 機密情報・資格情報をコミットしない。外部APIキーは環境変数で管理。
-- 第三者著作物の取り込みはライセンス確認を必須。
-- 生成物のバイアス/不適切表現に留意し、レビューを通す。
-
-### 更新フローと品質チェック
-- 上流（要件/方針）→下流（実装/運用）で整合性を確保。
-- チェックリスト
-  - [ ] 文書間の整合性
-  - [ ] リンク切れ
-  - [ ] 形式統一
-  - [ ] レビュー実施
-
-### 変更履歴テンプレート
-
-```markdown
-## 更新履歴
-
-| バージョン | 更新日 | 更新者 | 更新内容 | 影響ドキュメント |
-|---|-----|-----|----|---|
-| 1.0 | 2025-08-08 | さかもと | 初版作成 | - |
-```
-
-## AIリブートアカデミー ポジショニング（CRITICAL）
-
-ブログ記事・LP・CTA・FAQなど、アカデミーに言及するすべてのコンテンツで以下の3本柱を必ず反映すること。
-「AIスキルを教えるスクール」だけの表現はNG。
-
-| 柱 | 内容 |
-|---|---|
-| **生成AI活用力** | 実務で即使えるAIスキルを体系的に習得 |
-| **自己理解・キャリアデザイン** | AIを鏡に自分の強み・価値観を掘り下げ、キャリアを再設計する |
-| **仲間と共に学ぶ環境** | 志を同じくする仲間との対話・協働が変化を加速させる |
-
-- NG例: 「AIスキルを学びたい方におすすめ」「AI活用法を教えるスクール」
-- OK例: 「AIスキルだけでなく、自分自身の価値を再発見し、仲間と共に次のキャリアを描く場」
-
-## カスタムスキル（デザイン関連）
-
-デザイン作業時は以下のスキルを参照してください。`.codex/skills/` に配置されています。
-
-| スキル | パス | 用途 |
-|--------|------|------|
-| **Radical Design** | `.codex/skills/radical-design/SKILL.md` | 常軌を逸した「Anti-Average」なWebデザイン。侘び寂び・間・余韻など日本的美学のデジタル翻訳 |
-| **Typography** | `.codex/skills/typography/SKILL.md` | CSS タイポグラフィのベストプラクティス。日本語・英語両対応 |
-| **Hero Design** | `.codex/skills/hero-design/SKILL.md` | 戦略的なヒーローセクション設計。認知心理学、2026年トレンド、LCP最適化 |
-
+## Definition of Done
+- Required commands for the touched scope pass.
+- Diff is limited to task-relevant files.
+- `CLAUDE.md` and `GEMINI.md` resolve to `AGENTS.md`.
+- Output/content respects repository constraints above.
