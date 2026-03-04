@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sora 2 完全攻略本 | AI Reboot Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>:root { --tool-color: #412991; }</style>
+</head>
+<body>
+
+<!-- ========== 表紙 ========== -->
+<div class="cover">
+  <div class="cover-series">— 完 全 攻 略 本 —</div>
+  <div class="cover-icon">So</div>
+  <h1>Sora 2</h1>
+  <p class="cover-subtitle">動画生成（OpenAI） | 企業PR、教育コンテンツ</p>
+  <p class="cover-catch">🌟 OpenAIが描く「テキストから映画」の世界</p>
+  <span class="cover-badge">🎁 AI Reboot Academy 限定プレゼント</span>
+  <span class="cover-footer">2026年3月版 | AI Reboot Academy</span>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== 目次 ========== -->
+<div class="toc">
+  <h2>📖 目次</h2>
+  <ol>
+    <li><a href="#ch1">Sora 2とは？ — 基本情報・最新モデル</a></li>
+    <li><a href="#ch2">料金プラン完全比較</a></li>
+    <li><a href="#ch3">主要機能を使いこなす</a></li>
+    <li><a href="#ch4">用途別プロンプトテンプレート集</a></li>
+    <li><a href="#ch5">動画生成を極めるテクニック</a></li>
+    <li><a href="#ch6">他ツールとの比較</a></li>
+    <li><a href="#ch7">注意点とリスク管理</a></li>
+  </ol>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch1 ========== -->
+<section id="ch1">
+  <div class="section-header"><span class="num">01</span>Sora 2とは？ — 基本情報・最新モデル</div>
+
+  <p>Sora 2は、OpenAIが開発するテキストから高品質な動画を生成するAIモデルです。ChatGPTエコシステムに統合されており、ChatGPT Plus/Proプランのユーザーが直接利用できます。テキストプロンプトから最大20秒・1080p解像度の映像を生成でき、企業PRや教育コンテンツなど幅広い用途に対応しています。</p>
+
+  <div class="sub-header">🎬 モデル・機能一覧（2026年3月時点）</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>モデル / 機能</th><th>特徴</th><th>利用プラン</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Sora 2</strong></td><td>最新モデル。物理法則の理解と映像品質が大幅向上</td><td>Plus以上</td></tr>
+      <tr><td><strong>Storyboard モード</strong></td><td>絵コンテ形式で複数シーンを細かく指定可能</td><td>Plus以上</td></tr>
+      <tr><td><strong>Remix / Blend / Loop</strong></td><td>既存動画の編集・合成・ループ化ツール群</td><td>Plus以上</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-header">💡 Sora 2で何ができる？（3行まとめ）</div>
+  <ul>
+    <li>🎥 <strong>OpenAIの動画生成</strong>：テキストプロンプトから、映画クオリティの映像をAIが自動生成します</li>
+    <li>🔗 <strong>ChatGPTエコシステムとの統合</strong>：ChatGPT上からシームレスに動画生成が可能。プロンプト作成もGPTが支援します</li>
+    <li>📺 <strong>最大20秒/1080pの高品質動画</strong>：高解像度かつ自然な動きの映像を、専門知識なしで制作できます</li>
+  </ul>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch2 ========== -->
+<section id="ch2">
+  <div class="section-header"><span class="num">02</span>料金プラン完全比較</div>
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-header">🆓 Free プラン（ChatGPT無料）</div>
+      <div class="card-body">
+        <div class="card-price">$0 <span class="text-small text-muted">/ 月</span></div>
+        <ul>
+          <li>動画生成は非常に限定的</li>
+          <li>低解像度・短尺のみ</li>
+          <li>月数本程度の制限</li>
+          <li>Sora専用の無料プランは無し</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">⭐ ChatGPT Plus <span class="card-recommended">おすすめ</span></div>
+      <div class="card-body">
+        <div class="card-price">月額 $20 <span class="text-small text-muted">（約3,000円）</span></div>
+        <ul>
+          <li>月50本まで動画生成可能</li>
+          <li>最大720p解像度</li>
+          <li>最大10秒の動画</li>
+          <li>Storyboard・Remix利用可能</li>
+          <li>ChatGPTの全機能も利用可</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">💎 ChatGPT Pro</div>
+      <div class="card-body">
+        <div class="card-price">月額 $200 <span class="text-small text-muted">（約30,000円）</span></div>
+        <ul>
+          <li>動画生成 無制限</li>
+          <li>最大1080p高解像度</li>
+          <li>最大20秒の動画</li>
+          <li>優先キュー（高速生成）</li>
+          <li>全ツール・全機能フルアクセス</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">🔌 API アクセス</div>
+      <div class="card-body">
+        <div class="card-price">従量課金 <span class="text-small text-muted">（秒数・解像度ベース）</span></div>
+        <ul>
+          <li>アプリケーションへの組み込み</li>
+          <li>バッチ処理・自動化対応</li>
+          <li>カスタムワークフロー構築</li>
+          <li>開発者向けドキュメント完備</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    Sora単体の無料プランは存在しないため、動画生成を本格的に使うなら <strong>ChatGPT Plus</strong> が最もコストパフォーマンスの高い選択肢です。月50本の枠内で企業PRやSNS動画を十分にカバーできます。プロフェッショナルな映像制作には Pro プランをご検討ください。
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch3 ========== -->
+<section id="ch3">
+  <div class="section-header"><span class="num">03</span>主要機能を使いこなす</div>
+
+  <div class="sub-header">🎬 Text-to-Video（テキスト→動画）</div>
+  <p>テキストプロンプトを入力するだけで、AIが高品質な動画を生成します。シーンの雰囲気、カメラワーク、照明、被写体の動きなどを自然言語で指定できます。ChatGPT上で直接プロンプトを入力し、GPTがプロンプトの最適化も支援してくれます。</p>
+
+  <div class="sub-header">📋 Storyboard（絵コンテ指定）</div>
+  <p>動画を複数のシーンに分割し、それぞれのシーンに個別のプロンプトを設定できるモードです。シーン間のつなぎやトランジションも指定可能で、ストーリー性のある動画制作に最適です。企業紹介動画や教育コンテンツのように、構成が重要な映像に威力を発揮します。</p>
+
+  <div class="sub-header">🔄 Remix（既存動画のリミックス）</div>
+  <p>生成済みの動画やアップロードした動画をベースに、スタイルや内容を変更できます。「同じ構図で季節を変える」「色調をシネマティックに変更する」など、微調整に便利な機能です。元の動画の構造を保ちながら、新しいバリエーションを生み出せます。</p>
+
+  <div class="sub-header">🎨 Blend（2つの動画をブレンド）</div>
+  <p>2つの異なる動画を融合させ、新しい映像を生成します。たとえば「都市の風景」と「自然の風景」をブレンドして幻想的な映像を作ったり、異なるスタイルの映像をミックスしてユニークなビジュアルを生み出したりできます。</p>
+
+  <div class="sub-header">🔁 Loop & 動画拡張</div>
+  <p>生成した動画をシームレスにループさせたり、動画の前後を拡張して尺を延長したりできます。SNSのバナー動画や背景映像など、繰り返し再生が必要なコンテンツ制作に重宝します。短い動画から長尺コンテンツへの拡張にも活用できます。</p>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch4 ========== -->
+<section id="ch4">
+  <div class="section-header"><span class="num">04</span>用途別プロンプトテンプレート集</div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🏢 企業紹介PR動画</div>
+    <pre>以下の条件で企業紹介用の動画を生成してください。
+
+【シーン】モダンなオフィスビルの外観 → エントランスを通り抜け → 明るいオープンオフィスで多様なチームがコラボレーション
+【カメラワーク】ドリーイン（建物外観からオフィス内部へスムーズに移動）
+【照明】自然光メイン、午前中の柔らかい日差し
+【色調】ウォーム、明るくプロフェッショナルな印象
+【雰囲気】活気があり、イノベーティブ、多様性を感じる
+【尺】10秒
+【解像度】1080p</pre>
+    <div class="tip">💡 カメラワークと照明を具体的に指定すると、プロの映像に近い仕上がりになります</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📚 教育コンテンツ用の解説動画</div>
+    <pre>以下の条件で教育用の解説動画を生成してください。
+
+【テーマ】太陽系の惑星の公転軌道
+【視点】宇宙空間から太陽系を俯瞰するカメラ
+【カメラワーク】太陽を中心にゆっくりと回転しながらズームアウト
+【表現】各惑星が光る軌道線に沿って公転している様子
+【色調】ダークブルーの宇宙背景に、惑星と軌道は明るく発光
+【雰囲気】科学的で美しい、知的好奇心を刺激する
+【尺】15秒
+【解像度】1080p</pre>
+    <div class="tip">💡 教育コンテンツでは「何を伝えたいか」を明確にし、視覚的な動きで表現しましょう</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📱 SNS用ショートクリップ</div>
+    <pre>以下の条件でInstagram Reels向けのショートクリップを生成してください。
+
+【シーン】カフェのテーブルに置かれたラテアートのコーヒーカップ
+【カメラワーク】真上からのトップダウンショット → ゆっくりと斜め45度まで傾く
+【動き】ラテアートの表面にスチームが優しく立ち上る
+【照明】窓からの柔らかい自然光、ボケ感のある背景
+【色調】ウォームトーン、少しヴィンテージ感
+【雰囲気】おしゃれ、リラックス、ASMR的な心地よさ
+【尺】5秒
+【アスペクト比】9:16（縦型）</pre>
+    <div class="tip">💡 SNS動画はアスペクト比（9:16の縦型）を忘れずに指定しましょう</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🎨 コンセプトアート風映像</div>
+    <pre>以下の条件でコンセプトアート風の映像を生成してください。
+
+【シーン】雨上がりの近未来都市、ネオンが濡れた路面に反射している
+【スタイル】ブレードランナー風のサイバーパンク × 日本の路地裏
+【カメラワーク】地面すれすれのローアングルから、ゆっくりとパンアップ
+【動き】通行人のシルエットが行き交う、ホログラム広告がちらつく
+【色調】ティール＆オレンジ、ネオンパープルのアクセント
+【雰囲気】退廃的だが美しい、静かな緊張感
+【尺】10秒</pre>
+    <div class="tip">💡 映画やアート作品のスタイルを参照すると、世界観が一貫した映像になります</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🚀 プロダクトローンチ動画</div>
+    <pre>以下の条件で新製品ローンチ用の動画を生成してください。
+
+【製品イメージ】洗練されたワイヤレスイヤホン（白、ミニマルデザイン）
+【シーン1】暗闇の中から光とともに製品がゆっくり回転しながら登場
+【シーン2】光のパーティクルが製品を取り囲み、特徴をハイライト
+【カメラワーク】スローモーションの360度回転 → クローズアップ
+【照明】ドラマチックなリムライティング、背景は純黒
+【色調】モノトーン基調に、製品だけがほのかに発光
+【雰囲気】プレミアム、未来感、Apple風のミニマリズム
+【尺】10秒</pre>
+    <div class="tip">💡 プロダクト動画は照明とカメラの回転がクオリティを決めます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📋 Storyboardモードで複数シーン構成</div>
+    <pre>Storyboardモードで以下の3シーン構成の動画を生成してください。
+
+【シーン1（0-5秒）】
+- 早朝の東京、高層ビルの窓に朝日が反射
+- カメラ：タイムラプス風にビル群をワイドショット
+- 雰囲気：静寂から始まる1日の始まり
+
+【シーン2（5-12秒）】
+- オフィスでチームがホワイトボードを囲んでディスカッション
+- カメラ：ハンドヘルド風に寄ったミディアムショット
+- 雰囲気：活気、情熱、コラボレーション
+
+【シーン3（12-18秒）】
+- 夕暮れのルーフトップで笑顔のチームメンバーが乾杯
+- カメラ：ゴールデンアワーの逆光で、シルエットから顔にフォーカス
+- 雰囲気：達成感、チームの絆、希望
+
+【全体トーン】ドキュメンタリー風、ウォーム
+【解像度】1080p</pre>
+    <div class="tip">💡 Storyboardモードでは各シーンの秒数・カメラ・雰囲気を個別に設定するのがポイントです</div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch5 ========== -->
+<section id="ch5">
+  <div class="section-header"><span class="num">05</span>動画生成を極めるテクニック</div>
+
+  <ol class="numbered-list">
+    <li><strong>ChatGPT Plusの動画枠を効率的に利用する</strong><br>Plusプランは月50本の制限があります。まずは短尺・低解像度でアイデアを検証し、方向性が定まってから本番用の動画を生成しましょう。プロンプトをChatGPTに相談して練り上げてから生成するのも、枠の節約に有効です。</li>
+    <li><strong>Storyboardでシーンを細かく制御する</strong><br>1つのプロンプトで長い動画を作るより、Storyboardモードでシーンごとに指示を出す方が意図通りの映像になります。各シーンに異なるカメラアングル、照明、雰囲気を設定して、映像のクオリティを高めましょう。</li>
+    <li><strong>プロンプトにカメラワークを具体的に指定する</strong><br>「ドリーイン」「パンアップ」「トラッキングショット」「ローアングル」など、映像用語を使うと意図した動きが反映されやすくなります。プロのシネマトグラファーが使う用語を覚えておくと便利です。</li>
+    <li><strong>Remix機能で微調整を繰り返す</strong><br>一度生成した動画をベースにRemix機能で修正する方が、ゼロから再生成するより効率的です。「同じ構図で色調だけ変更」「動きの速度を調整」など、部分的な変更に活用しましょう。</li>
+    <li><strong>低解像度テスト→高解像度仕上げの2段階ワークフロー</strong><br>最初は低解像度・短尺でプロンプトの方向性をテストし、満足のいく結果が出たら同じプロンプトで高解像度版を生成します。生成時間と動画枠の両方を節約できるワークフローです。</li>
+    <li><strong>映画・映像の参考スタイルを明示する</strong><br>「ウェス・アンダーソン風の左右対称構図」「ドキュメンタリー風のハンドヘルド」など、既知の映像スタイルを参照すると一貫した雰囲気の動画が生成されやすくなります。色調（ティール＆オレンジ等）の指定も効果的です。</li>
+  </ol>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch6 ========== -->
+<section id="ch6">
+  <div class="section-header"><span class="num">06</span>他ツールとの比較</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>評価項目</th><th class="highlight-col">Sora 2</th><th>Runway</th><th>Kling</th><th>Veo</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>🎬 映像品質</td><td class="highlight-col">◎</td><td>◎</td><td>○</td><td>◎</td></tr>
+      <tr><td>📝 プロンプト理解力</td><td class="highlight-col">◎</td><td>○</td><td>○</td><td>○</td></tr>
+      <tr><td>📋 ストーリー性</td><td class="highlight-col">◎</td><td>○</td><td>△</td><td>○</td></tr>
+      <tr><td>🔗 ChatGPT統合</td><td class="highlight-col">◎</td><td>×</td><td>×</td><td>×</td></tr>
+      <tr><td>⏱ 動画の最大尺</td><td class="highlight-col">○（20秒）</td><td>○（16秒）</td><td>◎（長尺対応）</td><td>○（8秒）</td></tr>
+      <tr><td>🔄 編集ツール</td><td class="highlight-col">◎</td><td>◎</td><td>○</td><td>△</td></tr>
+      <tr><td>💰 コストパフォーマンス</td><td class="highlight-col">○</td><td>○</td><td>◎</td><td>○</td></tr>
+      <tr><td>🎯 物理法則の再現</td><td class="highlight-col">◎</td><td>○</td><td>○</td><td>◎</td></tr>
+      <tr><td>🇯🇵 日本語プロンプト対応</td><td class="highlight-col">◎</td><td>○</td><td>○</td><td>○</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-card mt-md">
+    <div class="card-header">🎯 Sora 2が最適なシーン</div>
+    <div class="card-body">
+      <ul>
+        <li><strong>ChatGPTエコシステムをすでに活用している</strong>：追加コストなしでPlusプランに動画生成が含まれる</li>
+        <li><strong>プロンプトで細かく映像を制御したい</strong>：GPTのプロンプト理解力により、自然言語で高精度な指示が可能</li>
+        <li><strong>ストーリー性のある動画を作りたい</strong>：Storyboardモードで複数シーンの構成を簡単に設計できる</li>
+        <li><strong>企業PRや教育コンテンツに活用したい</strong>：高品質かつ一貫したトーンの映像を安定して生成できる</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch7 ========== -->
+<section id="ch7">
+  <div class="section-header"><span class="num">07</span>注意点とリスク管理</div>
+
+  <div class="warning-box">
+    <strong>ChatGPT Plus枠の制限（月50本）</strong><br>
+    Plusプランでは月あたり50本の動画生成に制限されています。無計画に生成するとすぐに枠を使い切ってしまいます。低解像度でのテスト生成を活用し、本番用の生成は厳選して行いましょう。月末にリセットされるので、スケジュールを意識した制作計画を立てることが重要です。
+  </div>
+
+  <div class="warning-box">
+    <strong>生成時間が長い</strong><br>
+    高品質な動画生成には数分から十数分かかる場合があります。特に1080p・20秒の動画ではかなりの待ち時間が発生します。急ぎの案件では余裕をもったスケジュールを組み、複数パターンの生成は並行して依頼するなど、時間管理を意識しましょう。
+  </div>
+
+  <div class="warning-box">
+    <strong>コンテンツポリシーが厳しい</strong><br>
+    OpenAIのコンテンツポリシーにより、暴力的・性的・差別的な内容を含む動画は生成できません。また、実在の人物や著名人を模した映像、ディープフェイク的なコンテンツも禁止されています。ビジネス利用では問題になることは少ないですが、クリエイティブな表現においては制約を感じる場面があるかもしれません。
+  </div>
+
+  <div class="warning-box">
+    <strong>商用利用のガイドライン確認</strong><br>
+    Soraで生成した動画の商用利用は基本的に認められていますが、OpenAIの利用規約に準じた条件があります。特に広告やプロモーションに使用する場合は、AI生成コンテンツであることの開示が求められるケースがあります。最新のガイドラインを公式サイトで確認してから利用しましょう。
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<div class="cta-box">
+  <span class="cta-label">🎓 無料セミナーのご案内</span>
+  <h3>「生成AI時代のキャリア設計論」</h3>
+  <p>Soraを仕事にどう活かす？ AIと共存するキャリア戦略を90分で学べる無料セミナー開催中。</p>
+  <a href="https://ai-reboot.io/seminars/ai-career-anxiety" class="cta-url">🔗 無料セミナーに申し込む</a>
+</div>
+
+<!-- ========== Copyright ========== -->
+<div class="copyright">
+  © 2026 AI Reboot Academy | セミナー登録者限定非売品<br>
+  ※2026年3月時点の情報です。最新の料金・機能は公式サイトでご確認ください。
+</div>
+
+</body>
+</html>

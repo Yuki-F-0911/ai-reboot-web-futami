@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midjourney V7 完全攻略本 | AI Reboot Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>:root { --tool-color: #000000; }</style>
+</head>
+<body>
+
+<!-- ========== 表紙 ========== -->
+<div class="cover">
+  <div class="cover-series">— 完 全 攻 略 本 —</div>
+  <div class="cover-icon">MJ</div>
+  <h1>Midjourney V7</h1>
+  <p class="cover-subtitle">画像生成（最高品質） | デザイナー、マーケター、クリエイター</p>
+  <p class="cover-catch">🎨 最高峰の画像品質で「想像」を「創造」に変える</p>
+  <span class="cover-badge">🎁 AI Reboot Academy 限定プレゼント</span>
+  <span class="cover-footer">2026年3月版 | AI Reboot Academy</span>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== 目次 ========== -->
+<div class="toc">
+  <h2>📖 目次</h2>
+  <ol>
+    <li><a href="#ch1">Midjourneyとは？ — 基本情報・最新モデル</a></li>
+    <li><a href="#ch2">料金プラン完全比較</a></li>
+    <li><a href="#ch3">5つの主要機能を使いこなす</a></li>
+    <li><a href="#ch4">用途別プロンプトテンプレート集</a></li>
+    <li><a href="#ch5">有料プランを最大限活用する7つのテクニック</a></li>
+    <li><a href="#ch6">他ツールとの比較</a></li>
+    <li><a href="#ch7">注意点とリスク管理</a></li>
+  </ol>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch1 ========== -->
+<section id="ch1">
+  <div class="section-header"><span class="num">01</span>Midjourneyとは？ — 基本情報・最新モデル</div>
+
+  <p>Midjourneyは、画像生成AIの中で最も高い美的品質を誇るツールです。写真のようなリアルさから絵画的な芸術表現まで、プロクオリティのビジュアルをテキストプロンプトから生成できます。かつてはDiscord上でしか利用できませんでしたが、現在はWeb UI（midjourney.com）から直接操作でき、初心者でもスムーズに始められるようになりました。</p>
+
+  <div class="sub-header">🤖 最新モデル情報（2026年3月時点）</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>モデル名</th><th>特徴</th><th>用途</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>V7（最新）</strong></td><td>超高品質。テクスチャ・照明・構図の精度が飛躍的に向上</td><td>商用制作・ポートフォリオ</td></tr>
+      <tr><td><strong>V6.1</strong></td><td>安定した品質。テキスト描画にも対応</td><td>汎用的な画像生成</td></tr>
+      <tr><td><strong>Niji 6</strong></td><td>アニメ・イラスト特化モデル</td><td>アニメ風イラスト制作</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-header">💡 Midjourneyで何ができる？（3行まとめ）</div>
+  <ul>
+    <li>🎨 <strong>最高品質の画像生成</strong>：業界随一の美的センスで、広告・Webデザイン・SNSビジュアルをプロ級に仕上げます</li>
+    <li>📸 <strong>アート・フォトリアル両対応</strong>：油絵風のアートから実写のような商品写真まで、あらゆるスタイルに対応します</li>
+    <li>🖥️ <strong>Web UIで手軽にアクセス</strong>：Discord不要。ブラウザからすぐに使えるエディター付きの直感的なインターフェースです</li>
+  </ul>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch2 ========== -->
+<section id="ch2">
+  <div class="section-header"><span class="num">02</span>料金プラン完全比較</div>
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-header">🔰 Basic プラン</div>
+      <div class="card-body">
+        <div class="card-price">月額 $10 <span class="text-small text-muted">（約1,500円）</span></div>
+        <ul>
+          <li>月間約200枚の画像生成</li>
+          <li>3つの同時ジョブ</li>
+          <li>Web UI利用可能</li>
+          <li>一般的な商用利用OK</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">⭐ Standard プラン <span class="card-recommended">おすすめ</span></div>
+      <div class="card-body">
+        <div class="card-price">月額 $30 <span class="text-small text-muted">（約4,500円）</span></div>
+        <ul>
+          <li>Relaxモード無制限</li>
+          <li>15時間のFastモード</li>
+          <li>3つの同時ジョブ</li>
+          <li>ステルスモード利用可能</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">💎 Pro プラン</div>
+      <div class="card-body">
+        <div class="card-price">月額 $60 <span class="text-small text-muted">（約9,000円）</span></div>
+        <ul>
+          <li>Relaxモード無制限</li>
+          <li>30時間のFastモード</li>
+          <li>12の同時ジョブ</li>
+          <li>ステルスモード標準</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">🏢 Mega プラン</div>
+      <div class="card-body">
+        <div class="card-price">月額 $120 <span class="text-small text-muted">（約18,000円）</span></div>
+        <ul>
+          <li>Relaxモード無制限</li>
+          <li>60時間のFastモード</li>
+          <li>12の同時ジョブ</li>
+          <li>大量制作・チーム向け</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    ほとんどのクリエイターには <strong>Standard プラン</strong> がおすすめです。Relaxモード（低速だが無制限）で試行錯誤し、気に入ったものをFastモードで高速生成するワークフローが最もコストパフォーマンスに優れています。Basicプランは月200枚の制限がすぐに上限に達しやすい点にご注意ください。
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch3 ========== -->
+<section id="ch3">
+  <div class="section-header"><span class="num">03</span>5つの主要機能を使いこなす</div>
+
+  <div class="sub-header">🎨 V7モデル（超高品質画像生成）</div>
+  <p>Midjourney V7は、テクスチャの質感・光の表現・構図のバランスにおいて飛躍的な進化を遂げた最新モデルです。人物の手や指の描写精度も大幅に向上し、従来の画像生成AIが苦手としていた領域を克服しています。プロンプトの意図をより正確に反映する理解力も強化されました。</p>
+
+  <div class="sub-header">🖥️ Web UI & エディター</div>
+  <p>midjourney.comのWeb UIでは、画像生成からバリエーション作成・アップスケールまでをブラウザ上で完結できます。内蔵エディターを使えば、生成画像の一部を選択して再描画（インペイント）したり、画像の外側を拡張（アウトペイント）することも可能です。Discordコマンドを覚える必要はもうありません。</p>
+
+  <div class="sub-header">🔄 Vary & Upscale機能</div>
+  <p>生成された画像のバリエーションを作成する「Vary」機能と、解像度を最大4倍まで引き上げる「Upscale」機能があります。Vary (Subtle)で微調整、Vary (Strong)で大幅な変更、Vary (Region)で部分的な再生成が可能。気に入った画像をベースに理想のビジュアルへ追い込めます。</p>
+
+  <div class="sub-header">🖼️ スタイルリファレンス（--sref）</div>
+  <p>参照画像のスタイル（色調・雰囲気・質感）を別の画像生成に適用できる機能です。--srefパラメータに画像URLを指定するだけで、一貫したビジュアルトーンを維持できます。ブランドの世界観を統一したいマーケティング素材や、シリーズものの制作で威力を発揮します。</p>
+
+  <div class="sub-header">✨ パーソナライゼーション（--p）</div>
+  <p>あなたの好みの画像スタイルをMidjourneyが学習し、生成結果に反映する機能です。Web UIで好みの画像ペアを選択するトレーニングを行うことで、パーソナライズコードが生成されます。--pパラメータを追加するだけで、あなた好みのテイストが自動的に反映されます。</p>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch4 ========== -->
+<section id="ch4">
+  <div class="section-header"><span class="num">04</span>用途別プロンプトテンプレート集</div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📸 商品写真風（Product Photography）</div>
+    <pre>A minimalist product photo of a ceramic coffee mug, warm morning light from the left, on a light oak table, soft bokeh background, editorial style, shot on Hasselblad, 8K --ar 4:5 --s 300 --q 2</pre>
+    <div class="tip">💡 <strong>パラメータ解説：</strong>「--ar 4:5」= Instagram向け縦長比率、「--s 300」= スタイライズ値（高いほど芸術的）、「--q 2」= 高品質モード。カメラ名（Hasselblad等）を入れるとフォトリアル感が増します</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🎬 シネマティックポートレート（Cinematic Portrait）</div>
+    <pre>Cinematic portrait of a Japanese woman in her 30s, wearing a navy business suit, standing by floor-to-ceiling windows in a modern Tokyo office, golden hour lighting, shallow depth of field, Kodak Portra 400 film grain, 85mm lens --ar 16:9 --s 200</pre>
+    <div class="tip">💡 <strong>パラメータ解説：</strong>「Kodak Portra 400」= フィルム風の色味を指定、「85mm lens」= ポートレート向きのレンズ感。人物の年代・服装・場所を具体的に書くほど意図通りの結果になります</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">✏️ ロゴデザイン（Logo Design）</div>
+    <pre>Minimal vector logo for a tech startup called "NOVA", geometric abstract mark, clean lines, flat design, navy blue and silver color palette, white background, professional, scalable --ar 1:1 --s 50 --no realistic, 3D, gradient</pre>
+    <div class="tip">💡 <strong>パラメータ解説：</strong>「--s 50」= スタイライズ低め（プロンプト忠実度優先）、「--no」= ネガティブプロンプト（除外要素の指定）。ロゴはスタイライズ値を低くし、「flat design」「vector」を明記するのがコツです</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🏠 インテリアデザイン（Interior Visualization）</div>
+    <pre>Modern Japanese living room interior, minimalist wabi-sabi aesthetic, natural wood and white plaster walls, large windows with garden view, indirect warm lighting, mid-century modern furniture, architectural photography by Dezeen --ar 16:9 --s 250 --q 2</pre>
+    <div class="tip">💡 <strong>パラメータ解説：</strong>「architectural photography by Dezeen」= 建築メディア風の撮影スタイルを指定。インテリアスタイル名（wabi-sabi, mid-century等）と素材感（wood, plaster等）を具体的に記述すると精度が上がります</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🌸 アニメ風イラスト（Anime Style）</div>
+    <pre>Anime illustration of a girl with short black hair reading a book in a cozy cafe, cherry blossoms visible through the window, soft pastel color palette, Studio Ghibli inspired, gentle sunlight, detailed background --niji 6 --ar 3:4 --s 200</pre>
+    <div class="tip">💡 <strong>パラメータ解説：</strong>「--niji 6」= アニメ特化モデルNiji 6を使用（V7ではなくNijiモデルを選択）。アニメ風にはNijiモデルが最適。「Studio Ghibli inspired」のようにスタジオ名で雰囲気を指定できます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🏗️ 建築ビジュアライゼーション（Architecture）</div>
+    <pre>Exterior view of a contemporary concrete and glass residential house, floating volume over a reflecting pool, surrounded by mature trees, dramatic sunset sky, architectural rendering, eye-level perspective, photorealistic, Archdaily style --ar 21:9 --s 150 --q 2</pre>
+    <div class="tip">💡 <strong>パラメータ解説：</strong>「--ar 21:9」= シネマスコープ比率（建築のパノラマ表現に最適）、「eye-level perspective」= 視点の指定。「Archdaily style」で建築メディア風の表現を指定しています</div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch5 ========== -->
+<section id="ch5">
+  <div class="section-header"><span class="num">05</span>有料プランを最大限活用する7つのテクニック</div>
+
+  <ol class="numbered-list">
+    <li><strong>パラメータを使いこなす</strong><br>基本パラメータを覚えるだけで画像品質が劇的に向上します。「--ar」（アスペクト比）、「--s」（スタイライズ：0〜1000、高いほど芸術的）、「--c」（カオス：0〜100、高いほど予想外の結果）、「--q」（品質：.25/.5/1/2）を組み合わせましょう。</li>
+    <li><strong>ネガティブプロンプト（--no）で不要要素を排除</strong><br>「--no text, watermark, blurry, distorted」のように、生成して欲しくない要素を指定できます。テキストの混入や不要なオブジェクトを防ぐのに効果的です。特にロゴやクリーンなデザインでは必須のテクニックです。</li>
+    <li><strong>スタイルリファレンス（--sref）で一貫性を確保</strong><br>一度気に入った画像が生成できたら、そのURLを「--sref」に指定して次の画像にも同じスタイルを適用しましょう。ブランドのビジュアルガイドライン画像を参照元にすれば、プロジェクト全体の統一感を保てます。</li>
+    <li><strong>バリエーション機能でベストを追い込む</strong><br>最初の生成で完璧を目指す必要はありません。4枚のグリッドから最も良いものを選び、Vary (Subtle)で微調整→Vary (Region)で気になる部分だけ再生成、というワークフローが効率的です。</li>
+    <li><strong>リミックスモードで途中からプロンプト変更</strong><br>リミックスモードをONにすると、バリエーション作成時にプロンプトを変更できます。構図は気に入ったけど色味を変えたい、といった微調整に最適です。Web UIの設定から有効化できます。</li>
+    <li><strong>Relaxモードで試行錯誤、Fastモードで本番制作</strong><br>Standardプラン以上ではRelaxモード（低速・無制限）が使えます。アイデア出しや方向性の模索はRelaxモードで行い、最終候補が決まったらFastモードで高速・高品質に生成するのがFast時間を節約するコツです。</li>
+    <li><strong>プロンプトの構造を定型化する</strong><br>「主題 + スタイル + 照明 + カメラ/レンズ + 雰囲気 + パラメータ」の順で記述すると安定した結果が得られます。英語で書くのが基本ですが、ChatGPTやClaudeにプロンプトの英訳・改善を依頼するのも効果的な手段です。</li>
+  </ol>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch6 ========== -->
+<section id="ch6">
+  <div class="section-header"><span class="num">06</span>他ツールとの比較</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>評価項目</th><th class="highlight-col">Midjourney</th><th>FLUX.2</th><th>DALL-E</th><th>Firefly</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>🎨 芸術性・美的品質</td><td class="highlight-col">◎</td><td>○</td><td>○</td><td>○</td></tr>
+      <tr><td>📸 フォトリアリズム</td><td class="highlight-col">◎</td><td>◎</td><td>○</td><td>○</td></tr>
+      <tr><td>🖼️ スタイル一貫性</td><td class="highlight-col">◎</td><td>○</td><td>△</td><td>○</td></tr>
+      <tr><td>✏️ テキスト描画精度</td><td class="highlight-col">○</td><td>◎</td><td>◎</td><td>○</td></tr>
+      <tr><td>🔧 画像編集機能</td><td class="highlight-col">○</td><td>△</td><td>○</td><td>◎</td></tr>
+      <tr><td>⚡ 生成速度</td><td class="highlight-col">○</td><td>◎</td><td>○</td><td>○</td></tr>
+      <tr><td>📐 パラメータ制御</td><td class="highlight-col">◎</td><td>○</td><td>△</td><td>△</td></tr>
+      <tr><td>💰 コストパフォーマンス</td><td class="highlight-col">○</td><td>◎</td><td>○</td><td>○</td></tr>
+      <tr><td>⚖️ 商用利用の安心感</td><td class="highlight-col">○</td><td>○</td><td>○</td><td>◎</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-card mt-md">
+    <div class="card-header">🎯 Midjourneyが最適なシーン</div>
+    <div class="card-body">
+      <ul>
+        <li><strong>最高品質のビジュアルが必要</strong>：広告素材、ポスター、Webヒーローイメージなど、品質が最優先の制作物</li>
+        <li><strong>スタイルの一貫性を保ちたい</strong>：--srefとパーソナライゼーションで、ブランド全体のビジュアルトーンを統一</li>
+        <li><strong>芸術的な表現を追求したい</strong>：コンセプトアート、イラスト、アートワーク制作での圧倒的な美的センス</li>
+        <li><strong>写真のような高品質イメージが必要</strong>：商品撮影風、建築ビジュアライゼーション、インテリアデザイン</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch7 ========== -->
+<section id="ch7">
+  <div class="section-header"><span class="num">07</span>注意点とリスク管理</div>
+
+  <div class="warning-box">
+    <strong>商用利用規約の確認</strong><br>
+    有料プランでは生成画像の商用利用が認められていますが、利用規約の詳細を必ず確認してください。無料トライアル期間中に生成した画像は商用利用が制限される場合があります。また、年間売上が一定額を超える企業はProプラン以上が必要とされるケースもありますので、公式サイトの最新規約を確認しましょう。
+  </div>
+
+  <div class="warning-box">
+    <strong>著作権リスク（既存作品の模倣）</strong><br>
+    「〇〇（アーティスト名）のスタイルで」というプロンプトは、著作権・著作者人格権の侵害リスクがあります。特に存命のアーティストのスタイルを模倣することは法的・倫理的に問題となる可能性があります。スタイルを参考にする場合は、特定の個人名ではなく「impressionist style」「cyberpunk aesthetic」のようなジャンル・ムーブメント名で指定することを推奨します。
+  </div>
+
+  <div class="warning-box">
+    <strong>人物生成の倫理</strong><br>
+    実在の人物に酷似した画像の生成は、肖像権やディープフェイクの問題に直結します。Midjourneyでは実在の人物名をプロンプトに使用することが制限されています。架空の人物を生成する場合でも、ステレオタイプの強化や差別的な表現にならないよう十分に注意してください。生成した人物画像を広告等で使用する際は、AI生成であることの明示を検討しましょう。
+  </div>
+
+  <div class="warning-box">
+    <strong>プロンプトの英語力が品質に直結</strong><br>
+    Midjourneyのプロンプトは英語が基本です。日本語でも生成は可能ですが、英語に比べて意図の伝達精度が大幅に低下します。英語が苦手な方は、ChatGPTやClaudeに「Midjourneyのプロンプトとして最適な英語に変換して」と依頼するワークフローをお勧めします。プロンプトの語彙力が上がるほど、生成品質も比例して向上します。
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<div class="cta-box">
+  <span class="cta-label">🎓 無料セミナーのご案内</span>
+  <h3>「生成AI時代のキャリア設計論」</h3>
+  <p>Midjourneyを仕事にどう活かす？ AIと共存するキャリア戦略を90分で学べる無料セミナー開催中。</p>
+  <a href="https://ai-reboot.io/seminars/ai-career-anxiety" class="cta-url">🔗 無料セミナーに申し込む</a>
+</div>
+
+<!-- ========== Copyright ========== -->
+<div class="copyright">
+  © 2026 AI Reboot Academy | セミナー登録者限定非売品<br>
+  ※2026年3月時点の情報です。最新の料金・機能は公式サイトでご確認ください。
+</div>
+
+</body>
+</html>

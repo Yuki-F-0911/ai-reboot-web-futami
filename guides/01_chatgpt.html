@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPT 完全攻略本 | AI Reboot Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>:root { --tool-color: #10a37f; }</style>
+</head>
+<body>
+
+<!-- ========== 表紙 ========== -->
+<div class="cover">
+  <div class="cover-series">— 完 全 攻 略 本 —</div>
+  <div class="cover-icon">GPT</div>
+  <h1>ChatGPT</h1>
+  <p class="cover-subtitle">GPT-5.2 / GPT-5.2 Pro / Code Interpreter / GPT Image 1.5</p>
+  <p class="cover-catch">🚀 全職種対応・AIアシスタントの決定版</p>
+  <span class="cover-badge">🎁 AI Reboot Academy 限定プレゼント</span>
+  <span class="cover-footer">2026年3月版 | AI Reboot Academy</span>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== 目次 ========== -->
+<div class="toc">
+  <h2>📖 目次</h2>
+  <ol>
+    <li><a href="#ch1">ChatGPTとは？ — 基本情報・最新モデル</a></li>
+    <li><a href="#ch2">料金プラン完全比較</a></li>
+    <li><a href="#ch3">主要機能を使いこなす</a></li>
+    <li><a href="#ch4">仕事別プロンプトテンプレート集</a></li>
+    <li><a href="#ch5">無料で使い倒すテクニック</a></li>
+    <li><a href="#ch6">他ツールとの比較</a></li>
+    <li><a href="#ch7">注意点とリスク管理</a></li>
+  </ol>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch1 ========== -->
+<section id="ch1">
+  <div class="section-header"><span class="num">01</span>ChatGPTとは？ — 基本情報・最新モデル</div>
+
+  <p>ChatGPTは、OpenAIが開発する対話型AIアシスタントです。テキスト生成・画像生成・コード実行・ファイル分析・Web検索まで、1つのインターフェースで完結する「オールインワンAI」として、世界で最も多くのユーザーに利用されています。</p>
+
+  <div class="sub-header">🤖 最新モデル一覧（2026年3月時点）</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>モデル名</th><th>特徴</th><th>利用プラン</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>GPT-5.2</strong></td><td>最新フラッグシップ。推論能力・多言語対応が大幅向上</td><td>Plus以上</td></tr>
+      <tr><td><strong>GPT-5.2 Pro</strong></td><td>超高精度推論モード。複雑な分析・研究向け</td><td>Pro専用</td></tr>
+      <tr><td><strong>Code Interpreter</strong></td><td>Python実行環境内蔵。データ分析・グラフ生成</td><td>Plus以上</td></tr>
+      <tr><td><strong>GPT Image 1.5</strong></td><td>高品質画像生成。テキスト描画も正確</td><td>Plus以上</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-header">💡 ChatGPTで何ができる？（3行まとめ）</div>
+  <ul>
+    <li>📝 <strong>文章作成・翻訳・要約</strong>：メール、報告書、ブログ記事など、あらゆるテキスト業務を高速化</li>
+    <li>📊 <strong>データ分析・可視化</strong>：Excel/CSVを読み込み、Code Interpreterでグラフ作成まで自動化</li>
+    <li>🎨 <strong>画像生成・編集</strong>：GPT Image 1.5でプロ品質のビジュアル制作が可能</li>
+  </ul>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch2 ========== -->
+<section id="ch2">
+  <div class="section-header"><span class="num">02</span>料金プラン完全比較</div>
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-header">🆓 Free プラン</div>
+      <div class="card-body">
+        <div class="card-price">$0 <span class="text-small text-muted">/ 月</span></div>
+        <ul>
+          <li>GPT-5.2 のライト版にアクセス</li>
+          <li>1日あたりのメッセージ数に制限</li>
+          <li>画像生成は制限付き</li>
+          <li>Web検索は利用可能</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">⭐ Plus プラン <span class="card-recommended">おすすめ</span></div>
+      <div class="card-body">
+        <div class="card-price">月額 $20 <span class="text-small text-muted">（約3,000円）</span></div>
+        <ul>
+          <li>GPT-5.2 フルアクセス</li>
+          <li>Code Interpreter 利用可能</li>
+          <li>GPT Image 1.5 利用可能</li>
+          <li>プラグイン＆GPTs無制限</li>
+          <li>高速レスポンス優先</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">🏢 Team プラン</div>
+      <div class="card-body">
+        <div class="card-price">月額 $30/人 <span class="text-small text-muted">（約4,500円）</span></div>
+        <ul>
+          <li>Plusの全機能</li>
+          <li>チーム管理ダッシュボード</li>
+          <li>ワークスペース共有</li>
+          <li>データはトレーニングに使用されない</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">💎 Pro プラン</div>
+      <div class="card-body">
+        <div class="card-price">月額 $200 <span class="text-small text-muted">（約30,000円）</span></div>
+        <ul>
+          <li>GPT-5.2 Pro（超高精度推論）</li>
+          <li>全モデル無制限アクセス</li>
+          <li>最優先レスポンス</li>
+          <li>研究・専門業務向け</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    ほとんどのビジネスユーザーには <strong>Plus プラン</strong> で十分です。月額3,000円で業務効率が劇的に向上するため、ROIは非常に高いといえます。Proプランは研究者や大量の高精度推論が必要な方向けです。
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch3 ========== -->
+<section id="ch3">
+  <div class="section-header"><span class="num">03</span>主要機能を使いこなす</div>
+
+  <div class="sub-header">📝 カスタム指示（Custom Instructions）</div>
+  <p>自分の役職・業界・好みの出力スタイルを事前登録しておくことで、毎回の指示を省略できます。設定画面から「カスタム指示」を開き、あなたの情報と希望する回答スタイルを記入しましょう。</p>
+
+  <div class="sub-header">🔧 GPTs（カスタムAIアプリ）</div>
+  <p>特定の用途に特化したAIを自作・共有できます。コード不要でノーコード構築が可能。GPT Storeで他のユーザーが作成したGPTsも利用できます。マーケティング、翻訳、法務レビューなど目的別に使い分けましょう。</p>
+
+  <div class="sub-header">📊 Code Interpreter（Advanced Data Analysis）</div>
+  <p>Python実行環境が内蔵されており、CSVやExcelファイルをアップロードするだけでデータ分析・グラフ作成・統計処理が可能です。プログラミング知識ゼロでも使えます。</p>
+
+  <div class="sub-header">🌐 Web検索（ChatGPT Search）</div>
+  <p>リアルタイムのWeb検索結果を組み込んだ回答が可能です。ソース付きで回答されるため、ファクトチェックにも活用できます。最新ニュースの要約や競合調査に最適です。</p>
+
+  <div class="sub-header">🎨 画像生成（GPT Image 1.5）</div>
+  <p>テキストプロンプトから高品質な画像を生成します。テキストの描画精度が高く、SNS投稿画像やプレゼン資料のビジュアル作成に便利です。既存画像の編集も可能です。</p>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch4 ========== -->
+<section id="ch4">
+  <div class="section-header"><span class="num">04</span>仕事別プロンプトテンプレート集</div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📧 ビジネスメール作成</div>
+    <pre>以下の条件でビジネスメールを作成してください。
+
+【宛先】取引先の田中部長（初めてのやり取り）
+【目的】弊社の新サービス「AI業務改善パッケージ」の紹介と、30分のオンラインデモの日程調整
+【トーン】丁寧だが堅すぎない
+【含める情報】
+- サービスの主な特徴3つ
+- 導入事例1つ（業務時間30%削減）
+- 候補日を3つ提示（来週の火・水・木の午後）
+【文字数】300〜400字</pre>
+    <div class="tip">💡 条件を箇条書きで明示すると、やり直しの回数が激減します</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📊 データ分析レポート</div>
+    <pre>添付のCSVファイル（月別売上データ）を分析して、以下を出力してください。
+
+1. 月別売上の折れ線グラフ（タイトル付き・日本語ラベル）
+2. 前年同月比の増減率テーブル
+3. 売上が最も高い月・低い月のトップ3
+4. 来期の売上予測（線形回帰ベース）
+5. 上記をまとめた経営会議向けの要約（200字以内）
+
+※グラフの配色はブルー系で統一してください</pre>
+    <div class="tip">💡 Code Interpreterモードでファイルをアップロードして使います</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📝 議事録の要約</div>
+    <pre>以下の会議の文字起こしテキストから、議事録を作成してください。
+
+【フォーマット】
+■ 会議名：
+■ 日時：
+■ 参加者：
+■ 議題と決定事項：（箇条書き）
+■ アクションアイテム：（担当者・期限付き）
+■ 次回会議の予定：
+
+【文字起こしテキスト】
+（ここにテキストを貼り付け）
+
+※発言の重複や「えーと」等のフィラーは除去してください</pre>
+    <div class="tip">💡 Whisperで録音→文字起こし→ChatGPTで整形、の流れが最強です</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🎯 マーケティングコピー作成</div>
+    <pre>以下の条件でSNS投稿文を5パターン作成してください。
+
+【商品】オーガニック抹茶ラテ（新商品）
+【ターゲット】25〜35歳の健康意識が高い女性
+【プラットフォーム】Instagram
+【トーン】親しみやすく、でも洗練された印象
+【必須要素】
+- 商品名を含める
+- ハッシュタグ5個
+- 絵文字を適度に使用
+- CTA（「プロフィールのリンクからチェック」）
+【文字数】100〜150字/1投稿</pre>
+    <div class="tip">💡 5パターン出させてベストを選ぶのが効率的です</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">💻 コードレビュー依頼</div>
+    <pre>以下のPythonコードをレビューしてください。
+
+【観点】
+1. バグの有無
+2. パフォーマンスの改善余地
+3. セキュリティリスク
+4. 可読性・命名規則
+5. Pythonのベストプラクティスに沿っているか
+
+問題がある箇所は行番号を指定し、修正案をコードブロックで提示してください。
+深刻度をHigh/Medium/Lowで分類してください。
+
+```python
+（ここにコードを貼り付け）
+```</pre>
+    <div class="tip">💡 観点を指定すると、漏れのないレビューが得られます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📚 学習・リサーチ支援</div>
+    <pre>「量子コンピューティング」について、以下の形式で解説してください。
+
+【レベル】大学教養レベル（専門知識なし）
+【構成】
+1. 一言で言うと？（50字以内）
+2. なぜ注目されている？（3つの理由）
+3. 従来のコンピュータとの違い（比較表形式）
+4. 実用化の現状と課題
+5. 初学者におすすめの学習リソース3つ
+
+※専門用語には必ず（）内に平易な説明を添えてください</pre>
+    <div class="tip">💡 「レベル」を指定すると、自分に合った難易度の説明が得られます</div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch5 ========== -->
+<section id="ch5">
+  <div class="section-header"><span class="num">05</span>無料で使い倒すテクニック</div>
+
+  <ol class="numbered-list">
+    <li><strong>カスタム指示をフル活用する</strong><br>無料プランでもカスタム指示は使えます。自分の職業・目的を登録しておけば、毎回の指示量を減らしてメッセージ数を節約できます。</li>
+    <li><strong>GPT Storeの無料GPTsを活用</strong><br>他のユーザーが作成した専門特化GPTsは無料で利用可能。ライティング、翻訳、画像分析など目的別に探してみましょう。</li>
+    <li><strong>1回のプロンプトに複数タスクを詰め込む</strong><br>メッセージ数に制限があるなら、1回のプロンプトで「まとめて3つやって」と依頼するのが効率的です。</li>
+    <li><strong>Web検索機能で最新情報を取得</strong><br>無料プランでもWeb検索は利用可能です。Google検索の代わりにChatGPTで調べれば、要約付きで情報が得られます。</li>
+    <li><strong>ChatGPTアプリ（スマホ）の音声入力</strong><br>モバイルアプリの音声入力は無料で使えます。通勤中にアイデアを口頭で伝えて文章化してもらうのが便利です。</li>
+    <li><strong>制限リセットのタイミングを把握する</strong><br>メッセージ制限は一定時間でリセットされます。重要なタスクはリセット直後にまとめて実行しましょう。</li>
+    <li><strong>会話を新規チャットで区切る</strong><br>長い会話は精度が落ちます。トピックが変わったら新しいチャットを始めることで、無料プランでも高品質な回答を維持できます。</li>
+  </ol>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch6 ========== -->
+<section id="ch6">
+  <div class="section-header"><span class="num">06</span>他ツールとの比較</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>評価項目</th><th class="highlight-col">ChatGPT</th><th>Claude</th><th>Gemini</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>📝 文章作成</td><td class="highlight-col">◎</td><td>◎</td><td>○</td></tr>
+      <tr><td>💻 コーディング</td><td class="highlight-col">◎</td><td>◎</td><td>○</td></tr>
+      <tr><td>📊 データ分析</td><td class="highlight-col">◎</td><td>○</td><td>○</td></tr>
+      <tr><td>🌐 Web検索</td><td class="highlight-col">◎</td><td>○</td><td>◎</td></tr>
+      <tr><td>🎨 画像生成</td><td class="highlight-col">◎</td><td>×</td><td>○</td></tr>
+      <tr><td>📄 長文処理</td><td class="highlight-col">○</td><td>◎</td><td>◎</td></tr>
+      <tr><td>🇯🇵 日本語品質</td><td class="highlight-col">○</td><td>◎</td><td>○</td></tr>
+      <tr><td>🔌 拡張性（プラグイン等）</td><td class="highlight-col">◎</td><td>○</td><td>◎</td></tr>
+      <tr><td>💰 無料プランの充実度</td><td class="highlight-col">◎</td><td>○</td><td>◎</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-card mt-md">
+    <div class="card-header">🎯 ChatGPTが最適なシーン</div>
+    <div class="card-body">
+      <ul>
+        <li><strong>1つのツールで全部やりたい</strong>：テキスト・画像・コード・データ分析すべてカバー</li>
+        <li><strong>GPTsで業務を自動化したい</strong>：ノーコードで専用AIを作れる</li>
+        <li><strong>チームで導入したい</strong>：Team/Enterpriseプランの管理機能が充実</li>
+        <li><strong>最新情報をAIで調べたい</strong>：Web検索統合が最も実用的</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch7 ========== -->
+<section id="ch7">
+  <div class="section-header"><span class="num">07</span>注意点とリスク管理</div>
+
+  <div class="warning-box">
+    <strong>ハルシネーション（事実と異なる回答）</strong><br>
+    ChatGPTは自信を持って誤った情報を出力することがあります。特に数値データ・人名・日付は必ず原典で確認してください。重要な意思決定にはWeb検索モードを使い、ソースを確認する癖をつけましょう。
+  </div>
+
+  <div class="warning-box">
+    <strong>機密情報の入力に注意</strong><br>
+    入力した情報はモデルの改善に使用される場合があります（Team/Enterprise除く）。社外秘情報・個人情報・パスワードなどは入力しないでください。設定画面の「Data Controls」で学習への使用をオフにできます。
+  </div>
+
+  <div class="warning-box">
+    <strong>生成コンテンツの著作権</strong><br>
+    ChatGPTの出力は基本的にユーザーが利用可能ですが、学習データに含まれる既存著作物と類似する場合があります。商用利用時は内容の確認をお勧めします。画像生成機能（GPT Image 1.5）の出力は、OpenAIの利用規約に準じます。
+  </div>
+
+  <div class="warning-box">
+    <strong>依存リスクと人間のスキル維持</strong><br>
+    AIに頼りすぎると、自分で考える力や文章力が低下する可能性があります。ChatGPTは「下書き」や「壁打ち相手」として活用し、最終判断は必ず自分で行いましょう。
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<div class="cta-box">
+  <span class="cta-label">🎓 無料セミナーのご案内</span>
+  <h3>「生成AI時代のキャリア設計論」</h3>
+  <p>ChatGPTを仕事にどう活かす？ AIと共存するキャリア戦略を90分で学べる無料セミナー開催中。</p>
+  <a href="https://ai-reboot.io/seminars/ai-career-anxiety" class="cta-url">🔗 無料セミナーに申し込む</a>
+</div>
+
+<!-- ========== Copyright ========== -->
+<div class="copyright">
+  © 2026 AI Reboot Academy | セミナー登録者限定非売品<br>
+  ※2026年3月時点の情報です。最新の料金・機能は公式サイトでご確認ください。
+</div>
+
+</body>
+</html>

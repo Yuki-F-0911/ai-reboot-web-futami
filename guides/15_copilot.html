@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Copilot 完全攻略本 | AI Reboot Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>:root { --tool-color: #2B3137; }</style>
+</head>
+<body>
+
+<!-- ========== 表紙 ========== -->
+<div class="cover">
+  <div class="cover-series">— 完 全 攻 略 本 —</div>
+  <div class="cover-icon">CP</div>
+  <h1>GitHub Copilot</h1>
+  <p class="cover-subtitle">コーディングアシスタント | エンジニア全般</p>
+  <p class="cover-catch">💻 AIペアプログラマーでコーディング速度を3倍に</p>
+  <span class="cover-badge">🎁 AI Reboot Academy 限定プレゼント</span>
+  <span class="cover-footer">2026年3月版 | AI Reboot Academy</span>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== 目次 ========== -->
+<div class="toc">
+  <h2>📖 目次</h2>
+  <ol>
+    <li><a href="#ch1">GitHub Copilotとは？ — 基本情報・モデル構成</a></li>
+    <li><a href="#ch2">料金プラン完全比較</a></li>
+    <li><a href="#ch3">5大機能を使いこなす</a></li>
+    <li><a href="#ch4">実践プロンプトテンプレート集</a></li>
+    <li><a href="#ch5">生産性を最大化する7つのテクニック</a></li>
+    <li><a href="#ch6">他ツールとの比較</a></li>
+    <li><a href="#ch7">注意点とリスク管理</a></li>
+  </ol>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch1 ========== -->
+<section id="ch1">
+  <div class="section-header"><span class="num">01</span>GitHub Copilotとは？ — 基本情報・モデル構成</div>
+
+  <p>GitHub Copilotは、GitHubとMicrosoftが共同開発するAIコーディングアシスタントです。エディタ上でリアルタイムにコード補完を行い、自然言語の指示からコードを生成する「AIペアプログラマー」として、世界中のエンジニアの開発生産性を飛躍的に向上させています。</p>
+
+  <div class="sub-header">🤖 Copilotファミリー一覧（2026年3月時点）</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>プロダクト名</th><th>特徴</th><th>利用シーン</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Copilot</strong></td><td>エディタ内リアルタイムコード補完。Tabキーで即座に採用</td><td>コード補完</td></tr>
+      <tr><td><strong>Copilot Chat</strong></td><td>エディタ内の対話型AIアシスタント。コードの説明・修正・生成</td><td>対話</td></tr>
+      <tr><td><strong>Copilot Workspace</strong></td><td>Issueからブランチ作成・コード変更・PR作成まで自動化</td><td>タスク→PR自動化</td></tr>
+      <tr><td><strong>Copilot CLI</strong></td><td>ターミナル上でコマンドの提案・説明を提供</td><td>ターミナル補助</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-header">💡 GitHub Copilotで何ができる？（3行まとめ）</div>
+  <ul>
+    <li>⌨️ <strong>コード補完の業界標準</strong>：タブキー1つで次のコードブロックを瞬時に補完。反復的なコーディング作業を劇的に削減します</li>
+    <li>🔧 <strong>VS Code / JetBrains / Neovim対応</strong>：主要エディタすべてで利用可能。既存の開発環境を変えずに導入できます</li>
+    <li>💬 <strong>自然言語でコード生成</strong>：コメントや会話でやりたいことを伝えるだけで、適切なコードを自動生成します</li>
+  </ul>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch2 ========== -->
+<section id="ch2">
+  <div class="section-header"><span class="num">02</span>料金プラン完全比較</div>
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-header">⭐ Individual <span class="card-recommended">おすすめ</span></div>
+      <div class="card-body">
+        <div class="card-price">月額 $10 <span class="text-small text-muted">（約1,500円）</span></div>
+        <ul>
+          <li>コード補完（無制限）</li>
+          <li>Copilot Chat 利用可能</li>
+          <li>VS Code / JetBrains / Neovim対応</li>
+          <li>マルチモデル選択</li>
+          <li>個人開発者に最適</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">🏢 Business</div>
+      <div class="card-body">
+        <div class="card-price">月額 $19/人 <span class="text-small text-muted">（約2,850円）</span></div>
+        <ul>
+          <li>Individualの全機能</li>
+          <li>組織管理・ポリシー設定</li>
+          <li>パブリックコード除外フィルタ</li>
+          <li>監査ログ</li>
+          <li>データはトレーニングに使用されない</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">💎 Enterprise</div>
+      <div class="card-body">
+        <div class="card-price">月額 $39/人 <span class="text-small text-muted">（約5,850円）</span></div>
+        <ul>
+          <li>Businessの全機能</li>
+          <li>Copilot Workspace フルアクセス</li>
+          <li>社内コードベースでの微調整</li>
+          <li>SAML SSO / SCIM対応</li>
+          <li>IP補償</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    個人開発者には <strong>Individual プラン（月額$10）</strong> が最もコストパフォーマンスに優れています。月1,500円でコーディング速度が体感2〜3倍になるため、ROIは極めて高いです。なお、認証済みの学生・教育者およびOSSメンテナーは<strong>無料</strong>で利用できます。
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch3 ========== -->
+<section id="ch3">
+  <div class="section-header"><span class="num">03</span>5大機能を使いこなす</div>
+
+  <div class="sub-header">⌨️ インラインコード補完（Tab補完）</div>
+  <p>Copilotの中核機能です。コードを書いている途中にリアルタイムで次の行やブロックをグレーテキストで提案し、Tabキーを押すだけで採用できます。コメントで意図を書いてから改行すると、その意図に沿ったコードが自動生成されます。</p>
+
+  <div class="sub-header">💬 Copilot Chat（対話型コーディング）</div>
+  <p>エディタのサイドバーで対話しながらコードを生成・修正できます。コードの選択範囲について質問したり、新しい機能の実装方法を相談したりと、まさに「隣に座っている先輩エンジニア」のように使えます。</p>
+
+  <div class="sub-header">⚡ /explain /fix /tests スラッシュコマンド</div>
+  <p>Copilot Chatでは、スラッシュコマンドで素早くタスクを実行できます。<code>/explain</code>で選択コードの解説、<code>/fix</code>でバグ修正の提案、<code>/tests</code>でテストコードの自動生成が可能です。コマンド1つで定型作業が完了します。</p>
+
+  <div class="sub-header">🚀 Copilot Workspace（Issue→PR自動化）</div>
+  <p>GitHubのIssueを起点に、変更計画の立案・コードの自動修正・プルリクエストの作成までをワンストップで自動化します。Issueに書かれた要件を理解し、複数ファイルにまたがる変更を一括で行える強力な機能です。</p>
+
+  <div class="sub-header">🖥️ Copilot CLI（コマンドライン補助）</div>
+  <p>ターミナル上で自然言語からシェルコマンドを生成します。「ポート3000を使っているプロセスを確認して停止したい」のように目的を伝えるだけで、適切なコマンドを提案してくれます。複雑なgitコマンドやDockerコマンドの組み立てに重宝します。</p>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch4 ========== -->
+<section id="ch4">
+  <div class="section-header"><span class="num">04</span>実践プロンプトテンプレート集</div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📝 関数の自動生成（コメントからコード）</div>
+    <pre>// ユーザーの年齢から料金カテゴリを判定する関数
+// 12歳以下: "child", 13-17歳: "student", 18-64歳: "adult", 65歳以上: "senior"
+// 不正な値にはエラーをスローする
+function getPriceCategory(age: number): string {</pre>
+    <div class="tip">💡 コメントで仕様を書いてから関数シグネチャを書き始めると、Copilotが関数の中身を自動補完します。条件分岐やエッジケースの処理も含めて提案されます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🧪 テストコード自動生成（/tests）</div>
+    <pre># Copilot Chat に以下を入力（テスト対象の関数を選択した状態で）:
+
+/tests
+
+# 期待される出力:
+# - 正常系テスト（各カテゴリの境界値）
+# - 異常系テスト（負の数、小数、NaN）
+# - エッジケース（0歳、境界値12→13、64→65）
+# - テストフレームワークに合わせた形式（Jest / pytest 等）</pre>
+    <div class="tip">💡 コードを選択した状態で /tests を実行すると、テストフレームワークを自動検出してテストコードを生成します</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🔧 バグ修正（/fix）</div>
+    <pre># エラーが出ているコードを選択した状態で Copilot Chat に入力:
+
+/fix
+
+# 例: TypeError: Cannot read properties of undefined (reading 'map')
+# Copilotが以下を自動判定:
+# - undefinedチェックの欠如を検出
+# - Optional chaining（?.）の追加を提案
+# - デフォルト値（?? []）のフォールバックを提案
+# - 修正コードをdiffで表示</pre>
+    <div class="tip">💡 エラーメッセージが表示されている状態で /fix を使うと、エラー内容も考慮した修正を提案してくれます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📖 コードの説明（/explain）</div>
+    <pre># 理解しにくいコードを選択した状態で Copilot Chat に入力:
+
+/explain
+
+# 例: 複雑な正規表現やアルゴリズムを選択
+# Copilotが以下を出力:
+# - コードの目的（何をするコードか）
+# - 処理の流れ（ステップバイステップ）
+# - 使われている技術・パターンの解説
+# - 注意点やエッジケース</pre>
+    <div class="tip">💡 レガシーコードの理解やコードレビュー時に非常に有用です。チームメンバーへの説明資料としても使えます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🌐 APIエンドポイント作成</div>
+    <pre># Copilot Chat に入力:
+
+Express.jsでユーザーCRUD APIを作成してください。
+- GET /api/users - 全ユーザー取得（ページネーション対応）
+- GET /api/users/:id - 個別ユーザー取得
+- POST /api/users - ユーザー作成（バリデーション付き）
+- PUT /api/users/:id - ユーザー更新
+- DELETE /api/users/:id - ユーザー削除（ソフトデリート）
+- エラーハンドリングミドルウェアを含める
+- TypeScript対応で型定義も含める</pre>
+    <div class="tip">💡 フレームワーク名と具体的なエンドポイント仕様を明記すると、実用的なコードが一発で生成されます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🗄️ データベースクエリの生成</div>
+    <pre># Copilot Chat に入力:
+
+以下のテーブル構造に対するSQLクエリを書いてください。
+
+テーブル: orders (id, user_id, product_id, quantity, price, status, created_at)
+テーブル: users (id, name, email, plan_type, created_at)
+テーブル: products (id, name, category, price)
+
+クエリ要件:
+- 過去30日間の売上を商品カテゴリ別に集計
+- プランタイプ別の平均注文金額を算出
+- 売上上位10商品のランキング（前月比付き）
+- インデックス推奨も含めてください</pre>
+    <div class="tip">💡 テーブル定義を先に提示することで、正確なJOINやカラム名を含むクエリが生成されます。#file でスキーマファイルを指定するとさらに精度が上がります</div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch5 ========== -->
+<section id="ch5">
+  <div class="section-header"><span class="num">05</span>生産性を最大化する7つのテクニック</div>
+
+  <ol class="numbered-list">
+    <li><strong>Tab補完のコツ：コメントで意図を伝える</strong><br>Copilotの補完精度はコメントの質に直結します。関数の上に「// ○○を△△する関数。引数: ××、戻り値: □□」のように日本語で仕様を書いてから実装を始めると、意図通りのコードが生成されやすくなります。</li>
+    <li><strong>Copilot Chatで設計相談</strong><br>コードを書く前に「この機能を実装するベストなアーキテクチャは？」と相談しましょう。設計パターンの選定、ライブラリの比較、ディレクトリ構成の提案まで対話的に進められます。</li>
+    <li><strong>#file でコンテキストを明示的に指定</strong><br>Copilot Chatでは <code>#file:path/to/file.ts</code> でファイルを参照に含められます。関連ファイルを明示することで、プロジェクト全体の文脈を踏まえた回答が得られます。</li>
+    <li><strong>.github/copilot-instructions.md を活用</strong><br>リポジトリルートに <code>.github/copilot-instructions.md</code> を配置すると、プロジェクト固有のコーディング規約・技術スタック・命名規則をCopilotに教え込めます。チーム全体で統一した補完品質を実現できます。</li>
+    <li><strong>ショートカットキーを覚える</strong><br>VS Codeでは <code>Ctrl+I</code>（Inline Chat）、<code>Ctrl+Shift+I</code>（Copilot Chat）が頻出です。補完候補の切り替えは <code>Alt+]</code> / <code>Alt+[</code>。マウスに手を伸ばさず操作できると生産性が段違いです。</li>
+    <li><strong>Inline Chatで局所的な修正</strong><br>コードの特定行を選択して <code>Ctrl+I</code> を押すと、その場でインライン修正ができます。「この関数をasync/awaitに変換して」「エラーハンドリングを追加して」など、ピンポイントの修正に最適です。</li>
+    <li><strong>補完を「受け入れない」判断力を鍛える</strong><br>Copilotの提案は常に正しいとは限りません。Tabで受け入れる前にコードを読む習慣をつけましょう。<code>Esc</code>で拒否、<code>Ctrl+→</code>で単語単位の部分受け入れも活用すると精度の高い開発が可能です。</li>
+  </ol>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch6 ========== -->
+<section id="ch6">
+  <div class="section-header"><span class="num">06</span>他ツールとの比較</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>評価項目</th><th class="highlight-col">GitHub Copilot</th><th>Cursor</th><th>Claude Code</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>⌨️ Tab補完の速度</td><td class="highlight-col">◎</td><td>◎</td><td>-</td></tr>
+      <tr><td>💬 対話型コーディング</td><td class="highlight-col">○</td><td>◎</td><td>◎</td></tr>
+      <tr><td>🔧 エディタ統合</td><td class="highlight-col">◎</td><td>◎</td><td>△</td></tr>
+      <tr><td>📁 プロジェクト全体の理解</td><td class="highlight-col">○</td><td>◎</td><td>◎</td></tr>
+      <tr><td>🔄 GitHub統合</td><td class="highlight-col">◎</td><td>○</td><td>○</td></tr>
+      <tr><td>🚀 導入の手軽さ</td><td class="highlight-col">◎</td><td>○</td><td>△</td></tr>
+      <tr><td>🧠 複雑なタスク処理</td><td class="highlight-col">○</td><td>◎</td><td>◎</td></tr>
+      <tr><td>💰 コストパフォーマンス</td><td class="highlight-col">◎</td><td>○</td><td>○</td></tr>
+      <tr><td>🏢 エンタープライズ対応</td><td class="highlight-col">◎</td><td>○</td><td>○</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-card mt-md">
+    <div class="card-header">🎯 GitHub Copilotが最適なシーン</div>
+    <div class="card-body">
+      <ul>
+        <li><strong>既存のエディタ環境を変えたくない</strong>：VS Code・JetBrains・Neovimに拡張機能を入れるだけで即利用開始</li>
+        <li><strong>Tab補完で日常コーディングを高速化したい</strong>：最もレスポンスが速く、自然なインライン補完を提供</li>
+        <li><strong>GitHubとの連携を重視する</strong>：Issue・PR・Copilot Workspaceがシームレスに統合</li>
+        <li><strong>チームで統一的に導入したい</strong>：Business/Enterpriseプランの管理機能とポリシー制御が充実</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch7 ========== -->
+<section id="ch7">
+  <div class="section-header"><span class="num">07</span>注意点とリスク管理</div>
+
+  <div class="warning-box">
+    <strong>コード品質の確認（AIのコードを盲信しない）</strong><br>
+    Copilotが生成するコードは常に正しいとは限りません。一見動くコードでも、エッジケースの処理漏れ、非効率なアルゴリズム、非推奨APIの使用が含まれる場合があります。Tab補完で採用する前に必ずコードを読み、テストで動作を確認してください。
+  </div>
+
+  <div class="warning-box">
+    <strong>セキュリティリスク（機密コードの送信）</strong><br>
+    Copilotはコード補完のためにエディタの内容をクラウドに送信します。Individualプランでは送信コードがモデルの改善に使用される可能性があります。機密性の高いコード（APIキー、認証ロジック、社内独自アルゴリズム等）を扱う場合は、Businessプラン以上を選択し「パブリックコード除外フィルタ」を有効にしてください。
+  </div>
+
+  <div class="warning-box">
+    <strong>ライセンス問題（学習データ由来のコード）</strong><br>
+    Copilotはパブリックリポジトリのコードを学習データに使用しています。生成されたコードが既存のオープンソースコードと酷似する場合があり、ライセンス上の問題が発生する可能性があります。Business/Enterpriseプランの「パブリックコード一致検出フィルタ」を活用し、商用プロジェクトではライセンス確認を怠らないようにしましょう。
+  </div>
+
+  <div class="warning-box">
+    <strong>過度の依存リスク</strong><br>
+    Copilotに頼りすぎると、自分でアルゴリズムを考える力や言語仕様の理解が浅くなる危険があります。特にジュニアエンジニアは、Copilotの提案を「学びの教材」として読み解き、なぜそのコードが正しいのかを理解する習慣をつけましょう。AIは「補助輪」であり、最終的な設計判断とコード品質の責任は人間にあります。
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<div class="cta-box">
+  <span class="cta-label">🎓 無料セミナーのご案内</span>
+  <h3>「生成AI時代のキャリア設計論」</h3>
+  <p>GitHub Copilotを仕事にどう活かす？ AIと共存するキャリア戦略を90分で学べる無料セミナー開催中。</p>
+  <a href="https://ai-reboot.io/seminars/ai-career-anxiety" class="cta-url">🔗 無料セミナーに申し込む</a>
+</div>
+
+<!-- ========== Copyright ========== -->
+<div class="copyright">
+  © 2026 AI Reboot Academy | セミナー登録者限定非売品<br>
+  ※2026年3月時点の情報です。最新の料金・機能は公式サイトでご確認ください。
+</div>
+
+</body>
+</html>

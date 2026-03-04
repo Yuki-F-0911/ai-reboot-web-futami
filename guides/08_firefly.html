@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adobe Firefly 完全攻略本 | AI Reboot Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>:root { --tool-color: #FF0000; }</style>
+</head>
+<body>
+
+<!-- ========== 表紙 ========== -->
+<div class="cover">
+  <div class="cover-series">— 完 全 攻 略 本 —</div>
+  <div class="cover-icon">Ff</div>
+  <h1>Adobe Firefly Image Model 4</h1>
+  <p class="cover-subtitle">画像生成（商用安全特化）</p>
+  <p class="cover-catch">🛡️ 著作権補償付き — 企業が安心して使える唯一の画像AI</p>
+  <span class="cover-badge">🎁 AI Reboot Academy 限定プレゼント</span>
+  <span class="cover-footer">2026年3月版 | AI Reboot Academy</span>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== 目次 ========== -->
+<div class="toc">
+  <h2>📖 目次</h2>
+  <ol>
+    <li><a href="#ch1">Adobe Fireflyとは？ — 基本情報・最新モデル</a></li>
+    <li><a href="#ch2">料金プラン完全比較</a></li>
+    <li><a href="#ch3">主要機能を使いこなす</a></li>
+    <li><a href="#ch4">ビジネス別プロンプトテンプレート集</a></li>
+    <li><a href="#ch5">効率よく使い倒すテクニック</a></li>
+    <li><a href="#ch6">他ツールとの比較</a></li>
+    <li><a href="#ch7">注意点とリスク管理</a></li>
+  </ol>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch1 ========== -->
+<section id="ch1">
+  <div class="section-header"><span class="num">01</span>Adobe Fireflyとは？ — 基本情報・最新モデル</div>
+
+  <p>Adobe Fireflyは、Adobeが開発する商用利用に特化した生成AIです。Adobe Stockのライセンス素材やパブリックドメインコンテンツのみを学習データに使用しており、生成した画像に対して著作権補償（IP Indemnity）が付帯する点が最大の特徴です。2024年にリリースされたImage Model 4では、画質・テキスト描画精度・プロンプト忠実度が大幅に向上し、企業のデザインワークフローに本格的に組み込める品質に達しました。</p>
+
+  <div class="sub-header">🎨 主要モデル・機能一覧（2026年3月時点）</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>モデル / 機能名</th><th>特徴</th><th>利用環境</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Image Model 4</strong></td><td>最新の画像生成モデル。高精細・プロンプト忠実度が大幅向上</td><td>Firefly Web / API</td></tr>
+      <tr><td><strong>Text Effects</strong></td><td>テキストにテクスチャやスタイルを適用する装飾生成</td><td>Firefly Web / Express</td></tr>
+      <tr><td><strong>Generative Fill</strong></td><td>画像の一部をAIで置換・追加。Photoshopとシームレスに統合</td><td>Photoshop</td></tr>
+      <tr><td><strong>Generative Expand</strong></td><td>画像の外側を自然に拡張。トリミングの逆操作</td><td>Photoshop / Firefly Web</td></tr>
+      <tr><td><strong>Vector生成</strong></td><td>テキストからベクターグラフィックを自動生成</td><td>Illustrator</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-header">💡 Adobe Fireflyの3行まとめ</div>
+  <ul>
+    <li>🛡️ <strong>著作権補償（IP Indemnity）が最大の強み</strong>：商用利用で万が一著作権の問題が生じた場合、Adobeが法的補償を提供します</li>
+    <li>🔗 <strong>Adobe Creative Cloud統合</strong>：Photoshop・Illustrator・Expressなど既存ツールにシームレスに組み込まれています</li>
+    <li>✅ <strong>商用利用に最も安全</strong>：ライセンス素材のみで学習しているため、企業が安心して導入できる唯一の画像生成AIです</li>
+  </ul>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch2 ========== -->
+<section id="ch2">
+  <div class="section-header"><span class="num">02</span>料金プラン完全比較</div>
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-header">🆓 Free プラン</div>
+      <div class="card-body">
+        <div class="card-price">$0 <span class="text-small text-muted">/ 月</span></div>
+        <ul>
+          <li>毎月25生成クレジット付与</li>
+          <li>Firefly Webアプリで利用可能</li>
+          <li>生成画像にウォーターマークあり</li>
+          <li>基本的な機能のみ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">⭐ Firefly Premium <span class="card-recommended">おすすめ</span></div>
+      <div class="card-body">
+        <div class="card-price">月額 $9.99 <span class="text-small text-muted">（約1,500円）</span></div>
+        <ul>
+          <li>毎月2,000生成クレジット</li>
+          <li>ウォーターマークなし</li>
+          <li>著作権補償（IP Indemnity）付き</li>
+          <li>Image Model 4 フルアクセス</li>
+          <li>Style Reference・Structure Reference利用可能</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">🎨 Creative Cloud プラン</div>
+      <div class="card-body">
+        <div class="card-price">月額 $59.99〜 <span class="text-small text-muted">（約9,000円〜）</span></div>
+        <ul>
+          <li>Photoshop・Illustrator等のCC全アプリ</li>
+          <li>Firefly機能が各アプリに統合済み</li>
+          <li>毎月1,000〜生成クレジット付与</li>
+          <li>著作権補償（IP Indemnity）付き</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">🏢 Enterprise プラン</div>
+      <div class="card-body">
+        <div class="card-price">要見積もり <span class="text-small text-muted">（営業担当へ問い合わせ）</span></div>
+        <ul>
+          <li>Firefly API・カスタムモデル対応</li>
+          <li>ブランドガイドラインの学習</li>
+          <li>組織全体のクレジット一括管理</li>
+          <li>専任サポート・SLA保証</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    Firefly単体で使いたい方には <strong>Firefly Premium</strong>（月額約1,500円）がコスパ最強です。すでにPhotoshopやIllustratorを使っている方は <strong>Creative Cloudサブスクリプション</strong> に含まれるFirefly機能を活用しましょう。企業導入を検討中の場合はEnterpriseプランでAPIアクセスやブランド学習機能を活用できます。
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch3 ========== -->
+<section id="ch3">
+  <div class="section-header"><span class="num">03</span>主要機能を使いこなす</div>
+
+  <div class="sub-header">🛡️ 著作権補償（IP Indemnity）の詳細</div>
+  <p>Adobe Fireflyで生成した画像を商用利用した際に、第三者から著作権侵害の申し立てを受けた場合、Adobeが法的費用と損害賠償を補償します。これはFirefly Premium以上、またはCreative Cloudサブスクリプションの有料ユーザーが対象です。MidjourneyやDALL-Eにはない、企業が安心して導入できる最大の差別化ポイントです。</p>
+
+  <div class="sub-header">🖌️ Photoshop Generative Fill</div>
+  <p>Photoshop上で画像の一部を選択し、テキストプロンプトで自然に置換・追加できます。商品画像の背景差し替え、不要なオブジェクトの除去、季節感の変更など、従来は数時間かかっていたレタッチ作業を数秒で完了できます。デザイナーにとって最も実務インパクトの大きい機能です。</p>
+
+  <div class="sub-header">🖼️ テキストからの画像生成（Text to Image）</div>
+  <p>Firefly Webアプリまたはアプリ内で、テキストプロンプトから高品質な画像を生成します。Image Model 4では、写真風・イラスト風・3Dレンダリング風など多彩なスタイルに対応し、プロンプトの意図を正確に反映した出力が可能になりました。</p>
+
+  <div class="sub-header">🎨 スタイルリファレンス</div>
+  <p>参考画像をアップロードすることで、その画像のスタイル（配色・トーン・質感）を新しい生成画像に反映できます。ブランドのビジュアルトーンを統一したい場合や、シリーズものの素材を量産する際に非常に有効です。一度スタイルを設定すれば、一貫性のあるビジュアルを効率的に生み出せます。</p>
+
+  <div class="sub-header">📐 Structure Reference（構図制御）</div>
+  <p>参考画像の構図やレイアウト構造をベースに、新しい画像を生成する機能です。たとえば「この構図でキービジュアルを別のテーマで作り直したい」というケースで威力を発揮します。デザインのラフスケッチを入力して本番クオリティに仕上げる、という使い方も可能です。</p>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch4 ========== -->
+<section id="ch4">
+  <div class="section-header"><span class="num">04</span>ビジネス別プロンプトテンプレート集</div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📢 広告バナー用ビジュアル</div>
+    <pre>A clean, modern product photography scene for a digital advertising banner. A sleek laptop on a minimalist white desk, soft natural window light from the left, subtle shadow, blurred office background with green plants. Professional, bright, and inviting atmosphere. 16:9 aspect ratio.</pre>
+    <div class="tip">💡 広告バナーではclean・modern・professionalなどの形容詞で品質を担保します。16:9のアスペクト比指定も忘れずに</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📱 SNS投稿画像</div>
+    <pre>Flat lay photography of a cozy autumn morning routine. A ceramic coffee cup, an open notebook with handwritten notes, dried flowers, and a knitted scarf arranged on a warm wooden table. Soft overhead lighting, warm color palette with orange and brown tones. Square format, Instagram-ready aesthetic.</pre>
+    <div class="tip">💡 SNS用はflat lay（真俯瞰）やsquare formatを指定すると、そのままInstagramに使える構図になります</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🎤 プレゼン資料の背景</div>
+    <pre>Abstract geometric background for a business presentation slide. Soft gradient from deep navy blue to teal, with subtle translucent overlapping shapes and thin white line accents. Minimal, elegant, and corporate. High resolution, landscape orientation, with large empty space for text overlay.</pre>
+    <div class="tip">💡 empty space for text overlayを入れることで、文字を重ねやすい余白のある背景が生成されます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📦 商品パッケージモックアップ</div>
+    <pre>A realistic 3D mockup of a premium skincare product box on a marble surface. Matte white packaging with gold foil accents, surrounded by fresh green leaves and water droplets. Studio lighting with soft reflections. Clean, luxurious, high-end cosmetics brand aesthetic. 4:5 aspect ratio.</pre>
+    <div class="tip">💡 realistic 3D mockupと素材感（matte・gold foil等）を指定するとパッケージデザインの説得力が増します</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🌐 ウェブサイトヒーローイメージ</div>
+    <pre>A wide cinematic hero image for a technology company website. A diverse team of professionals collaborating around a holographic display in a bright, modern office. Warm and optimistic lighting, shallow depth of field. Conveys innovation, teamwork, and the future of work. Ultra-wide 21:9 aspect ratio.</pre>
+    <div class="tip">💡 ヒーロー画像はwide cinematicとultra-wide比率を指定し、テキストを重ねる左右の余白を意識しましょう</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🎪 イベントポスターデザイン</div>
+    <pre>A vibrant event poster visual for a summer music festival. Dynamic composition with colorful paint splashes, musical notes floating in the air, and silhouettes of a cheering crowd. Energetic gradient sky from sunset orange to purple. Bold, festive, and youthful atmosphere. Portrait orientation, 2:3 aspect ratio.</pre>
+    <div class="tip">💡 イベントポスターはdynamic composition・vibrant・energeticなど動きのある形容詞で躍動感を演出します</div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch5 ========== -->
+<section id="ch5">
+  <div class="section-header"><span class="num">05</span>効率よく使い倒すテクニック</div>
+
+  <ol class="numbered-list">
+    <li><strong>無料クレジットの効率的な使い方</strong><br>無料プランの月25クレジットは限られています。まずはプロンプトを十分に練ってから生成し、いきなり大量生成しないようにしましょう。バリエーション生成機能を使えば、1回の生成から4枚の候補を得られるため、気に入った画像をベースに微調整する方が効率的です。</li>
+    <li><strong>Photoshop統合をフル活用する</strong><br>Firefly WebアプリよりもPhotoshop上のGenerative Fillの方が実用的なケースが多いです。選択範囲を細かく指定してから生成できるため、「背景だけ差し替え」「人物の服装だけ変更」といった精密な編集が可能になります。</li>
+    <li><strong>スタイルリファレンスでブランド統一感を保つ</strong><br>ブランドのキーヴィジュアルを1枚参考画像として登録しておけば、以降の生成すべてにそのトーンが反映されます。マーケティング素材のシリーズ展開やSNS投稿の世界観統一に最適です。</li>
+    <li><strong>Adobe Stockとの連携を活用する</strong><br>Adobe Stock上でFireflyによる類似画像生成が可能です。「このストック素材に似たイメージだけど、もう少しこうしたい」という微調整が、ストック素材を起点にできます。ライセンス済み素材を基にしているため著作権リスクもありません。</li>
+    <li><strong>Adobe Expressでの直接編集</strong><br>Firefly Webで生成した画像をそのままAdobe Expressに取り込み、テキストの追加・レイアウト調整・リサイズをワンクリックで行えます。デザインソフトの操作に不慣れなマーケターでも、プロ品質のSNS投稿やバナーを完結できます。</li>
+    <li><strong>Structure Referenceでラフから本番クオリティへ</strong><br>手描きのラフスケッチや簡単なワイヤーフレームをStructure Referenceにアップロードすれば、その構図を維持したまま本番クオリティの画像を生成できます。デザインの初期段階でクライアントにイメージを共有する際にも非常に便利です。</li>
+  </ol>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch6 ========== -->
+<section id="ch6">
+  <div class="section-header"><span class="num">06</span>他ツールとの比較</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>評価項目</th><th class="highlight-col">Adobe Firefly</th><th>Midjourney</th><th>DALL-E</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>🛡️ 著作権安全性</td><td class="highlight-col">◎</td><td>△</td><td>○</td></tr>
+      <tr><td>🎨 画像品質</td><td class="highlight-col">○</td><td>◎</td><td>○</td></tr>
+      <tr><td>🔗 Adobe統合</td><td class="highlight-col">◎</td><td>×</td><td>×</td></tr>
+      <tr><td>🏢 商用利用の安心度</td><td class="highlight-col">◎</td><td>○</td><td>○</td></tr>
+      <tr><td>🏗️ 企業導入のしやすさ</td><td class="highlight-col">◎</td><td>△</td><td>○</td></tr>
+      <tr><td>📐 構図・スタイル制御</td><td class="highlight-col">◎</td><td>○</td><td>△</td></tr>
+      <tr><td>🖌️ 画像編集機能</td><td class="highlight-col">◎</td><td>△</td><td>○</td></tr>
+      <tr><td>🇯🇵 日本語プロンプト対応</td><td class="highlight-col">△</td><td>△</td><td>○</td></tr>
+      <tr><td>💰 コストパフォーマンス</td><td class="highlight-col">○</td><td>○</td><td>○</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-card mt-md">
+    <div class="card-header">🎯 Adobe Fireflyが最適なシーン</div>
+    <div class="card-body">
+      <ul>
+        <li><strong>企業の公式素材を生成したい</strong>：著作権補償付きで法務リスクなく商用利用できる唯一の選択肢</li>
+        <li><strong>既存のAdobe製品と組み合わせたい</strong>：Photoshop・Illustrator・Expressとのシームレスな統合</li>
+        <li><strong>ブランドの一貫性を保ちたい</strong>：スタイルリファレンスとStructure Referenceで統一感あるビジュアル量産</li>
+        <li><strong>デザインチーム全体で導入したい</strong>：Enterprise向けのクレジット管理・API・ブランド学習機能が充実</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch7 ========== -->
+<section id="ch7">
+  <div class="section-header"><span class="num">07</span>注意点とリスク管理</div>
+
+  <div class="warning-box">
+    <strong>クレジット消費の管理</strong><br>
+    Fireflyの生成にはクレジットが必要で、プランごとに月間上限があります。特に高解像度生成やGenerative Fillの大量使用はクレジットを急速に消費します。チームで利用する場合は、月間のクレジット消費量をモニタリングし、必要に応じて追加クレジットの購入やプランのアップグレードを検討してください。
+  </div>
+
+  <div class="warning-box">
+    <strong>生成品質がMidjourneyには及ばない場合がある</strong><br>
+    アート性やクリエイティブ表現においては、Midjourneyの方が優れた結果を出すケースがあります。特にファンタジーアートや極めて独創的なビジュアルを求める場合には差が出やすいです。Fireflyの強みは「安全な商用利用」と「Adobe統合」であり、純粋な生成品質の勝負では目的に応じた使い分けが重要です。
+  </div>
+
+  <div class="warning-box">
+    <strong>Adobe IDへの依存</strong><br>
+    Fireflyの利用にはAdobe IDが必須で、生成した画像やスタイル設定はAdobeのエコシステムに紐づきます。将来的に別のツールへ移行する場合、スタイルリファレンスやワークフローの再構築が必要になります。重要な生成物はローカルにも保存しておくことをお勧めします。
+  </div>
+
+  <div class="warning-box">
+    <strong>日本語プロンプトの精度</strong><br>
+    Fireflyは英語プロンプトでの生成品質が最も高く、日本語プロンプトでは意図通りの結果が得られないことがあります。ビジネスで重要な生成を行う際は、英語でプロンプトを作成するか、ChatGPTなどで日本語の指示を英語プロンプトに変換してから入力することをお勧めします。
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<div class="cta-box">
+  <span class="cta-label">🎓 無料セミナーのご案内</span>
+  <h3>「生成AI時代のキャリア設計論」</h3>
+  <p>Adobe Fireflyを仕事にどう活かす？ AIと共存するキャリア戦略を90分で学べる無料セミナー開催中。</p>
+  <a href="https://ai-reboot.io/seminars/ai-career-anxiety" class="cta-url">🔗 無料セミナーに申し込む</a>
+</div>
+
+<!-- ========== Copyright ========== -->
+<div class="copyright">
+  © 2026 AI Reboot Academy | セミナー登録者限定非売品<br>
+  ※2026年3月時点の情報です。最新の料金・機能は公式サイトでご確認ください。
+</div>
+
+</body>
+</html>

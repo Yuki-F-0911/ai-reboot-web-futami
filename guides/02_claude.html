@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 完全攻略本 | AI Reboot Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>:root { --tool-color: #8B5CF6; }</style>
+</head>
+<body>
+
+<!-- ========== 表紙 ========== -->
+<div class="cover">
+  <div class="cover-series">— 完 全 攻 略 本 —</div>
+  <div class="cover-icon">C</div>
+  <h1>Claude</h1>
+  <p class="cover-subtitle">Sonnet 4.6 / Opus 4.6 / Claude Code</p>
+  <p class="cover-catch">✍️ 長文・日本語・コーディングに圧倒的な強さ</p>
+  <span class="cover-badge">🎁 AI Reboot Academy 限定プレゼント</span>
+  <span class="cover-footer">2026年3月版 | AI Reboot Academy</span>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== 目次 ========== -->
+<div class="toc">
+  <h2>📖 目次</h2>
+  <ol>
+    <li><a href="#ch1">Claudeとは？ — 基本情報・最新モデル</a></li>
+    <li><a href="#ch2">料金プラン完全比較</a></li>
+    <li><a href="#ch3">主要機能を使いこなす</a></li>
+    <li><a href="#ch4">仕事別プロンプトテンプレート集</a></li>
+    <li><a href="#ch5">無料で使い倒すテクニック</a></li>
+    <li><a href="#ch6">他ツールとの比較</a></li>
+    <li><a href="#ch7">注意点とリスク管理</a></li>
+  </ol>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch1 ========== -->
+<section id="ch1">
+  <div class="section-header"><span class="num">01</span>Claudeとは？ — 基本情報・最新モデル</div>
+
+  <p>Claudeは、Anthropicが開発するAIアシスタントです。「安全性」と「正直さ」を重視した設計が特徴で、特に長文処理・日本語の自然さ・コーディング能力で高い評価を受けています。ライター・エンジニア・研究者に特に人気のツールです。</p>
+
+  <div class="sub-header">🤖 最新モデル一覧（2026年3月時点）</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>モデル名</th><th>特徴</th><th>利用プラン</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Sonnet 4.6</strong></td><td>高速・バランス型。日常的なタスクに最適</td><td>Free / Pro</td></tr>
+      <tr><td><strong>Opus 4.6</strong></td><td>最高精度モデル。複雑な推論・創作に</td><td>Pro専用</td></tr>
+      <tr><td><strong>Claude Code</strong></td><td>ターミナル上で動作するコーディングエージェント</td><td>Pro / API</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-header">💡 Claudeで何ができる？（3行まとめ）</div>
+  <ul>
+    <li>📝 <strong>長文の読解・作成</strong>：20万トークン（約15万字）の超長文を一度に処理。書籍まるごと分析も可能</li>
+    <li>💻 <strong>高品質なコーディング</strong>：Claude Codeでリポジトリ全体を理解し、自律的にコードを書くエージェント機能</li>
+    <li>🇯🇵 <strong>自然な日本語</strong>：ですます調の統一、敬語の正確さなど、日本語の品質が非常に高い</li>
+  </ul>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch2 ========== -->
+<section id="ch2">
+  <div class="section-header"><span class="num">02</span>料金プラン完全比較</div>
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-header">🆓 Free プラン</div>
+      <div class="card-body">
+        <div class="card-price">$0 <span class="text-small text-muted">/ 月</span></div>
+        <ul>
+          <li>Sonnet 4.6 へのアクセス</li>
+          <li>1日のメッセージ数に制限あり</li>
+          <li>Projects機能利用可能</li>
+          <li>ファイルアップロード対応</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">⭐ Pro プラン <span class="card-recommended">おすすめ</span></div>
+      <div class="card-body">
+        <div class="card-price">月額 $20 <span class="text-small text-muted">（約3,000円）</span></div>
+        <ul>
+          <li>Opus 4.6 フルアクセス</li>
+          <li>Claude Code 利用可能</li>
+          <li>5倍のメッセージ量</li>
+          <li>Projects &amp; Artifacts機能</li>
+          <li>優先アクセス</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">🏢 Team プラン</div>
+      <div class="card-body">
+        <div class="card-price">月額 $30/人 <span class="text-small text-muted">（約4,500円）</span></div>
+        <ul>
+          <li>Proの全機能</li>
+          <li>チーム管理機能</li>
+          <li>データはトレーニング非使用</li>
+          <li>一元的な課金管理</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">🔌 API 従量課金</div>
+      <div class="card-body">
+        <div class="card-price">従量制 <span class="text-small text-muted">（トークン単位）</span></div>
+        <ul>
+          <li>全モデルにアクセス</li>
+          <li>開発者向けAPI</li>
+          <li>Claude Code CLI利用</li>
+          <li>大量処理に最適</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    文章作成やコーディングがメインなら <strong>Pro プラン</strong> が最適です。Opus 4.6は他社の最上位モデルと比較しても推論力・日本語品質ともにトップクラス。Claude Codeを使えば開発効率が劇的に向上します。
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch3 ========== -->
+<section id="ch3">
+  <div class="section-header"><span class="num">03</span>主要機能を使いこなす</div>
+
+  <div class="sub-header">📂 Projects（プロジェクト機能）</div>
+  <p>関連するドキュメント・指示書をまとめて「プロジェクト」として管理できます。プロジェクトに追加したファイルはコンテキストとして常時参照されるため、毎回アップロードし直す必要がありません。社内マニュアルやスタイルガイドの登録に最適です。</p>
+
+  <div class="sub-header">🎨 Artifacts（アーティファクト）</div>
+  <p>コード、文書、図表などの成果物を対話と分離して表示する機能です。生成されたHTMLはリアルタイムプレビューが可能。ドキュメント作成やプロトタイピングの効率が大幅に向上します。</p>
+
+  <div class="sub-header">💻 Claude Code</div>
+  <p>ターミナル上で動作するコーディングエージェントです。リポジトリ全体を理解し、ファイルの作成・編集・テスト実行までを自律的に行います。「バグを修正して」「この機能を追加して」のような自然言語での指示で開発が進みます。</p>
+
+  <div class="sub-header">🔍 Extended Thinking（拡張思考）</div>
+  <p>複雑な問題に対して、モデルが内部で段階的に思考するモードです。数学・論理パズル・複雑な分析タスクで精度が大幅に向上します。自動的に有効になるケースが多いですが、プロンプトで「ステップバイステップで考えて」と促すとより効果的です。</p>
+
+  <div class="sub-header">📎 ファイル処理・超長文コンテキスト</div>
+  <p>PDF、Word、Excel、画像ファイルをアップロードして分析できます。20万トークン（約15万字）のコンテキストウィンドウにより、書籍1冊分のテキストも一度に処理可能。契約書レビューや論文分析に威力を発揮します。</p>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch4 ========== -->
+<section id="ch4">
+  <div class="section-header"><span class="num">04</span>仕事別プロンプトテンプレート集</div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📄 長文レポートの作成</div>
+    <pre>以下のテーマで3,000字のレポートを作成してください。
+
+【テーマ】日本企業における生成AI導入の現状と課題
+【構成】
+1. はじめに（背景・問題提起）
+2. 国内企業の導入状況（業界別動向）
+3. 導入の主なメリット（3つ）
+4. 導入時の課題と障壁（3つ）
+5. 成功する導入のポイント
+6. まとめと今後の展望
+
+【条件】
+- ですます調で統一
+- 各セクションに小見出しをつける
+- 具体的な数値や事例を含める
+- 参考になる情報源があれば末尾に記載</pre>
+    <div class="tip">💡 Claudeは長文の構成力が強み。3,000字超でも構成が崩れません</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">💻 コードリファクタリング</div>
+    <pre>以下のTypeScriptコードをリファクタリングしてください。
+
+【リファクタリングの方針】
+1. 型安全性を最大化（anyを排除）
+2. 関数を小さく分割（1関数1責任）
+3. エラーハンドリングを適切に追加
+4. JSDocコメントを追加
+5. テストしやすい構造に変更
+
+変更前と変更後をdiff形式で示し、各変更の理由を説明してください。
+
+```typescript
+（ここにコードを貼り付け）
+```</pre>
+    <div class="tip">💡 Claude CodeならIDEなしでリポジトリ全体のリファクタリングも可能</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📚 書籍・論文の分析</div>
+    <pre>アップロードしたPDFを分析して、以下の形式でまとめてください。
+
+【出力形式】
+■ 概要（200字以内）
+■ 著者の主張（3つのポイント）
+■ 根拠となるデータ・事例（各ポイントに対して）
+■ 批判的検討（主張の弱点・反論可能な点を2つ）
+■ 実務への応用（具体的なアクション3つ）
+■ 関連キーワード（5つ）
+
+※原文から重要な箇所を引用する場合はページ番号を明記してください</pre>
+    <div class="tip">💡 Claudeの超長文コンテキストなら、数百ページの文書も一度に分析可能</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📝 翻訳（日英・英日）</div>
+    <pre>以下の日本語テキストを英語に翻訳してください。
+
+【翻訳の条件】
+- ビジネスメール向けの丁寧な英語
+- 日本語特有の曖昧表現は、英語で意味が明確になるよう意訳
+- 敬語のニュアンスは適切な英語表現に変換
+- 固有名詞はそのまま（ローマ字表記）
+- 翻訳後に、意訳した箇所のリストを付記
+
+【原文】
+（ここに日本語テキストを貼り付け）</pre>
+    <div class="tip">💡 Claudeは日本語の敬語ニュアンスを正確に英語に変換するのが得意です</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📋 契約書・規約のレビュー</div>
+    <pre>アップロードした契約書を以下の観点でレビューしてください。
+
+【チェック観点】
+1. 不利な条項の洗い出し（当方にとってリスクの高い条項）
+2. 曖昧な表現の指摘（解釈が分かれそうな箇所）
+3. 一般的な契約と比較して欠落している条項
+4. 自動更新・解約条件の確認
+5. 損害賠償・免責条項のリスク評価
+
+各項目について、該当箇所の引用 → 問題点 → 修正案 の形式で出力してください。
+
+※本分析は参考情報です。最終判断は法務専門家にご確認ください。</pre>
+    <div class="tip">💡 Projects機能に自社の契約テンプレートを登録しておくと比較レビューが楽になります</div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch5 ========== -->
+<section id="ch5">
+  <div class="section-header"><span class="num">05</span>無料で使い倒すテクニック</div>
+
+  <ol class="numbered-list">
+    <li><strong>Projects機能でコンテキストを蓄積</strong><br>無料プランでもProjectsは使えます。よく参照するドキュメントをプロジェクトに追加しておけば、毎回の説明が不要になりメッセージ数を節約できます。</li>
+    <li><strong>Artifactsでリッチな出力を得る</strong><br>「HTMLで出力して」「SVGで図を作って」と指示すれば、Artifacts機能でインタラクティブな成果物が得られます。プレゼン資料の図表作成にも活用可能です。</li>
+    <li><strong>System Promptで品質を固定</strong><br>APIを使わなくても、会話の最初に「あなたは○○の専門家です。以下のルールに従ってください」と記述すれば擬似的なシステムプロンプトとして機能します。</li>
+    <li><strong>長文は1回で投入する</strong><br>Claudeのコンテキストウィンドウは巨大。細切れに送るより、関連情報をまとめて1回で送る方が、コンテキストを維持でき高品質な回答が得られます。</li>
+    <li><strong>「ステップバイステップで考えて」を活用</strong><br>Extended Thinking的な効果を手動で引き出すフレーズです。複雑な問題にはこの一文を追加するだけで回答精度が大幅に向上します。</li>
+    <li><strong>XMLタグで構造化プロンプト</strong><br>Claudeは&lt;instructions&gt;、&lt;context&gt;、&lt;output_format&gt;などのXMLタグ付きプロンプトの理解が得意。構造化するだけで回答の一貫性が上がります。</li>
+  </ol>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch6 ========== -->
+<section id="ch6">
+  <div class="section-header"><span class="num">06</span>他ツールとの比較</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>評価項目</th><th class="highlight-col">Claude</th><th>ChatGPT</th><th>Gemini</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>📝 文章作成</td><td class="highlight-col">◎</td><td>◎</td><td>○</td></tr>
+      <tr><td>💻 コーディング</td><td class="highlight-col">◎</td><td>◎</td><td>○</td></tr>
+      <tr><td>📄 長文処理</td><td class="highlight-col">◎</td><td>○</td><td>◎</td></tr>
+      <tr><td>🇯🇵 日本語品質</td><td class="highlight-col">◎</td><td>○</td><td>○</td></tr>
+      <tr><td>🔍 推論・分析</td><td class="highlight-col">◎</td><td>◎</td><td>○</td></tr>
+      <tr><td>🎨 画像生成</td><td class="highlight-col">×</td><td>◎</td><td>○</td></tr>
+      <tr><td>🌐 Web検索</td><td class="highlight-col">○</td><td>◎</td><td>◎</td></tr>
+      <tr><td>🔒 安全性・正直さ</td><td class="highlight-col">◎</td><td>○</td><td>○</td></tr>
+      <tr><td>🛠️ 開発ツール統合</td><td class="highlight-col">◎</td><td>○</td><td>△</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-card mt-md">
+    <div class="card-header">🎯 Claudeが最適なシーン</div>
+    <div class="card-body">
+      <ul>
+        <li><strong>長文の執筆・編集</strong>：レポート、記事、書籍原稿など数千字以上の文章</li>
+        <li><strong>コーディング・開発</strong>：Claude Codeで自律的なコード生成・リファクタリング</li>
+        <li><strong>日本語の品質が重要</strong>：敬語、文体の統一、ニュアンスの正確さ</li>
+        <li><strong>大量の文書分析</strong>：契約書・論文・報告書の一括レビュー</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch7 ========== -->
+<section id="ch7">
+  <div class="section-header"><span class="num">07</span>注意点とリスク管理</div>
+
+  <div class="warning-box">
+    <strong>画像生成・Web検索の制限</strong><br>
+    Claudeは画像生成機能を持っていません。また、Web検索はChatGPTやGeminiと比較して限定的です。最新ニュースの確認や画像制作が必要な場合は、他ツールとの併用をお勧めします。
+  </div>
+
+  <div class="warning-box">
+    <strong>「丁寧すぎる」回答への注意</strong><br>
+    Claudeは安全性を重視するため、回答が過度に慎重・長文になることがあります。「簡潔に答えて」「結論だけ教えて」といった指示を追加すると効果的です。
+  </div>
+
+  <div class="warning-box">
+    <strong>機密情報の取り扱い</strong><br>
+    Freeプランでは入力データがモデル改善に使用される可能性があります。機密情報を扱う場合はTeamプラン以上を推奨します。API経由の利用であれば、デフォルトでトレーニングには使用されません。
+  </div>
+
+  <div class="warning-box">
+    <strong>Claude Codeの利用時</strong><br>
+    Claude Codeはファイルシステムやターミナルにアクセスする強力なツールです。重要なプロジェクトではGit管理下で使用し、変更内容を必ずレビューしてからコミットしましょう。
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<div class="cta-box">
+  <span class="cta-label">🎓 無料セミナーのご案内</span>
+  <h3>「生成AI時代のキャリア設計論」</h3>
+  <p>Claudeを仕事にどう活かす？ AIと共存するキャリア戦略を90分で学べる無料セミナー開催中。</p>
+  <a href="https://ai-reboot.io/seminars/ai-career-anxiety" class="cta-url">🔗 無料セミナーに申し込む</a>
+</div>
+
+<!-- ========== Copyright ========== -->
+<div class="copyright">
+  © 2026 AI Reboot Academy | セミナー登録者限定非売品<br>
+  ※2026年3月時点の情報です。最新の料金・機能は公式サイトでご確認ください。
+</div>
+
+</body>
+</html>

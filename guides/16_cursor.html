@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursor 完全攻略本 | AI Reboot Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>:root { --tool-color: #007ACC; }</style>
+</head>
+<body>
+
+<!-- ========== 表紙 ========== -->
+<div class="cover">
+  <div class="cover-series">— 完 全 攻 略 本 —</div>
+  <div class="cover-icon">Cr</div>
+  <h1>Cursor</h1>
+  <p class="cover-subtitle">AI統合IDE | Tab補完 / Cmd+K / Chat / Composer Agent</p>
+  <p class="cover-catch">⚡ AIネイティブIDEで開発体験を根本から変える</p>
+  <span class="cover-badge">🎁 AI Reboot Academy 限定プレゼント</span>
+  <span class="cover-footer">2026年3月版 | AI Reboot Academy</span>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== 目次 ========== -->
+<div class="toc">
+  <h2>📖 目次</h2>
+  <ol>
+    <li><a href="#ch1">Cursorとは？ — AI統合IDEの全体像</a></li>
+    <li><a href="#ch2">料金プラン完全比較</a></li>
+    <li><a href="#ch3">5つの主要機能を使いこなす</a></li>
+    <li><a href="#ch4">実践プロンプトテンプレート集</a></li>
+    <li><a href="#ch5">開発効率を最大化する7つのテクニック</a></li>
+    <li><a href="#ch6">他ツールとの比較</a></li>
+    <li><a href="#ch7">注意点とリスク管理</a></li>
+  </ol>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch1 ========== -->
+<section id="ch1">
+  <div class="section-header"><span class="num">01</span>Cursorとは？ — AI統合IDEの全体像</div>
+
+  <p>Cursorは、Anysphere社が開発するAIネイティブなコードエディタです。VS Codeをフォークして構築されているため、使い慣れた操作感はそのままに、コード補完・インライン編集・対話型コーディング・マルチファイル自律編集といったAI機能がエディタ全体に深く統合されています。フルスタックエンジニアの開発ワークフロー全体を革新する次世代IDEとして注目を集めています。</p>
+
+  <div class="sub-header">🛠️ 主要機能一覧（2026年3月時点）</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>機能名</th><th>概要</th><th>操作方法</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Tab補完</strong></td><td>コード自動補完。次の行を予測して提案</td><td>Tab キーで受け入れ</td></tr>
+      <tr><td><strong>Cmd+K</strong></td><td>インラインコード生成・編集</td><td>Cmd+K（Ctrl+K）で起動</td></tr>
+      <tr><td><strong>Chat</strong></td><td>対話型コーディング。コードベースについて質問</td><td>Cmd+L（Ctrl+L）で起動</td></tr>
+      <tr><td><strong>Composer / Agent</strong></td><td>マルチファイル自律編集。ターミナル実行も可能</td><td>Cmd+I（Ctrl+I）で起動</td></tr>
+      <tr><td><strong>@ mentions</strong></td><td>コンテキスト指定。ファイル・関数・ドキュメントを参照</td><td>@file, @codebase, @web 等</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-header">💡 Cursorの3行まとめ</div>
+  <ul>
+    <li>🔄 <strong>VS Codeベースで移行が簡単</strong>：拡張機能・設定・キーバインドをワンクリックでインポート可能</li>
+    <li>🧠 <strong>AIがコードベース全体を理解</strong>：@codebaseでプロジェクト全体をコンテキストとして参照できる</li>
+    <li>🤖 <strong>Agentモードで自律的にコード生成</strong>：複数ファイルの編集・ターミナル実行・エラー修正まで自動で完結</li>
+  </ul>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch2 ========== -->
+<section id="ch2">
+  <div class="section-header"><span class="num">02</span>料金プラン完全比較</div>
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-header">🆓 Free プラン</div>
+      <div class="card-body">
+        <div class="card-price">$0 <span class="text-small text-muted">/ 月</span></div>
+        <ul>
+          <li>2,000回の補完 / 月</li>
+          <li>50回の slow premium requests</li>
+          <li>基本的なAI機能を体験可能</li>
+          <li>VS Code拡張機能は利用可能</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">⭐ Pro プラン <span class="card-recommended">おすすめ</span></div>
+      <div class="card-body">
+        <div class="card-price">月額 $20 <span class="text-small text-muted">（約3,000円）</span></div>
+        <ul>
+          <li>500回の fast requests / 月</li>
+          <li>unlimited slow requests</li>
+          <li>全モデル利用可能（GPT-4o, Claude等）</li>
+          <li>Agentモードフルアクセス</li>
+          <li>無制限のTab補完</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">🏢 Business プラン</div>
+      <div class="card-body">
+        <div class="card-price">月額 $40/人 <span class="text-small text-muted">（約6,000円）</span></div>
+        <ul>
+          <li>Proの全機能</li>
+          <li>チーム管理ダッシュボード</li>
+          <li>SAML SSO対応</li>
+          <li>Privacy Modeの強制適用</li>
+          <li>組織レベルのポリシー管理</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">💎 Enterprise プラン</div>
+      <div class="card-body">
+        <div class="card-price">要相談 <span class="text-small text-muted"></span></div>
+        <ul>
+          <li>Businessの全機能</li>
+          <li>カスタムデプロイメント</li>
+          <li>専任サポート</li>
+          <li>SLAとコンプライアンス対応</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    個人開発者やフリーランスには <strong>Pro プラン</strong> が最適です。月額約3,000円でTab補完は無制限、Agentモードも含め全機能にアクセスできます。fast requestsが足りなくなった場合でもslow requestsで引き続き利用できるため、費用対効果は非常に高いといえます。
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch3 ========== -->
+<section id="ch3">
+  <div class="section-header"><span class="num">03</span>5つの主要機能を使いこなす</div>
+
+  <div class="sub-header">⚡ Tab補完 — 次の行を予測してくれるAIペアプロ</div>
+  <p>コードを書いている最中に、次に書くであろう行やブロックをAIがリアルタイムで予測・提案します。単純な補完だけでなく、関数の続き・条件分岐・エラーハンドリングまで文脈を読んで提案してくれます。Tabキーを押すだけで受け入れられるため、タイピング量を大幅に削減できます。</p>
+
+  <div class="sub-header">✏️ Cmd+K — 選択範囲をAIで書き換え</div>
+  <p>コードを選択してCmd+K（WindowsではCtrl+K）を押すと、インラインでAI編集が可能です。「TypeScriptに変換して」「エラーハンドリングを追加して」「パフォーマンスを最適化して」など、自然言語で指示するだけで選択箇所を書き換えてくれます。コードを選択せずに使えば、新しいコードの生成も可能です。</p>
+
+  <div class="sub-header">💬 Chat — コードベースに質問する</div>
+  <p>Cmd+L（Ctrl+L）でChatパネルを開き、コードベースについて自然言語で質問できます。「この関数は何をしている？」「認証フローの仕組みを説明して」「このバグの原因は？」など、コードリーディングの相棒として活用できます。@codebaseを使えばプロジェクト全体を検索対象にできます。</p>
+
+  <div class="sub-header">🤖 Composer Agent — マルチファイル自律編集＋ターミナル実行</div>
+  <p>Cmd+I（Ctrl+I）で起動するComposerのAgentモードは、Cursorの最も強力な機能です。1つの指示で複数ファイルの作成・編集・削除を自律的に行い、必要に応じてターミナルコマンドの実行やエラーの自動修正まで行います。「ユーザー認証機能をNext.jsで実装して」のような大きなタスクも一括で処理できます。</p>
+
+  <div class="sub-header">📋 .cursorrules — プロジェクト固有ルール設定</div>
+  <p>プロジェクトのルートに<code>.cursorrules</code>ファイルを配置することで、AIにプロジェクト固有のルールやコンテキストを伝えられます。使用するフレームワーク・コーディング規約・ディレクトリ構成・命名規則などを記述しておくと、すべてのAI機能がそれに従って動作するようになります。チーム開発での品質統一に非常に有効です。</p>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch4 ========== -->
+<section id="ch4">
+  <div class="section-header"><span class="num">04</span>実践プロンプトテンプレート集</div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">⚡ Cmd+Kでコンポーネント作成</div>
+    <pre>以下の仕様でReactコンポーネントを作成してください。
+
+【コンポーネント名】UserProfileCard
+【フレームワーク】React + TypeScript
+【スタイリング】Tailwind CSS
+【Props】
+- name: string（ユーザー名）
+- email: string（メールアドレス）
+- avatarUrl: string（アバター画像URL）
+- role: "admin" | "member" | "guest"（権限バッジ表示）
+【要件】
+- レスポンシブ対応
+- roleに応じてバッジの色を変更
+- アバター画像の遅延読み込み</pre>
+    <div class="tip">💡 コードを選択せずにCmd+Kを実行すると、カーソル位置に新しいコードが生成されます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🔍 Chatでバグの原因調査</div>
+    <pre>@codebase
+
+ログイン後にダッシュボードへリダイレクトされず、
+白い画面が表示される問題が発生しています。
+
+【再現手順】
+1. /login ページでメールアドレスとパスワードを入力
+2. ログインボタンをクリック
+3. 画面が白くなり /dashboard に遷移しない
+
+【環境】
+- Next.js 15 (App Router)
+- NextAuth v5
+- ブラウザコンソールに "TypeError: Cannot read properties of undefined" が表示
+
+原因として考えられる箇所と、修正方法を提案してください。</pre>
+    <div class="tip">💡 @codebaseを先頭に付けると、プロジェクト全体のコードを検索して関連ファイルを自動で参照します</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🤖 Agentで新機能を一括実装</div>
+    <pre>以下の仕様でブログ機能を一括実装してください。
+
+【技術スタック】Next.js 15 (App Router) + Prisma + PostgreSQL
+【実装内容】
+1. Prismaスキーマにpostモデルを追加（title, content, slug, publishedAt, authorId）
+2. /app/blog/page.tsx — 記事一覧ページ
+3. /app/blog/[slug]/page.tsx — 記事詳細ページ
+4. /app/api/blog/route.ts — CRUD用APIルート
+5. components/blog/PostCard.tsx — 記事カードコンポーネント
+
+【ルール】
+- TypeScript strictモード準拠
+- Server Componentsを優先し、必要な部分のみClient Component
+- エラーハンドリングを必ず含める
+- prisma db push でマイグレーション実行まで行ってください</pre>
+    <div class="tip">💡 Agentモードでは、ファイル作成・編集に加えてターミナルコマンドの実行も自動で行います</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🧪 テストコード自動生成</div>
+    <pre>@file:src/utils/dateFormatter.ts
+
+このファイルのすべてのエクスポート関数に対して、
+Vitestのテストコードを作成してください。
+
+【要件】
+- describeで関数ごとにグルーピング
+- 正常系・異常系・エッジケースを網羅
+- 日本語のテスト名を使用
+- 各テストケースにコメントで意図を明記
+- モックが必要な場合はvi.mockを使用
+
+出力先: src/utils/__tests__/dateFormatter.test.ts</pre>
+    <div class="tip">💡 @file:パスで特定のファイルをコンテキストとして渡すと、そのコードに特化した生成が可能です</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🔧 リファクタリング依頼</div>
+    <pre>@file:src/components/Dashboard.tsx
+
+このコンポーネントをリファクタリングしてください。
+
+【改善ポイント】
+1. 400行を超えるコンポーネントを適切な粒度に分割
+2. ビジネスロジックをカスタムフックに切り出し
+3. マジックナンバーを定数化
+4. 重複するスタイルをTailwindのカスタムクラスに統一
+5. 不要なuseEffectがあれば除去
+
+【制約】
+- 既存のPropsインターフェースは変更しない
+- コンポーネントの表示結果は変わらないこと
+- 分割後のファイルは同じディレクトリに配置</pre>
+    <div class="tip">💡 「表示結果は変わらないこと」を制約に入れると、安全なリファクタリングが実現できます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📋 .cursorrules 設定例</div>
+    <pre># .cursorrules に以下を記述してプロジェクトルートに配置
+
+あなたはシニアフルスタックエンジニアとして、以下のルールに従ってコーディングしてください。
+
+## 技術スタック
+- Next.js 15 (App Router), React 19, TypeScript 5.x
+- Tailwind CSS, Prisma ORM, PostgreSQL
+- テスト: Vitest + Testing Library
+
+## コーディング規約
+- 関数コンポーネントとアロー関数を使用
+- 型定義は interface を優先（type は union/intersection のみ）
+- 変数名・関数名はキャメルケース、コンポーネントはパスカルケース
+- コメントは日本語で記述
+
+## アーキテクチャ
+- Server Componentsをデフォルトとし、"use client"は最小限
+- APIルートはapp/api/以下に配置
+- 共通ロジックはlib/以下に切り出し
+- エラーハンドリングはtry-catchを必須とする</pre>
+    <div class="tip">💡 .cursorrulesはチーム全員が共有できるため、AIの出力品質をチーム全体で統一できます</div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch5 ========== -->
+<section id="ch5">
+  <div class="section-header"><span class="num">05</span>開発効率を最大化する7つのテクニック</div>
+
+  <ol class="numbered-list">
+    <li><strong>.cursorrulesでプロジェクトルールを定義する</strong><br>プロジェクトのルートに.cursorrulesを配置し、技術スタック・コーディング規約・ディレクトリ構成を記述しましょう。AIのすべての出力がこのルールに従うため、「毎回同じ指示を繰り返す」手間がなくなります。特にチーム開発では必須の設定です。</li>
+    <li><strong>@codebaseでプロジェクト全体を検索する</strong><br>ChatやAgentで@codebaseを使うと、プロジェクト全体のコードがインデックスされ、関連するファイルが自動的に参照されます。「この処理はどこで定義されている？」「同じパターンの実装はある？」といった質問に正確に回答してくれます。</li>
+    <li><strong>@webで最新ドキュメントを参照する</strong><br>@webを使うとAIがリアルタイムでWeb検索を行い、最新のライブラリドキュメントやAPIリファレンスを参照して回答します。「@web Next.js 15のServer Actionsの書き方」のように使うと、古い情報に基づいた回答を防げます。</li>
+    <li><strong>Agentモードの使い分けを意識する</strong><br>単純な補完はTab、1箇所の修正はCmd+K、質問はChat、複数ファイルにまたがる作業はAgentモード、と使い分けることが重要です。すべてをAgentに任せるとfast requestsを無駄に消費するため、タスクの規模に応じて適切な機能を選びましょう。</li>
+    <li><strong>モデル切り替え戦略（速度 vs 品質）</strong><br>Cursorでは複数のAIモデルを切り替えて使用できます。日常的なコード補完やシンプルな質問にはGPT-4o-miniなどの高速モデルを、複雑なアーキテクチャ設計やデバッグにはClaude Opus等の高性能モデルを使い分けると、速度とコストのバランスが取れます。</li>
+    <li><strong>キーバインドをカスタマイズする</strong><br>VS Codeベースのため、キーバインドの自由度は非常に高いです。頻繁に使うCmd+K・Cmd+L・Cmd+Iのショートカットを自分の手に合ったキーに変更したり、AI操作をワンキーで呼び出せるように設定すると、ワークフローがさらにスムーズになります。</li>
+    <li><strong>VS Code拡張機能の互換性を活用する</strong><br>CursorはVS Codeのフォークであるため、ほとんどのVS Code拡張機能がそのまま動作します。ESLint・Prettier・GitLens・Docker・Prismaなど、既存の開発ツールチェインをそのまま持ち込めるのが大きな強みです。拡張機能のインポートもワンクリックで完了します。</li>
+  </ol>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch6 ========== -->
+<section id="ch6">
+  <div class="section-header"><span class="num">06</span>他ツールとの比較</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>評価項目</th><th class="highlight-col">Cursor</th><th>GitHub Copilot</th><th>Windsurf</th><th>Claude Code</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>🖥️ IDE統合</td><td class="highlight-col">◎</td><td>○</td><td>◎</td><td>△（CLI）</td></tr>
+      <tr><td>🤖 Agent能力</td><td class="highlight-col">◎</td><td>○</td><td>◎</td><td>◎</td></tr>
+      <tr><td>🧠 コードベース理解</td><td class="highlight-col">◎</td><td>○</td><td>○</td><td>◎</td></tr>
+      <tr><td>⚡ Tab補完</td><td class="highlight-col">◎</td><td>◎</td><td>◎</td><td>×</td></tr>
+      <tr><td>✏️ インライン編集</td><td class="highlight-col">◎</td><td>○</td><td>◎</td><td>△</td></tr>
+      <tr><td>📂 マルチファイル編集</td><td class="highlight-col">◎</td><td>○</td><td>◎</td><td>◎</td></tr>
+      <tr><td>🔌 拡張性（プラグイン）</td><td class="highlight-col">◎</td><td>◎</td><td>○</td><td>△</td></tr>
+      <tr><td>🎯 開発体験（UX）</td><td class="highlight-col">◎</td><td>○</td><td>◎</td><td>○</td></tr>
+      <tr><td>💰 コストパフォーマンス</td><td class="highlight-col">◎</td><td>○</td><td>◎</td><td>○</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-card mt-md">
+    <div class="card-header">🎯 Cursorが最適なシーン</div>
+    <div class="card-body">
+      <ul>
+        <li><strong>IDE統合で開発フローを止めたくない</strong>：エディタ内でAI操作が完結するため、ツール間の切り替えが不要</li>
+        <li><strong>Agentにマルチファイル編集を任せたい</strong>：新機能の実装やリファクタリングを1つの指示で自律的に処理</li>
+        <li><strong>コードベース全体を理解したAIが欲しい</strong>：@codebaseでプロジェクト全体をコンテキストに含めて正確な提案を取得</li>
+        <li><strong>VS Codeの操作感・拡張機能を維持したい</strong>：設定・キーバインド・拡張機能をそのまま引き継げる</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch7 ========== -->
+<section id="ch7">
+  <div class="section-header"><span class="num">07</span>注意点とリスク管理</div>
+
+  <div class="warning-box">
+    <strong>API使用量の管理（fast request消費）</strong><br>
+    Proプランでは月500回のfast requestsが付与されますが、Agentモードの利用やモデル切り替えによっては想定以上に消費する場合があります。使用量はSettings画面から確認できます。fast requestsが尽きた後はslow requestsに切り替わり応答速度が低下するため、月末に向けて計画的に利用しましょう。
+  </div>
+
+  <div class="warning-box">
+    <strong>コード送信のセキュリティ（Privacy Mode推奨）</strong><br>
+    CursorはAI処理のためにコードをクラウドに送信します。機密性の高いプロジェクトでは、Settings内の「Privacy Mode」を有効にしてください。Privacy Modeを有効にすると、送信されたコードがモデルのトレーニングに使用されなくなります。Business/Enterpriseプランではこの設定をチーム全体に強制適用できます。
+  </div>
+
+  <div class="warning-box">
+    <strong>AIに頼りすぎるリスク</strong><br>
+    Cursorの強力なAgent機能は非常に便利ですが、AIが生成したコードをレビューせずにそのまま受け入れるのは危険です。特にセキュリティに関わるコード（認証・認可・データバリデーション）は必ず自分の目で確認してください。AIは「動くコード」を書けますが、「安全なコード」を保証するものではありません。
+  </div>
+
+  <div class="warning-box">
+    <strong>大規模プロジェクトでの動作速度</strong><br>
+    モノレポや巨大なコードベースでは、インデックスの構築やAIの応答に時間がかかる場合があります。.cursorignoreファイルを使ってnode_modules・ビルド出力・大きなデータファイルなど不要なディレクトリを除外することで、パフォーマンスを改善できます。また、インデックスの再構築はCmd+Shift+Pから手動で実行可能です。
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<div class="cta-box">
+  <span class="cta-label">🎓 無料セミナーのご案内</span>
+  <h3>「生成AI時代のキャリア設計論」</h3>
+  <p>Cursorを仕事にどう活かす？ AIと共存するキャリア戦略を90分で学べる無料セミナー開催中。</p>
+  <a href="https://ai-reboot.io/seminars/ai-career-anxiety" class="cta-url">🔗 無料セミナーに申し込む</a>
+</div>
+
+<!-- ========== Copyright ========== -->
+<div class="copyright">
+  © 2026 AI Reboot Academy | セミナー登録者限定非売品<br>
+  ※2026年3月時点の情報です。最新の料金・機能は公式サイトでご確認ください。
+</div>
+
+</body>
+</html>

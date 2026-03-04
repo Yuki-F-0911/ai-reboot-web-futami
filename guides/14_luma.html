@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luma AI 完全攻略本 | AI Reboot Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>:root { --tool-color: #6366F1; }</style>
+</head>
+<body>
+
+<!-- ========== 表紙 ========== -->
+<div class="cover">
+  <div class="cover-series">— 完 全 攻 略 本 —</div>
+  <div class="cover-icon">Lu</div>
+  <h1>Luma AI Ray3.14</h1>
+  <p class="cover-subtitle">動画生成（HDR・3D特化） | VFX、プロダクション</p>
+  <p class="cover-catch">🌈 HDR×3D — 次世代ビジュアルを創るAI</p>
+  <span class="cover-badge">🎁 AI Reboot Academy 限定プレゼント</span>
+  <span class="cover-footer">2026年3月版 | AI Reboot Academy</span>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== 目次 ========== -->
+<div class="toc">
+  <h2>📖 目次</h2>
+  <ol>
+    <li><a href="#ch1">Luma AIとは？ — 基本情報・最新モデル</a></li>
+    <li><a href="#ch2">料金プラン完全比較</a></li>
+    <li><a href="#ch3">主要機能を使いこなす</a></li>
+    <li><a href="#ch4">シーン別プロンプトテンプレート集</a></li>
+    <li><a href="#ch5">使いこなしテクニック</a></li>
+    <li><a href="#ch6">他ツールとの比較</a></li>
+    <li><a href="#ch7">注意点とリスク管理</a></li>
+  </ol>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch1 ========== -->
+<section id="ch1">
+  <div class="section-header"><span class="num">01</span>Luma AIとは？ — 基本情報・最新モデル</div>
+
+  <p>Luma AIは、HDR（ハイダイナミックレンジ）動画生成と3D空間認識に特化したAI動画生成プラットフォームです。物理法則を理解した自然なカメラワークと圧倒的な映像品質により、VFXやプロダクション現場で高い評価を得ています。NeRFやGaussian Splattingを活用した3Dキャプチャ技術も搭載しており、リアル世界のデジタルツイン化にも対応します。</p>
+
+  <div class="sub-header">🎬 最新モデル一覧（2026年3月時点）</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>モデル名</th><th>特徴</th><th>用途</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Ray3.14</strong></td><td>最新フラッグシップ。HDR動画生成に対応</td><td>高品質動画生成</td></tr>
+      <tr><td><strong>Dream Machine</strong></td><td>旧モデル。軽量で高速な動画生成</td><td>ラピッドプロトタイプ</td></tr>
+      <tr><td><strong>3D Capture</strong></td><td>NeRF/Gaussian Splattingによる3Dスキャン</td><td>3Dモデル生成</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-header">💡 Luma AIで何ができる？（3行まとめ）</div>
+  <ul>
+    <li>🌈 <strong>HDR動画生成のパイオニア</strong>：他ツールにはないHDR品質の映像を生成し、色彩表現の幅が圧倒的に広いです</li>
+    <li>🧊 <strong>3D空間認識が優秀</strong>：物理法則を理解したカメラワークで、奥行きや立体感のある映像を自然に生成します</li>
+    <li>🎥 <strong>VFX・プロダクション向け</strong>：映像制作のプロフェッショナルが求める品質とコントロール性を備えています</li>
+  </ul>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch2 ========== -->
+<section id="ch2">
+  <div class="section-header"><span class="num">02</span>料金プラン完全比較</div>
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-header">🆓 Free プラン</div>
+      <div class="card-body">
+        <div class="card-price">$0 <span class="text-small text-muted">/ 月</span></div>
+        <ul>
+          <li>月30生成まで</li>
+          <li>Ray3.14の基本機能にアクセス</li>
+          <li>透かし付き出力</li>
+          <li>HDR品質を体験可能</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">📦 Standard プラン</div>
+      <div class="card-body">
+        <div class="card-price">月額 $9.99 <span class="text-small text-muted">（約1,500円）</span></div>
+        <ul>
+          <li>月150生成まで</li>
+          <li>透かしなし出力</li>
+          <li>Image-to-Video対応</li>
+          <li>基本的なカメラワーク制御</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">⭐ Pro プラン <span class="card-recommended">おすすめ</span></div>
+      <div class="card-body">
+        <div class="card-price">月額 $29.99 <span class="text-small text-muted">（約4,500円）</span></div>
+        <ul>
+          <li>月400生成まで</li>
+          <li>Ray3.14 フルアクセス</li>
+          <li>高度なカメラワーク制御</li>
+          <li>優先キュー処理</li>
+          <li>商用利用ライセンス</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">💎 Premier プラン</div>
+      <div class="card-body">
+        <div class="card-price">月額 $99.99 <span class="text-small text-muted">（約15,000円）</span></div>
+        <ul>
+          <li>月2,000生成まで</li>
+          <li>最高優先キュー</li>
+          <li>3D Captureフルアクセス</li>
+          <li>APIアクセス</li>
+          <li>専用サポート</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    映像制作を本格的に行う方には <strong>Pro プラン</strong> がおすすめです。月400生成は十分な量ですし、HDRフル品質と高度なカメラワーク制御が使えるため、プロダクション用途にも耐える出力が得られます。まずは無料プランでHDR品質を体験し、手応えを感じたらProへの移行がスムーズです。
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch3 ========== -->
+<section id="ch3">
+  <div class="section-header"><span class="num">03</span>主要機能を使いこなす</div>
+
+  <div class="sub-header">🌈 Ray3.14 HDR動画生成</div>
+  <p>Luma AIの最大の特徴であるHDR動画生成機能です。従来のAI動画生成ツールでは表現しきれなかった広いダイナミックレンジを持つ映像を生成します。光のグラデーション、陰影の階調、光源の輝きが極めてリアルで、映画やCM品質の映像制作に活用できます。</p>
+
+  <div class="sub-header">🧊 3D空間認識（物理法則の理解）</div>
+  <p>Luma AIは3D空間を深く理解しており、生成する動画内のオブジェクトの奥行き、遮蔽関係、光の反射・屈折を物理法則に基づいて表現します。そのため、不自然な歪みや浮遊感の少ない、説得力のある映像が得られます。建築ビジュアライゼーションや製品デモに特に有効です。</p>
+
+  <div class="sub-header">✍️ Text-to-Video & Image-to-Video</div>
+  <p>テキストプロンプトから動画を生成するText-to-Videoに加え、静止画をアップロードして動画化するImage-to-Video機能も備えています。既存のデザインカンプや写真をベースに動画を作れるため、品質の安定性が大幅に向上します。</p>
+
+  <div class="sub-header">🎥 カメラワーク制御（Orbit / Pan / Zoom など）</div>
+  <p>Orbit（周回）、Pan（パン）、Zoom（ズーム）、Tilt（ティルト）、Dolly（ドリー）など、プロの映像用語に対応したカメラワーク制御が可能です。プロンプト内でカメラの動きを指定することで、映画的な演出を意図通りに再現できます。</p>
+
+  <div class="sub-header">📐 3D Gaussian Splatting（3Dスキャン）</div>
+  <p>スマートフォンで撮影した動画から、高品質な3Dモデルを生成する機能です。NeRFやGaussian Splattingの技術を活用し、リアルな質感を持つ3Dオブジェクトやシーンを再構成します。不動産のバーチャルツアーや商品の3Dビューに活用されています。</p>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch4 ========== -->
+<section id="ch4">
+  <div class="section-header"><span class="num">04</span>シーン別プロンプトテンプレート集</div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🌅 HDRシネマティック風景動画</div>
+    <pre>Cinematic HDR landscape shot of a golden hour sunset over
+a vast mountain range with layered clouds.
+
+Camera slowly pushes forward over a reflective alpine lake.
+Volumetric light rays pierce through cloud gaps.
+Rich color grading with deep oranges, purples, and teal shadows.
+
+Style: Epic nature documentary, 4K cinematic quality.
+Aspect ratio: 16:9
+Duration: 5 seconds</pre>
+    <div class="tip">💡 HDRの強みを活かすには「golden hour」「volumetric light」など光の描写を詳細にしましょう</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🏛️ 3D空間を活かした建築ウォークスルー</div>
+    <pre>Smooth architectural walkthrough of a modern minimalist
+Japanese house with floor-to-ceiling windows.
+
+Camera enters through the main entrance, dolly forward
+through the hallway into an open living space.
+Natural daylight fills the room with soft shadows.
+Concrete, wood, and glass materials with photorealistic textures.
+
+Camera movement: Steady dolly forward, slight pan right
+to reveal the garden view.
+Style: Architectural visualization, photorealistic.</pre>
+    <div class="tip">💡 3D空間認識を活かすため、カメラの動線と素材の質感を具体的に記述しましょう</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">⚡ VFX風スーパーヒーロー演出</div>
+    <pre>Dynamic VFX shot of a figure landing on a city rooftop
+at night, creating a shockwave of blue energy on impact.
+
+Camera orbits around the character in slow motion.
+Particles and debris float in the air.
+HDR neon city lights reflect off wet surfaces.
+Volumetric fog and lens flares enhance the dramatic mood.
+
+Camera movement: 180-degree orbit, slow motion.
+Style: Marvel/DC cinematic VFX quality.</pre>
+    <div class="tip">💡 VFXエフェクト（パーティクル、レンズフレア、ボリュメトリック）を具体的に指定するのがコツです</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📦 商品の360度回転動画</div>
+    <pre>Product showcase of a premium wireless headphone on a
+clean white studio background.
+
+Camera performs a smooth 360-degree orbit around the product.
+Soft studio lighting with subtle reflections on the glossy surface.
+Shallow depth of field with the product in sharp focus.
+
+Camera movement: Full 360-degree orbit, constant speed.
+Style: Apple-style product video, minimalist and premium.
+Duration: 4 seconds</pre>
+    <div class="tip">💡 Orbit（周回）コマンドとスタジオライティングの指定で、ECサイト向け動画が作れます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🌊 自然現象（水・火・光）のリアル動画</div>
+    <pre>Extreme close-up of ocean waves crashing against volcanic
+black rocks in HDR quality.
+
+Slow motion capture of water droplets suspended in air,
+backlit by warm sunset light creating rainbow prismatic effects.
+Foam and mist particles catch the golden light.
+Deep blue-green water with crystal clear transparency.
+
+Camera movement: Slow zoom in, tracking the wave motion.
+Style: BBC Planet Earth documentary quality.</pre>
+    <div class="tip">💡 自然現象の物理挙動は Luma AI が最も得意とするジャンルです。スローモーションとの組み合わせが効果的です</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🚁 ドローン風俯瞰ショット</div>
+    <pre>Aerial drone shot flying over a traditional Japanese village
+surrounded by cherry blossom trees in full bloom.
+
+Camera starts high above, slowly descending and tilting down
+to reveal the intricate rooftop patterns and winding streets.
+Petals drift in the wind. Morning mist in the valleys.
+HDR rendering with soft pastel pinks and deep greens.
+
+Camera movement: Descending crane shot with forward dolly.
+Style: Travel documentary, DJI Inspire 3 quality.</pre>
+    <div class="tip">💡 ドローンショットは「高度」「下降速度」「ティルト角度」を意識して書くとリアルになります</div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch5 ========== -->
+<section id="ch5">
+  <div class="section-header"><span class="num">05</span>使いこなしテクニック</div>
+
+  <ol class="numbered-list">
+    <li><strong>無料枠でHDR品質をテストする</strong><br>まずは無料プランの月30生成を使って、Luma AIのHDR品質を体感しましょう。同じプロンプトをRunwayやSoraでも試し、品質差を比較するのがおすすめです。HDR表現が必要なプロジェクトかどうかの判断材料になります。</li>
+    <li><strong>Image-to-Videoで品質を安定させる</strong><br>テキストのみのプロンプトよりも、ベースとなる静止画をアップロードしてから動画化する方が品質が安定します。MidjourneyやFlux等で生成した高品質な画像をベースにすると、最終出力のクオリティが大幅に向上します。</li>
+    <li><strong>カメラワークは映像用語で記述する</strong><br>「Orbit」「Dolly forward」「Pan left」「Tilt up」「Crane shot」など、プロの映像用語を使って指示すると、意図通りのカメラワークが再現されやすくなります。複数の動きを組み合わせる場合は、時系列で順番に記述しましょう。</li>
+    <li><strong>3D Captureでリアルオブジェクトを取り込む</strong><br>スマートフォンで対象物の周囲を撮影するだけで3Dモデルが生成されます。撮影時は対象の周りをゆっくり360度回り、均一な照明環境で撮ることがコツです。生成した3Dモデルは動画内に組み込むこともできます。</li>
+    <li><strong>他の生成AIツールと組み合わせる</strong><br>Midjourneyで静止画を生成 → Luma AIでImage-to-Videoで動画化 → Runwayでポストエフェクト追加、という連携ワークフローが効果的です。各ツールの得意分野を活かした制作パイプラインを構築しましょう。</li>
+    <li><strong>プロンプトに物理的な環境情報を含める</strong><br>「wet surface」「volumetric fog」「golden hour lighting」「shallow depth of field」など、物理的な環境描写を加えるとLuma AIの3D空間認識が活かされ、リアリティが格段に向上します。光源の位置と質感の記述が特に重要です。</li>
+  </ol>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch6 ========== -->
+<section id="ch6">
+  <div class="section-header"><span class="num">06</span>他ツールとの比較</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>評価項目</th><th class="highlight-col">Luma AI</th><th>Runway</th><th>Sora</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>🌈 HDR品質</td><td class="highlight-col">◎</td><td>○</td><td>○</td></tr>
+      <tr><td>🧊 3D空間認識</td><td class="highlight-col">◎</td><td>○</td><td>○</td></tr>
+      <tr><td>🎥 カメラワーク制御</td><td class="highlight-col">◎</td><td>◎</td><td>○</td></tr>
+      <tr><td>⚙️ 物理法則の忠実さ</td><td class="highlight-col">◎</td><td>○</td><td>◎</td></tr>
+      <tr><td>✍️ テキスト→動画の品質</td><td class="highlight-col">○</td><td>◎</td><td>◎</td></tr>
+      <tr><td>🖼️ Image-to-Video</td><td class="highlight-col">◎</td><td>◎</td><td>○</td></tr>
+      <tr><td>📐 3Dモデル生成</td><td class="highlight-col">◎</td><td>×</td><td>×</td></tr>
+      <tr><td>⏱️ 生成速度</td><td class="highlight-col">○</td><td>◎</td><td>○</td></tr>
+      <tr><td>💰 コストパフォーマンス</td><td class="highlight-col">○</td><td>○</td><td>◎</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-card mt-md">
+    <div class="card-header">🎯 Luma AIが最適なシーン</div>
+    <div class="card-body">
+      <ul>
+        <li><strong>HDR品質が求められる映像制作</strong>：広いダイナミックレンジと色彩表現で、映画・CM品質の映像が必要な場合</li>
+        <li><strong>建築・不動産のビジュアライゼーション</strong>：3D空間認識を活かした説得力のあるウォークスルー動画に最適です</li>
+        <li><strong>商品プロモーション動画</strong>：360度回転やスタジオ品質の商品動画を低コストで制作できます</li>
+        <li><strong>3Dスキャン・デジタルツイン</strong>：Gaussian Splattingによる高品質3Dモデル生成は唯一無二の機能です</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch7 ========== -->
+<section id="ch7">
+  <div class="section-header"><span class="num">07</span>注意点とリスク管理</div>
+
+  <div class="warning-box">
+    <strong>無料枠の制限を理解する</strong><br>
+    無料プランは月30生成までと、他のAI動画生成ツールと比べて少なめです。また、透かし（ウォーターマーク）が付くため、商用利用には有料プランへのアップグレードが必要です。生成枠は月初にリセットされるため、計画的に使いましょう。
+  </div>
+
+  <div class="warning-box">
+    <strong>テキストプロンプトの英語依存</strong><br>
+    Luma AIのプロンプトは英語での入力が推奨されています。日本語プロンプトにも一定の対応はしていますが、英語の方が意図通りの結果が得られやすいです。ChatGPTやClaude等でプロンプトを英訳してから入力するワークフローがおすすめです。
+  </div>
+
+  <div class="warning-box">
+    <strong>生成時間の長さ</strong><br>
+    HDR品質の動画生成は、他ツールと比べて処理時間が長くなる傾向があります。特に無料プランやStandardプランでは、キューの混雑状況によって数分〜十数分の待ち時間が発生することがあります。急ぎの作業では優先キューが使えるProプラン以上を検討しましょう。
+  </div>
+
+  <div class="warning-box">
+    <strong>3D Captureの技術的ハードル</strong><br>
+    3D Gaussian Splatting機能を活用するには、撮影テクニックのコツが必要です。照明が不均一な環境、反射素材の多い対象、動きのあるシーンでは品質が低下します。最初は小さくシンプルなオブジェクトから始めて、撮影のコツを掴んでいくことをおすすめします。
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<div class="cta-box">
+  <span class="cta-label">🎓 無料セミナーのご案内</span>
+  <h3>「生成AI時代のキャリア設計論」</h3>
+  <p>Luma AIを映像制作にどう活かす？ AIと共存するキャリア戦略を90分で学べる無料セミナー開催中。</p>
+  <a href="https://ai-reboot.io/seminars/ai-career-anxiety" class="cta-url">🔗 無料セミナーに申し込む</a>
+</div>
+
+<!-- ========== Copyright ========== -->
+<div class="copyright">
+  © 2026 AI Reboot Academy | セミナー登録者限定非売品<br>
+  ※2026年3月時点の情報です。最新の料金・機能は公式サイトでご確認ください。
+</div>
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeepSeek V3.2 完全攻略本 | AI Reboot Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>:root { --tool-color: #4D6BFE; }</style>
+</head>
+<body>
+
+<!-- ========== 表紙 ========== -->
+<div class="cover">
+  <div class="cover-series">— 完 全 攻 略 本 —</div>
+  <div class="cover-icon">DS</div>
+  <h1>DeepSeek V3.2</h1>
+  <p class="cover-subtitle">DeepSeek V3.2 / DeepSeek-R1（推論特化）</p>
+  <p class="cover-catch">💰 オープンソースが実現する「コスパ最強」AI</p>
+  <span class="cover-badge">🎁 AI Reboot Academy 限定プレゼント</span>
+  <span class="cover-footer">2026年3月版 | AI Reboot Academy</span>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== 目次 ========== -->
+<div class="toc">
+  <h2>📖 目次</h2>
+  <ol>
+    <li><a href="#ch1">DeepSeekとは？ — 基本情報・最新モデル</a></li>
+    <li><a href="#ch2">料金プラン完全比較</a></li>
+    <li><a href="#ch3">主要機能を使いこなす</a></li>
+    <li><a href="#ch4">仕事別プロンプトテンプレート集</a></li>
+    <li><a href="#ch5">無料で使い倒すテクニック</a></li>
+    <li><a href="#ch6">他ツールとの比較</a></li>
+    <li><a href="#ch7">注意点とリスク管理</a></li>
+  </ol>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch1 ========== -->
+<section id="ch1">
+  <div class="section-header"><span class="num">01</span>DeepSeekとは？ — 基本情報・最新モデル</div>
+
+  <p>DeepSeekは、中国のAIスタートアップ「深度求索（DeepSeek）」が開発するオープンソースの大規模言語モデル（LLM）です。2023年に設立された同社は、ヘッジファンド「幻方量化（High-Flyer）」を母体としており、潤沢な資金力を背景に急速に開発を進めています。</p>
+
+  <p>最大の特徴は、OpenAIやAnthropicのトップモデルに匹敵する性能を、圧倒的に低いコストで提供している点です。モデルの重みがオープンソースで公開されているため、ローカル環境での実行やカスタマイズも可能です。</p>
+
+  <div class="sub-header">🤖 最新モデル一覧（2026年3月時点）</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>モデル名</th><th>特徴</th><th>カテゴリ</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>DeepSeek V3.2</strong></td><td>最新の汎用モデル。文章生成・コーディング・翻訳など幅広いタスクに対応</td><td>汎用LLM</td></tr>
+      <tr><td><strong>DeepSeek-R1</strong></td><td>推論特化モデル。Chain-of-Thought（思考連鎖）で複雑な問題を段階的に解決</td><td>推論・数学・論理</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-header">💡 DeepSeekで何ができる？（3行まとめ）</div>
+  <ul>
+    <li>💰 <strong>圧倒的なコストパフォーマンス</strong>：API料金はOpenAIの1/10以下。無料枠も充実しており、個人利用なら課金不要で使い倒せます</li>
+    <li>🔓 <strong>オープンソースの自由度</strong>：モデルの重みが公開されており、Ollamaなどを使えば自分のPCでローカル実行が可能です</li>
+    <li>🧠 <strong>R1モデルの推論力</strong>：DeepSeek-R1はChain-of-Thoughtで思考過程を可視化しながら、数学・論理・コーディングの難問を解決します</li>
+  </ul>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch2 ========== -->
+<section id="ch2">
+  <div class="section-header"><span class="num">02</span>料金プラン完全比較</div>
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-header">🆓 無料プラン（deepseek.com）</div>
+      <div class="card-body">
+        <div class="card-price">$0 <span class="text-small text-muted">/ 月</span></div>
+        <ul>
+          <li>DeepSeek V3.2 利用可能</li>
+          <li>DeepSeek-R1 利用可能</li>
+          <li>1日あたりの利用制限は比較的緩い</li>
+          <li>Web検索機能あり</li>
+          <li>登録のみで即利用可能</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">⚡ API利用 <span class="card-recommended">コスパ最強</span></div>
+      <div class="card-body">
+        <div class="card-price">従量課金制 <span class="text-small text-muted">（驚異の低価格）</span></div>
+        <ul>
+          <li>DeepSeek V3.2 API</li>
+          <li>DeepSeek-R1 API</li>
+          <li>OpenAI互換エンドポイント</li>
+          <li>初回登録時に無料クレジット付与</li>
+          <li>プリペイド方式で安心</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-header">💰 API料金比較（100万トークンあたり）</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>モデル</th><th>入力トークン</th><th>出力トークン</th><th>備考</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>DeepSeek V3.2</strong></td><td>約 $0.27</td><td>約 $1.10</td><td>汎用モデル最安クラス</td></tr>
+      <tr><td><strong>DeepSeek-R1</strong></td><td>約 $0.55</td><td>約 $2.19</td><td>推論モデルとしては破格</td></tr>
+      <tr><td class="text-muted">GPT-4o（参考）</td><td class="text-muted">$2.50</td><td class="text-muted">$10.00</td><td class="text-muted">約10倍の価格差</td></tr>
+      <tr><td class="text-muted">Claude Sonnet 4（参考）</td><td class="text-muted">$3.00</td><td class="text-muted">$15.00</td><td class="text-muted">約10〜15倍の価格差</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    DeepSeekのAPI料金は、主要な競合モデルの <strong>約1/10</strong> という驚異的な価格設定です。大量のAPIコールが必要なアプリケーション開発や、コストを重視するプロジェクトにとって非常に魅力的な選択肢です。さらに、オフピーク時間帯にはキャッシュヒット割引が適用される場合もあります。
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch3 ========== -->
+<section id="ch3">
+  <div class="section-header"><span class="num">03</span>主要機能を使いこなす</div>
+
+  <div class="sub-header">🧠 R1推論モード（Chain-of-Thought）</div>
+  <p>DeepSeek-R1は、回答を生成する前に「思考過程」を段階的に展開するChain-of-Thought（CoT）推論を搭載しています。数学の証明、論理パズル、複雑なコーディング問題など、段階的な思考が必要なタスクで威力を発揮します。思考過程がそのまま表示されるため、AIがどのように結論に至ったかを確認でき、学習ツールとしても優れています。</p>
+
+  <div class="sub-header">🔓 オープンソース（ローカル実行可能）</div>
+  <p>DeepSeekのモデルはオープンソースで公開されており、OllamaやLM Studioなどを使えば自分のPCやサーバーでローカル実行が可能です。インターネット接続なしで利用でき、データが外部サーバーに送信されることもありません。企業の機密情報を扱う場合や、オフライン環境での利用に最適です。</p>
+
+  <div class="sub-header">🌐 Web検索</div>
+  <p>deepseek.comのチャットインターフェースでは、リアルタイムのWeb検索機能を利用できます。最新のニュースや統計データを組み込んだ回答が可能で、ソース元のリンクも提示されます。情報の鮮度が求められるリサーチ業務に役立ちます。</p>
+
+  <div class="sub-header">💻 コーディング支援</div>
+  <p>DeepSeekはコーディング能力に特に優れており、複数のベンチマークでトップクラスの成績を収めています。Python、JavaScript、TypeScript、Go、Rustなど主要言語に対応し、コード生成・デバッグ・リファクタリング・コードレビューまで幅広くサポートします。特にR1モードでの複雑なアルゴリズム設計は秀逸です。</p>
+
+  <div class="sub-header">🌍 マルチ言語対応</div>
+  <p>中国語と英語を最も得意としますが、日本語を含む多言語にも対応しています。翻訳タスクでは、中国語↔日本語の翻訳精度が比較的高く、中国ビジネスに関わる方にとっては特に有用です。ただし、日本語のニュアンス表現においてはChatGPTやClaudeに劣る場面もあります。</p>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch4 ========== -->
+<section id="ch4">
+  <div class="section-header"><span class="num">04</span>仕事別プロンプトテンプレート集</div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">💻 コード生成</div>
+    <pre>以下の仕様に基づいてPythonコードを生成してください。
+
+【機能】CSVファイルの売上データを読み込み、月別集計を行う
+【要件】
+- pandasを使用
+- 月別の合計売上・平均売上・件数を算出
+- 結果をグラフ（matplotlib）で可視化
+- エラーハンドリングを含める
+- 型ヒントを使用
+【入力ファイル形式】date, product_name, amount, quantity
+【出力】集計テーブル（コンソール出力）＋ 棒グラフ（PNG保存）
+
+※コードにはコメントを日本語で付けてください</pre>
+    <div class="tip">💡 DeepSeekはコーディングが特に得意です。仕様を明確にすると一発で動くコードが出ます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🧮 数学・論理問題</div>
+    <pre>以下の数学の問題を、DeepSeek-R1の推論モードで解いてください。
+
+【問題】
+ある会社の従業員の平均年齢は35歳です。男性従業員の平均年齢は38歳、女性従業員の平均年齢は30歳です。男性と女性の人数比を求めてください。
+
+【要求】
+1. 解法の手順を1ステップずつ説明する
+2. 使用する数学的概念を明示する
+3. 途中式を省略しない
+4. 最終回答を□で囲む
+5. 別の解法がある場合はそちらも提示する</pre>
+    <div class="tip">💡 R1モードを使うと、思考過程が段階的に表示されて理解しやすくなります</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📝 文章作成</div>
+    <pre>以下の条件でプレスリリースを作成してください。
+
+【会社名】テクノフューチャー株式会社
+【発表内容】AIを活用した在庫管理システム「SmartStock」の正式リリース
+【ターゲット読者】製造業・小売業の経営者、IT担当者
+【含める情報】
+- 製品の概要と3つの主要機能
+- 導入メリット（在庫コスト30%削減の実績）
+- ベータテスト企業3社の声（架空でOK）
+- 価格体系（月額5万円〜）
+- 問い合わせ先
+【トーン】信頼感のあるビジネス文書
+【文字数】800〜1000字</pre>
+    <div class="tip">💡 構成要素を明確に指示することで、修正回数を最小限に抑えられます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📊 データ分析</div>
+    <pre>以下のJSONデータを分析して、インサイトを抽出してください。
+
+【データ内容】ECサイトの過去12ヶ月の売上データ
+【分析してほしい項目】
+1. 月別売上トレンドと成長率
+2. カテゴリ別の売上構成比
+3. 曜日別・時間帯別の購買パターン
+4. 客単価の推移と変動要因の仮説
+5. 来月の売上予測（根拠となるロジックも記載）
+
+【出力形式】
+- 各項目を見出し付きで構造化
+- 数値は表形式で整理
+- 経営層向けのサマリー（200字以内）を冒頭に配置
+
+（ここにJSONデータを貼り付け）</pre>
+    <div class="tip">💡 分析観点を明示すると、的確なインサイトが得られます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🌐 翻訳</div>
+    <pre>以下の日本語の技術文書を英語に翻訳してください。
+
+【翻訳ルール】
+1. 技術用語は業界標準の英語表現を使用
+2. 原文のニュアンスを保ちつつ、英語として自然な表現にする
+3. 固有名詞（製品名・会社名）はそのまま残す
+4. 訳注が必要な箇所は [Note: ...] で補足する
+5. 日本独自の概念（例：「稟議」）は英語で説明を添える
+
+【出力形式】
+- 原文と訳文を段落ごとに対訳形式で表示
+- 翻訳の難所やポイントを最後にまとめる
+
+【原文】
+（ここに日本語テキストを貼り付け）</pre>
+    <div class="tip">💡 中国語↔日本語の翻訳は特に精度が高く、中国ビジネス関連の翻訳に強みがあります</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📄 技術文書作成</div>
+    <pre>以下のAPI仕様に基づいて、開発者向けのAPIドキュメントを作成してください。
+
+【API概要】ユーザー認証API（REST）
+【エンドポイント】
+- POST /api/v1/auth/login
+- POST /api/v1/auth/register
+- POST /api/v1/auth/refresh
+- DELETE /api/v1/auth/logout
+
+【ドキュメントに含める内容】
+1. 各エンドポイントの説明
+2. リクエストパラメータ（型・必須/任意・説明）
+3. レスポンス例（成功時・エラー時）
+4. 認証フロー図（テキストベース）
+5. エラーコード一覧
+6. レート制限の説明
+7. curlでのリクエスト例
+
+【フォーマット】Markdown形式</pre>
+    <div class="tip">💡 DeepSeekは技術文書の構造化が得意です。仕様を渡すだけで整った文書が生成されます</div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch5 ========== -->
+<section id="ch5">
+  <div class="section-header"><span class="num">05</span>無料で使い倒すテクニック</div>
+
+  <ol class="numbered-list">
+    <li><strong>無料枠を最大限に活用する</strong><br>deepseek.comのWebチャットは登録だけで無料利用可能です。1日あたりの利用制限は他のサービスと比べて緩めに設定されています。日常的な質問や文章作成であれば、無料枠だけで十分対応できます。メッセージ制限に近づいたら、重要度の低いタスクは翌日に回しましょう。</li>
+    <li><strong>Ollamaでローカル実行する</strong><br>Ollamaをインストールすれば、DeepSeekのモデルを自分のPCで無制限に実行できます。<code>ollama run deepseek-r1</code> コマンド一発で起動でき、利用制限もAPI料金もかかりません。GPUメモリ8GB以上のPCがあれば、軽量版モデルが快適に動作します。プライバシーも完全に確保されます。</li>
+    <li><strong>R1モードを意識的に使い分ける</strong><br>通常の質問にはV3.2（汎用モード）、数学・論理・複雑なコーディングにはR1（推論モード）を使い分けましょう。R1モードは思考過程が表示される分、回答に時間がかかりますが、正確性が大幅に向上します。deepseek.comでは「Deep Think」ボタンでR1モードに切り替えられます。</li>
+    <li><strong>APIのコストを最適化する</strong><br>DeepSeekのAPIはOpenAI互換のため、既存のOpenAI用コードのベースURLを変更するだけで切り替えできます。大量のバッチ処理では、キャッシュヒット（同一プレフィックスの再利用）で更に割引が適用されます。開発環境でのテストには最適な選択肢です。</li>
+    <li><strong>プロンプトを英語で書く</strong><br>DeepSeekは英語と中国語のデータで主に学習されています。日本語で質問するよりも、英語でプロンプトを書いた方が精度が高くなることがあります。特に技術的な質問やコーディングのタスクでは、英語プロンプトを試してみましょう。出力だけ日本語で指定することも可能です。</li>
+    <li><strong>LM Studioで複数モデルを比較する</strong><br>LM StudioというGUIアプリを使えば、DeepSeekを含む複数のオープンソースモデルをダウンロードして比較テストできます。用途に最適なモデルサイズや種類を見極めるのに便利です。すべてローカルで動作するため、完全無料で使えます。</li>
+  </ol>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch6 ========== -->
+<section id="ch6">
+  <div class="section-header"><span class="num">06</span>他ツールとの比較</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>評価項目</th><th>ChatGPT</th><th>Claude</th><th class="highlight-col">DeepSeek</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>📝 文章作成</td><td>◎</td><td>◎</td><td class="highlight-col">○</td></tr>
+      <tr><td>💻 コーディング</td><td>◎</td><td>◎</td><td class="highlight-col">◎</td></tr>
+      <tr><td>🧠 推論・数学</td><td>◎</td><td>○</td><td class="highlight-col">◎（R1）</td></tr>
+      <tr><td>🌐 Web検索</td><td>◎</td><td>○</td><td class="highlight-col">○</td></tr>
+      <tr><td>🇯🇵 日本語品質</td><td>○</td><td>◎</td><td class="highlight-col">△</td></tr>
+      <tr><td>💰 コスト（API）</td><td>△</td><td>△</td><td class="highlight-col">◎</td></tr>
+      <tr><td>💰 無料プランの充実度</td><td>◎</td><td>○</td><td class="highlight-col">◎</td></tr>
+      <tr><td>🔓 オープンソース</td><td>×</td><td>×</td><td class="highlight-col">◎</td></tr>
+      <tr><td>🏠 ローカル実行</td><td>×</td><td>×</td><td class="highlight-col">◎</td></tr>
+      <tr><td>🔒 データプライバシー</td><td>○</td><td>◎</td><td class="highlight-col">△ ※注意</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-card mt-md">
+    <div class="card-header">🎯 DeepSeekが最適なシーン</div>
+    <div class="card-body">
+      <ul>
+        <li><strong>API利用のコストを抑えたい</strong>：競合モデルの約1/10の料金で同等クラスの性能を発揮</li>
+        <li><strong>ローカル環境でAIを動かしたい</strong>：オープンソースのため、自社サーバーやPCで完全にプライベートに運用可能</li>
+        <li><strong>数学・論理・コーディングの難題を解きたい</strong>：R1モデルのChain-of-Thought推論が強力</li>
+        <li><strong>中国市場や中国語圏とのビジネス</strong>：中国語の処理能力はトップクラス</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch7 ========== -->
+<section id="ch7">
+  <div class="section-header"><span class="num">07</span>注意点とリスク管理</div>
+
+  <div class="warning-box">
+    <strong>中国企業であることに伴うリスク（最重要）</strong><br>
+    DeepSeekは中国企業が開発・運営するサービスです。deepseek.comのWebチャットやAPIを利用する場合、入力したデータは中国国内のサーバーを経由する可能性があります。中国には「国家情報法（2017年施行）」があり、中国企業は政府の情報機関から要求があった場合にデータを提供する義務を負っています。また、「データセキュリティ法」「個人情報保護法」により、中国国内で収集されたデータの取り扱いには中国の法律が適用されます。<br><br>
+    <strong>具体的なリスク：</strong>
+    <ul style="margin-top:8px; margin-bottom:0;">
+      <li>入力データが中国政府機関に開示される可能性がある</li>
+      <li>企業の機密情報・個人情報を入力すると、意図しないデータ流出のリスクがある</li>
+      <li>利用規約やプライバシーポリシーが中国法に準拠しており、日本の法律で保護されない場合がある</li>
+      <li>地政学的リスクにより、サービスが突然利用停止になる可能性がある</li>
+    </ul>
+    <br>
+    <strong>推奨される対策：</strong> 機密性の高い情報を扱う場合は、ローカル実行（Ollama等）を利用してデータを外部に送信しないか、ChatGPTやClaudeなど米国企業のサービスを利用することを強くお勧めします。ビジネスでの利用時は、社内のセキュリティポリシーとの適合性を必ず事前に確認してください。
+  </div>
+
+  <div class="warning-box">
+    <strong>日本語品質の限界</strong><br>
+    DeepSeekは英語と中国語を主な学習データとして構築されています。日本語の出力品質は改善が続いていますが、ChatGPTやClaudeと比較すると、敬語の使い分け・ニュアンス表現・ビジネス文書の自然さにおいてまだ差があります。日本語での文章作成がメインの業務では、他のモデルとの併用を推奨します。重要な文書は必ず人間がチェックしてください。
+  </div>
+
+  <div class="warning-box">
+    <strong>モデル更新の不確実性</strong><br>
+    DeepSeekは急成長中のスタートアップですが、米国の輸出規制や国際情勢の変化により、高性能GPUの調達が制限される可能性があります。今後のモデルアップデートの頻度や品質向上のペースが、OpenAIやAnthropicと同等に維持されるかは不透明です。長期的なプロジェクトでDeepSeekに依存する場合は、代替手段を常に確保しておきましょう。
+  </div>
+
+  <div class="warning-box">
+    <strong>商用利用時のライセンス確認</strong><br>
+    DeepSeekのモデルはオープンソースですが、ライセンス条件は各モデル・バージョンごとに異なります。商用利用を検討する場合は、最新のライセンス条項（Model License Agreement）を必ず確認してください。特に、モデルの出力を商品として販売する場合や、大規模なサービスに組み込む場合は、利用条件に注意が必要です。
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<div class="cta-box">
+  <span class="cta-label">🎓 無料セミナーのご案内</span>
+  <h3>「生成AI時代のキャリア設計論」</h3>
+  <p>DeepSeekを仕事にどう活かす？ AIと共存するキャリア戦略を90分で学べる無料セミナー開催中。</p>
+  <a href="https://ai-reboot.io/seminars/ai-career-anxiety" class="cta-url">🔗 無料セミナーに申し込む</a>
+</div>
+
+<!-- ========== Copyright ========== -->
+<div class="copyright">
+  © 2026 AI Reboot Academy | セミナー登録者限定非売品<br>
+  ※2026年3月時点の情報です。最新の料金・機能は公式サイトでご確認ください。
+</div>
+
+</body>
+</html>

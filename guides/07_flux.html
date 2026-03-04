@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLUX.2 完全攻略本 | AI Reboot Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>:root { --tool-color: #FF6B35; }</style>
+</head>
+<body>
+
+<!-- ========== 表紙 ========== -->
+<div class="cover">
+  <div class="cover-series">— 完 全 攻 略 本 —</div>
+  <div class="cover-icon">FX</div>
+  <h1>FLUX.2</h1>
+  <p class="cover-subtitle">画像生成（オープンソース・フォトリアル）</p>
+  <p class="cover-catch">🔥 オープンソースが生む、フォトリアルの新基準</p>
+  <span class="cover-badge">🎁 AI Reboot Academy 限定プレゼント</span>
+  <span class="cover-footer">2026年3月版 | AI Reboot Academy</span>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== 目次 ========== -->
+<div class="toc">
+  <h2>📖 目次</h2>
+  <ol>
+    <li><a href="#ch1">FLUX.2とは？ — 基本情報・モデル一覧</a></li>
+    <li><a href="#ch2">料金・コスト完全比較</a></li>
+    <li><a href="#ch3">5つの主要機能を使いこなす</a></li>
+    <li><a href="#ch4">用途別プロンプトテンプレート集</a></li>
+    <li><a href="#ch5">画質を最大化する7つのテクニック</a></li>
+    <li><a href="#ch6">他ツールとの比較</a></li>
+    <li><a href="#ch7">注意点とリスク管理</a></li>
+  </ol>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch1 ========== -->
+<section id="ch1">
+  <div class="section-header"><span class="num">01</span>FLUX.2とは？ — 基本情報・モデル一覧</div>
+
+  <p>FLUX.2は、Stable Diffusionの元開発者たちが設立したBlack Forest Labsが開発するオープンソースの画像生成モデルです。フォトリアルな画像品質、正確なテキスト描画能力、そしてオープンソースで自由にカスタマイズできる柔軟性を兼ね備え、技術者やコスト重視のクリエイターから高い支持を集めています。</p>
+
+  <div class="sub-header">🧩 モデルラインナップ（2026年3月時点）</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>モデル名</th><th>特徴</th><th>利用形態</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>FLUX.2 [pro]</strong></td><td>最高品質の商用モデル。API経由で利用</td><td>API / 従量課金</td></tr>
+      <tr><td><strong>FLUX.2 [dev]</strong></td><td>オープンソース公開。開発者・研究者向け</td><td>オープンソース / 非商用</td></tr>
+      <tr><td><strong>FLUX.2 [schnell]</strong></td><td>超高速生成。Apache 2.0ライセンスで無料</td><td>無料 / 商用利用可</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-header">💡 FLUX.2で何ができる？（3行まとめ）</div>
+  <ul>
+    <li>📷 <strong>フォトリアル画像生成が最強クラス</strong>：実写と見分けがつかないレベルのリアリスティックな画像を生成できます</li>
+    <li>🖥️ <strong>オープンソースでローカル実行可能</strong>：自分のGPUで完全にプライベートな環境で画像生成ができます</li>
+    <li>✍️ <strong>テキスト描画精度が高い</strong>：画像内の文字・ロゴ・看板などを正確に描画する能力に優れています</li>
+  </ul>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch2 ========== -->
+<section id="ch2">
+  <div class="section-header"><span class="num">02</span>料金・コスト完全比較</div>
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-header">🆓 FLUX.2 [schnell]</div>
+      <div class="card-body">
+        <div class="card-price">$0 <span class="text-small text-muted">/ 無料</span></div>
+        <ul>
+          <li>Apache 2.0ライセンスで完全無料</li>
+          <li>ローカルGPUで実行可能</li>
+          <li>商用利用OK</li>
+          <li>1〜4ステップの超高速生成</li>
+          <li>品質はdevより若干劣る</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">🔬 FLUX.2 [dev]</div>
+      <div class="card-body">
+        <div class="card-price">$0 <span class="text-small text-muted">/ 非商用無料</span></div>
+        <ul>
+          <li>オープンウェイトで公開</li>
+          <li>ローカルGPUで実行可能</li>
+          <li>非商用ライセンス（研究・個人利用）</li>
+          <li>LoRA・ControlNet対応</li>
+          <li>proに近い品質を実現</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">⭐ FLUX.2 [pro] <span class="card-recommended">最高品質</span></div>
+      <div class="card-body">
+        <div class="card-price">API従量課金 <span class="text-small text-muted">（約$0.05/枚〜）</span></div>
+        <ul>
+          <li>最高品質のフォトリアル画像</li>
+          <li>BFL API / Replicate / fal.ai経由</li>
+          <li>商用利用OK</li>
+          <li>最新機能をいち早く利用可能</li>
+          <li>SLA付きの安定したサービス</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-header">☁️ ホスティングプラットフォーム</div>
+      <div class="card-body">
+        <div class="card-price">従量課金 <span class="text-small text-muted">（プラットフォームにより異なる）</span></div>
+        <ul>
+          <li>Replicate：約$0.003〜/枚（schnell）</li>
+          <li>fal.ai：約$0.025〜/枚（dev）</li>
+          <li>ComfyUI（ローカル）：電気代のみ</li>
+          <li>GPU不要でクラウド実行可能</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-header">💰 1枚あたりのコスト比較</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>実行方法</th><th>1枚あたりのコスト</th><th>備考</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>ローカル（schnell）</strong></td><td>約1〜2円（電気代）</td><td>GPU必要（VRAM 12GB以上推奨）</td></tr>
+      <tr><td><strong>ローカル（dev）</strong></td><td>約2〜5円（電気代）</td><td>GPU必要（VRAM 16GB以上推奨）</td></tr>
+      <tr><td><strong>Replicate（schnell）</strong></td><td>約0.5円</td><td>API従量課金</td></tr>
+      <tr><td><strong>BFL API（pro）</strong></td><td>約7〜8円</td><td>最高品質</td></tr>
+      <tr><td><strong>参考：Midjourney</strong></td><td>約14円（月額÷生成枚数）</td><td>月額$10〜プラン</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    コストを最小限に抑えたい方は <strong>ローカル環境 + schnellモデル</strong> の組み合わせが最適です。GPU初期投資は必要ですが、月に数百枚以上生成する場合はすぐに元が取れます。クラウドAPIを使う場合でもMidjourneyの半額以下で運用できます。
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch3 ========== -->
+<section id="ch3">
+  <div class="section-header"><span class="num">03</span>5つの主要機能を使いこなす</div>
+
+  <div class="sub-header">📷 フォトリアル画像生成</div>
+  <p>FLUX.2最大の強みは、実写と見分けがつかないレベルのフォトリアリスティックな画像を生成する能力です。人物の肌質感、照明の自然さ、被写界深度の表現など、写真としてのクオリティが非常に高く、ストックフォトの代替としても十分に活用できます。</p>
+
+  <div class="sub-header">✍️ テキスト描画（文字入り画像）</div>
+  <p>画像内にテキストを正確に描画する能力は、FLUX.2が他のモデルを大きくリードしている分野です。看板、ポスター、商品ラベル、SNSバナーなど、文字を含む画像を高い精度で生成できます。英語だけでなく、日本語テキストの描画にも対応しています。</p>
+
+  <div class="sub-header">🔧 LoRA・ControlNet対応</div>
+  <p>FLUX.2はLoRA（Low-Rank Adaptation）による追加学習に対応しており、特定のスタイルや被写体を学習させることができます。また、ControlNetを使ったポーズ指定・エッジ検出・深度マップによる構図制御も可能で、商用ワークフローに組み込みやすい柔軟性を持っています。</p>
+
+  <div class="sub-header">🖥️ ComfyUI統合</div>
+  <p>FLUX.2はノードベースのUI「ComfyUI」とシームレスに統合されています。ComfyUIを使えば、画像生成のワークフローを視覚的に構築でき、バッチ処理・自動化・カスタムパイプラインの構築が容易です。プログラミング不要でプロレベルのワークフローを実現できます。</p>
+
+  <div class="sub-header">⚡ 高速生成（schnellモデル）</div>
+  <p>FLUX.2 [schnell]（ドイツ語で「速い」の意味）は、わずか1〜4ステップで画像を生成する超高速モデルです。プロトタイピングやアイデア出しに最適で、リアルタイムに近い速度で画像を確認しながら作業を進められます。Apache 2.0ライセンスで商用利用も無料です。</p>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch4 ========== -->
+<section id="ch4">
+  <div class="section-header"><span class="num">04</span>用途別プロンプトテンプレート集</div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">📷 フォトリアル人物写真</div>
+    <pre>A professional portrait photograph of a Japanese woman in her 30s,
+wearing a navy blazer over a white blouse, natural soft lighting,
+shallow depth of field, shot on Canon EOS R5 with 85mm f/1.4 lens,
+neutral background with subtle bokeh, confident expression,
+editorial style photography, 8K resolution, hyperrealistic</pre>
+    <div class="tip">💡 カメラ機材名（Canon EOS R5等）とレンズの焦点距離を入れると、よりリアルな描写になります。「shot on〜」構文が効果的です</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🛍️ 商品撮影風画像</div>
+    <pre>Product photography of a minimalist ceramic coffee mug, matte white
+finish, placed on a light oak wooden table, soft directional window
+light from the left, subtle shadow, clean white background,
+professional studio lighting setup, commercial product shot,
+high-end e-commerce style, 4K, sharp focus on product</pre>
+    <div class="tip">💡 照明の方向（from the left等）と素材の質感（matte, glossy等）を明記すると、商品写真としてのクオリティが格段に向上します</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🎨 テキスト入りSNSバナー</div>
+    <pre>A modern social media banner design with bold text "SUMMER SALE 2026"
+in the center, vibrant gradient background from coral orange to
+golden yellow, geometric abstract shapes, clean sans-serif typography,
+minimalist layout, Instagram post format 1080x1080,
+professional graphic design quality</pre>
+    <div class="tip">💡 FLUX.2はテキスト描画が得意です。テキスト内容はダブルクォーテーションで囲み、フォントスタイル（sans-serif等）も指定しましょう</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🏔️ 風景写真</div>
+    <pre>Breathtaking landscape photograph of Mount Fuji at golden hour,
+cherry blossom trees in the foreground, reflection on a still lake,
+warm orange and pink sky gradient, professional nature photography,
+shot on Nikon Z9 with 24-70mm f/2.8 lens, polarizing filter effect,
+vivid colors, National Geographic quality, 8K ultra high resolution</pre>
+    <div class="tip">💡 時間帯（golden hour, blue hour等）とフィルター効果（polarizing filter等）の指定で、風景写真の雰囲気を細かくコントロールできます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">🍣 フード写真</div>
+    <pre>Overhead flat lay food photography of a Japanese kaiseki course,
+beautifully plated sashimi on a black ceramic dish, garnished with
+shiso leaves and edible flowers, warm ambient restaurant lighting,
+shallow depth of field, shot on Sony A7IV with 50mm macro lens,
+Michelin star restaurant presentation, food magazine editorial style</pre>
+    <div class="tip">💡 撮影アングル（overhead, 45-degree, eye-level等）と盛り付けスタイルを具体的に指定すると、プロのフードフォトグラファーに近い構図が得られます</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">👗 ファッション写真</div>
+    <pre>High fashion editorial photograph of a model wearing an oversized
+beige trench coat and white sneakers, walking on a rain-soaked
+Tokyo street at dusk, cinematic lighting with neon reflections,
+shot on Hasselblad X2D with 90mm lens, Vogue Japan editorial style,
+moody color grading, film grain texture, full body shot</pre>
+    <div class="tip">💡 ファッション誌名（Vogue, ELLE等）をスタイル参照に使い、カラーグレーディングの雰囲気も指定すると、エディトリアル感のある仕上がりになります</div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch5 ========== -->
+<section id="ch5">
+  <div class="section-header"><span class="num">05</span>画質を最大化する7つのテクニック</div>
+
+  <ol class="numbered-list">
+    <li><strong>ローカル実行環境をComfyUIで構築する</strong><br>ComfyUIはFLUX.2のローカル実行に最適なインターフェースです。Python環境とCUDA対応のGPUがあれば、ComfyUI Managerからワンクリックでモデルをダウンロード・設定できます。ノードベースのワークフローで再現性の高い画像生成パイプラインを構築しましょう。</li>
+    <li><strong>schnellで高速プロトタイプ → proで仕上げ</strong><br>アイデアの方向性を固める段階ではschnellモデルで素早く何枚も試し、構図やプロンプトが固まったらproモデルで最終出力するのが効率的です。schnellは1〜4ステップで生成できるため、プロンプトの試行錯誤が圧倒的に速くなります。</li>
+    <li><strong>LoRAを活用してスタイルを固定する</strong><br>CivitaiやHugging Faceで公開されているFLUX用LoRAを活用すれば、特定のスタイル（アニメ調、フィルム風、特定ブランドのトーン等）を安定して再現できます。自社ブランドのビジュアルスタイルをLoRAとして学習させることも可能です。</li>
+    <li><strong>ネガティブプロンプトで品質を底上げする</strong><br>生成したくない要素を明示的に指定することで、画質が大幅に向上します。「blurry, low quality, distorted, deformed hands, extra fingers, watermark, text artifacts」などの定型句をネガティブプロンプトに設定しておきましょう。</li>
+    <li><strong>GPU要件を理解して最適化する</strong><br>FLUX.2 devはVRAM 16GB以上、schnellはVRAM 12GB以上を推奨します。VRAM不足の場合は、FP8量子化やモデルオフロード機能を使って必要メモリを削減できます。RTX 4070 Ti以上のGPUが快適な運用の目安です。</li>
+    <li><strong>解像度とアスペクト比を用途に合わせる</strong><br>FLUX.2はデフォルトで1024x1024の生成に最適化されていますが、SNS投稿（1080x1080）、ブログヘッダー（1920x1080）、ポスター（2:3）など、用途に合わせたアスペクト比を指定しましょう。Hires fixやアップスケーラーとの併用で4K以上の出力も可能です。</li>
+    <li><strong>シード値を固定して再現性を確保する</strong><br>気に入った画像が生成できたら、シード値を記録しておきましょう。同じシード・同じプロンプトであれば同一の画像を再現できます。プロンプトの微調整時にシードを固定することで、変更の効果を正確に比較できます。</li>
+  </ol>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch6 ========== -->
+<section id="ch6">
+  <div class="section-header"><span class="num">06</span>他ツールとの比較</div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr><th>評価項目</th><th class="highlight-col">FLUX.2</th><th>Midjourney</th><th>Stable Diffusion XL</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>📷 フォトリアル品質</td><td class="highlight-col">◎</td><td>◎</td><td>○</td></tr>
+      <tr><td>✍️ テキスト描画</td><td class="highlight-col">◎</td><td>○</td><td>△</td></tr>
+      <tr><td>🎨 アート・イラスト</td><td class="highlight-col">○</td><td>◎</td><td>○</td></tr>
+      <tr><td>💰 コスト（運用費）</td><td class="highlight-col">◎</td><td>△</td><td>◎</td></tr>
+      <tr><td>🔧 カスタマイズ性</td><td class="highlight-col">◎</td><td>△</td><td>◎</td></tr>
+      <tr><td>⚡ 生成速度</td><td class="highlight-col">◎</td><td>○</td><td>○</td></tr>
+      <tr><td>🖥️ ローカル実行</td><td class="highlight-col">◎</td><td>×</td><td>◎</td></tr>
+      <tr><td>📝 プロンプトの簡単さ</td><td class="highlight-col">○</td><td>◎</td><td>△</td></tr>
+      <tr><td>🔌 API・ワークフロー統合</td><td class="highlight-col">◎</td><td>○</td><td>◎</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-card mt-md">
+    <div class="card-header">🎯 FLUX.2が最適なシーン</div>
+    <div class="card-body">
+      <ul>
+        <li><strong>フォトリアルな画像を大量に生成したい</strong>：実写品質の画像を低コストで量産できる</li>
+        <li><strong>テキスト入りの画像を作りたい</strong>：看板・ポスター・バナーなど文字を含む画像生成に最適</li>
+        <li><strong>ローカル環境でプライバシーを守りたい</strong>：クラウドにデータを送らず自社GPU上で完結</li>
+        <li><strong>独自のワークフローに組み込みたい</strong>：ComfyUI・API連携で自動化パイプラインを構築可能</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ========== Ch7 ========== -->
+<section id="ch7">
+  <div class="section-header"><span class="num">07</span>注意点とリスク管理</div>
+
+  <div class="warning-box">
+    <strong>GPU要件（ローカル実行）</strong><br>
+    FLUX.2をローカルで実行するには、NVIDIA製のCUDA対応GPUが必要です。devモデルではVRAM 16GB以上（RTX 4070 Ti Super以上）、schnellモデルでもVRAM 12GB以上を推奨します。FP8量子化で必要メモリを削減できますが、品質がわずかに低下する場合があります。GPU未所有の場合は、Replicate等のクラウドAPIの利用を検討してください。
+  </div>
+
+  <div class="warning-box">
+    <strong>商用ライセンスの確認（dev vs pro）</strong><br>
+    FLUX.2 [dev]は非商用ライセンスで公開されており、商用利用には対応していません。商用プロジェクトで使用する場合は、FLUX.2 [pro]（API経由）またはFLUX.2 [schnell]（Apache 2.0ライセンス）を選択してください。LoRAやファインチューニングしたモデルにもベースモデルのライセンスが適用されるため、特に注意が必要です。
+  </div>
+
+  <div class="warning-box">
+    <strong>生成画像の倫理的使用</strong><br>
+    FLUX.2のフォトリアルな生成能力は、ディープフェイクや虚偽情報の作成に悪用されるリスクがあります。実在の人物に酷似した画像の生成、フェイクニュースへの利用、同意のない肖像の作成は絶対に避けてください。生成画像であることの明示や、適切なウォーターマークの付与を推奨します。
+  </div>
+
+  <div class="warning-box">
+    <strong>モデル更新の頻度と互換性</strong><br>
+    FLUX.2はオープンソースモデルであるため、アップデートや新バージョンの公開頻度が高いです。モデル更新時にLoRAやカスタムワークフローの互換性が失われる場合があります。本番環境では使用するモデルのバージョンを固定し、更新前に必ずテストを実施してください。ComfyUIのワークフローもバックアップを取る習慣をつけましょう。
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<div class="cta-box">
+  <span class="cta-label">🎓 無料セミナーのご案内</span>
+  <h3>「生成AI時代のキャリア設計論」</h3>
+  <p>FLUX.2を仕事にどう活かす？ AIと共存するキャリア戦略を90分で学べる無料セミナー開催中。</p>
+  <a href="https://ai-reboot.io/seminars/ai-career-anxiety" class="cta-url">🔗 無料セミナーに申し込む</a>
+</div>
+
+<!-- ========== Copyright ========== -->
+<div class="copyright">
+  © 2026 AI Reboot Academy | セミナー登録者限定非売品<br>
+  ※2026年3月時点の情報です。最新の料金・機能は公式サイトでご確認ください。
+</div>
+
+</body>
+</html>
