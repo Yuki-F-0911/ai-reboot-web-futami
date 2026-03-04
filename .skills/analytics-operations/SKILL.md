@@ -42,8 +42,11 @@ AIリブートアカデミーの継続改善に向けたアナリティクス運
 
 ## analytics-loopの流れ
 
-1. Claude: GA4 + Search Console データ取得・レポート作成（GAS UrlFetchApp経由）
-2. Codex: レポートレビュー・深掘り（7セクション構成）
+実行手順（GASコマンド・分析フレームワーク・レポートフォーマット）は `.claude/skills/analytics-loop/SKILL.md` を参照。
+
+全体ループ:
+1. Claude: analytics-loop スキルでデータ取得・レポート作成
+2. Codex: このスキル（analytics-operations）を参照しながらレポートレビュー
 3. Claude: Codex指摘を反映したレポート改善 + action-plan.md 作成
 4. Master: 即時タスクをエージェントに委任 + autorun スケジュール登録
 5. Master: AGENTS.md / memory.md 更新

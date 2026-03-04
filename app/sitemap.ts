@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { News } from "@/lib/microcms";
 import { getAllBlogArticles, getAllNewsArticles } from "@/lib/microcms-helper";
 import { glossaryTerms } from "@/data/glossary";
+import { getAllAiTopics } from "@/lib/ai-topics";
 import type { Dirent } from "node:fs";
 import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
@@ -193,5 +194,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...glossaryIndexPage, ...glossaryDetailPages, ...academyBlogPages, ...newsPages, ...blogPages];
+  const aiTopics = getAllAiTopics();
+  const aiTopicsIndexPage: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/ai-topics`, lastModified: now, changeFrequency: "weekly", priority: 0.75 },
+  ];
+  const aiTopicsDetailPages: MetadataRoute.Sitemap = aiTopics.map((article) => ({
+    url: `${baseUrl}/ai-topics/${article.id}`,
+    lastModified: new Date(article.updatedAt),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+  return [
+    ...staticPages,
+    ...aiTopicsIndexPage,
+    ...aiTopicsDetailPages,
+    ...glossaryIndexPage,
+    ...glossaryDetailPages,
+    ...academyBlogPages,
+    ...newsPages,
+    ...blogPages,
+  ];
 }
