@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import ClaudeCodeIntroPage from "@/components/academyLanding/blog/claude-code-intro/ClaudeCodeIntroPage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "Claude Codeとは？使い方・料金・始め方を完全解説【2026年版】 | AIリブート";
+const pageTitle = "Claude CodeとCursor/Copilotの違い【2026】| AIリブート";
 const pageDescription =
-  "Claude CodeはAnthropicが提供するCLI型AIコーディングアシスタントです。ファイル操作・コード生成・デバッグ・git操作まで自律実行できます。GitHub Copilot・Cursorとの違い、料金・セットアップから最初の5タスクと失敗しないポイントまでを解説。スターターキット配布中。";
+  "Claude CodeはなぜCursorやCopilotと違うのか？「補完」vs「自律実行」の違いを実例で解説。インストール・料金・最初のタスク設定・失敗しないポイントまでを2026年版でわかりやすく説明します。";
 const pageUrl = "https://ai-reboot.io/academy/blog/claude-code-intro";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-03-05T09:00:00+09:00";
-const modifiedTime = "2026-03-05T09:00:00+09:00";
+const modifiedTime = "2026-03-04";
 
 const faqItems = [
   {

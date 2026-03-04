@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import ChatgptFreeVsPaid2026Page from "@/components/academyLanding/blog/chatgpt-free-vs-paid-2026/ChatgptFreeVsPaid2026Page";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "ChatGPTに課金すべき？無料と有料（Plus/Pro）の違いを正直に解説【2026年版】 | AIリブート";
+const pageTitle = "ChatGPT無料 vs Plus/Proの違い｜損益分岐【2026】| AIリブート";
 const pageDescription =
-  "ChatGPTの無料版と有料版（Plus月額20ドル/Pro月額200ドル）の違いを2026年最新情報で正直に比較。「課金する価値があるか」を使い方別に判断できるよう整理しました。";
+  "ChatGPT無料版・Plus（月3,000円）・Pro（月20,000円）の機能差と損益分岐を正直比較。会社員・学生・フリーランス別に「課金する価値があるか」を2026年最新情報で判断できるよう整理。迷っている方の「結論」を先に伝えます。";
 const pageUrl = "https://ai-reboot.io/academy/blog/chatgpt-free-vs-paid-2026";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-24T12:00:00+09:00";
-const modifiedTime = "2026-02-24";
+const modifiedTime = "2026-03-04";
 
 const faqItems = [
   {

@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import ChatgptPlusHonestReviewPage from "@/components/academyLanding/blog/chatgpt-plus-honest-review-2026/ChatgptPlusHonestReviewPage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-// [SEO-CTR改善] title変更: 2026-03-16 JST (A-4b) 旧: 【2026年最新】ChatGPT Plus（月3,000円）は本当に価値ある？正直レビューと損益分岐点 | AIリブート
-const pageTitle = "ChatGPT Plus 課金すべき？月3,000円の損益分岐点・無料版との違い【2026年正直レビュー】| AIリブート";
+// [SEO-CTR改善] title/description変更: 2026-03-04 JST（S2）
+// 旧（2026-03-16 JST / A-4b）: ChatGPT Plus 課金すべき？月3,000円の損益分岐点・無料版との違い【2026年正直レビュー】| AIリブート
+const pageTitle = "ChatGPT Plus 3ヶ月レビュー｜価値と後悔【2026】| AIリブート";
 const pageDescription =
-  "ChatGPT Plusは月3,000円の価値がある？無料版との機能差（o3・画像生成・音声モード）、損益分岐点の計算方法、会社員・学生・フリーランス別の判断基準を正直に解説。課金前に必ず確認したい比較ガイドです。";
+  "ChatGPT Plusを3ヶ月実際に使って分かったこと。o3・画像生成・音声モードの使用感と「正直ここが不満」を包み隠さず公開。損益分岐点の計算と、課金すべき人・しなくていい人の判断基準を2026年最新版で解説。";
 const pageUrl = "https://ai-reboot.io/academy/blog/chatgpt-plus-honest-review-2026";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-23T10:00:00+09:00";
-const modifiedTime = "2026-02-23";
+const modifiedTime = "2026-03-04";
 
 const faqItems = [
   {
