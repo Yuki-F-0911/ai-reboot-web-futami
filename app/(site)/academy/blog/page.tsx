@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "gemini-vs-chatgpt-2026",
+    title: "Gemini 3.1 vs ChatGPT 2026｜どちらを選ぶべきか完全比較",
+    summary:
+      "Gemini 3.1 ProとChatGPT（GPT-5.2）を料金・性能・用途別に徹底比較。Google AI ProとChatGPT Plusどちらが得か、2026年3月最新情報で解説します。",
+    category: "AI活用術",
+    publishedAt: "2026-03-04T09:00:00+09:00",
+    tags: ["Gemini ChatGPT 比較", "Google AI Pro", "ChatGPT Plus 料金", "どちらがいい 2026"],
+  },
+  {
     slug: "ai-freelance-guide",
     title: "フリーランスがAIを使うと収入・時間はどう変わる？実践ガイド【2026年版】",
     summary:
