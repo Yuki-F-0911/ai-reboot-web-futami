@@ -161,31 +161,31 @@ const vibeCodingPoints = [
 const firstTasks = [
   {
     title: "1. Hello Worldファイルを作ってみる",
-    command: 'claude "hello worldを出力するPythonファイルを作って"',
+    command: 'npx @anthropic-ai/claude-code "hello worldを出力するPythonファイルを作って"',
     expected: "hello.py が生成され、python hello.py で「Hello World」が出力される",
     tip: "まず最小タスクで動作確認。Claude Codeがファイルを作成・内容を表示するまでの流れを体感する。",
   },
   {
     title: "2. 既存コードの構成を説明させる",
-    command: 'claude "このプロジェクトのディレクトリ構成を日本語で説明して"',
+    command: 'npx @anthropic-ai/claude-code "このプロジェクトのディレクトリ構成を日本語で説明して"',
     expected: "ファイルツリー解析→主要ファイルの役割・依存関係を箇条書きで説明",
     tip: "最初に構成理解タスクをこなすと、後続の実装指示の精度が上がる。",
   },
   {
     title: "3. バグのあるコードを修正させる",
-    command: 'claude "src/utils.pyのlist_files関数がTypeErrorを出します。修正してください"',
+    command: 'npx @anthropic-ai/claude-code "src/utils.pyのlist_files関数がTypeErrorを出します。修正してください"',
     expected: "エラー原因の特定→修正→テスト実行のサイクルが自動で回る",
     tip: "「エラーメッセージ」と「発生ファイル名」を指示に含めると修正精度が上がる。",
   },
   {
     title: "4. テストファイルを自動生成させる",
-    command: 'claude "src/utils.pyの全関数に対してpytestのテストを書いて"',
+    command: 'npx @anthropic-ai/claude-code "src/utils.pyの全関数に対してpytestのテストを書いて"',
     expected: "tests/test_utils.py が生成され、pytest実行で全テストがパスする",
     tip: "既存コードへのテスト後付けに特に効果的。手書きの工数を大幅に削減できる。",
   },
   {
     title: "5. コミットメッセージを作成してコミットさせる",
-    command: 'claude "今回の変更内容を確認してConventional Commitsスタイルでgit commitして"',
+    command: 'npx @anthropic-ai/claude-code "今回の変更内容を確認してConventional Commitsスタイルでgit commitして"',
     expected: "git diff解析→コミットメッセージ提案→確認後にコミット実行",
     tip: "コミット前に差分確認の習慣と組み合わせると、意図しない変更の混入を防げる。",
   },
@@ -198,9 +198,9 @@ const costTips = [
     code: "# ブラウザでAnthropicダッシュボードを開く\nhttps://console.anthropic.com/settings/limits",
   },
   {
-    title: "--print フラグで非対話モードにしてトークンを節約する",
-    body: "スクリプトから呼び出すときや単純な質問には --print フラグを使うと、対話の往復を省略して軽量に実行できます。不要な確認ステップが減り、トークン消費が抑えられます。",
-    code: '# 非対話モードで実行（スクリプト・CI向け）\nclaude --print "README.mdの概要セクションを1段落で要約して"',
+    title: "--max-tokens で出力トークン数を制限する",
+    body: "npx @anthropic-ai/claude-code --max-tokens 1000 のように出力トークン上限を指定すると、長文生成タスクで意図しないコスト超過を防止できます。要約・説明など出力が短くて済むタスクには積極的に設定しましょう。",
+    code: '# 出力トークン上限を1000に制限して実行\nnpx @anthropic-ai/claude-code --max-tokens 1000 "README.mdの概要セクションを1段落で要約して"',
   },
   {
     title: "プロジェクト別にAPIキーを分離して用途ごとにコストを可視化する",
@@ -258,7 +258,7 @@ export default function ClaudeCodeBeginnersGuidePage({ faqItems }: ClaudeCodeBeg
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
             Claude Code入門｜インストール・基本コマンド・Vibe Coding活用まで【2026年版】
           </h1>
-          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年2月21日</p>
+          <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年3月4日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
             Claude CodeはAnthropicが提供するCLIベースのAIコーディングエージェントです。「〇〇機能を追加して」という自然言語の指示だけで、ファイル操作・テスト実行・コミットまで一連の作業を自律的に実行します。
           </p>
