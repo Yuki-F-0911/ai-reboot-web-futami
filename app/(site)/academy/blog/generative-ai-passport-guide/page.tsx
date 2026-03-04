@@ -8,7 +8,7 @@ const pageDescription =
 const pageUrl = "https://ai-reboot.io/academy/blog/generative-ai-passport-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-19T09:00:00+09:00";
-const modifiedTime = "2026-03-28T09:00:00+09:00";
+const modifiedTime = "2026-03-04T09:00:00+09:00";
 
 const faqItems = [
   {

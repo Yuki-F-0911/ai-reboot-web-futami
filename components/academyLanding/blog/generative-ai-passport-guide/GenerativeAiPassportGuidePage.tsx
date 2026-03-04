@@ -55,7 +55,7 @@ const examOverviewRows = [
   },
   {
     axis: "合格率",
-    value: "[要確認: 70〜80%台]（回次で変動）",
+    value: "約78〜82%（回次により変動）",
     note: "公表値は毎回変わるため、申込前に必ず確認",
   },
   {
@@ -278,7 +278,7 @@ export default function GenerativeAiPassportGuidePage({ faqItems }: GenerativeAi
             </Link>
             を押さえたうえで、資格学習に入ると理解が速くなります。
           </p>
-          <p className="mt-4 text-xs leading-6 text-gray-500">※2026年2月時点の情報。最新はJDLA公式サイトを確認</p>
+          <p className="mt-4 text-xs leading-6 text-gray-500">※2026年2月時点の情報。最新はGUGA公式サイト（生成AI活用普及協会）を確認</p>
         </motion.section>
 
         <motion.section
@@ -449,7 +449,7 @@ export default function GenerativeAiPassportGuidePage({ faqItems }: GenerativeAi
             <li className="pl-1 marker:text-gray-500">著作権・ライセンスの論点を画像と文章で区別できていない</li>
             <li className="pl-1 marker:text-gray-500">プロンプト改善の設問で、制約条件を読み落としてしまう</li>
           </ul>
-          <p className="mt-5 text-xs leading-6 text-gray-500">※2026年2月時点の情報。最新はJDLA公式サイトを確認</p>
+          <p className="mt-5 text-xs leading-6 text-gray-500">※2026年2月時点の情報。最新はGUGA公式サイト（生成AI活用普及協会）を確認</p>
         </motion.section>
 
         <motion.section
@@ -726,10 +726,10 @@ export default function GenerativeAiPassportGuidePage({ faqItems }: GenerativeAi
           <h3 className="mt-8 text-lg font-semibold text-gray-900">履歴書・職務経歴書への書き方</h3>
           <div className="mt-4 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm leading-7 text-gray-700">
             <p className="font-semibold text-gray-900">【記載例】資格・免許欄</p>
-            <p className="mt-2">生成AIパスポート　合格（2026年◯月）/ 一般社団法人 生成AI活用普及協会（GUGA）</p>
+            <p className="mt-2">生成AIパスポート　合格（取得年月を記載）/ 一般社団法人 生成AI活用普及協会（GUGA）</p>
             <p className="mt-4 font-semibold text-gray-900">【記載例】自己PR・スキル欄（職務経歴書）</p>
             <p className="mt-2">
-              生成AIパスポート取得（2026年）。取得後は業務でのAI活用を推進し、週次レポート作成時間を約◯時間短縮。社内向けAI利用ガイドラインの草案作成にも携わり、情報漏えいリスクへの対応フロー整備に貢献しました。
+              生成AIパスポート取得（取得年月を記載）。取得後は業務でのAI活用を推進し、週次レポート作成など業務効率化に貢献。社内向けAI利用ガイドラインの草案作成にも携わり、情報漏えいリスクへの対応フロー整備に貢献しました。
             </p>
           </div>
           <p className="mt-4 text-sm leading-7 text-gray-700">
