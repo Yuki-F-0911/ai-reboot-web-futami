@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import ClaudeCodeBeginnersGuidePage from "@/components/academyLanding/blog/claude-code-beginners-guide/ClaudeCodeBeginnersGuidePage";
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from "@/components/seo/StructuredData";
 
-const pageTitle = "Claude Code入門｜インストール・基本コマンド・Vibe Coding活用まで【2026年版】 | AIリブート";
+const pageTitle = "Claude Code完全入門【2026年】インストールから最初のVibe Codingまで｜Cursor・Copilotとの違いも解説 | AIリブート";
 const pageDescription =
-  "AnthropicのCLIツール「Claude Code」の概要・インストール手順・基本コマンドとワークフロー・GitHub Copilot/Cursorとの比較・Vibe Codingとの親和性を2026年2月時点でわかりやすく解説します。";
+  "Claude CodeをインストールしてVibe Codingを始めるまでの全手順を解説。GitHub Copilot・Cursorとの「補完 vs 自律実行」の違い、CLAUDE.mdの設定、最初の5タスク、失敗しないためのコスト管理まで。2026年最新版の完全ガイドです。";
 const pageUrl = "https://ai-reboot.io/academy/blog/claude-code-beginners-guide";
 const pageOgImageUrl = "https://ai-reboot.io/images/ogp-default.webp";
 const publishedTime = "2026-02-21T09:00:00+09:00";
-const modifiedTime = "2026-02-21";
+const modifiedTime = "2026-03-04";
 
 const faqItems = [
   {

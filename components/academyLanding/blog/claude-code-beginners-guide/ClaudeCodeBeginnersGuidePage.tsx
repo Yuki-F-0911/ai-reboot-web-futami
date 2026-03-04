@@ -31,6 +31,9 @@ const tocItems = [
   { id: "commands", label: "基本コマンドとワークフロー" },
   { id: "comparison", label: "GitHub Copilot・Cursorとの比較" },
   { id: "vibe-coding", label: "Vibe Codingとの親和性" },
+  { id: "first-tasks", label: "最初にやること5選" },
+  { id: "cost-management", label: "APIコストを抑える3つの設定" },
+  { id: "claude-md", label: "CLAUDE.mdの基本テンプレート" },
   { id: "faq", label: "よくある質問（FAQ）" },
 ] as const;
 
@@ -152,6 +155,57 @@ const vibeCodingPoints = [
   {
     title: "MCPと組み合わせてコンテキストを拡張する",
     body: "Claude CodeはMCP（Model Context Protocol）に対応しており、NotionやGitHubなどの外部ツールをコンテキストとして組み込めます。設計書やissueを参照しながらの実装が可能になります。",
+  },
+] as const;
+
+const firstTasks = [
+  {
+    title: "1. Hello Worldファイルを作ってみる",
+    command: 'claude "hello worldを出力するPythonファイルを作って"',
+    expected: "hello.py が生成され、python hello.py で「Hello World」が出力される",
+    tip: "まず最小タスクで動作確認。Claude Codeがファイルを作成・内容を表示するまでの流れを体感する。",
+  },
+  {
+    title: "2. 既存コードの構成を説明させる",
+    command: 'claude "このプロジェクトのディレクトリ構成を日本語で説明して"',
+    expected: "ファイルツリー解析→主要ファイルの役割・依存関係を箇条書きで説明",
+    tip: "最初に構成理解タスクをこなすと、後続の実装指示の精度が上がる。",
+  },
+  {
+    title: "3. バグのあるコードを修正させる",
+    command: 'claude "src/utils.pyのlist_files関数がTypeErrorを出します。修正してください"',
+    expected: "エラー原因の特定→修正→テスト実行のサイクルが自動で回る",
+    tip: "「エラーメッセージ」と「発生ファイル名」を指示に含めると修正精度が上がる。",
+  },
+  {
+    title: "4. テストファイルを自動生成させる",
+    command: 'claude "src/utils.pyの全関数に対してpytestのテストを書いて"',
+    expected: "tests/test_utils.py が生成され、pytest実行で全テストがパスする",
+    tip: "既存コードへのテスト後付けに特に効果的。手書きの工数を大幅に削減できる。",
+  },
+  {
+    title: "5. コミットメッセージを作成してコミットさせる",
+    command: 'claude "今回の変更内容を確認してConventional Commitsスタイルでgit commitして"',
+    expected: "git diff解析→コミットメッセージ提案→確認後にコミット実行",
+    tip: "コミット前に差分確認の習慣と組み合わせると、意図しない変更の混入を防げる。",
+  },
+] as const;
+
+const costTips = [
+  {
+    title: "Usage Limitsで月次コスト上限を設定する",
+    body: "Anthropicのダッシュボード（console.anthropic.com）にログインし、「Settings → Usage Limits」からAPI利用上限を設定できます。学習フェーズでは月額上限を$10〜$20に設定しておくと、想定外の課金を防げます。",
+    code: "# ブラウザでAnthropicダッシュボードを開く\nhttps://console.anthropic.com/settings/limits",
+  },
+  {
+    title: "--print フラグで非対話モードにしてトークンを節約する",
+    body: "スクリプトから呼び出すときや単純な質問には --print フラグを使うと、対話の往復を省略して軽量に実行できます。不要な確認ステップが減り、トークン消費が抑えられます。",
+    code: '# 非対話モードで実行（スクリプト・CI向け）\nclaude --print "README.mdの概要セクションを1段落で要約して"',
+  },
+  {
+    title: "プロジェクト別にAPIキーを分離して用途ごとにコストを可視化する",
+    body: "個人学習・業務・副業など用途別に別のAnthropicアカウントまたはAPIキーを使い分けると、コストの可視性が上がります。direnvを使ってプロジェクトルートに .envrc を置く方法が管理しやすいです。",
+    code: "# .envrc（direnv を使う場合、プロジェクトルートに配置）\nexport ANTHROPIC_API_KEY=sk-ant-api-xxx-your-project-key\n\n# direnv が未導入の場合\n# brew install direnv\n# echo 'eval \"$(direnv hook zsh)\"' >> ~/.zshrc",
   },
 ] as const;
 
@@ -482,6 +536,159 @@ export default function ClaudeCodeBeginnersGuidePage({ faqItems }: ClaudeCodeBeg
             </Link>
             で詳しく解説しています。
           </p>
+        </motion.section>
+
+        <motion.section
+          id="first-tasks"
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            Claude Codeで最初にやること5選
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            インストール直後に戸惑わないよう、「これをやれば動きがわかる」5タスクを実践順に並べました。いずれも5〜10分で完結します。
+          </p>
+          <div className="mt-6 space-y-4">
+            {firstTasks.map((item) => (
+              <section key={item.title} className="rounded-lg border border-gray-200 p-5">
+                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                <pre className="mt-3 overflow-x-auto rounded bg-gray-900 p-4 text-xs leading-6 text-green-400">
+                  {item.command}
+                </pre>
+                <p className="mt-3 text-sm leading-7 text-gray-700">
+                  <span className="font-semibold text-gray-900">期待する出力:</span> {item.expected}
+                </p>
+                <p className="mt-2 rounded bg-amber-50 px-3 py-2 text-xs leading-6 text-amber-800">
+                  <span className="font-semibold">Tip:</span> {item.tip}
+                </p>
+              </section>
+            ))}
+          </div>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
+            5タスクを一通り試すと「指示の粒度・確認のタイミング・git管理の重要性」が体感できます。この感覚を掴んでから本格的なVibe Codingに移行するのがおすすめです。
+          </p>
+        </motion.section>
+
+        <motion.section
+          id="cost-management"
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            APIコストを抑える3つの設定
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            Claude Codeはトークン消費量が多いため、初期設定でコスト管理の仕組みを入れておくことが重要です。以下の3つを最初に設定しておくと、学習フェーズでの想定外請求を防げます。
+          </p>
+          <div className="mt-6 space-y-4">
+            {costTips.map((item) => (
+              <section key={item.title} className="rounded-lg border border-gray-200 p-5">
+                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-gray-700">{item.body}</p>
+                <pre className="mt-3 overflow-x-auto rounded bg-gray-900 p-4 text-xs leading-6 text-green-400">
+                  {item.code}
+                </pre>
+              </section>
+            ))}
+          </div>
+          <div className="mt-6 rounded-lg border border-blue-200 bg-blue-50 p-5">
+            <p className="text-sm font-semibold text-blue-900">コスト目安（2026年3月時点）</p>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-7 text-blue-800">
+              <li className="pl-1">Pro プラン（$20/月）: 月5時間程度の軽い利用なら収まる目安</li>
+              <li className="pl-1">Max 5x プラン（$100/月）: 週5日・1日2時間以上の業務利用向け</li>
+              <li className="pl-1">まず Pro で始めて、Usage Limits のアラートを見ながら判断するのが安全</li>
+            </ul>
+          </div>
+        </motion.section>
+
+        <motion.section
+          id="claude-md"
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            CLAUDE.mdを設定して品質を上げる
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            CLAUDE.mdはプロジェクトルートに置く設定ファイルで、Claude Codeがすべてのセッションで参照する「お約束」を記述します。これを設定するだけで、毎回の指示に含めていた制約を省略でき、出力品質が安定します。
+          </p>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            以下はWeb開発プロジェクト向けの基本テンプレートです。プロジェクトの技術スタックに合わせて書き換えて使ってください。
+          </p>
+          <pre className="mt-6 overflow-x-auto rounded bg-gray-900 p-5 text-xs leading-6 text-green-400">
+            {`# CLAUDE.md — プロジェクト共通設定
+
+## 技術スタック
+- フレームワーク: Next.js 15 (App Router)
+- スタイリング: Tailwind CSS v4
+- 言語: TypeScript（strict モード）
+- パッケージマネージャー: npm
+
+## 必須チェックコマンド
+- Lint: \`npm run lint\`
+- 型チェック: \`npx tsc --noEmit\`
+- ビルド確認: \`npm run build\`（ルート・config変更時は必須）
+
+## コーディング規約
+- コンポーネントは関数コンポーネントのみ（クラスコンポーネント禁止）
+- "use client" は必要最小限のファイルだけに付与する
+- any 型を使わない。不明な型は unknown + 型ガードで対処する
+- console.log をコミットしない
+
+## 変更スコープの制限
+- タスクに直接関係しないリファクタリングや型追加は行わない
+- ファイルを新規作成する前に既存ファイルへの追記で解決できないか検討する
+- シークレット・APIキーをコード内に直書きしない（.env を使う）
+
+## gitルール
+- コミット前に \`git diff\` で変更差分を確認すること
+- Conventional Commits 形式でコミットメッセージを書く
+  例: feat: ログインページにバリデーション追加`}
+          </pre>
+          <div className="mt-6 rounded-lg border border-gray-200 p-5">
+            <h3 className="text-base font-semibold text-gray-900">CLAUDE.mdの効果的な書き方のポイント</h3>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+              <li className="pl-1 marker:text-gray-500">
+                <span className="font-semibold">技術スタックを明示する:</span> バージョン・ツール名を具体的に書くことでモデルの判断ブレを防ぐ
+              </li>
+              <li className="pl-1 marker:text-gray-500">
+                <span className="font-semibold">必須コマンドを記載する:</span> Claude Codeが実装後に自動でlint・型チェックを走らせるようになる
+              </li>
+              <li className="pl-1 marker:text-gray-500">
+                <span className="font-semibold">禁止事項を明確にする:</span> 「〜しない」「〜は使わない」の制約を書くと出力品質が安定する
+              </li>
+              <li className="pl-1 marker:text-gray-500">
+                <span className="font-semibold">100行以内に収める:</span> 長すぎると重要な指示が薄まる。コアルールだけを簡潔に書く
+              </li>
+            </ul>
+          </div>
+          <p className="mt-5 text-sm leading-7 text-gray-700">
+            CLAUDE.mdはプロジェクトのGitリポジトリにコミットして管理するのがベストプラクティスです。チームで使う場合は、全員が同じ前提でClaude Codeを動かせるようになります。
+          </p>
+        </motion.section>
+
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <LineCtaBox />
         </motion.section>
 
         <motion.section
