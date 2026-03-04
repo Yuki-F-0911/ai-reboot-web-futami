@@ -203,9 +203,9 @@ const costTips = [
     code: '# 出力トークン上限を1000に制限して実行\nnpx @anthropic-ai/claude-code --max-tokens 1000 "README.mdの概要セクションを1段落で要約して"',
   },
   {
-    title: "プロジェクト別にAPIキーを分離して用途ごとにコストを可視化する",
-    body: "個人学習・業務・副業など用途別に別のAnthropicアカウントまたはAPIキーを使い分けると、コストの可視性が上がります。direnvを使ってプロジェクトルートに .envrc を置く方法が管理しやすいです。",
-    code: "# .envrc（direnv を使う場合、プロジェクトルートに配置）\nexport ANTHROPIC_API_KEY=sk-ant-api-xxx-your-project-key\n\n# direnv が未導入の場合\n# brew install direnv\n# echo 'eval \"$(direnv hook zsh)\"' >> ~/.zshrc",
+    title: "Anthropic ConsoleのUsage Limitsで用途ごとにコストを可視化する",
+    body: "個人学習・業務・副業など用途別に別のAnthropicアカウントを使い分けると、利用コストの可視性が上がります。各アカウントのConsole（console.anthropic.com）でUsage Limitsを設定し、用途ごとの上限を管理しましょう。",
+    code: "# Anthropic Consoleでアカウントごとの利用コストを確認\nhttps://console.anthropic.com/settings/limits\n\n# 用途別にアカウントを分けて管理する例\n# - 個人学習用: 月額上限 $10\n# - 業務用: 月額上限 $50",
   },
 ] as const;
 
@@ -263,7 +263,7 @@ export default function ClaudeCodeBeginnersGuidePage({ faqItems }: ClaudeCodeBeg
             Claude CodeはAnthropicが提供するCLIベースのAIコーディングエージェントです。「〇〇機能を追加して」という自然言語の指示だけで、ファイル操作・テスト実行・コミットまで一連の作業を自律的に実行します。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
-            本記事は2026年2月時点の情報をもとに、Claude Codeのインストール手順・基本コマンド・GitHub Copilot/Cursorとの比較・Vibe Codingとの活用フローを入門〜中級エンジニア向けに解説します。
+            本記事は2026年3月時点の情報をもとに、Claude Codeのインストール手順・基本コマンド・GitHub Copilot/Cursorとの比較・Vibe Codingとの活用フローを入門〜中級エンジニア向けに解説します。
           </p>
         </motion.header>
 
