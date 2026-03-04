@@ -1,12 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
 import MidArticleCtaBox from "@/components/blog/MidArticleCtaBox";
 import LineCtaBox from "@/components/blog/LineCtaBox";
+import { MotionHeader, MotionSection } from "./MotionReveal";
 
 type FAQItem = {
   question: string;
@@ -140,7 +138,7 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
           ]}
         />
 
-        <motion.header
+        <MotionHeader
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
@@ -173,7 +171,7 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
             2026年のAI選択は「GeminiかChatGPTか」という2択から、「用途別モデルルーティング」へと変わりつつあります。
             ただし、有料プランを1つだけ選ぶとしたら？本記事では料金・性能・用途の3軸で、2026年3月時点の最新情報を整理します。
           </p>
-        </motion.header>
+        </MotionHeader>
 
         <section className="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
           <h2 className="text-base font-bold text-gray-900">この記事でわかること</h2>
@@ -196,7 +194,7 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
 
         <ArticleTOC items={tocItems} />
 
-        <motion.section
+        <MotionSection
           id="summary"
           className="mt-14 rounded-lg border border-orange-200 bg-orange-50 p-6"
           initial="hidden"
@@ -212,9 +210,9 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
             <li className="pl-1 marker:text-gray-500">ChatGPT PlusはGPTsとDALL-Eのエコシステムが最大の強み。</li>
             <li className="pl-1 marker:text-gray-500">料金はほぼ同等（約¥3,000/月）。用途と既存ツール環境で選ぶのが正解。</li>
           </ul>
-        </motion.section>
+        </MotionSection>
 
-        <motion.section
+        <MotionSection
           className="mt-14 rounded-lg border border-green-200 bg-green-50 p-6"
           initial="hidden"
           whileInView="visible"
@@ -223,9 +221,9 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <LineCtaBox />
-        </motion.section>
+        </MotionSection>
 
-        <motion.section
+        <MotionSection
           id="price-comparison"
           className="mt-14"
           initial="hidden"
@@ -269,9 +267,9 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
           <p className="mt-3 text-xs leading-6 text-gray-500">
             出典: Google AI公式、OpenAI公式（確認日: 2026-03-04）。料金は変更される場合があります。
           </p>
-        </motion.section>
+        </MotionSection>
 
-        <motion.section
+        <MotionSection
           id="performance-2026"
           className="mt-14"
           initial="hidden"
@@ -307,9 +305,9 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
             ベンチマーク数値は、同じ数値でも評価方法・プロンプト設計・モデルバージョンによって変わります。
             参考指標として使いつつ、最終判断は実際の使用感で行ってください。
           </p>
-        </motion.section>
+        </MotionSection>
 
-        <motion.section
+        <MotionSection
           id="gemini-strengths"
           className="mt-14"
           initial="hidden"
@@ -330,9 +328,9 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
               </div>
             ))}
           </div>
-        </motion.section>
+        </MotionSection>
 
-        <motion.section
+        <MotionSection
           id="chatgpt-strengths"
           className="mt-14"
           initial="hidden"
@@ -353,9 +351,9 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
               </div>
             ))}
           </div>
-        </motion.section>
+        </MotionSection>
 
-        <motion.section
+        <MotionSection
           className="mt-14"
           initial="hidden"
           whileInView="visible"
@@ -364,9 +362,9 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <MidArticleCtaBox slug="gemini-vs-chatgpt-2026" />
-        </motion.section>
+        </MotionSection>
 
-        <motion.section
+        <MotionSection
           id="verdict"
           className="mt-14"
           initial="hidden"
@@ -407,9 +405,9 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
               <li className="pl-1">2週間使ってみて「より多く使った方」を有料化する</li>
             </ol>
           </div>
-        </motion.section>
+        </MotionSection>
 
-        <motion.section
+        <MotionSection
           id="faq"
           className="mt-14"
           initial="hidden"
@@ -427,9 +425,9 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
               </section>
             ))}
           </div>
-        </motion.section>
+        </MotionSection>
 
-        <motion.section
+        <MotionSection
           className="mt-14 rounded-lg border border-green-200 bg-green-50 p-6"
           initial="hidden"
           whileInView="visible"
@@ -438,9 +436,9 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <LineCtaBox />
-        </motion.section>
+        </MotionSection>
 
-        <motion.section
+        <MotionSection
           id="related"
           className="mt-14"
           initial="hidden"
@@ -476,9 +474,9 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
               </Link>
             </li>
           </ul>
-        </motion.section>
+        </MotionSection>
 
-        <motion.section
+        <MotionSection
           id="academy-cta"
           className="mt-14 rounded-xl border border-slate-200 bg-slate-50 p-7"
           initial="hidden"
@@ -501,7 +499,7 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
               AIリブートアカデミーの詳細を見る
             </Link>
           </div>
-        </motion.section>
+        </MotionSection>
       </article>
     </main>
   );
