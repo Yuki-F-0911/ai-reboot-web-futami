@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AcademyBreadcrumb from "@/components/academyLanding/common/AcademyBreadcrumb";
 import ArticleTOC from "@/components/academyLanding/common/ArticleTOC";
 import CopyAsMarkdownButton from "@/components/blog/CopyAsMarkdownButton";
+import LineCtaBox from "@/components/blog/LineCtaBox";
 
 type FAQItem = {
   question: string;
@@ -33,6 +34,10 @@ const tocItems = [
   { id: "materials-roadmap", label: "おすすめ教材と学習ロードマップ" },
   { id: "question-trends", label: "出題傾向と頻出テーマ" },
   { id: "career-application", label: "取得後の活かし方" },
+  { id: "pass-rate", label: "合格率は？（公式データ解説）" },
+  { id: "schedule-40h", label: "独学40時間スケジュール" },
+  { id: "trend-detail", label: "2026年 出題傾向と頻出テーマ（詳細）" },
+  { id: "after-pass", label: "合格後にやること・履歴書の書き方" },
   { id: "faq", label: "よくある質問（FAQ）" },
   { id: "related-links", label: "関連リンク" },
 ] as const;
@@ -496,6 +501,277 @@ export default function GenerativeAiPassportGuidePage({ faqItems }: GenerativeAi
             </ul>
           </div>
         </motion.section>
+
+        {/* セクション: 合格率データ */}
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.055 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="pass-rate" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            生成AIパスポートの合格率は？
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            GUGA（一般社団法人 生成AI活用普及協会）の公式発表や各メディアの取材報告によると、合格率はおおむね<strong>78〜82%</strong>の水準で推移しています。入門〜初中級レベルの試験として設計されており、対策ゼロでの受験でない限り、ほとんどの人が合格できる難易度です。
+          </p>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[600px] border-collapse text-left text-sm leading-7 text-gray-700">
+              <thead>
+                <tr className="border-b border-gray-300">
+                  <th className="py-3 pr-4 font-semibold text-gray-900">指標</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">目安値</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">補足</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-200 align-top">
+                  <th className="py-4 pr-4 font-semibold text-gray-900">合格率</th>
+                  <td className="py-4 px-4">約78〜82%（回次で変動）</td>
+                  <td className="py-4 pl-4">公式サイトで各回の合否結果を確認可能</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <th className="py-4 pr-4 font-semibold text-gray-900">合格点</th>
+                  <td className="py-4 px-4">正答率70%以上（目安）</td>
+                  <td className="py-4 pl-4">回次・難易度調整により変動する場合あり</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <th className="py-4 pr-4 font-semibold text-gray-900">不合格の主な原因</th>
+                  <td className="py-4 px-4">リスク管理・著作権・倫理系の用語不足</td>
+                  <td className="py-4 pl-4">判断問題で「正しい対応」を選べず失点するパターンが多い</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <th className="py-4 pr-4 font-semibold text-gray-900">リベンジ合格率</th>
+                  <td className="py-4 px-4">不明（公式非公開）</td>
+                  <td className="py-4 pl-4">弱点を分析して再受験すれば十分挽回できる水準</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-6 rounded-lg border border-yellow-200 bg-yellow-50 p-5">
+            <p className="text-sm font-semibold text-yellow-800">⚠️ 不合格になりやすいパターン</p>
+            <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+              <li>「プロンプトの意味は分かるが、情報漏えいリスクの文脈で問われると迷う」</li>
+              <li>「著作権は画像のことだと思い込み、文章・音楽への適用を見落とす」</li>
+              <li>「AI倫理・バイアスの用語は読んだが、ケース問題で正しい対応が選べない」</li>
+            </ul>
+            <p className="mt-3 text-sm leading-7 text-gray-700">
+              これらを防ぐには、用語を暗記するだけでなく「業務場面でどの判断が正しいか」をケース演習で練習することが重要です。
+            </p>
+          </div>
+          <p className="mt-4 text-xs leading-6 text-gray-500">※合格率は各回の公式発表値・メディア取材情報を参考にした目安です。最新値は公式サイトでご確認ください。</p>
+        </motion.section>
+
+        {/* セクション: 40時間スケジュール表 */}
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.055 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="schedule-40h" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            独学40時間スケジュール（週5時間×8週間）
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            これから本格的に学ぶ人・文系初学者向けの8週間プランです。週5時間（平日30分＋休日90分）を基準に設計しています。すでにAIを業務で使っている人は後半4週のみ実施することで20〜30時間プランに短縮できます。
+          </p>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[700px] border-collapse text-left text-sm leading-7 text-gray-700">
+              <thead>
+                <tr className="border-b border-gray-300 bg-gray-50">
+                  <th className="py-3 pr-4 font-semibold text-gray-900">週</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">学習テーマ</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">具体的な作業</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">目安時間</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">1週目</td>
+                  <td className="py-4 px-4">シラバス確認・全体把握</td>
+                  <td className="py-4 px-4">公式シラバスをDL→出題カテゴリを一覧化→知らない用語をリストアップ</td>
+                  <td className="py-4 pl-4">5時間</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">2週目</td>
+                  <td className="py-4 px-4">用語・基礎概念のインプット</td>
+                  <td className="py-4 px-4">参考書1冊を1周（生成AI・LLM・プロンプト・ファインチューニング等の定義を整理）</td>
+                  <td className="py-4 pl-4">5時間</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">3週目</td>
+                  <td className="py-4 px-4">テキスト2周目（著作権・倫理・リスク重点）</td>
+                  <td className="py-4 px-4">著作権・情報漏えい・ハルシネーション対策のページを重点読み→自分の言葉で要約する</td>
+                  <td className="py-4 pl-4">5時間</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">4週目</td>
+                  <td className="py-4 px-4">テキスト3周目（プロンプト・活用事例）</td>
+                  <td className="py-4 px-4">プロンプト改善問題・活用事例の章を精読→不明点をノートに残す</td>
+                  <td className="py-4 pl-4">5時間</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">5週目</td>
+                  <td className="py-4 px-4">問題演習（過去問・模擬問第1回）</td>
+                  <td className="py-4 px-4">初回模擬問を通しで実施→誤答を「知識不足」か「読み違い」で分類→弱点リストを作成</td>
+                  <td className="py-4 pl-4">5時間</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">6週目</td>
+                  <td className="py-4 px-4">問題演習（模擬問第2〜3回）</td>
+                  <td className="py-4 px-4">弱点テーマを優先して反復演習→正答率が低いカテゴリの教材を再読</td>
+                  <td className="py-4 pl-4">5時間</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">7週目</td>
+                  <td className="py-4 px-4">弱点集中・ケース演習</td>
+                  <td className="py-4 px-4">判断問題を10問/日ペースで演習→「なぜその選択肢が正解か」を言語化する習慣をつける</td>
+                  <td className="py-4 pl-4">5時間</td>
+                </tr>
+                <tr className="border-b border-gray-200 align-top">
+                  <td className="py-4 pr-4 font-semibold text-gray-900">8週目</td>
+                  <td className="py-4 px-4">最終仕上げ・直前チェック</td>
+                  <td className="py-4 px-4">間違いノートを一通り確認→模擬問を時間計測で通し実施→受験環境・開始時刻を確認</td>
+                  <td className="py-4 pl-4">5時間</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr className="bg-gray-50">
+                  <td className="py-3 pr-4 font-semibold text-gray-900">合計</td>
+                  <td className="py-3 px-4 font-semibold" colSpan={2}>8週間（週5時間×8週）</td>
+                  <td className="py-3 pl-4 font-semibold text-gray-900">40時間</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <div className="mt-6 rounded-lg border border-blue-200 bg-blue-50 p-5">
+            <p className="text-sm font-semibold text-blue-800">💡 スケジュール調整のポイント</p>
+            <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+              <li>AIを業務で日常的に使っている人は1〜4週目をスキップして5週目から開始（20時間プラン）</li>
+              <li>3〜4週目で「著作権・倫理・リスク」を重点的に固めると、後半の演習精度が上がる</li>
+              <li>7〜8週目に新教材を追加しない（直前の詰め込みは逆効果）</li>
+            </ul>
+          </div>
+        </motion.section>
+
+        {/* セクション: 2026年 出題傾向と頻出テーマ（詳細） */}
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.055 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="trend-detail" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            2026年 出題傾向と頻出テーマ
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            2026年の試験では、単純な用語定義問題よりも「業務での判断」を問うケース型の設問が増加傾向にあります。以下の5テーマを優先して押さえると得点効率が高まります。
+          </p>
+          <div className="mt-7 space-y-4">
+            <div className="rounded-lg border border-gray-200 p-5">
+              <h3 className="text-base font-semibold text-gray-900">① プロンプト設計と改善</h3>
+              <p className="mt-2 text-sm leading-7 text-gray-700">
+                「このプロンプトの問題点はどれか」「より良い指示に修正するとしたら」という形式で出題されます。目的・前提・制約・出力形式を分けて考える構造化プロンプトの概念を理解しておくことが重要です。演習では、曖昧なプロンプトを具体化する練習を繰り返すと判断スピードが上がります。
+              </p>
+            </div>
+            <div className="rounded-lg border border-gray-200 p-5">
+              <h3 className="text-base font-semibold text-gray-900">② 著作権・商用利用の判断</h3>
+              <p className="mt-2 text-sm leading-7 text-gray-700">
+                AI生成物（文章・画像・音楽）の著作権帰属と商用利用の可否が頻出です。「学習データに含まれる著作物」「生成物の権利はどこに帰属するか」「商用ライセンスの有無」を区別して整理してください。画像と文章で適用ルールが異なる点も注意が必要です。
+              </p>
+            </div>
+            <div className="rounded-lg border border-gray-200 p-5">
+              <h3 className="text-base font-semibold text-gray-900">③ 情報漏えいとセキュリティ対策</h3>
+              <p className="mt-2 text-sm leading-7 text-gray-700">
+                「個人情報・機密情報をAIに入力してよいか」「社内利用ガイドラインの策定」「入力NGデータの判断基準」が設問のポイントです。モデル提供者のデータ利用規約（学習への利用の有無）も試験範囲に含まれます。業務シーンを想定した「入力してよいもの・NGなもの」リストを自分で作っておくと理解が定着します。
+              </p>
+            </div>
+            <div className="rounded-lg border border-gray-200 p-5">
+              <h3 className="text-base font-semibold text-gray-900">④ AI倫理・バイアス・ハルシネーション</h3>
+              <p className="mt-2 text-sm leading-7 text-gray-700">
+                ハルシネーション（AIの事実誤認・捏造）の原因と対策、学習データに含まれるバイアスの影響、フェアネス・アカウンタビリティの概念が問われます。「ハルシネーションが発生した場合の責任は誰にあるか」という倫理的判断問題も頻出です。ファクトチェックの必要性と運用フローを理解しておくと対応しやすくなります。
+              </p>
+            </div>
+            <div className="rounded-lg border border-gray-200 p-5">
+              <h3 className="text-base font-semibold text-gray-900">⑤ LLMの仕組みと主要モデルの特徴</h3>
+              <p className="mt-2 text-sm leading-7 text-gray-700">
+                トークン・ファインチューニング・RAG（検索拡張生成）・コンテキスト窓など、LLMの基本的な動作原理が問われます。GPT・Claude・Geminiなど主要モデルの特徴と用途の違いも出題範囲です。深いエンジニアリング知識は不要ですが、「なぜそうなるか」を説明できる程度の概念理解が求められます。
+              </p>
+            </div>
+          </div>
+          <p className="mt-5 text-xs leading-6 text-gray-500">※2026年の試験動向をもとにした傾向分析です。最新シラバスは公式サイトで確認してください。</p>
+        </motion.section>
+
+        {/* セクション: 合格後にやること・履歴書への書き方 */}
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.055 }}
+          variants={sectionReveal}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 id="after-pass" className="scroll-mt-28 text-2xl font-bold text-gray-900">
+            合格後にやること・履歴書への書き方
+          </h2>
+          <p className="mt-5 text-base font-medium leading-8 text-gray-900">
+            合格後は資格を証明するだけでなく、具体的な活用実績に変換することが評価につながります。ここでは履歴書・LinkedIn への記載方法と、転職・社内AI推進への活用例を整理します。
+          </p>
+          <h3 className="mt-8 text-lg font-semibold text-gray-900">履歴書・職務経歴書への書き方</h3>
+          <div className="mt-4 rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm leading-7 text-gray-700">
+            <p className="font-semibold text-gray-900">【記載例】資格・免許欄</p>
+            <p className="mt-2">生成AIパスポート　合格（2026年◯月）/ 一般社団法人 生成AI活用普及協会（GUGA）</p>
+            <p className="mt-4 font-semibold text-gray-900">【記載例】自己PR・スキル欄（職務経歴書）</p>
+            <p className="mt-2">
+              生成AIパスポート取得（2026年）。取得後は業務でのAI活用を推進し、週次レポート作成時間を約◯時間短縮。社内向けAI利用ガイドラインの草案作成にも携わり、情報漏えいリスクへの対応フロー整備に貢献しました。
+            </p>
+          </div>
+          <p className="mt-4 text-sm leading-7 text-gray-700">
+            ポイントは「資格名と主催団体」の記載に加え、<strong>取得後にどう使ったか</strong>を数値・成果とセットで示すことです。資格単体では差別化になりにくいため、業務改善の実績と組み合わせてアピールしてください。
+          </p>
+          <h3 className="mt-8 text-lg font-semibold text-gray-900">LinkedIn への記載方法</h3>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
+            <li className="pl-1 marker:text-gray-500">
+              「資格・認定証」セクションに追加する。発行機関名は「一般社団法人 生成AI活用普及協会（GUGA）」と正式名称を記載
+            </li>
+            <li className="pl-1 marker:text-gray-500">
+              「スキル」セクションには「生成AI活用」「AIリテラシー」「プロンプトエンジニアリング」などのキーワードを追加すると検索にヒットしやすくなる
+            </li>
+            <li className="pl-1 marker:text-gray-500">
+              「プロフィール要約」で「生成AIパスポート取得（2026年）。業務でのAI活用推進を担当中」のように1文触れるだけでも採用担当者の目に留まりやすい
+            </li>
+          </ul>
+          <h3 className="mt-8 text-lg font-semibold text-gray-900">社内AI推進・転職への活用例</h3>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div className="rounded-lg border border-gray-200 p-5">
+              <h4 className="text-base font-semibold text-gray-900">社内AI推進リーダーとして</h4>
+              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+                <li>社内AI利用ガイドラインの策定・レビューを主導</li>
+                <li>部署向けのAI活用研修・勉強会を企画・実施</li>
+                <li>AI導入の費用対効果をレポートにまとめて経営層に提案</li>
+              </ul>
+            </div>
+            <div className="rounded-lg border border-gray-200 p-5">
+              <h4 className="text-base font-semibold text-gray-900">転職活動でのアピール</h4>
+              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
+                <li>AI活用推進・DX担当のポジション応募で資格をエビデンスとして提示</li>
+                <li>コンサル・事業会社のAIプロジェクトに「リテラシー証明」として活用</li>
+                <li>副業・フリーランスでのAI活用支援・研修講師の受注に活用</li>
+              </ul>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* LineCtaBox（合格後セクション後） */}
+        <div className="mt-14">
+          <LineCtaBox analyticsSource="blog_generative_ai_passport_mid2" />
+        </div>
 
         <motion.section
           className="mt-14"
