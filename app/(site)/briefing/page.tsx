@@ -1,12 +1,12 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BriefingLineCta } from "@/components/briefing/BriefingLineCta";
 
 const pageTitle = "AIリブートアカデミー 無料相談ページ｜LINEで気軽に相談する";
 const pageDescription =
   "経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」への無料相談ページ。補助金の使い方・カリキュラム・学習イメージをLINEで無料でお伝えします。";
 const pageUrl = "https://ai-reboot.io/briefing";
-const lineUrl = "https://bexn9pao.autosns.app/line?src=briefing";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -68,6 +68,21 @@ const consultationPatterns = [
   },
 ] as const;
 
+const faqs = [
+  {
+    q: "費用はかかりますか？",
+    a: "初回のLINE相談は完全無料です。費用についてはご相談内容を確認した上でご説明します。",
+  },
+  {
+    q: "どんな相談ができますか？",
+    a: "AIツールの選び方・業務への活用方法・社内研修の設計など、AI導入に関することなら何でもお気軽にどうぞ。",
+  },
+  {
+    q: "すぐに返信してもらえますか？",
+    a: "営業時間内（平日10:00〜18:00）は原則24時間以内にご返信します。",
+  },
+] as const;
+
 const BriefingPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f6f9ff] via-white to-[#f7fff8] pb-20">
@@ -84,14 +99,7 @@ const BriefingPage = () => {
             「AIを使いこなせるようになりたい」「キャリアを変えたい」そんな方へ。経産省リスキリング補助金対象の「AIリブートアカデミー」について、LINEで気軽に相談できます。
           </p>
           <div className="mt-6">
-            <a
-              href={lineUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl bg-[#06C755] px-7 py-3.5 text-base font-semibold text-white transition hover:bg-[#05b04b]"
-            >
-              LINEで無料相談する（登録無料）
-            </a>
+            <BriefingLineCta position="hero" />
           </div>
         </div>
       </section>
@@ -127,6 +135,26 @@ const BriefingPage = () => {
             </div>
           ))}
         </div>
+        {/* Mid CTA */}
+        <div className="mt-8 text-center">
+          <BriefingLineCta position="mid" />
+        </div>
+      </section>
+
+      {/* よくある質問 */}
+      <section className="mx-auto mt-10 max-w-6xl px-4 sm:px-6">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">よくある質問</h2>
+        <div className="mt-5 space-y-4">
+          {faqs.map((faq) => (
+            <div
+              key={faq.q}
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+            >
+              <p className="text-base font-bold text-slate-900">Q. {faq.q}</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">A. {faq.a}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* メインCTA */}
@@ -139,14 +167,7 @@ const BriefingPage = () => {
             無理な勧誘は一切行いません。
           </p>
           <div className="mt-6">
-            <a
-              href={lineUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl bg-[#06C755] px-7 py-3.5 text-base font-semibold text-white transition hover:bg-[#05b04b]"
-            >
-              LINEで無料相談する（登録無料）
-            </a>
+            <BriefingLineCta position="bottom" />
           </div>
           <div className="mt-5">
             <Link
