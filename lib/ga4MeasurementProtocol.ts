@@ -24,6 +24,48 @@ function buildTimestampMicros(eventTimestamp?: number): number {
   return Math.floor(timestamp * 1000)
 }
 
+export async function sendGA4Event(
+  eventName: string,
+  clientId: string,
+  params: Record<string, string | number>
+): Promise<void> {
+  const measurementId = resolveMeasurementId()
+  const apiSecret = process.env.GA_API_SECRET || ''
+
+  if (!measurementId || !apiSecret) {
+    throw new Error(
+      'GA4 Measurement Protocol env is missing: GA_MEASUREMENT_ID (or NEXT_PUBLIC_GA_MEASUREMENT_ID) and GA_API_SECRET are required.'
+    )
+  }
+
+  const payload = {
+    client_id: clientId,
+    events: [
+      {
+        name: eventName,
+        params: { engagement_time_msec: 1, ...params },
+      },
+    ],
+  }
+
+  const endpoint = `${GA4_MEASUREMENT_PROTOCOL_ENDPOINT}?measurement_id=${encodeURIComponent(
+    measurementId
+  )}&api_secret=${encodeURIComponent(apiSecret)}`
+
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    throw new Error(
+      `Failed to send GA4 Measurement Protocol event: ${response.status} ${response.statusText} ${errorText}`
+    )
+  }
+}
+
 export async function sendLineFriendAddCompleteEvent(
   input: LineFriendAddCompleteEventInput
 ): Promise<void> {
