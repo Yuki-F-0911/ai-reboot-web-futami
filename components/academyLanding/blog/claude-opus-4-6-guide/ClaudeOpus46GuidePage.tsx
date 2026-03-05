@@ -39,7 +39,7 @@ const summaryPoints = [
   "主要アップデートは1Mトークンコンテキスト（beta）、Adaptive Thinking、effort controls（alpha）です。",
   "API価格は入力$15/MTok、出力$75/MTok（確認日: 2026-02-20）で、単価だけでなく品質差を含めて判断する必要があります。",
   "Anthropicは2026年2月時点でSeries Gにより評価額3,800億ドルを公表しており、モデル投資競争の前提が変わっています。",
-  "Claude 3.5 Sonnetとの比較は指標が揃わないため、同一ベンチの社内検証を前提に意思決定するのが安全です。",
+  "Claude 3.5 Sonnet（旧世代）との比較は指標が揃わないため、同一ベンチの社内検証を前提に意思決定するのが安全です。",
 ] as const;
 
 const overviewRows = [
@@ -379,7 +379,7 @@ export default function ClaudeOpus46GuidePage({ faqItems }: ClaudeOpus46GuidePag
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="blog-h2 scroll-mt-28 text-2xl font-bold text-gray-900">
-            ベンチマーク比較: Opus 4.6の改善点とClaude 3.5比較時の注意点
+            ベンチマーク比較: Opus 4.6の改善点とClaude 3.5（旧世代）比較時の注意点
           </h2>
           <p className="blog-p mt-5 text-base font-medium leading-8 text-gray-900">
             公開ベンチだけで「最強モデル」と断定するのは危険です。Opus 4.6は4.1比の改善指標が多く、3.5 Sonnet比較は別発表の別指標に分かれています。比較前に指標の揃い方を確認してください。

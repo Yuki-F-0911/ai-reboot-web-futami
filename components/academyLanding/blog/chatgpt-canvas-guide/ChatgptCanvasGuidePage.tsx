@@ -248,7 +248,7 @@ export default function ChatgptCanvasGuidePage({ faqItems }: Props) {
           </p>
 
           <Callout type="info" title="Canvas対応モデルについて">
-            Canvas機能を使うには、ChatGPTのGPT-4oまたは後継モデルが必要です。Canvas対応には
+            Canvas機能を使うには、ChatGPTのGPT-5.2（GPT-4o以降）が必要です。Canvas対応には
             ChatGPT Plus（月額20ドル）以上のプランが必要で、無料プランでは現時点（2026年2月）では利用できません。
             ただし、OpenAIは順次対応範囲を拡大しているため、最新情報はOpenAI公式サイトでご確認ください。
           </Callout>

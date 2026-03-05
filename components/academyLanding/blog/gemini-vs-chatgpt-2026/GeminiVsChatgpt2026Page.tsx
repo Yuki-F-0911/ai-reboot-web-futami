@@ -400,7 +400,7 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
           <div className="mt-8 rounded-lg border border-amber-200 bg-amber-50 p-5">
             <p className="text-sm font-semibold text-gray-900">最強の選び方: 両方を無料で試してから決める</p>
             <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-sm leading-7 text-gray-700">
-              <li className="pl-1">Gemini無料版（Gemini 2.0 Flash）とChatGPT無料版（GPT-4o mini）を両方登録する</li>
+              <li className="pl-1">Gemini無料版（Gemini 3 Flash）とChatGPT無料版（GPT-5.2 無料枠）を両方登録する</li>
               <li className="pl-1">自分がよく使うタスク（メール・企画書・コード・翻訳など）で同じプロンプトを試す</li>
               <li className="pl-1">2週間使ってみて「より多く使った方」を有料化する</li>
             </ol>
