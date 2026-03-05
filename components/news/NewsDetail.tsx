@@ -25,12 +25,11 @@ export default function NewsDetail({ news, relatedNews }: NewsDetailProps) {
   // マークダウンをHTMLに変換（md-contentがある場合は優先的に使用）
   const contentHtml = useMemo(() => {
     if (news['md-content']) {
-      // マークダウンの設定
-      marked.setOptions({
-        breaks: true,  // 改行を<br>に変換
-        gfm: true,     // GitHub Flavored Markdown
+      return marked(news['md-content'], {
+        breaks: true, // 改行を<br>に変換
+        gfm: true, // GitHub Flavored Markdown
+        async: false,
       })
-      return marked(news['md-content'])
     }
     // フォールバック：通常のHTMLコンテンツ
     return news.content

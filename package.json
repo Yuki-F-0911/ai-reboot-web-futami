@@ -15,15 +15,19 @@
     "validate:sitemap": "node scripts/validate-sitemap.js"
   },
   "dependencies": {
+    "@serwist/next": "^9.5.6",
     "framer-motion": "^12.23.6",
+    "ioredis": "^5.10.0",
     "lucide-react": "^0.539.0",
     "marked": "^16.1.2",
     "microcms-js-sdk": "^3.2.0",
     "next": "15.4.10",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "serwist": "^9.5.6",
     "turndown": "^7.2.2",
-    "turndown-plugin-gfm": "^1.0.2"
+    "turndown-plugin-gfm": "^1.0.2",
+    "web-push": "^3.6.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -32,6 +36,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/turndown": "^5.0.6",
+    "@types/web-push": "^3.6.4",
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.4.2",

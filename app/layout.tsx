@@ -1,52 +1,58 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
+import type { Metadata, Viewport } from 'next'
+import PushNotificationManager from '@/components/PushNotificationManager'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 import {
   OrganizationStructuredData,
-} from "@/components/seo/StructuredData";
-import BreadcrumbAutoStructuredData from "@/components/seo/BreadcrumbAutoStructuredData";
+} from '@/components/seo/StructuredData'
+import BreadcrumbAutoStructuredData from '@/components/seo/BreadcrumbAutoStructuredData'
+import './globals.css'
 
-const baseUrl = "https://ai-reboot.io";
-const defaultOgImagePath = "/opengraph-image";
+const baseUrl = 'https://ai-reboot.io'
+const defaultOgImagePath = '/opengraph-image'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || baseUrl),
-  title: "AI REBOOT - AIリブート | ウィルフォワード",
+  manifest: '/manifest.webmanifest',
+  title: 'AI REBOOT - AIリブート | ウィルフォワード',
   description:
-    "AIリブートは、企業向けAI研修と個人向けAI講座を通じて、生成AI活用・リスキリング・DX人材育成を支援します。",
-  keywords: "AI, リスキリング, 生成AI, ChatGPT, AI教育, AIコンサルティング, ウィルフォワード",
+    'AIリブートは、企業向けAI研修と個人向けAI講座を通じて、生成AI活用・リスキリング・DX人材育成を支援します。',
+  keywords: 'AI, リスキリング, 生成AI, ChatGPT, AI教育, AIコンサルティング, ウィルフォワード',
   icons: {
-    icon: "/favicon.ico",
+    icon: '/favicon.ico',
   },
   openGraph: {
-    title: "AI REBOOT - AIリブート",
+    title: 'AI REBOOT - AIリブート',
     description:
-      "企業向けAI研修・個人向けAI講座で、AI活用とリスキリングを実践レベルまで伴走支援。",
+      '企業向けAI研修・個人向けAI講座で、AI活用とリスキリングを実践レベルまで伴走支援。',
     url: baseUrl,
-    type: "website",
-    locale: "ja_JP",
+    type: 'website',
+    locale: 'ja_JP',
     images: [
       {
         url: defaultOgImagePath,
         width: 1200,
         height: 630,
-        alt: "AI REBOOT",
+        alt: 'AI REBOOT',
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "AI REBOOT - AIリブート",
+    card: 'summary_large_image',
+    title: 'AI REBOOT - AIリブート',
     description:
-      "企業向けAI研修・個人向けAI講座で、AI活用とリスキリングを実践レベルまで伴走支援。",
+      '企業向けAI研修・個人向けAI講座で、AI活用とリスキリングを実践レベルまで伴走支援。',
     images: [defaultOgImagePath],
   },
-};
+}
+
+export const viewport: Viewport = {
+  themeColor: '#0f172a',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="ja" suppressHydrationWarning>
@@ -60,7 +66,8 @@ export default function RootLayout({
         />
         <BreadcrumbAutoStructuredData />
         {children}
+        <PushNotificationManager />
       </body>
     </html>
-  );
+  )
 }
