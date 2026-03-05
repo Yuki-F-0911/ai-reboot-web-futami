@@ -105,7 +105,7 @@ const recommendedGpts = [
   {
     category: "デザイン・画像",
     gpts: [
-      { name: "DALL-E 3 Artist", description: "DALL-E 3を活用した画像生成に特化。プロンプトの作り方を教えてくれながら高品質な画像を生成" },
+      { name: "GPT Image 1.5 Artist", description: "GPT Image 1.5を活用した画像生成に特化。プロンプトの作り方を教えてくれながら高品質な画像を生成" },
       { name: "Canva", description: "Canvaと連携して、チャットだけでSNS画像・プレゼン・名刺などを作成できる公式GPT" },
     ],
   },
@@ -409,7 +409,7 @@ export default function ChatgptCustomGptsGuidePage({ faqItems }: Props) {
             GPT Storeには以下のようなカテゴリが用意されています：
           </p>
           <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-400">DALL-E（画像生成）</li>
+            <li className="pl-1 marker:text-gray-400">GPT Image 1.5（画像生成）</li>
             <li className="pl-1 marker:text-gray-400">Writing（文章作成）</li>
             <li className="pl-1 marker:text-gray-400">Productivity（生産性向上）</li>
             <li className="pl-1 marker:text-gray-400">Research & Analysis（調査・分析）</li>

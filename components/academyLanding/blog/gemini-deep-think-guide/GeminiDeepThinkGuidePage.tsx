@@ -33,7 +33,7 @@ const tocItems = [
   { id: "summary", label: "要点まとめ" },
   { id: "what-is-deep-think", label: "Gemini 3 Deep Thinkとは" },
   { id: "benchmarks", label: "ベンチマーク結果の読み方" },
-  { id: "model-split", label: "Gemini 1.5/2.0との使い分け" },
+  { id: "model-split", label: "旧世代（Gemini 1.5/2.0系）との比較整理" },
   { id: "ai-ultra", label: "Google AI Ultraの料金と入手方法" },
   { id: "practice", label: "数学・科学・コードでの活用手順" },
   { id: "comparison", label: "Claude Opus 4.6・GPT-5.2比較" },
@@ -106,13 +106,13 @@ const benchmarkRows = [
 
 const modelSplitRows = [
   {
-    axis: "Gemini 1.5系",
+    axis: "Gemini 1.5系（旧世代）",
     status: "提供終了済み項目が多い（API deprecations参照）",
     bestUse: "既存資産の保守確認のみ",
     recommendation: "新規用途は避け、3系への移行計画を作る",
   },
   {
-    axis: "Gemini 2.0 Flash",
+    axis: "Gemini 2.0 Flash（旧世代）",
     status: "2026-08-26に段階終了予定（公式）",
     bestUse: "低遅延・軽量タスクの一時運用",
     recommendation: "長期運用前提なら2.5/3系へ移行を開始する",
@@ -405,7 +405,7 @@ export default function GeminiDeepThinkGuidePage({ faqItems }: GeminiDeepThinkGu
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">Gemini 1.5/2.0との使い分け（提供状況込み）</h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">旧世代モデル（Gemini 1.5/2.0系）との整理</h2>
           <p className="mt-5 text-sm leading-7 text-gray-700">
             使い分けは性能だけでなく、サポート継続性で決める必要があります。1.5系はすでに終了済み機能が多く、2.0 Flashも終了予定が公表されています。新規運用の主軸を3系へ寄せるほど、将来の移行コストを抑えられます。
           </p>
@@ -641,4 +641,3 @@ export default function GeminiDeepThinkGuidePage({ faqItems }: GeminiDeepThinkGu
     </main>
   );
 }
-

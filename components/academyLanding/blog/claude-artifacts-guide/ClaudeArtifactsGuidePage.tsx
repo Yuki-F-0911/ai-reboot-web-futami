@@ -357,7 +357,7 @@ export default function ClaudeArtifactsGuidePage({ faqItems }: Props) {
               </tr>
               <tr>
                 <td className="px-4 py-3 font-medium text-gray-700">使えるモデル</td>
-                <td className="px-4 py-3 text-gray-600">Claude 3.5 Sonnet など（混雑時は制限あり）</td>
+                <td className="px-4 py-3 text-gray-600">Claude Sonnet 4.6 など（混雑時は制限あり）</td>
                 <td className="px-4 py-3 text-gray-600 bg-will-lighter/10">最新モデルを優先利用</td>
               </tr>
               <tr>
