@@ -31,7 +31,7 @@ const tocItems = [
   { id: "background", label: "Windows版リリースの背景" },
   { id: "features", label: "主な機能・特徴" },
   { id: "install", label: "インストール方法" },
-  { id: "voices", label: "実践者の声（Xより）" },
+  { id: "voices", label: "早期利用者の声" },
   { id: "use-cases", label: "実務での活用パターン" },
   { id: "comparison", label: "Cursor・Copilotとの使い分け" },
   { id: "faq", label: "よくある質問（FAQ）" },
@@ -50,11 +50,11 @@ const featureCards = [
   },
   {
     title: "複数AIエージェントの並列管理",
-    body: "複数タスクを同時に走らせ、並列でコード変更を進められます（@BitBoxNews）。長時間の実装作業を非同期で継続できる点が特徴です。",
+    body: "複数タスクを同時に走らせ、並列でコード変更を進められます。長時間の実装作業を非同期で継続できる点が特徴です。",
   },
   {
     title: "skills.mdによるカスタマイズ",
-    body: "プロジェクトルートに skills.md を置くことで、技術スタック・コーディング規約・よく使うコマンドをCodexに覚えさせられます（@AtharvaXDevs）。",
+    body: "プロジェクトルートに skills.md を置くことで、技術スタック・コーディング規約・よく使うコマンドをCodexに覚えさせられます。",
   },
   {
     title: "長時間タスクの継続実行",
@@ -83,21 +83,21 @@ const installSteps = [
 
 const voiceItems = [
   {
-    handle: "@fanofaliens",
+    label: "早期利用者より",
     quote: "1日かかったバグをCodexが数分で解決してくれた。デスクトップで動くのが思ったより快適。",
-    context: "Windows版リリース直後のX投稿より",
+    context: "Windows版リリース直後の利用者報告より",
   },
   {
-    handle: "@WesRoth",
+    label: "早期利用者より",
     quote:
       "macOS版に続いてWindows版もWSL不要でネイティブ動作。環境構築の手間がゼロになった。",
-    context: "Xの実践者レポートより",
+    context: "リリース直後の利用者レポートより",
   },
   {
-    handle: "@benahm0",
+    label: "早期利用者より",
     quote:
       "WSL経由で起動しようとしたら exit code=126 の権限エラーが出た。Windows版はPowerShell直接で使うのが正解。",
-    context: "ハマりポイントの共有（Xより）",
+    context: "ハマりポイントの共有（利用者報告より）",
   },
 ] as const;
 
@@ -164,13 +164,13 @@ export default function CodexWindowsGuidePage({ faqItems }: CodexWindowsGuidePag
           <div className="mt-6 flex">
             <div className="ml-auto w-full sm:w-auto">
               <CopyAsMarkdownButton
-                title="Codex Windows版リリース実践ガイド｜Xの声から学ぶ導入・活用術【2026年3月】"
+                title="Codex Windows版リリース実践ガイド｜早期利用者の声から学ぶ導入・活用術【2026年3月】"
                 sourceSelector="[data-blog-article-body]"
               />
             </div>
           </div>
           <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
-            Codex Windows版リリース実践ガイド｜Xの声から学ぶ導入・活用術【2026年3月】
+            Codex Windows版リリース実践ガイド｜早期利用者の声から学ぶ導入・活用術【2026年3月】
           </h1>
           <p className="mt-4 text-sm font-medium text-gray-500">最終更新日: 2026年3月6日</p>
           <p className="mt-6 text-base leading-8 text-gray-700">
@@ -178,7 +178,7 @@ export default function CodexWindowsGuidePage({ faqItems }: CodexWindowsGuidePag
             macOS版に続くネイティブ対応により、WSL不要でPowerShell上で動作します。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
-            本記事では、Xに投稿された実践者の声をもとに、インストール手順・主な機能・実務ワークフロー・他ツールとの使い分けを整理します。
+            本記事では、リリース直後の利用者報告をもとに、インストール手順・主な機能・実務ワークフロー・他ツールとの使い分けを整理します。
           </p>
         </motion.header>
 
@@ -215,7 +215,7 @@ export default function CodexWindowsGuidePage({ faqItems }: CodexWindowsGuidePag
           <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">Windows版リリースの背景</h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             AIコーディングツールの競争は、クラウド上のエディタ拡張からデスクトップネイティブへシフトしています。
-            @PaulVuAI が「AI coding race is moving from cloud to desktop」と指摘したように、
+            海外エンジニアの間では「AIコーディングレースはクラウドからデスクトップへ移行している」という認識が広まっており、
             ローカルで長時間タスクを継続実行できる環境の需要が急速に高まっています。
           </p>
           <p className="mt-3 text-base leading-8 text-gray-700">
@@ -276,17 +276,17 @@ export default function CodexWindowsGuidePage({ faqItems }: CodexWindowsGuidePag
           variants={sectionReveal}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">実践者の声（Xより）</h2>
+          <h2 className="scroll-mt-28 text-2xl font-bold text-gray-900">早期利用者の声</h2>
           <p className="mt-4 text-sm leading-7 text-gray-600">
-            リリース直後にXに投稿された実際の声をもとに整理しています。
+            リリース直後の早期利用者の報告をもとに整理しています。
           </p>
           <div className="mt-6 space-y-4">
-            {voiceItems.map((item) => (
+            {voiceItems.map((item, i) => (
               <div
-                key={item.handle}
+                key={i}
                 className="rounded-lg border border-gray-200 bg-white p-5"
               >
-                <p className="text-sm font-semibold text-gray-500">{item.handle}</p>
+                <p className="text-sm font-semibold text-gray-500">{item.label}</p>
                 <p className="mt-2 text-base leading-7 text-gray-800">
                   &ldquo;{item.quote}&rdquo;
                 </p>
