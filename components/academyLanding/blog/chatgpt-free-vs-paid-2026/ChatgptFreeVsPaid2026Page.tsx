@@ -51,14 +51,14 @@ const comparisonRows = [
   },
   {
     axis: "主要モデル",
-    free: "GPT-4o（利用制限あり）",
-    plus: "GPT-4o（拡張）+ GPT-o3系へアクセス",
+    free: "GPT-5.2（利用制限あり）",
+    plus: "GPT-5.2（フル）+ GPT-5.2 Thinkingへアクセス",
     pro: "全機能を高上限で利用可能",
   },
   {
     axis: "画像生成",
-    free: "DALL-E 3（制限あり）",
-    plus: "DALL-E 3（制限緩和）",
+    free: "GPT Image 1.5（制限あり）",
+    plus: "GPT Image 1.5（制限緩和）",
     pro: "さらに高い上限",
   },
   {
@@ -83,7 +83,7 @@ const comparisonRows = [
 
 const freePoints = [
   "GPT-4oへのアクセス（ただし利用制限あり）",
-  "画像生成（DALL-E 3、制限あり）",
+  "画像生成（GPT Image 1.5、制限あり）",
   "Webブラウジング（制限あり）",
   "スマホアプリでの利用（音声会話含む）",
   "意外と無料でもできることが増えたのは事実",

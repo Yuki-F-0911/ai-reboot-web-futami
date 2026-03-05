@@ -49,7 +49,7 @@ const freeFeatures = [
     note: "利用回数超過時は軽量モデルに自動切替",
   },
   {
-    title: "画像生成（DALL-E 3）",
+    title: "画像生成（GPT Image 1.5）",
     desc: "テキストから画像を生成できます。「猫がパソコンで仕事をしているイラスト」のように日本語で指示するだけ。SNS投稿やプレゼン資料の素材作りに便利です。",
     note: "1日あたりの生成回数に制限あり",
   },
@@ -127,7 +127,7 @@ const freeLimitations = [
   },
   {
     title: "画像生成の回数制限",
-    desc: "DALL-E 3による画像生成は1日あたりの生成回数に上限があります。たくさんの画像を一度に作りたい場合は制限に引っかかります。",
+    desc: "GPT Image 1.5による画像生成は1日あたりの生成回数に上限があります。たくさんの画像を一度に作りたい場合は制限に引っかかります。",
     impact: "1日2〜3枚なら問題なし。デザイン業務で大量生成が必要な場合に影響",
   },
   {
@@ -759,7 +759,7 @@ export default function ChatgptFreeGuide2026Page({ faqItems }: Props) {
           <h3 className="mt-8 text-lg font-bold text-gray-900">おすすめの使い分けパターン</h3>
           <div className="mt-4 space-y-3">
             {[
-              { pattern: "汎用的な質問・画像生成", tool: "ChatGPT", reason: "GPT-5.2＋DALL-E 3の組み合わせが最強。困ったらまずここ" },
+              { pattern: "汎用的な質問・画像生成", tool: "ChatGPT", reason: "GPT-5.2＋GPT Image 1.5の組み合わせが最強。困ったらまずここ" },
               { pattern: "長文の文章作成・企画書", tool: "Claude", reason: "日本語の文章品質が高く、構成力に優れる。レポートや提案書に最適" },
               { pattern: "最新情報の検索・Google連携", tool: "Gemini", reason: "Google検索との連動が強み。時事ニュースや最新データの質問に" },
               { pattern: "回数制限に達したとき", tool: "別サービスに切り替え", reason: "ChatGPT→Claude→Geminiとローテーションすれば、終日無料で使い続けられる" },
