@@ -33,7 +33,7 @@ const tocItems = [
   { id: "worth-paying", label: "「課金する価値がある」5つのシーン" },
   { id: "narrative", label: "半年課金して気づいたこと" },
   { id: "model-experience", label: "GPT-4.5・o3を初心者が体感するとどうなるか" },
-  { id: "price-comparison", label: "ChatGPT Plus vs Claude Pro vs Gemini Advanced" },
+  { id: "price-comparison", label: "ChatGPT Plus vs Claude Pro vs Google AI Pro" },
   { id: "smart-choice", label: "「まず学んでから課金する」という賢い選択肢" },
   { id: "faq", label: "よくある質問（FAQ）" },
   { id: "summary", label: "まとめ" },
@@ -54,7 +54,7 @@ const plusFeatures = [
   },
   {
     id: "dalle3",
-    name: "② DALL-E3（画像生成）",
+    name: "② GPT Image 1.5（画像生成）",
     rating: "★★★★★ 5/5",
     body: `ChatGPTの会話の中でそのまま画像を生成できる機能です。「今書いたこのブログ記事のOGP画像を作って」「プレゼン用のインフォグラフィックを描いて」が自然言語一発でできます。
 
@@ -136,7 +136,7 @@ const payingScenes = [
   },
   {
     scene: "2. 画像生成を仕事で使いたい",
-    detail: "ブログのアイキャッチ、SNS投稿画像、プレゼン資料のビジュアルをChatGPT内でシームレスに作りたいなら、DALL-E3が使えるPlusは必須です。Canvaとの組み合わせで制作効率が大幅に上がります。",
+    detail: "ブログのアイキャッチ、SNS投稿画像、プレゼン資料のビジュアルをChatGPT内でシームレスに作りたいなら、GPT Image 1.5が使えるPlusは必須です。Canvaとの組み合わせで制作効率が大幅に上がります。",
   },
   {
     scene: "3. 複雑な課題解決・意思決定に使いたい",
@@ -157,10 +157,10 @@ const comparisonData = [
     service: "ChatGPT Plus",
     price: "月額 約3,000円（20ドル）",
     models: "GPT-4o、o3、GPT-4.5",
-    imageGen: "○（DALL-E3）",
+    imageGen: "○（GPT Image 1.5）",
     voiceMode: "○（高度な音声モード）",
     memory: "○（フル版）",
-    strengths: "エコシステムの広さ、DALL-E3、GPTs、o3の推論力",
+    strengths: "エコシステムの広さ、GPT Image 1.5、GPTs、o3の推論力",
     weaknesses: "長文処理はClaudeに劣る、Googleとの連携なし",
   },
   {
@@ -174,9 +174,9 @@ const comparisonData = [
     weaknesses: "画像生成なし、エコシステムがChatGPTより小さい",
   },
   {
-    service: "Gemini Advanced",
+    service: "Google AI Pro",
     price: "月額 約3,000円（2,900円）",
-    models: "Gemini 2.0 Ultra / Flash",
+    models: "Gemini 3.1 Pro / Gemini 3 Flash",
     imageGen: "○（Imagen 3）",
     voiceMode: "○",
     memory: "○",
@@ -279,7 +279,7 @@ export default function ChatgptPlusHonestReviewPage({ faqItems }: Props) {
               使い方を学んでから課金した方が、圧倒的にコスパが良い。「とりあえず課金」は損をする可能性が高い
             </li>
             <li className="pl-1 marker:text-gray-500">
-              Plus最大の価値は「o3の推論力」と「DALL-E3の画像生成」と「メモリ機能のフル版」の組み合わせ
+              Plus最大の価値は「o3の推論力」と「GPT Image 1.5の画像生成」と「メモリ機能のフル版」の組み合わせ
             </li>
           </ul>
         </motion.section>
@@ -373,7 +373,7 @@ export default function ChatgptPlusHonestReviewPage({ faqItems }: Props) {
                   ["GPT-4o（標準モデル）", "○ 制限あり", "○ ほぼ無制限", "中"],
                   ["o3（推論モデル）", "✕", "○", "大"],
                   ["GPT-4.5", "✕", "○", "大"],
-                  ["DALL-E3 画像生成", "✕", "○（1日〜50枚）", "大"],
+                  ["GPT Image 1.5 画像生成", "✕", "○（1日〜50枚）", "大"],
                   ["高度な音声モード", "✕", "○", "中"],
                   ["メモリ機能", "△ 基本のみ", "○ フル版", "中"],
                   ["GPTs（使用）", "○", "○", "なし"],
@@ -610,7 +610,7 @@ export default function ChatgptPlusHonestReviewPage({ faqItems }: Props) {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 id="price-comparison" className="scroll-mt-28 text-2xl font-bold text-gray-900">
-            ChatGPT Plus vs Claude Pro vs Gemini Advanced：正直な比較
+            ChatGPT Plus vs Claude Pro vs Google AI Pro：正直な比較
           </h2>
           <p className="mt-5 text-base leading-8 text-gray-700">
             「他のAIの有料版と比べてどうなの？」という疑問も多いので、主要3サービスを比較します。
@@ -652,7 +652,7 @@ export default function ChatgptPlusHonestReviewPage({ faqItems }: Props) {
           <div className="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-5">
             <h3 className="text-base font-bold text-gray-900">どれを選ぶべきか？</h3>
             <ul className="mt-3 space-y-2 text-sm leading-7 text-gray-700">
-              <li>・<strong>Gmail・Google Docsをメインで使っている</strong>→ Gemini Advanced</li>
+              <li>・<strong>Gmail・Google Docsをメインで使っている</strong>→ Google AI Pro</li>
               <li>・<strong>長文ドキュメント処理・コードレビューが中心</strong>→ Claude Pro</li>
               <li>・<strong>画像生成・音声対話・幅広いGPTs活用</strong>→ ChatGPT Plus</li>
               <li>・<strong>迷っている初心者</strong>→ まず全部の無料版を試してから判断する（一番賢い選択）</li>
@@ -742,10 +742,10 @@ export default function ChatgptPlusHonestReviewPage({ faqItems }: Props) {
             この記事を通じて伝えたかったのは、シンプルな事実です。
           </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
-            <li className="pl-1 marker:text-gray-500">ChatGPT Plusの価値は「o3・DALL-E3・メモリ機能」にある——しかしそれを引き出すには使い方の学習が先</li>
+            <li className="pl-1 marker:text-gray-500">ChatGPT Plusの価値は「o3・GPT Image 1.5・メモリ機能」にある——しかしそれを引き出すには使い方の学習が先</li>
             <li className="pl-1 marker:text-gray-500">メール作成・要約・アイデア出し程度の用途なら、無料版で十分対応できる</li>
             <li className="pl-1 marker:text-gray-500">毎日使っていて制限に引っかかる・画像生成が必要・複雑な課題解決に使いたいなら、課金は賢い投資</li>
-            <li className="pl-1 marker:text-gray-500">Claude ProやGemini Advancedとの比較は「用途に合わせた選択」が正解——ChatGPT Plusが万能というわけではない</li>
+            <li className="pl-1 marker:text-gray-500">Claude ProやGoogle AI Proとの比較は「用途に合わせた選択」が正解——ChatGPT Plusが万能というわけではない</li>
           </ul>
           <p className="mt-5 text-base leading-8 text-gray-700">
             「まず3週間、無料版を使い込む。その後、使い方を学ぶ。制限が気になりだしたら課金を検討する。」——これが、2026年のAI初心者にとって最もコスパの良い順番だと、半年の経験から確信しています。
