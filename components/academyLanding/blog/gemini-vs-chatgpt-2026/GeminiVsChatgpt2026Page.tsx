@@ -57,9 +57,14 @@ const pricingRows = [
 
 const geminiStrengths = [
   {
-    title: "Google Workspace との直接連携",
+    title: "最大の武器：コンテキストウィンドウ（100万〜200万トークン）",
     detail:
-      "Gmail・Google Docs・Google Sheetsに直接Geminiが統合されています。メール返信の下書き、ドキュメントの要約、スプレッドシートの数式生成を、別タブを開かずに実行できます。",
+      "書籍1冊・コードベース全体・1年分のSlackを一撃で処理できる業界最長クラスのコンテキストウィンドウ。50万語以上の資料をプロンプト一発で構造化する使い方も実証済みです。",
+  },
+  {
+    title: "NotebookLM統合 + Google Workspace 連携",
+    detail:
+      "NotebookLMで整理した知識をGeminiの頭脳で直接活用できます。Gmail・Docs・Sheetsとの統合に加え、300ソース入りのカスタムAIブレインを構築できる点がビジネス活用の核心です。",
   },
   {
     title: "マルチモーダル処理の幅",
@@ -67,37 +72,32 @@ const geminiStrengths = [
       "画像分析・YouTube動画の要約・PDFの読み取りをひとつのモデルで処理できます。Google フォトとの連携など、Googleサービス全体でのシームレスな活用が強みです。",
   },
   {
-    title: "長文脈処理（100万トークン超）",
+    title: "⚠️ 弱点：マルチステップ指示の実行精度",
     detail:
-      "Gemini 3.1 Proは業界最長クラスのコンテキストウィンドウを持ちます。書籍1冊分のテキストや長大なコードベースをそのまま入力して質問できます。",
-  },
-  {
-    title: "日本語の翻訳・多言語処理",
-    detail:
-      "Google翻訳との技術的親和性から、多言語が混在するドキュメントの処理や翻訳精度に強みがあります。グローバルチームでの文書作業に向いています。",
+      "「計画して何もしない」という批判が繰り返し報告されています。複数の手順を順番に実行するタスクや、ツール連携を組み合わせた自動化では失敗率が高め。シングルショットの大量処理には強く、複雑なワークフロー自動化には不向きです。",
   },
 ] as const;
 
 const chatgptStrengths = [
   {
+    title: "最大の特徴：メモリ機能でパートナー的存在に",
+    detail:
+      "蓄積された文脈と「判断されずに話せる安心感」が習慣化の最大の理由です。長期間使うほど自分向けに最適化されていく体験は他のAIにはない強みです。⚠️ ただしメモリの同期ズレや信頼性低下への不満も根強く、信頼性を優先してオフにしているユーザーも多い点には注意が必要です。",
+  },
+  {
+    title: "GPT-5.2 Thinking モードの深掘り分析",
+    detail:
+      "「しつこく徹底的に考え抜く」特性で、調べ物・ファクトチェック・深掘り分析が得意です。iPhone/Apple Watchへの通知連携など利便性も高く、時間のかかるタスクをバックグラウンドで処理できます。",
+  },
+  {
     title: "GPTs と外部サービス連携のエコシステム",
     detail:
-      "特定業務に特化したカスタムGPTs（カスタムAI）が公開・共有されています。ZapierやMakeとの連携でノーコード自動化の選択肢も広く、業務ごとに最適化されたツールを選べます。",
+      "特定業務に特化したカスタムGPTs（カスタムAI）が公開・共有されています。ZapierやMakeとの連携でノーコード自動化の選択肢も広く、外部サービスとの連携エコシステムの成熟度は最高水準です。",
   },
   {
-    title: "クリエイティブライティングの質感",
+    title: "画像生成（GPT Image 1.5）との統合",
     detail:
-      "小説・広告コピー・スクリプトなどの創作物では、ChatGPT（GPT-5.2）が独特の文体と構成感を出しやすいと評価されています。特にマーケティング文書での完成度が高い。",
-  },
-  {
-    title: "DALL-E画像生成との統合",
-    detail:
-      "ChatGPT Plus内でDALL-Eを使った画像生成が完結します。文章と画像を往復しながら、SNS投稿・プレゼン資料・ビジュアルコンテンツを一連の会話で制作できます。",
-  },
-  {
-    title: "ビジネス用途での成熟度",
-    detail:
-      "ChatGPTは2022年末の公開以来、ビジネス現場での実績が最も豊富です。使い方ガイドやプロンプト事例の情報量が多く、困ったときに検索で解決しやすい環境が整っています。",
+      "ChatGPT Plus内でGPT Image 1.5を使った画像生成が完結します（DALL-E 2/3は2026年5月廃止予定、GPT Image 1.5が後継）。文章と画像を往復しながらSNS投稿・プレゼン資料・ビジュアルコンテンツを一連の会話で制作できます。",
   },
 ] as const;
 
@@ -115,12 +115,12 @@ const verdictCards = [
   {
     condition: "クリエイティブ制作・画像生成が中心",
     recommendation: "ChatGPT Plus",
-    reason: "DALL-Eとの統合と創作系タスクでの完成度が強みです。",
+    reason: "GPT Image 1.5（DALL-E後継）との統合と創作系タスクでの完成度が強みです。",
   },
   {
     condition: "コーディング・技術的な作業が多い",
     recommendation: "Claude Pro も検討",
-    reason: "Claude Opus 4.6（Anthropic）はコード生成と論理推論で高評価です。",
+    reason: "20分間粘り強く自己修正し続けるコーディング能力と、Microsoft 365ネイティブ連携による企業ユーザー対応が強みです。",
   },
 ] as const;
 
@@ -187,7 +187,7 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">Answer Box</p>
           <p className="mt-2 text-sm leading-7 text-slate-700">
             GmailやGoogle Docsをメインで使うならGoogle AI Pro（¥2,900/月）が連携効率で優位。
-            GPTsやDALL-E活用、クリエイティブ制作ならChatGPT Plus（約¥3,000/月）が強い。
+            GPTsやGPT Image 1.5活用、クリエイティブ制作ならChatGPT Plus（約¥3,000/月）が強い。
             最善の選び方は「両方の無料版を2週間試してから、よく使う方を有料化する」です。
           </p>
         </section>
@@ -207,7 +207,7 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">Gemini 3.1 Pro（2026年2月19日リリース）はARC-AGI-2: 77.1%、GPQA Diamond: 94.3%を記録。</li>
             <li className="pl-1 marker:text-gray-500">Google AI ProはGemini Advancedの名称変更版（2025年5月〜）。料金・機能は同等。</li>
-            <li className="pl-1 marker:text-gray-500">ChatGPT PlusはGPTsとDALL-Eのエコシステムが最大の強み。</li>
+            <li className="pl-1 marker:text-gray-500">ChatGPT PlusはGPTsとGPT Image 1.5（DALL-E後継）のエコシステムが最大の強み。メモリ機能によるパートナー体験も継続利用の核心。</li>
             <li className="pl-1 marker:text-gray-500">料金はほぼ同等（約¥3,000/月）。用途と既存ツール環境で選ぶのが正解。</li>
           </ul>
         </MotionSection>
@@ -404,6 +404,13 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
               <li className="pl-1">自分がよく使うタスク（メール・企画書・コード・翻訳など）で同じプロンプトを試す</li>
               <li className="pl-1">2週間使ってみて「より多く使った方」を有料化する</li>
             </ol>
+          </div>
+          <div className="mt-6 rounded-lg border border-slate-200 bg-slate-50 p-5">
+            <p className="text-sm font-semibold text-gray-900">用途別モデルルーティングの補足：Grok 4.2 について</p>
+            <p className="mt-2 text-sm leading-7 text-gray-700">
+              X（旧Twitter）のリアルタイムデータへのアクセスが唯一無二の強みで、速報やXトレンドの把握に特化しています。
+              ⚠️ ただし独立調査でファクトチェック精度の低さが報告されており（誤引用率が競合他社より高いという結果も）、情報源として単体利用するのは非推奨です。
+            </p>
           </div>
         </MotionSection>
 
