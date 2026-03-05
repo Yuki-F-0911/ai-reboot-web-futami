@@ -808,6 +808,13 @@ const blogPosts: readonly BlogPost[] = [
     category: "最新AIツール",
   },
   {
+    slug: "codex-windows-guide",
+    title: "Codex Windows版リリース実践ガイド｜Xの声から学ぶ導入・活用術【2026年3月】",
+    summary:
+      "2026年3月4〜5日リリースのOpenAI Codex Windows版を解説。PowerShellサンドボックス・並列エージェント・skills.md活用など、Xの実践者の声をもとにインストールから実務ワークフローまで整理します。",
+    category: "最新AIツール",
+  },
+  {
     slug: "ai-pc-copilot-plus-guide",
     title: "Copilot+ PC活用ガイド｜NPU 40TOPS基準と購入前チェック5点【2026年版】",
     summary:
