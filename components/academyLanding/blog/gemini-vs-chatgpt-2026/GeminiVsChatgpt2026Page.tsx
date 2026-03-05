@@ -97,7 +97,7 @@ const chatgptStrengths = [
   {
     title: "画像生成（GPT Image 1.5）との統合",
     detail:
-      "ChatGPT Plus内でGPT Image 1.5を使った画像生成が完結します（DALL-E 2/3は2026年5月廃止予定、GPT Image 1.5が後継）。文章と画像を往復しながらSNS投稿・プレゼン資料・ビジュアルコンテンツを一連の会話で制作できます。",
+      "ChatGPT Plus内でGPT Image 1.5を使った画像生成が完結します（旧画像モデルは2026年5月廃止予定で、GPT Image 1.5へ移行）。文章と画像を往復しながらSNS投稿・プレゼン資料・ビジュアルコンテンツを一連の会話で制作できます。",
   },
 ] as const;
 
@@ -115,7 +115,7 @@ const verdictCards = [
   {
     condition: "クリエイティブ制作・画像生成が中心",
     recommendation: "ChatGPT Plus",
-    reason: "GPT Image 1.5（DALL-E後継）との統合と創作系タスクでの完成度が強みです。",
+    reason: "GPT Image 1.5（DALL\u002dE後継）との統合と創作系タスクでの完成度が強みです。",
   },
   {
     condition: "コーディング・技術的な作業が多い",
@@ -207,7 +207,7 @@ export default function GeminiVsChatgpt2026Page({ faqItems }: GeminiVsChatgpt202
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-700">
             <li className="pl-1 marker:text-gray-500">Gemini 3.1 Pro（2026年2月19日リリース）はARC-AGI-2: 77.1%、GPQA Diamond: 94.3%を記録。</li>
             <li className="pl-1 marker:text-gray-500">Google AI ProはGemini Advancedの名称変更版（2025年5月〜）。料金・機能は同等。</li>
-            <li className="pl-1 marker:text-gray-500">ChatGPT PlusはGPTsとGPT Image 1.5（DALL-E後継）のエコシステムが最大の強み。メモリ機能によるパートナー体験も継続利用の核心。</li>
+            <li className="pl-1 marker:text-gray-500">{"ChatGPT PlusはGPTsとGPT Image 1.5（DALL\u002dE後継）のエコシステムが最大の強み。メモリ機能によるパートナー体験も継続利用の核心。"}</li>
             <li className="pl-1 marker:text-gray-500">料金はほぼ同等（約¥3,000/月）。用途と既存ツール環境で選ぶのが正解。</li>
           </ul>
         </MotionSection>
