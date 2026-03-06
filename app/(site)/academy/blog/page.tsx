@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "gpt-5-4-business-use-cases",
+    title: "GPT-5.4のビジネス活用10選｜何が変わったかを実例で解説",
+    summary:
+      "GPT-5.4を仕事にどう使うかを、顧客対応・広告・会議録・Excel・契約書・英訳・市場調査まで10の実務例で解説。何が変わったか、始め方、コスト試算、注意点を整理します。",
+    category: "実務活用",
+    publishedAt: "2026-03-06T18:00:00+09:00",
+    tags: ["GPT-5.4 ビジネス活用", "ChatGPT 仕事 使い方 2026", "GPT-5.4 業務効率化", "GPT-5.4 実例"],
+  },
+  {
     slug: "gpt-5-4-vs-claude-gemini-2026",
     title: "GPT-5.4・Claude・Gemini比較 2026｜最強決定ではなく、用途別の使い分けで選ぶ",
     summary:
