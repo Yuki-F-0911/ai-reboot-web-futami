@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "gpt-5-4",
+    title: "GPT-5.4とは？【2026年3月速報】3つのモデルの違い・性能・今すぐ使える方法を解説",
+    summary:
+      "OpenAIが2026年3月5日にリリースしたGPT-5.4を解説。標準・Thinking・Proの3モデルの使い分け、GPT-5.2からの性能改善（エラー率33%減）、プラン別の利用方法を速報で整理します。",
+    category: "最新AIツール",
+    publishedAt: "2026-03-06T09:00:00+09:00",
+    tags: ["GPT-5.4 とは", "GPT-5.4 使い方", "OpenAI 最新モデル", "GPT5.4 日本語"],
+  },
+  {
     slug: "gemini-vs-chatgpt-2026",
     title: "Gemini 3.1 vs ChatGPT 2026｜どちらを選ぶべきか完全比較",
     summary:
