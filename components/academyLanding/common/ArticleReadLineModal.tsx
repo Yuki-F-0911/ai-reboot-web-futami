@@ -55,9 +55,9 @@ export default function ArticleReadLineModal() {
       <div className="absolute inset-x-4 bottom-4 mx-auto max-w-xl rounded-2xl border border-green-200 bg-white p-6 shadow-2xl sm:bottom-8 sm:inset-x-6">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold tracking-wide text-green-700">READ COMPLETE OFFER</p>
+            <p className="text-xs font-semibold tracking-wide text-green-700">AI DIAGNOSIS OFFER</p>
             <h3 className="mt-2 text-xl font-bold leading-tight text-slate-900">
-              ここまで読んだ方に、LINE限定特典を配布中
+              あなたに合うAIを診断します — 登録は30秒
             </h3>
           </div>
           <button
@@ -71,9 +71,15 @@ export default function ArticleReadLineModal() {
         </div>
 
         <ul className="mt-4 list-disc space-y-1 pl-5 text-sm leading-7 text-slate-700">
-          <li className="pl-1 marker:text-slate-500">AI活用の3行チェックリスト（保存版）</li>
-          <li className="pl-1 marker:text-slate-500">補助金対象可否の簡易診断</li>
-          <li className="pl-1 marker:text-slate-500">受講前にやるべきことの優先順位シート</li>
+          <li className="pl-1 marker:text-slate-500">
+            30秒の診断で、あなたが使うべきAIツール3選がわかる
+          </li>
+          <li className="pl-1 marker:text-slate-500">
+            ChatGPT・Claude・Gemini など主要AIの中から個別診断
+          </li>
+          <li className="pl-1 marker:text-slate-500">
+            今すぐ無料の攻略本も届く
+          </li>
         </ul>
 
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
@@ -83,7 +89,7 @@ export default function ArticleReadLineModal() {
             rel="noopener noreferrer"
             className="inline-flex flex-1 items-center justify-center rounded-lg bg-[#06C755] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#05b54d]"
           >
-            LINEで無料特典を受け取る
+            LINEで無料AI診断をはじめる
           </a>
           <Link
             href="/academy/seminars"
@@ -92,6 +98,10 @@ export default function ArticleReadLineModal() {
             無料セミナーを見る
           </Link>
         </div>
+
+        <p className="mt-3 text-center text-xs text-slate-500">
+          ※ 匿名OK・勧誘なし・いつでも退会可
+        </p>
       </div>
     </div>
   );

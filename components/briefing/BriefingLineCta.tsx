@@ -4,9 +4,9 @@ import { trackEvent } from "@/lib/analytics";
 type Position = "hero" | "mid" | "bottom";
 
 const LABELS: Record<Position, string> = {
-  hero: "LINEで無料相談する",
-  mid: "LINEで無料相談する",
-  bottom: "今すぐLINEで相談する（無料）",
+  hero: "LINEで無料AI診断をはじめる",
+  mid: "LINEでAI診断する（無料）",
+  bottom: "今すぐLINEでAI診断する（無料）",
 };
 
 const LINE_URL = "https://bexn9pao.autosns.app/line?src=briefing";

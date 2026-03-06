@@ -28,7 +28,6 @@ export default function FloatingLineCta() {
   }, []);
 
   const isAcademyPath = useMemo(() => pathname?.startsWith("/academy"), [pathname]);
-  const isBlogTop = pathname === "/academy/blog";
 
   if (!isAcademyPath || dismissed) return null;
 
@@ -70,7 +69,7 @@ export default function FloatingLineCta() {
                 >
                   <LineIcon className="h-5 w-5" />
                   <span className="tracking-tight text-[15px] sm:text-base">
-                    {isBlogTop ? "LINE登録で特典を受け取る" : "LINEで無料相談する"}
+                    30秒AI診断 → ツール3選＋攻略本
                   </span>
                 </motion.a>
                 
@@ -109,7 +108,7 @@ export default function FloatingLineCta() {
                 >
                   <LineIcon className="h-5 w-5" />
                   <span className="tracking-tight">
-                    {isBlogTop ? "LINEで特典を受け取る" : "LINEで無料相談する"}
+                    LINE登録→30秒診断→AIツール3選＋攻略本を受け取る
                   </span>
                 </motion.a>
 

@@ -15,10 +15,10 @@ type LineCtaBoxProps = {
 };
 
 const defaultLineUrl = "https://bexn9pao.autosns.app/line";
-const defaultTitle = "AIで仕事を変えたい方へ｜LINEで無料相談する";
+const defaultTitle = "あなたが使うべきAIを、30秒で診断します｜LINE登録（無料）";
 const defaultDescription =
-  "経産省リスキリング補助金対象の100日間プログラム「AIリブートアカデミー」について、LINEで気軽に相談できます。補助金の使い方・カリキュラム・学習イメージを無料でお伝えします。";
-const defaultButtonLabel = "LINEで無料相談する（登録無料）";
+  "LINEに登録して30秒の診断に答えるだけで、ChatGPT・Claude・Geminiの中からあなたに最適なAIツール3選がわかります。さらに無料の攻略本もすぐに届きます。";
+const defaultButtonLabel = "LINEで無料AI診断をはじめる";
 const defaultAnalyticsSource = "blog_cta_box";
 
 export default function LineCtaBox({
@@ -72,7 +72,7 @@ export default function LineCtaBox({
             className="mt-4 text-center text-[10px] font-bold tracking-wider"
             style={{ color: ACADEMY_COLORS.ctaLine }}
           >
-            ＼ 1分で完了・匿名性も安心 ／
+            ＼ 登録30秒・匿名OK・勧誘なし ／
           </p>
         </div>
       </div>
