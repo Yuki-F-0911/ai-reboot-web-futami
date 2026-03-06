@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "gpt-5-4-computer-use-guide",
+    title: "GPT-5.4 Computer Use完全ガイド｜PC操作AIの使い方と注意点",
+    summary:
+      "GPT-5.4 Computer Useを深掘り。PC操作をネイティブ搭載した意味、OSWorld 75.0%の読み方、ChatGPT / APIでの始め方、フォーム自動入力や複数アプリ連携の実践シーン、企業利用の注意点を整理します。",
+    category: "最新AIツール",
+    publishedAt: "2026-03-06T19:00:00+09:00",
+    tags: ["GPT-5.4 Computer Use", "ChatGPT PC操作 自動化", "GPT-5.4 コンピュータ操作", "AI PC自動化 2026"],
+  },
+  {
     slug: "gpt-5-4-business-use-cases",
     title: "GPT-5.4のビジネス活用10選｜何が変わったかを実例で解説",
     summary:
