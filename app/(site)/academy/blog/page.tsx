@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "gpt-5-4-vs-claude-gemini-2026",
+    title: "GPT-5.4・Claude・Gemini比較 2026｜最強決定ではなく、用途別の使い分けで選ぶ",
+    summary:
+      "GPT-5.4・Claude・Geminiを2026年3月時点の公式情報で比較。コーディング、ビジネス文書、Google Workspace連携、価格、チーム導入まで整理し、最強決定ではなく用途別の使い分けをわかりやすく解説します。",
+    category: "実務活用",
+    publishedAt: "2026-03-06T18:00:00+09:00",
+    tags: ["GPT-5.4 Claude Gemini 比較", "GPT-5.4 vs Claude", "ChatGPT Gemini 違い 2026", "AIモデル選び方"],
+  },
+  {
     slug: "gpt-5-4",
     title: "GPT-5.4とは？【2026年3月速報】3つのモデルの違い・性能・今すぐ使える方法を解説",
     summary:
