@@ -289,19 +289,6 @@ export default function PushNotificationManager() {
         </aside>
       )}
 
-      {subscribed && (
-        <aside className="fixed bottom-28 left-4 z-40 w-[min(80vw,16rem)] rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-xs text-emerald-900 shadow">
-          <p className="font-semibold">プッシュ通知を受信中です。</p>
-          <button
-            type="button"
-            onClick={handleDisableNotifications}
-            disabled={isLoading}
-            className="mt-2 rounded-md border border-emerald-400 px-2 py-1 font-semibold transition hover:bg-emerald-100 disabled:cursor-not-allowed"
-          >
-            通知を停止
-          </button>
-        </aside>
-      )}
 
       {statusMessage && (
         <p className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 rounded-full bg-gray-900 px-4 py-2 text-xs text-white shadow-lg">
