@@ -336,24 +336,24 @@ export default function Gpt54Page({ faqItems }: Gpt54PageProps) {
           </p>
 
           <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[640px]">
+            <table className="blog-table w-full min-w-[640px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
-                <tr>
-                  <th>モデル名</th>
-                  <th>向いているタスク</th>
-                  <th>利用可能プラン</th>
-                  <th>コンテキスト（API）</th>
-                  <th>タイプ</th>
+                <tr className="border-b border-gray-300">
+                  <th className="py-3 pr-4 font-semibold text-gray-900">モデル名</th>
+                  <th className="py-3 pr-4 font-semibold text-gray-900">向いているタスク</th>
+                  <th className="py-3 pr-4 font-semibold text-gray-900">利用可能プラン</th>
+                  <th className="py-3 pr-4 font-semibold text-gray-900">コンテキスト（API）</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">タイプ</th>
                 </tr>
               </thead>
               <tbody>
                 {modelComparisonRows.map((row) => (
-                  <tr key={row.model}>
-                    <td className="font-semibold">{row.model}</td>
-                    <td>{row.target}</td>
-                    <td>{row.plan}</td>
-                    <td>{row.context}</td>
-                    <td>{row.thinking}</td>
+                  <tr key={row.model} className="border-b border-gray-200 align-top">
+                    <td className="py-3 pr-4 font-semibold">{row.model}</td>
+                    <td className="py-3 pr-4">{row.target}</td>
+                    <td className="py-3 pr-4">{row.plan}</td>
+                    <td className="py-3 pr-4">{row.context}</td>
+                    <td className="py-3 pl-4">{row.thinking}</td>
                   </tr>
                 ))}
               </tbody>
@@ -420,22 +420,22 @@ export default function Gpt54Page({ faqItems }: Gpt54PageProps) {
           </p>
 
           <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[600px]">
+            <table className="blog-table w-full min-w-[600px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
-                <tr>
-                  <th>評価軸</th>
-                  <th>GPT-5.4</th>
-                  <th>GPT-5.2</th>
-                  <th>備考</th>
+                <tr className="border-b border-gray-300">
+                  <th className="py-3 pr-4 font-semibold text-gray-900">評価軸</th>
+                  <th className="py-3 pr-4 font-semibold text-gray-900">GPT-5.4</th>
+                  <th className="py-3 pr-4 font-semibold text-gray-900">GPT-5.2</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">備考</th>
                 </tr>
               </thead>
               <tbody>
                 {performanceRows.map((row) => (
-                  <tr key={row.benchmark}>
-                    <td className="font-semibold">{row.benchmark}</td>
-                    <td className="text-will-primary font-semibold">{row.gpt54}</td>
-                    <td>{row.gpt52}</td>
-                    <td className="text-xs text-gray-500">{row.note}</td>
+                  <tr key={row.benchmark} className="border-b border-gray-200 align-top">
+                    <td className="py-3 pr-4 font-semibold">{row.benchmark}</td>
+                    <td className="py-3 pr-4 text-will-primary font-semibold">{row.gpt54}</td>
+                    <td className="py-3 pr-4">{row.gpt52}</td>
+                    <td className="py-3 pl-4 text-xs text-gray-500">{row.note}</td>
                   </tr>
                 ))}
               </tbody>
@@ -484,20 +484,20 @@ export default function Gpt54Page({ faqItems }: Gpt54PageProps) {
           </p>
 
           <div className="mt-6 overflow-x-auto">
-            <table className="blog-table w-full min-w-[560px]">
+            <table className="blog-table w-full min-w-[560px] border-collapse text-left text-sm leading-7 text-gray-700">
               <thead>
-                <tr>
-                  <th>プラン</th>
-                  <th>使えるモデル</th>
-                  <th>ポイント</th>
+                <tr className="border-b border-gray-300">
+                  <th className="py-3 pr-4 font-semibold text-gray-900">プラン</th>
+                  <th className="py-3 pr-4 font-semibold text-gray-900">使えるモデル</th>
+                  <th className="py-3 pl-4 font-semibold text-gray-900">ポイント</th>
                 </tr>
               </thead>
               <tbody>
                 {planRows.map((row) => (
-                  <tr key={row.plan}>
-                    <td className="font-semibold">{row.plan}</td>
-                    <td>{row.models}</td>
-                    <td className="text-sm text-gray-600">{row.note}</td>
+                  <tr key={row.plan} className="border-b border-gray-200 align-top">
+                    <td className="py-3 pr-4 font-semibold">{row.plan}</td>
+                    <td className="py-3 pr-4">{row.models}</td>
+                    <td className="py-3 pl-4 text-sm text-gray-600">{row.note}</td>
                   </tr>
                 ))}
               </tbody>
