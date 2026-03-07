@@ -81,7 +81,12 @@ export default async function GlossaryDetailPage({ params }: Props) {
   const relatedTerms = getRelatedTerms(term.relatedSlugs);
   const url = `${baseUrl}/glossary/${slug}`;
   const descriptionParagraphs = term.description.split("\n\n");
-  const shouldInsertLineCta = slug === "ai-debate" || slug === "anthropic-api" || slug === "claude-code";
+  const shouldInsertLineCta =
+    slug === "ai-debate" ||
+    slug === "anthropic-api" ||
+    slug === "claude-code" ||
+    slug === "cross-attention" ||
+    slug === "openrouter";
   const lineCtaInsertIndex = (() => {
     if (!shouldInsertLineCta || descriptionParagraphs.length < 2) {
       return descriptionParagraphs.length;
