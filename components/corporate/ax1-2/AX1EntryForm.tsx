@@ -28,7 +28,7 @@ interface FormErrors {
 interface AX1EntryFormProps {
     hideScreeningText?: boolean;
     submitLabel?: string;
-    entryType?: "ax1" | "ax1-special";
+    entryType?: "ax1" | "ax1-special" | "ax1-0415";
 }
 
 export function AX1EntryForm({ hideScreeningText = false, submitLabel, entryType }: AX1EntryFormProps) {
