@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./AX10415Page.module.css";
 import { AX1EntryForm } from "../ax1-2/AX1EntryForm";
-import LineCtaBox from "@/components/blog/LineCtaBox";
+import CorporateNewsletterCtaBox from "@/components/corporate/CorporateNewsletterCtaBox";
 
 type NavItem = {
     label: string;
@@ -531,13 +531,9 @@ export default function AX10415Page() {
                 </div>
             </section>
 
-            {/* Mid-page LINE CTA */}
-            <div className="px-6 py-10 max-w-4xl mx-auto">
-                <LineCtaBox
-                    title="AI経営変革について、個別相談する（無料）"
-                    description="AX-1の内容・次回開催・法人向けプログラムについて、LINEで気軽にご相談いただけます。担当者が個別にお答えします。"
-                    buttonLabel="LINEで無料相談する"
-                />
+            {/* Mid-page Newsletter CTA */}
+            <div className="px-6 py-10">
+                <CorporateNewsletterCtaBox source="ax1-0415" />
             </div>
 
             {/* Section 7: Audience */}
