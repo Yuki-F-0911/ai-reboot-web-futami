@@ -17,7 +17,7 @@ type LineCtaBoxProps = {
 const defaultLineUrl = "https://bexn9pao.autosns.app/line";
 const defaultTitle = "あなたが使うべきAIを、30秒で診断します｜LINE登録（無料）";
 const defaultDescription =
-  "LINEに登録して30秒の診断に答えるだけで、ChatGPT・Claude・Geminiの中からあなたに最適なAIツール3選がわかります。さらに無料の攻略本もすぐに届きます。";
+  "LINEに登録して30秒の診断に答えるだけで、ChatGPTやGeminiだけでなく、数十種類の最新AIの中からあなたに最適なAIツール3選がわかります。さらに無料の攻略本もすぐに届きます。";
 const defaultButtonLabel = "LINEで無料AI診断をはじめる";
 const defaultAnalyticsSource = "blog_cta_box";
 

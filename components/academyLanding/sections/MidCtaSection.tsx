@@ -32,7 +32,7 @@ const MidCtaSection = () => {
         </h2>
 
         <p className="mb-4 text-sm leading-loose lg:text-base" style={{ color: ACADEMY_COLORS.textBody }}>
-          LINEで30秒の診断に答えるだけで、ChatGPT・Claude・Geminiの中からあなたに最適なAIツール3選がわかります。
+          LINEで30秒の診断に答えるだけで、ChatGPTやGeminiだけでなく、数十種類の最新AIの中からあなたに最適なAIツール3選がわかります。
         </p>
         <p className="mb-10 text-sm font-bold leading-loose" style={{ color: ACADEMY_COLORS.textStrong }}>
           さらに無料の攻略本もすぐに届きます。

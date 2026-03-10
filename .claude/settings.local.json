@@ -8,7 +8,12 @@
       "Bash(git status:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git pull --rebase origin dev)",
+      "Bash(git stash)",
+      "Bash(git stash pop)",
+      "Bash(npx vercel --prod)",
+      "Bash(npx vercel --prod --yes)"
     ]
   }
 }
