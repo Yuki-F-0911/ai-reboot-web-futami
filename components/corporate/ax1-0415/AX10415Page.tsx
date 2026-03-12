@@ -35,6 +35,7 @@ type Testimonial = {
     name: string;
     role: string;
     industry: string;
+    image?: string;
 };
 
 const navItems: NavItem[] = [
@@ -138,6 +139,7 @@ const testimonials: Testimonial[] = [
         name: "山田 宜義 様",
         role: "代表取締役",
         industry: "ヤマインターナショナル株式会社",
+        image: "/images/corporate/ax1-special/voice-yamada.jpg",
     },
     {
         quote: "AIのやり方の羅列の1日であれば、正直半日も持たなかったと思う。でも、経営者としての在り方、落とし穴、そして絶対に必要なスキルであること──全部理解できた。",
@@ -145,6 +147,7 @@ const testimonials: Testimonial[] = [
         name: "小松 伸克 様",
         role: "会長",
         industry: "小松水産株式会社",
+        image: "/images/corporate/ax1-special/voice-komatsu.jpg",
     },
     {
         quote: "本当にこんなことまでできるんだってびっくりしました。フォルダ整理もあっという間にしてくれて、それって私がスタッフに頼んでることなんです。スタッフがこれを知ってれば、人がやる必要もない。",
@@ -522,8 +525,19 @@ export default function AX10415Page() {
                                     {t.highlight}
                                 </blockquote>
                                 <div className={styles.voiceAttribution}>
-                                    <span className={styles.voiceName}>{t.name}</span>
-                                    <span className={styles.voiceRole}>{t.role}｜{t.industry}</span>
+                                    {t.image && (
+                                        <Image
+                                            src={t.image}
+                                            alt={t.name}
+                                            width={48}
+                                            height={48}
+                                            className={styles.voiceAvatar}
+                                        />
+                                    )}
+                                    <div>
+                                        <span className={styles.voiceName}>{t.name}</span>
+                                        <span className={styles.voiceRole}>{t.role}｜{t.industry}</span>
+                                    </div>
                                 </div>
                             </div>
                         ))}
