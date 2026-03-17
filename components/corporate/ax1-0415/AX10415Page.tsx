@@ -38,6 +38,15 @@ type Testimonial = {
     image?: string;
 };
 
+type Speaker = {
+    id: string;
+    name: string;
+    role: string;
+    company: string[];
+    bio: string;
+    image: string;
+};
+
 const navItems: NavItem[] = [
     { label: "必要性", targetId: "#why-ceo" },
     { label: "講座内容", targetId: "#program" },
@@ -130,6 +139,32 @@ const audienceItems: AudienceItem[] = [
     { text: "「採用難」や「人材不足」を、AI×組織戦略で根本解決したい", highlightText: "「採用難」や「人材不足」" },
     { text: "「デジタルツイン」や「AIO」を、自社の経営戦略に落とし込みたい", highlightText: "「デジタルツイン」や「AIO」" },
     { text: "中小企業向けのAI活用ノウハウと、実践的な経営者ネットワークを得たい" },
+];
+
+const speakers: Speaker[] = [
+    {
+        id: 'naruse',
+        name: '成瀬 拓也',
+        role: 'AIリブートアカデミー主宰 / ビジネスプロデューサー',
+        company: [
+            '株式会社ウィルフォワード 代表取締役',
+            '株式会社Lively 共同創業者CSO',
+            '筑波大学 非常勤講師',
+        ],
+        bio: '経営者として複数の事業を創出しながら、経済産業省認定リスキリング講座「AIリブートアカデミー」を主宰。ホラクラシー経営やティール組織など次世代の組織開発を実践し、「AI時代のキャリア戦略」を発信。',
+        image: '/images/naruse.jpg',
+    },
+    {
+        id: 'iwamoto',
+        name: '岩本 和也',
+        role: '「AIのある暮らし」主宰 / 映像クリエイター',
+        company: [
+            'AI×動画マーケティング総合研究所 主宰',
+            '学校法人 杉野学園 ドレスメーカー学院 特別講師',
+        ],
+        bio: '「しごとや暮らしに役立つ生成AI」をテーマに情報発信。毎週「週刊 AIのニュース」を発行、月1回「AIの勉強会」を開催。AI×動画マーケティングの実践者として、クリエイティブ分野でのAI活用を牽引。',
+        image: '/images/iwamoto.jpg',
+    },
 ];
 
 const testimonials: Testimonial[] = [
@@ -536,7 +571,7 @@ export default function AX10415Page() {
                                     )}
                                     <div>
                                         <span className={styles.voiceName}>{t.name}</span>
-                                        <span className={styles.voiceRole}>{t.role}｜{t.industry}</span>
+                                        <span className={styles.voiceRole}>{t.industry} {t.role}</span>
                                     </div>
                                 </div>
                             </div>
@@ -577,33 +612,27 @@ export default function AX10415Page() {
                         <span className={styles.headingAccent}>登壇者</span>
                     </h2>
                     <div className={`${styles.speakersGrid} ${styles.revealTrigger} ${styles.delay100}`}>
-                        <div className={styles.speakerCard}>
-                            <div className={styles.speakerImage}>
-                                <Image
-                                    src="/images/naruse.jpg"
-                                    alt="成瀬 拓也"
-                                    fill
-                                    sizes="(max-width: 768px) 6rem, 8rem"
-                                    className={styles.speakerImg}
-                                />
+                        {speakers.map((speaker) => (
+                            <div key={speaker.id} className={styles.speakerCard}>
+                                <div className={styles.speakerImage}>
+                                    <Image
+                                        src={speaker.image}
+                                        alt={speaker.name}
+                                        fill
+                                        sizes="(max-width: 768px) 6rem, 8rem"
+                                        className={styles.speakerImg}
+                                    />
+                                </div>
+                                <p className={styles.speakerRole}>{speaker.role}</p>
+                                <h3 className={styles.speakerName}>{speaker.name}</h3>
+                                <div className={styles.speakerCompany}>
+                                    {speaker.company.map((line) => (
+                                        <p key={line}>{line}</p>
+                                    ))}
+                                </div>
+                                <p className={styles.speakerBio}>{speaker.bio}</p>
                             </div>
-                            <p className={styles.speakerRole}>AIリブートアカデミー主宰</p>
-                            <h3 className={styles.speakerName}>成瀬 拓也</h3>
-                        </div>
-
-                        <div className={styles.speakerCard}>
-                            <div className={styles.speakerImage}>
-                                <Image
-                                    src="/images/iwamoto.jpg"
-                                    alt="岩本 和也"
-                                    fill
-                                    sizes="(max-width: 768px) 6rem, 8rem"
-                                    className={styles.speakerImg}
-                                />
-                            </div>
-                            <p className={styles.speakerRole}>「AIのある暮らし」主宰</p>
-                            <h3 className={styles.speakerName}>岩本 和也</h3>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>

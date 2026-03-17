@@ -1397,13 +1397,29 @@
     font-family: 'Zen Old Mincho', serif;
 }
 
+.speakerCompany {
+    font-size: 0.8125rem;
+    color: var(--ax1-sub);
+    opacity: 0.75;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.speakerCompany p {
+    margin: 0;
+    padding: 0;
+}
+
 .speakerBio {
     font-size: 0.875rem;
     color: var(--ax1-sub);
-    line-height: 1.75;
+    line-height: 1.7;
     text-align: justify;
     padding: 0 1rem;
+    margin-top: 0.75rem;
 }
+
 
 /* === DETAILS SECTION === */
 .detailsSection {
@@ -2611,15 +2627,18 @@
 }
 
 .voiceName {
+    display: block;
     font-weight: 700;
     color: #ffffff;
     font-size: 0.925rem;
 }
 
 .voiceRole {
+    display: block;
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.5);
     letter-spacing: 0.03em;
+    margin-top: 0.2rem;
 }
 
 @media (max-width: 640px) {
