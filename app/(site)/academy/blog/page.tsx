@@ -38,6 +38,15 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "gpt-5-4-mini-nano-guide",
+    title: "GPT-5.4 miniとnanoの違いとは？料金・性能・使い分けを比較【2026年3月】",
+    summary:
+      "OpenAIが2026年3月17日にリリースしたGPT-5.4 miniとGPT-5.4 nanoを比較解説。API料金、ベンチマーク、ChatGPT無料ユーザーでの使い方、Claude Haiku・Gemini Flashとの性能差、業務別の使い分け早見表をまとめます。",
+    category: "最新AIツール",
+    publishedAt: "2026-03-18T09:00:00+09:00",
+    tags: ["GPT-5.4 mini 使い方", "GPT-5.4 nano 違い", "GPT-5.4 mini 無料", "軽量AI モデル 比較 2026"],
+  },
+  {
     slug: "gpt-5-4-computer-use-guide",
     title: "GPT-5.4 Computer Use完全ガイド｜PC操作AIの使い方と注意点",
     summary:
