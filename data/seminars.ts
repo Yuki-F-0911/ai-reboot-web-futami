@@ -4,7 +4,53 @@ const GOOGLE_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSf8nTvEXBRIJSzcb_4SbMrwPi5NKx9_ihR6kzjYeCu1ngKrdA/viewform?usp=dialog";
 
 export const seminars: SeminarData[] = [
-  // ── 新規 毎週水曜セミナー（2026年3〜4月）──
+  // ── 開催予定セミナー ──
+  {
+    slug: "ai-career-hack-mar",
+    title: "AIキャリアハック ── 生成AIで「市場価値」を書き換える60分",
+    subtitle: "AIを味方にしたキャリア戦略",
+    description:
+      "「AIに仕事を奪われる」側ではなく「AIで市場価値を上げる」側へ。人事のプロ×AI実践者が、生成AIを武器にキャリアを切り拓くロードマップを60分で解説します。",
+    tag: "NEW",
+    date: "2026年3月26日（木）",
+    dateShort: "3月26日(木)",
+    time: "20:00-21:00",
+    place: "オンライン（Zoom）",
+    heroCopy:
+      "「AIに奪われる」側から「AIで市場価値を上げる」側へ。キャリアの主導権を取り戻す",
+    googleFormUrl: GOOGLE_FORM_URL,
+    ended: false,
+    hasLandingPage: true,
+    metaTitle:
+      "AIキャリアハック ── 生成AIで市場価値を書き換える60分 | AI REBOOT",
+    metaDescription:
+      "AIに仕事を奪われる側ではなく、AIで市場価値を上げる側へ。人事のプロ×AI実践者が生成AIを武器にキャリアを切り拓くロードマップを60分で解説。3月26日(木) 20:00〜21:00 無料オンライン開催。",
+    ogImageAlt: "AIキャリアハックセミナー 3月26日",
+  },
+  {
+    slug: "ai-career-hack-apr",
+    title: "AIキャリアハック ── 100日で「替えの利かない人材」になる方法",
+    subtitle: "思考OSアップデートで差をつける",
+    description:
+      "生成AI時代は学歴も社歴もリセットできる史上初のチャンス。ツールの使い方ではなく「思考OS」をアップデートし、100日でキャリア下剋上を実現するロードマップをお伝えします。",
+    tag: "NEW",
+    date: "2026年4月16日（木）",
+    dateShort: "4月16日(木)",
+    time: "20:00-21:00",
+    place: "オンライン（Zoom）",
+    heroCopy:
+      "ツールの使い方ではなく「思考のOS」を変える。100日後、替えの利かない人材へ",
+    googleFormUrl: GOOGLE_FORM_URL,
+    ended: false,
+    hasLandingPage: true,
+    metaTitle:
+      "AIキャリアハック ── 100日で替えの利かない人材になる方法 | AI REBOOT",
+    metaDescription:
+      "生成AI時代は学歴も社歴もリセットできるチャンス。思考OSをアップデートし100日でキャリア下剋上を実現するロードマップを解説。4月16日(木) 20:00〜21:00 無料オンライン開催。",
+    ogImageAlt: "AIキャリアハックセミナー 4月16日",
+  },
+
+  // ── 過去のセミナー ──
   {
     slug: "ai-career-anxiety",
     title: "「このままで大丈夫？」を解消するAIキャリア戦略",
@@ -19,7 +65,7 @@ export const seminars: SeminarData[] = [
     heroCopy:
       "「何をすればいいかわからない」その不安を、行動に変えるロードマップ",
     googleFormUrl: GOOGLE_FORM_URL,
-    ended: false,
+    ended: true,
     hasLandingPage: true,
     metaTitle:
       "「このままで大丈夫？」を解消するAIキャリア戦略 | AI REBOOT",
@@ -41,7 +87,7 @@ export const seminars: SeminarData[] = [
     heroCopy:
       "「AIを使える」だけでは武器にならない。差がつくのは、思考のOS",
     googleFormUrl: GOOGLE_FORM_URL,
-    ended: false,
+    ended: true,
     hasLandingPage: true,
     metaTitle: "AIを「武器」に変える人のキャリア戦略 | AI REBOOT",
     metaDescription:
@@ -62,7 +108,7 @@ export const seminars: SeminarData[] = [
     heroCopy:
       "生成AIは、あなたのキャリアを「リセット＆リビルド」する最強の武器になる",
     googleFormUrl: GOOGLE_FORM_URL,
-    ended: false,
+    ended: true,
     hasLandingPage: true,
     metaTitle:
       "学歴も社歴もリセット。AI時代のキャリア再設計 | AI REBOOT",
@@ -83,7 +129,7 @@ export const seminars: SeminarData[] = [
     place: "オンライン（Zoom）",
     heroCopy: "先行者利益を取れる窓は「今」閉じ始めている",
     googleFormUrl: GOOGLE_FORM_URL,
-    ended: false,
+    ended: true,
     hasLandingPage: true,
     metaTitle:
       "「今なら」間に合う。AI時代のキャリア生存戦略 | AI REBOOT",
@@ -91,8 +137,6 @@ export const seminars: SeminarData[] = [
       "生成AIの波は待ってくれません。先行者利益が取れる窓が閉じる前に、キャリア下剋上のロードマップを手に入れましょう。4月1日(水) 20:00〜21:00 無料オンライン開催。",
     ogImageAlt: "AIキャリア生存戦略セミナー 4月1日",
   },
-
-  // ── 過去のセミナー ──
   {
     slug: "career-design",
     title: "生成AI時代のキャリア設計論",

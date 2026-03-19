@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useCallback, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { trackEvent } from '@/lib/analytics'
 import './webtoon.css'
 
 // 漫画の画像データ
@@ -54,7 +54,7 @@ export default function WebtoonPageClient() {
   const [showStickyFooter, setShowStickyFooter] = useState(false)
   const [currentTeaser, setCurrentTeaser] = useState<{ teaser: string; text: string } | null>(null)
   const [glowIntensity, setGlowIntensity] = useState(0) // 0〜1の輝き強度
-  const [isBelowForm, setIsBelowForm] = useState(false) // フォームより下にいるかどうか
+  const lineUrl = 'https://bexn9pao.autosns.app/line?src=webtoon'
 
   // スクロールプログレスと固定フッターの表示を更新
   const updateScrollProgress = useCallback(() => {
@@ -81,16 +81,12 @@ export default function WebtoonPageClient() {
     setGlowIntensity(intensity)
 
     // 固定フッターの表示制御
-    const formSection = document.getElementById('register-form')
+    const ctaSection = document.getElementById('cta')
     const shouldShow = scrollPercent >= 15 && activeTeaser !== null
-    if (formSection) {
-      const formRect = formSection.getBoundingClientRect()
-      const formVisible = formRect.top < window.innerHeight && formRect.bottom > 0
-      // フォームより下にいるかどうかを判定
-      const belowForm = formRect.bottom < 0
-      setIsBelowForm(belowForm)
-      // フォームが見えているときは非表示、見えていないときは表示
-      setShowStickyFooter(shouldShow && !formVisible)
+    if (ctaSection) {
+      const ctaRect = ctaSection.getBoundingClientRect()
+      const ctaVisible = ctaRect.top < window.innerHeight && ctaRect.bottom > 0
+      setShowStickyFooter(shouldShow && !ctaVisible)
     } else {
       setShowStickyFooter(shouldShow)
     }
@@ -373,190 +369,28 @@ export default function WebtoonPageClient() {
             </p>
           </div>
 
-          {/* ===== 30秒セルフ診断 ===== */}
-          <div className="wt-diagnosis">
-            <p className="wt-diagnosis-label">30秒セルフ診断</p>
-            <h3 className="wt-diagnosis-title">今、どの言葉が一番響きましたか？</h3>
-
-            <div className="wt-diagnosis-options">
-              <div className="wt-diagnosis-option">
-                <div className="wt-diagnosis-choice">
-                  <span className="wt-diagnosis-letter">A</span>
-                  <span>「AIに仕事を奪われるかも…」という今治の焦り</span>
-                </div>
-                <p className="wt-diagnosis-comment">→ その焦りは、変化への準備が整っている証拠です</p>
-              </div>
-
-              <div className="wt-diagnosis-option">
-                <div className="wt-diagnosis-choice">
-                  <span className="wt-diagnosis-letter">B</span>
-                  <span>「代わりのきく毎日」という言葉へのモヤモヤ</span>
-                </div>
-                <p className="wt-diagnosis-comment">→ 違和感に気づけるあなたは、すでに一歩先にいます</p>
-              </div>
-
-              <div className="wt-diagnosis-option">
-                <div className="wt-diagnosis-choice">
-                  <span className="wt-diagnosis-letter">C</span>
-                  <span>池上先輩のような「AIを味方につける」生き方への憧れ</span>
-                </div>
-                <p className="wt-diagnosis-comment">→ 憧れを行動に変える方法、お伝えします</p>
-              </div>
-
-              <div className="wt-diagnosis-option">
-                <div className="wt-diagnosis-choice">
-                  <span className="wt-diagnosis-letter">D</span>
-                  <span>「100日で変われる」という希望</span>
-                </div>
-                <p className="wt-diagnosis-comment">→ 100日後の自分、一緒に設計しませんか？</p>
-              </div>
-            </div>
-
-            <p className="wt-diagnosis-result">
-              どれを選んでも、答えは同じ。<br />
-              <strong>あなたには「次の一歩」を踏み出す準備ができています。</strong>
-            </p>
-          </div>
-
-          {/* ===== セミナーの価値提示 ===== */}
-          <div className="wt-value">
-            <p className="wt-value-label">無料オンラインセミナー</p>
-            <h3 className="wt-value-title">
-              <span className="highlight-gold">生成AI時代のキャリア設計論</span>
+          {/* ===== LINE登録CTA ===== */}
+          <div className="wt-line-cta">
+            <p className="wt-line-cta-label">＼ 登録30秒・匿名OK・勧誘なし ／</p>
+            <h3 className="wt-line-cta-title">
+              あなたが使うべきAIを、<br />
+              <span className="highlight-gold">30秒で診断します</span>
             </h3>
-            <p className="wt-value-subtitle">1時間で得られること</p>
-
-            <div className="wt-value-points">
-              <div className="wt-value-point">
-                <span className="wt-value-number">01</span>
-                <div className="wt-value-content">
-                  <strong>「思考OS」のアップデート法</strong>
-                  <p>ツールに依存しない、本質的な強みの作り方</p>
-                </div>
-              </div>
-
-              <div className="wt-value-point">
-                <span className="wt-value-number">02</span>
-                <div className="wt-value-content">
-                  <strong>100日で変わるロードマップ</strong>
-                  <p>今治が辿った道を、あなた用にカスタマイズ</p>
-                </div>
-              </div>
-
-              <div className="wt-value-point">
-                <span className="wt-value-number">03</span>
-                <div className="wt-value-content">
-                  <strong>AI時代の「走り方」</strong>
-                  <p>AIを敵ではなく&quot;チームメイト&quot;にする考え方</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* ===== やらないこと宣言 ===== */}
-          <div className="wt-trust">
-            <h4 className="wt-trust-title">このセミナーで「やらないこと」</h4>
-            <ul className="wt-trust-list">
-              <li>
-                <span className="wt-trust-x">✕</span>
-                <span>AIツールの操作説明会ではありません</span>
-              </li>
-              <li>
-                <span className="wt-trust-x">✕</span>
-                <span>高額プログラムへの売り込みはしません</span>
-              </li>
-              <li>
-                <span className="wt-trust-x">✕</span>
-                <span>「すぐ稼げる」系の話もしません</span>
-              </li>
-            </ul>
-            <p className="wt-trust-message">
-              私たちがお伝えするのは、<br />
-              AI時代を自分らしく生き抜くための<strong>「土台」</strong>の作り方です。
+            <p className="wt-line-cta-description">
+              LINEに登録して30秒の診断に答えるだけで、ChatGPTやGeminiだけでなく、数十種類の最新AIの中からあなたに最適なAIツール3選がわかります。さらに無料の攻略本もすぐに届きます。
             </p>
-          </div>
-
-          {/* ===== 開催概要 ===== */}
-          <div id="event-section" className="wt-event">
-            <h4 className="wt-event-title">AI時代のキャリア設計セミナー開催概要</h4>
-            <div className="wt-event-details">
-              <div className="wt-event-row">
-                <span className="wt-event-label">日時</span>
-                <span className="wt-event-value">1月18日（日）20:00〜21:00</span>
-              </div>
-              <div className="wt-event-row">
-                <span className="wt-event-label">形式</span>
-                <span className="wt-event-value">オンライン（Zoom）</span>
-              </div>
-              <div className="wt-event-row">
-                <span className="wt-event-label">参加費</span>
-                <span className="wt-event-value highlight">完全無料</span>
-              </div>
-              <div className="wt-event-row">
-                <span className="wt-event-label">視聴URL</span>
-                <span className="wt-event-value">お申込み後にメールでお届け</span>
-              </div>
-            </div>
-            <p className="wt-event-note">
-              ※ 当日ご都合が合わない方も、<strong>アーカイブ配信</strong>でご視聴いただけます
-            </p>
-          </div>
-
-          {/* ===== 申込みフォーム埋め込み ===== */}
-          <div id="register-form" className="wt-register-form">
-            <h4 className="wt-register-form-title">セミナーに申し込む</h4>
-            <div className="wt-register-form-container">
-              <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSf8nTvEXBRIJSzcb_4SbMrwPi5NKx9_ihR6kzjYeCu1ngKrdA/viewform?embedded=true"
-                width="100%"
-                height="800"
-                frameBorder="0"
-                marginHeight={0}
-                marginWidth={0}
-                title="セミナー申込みフォーム"
-              >
-                読み込んでいます…
-              </iframe>
-            </div>
-          </div>
-
-          {/* ===== FAQ ===== */}
-          <div className="wt-faq">
-            <h4 className="wt-faq-title">よくあるご質問</h4>
-
-            <div className="wt-faq-item">
-              <p className="wt-faq-q">Q. 参加後、何か売り込まれませんか？</p>
-              <p className="wt-faq-a">
-                A. いいえ。セミナー内での勧誘は一切ありません。<br />
-                ご興味があれば後日ご案内をお送りしますが、強引なセールスはいたしません。
-              </p>
-            </div>
-
-            <div className="wt-faq-item">
-              <p className="wt-faq-q">Q. 当日参加できない場合は？</p>
-              <p className="wt-faq-a">
-                A. アーカイブ動画をお届けします。<br />
-                お申込みいただければ、後日メールで視聴リンクをお送りします。
-              </p>
-            </div>
-
-            <div className="wt-faq-item">
-              <p className="wt-faq-q">Q. 参加後、キャリアの相談はできますか？</p>
-              <p className="wt-faq-a">
-                A. はい。ご希望の方には、<strong>国家資格キャリアコンサルタントによる無料面談</strong>をご案内しております。<br />
-                セミナー視聴後、お気軽にお申し付けください。
-              </p>
-            </div>
-          </div>
-
-          {/* ===== セミナー詳細リンク ===== */}
-          <div className="wt-sub-cta">
-            <Link href="/seminars/career-design" className="wt-sub-cta-link">
-              <span>セミナー詳細・講師プロフィールを見る</span>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <a
+              href={lineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent.lineRegisterClick('webtoon_cta')}
+              className="wt-line-cta-button"
+            >
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
               </svg>
-            </Link>
+              <span>LINEで無料AI診断をはじめる</span>
+            </a>
           </div>
 
         </div>
@@ -567,35 +401,23 @@ export default function WebtoonPageClient() {
         {currentTeaser && (
           <>
             <p className="wt-sticky-teaser">{currentTeaser.teaser}</p>
-            <button
-              onClick={() => {
-                // 溜めエフェクト：まず下に移動
-                window.scrollBy({ top: 3000, behavior: 'smooth' })
-
-                // 500ms後にフォームへジャンプ
-                setTimeout(() => {
-                  const formSection = document.getElementById('register-form')
-                  if (formSection) {
-                    formSection.scrollIntoView({ behavior: 'instant', block: 'start' })
-                  }
-                }, 500)
-              }}
+            <a
+              href={lineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent.lineRegisterClick('webtoon_sticky')}
               className="wt-sticky-button"
               style={{
-                boxShadow: `0 4px ${15 + glowIntensity * 35}px rgba(245, 158, 11, ${0.4 + glowIntensity * 0.5}), 0 0 ${glowIntensity * 60}px rgba(255, 200, 50, ${glowIntensity * 0.8}), 0 0 ${glowIntensity * 100}px rgba(255, 220, 100, ${glowIntensity * 0.4})`,
-                textShadow: glowIntensity > 0.2 ? `0 0 ${glowIntensity * 20}px rgba(255, 255, 255, ${glowIntensity}), 0 0 ${glowIntensity * 40}px rgba(255, 230, 150, ${glowIntensity * 0.6})` : 'none',
+                boxShadow: `0 4px ${15 + glowIntensity * 35}px rgba(6, 199, 85, ${0.4 + glowIntensity * 0.5}), 0 0 ${glowIntensity * 60}px rgba(6, 199, 85, ${glowIntensity * 0.8}), 0 0 ${glowIntensity * 100}px rgba(100, 230, 150, ${glowIntensity * 0.4})`,
+                textShadow: glowIntensity > 0.2 ? `0 0 ${glowIntensity * 20}px rgba(255, 255, 255, ${glowIntensity}), 0 0 ${glowIntensity * 40}px rgba(200, 255, 200, ${glowIntensity * 0.6})` : 'none',
                 transform: glowIntensity > 0.7 ? `scale(${1 + (glowIntensity - 0.7) * 0.05})` : undefined,
               }}
             >
-              <span>{isBelowForm ? 'セミナーに申し込む' : currentTeaser.text}</span>
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isBelowForm ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                )}
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
               </svg>
-            </button>
+              <span>LINEで無料AI診断をはじめる</span>
+            </a>
           </>
         )}
       </div>
