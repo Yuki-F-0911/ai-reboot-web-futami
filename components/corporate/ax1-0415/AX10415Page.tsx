@@ -35,6 +35,16 @@ type Testimonial = {
     name: string;
     role: string;
     industry: string;
+    image?: string;
+};
+
+type Speaker = {
+    id: string;
+    name: string;
+    role: string;
+    company: string[];
+    bio: string;
+    image: string;
 };
 
 const navItems: NavItem[] = [
@@ -131,25 +141,53 @@ const audienceItems: AudienceItem[] = [
     { text: "中小企業向けのAI活用ノウハウと、実践的な経営者ネットワークを得たい" },
 ];
 
+const speakers: Speaker[] = [
+    {
+        id: 'naruse',
+        name: '成瀬 拓也',
+        role: 'AIリブートアカデミー主宰 / ビジネスプロデューサー',
+        company: [
+            '株式会社ウィルフォワード 代表取締役',
+            '株式会社Lively 共同創業者CSO',
+            '筑波大学 非常勤講師',
+        ],
+        bio: '経営者として複数の事業を創出しながら、経済産業省認定リスキリング講座「AIリブートアカデミー」を主宰。ホラクラシー経営やティール組織など次世代の組織開発を実践し、「AI時代のキャリア戦略」を発信。',
+        image: '/images/naruse.jpg',
+    },
+    {
+        id: 'iwamoto',
+        name: '岩本 和也',
+        role: '「AIのある暮らし」主宰 / 映像クリエイター',
+        company: [
+            'AI×動画マーケティング総合研究所 主宰',
+            '学校法人 杉野学園 ドレスメーカー学院 特別講師',
+        ],
+        bio: '「しごとや暮らしに役立つ生成AI」をテーマに情報発信。毎週「週刊 AIのニュース」を発行、月1回「AIの勉強会」を開催。AI×動画マーケティングの実践者として、クリエイティブ分野でのAI活用を牽引。',
+        image: '/images/iwamoto.jpg',
+    },
+];
+
 const testimonials: Testimonial[] = [
     {
         quote: "この歳で感動とか興奮とかって、日々薄れていくものなんですけど、今日は本当に感動しました。AIって、知ってるか知らないかで大きく変わる世界だと思ってます。",
         highlight: "みんなに受けてもらいたい。一人でも多くの方にAIに触れてもらいたいし、知ってもらいたいな。",
-        name: "山田 様",
+        name: "山田 宜義 様",
         role: "代表取締役",
-        industry: "サービス業",
+        industry: "ヤマインターナショナル株式会社",
+        image: "/images/corporate/ax1-special/voice-yamada.jpg",
     },
     {
         quote: "AIのやり方の羅列の1日であれば、正直半日も持たなかったと思う。でも、経営者としての在り方、落とし穴、そして絶対に必要なスキルであること──全部理解できた。",
         highlight: "社員を送るだけじゃなくて、まずトップが感じてもらうことが大事。ちょっと最近壁にぶつかっている経営者の方々にぜひトライしてもらいたい。",
-        name: "小松 様",
-        role: "代表取締役社長",
-        industry: "食品製造・輸出業（ASEAN展開）",
+        name: "小松 伸克 様",
+        role: "会長",
+        industry: "小松水産株式会社",
+        image: "/images/corporate/ax1-special/voice-komatsu.jpg",
     },
     {
-        quote: "今まではAIを使う環境じゃなかったのが、皆さんが使うのが当たり前という環境に入らせていただいたことで、変わりました。",
-        highlight: "先日、初めてLP（ランディングページ）を自分で作れました。「自分のWillをもっと出していけるチャンスを知れた」という感覚がありました。",
-        name: "K.K 様",
+        quote: "本当にこんなことまでできるんだってびっくりしました。フォルダ整理もあっという間にしてくれて、それって私がスタッフに頼んでることなんです。スタッフがこれを知ってれば、人がやる必要もない。",
+        highlight: "実作業者も知った方がいいし、指示を出す側もこういうツールがある前提で仕事を頼んだ方がいい。トップから末端まで、幅広でみんなが使っていけたらすごくいいなと感じました。",
+        name: "R.N 様",
         role: "経営者",
         industry: "サービス業",
     },
@@ -522,8 +560,19 @@ export default function AX10415Page() {
                                     {t.highlight}
                                 </blockquote>
                                 <div className={styles.voiceAttribution}>
-                                    <span className={styles.voiceName}>{t.name}</span>
-                                    <span className={styles.voiceRole}>{t.role}｜{t.industry}</span>
+                                    {t.image && (
+                                        <Image
+                                            src={t.image}
+                                            alt={t.name}
+                                            width={48}
+                                            height={48}
+                                            className={styles.voiceAvatar}
+                                        />
+                                    )}
+                                    <div>
+                                        <span className={styles.voiceName}>{t.name}</span>
+                                        <span className={styles.voiceRole}>{t.industry} {t.role}</span>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -563,33 +612,27 @@ export default function AX10415Page() {
                         <span className={styles.headingAccent}>登壇者</span>
                     </h2>
                     <div className={`${styles.speakersGrid} ${styles.revealTrigger} ${styles.delay100}`}>
-                        <div className={styles.speakerCard}>
-                            <div className={styles.speakerImage}>
-                                <Image
-                                    src="/images/naruse.jpg"
-                                    alt="成瀬 拓也"
-                                    fill
-                                    sizes="(max-width: 768px) 6rem, 8rem"
-                                    className={styles.speakerImg}
-                                />
+                        {speakers.map((speaker) => (
+                            <div key={speaker.id} className={styles.speakerCard}>
+                                <div className={styles.speakerImage}>
+                                    <Image
+                                        src={speaker.image}
+                                        alt={speaker.name}
+                                        fill
+                                        sizes="(max-width: 768px) 6rem, 8rem"
+                                        className={styles.speakerImg}
+                                    />
+                                </div>
+                                <p className={styles.speakerRole}>{speaker.role}</p>
+                                <h3 className={styles.speakerName}>{speaker.name}</h3>
+                                <div className={styles.speakerCompany}>
+                                    {speaker.company.map((line) => (
+                                        <p key={line}>{line}</p>
+                                    ))}
+                                </div>
+                                <p className={styles.speakerBio}>{speaker.bio}</p>
                             </div>
-                            <p className={styles.speakerRole}>AIリブートアカデミー主宰</p>
-                            <h3 className={styles.speakerName}>成瀬 拓也</h3>
-                        </div>
-
-                        <div className={styles.speakerCard}>
-                            <div className={styles.speakerImage}>
-                                <Image
-                                    src="/images/iwamoto.jpg"
-                                    alt="岩本 和也"
-                                    fill
-                                    sizes="(max-width: 768px) 6rem, 8rem"
-                                    className={styles.speakerImg}
-                                />
-                            </div>
-                            <p className={styles.speakerRole}>「AIのある暮らし」主宰</p>
-                            <h3 className={styles.speakerName}>岩本 和也</h3>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
