@@ -16,6 +16,10 @@ export const Footer: React.FC = () => {
     setCurrentYear(new Date().getFullYear());
   }, []);
 
+  if (pathname === '/line-diagnostic' || pathname?.startsWith('/seminars/') || pathname === '/webtoon' || pathname?.startsWith('/corporate/ax1')) {
+    return null;
+  }
+
   if (useAcademyFooter) {
     return <AcademyFooter />;
   }

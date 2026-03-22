@@ -7,6 +7,7 @@ import {
     InstructorSection,
     RegisterSection,
 } from "@/components/seminar/career-design-ad";
+import { VoicesSection } from "@/components/seminar/template";
 
 export const metadata: Metadata = {
     title: "スキル依存からの脱却 - AI時代のキャリア設計セミナー | AI REBOOT",
@@ -42,6 +43,7 @@ export default function CareerDesignAdPage() {
             <SolutionSection />
             <TargetSection />
             <InstructorSection />
+            <VoicesSection />
             <RegisterSection />
         </>
     );

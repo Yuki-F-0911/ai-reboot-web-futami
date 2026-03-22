@@ -9,6 +9,7 @@ const MOBILE_STICKY_BAR_HIDDEN_PATH_PATTERNS = [
   /^\/contact(\/|$)/,
   /^\/webtoon(\/|$)/,
   /^\/rebooters(\/|$)/,
+  /^\/line-diagnostic(\/|$)/,
 ]
 
 const shouldHideMobileStickyBar = (pathname: string) =>

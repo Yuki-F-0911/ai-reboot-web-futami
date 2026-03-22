@@ -7,6 +7,7 @@ import {
     InstructorSection,
     RegisterSection,
 } from "@/components/seminar/career-design";
+import { VoicesSection } from "@/components/seminar/template";
 
 export const metadata: Metadata = {
     title: "生成AI時代のキャリア設計論 | AI REBOOT - ウィルフォワード",
@@ -42,6 +43,7 @@ export default function CareerDesignSeminarPage() {
             <SolutionSection />
             <TargetSection />
             <InstructorSection />
+            <VoicesSection />
             <RegisterSection />
         </>
     );

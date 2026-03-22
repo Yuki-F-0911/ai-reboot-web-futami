@@ -7,6 +7,7 @@ import {
     SolutionSection,
     TargetSection,
     InstructorSection,
+    VoicesSection,
     RegisterSection,
 } from "@/components/seminar/template";
 
@@ -81,6 +82,7 @@ export default async function SeminarPage({ params }: Props) {
             <SolutionSection />
             <TargetSection />
             <InstructorSection />
+            <VoicesSection />
             <RegisterSection
                 title={seminar.title}
                 dateShort={seminar.dateShort}
