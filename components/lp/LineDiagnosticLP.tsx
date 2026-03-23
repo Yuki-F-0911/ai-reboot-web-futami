@@ -2,34 +2,62 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { MessageCircle, ArrowRight, ChevronDown, Check, Shield, Clock, Zap, BookOpen, Sparkles } from "lucide-react";
-import { useState } from "react";
+import {
+  MessageCircle,
+  ArrowRight,
+  ChevronDown,
+  Check,
+  Shield,
+  Clock,
+  Zap,
+  BookOpen,
+  Sparkles,
+  Users,
+  Target,
+  TrendingUp,
+  FileText,
+  Lightbulb,
+  BarChart3,
+  Briefcase,
+} from "lucide-react";
+import { useState, type ReactNode } from "react";
 import { trackEvent } from "@/lib/analytics";
 
 const LINE_URL = "https://bexn9pao.autosns.app/line?src=lp_line_diagnostic";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: (i: number) => ({
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
-  }),
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  },
+};
+
+const stagger = {
+  visible: { transition: { staggerChildren: 0.12 } },
 };
 
 function LineButton({
   label = "LINEに追加して無料診断を受ける",
   size = "default",
   analyticsSource = "lp_line_diagnostic",
+  variant = "solid",
 }: {
   label?: string;
   size?: "default" | "large";
   analyticsSource?: string;
+  variant?: "solid" | "dark";
 }) {
   const sizeClasses =
     size === "large"
-      ? "px-10 py-5 text-lg sm:text-xl"
-      : "px-8 py-4 text-base sm:text-lg";
+      ? "px-10 py-5 text-base sm:text-lg gap-3"
+      : "px-8 py-4 text-sm sm:text-base gap-2.5";
+
+  const colorClasses =
+    variant === "dark"
+      ? "bg-slate-900 hover:bg-slate-800 text-white"
+      : "bg-[#06C755] hover:bg-[#05b64d] text-white";
 
   return (
     <motion.a
@@ -37,132 +65,117 @@ function LineButton({
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => trackEvent.lineRegisterClick(analyticsSource)}
-      whileHover={{ scale: 1.03, y: -2 }}
+      whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className={`inline-flex items-center justify-center gap-3 rounded-full bg-[#06C755] font-bold text-white shadow-[0_6px_24px_rgba(6,199,85,0.35)] transition-shadow hover:shadow-[0_12px_40px_rgba(6,199,85,0.45)] ${sizeClasses}`}
+      className={`inline-flex items-center justify-center rounded-full font-bold shadow-lg transition-colors ${sizeClasses} ${colorClasses}`}
     >
-      <MessageCircle className="h-6 w-6 fill-white" />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
+        <path
+          d="M12 2C6.48 2 2 5.92 2 10.72c0 3.3 2.1 6.18 5.22 7.8-.22.82-.8 2.98-.92 3.44-.15.57.21.56.44.41.18-.11 2.86-1.9 4.02-2.68.38.05.77.08 1.17.08 5.52 0 10-3.92 10-8.72C22 5.92 17.52 2 12 2Z"
+          fill="currentColor"
+        />
+      </svg>
       <span>{label}</span>
-      <ArrowRight className="h-5 w-5 opacity-70" />
+      <ArrowRight className="h-4 w-4 opacity-60" />
     </motion.a>
   );
 }
 
-function SectionTag({ children }: { children: React.ReactNode }) {
+function Section({
+  children,
+  className = "",
+  id,
+}: {
+  children: ReactNode;
+  className?: string;
+  id?: string;
+}) {
   return (
-    <span className="inline-block rounded-full bg-emerald-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-emerald-700">
-      {children}
-    </span>
+    <section id={id} className={`px-5 sm:px-8 ${className}`}>
+      <div className="mx-auto max-w-5xl">{children}</div>
+    </section>
   );
 }
 
+/* ──────────────────────────────────────────────
+   1. HERO — Dark bg + 悩む30代男性ビジュアル（AIアイコン浮遊）
+   ────────────────────────────────────────────── */
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <section className="relative overflow-hidden bg-[#0b1628]">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/4 top-1/4 h-[500px] w-[500px] rounded-full bg-emerald-500/10 blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 h-[400px] w-[400px] rounded-full bg-lime-400/8 blur-[100px]" />
+        <div className="absolute -right-20 top-1/4 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[120px]" />
+        <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-cyan-500/8 blur-[100px]" />
       </div>
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-5 pb-16 pt-16 text-center sm:pb-24 sm:pt-20 lg:flex-row lg:gap-12 lg:px-8 lg:text-left">
-        <div className="flex-1">
-          <motion.div
-            variants={fadeUp}
+      <div className="relative mx-auto flex max-w-5xl flex-col justify-center gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:min-h-[560px] lg:flex-row lg:items-center lg:gap-12 lg:py-28">
+        <div className="flex-1 lg:max-w-xl">
+          <motion.p
+            variants={fadeIn}
             initial="hidden"
             animate="visible"
-            custom={0}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-sm font-semibold text-emerald-300"
+            className="mb-5 text-sm font-semibold tracking-wider text-blue-400"
           >
-            <Sparkles className="h-4 w-4" />
-            完全無料・登録1分
-          </motion.div>
+            完全無料 ／ 登録30秒 ／ 個人情報不要
+          </motion.p>
 
           <motion.h1
-            variants={fadeUp}
+            variants={fadeIn}
             initial="hidden"
             animate="visible"
-            custom={1}
-            className="mb-6 text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
+            transition={{ delay: 0.15 }}
+            className="mb-6 font-serif text-3xl font-black leading-[1.35] tracking-tight text-white sm:text-4xl lg:text-5xl"
           >
-            ChatGPT、使ってみたけど
+            あなたの仕事に合う
             <br />
-            <span className="relative inline-block">
-              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-lime-300">
-                結局どれ使えばいいの？
-              </span>
-              <span className="absolute bottom-0 left-0 h-3 w-full rounded bg-emerald-500/20" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+              AIツールTOP3
             </span>
+            を、
             <br />
-            を解決します。
+            無料で診断します。
           </motion.h1>
 
           <motion.p
-            variants={fadeUp}
+            variants={fadeIn}
             initial="hidden"
             animate="visible"
-            custom={2}
-            className="mb-8 max-w-lg text-base leading-relaxed text-slate-300 sm:text-lg"
+            transition={{ delay: 0.3 }}
+            className="mb-10 max-w-lg text-base leading-relaxed text-slate-300 sm:text-lg"
           >
-            職種・作業・レベルに合わせて
-            <strong className="text-white">あなた専用のAIツールTOP3</strong>
-            を無料で診断。
+            LINEで友だち追加 → 4問に答えるだけ。
             <br />
-            LINEに追加して、たった4問答えるだけ。
+            診断結果と攻略本PDFがすぐ届きます。
           </motion.p>
 
           <motion.div
-            variants={fadeUp}
+            variants={fadeIn}
             initial="hidden"
             animate="visible"
-            custom={3}
-            className="mb-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
-          >
-            {[
-              { num: "1", text: "LINE追加" },
-              { num: "2", text: "4問診断" },
-              { num: "3", text: "結果＋PDF受取" },
-            ].map((step, i) => (
-              <div key={step.num} className="flex items-center gap-2">
-                {i > 0 && (
-                  <ArrowRight className="h-4 w-4 text-emerald-400/60" />
-                )}
-                <span className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-bold text-white backdrop-blur-sm">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-white">
-                    {step.num}
-                  </span>
-                  {step.text}
-                </span>
-              </div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={4}
+            transition={{ delay: 0.45 }}
+            className="flex flex-col items-start gap-4"
           >
             <LineButton size="large" analyticsSource="lp_hero" />
-            <p className="mt-4 flex items-center justify-center gap-1.5 text-sm text-slate-400 lg:justify-start">
-              <Shield className="h-4 w-4" />
-              個人情報の入力は不要です
+            <p className="flex items-center gap-2 text-xs text-slate-400">
+              <Shield className="h-3.5 w-3.5" />
+              クレジットカード・メールアドレスの入力は不要です
             </p>
           </motion.div>
         </div>
 
         <motion.div
-          variants={fadeUp}
+          variants={fadeIn}
           initial="hidden"
           animate="visible"
-          custom={3}
-          className="mt-12 w-full max-w-md flex-shrink-0 lg:mt-0 lg:max-w-lg"
+          transition={{ delay: 0.2 }}
+          className="relative mx-auto w-full max-w-md flex-shrink-0 lg:mx-0 lg:max-w-lg"
         >
           <Image
-            src="/images/lp/line-diagnostic/hero.png"
-            alt="AIツール診断イメージ"
-            width={1024}
-            height={576}
-            className="rounded-2xl"
+            src="/images/lp/line-diagnostic/hero-nanobananapro.png"
+            alt="AIアイコンが頭の中で浮かび、どのツールを使えばよいか悩むビジネスパーソン"
+            width={1200}
+            height={900}
+            className="h-auto w-full rounded-2xl object-cover object-center shadow-2xl shadow-black/40"
             priority
           />
         </motion.div>
@@ -171,243 +184,337 @@ function HeroSection() {
   );
 }
 
+/* ──────────────────────────────────────────────
+   2. PAIN POINTS — Corporate card grid
+   ────────────────────────────────────────────── */
 function PainSection() {
   const pains = [
     {
-      icon: "😵",
-      text: "AIツールが多すぎてどれを使えばいいか分からない",
+      icon: <Target className="h-6 w-6" />,
+      title: "ツール選びで迷子",
+      desc: "ChatGPT、Claude、Gemini… 種類が多すぎてどれを使えばいいか分からない",
     },
     {
-      icon: "😓",
-      text: "ChatGPT触ったけど、仕事への活かし方が謎のまま",
+      icon: <Briefcase className="h-6 w-6" />,
+      title: "仕事に活かせない",
+      desc: "AIを触ってはみたが、実務でどう使えばいいか分からず放置している",
     },
     {
-      icon: "😰",
-      text: "周りがAI使い始めてて乗り遅れている気がする…",
+      icon: <TrendingUp className="h-6 w-6" />,
+      title: "周りに置いていかれる不安",
+      desc: "同僚や競合がAIで成果を出し始めていて、焦りを感じている",
     },
     {
-      icon: "🤔",
-      text: "有料プランにする価値があるのかどうか判断できない",
+      icon: <BarChart3 className="h-6 w-6" />,
+      title: "有料プランの判断がつかない",
+      desc: "無料で十分なのか、課金すべきなのか、判断材料がない",
     },
   ];
 
   return (
-    <section className="bg-slate-900 px-5 py-20 text-center sm:py-24">
-      <div className="mx-auto max-w-3xl">
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={0}
-          className="mb-3 text-2xl font-black text-white sm:text-3xl"
-        >
-          こんなお悩み、ありませんか？
-        </motion.h2>
+    <Section className="bg-white py-20 sm:py-28">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        className="text-center"
+      >
         <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={1}
-          className="mb-10 text-sm text-slate-400"
+          variants={fadeIn}
+          className="mb-2 text-sm font-bold tracking-widest text-blue-600"
         >
-          ChatGPT使ってみたものの、うまく活かせていない方へ
+          こんなお悩みはありませんか？
         </motion.p>
-
-        <div className="mb-10 grid gap-3 sm:grid-cols-2">
-          {pains.map((pain, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={i}
-              className="rounded-xl border border-white/8 bg-white/5 p-5 text-left backdrop-blur-sm"
-            >
-              <span className="mb-2 block text-2xl">{pain.icon}</span>
-              <p className="text-sm leading-relaxed text-slate-300">
-                「{pain.text}」
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={5}
-          className="inline-block rounded-xl bg-gradient-to-r from-emerald-500 to-lime-400 px-8 py-5 text-base font-black leading-relaxed text-slate-900 sm:text-lg"
+        <motion.h2
+          variants={fadeIn}
+          className="mb-14 font-serif text-2xl font-black text-slate-900 sm:text-3xl"
         >
-          💡 その悩み、
-          <strong>「自分に合ったツールが分かっていないだけ」</strong>
-          かもしれません。
-        </motion.div>
-      </div>
-    </section>
-  );
-}
+          AIを「なんとなく」使っていませんか
+        </motion.h2>
 
-function HowSection() {
-  const steps = [
-    {
-      num: "1",
-      icon: <MessageCircle className="h-5 w-5" />,
-      title: "LINEで友だち追加",
-      desc: "下のボタンをタップしてAIリブートアカデミーのLINEを追加。登録費用は一切かかりません。",
-    },
-    {
-      num: "2",
-      icon: <BookOpen className="h-5 w-5" />,
-      title: "4問のアンケートに答える",
-      desc: "職種・困っている作業・AIの使用歴・予算の4問だけ。所要時間は1〜2分です。",
-    },
-    {
-      num: "3",
-      icon: <Zap className="h-5 w-5" />,
-      title: "LINEに診断結果が届く",
-      desc: "あなた専用のAIツールTOP3と、各ツールの攻略本PDFがLINEに自動送信されます。",
-    },
-  ];
-
-  return (
-    <section className="bg-white px-5 py-20 sm:py-24">
-      <div className="mx-auto max-w-3xl text-center">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={0}
-          className="mb-12"
-        >
-          <SectionTag>使い方</SectionTag>
-          <h2 className="mt-3 text-2xl font-black text-slate-900 sm:text-3xl">
-            3ステップで診断完了
-          </h2>
-        </motion.div>
-
-        <div className="space-y-4">
-          {steps.map((step, i) => (
+        <div className="grid gap-5 sm:grid-cols-2">
+          {pains.map((p) => (
             <motion.div
-              key={step.num}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={i}
-              className="flex items-start gap-5 rounded-2xl border border-emerald-100 bg-emerald-50/50 p-6 text-left transition-shadow hover:shadow-lg hover:shadow-emerald-100/50"
+              key={p.title}
+              variants={fadeIn}
+              className="flex items-start gap-5 rounded-2xl border border-slate-100 bg-slate-50/60 p-6 text-left transition-shadow hover:shadow-md"
             >
-              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-emerald-500 text-xl font-extrabold text-white shadow-lg shadow-emerald-500/30">
-                {step.num}
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                {p.icon}
               </div>
               <div>
-                <h3 className="flex items-center gap-2 text-base font-bold text-slate-900 sm:text-lg">
-                  {step.icon}
-                  {step.title}
+                <h3 className="mb-1 text-base font-bold text-slate-900">
+                  {p.title}
                 </h3>
-                <p className="mt-1 text-sm leading-relaxed text-slate-500">
-                  {step.desc}
+                <p className="text-sm leading-relaxed text-slate-500">
+                  {p.desc}
                 </p>
               </div>
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+
+        <motion.div
+          variants={fadeIn}
+          className="mx-auto mt-12 max-w-2xl rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 px-8 py-6 text-center"
+        >
+          <p className="text-base font-bold leading-relaxed text-white sm:text-lg">
+            その悩みの原因は、
+            <span className="text-cyan-300">
+              「自分に合ったツールを知らないだけ」
+            </span>
+            かもしれません。
+          </p>
+        </motion.div>
+      </motion.div>
+    </Section>
   );
 }
 
-function QuestionsSection() {
-  const questions = [
+/* ──────────────────────────────────────────────
+   3. SOLUTION — What we offer
+   ────────────────────────────────────────────── */
+function SolutionSection() {
+  return (
+    <Section className="bg-slate-50 py-20 sm:py-28">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+      >
+        <motion.p
+          variants={fadeIn}
+          className="mb-2 text-center text-sm font-bold tracking-widest text-blue-600"
+        >
+          AIリブートアカデミーの無料診断
+        </motion.p>
+        <motion.h2
+          variants={fadeIn}
+          className="mb-6 text-center font-serif text-2xl font-black text-slate-900 sm:text-3xl"
+        >
+          職種×作業×レベルから導く
+          <br />
+          あなた専用のAIツールTOP3
+        </motion.h2>
+        <motion.p
+          variants={fadeIn}
+          className="mx-auto mb-14 max-w-2xl text-center text-sm leading-relaxed text-slate-500 sm:text-base"
+        >
+          17種類以上の最新AIツールの中から、あなたの職種・困っている作業・経験レベルをもとに、
+          本当に役立つツール3つを厳選してご提案します。
+        </motion.p>
+
+        <motion.div
+          variants={fadeIn}
+          className="mx-auto max-w-2xl space-y-5"
+        >
+            {[
+              {
+                icon: <Users className="h-5 w-5" />,
+                title: "あなた専用の診断結果",
+                desc: "4問のアンケートに答えるだけで、職種・目的に最適化されたAIツールTOP3を自動算出。",
+              },
+              {
+                icon: <FileText className="h-5 w-5" />,
+                title: "攻略本PDFも同時に届く",
+                desc: "診断結果と合わせて、各ツールの初期設定からプロンプト集まで網羅した攻略本を無料で配布。",
+              },
+              {
+                icon: <Lightbulb className="h-5 w-5" />,
+                title: "2026年最新情報に対応",
+                desc: "GPT-5.2、Claude 4.5、Gemini 2.5など最新モデルを含む17種類以上から選定。随時更新中。",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="flex items-start gap-4 rounded-xl border border-slate-100 bg-white p-5"
+              >
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="mb-1 text-sm font-bold text-slate-900">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-500">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+        </motion.div>
+      </motion.div>
+    </Section>
+  );
+}
+
+/* ──────────────────────────────────────────────
+   4. STEPS — Horizontal flow
+   ────────────────────────────────────────────── */
+function StepsSection() {
+  const steps = [
     {
-      q: "Q1",
-      label: "職種",
-      title: "あなたの職種に一番近いものは？",
-      options: [
-        "営業・マーケティング",
-        "事務・バックオフィス",
-        "エンジニア・IT・開発",
-        "クリエイター・デザイナー",
-      ],
+      num: "01",
+      title: "LINEで友だち追加",
+      desc: "ボタンをタップしてAIリブートアカデミーの公式LINEを追加。費用は一切かかりません。",
+      icon: <MessageCircle className="h-6 w-6" />,
     },
     {
-      q: "Q2",
-      label: "悩み",
-      title: "今、一番時間がかかっている作業は？",
-      options: [
-        "文章作成・メール・資料づくり",
-        "データ整理・分析・リサーチ",
-        "画像やデザインの作成",
-        "企画・アイデア出し",
-      ],
+      num: "02",
+      title: "4問のアンケートに回答",
+      desc: "職種・困っている作業・AI使用歴・予算の4問だけ。所要時間は約1分です。",
+      icon: <FileText className="h-6 w-6" />,
     },
     {
-      q: "Q3",
-      label: "レベル",
-      title: "今のAI活用レベルは？",
-      options: [
-        "ほとんど使ったことがない",
-        "ChatGPTを少し触ったことがある",
-        "日常的に使っているが活用しきれていない",
-      ],
-    },
-    {
-      q: "Q4",
-      label: "予算",
-      title: "AIツールにかけられる月額予算は？",
-      options: [
-        "無料がいい（0円）",
-        "月3,000円くらいまで",
-        "月5,000〜10,000円",
-      ],
+      num: "03",
+      title: "診断結果＋PDFを受取",
+      desc: "あなた専用のTOP3とツール攻略本PDFがLINEに自動送信されます。",
+      icon: <Zap className="h-6 w-6" />,
     },
   ];
 
   return (
-    <section className="bg-gradient-to-b from-emerald-50 to-white px-5 py-20 sm:py-24">
-      <div className="mx-auto max-w-3xl text-center">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={0}
-          className="mb-12"
+    <Section className="bg-white py-20 sm:py-28">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+      >
+        <motion.p
+          variants={fadeIn}
+          className="mb-2 text-center text-sm font-bold tracking-widest text-blue-600"
         >
-          <SectionTag>診断の中身</SectionTag>
-          <h2 className="mt-3 text-2xl font-black text-slate-900 sm:text-3xl">
-            聞かれるのはこの4問だけ
-          </h2>
+          ご利用の流れ
+        </motion.p>
+        <motion.h2
+          variants={fadeIn}
+          className="mb-14 text-center font-serif text-2xl font-black text-slate-900 sm:text-3xl"
+        >
+          3ステップで完了
+        </motion.h2>
+
+        <div className="grid gap-6 sm:grid-cols-3">
+          {steps.map((step, i) => (
+            <motion.div
+              key={step.num}
+              variants={fadeIn}
+              className="relative rounded-2xl border border-slate-100 bg-white p-7 text-center"
+            >
+              {i < steps.length - 1 && (
+                <div className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 sm:block">
+                  <ArrowRight className="h-5 w-5 text-slate-300" />
+                </div>
+              )}
+              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-900 text-white">
+                {step.icon}
+              </div>
+              <p className="mb-1 text-xs font-bold tracking-widest text-blue-600">
+                STEP {step.num}
+              </p>
+              <h3 className="mb-2 text-base font-bold text-slate-900">
+                {step.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-slate-500">
+                {step.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div variants={fadeIn} className="mt-12 text-center">
+          <LineButton analyticsSource="lp_steps" />
         </motion.div>
+      </motion.div>
+    </Section>
+  );
+}
+
+/* ──────────────────────────────────────────────
+   5. QUESTIONS — Preview the 4 questions
+   ────────────────────────────────────────────── */
+function QuestionsSection() {
+  const questions = [
+    {
+      num: "Q1",
+      label: "職種",
+      title: "あなたの職種に一番近いものは？",
+      options: ["営業・マーケティング", "事務・バックオフィス", "エンジニア・IT・開発", "クリエイター・デザイナー"],
+    },
+    {
+      num: "Q2",
+      label: "悩み",
+      title: "今、一番時間がかかっている作業は？",
+      options: ["文章作成・メール・資料づくり", "データ整理・分析・リサーチ", "画像やデザインの作成", "企画・アイデア出し"],
+    },
+    {
+      num: "Q3",
+      label: "レベル",
+      title: "今のAI活用レベルは？",
+      options: ["ほとんど使ったことがない", "ChatGPTを少し触ったことがある", "日常的に使っているが活用しきれていない"],
+    },
+    {
+      num: "Q4",
+      label: "予算",
+      title: "AIツールにかけられる月額予算は？",
+      options: ["無料がいい（0円）", "月3,000円くらいまで", "月5,000〜10,000円"],
+    },
+  ];
+
+  return (
+    <Section className="bg-slate-50 py-20 sm:py-28">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+      >
+        <motion.p
+          variants={fadeIn}
+          className="mb-2 text-center text-sm font-bold tracking-widest text-blue-600"
+        >
+          診断内容
+        </motion.p>
+        <motion.h2
+          variants={fadeIn}
+          className="mb-4 text-center font-serif text-2xl font-black text-slate-900 sm:text-3xl"
+        >
+          聞かれるのはこの4問だけ
+        </motion.h2>
+        <motion.p
+          variants={fadeIn}
+          className="mx-auto mb-14 max-w-lg text-center text-sm text-slate-500"
+        >
+          複雑な設問はありません。タップで選ぶだけの簡単なアンケートです。
+        </motion.p>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          {questions.map((q, i) => (
+          {questions.map((q) => (
             <motion.div
-              key={q.q}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={i}
-              className="rounded-2xl border border-emerald-100 bg-white p-5 text-left shadow-sm"
+              key={q.num}
+              variants={fadeIn}
+              className="rounded-2xl border border-slate-100 bg-white p-6"
             >
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-emerald-600">
-                {q.q} · {q.label}
-              </p>
-              <h3 className="mb-3 text-sm font-bold text-slate-800">
+              <div className="mb-3 flex items-center gap-2">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-900 text-xs font-bold text-white">
+                  {q.num}
+                </span>
+                <span className="text-xs font-bold tracking-wider text-slate-400">
+                  {q.label}
+                </span>
+              </div>
+              <h3 className="mb-4 text-sm font-bold text-slate-800">
                 {q.title}
               </h3>
               <div className="space-y-2">
                 {q.options.map((opt) => (
                   <div
                     key={opt}
-                    className="flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-2 text-xs text-slate-600"
+                    className="flex items-center gap-2.5 rounded-lg bg-slate-50 px-3 py-2.5 text-xs text-slate-600"
                   >
-                    <span className="h-3.5 w-3.5 flex-shrink-0 rounded-full border-2 border-emerald-400" />
+                    <span className="h-3 w-3 flex-shrink-0 rounded-full border-2 border-slate-300" />
                     {opt}
                   </div>
                 ))}
@@ -415,185 +522,69 @@ function QuestionsSection() {
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </Section>
   );
 }
 
-function ResultPreviewSection() {
-  return (
-    <section className="bg-white px-5 py-20 sm:py-24">
-      <div className="mx-auto max-w-4xl text-center">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={0}
-          className="mb-12"
-        >
-          <SectionTag>診断結果イメージ</SectionTag>
-          <h2 className="mt-3 text-2xl font-black text-slate-900 sm:text-3xl">
-            こんな診断結果が届きます
-          </h2>
-        </motion.div>
-
-        <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-12">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={1}
-            className="w-full max-w-sm flex-shrink-0"
-          >
-            <Image
-              src="/images/lp/line-diagnostic/result-phone.png"
-              alt="LINE診断結果イメージ"
-              width={800}
-              height={450}
-              className="rounded-2xl shadow-2xl shadow-slate-900/20"
-            />
-          </motion.div>
-
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={2}
-            className="w-full max-w-md overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 p-6 text-left sm:p-8"
-          >
-            <p className="mb-5 flex items-center gap-2 text-sm text-slate-400">
-              💼{" "}
-              <strong className="text-lime-300">
-                営業・マーケティング
-              </strong>{" "}
-              のあなたへの診断結果
-            </p>
-
-            <div className="mb-2 flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4">
-              <span className="text-xl">🥇</span>
-              <div>
-                <h4 className="text-sm font-bold text-white">
-                  ChatGPT（GPT-5.2）
-                </h4>
-                <p className="text-xs leading-relaxed text-slate-400">
-                  メール・資料・文章作成が最も手軽。日本語で指示するだけ
-                </p>
-              </div>
-            </div>
-
-            <div className="mb-2 flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 opacity-40 blur-[3px]">
-              <span className="text-xl">🥈</span>
-              <div>
-                <h4 className="text-sm font-bold text-white">●●●●●●</h4>
-                <p className="text-xs text-slate-400">
-                  あなたの回答によって変わります
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 opacity-40 blur-[3px]">
-              <span className="text-xl">🥉</span>
-              <div>
-                <h4 className="text-sm font-bold text-white">●●●●●●</h4>
-                <p className="text-xs text-slate-400">
-                  あなたの回答によって変わります
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-5 text-center">
-              <p className="mb-1 text-sm font-bold text-lime-300">
-                🎁 各ツールの攻略本PDFも一緒に届きます
-              </p>
-              <p className="text-xs text-slate-400">
-                診断を受けるとTOP3すべての結果が確認できます
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
+/* ──────────────────────────────────────────────
+   6. GIFT — PDF guides with image
+   ────────────────────────────────────────────── */
 function GiftSection() {
   const gifts = [
     {
-      icon: <BookOpen className="h-7 w-7 text-emerald-600" />,
+      icon: <BookOpen className="h-5 w-5 text-blue-600" />,
       title: "初期設定ガイド",
       desc: "アカウント作成から日本語設定まで画像付きで解説",
     },
     {
-      icon: <MessageCircle className="h-7 w-7 text-emerald-600" />,
+      icon: <MessageCircle className="h-5 w-5 text-blue-600" />,
       title: "仕事別プロンプト集",
-      desc: "コピペして使えるテンプレートが職種別に掲載",
+      desc: "コピペして使えるテンプレートを職種別に収録",
     },
     {
-      icon: <Sparkles className="h-7 w-7 text-emerald-600" />,
+      icon: <Sparkles className="h-5 w-5 text-blue-600" />,
       title: "無料活用の裏ワザ",
-      desc: "有料プランなしで使い倒すコツをまとめて紹介",
+      desc: "有料プランなしでも使い倒すコツをまとめて紹介",
     },
   ];
 
   return (
-    <section className="relative overflow-hidden border-y-2 border-dashed border-emerald-200 bg-emerald-50 px-5 py-20 sm:py-24">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-20 top-1/2 h-[300px] w-[300px] -translate-y-1/2 rounded-full bg-emerald-200/40 blur-[80px]" />
-        <div className="absolute -right-20 top-1/3 h-[250px] w-[250px] rounded-full bg-lime-200/30 blur-[80px]" />
-      </div>
-
-      <div className="relative mx-auto max-w-4xl text-center">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={0}
-          className="mb-3 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2 text-sm font-bold text-white"
+    <Section className="bg-white py-20 sm:py-28">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+      >
+        <motion.p
+          variants={fadeIn}
+          className="mb-2 text-center text-sm font-bold tracking-widest text-blue-600"
         >
-          🎁 アンケート回答の特典
-        </motion.div>
-
+          特典
+        </motion.p>
         <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={1}
-          className="mb-3 text-2xl font-black text-slate-900 sm:text-3xl"
+          variants={fadeIn}
+          className="mb-4 text-center font-serif text-2xl font-black text-slate-900 sm:text-3xl"
         >
           診断結果と一緒に
-          <br />
+          <br className="sm:hidden" />
           攻略本PDFをプレゼント
         </motion.h2>
-
         <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={2}
-          className="mb-10 text-sm leading-relaxed text-slate-500"
+          variants={fadeIn}
+          className="mx-auto mb-14 max-w-lg text-center text-sm text-slate-500"
         >
-          診断で選ばれたTOP3ツールの使い方を
-          <br />
-          初心者でもすぐ実践できる形でまとめました。
+          診断で選ばれたTOP3ツールの使い方を、初心者でもすぐ実践できる形でまとめました。
         </motion.p>
 
-        <div className="mb-10 flex flex-col items-center gap-8 lg:flex-row lg:gap-10">
+        <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-14">
           <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={3}
-            className="w-full max-w-sm flex-shrink-0"
+            variants={fadeIn}
+            className="w-full max-w-sm flex-shrink-0 lg:w-5/12"
           >
             <Image
-              src="/images/lp/line-diagnostic/gift-pdf.png"
+              src="/images/lp/line-diagnostic/guides.png"
               alt="攻略本PDFイメージ"
               width={800}
               height={450}
@@ -601,213 +592,182 @@ function GiftSection() {
             />
           </motion.div>
 
-          <div className="flex w-full flex-col gap-3">
-            {gifts.map((gift, i) => (
+          <div className="flex-1 space-y-4">
+            {gifts.map((gift) => (
               <motion.div
                 key={gift.title}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={i + 3}
-                className="flex items-start gap-4 rounded-xl border border-emerald-100 bg-white p-5 text-left shadow-sm"
+                variants={fadeIn}
+                className="flex items-start gap-4 rounded-xl border border-slate-100 bg-slate-50/60 p-5"
               >
-                <div className="mt-0.5 flex-shrink-0">{gift.icon}</div>
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-blue-50">
+                  {gift.icon}
+                </div>
                 <div>
-                  <h3 className="text-sm font-bold text-slate-800">
+                  <h3 className="mb-1 text-sm font-bold text-slate-900">
                     {gift.title}
                   </h3>
-                  <p className="mt-1 text-xs leading-relaxed text-slate-500">
+                  <p className="text-sm leading-relaxed text-slate-500">
                     {gift.desc}
                   </p>
                 </div>
               </motion.div>
             ))}
+
+            <motion.div variants={fadeIn} className="pt-2">
+              <LineButton
+                label="今すぐ無料診断を受ける"
+                analyticsSource="lp_gift"
+              />
+            </motion.div>
           </div>
         </div>
-
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={7}
-        >
-          <LineButton
-            label="今すぐ無料診断を受ける"
-            analyticsSource="lp_gift"
-          />
-        </motion.div>
-      </div>
-    </section>
+      </motion.div>
+    </Section>
   );
 }
 
+/* ──────────────────────────────────────────────
+   7. TOOLS — Pill grid
+   ────────────────────────────────────────────── */
 function ToolsSection() {
   const tools = [
-    "ChatGPT",
-    "Claude",
-    "Gemini",
-    "Perplexity AI",
-    "Midjourney",
-    "Canva AI",
-    "Runway",
-    "ElevenLabs",
-    "GitHub Copilot",
-    "Cursor",
-    "DeepSeek",
-    "Adobe Firefly",
-    "Kling",
-    "Sora",
+    "ChatGPT", "Claude", "Gemini", "Perplexity AI", "Midjourney",
+    "Canva AI", "Runway", "ElevenLabs", "GitHub Copilot", "Cursor",
+    "DeepSeek", "Adobe Firefly", "Kling", "Sora",
   ];
 
   return (
-    <section className="bg-white px-5 py-20 sm:py-24">
-      <div className="mx-auto max-w-3xl text-center">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={0}
-          className="mb-10"
+    <Section className="bg-slate-50 py-20 sm:py-28">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        className="text-center"
+      >
+        <motion.p
+          variants={fadeIn}
+          className="mb-2 text-sm font-bold tracking-widest text-blue-600"
         >
-          <SectionTag>対応ツール</SectionTag>
-          <h2 className="mt-3 text-2xl font-black text-slate-900 sm:text-3xl">
-            17種類以上のAIツールから
-            <br />
-            あなたに合う組み合わせを選定
-          </h2>
-        </motion.div>
+          対応ツール
+        </motion.p>
+        <motion.h2
+          variants={fadeIn}
+          className="mb-14 font-serif text-2xl font-black text-slate-900 sm:text-3xl"
+        >
+          17種類以上のAIツールから
+          <br />
+          最適な組み合わせを選定
+        </motion.h2>
 
         <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={1}
-          className="mb-6 flex flex-wrap justify-center gap-2"
+          variants={fadeIn}
+          className="mb-8 flex flex-wrap justify-center gap-2.5"
         >
           {tools.map((tool) => (
             <span
               key={tool}
-              className="rounded-full border border-emerald-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-emerald-400 hover:bg-emerald-50"
+              className="rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-blue-300 hover:bg-blue-50"
             >
               {tool}
             </span>
           ))}
-          <span className="rounded-full border border-dashed border-emerald-300 bg-emerald-50 px-4 py-2 text-sm font-bold text-emerald-600">
+          <span className="rounded-full border border-dashed border-blue-300 bg-blue-50 px-5 py-2.5 text-sm font-bold text-blue-600">
             + さらに追加中
           </span>
         </motion.div>
 
         <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={2}
-          className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-5 py-2 text-sm text-slate-600"
+          variants={fadeIn}
+          className="inline-flex items-center gap-2 text-sm text-slate-500"
         >
-          <Check className="h-4 w-4 text-emerald-500" />
+          <Check className="h-4 w-4 text-blue-500" />
           2026年最新情報をもとに選定・随時アップデート
         </motion.p>
-      </div>
-    </section>
+      </motion.div>
+    </Section>
   );
 }
 
+/* ──────────────────────────────────────────────
+   8. NEWSLETTER — LINE delivery content
+   ────────────────────────────────────────────── */
 function NewsletterSection() {
   const feeds = [
     {
-      icon: "🔥",
-      label: "週1配信 · 最新AI情報",
-      desc: "話題の新モデル・新ツールを速報。「これ知らなかったら損してた」レベルの情報だけをピックアップ",
+      icon: <Zap className="h-5 w-5" />,
+      label: "週1配信",
+      title: "最新AI情報",
+      desc: "話題の新モデル・新ツールを速報。知らないと損するレベルの情報だけを厳選。",
     },
     {
-      icon: "⚡",
-      label: "実践Tips · すぐ使えるワザ",
-      desc: "「今日の業務で試せる」AIプロンプトや時短テクを具体例つきで紹介",
+      icon: <Lightbulb className="h-5 w-5" />,
+      label: "実践Tips",
+      title: "すぐ使えるワザ",
+      desc: "「今日の業務で試せる」AIプロンプトや時短テクを具体例つきで紹介。",
     },
     {
-      icon: "📊",
-      label: "業界別 · AI活用事例",
-      desc: "営業・事務・クリエイターなど職種ごとの活用事例を配信",
+      icon: <BarChart3 className="h-5 w-5" />,
+      label: "業界別",
+      title: "AI活用事例",
+      desc: "営業・事務・クリエイターなど職種ごとの活用事例を配信。",
     },
     {
-      icon: "🎓",
-      label: "キャリア · AI時代の働き方",
-      desc: "AIに仕事を奪われる人・活かして差をつける人の違いとは",
+      icon: <Users className="h-5 w-5" />,
+      label: "キャリア",
+      title: "AI時代の働き方",
+      desc: "AIを活かして差をつけるビジネスパーソンの生存戦略を考える。",
     },
   ];
 
   return (
-    <section className="relative overflow-hidden bg-slate-900 px-5 py-20 sm:py-24">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-[15%] top-1/2 h-[300px] w-[300px] -translate-y-1/2 rounded-full bg-emerald-500/8 blur-[100px]" />
-        <div className="absolute right-[15%] top-1/2 h-[300px] w-[300px] -translate-y-1/2 rounded-full bg-lime-400/6 blur-[100px]" />
-      </div>
-
-      <div className="relative mx-auto max-w-3xl text-center">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={0}
+    <Section className="bg-slate-900 py-20 sm:py-28">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+      >
+        <motion.p
+          variants={fadeIn}
+          className="mb-2 text-center text-sm font-bold tracking-widest text-blue-400"
         >
-          <span className="inline-block rounded-full border border-lime-300/30 bg-lime-300/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-lime-300">
-            📲 LINE配信コンテンツ
-          </span>
-        </motion.div>
-
+          LINE配信コンテンツ
+        </motion.p>
         <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={1}
-          className="mb-3 mt-5 text-2xl font-black text-white sm:text-3xl"
+          variants={fadeIn}
+          className="mb-4 text-center font-serif text-2xl font-black text-white sm:text-3xl"
         >
           診断だけじゃない。
           <br />
-          <span className="text-lime-300">AI時代のビジネスマン</span>に届けたい
-          <br />
-          最新情報を定期配信中。
+          AI時代に必要な情報を定期配信。
         </motion.h2>
-
         <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={2}
-          className="mb-10 text-sm leading-relaxed text-slate-400"
+          variants={fadeIn}
+          className="mx-auto mb-14 max-w-lg text-center text-sm leading-relaxed text-slate-400"
         >
-          友だち追加後も役立つ情報をお届けします。
-          <br />
-          忙しい社会人が「これだけ読めばOK」な
-          <br />
-          AI活用ニュースを厳選して配信。
+          友だち追加後も、忙しい社会人が「これだけ読めばOK」な
+          AI活用ニュースを厳選してお届けします。
         </motion.p>
 
-        <div className="mb-10 space-y-3 text-left">
-          {feeds.map((feed, i) => (
+        <div className="mb-12 grid gap-4 sm:grid-cols-2">
+          {feeds.map((feed) => (
             <motion.div
-              key={feed.label}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={i}
-              className="flex items-start gap-4 rounded-xl border border-white/8 bg-white/5 p-4 backdrop-blur-sm transition-colors hover:bg-white/8"
+              key={feed.title}
+              variants={fadeIn}
+              className="flex items-start gap-4 rounded-2xl border border-white/8 bg-white/5 p-5 backdrop-blur-sm"
             >
-              <span className="flex-shrink-0 text-xl">{feed.icon}</span>
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-blue-500/15 text-blue-400">
+                {feed.icon}
+              </div>
               <div>
-                <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-lime-300">
+                <p className="mb-0.5 text-[10px] font-bold uppercase tracking-widest text-blue-400">
                   {feed.label}
                 </p>
-                <p className="text-sm leading-relaxed text-slate-300">
+                <h3 className="mb-1 text-sm font-bold text-white">
+                  {feed.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-400">
                   {feed.desc}
                 </p>
               </div>
@@ -815,13 +775,7 @@ function NewsletterSection() {
           ))}
         </div>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={5}
-        >
+        <motion.div variants={fadeIn} className="text-center">
           <LineButton
             label="LINEを追加して最新情報を受け取る"
             analyticsSource="lp_newsletter"
@@ -830,11 +784,14 @@ function NewsletterSection() {
             配信頻度は週1〜2回程度 · いつでもブロック解除できます
           </p>
         </motion.div>
-      </div>
-    </section>
+      </motion.div>
+    </Section>
   );
 }
 
+/* ──────────────────────────────────────────────
+   9. FAQ
+   ────────────────────────────────────────────── */
 function FAQSection() {
   const faqs = [
     {
@@ -862,47 +819,44 @@ function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-emerald-50 px-5 py-20 sm:py-24">
-      <div className="mx-auto max-w-3xl text-center">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={0}
-          className="mb-10"
+    <Section className="bg-white py-20 sm:py-28">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        className="mx-auto max-w-2xl"
+      >
+        <motion.p
+          variants={fadeIn}
+          className="mb-2 text-center text-sm font-bold tracking-widest text-blue-600"
         >
-          <SectionTag>よくある質問</SectionTag>
-          <h2 className="mt-3 text-2xl font-black text-slate-900 sm:text-3xl">
-            FAQ
-          </h2>
-        </motion.div>
+          よくある質問
+        </motion.p>
+        <motion.h2
+          variants={fadeIn}
+          className="mb-12 text-center font-serif text-2xl font-black text-slate-900 sm:text-3xl"
+        >
+          FAQ
+        </motion.h2>
 
-        <div className="space-y-3">
+        <div className="divide-y divide-slate-100 rounded-2xl border border-slate-100 bg-white">
           {faqs.map((faq, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={i}
-              className="overflow-hidden rounded-xl border border-emerald-100 bg-white"
-            >
+            <motion.div key={i} variants={fadeIn}>
               <button
-                onClick={() =>
-                  setOpenIndex(openIndex === i ? null : i)
-                }
-                className="flex w-full items-center gap-3 px-5 py-4 text-left"
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="flex w-full items-center gap-4 px-6 py-5 text-left transition-colors hover:bg-slate-50"
               >
-                <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-500 text-xs font-bold text-white">
+                <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md bg-slate-900 text-[10px] font-bold text-white">
                   Q
                 </span>
-                <span className="flex-1 text-sm font-bold text-slate-800 sm:text-base">
+                <span className="flex-1 text-sm font-bold text-slate-800">
                   {faq.q}
                 </span>
                 <ChevronDown
-                  className={`h-5 w-5 flex-shrink-0 text-emerald-500 transition-transform duration-200 ${openIndex === i ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 flex-shrink-0 text-slate-400 transition-transform duration-200 ${
+                    openIndex === i ? "rotate-180" : ""
+                  }`}
                 />
               </button>
               <motion.div
@@ -911,43 +865,38 @@ function FAQSection() {
                   height: openIndex === i ? "auto" : 0,
                   opacity: openIndex === i ? 1 : 0,
                 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <p className="px-5 pb-4 pl-14 text-left text-sm leading-relaxed text-slate-500">
+                <p className="px-6 pb-5 pl-[3.25rem] text-sm leading-relaxed text-slate-500">
                   {faq.a}
                 </p>
               </motion.div>
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </Section>
   );
 }
 
+/* ──────────────────────────────────────────────
+   10. FINAL CTA
+   ────────────────────────────────────────────── */
 function FinalCTASection() {
-  const badges = [
-    { icon: <Check className="h-4 w-4" />, text: "完全無料" },
-    { icon: <Shield className="h-4 w-4" />, text: "個人情報不要" },
-    { icon: <Clock className="h-4 w-4" />, text: "所要時間1〜2分" },
-    { icon: <Zap className="h-4 w-4" />, text: "すぐ結果が届く" },
-  ];
-
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-emerald-50 px-5 py-20 sm:py-28">
+    <section className="relative overflow-hidden bg-[#0b1628] px-5 py-20 sm:px-8 sm:py-28">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute bottom-0 left-1/2 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-emerald-200/30 blur-[100px]" />
+        <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px]" />
       </div>
 
-      <div className="relative mx-auto max-w-3xl text-center">
+      <div className="relative mx-auto max-w-2xl text-center">
         <motion.h2
-          variants={fadeUp}
+          variants={fadeIn}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          custom={0}
-          className="mb-4 text-2xl font-black text-slate-900 sm:text-4xl"
+          className="mb-4 font-serif text-2xl font-black text-white sm:text-4xl"
         >
           「自分に合うAIツール」が
           <br />
@@ -955,46 +904,48 @@ function FinalCTASection() {
         </motion.h2>
 
         <motion.p
-          variants={fadeUp}
+          variants={fadeIn}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          custom={1}
-          className="mb-8 text-base leading-relaxed text-slate-500"
+          className="mb-8 text-base leading-relaxed text-slate-300"
         >
           4問答えるだけで、あなたの仕事に本当に合ったAIツールと
-          <br />
+          <br className="hidden sm:block" />
           すぐ使える攻略本PDFがLINEに届きます。
         </motion.p>
 
         <motion.div
-          variants={fadeUp}
+          variants={fadeIn}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          custom={2}
-          className="mb-8 flex flex-wrap justify-center gap-4"
+          className="mb-8 flex flex-wrap justify-center gap-x-6 gap-y-2"
         >
-          {badges.map((badge) => (
+          {[
+            { icon: <Check className="h-4 w-4" />, text: "完全無料" },
+            { icon: <Shield className="h-4 w-4" />, text: "個人情報不要" },
+            { icon: <Clock className="h-4 w-4" />, text: "所要時間1〜2分" },
+            { icon: <Zap className="h-4 w-4" />, text: "すぐ結果が届く" },
+          ].map((b) => (
             <span
-              key={badge.text}
-              className="flex items-center gap-1.5 text-sm font-bold text-emerald-700"
+              key={b.text}
+              className="flex items-center gap-1.5 text-sm font-semibold text-blue-300"
             >
-              {badge.icon}
-              {badge.text}
+              {b.icon}
+              {b.text}
             </span>
           ))}
         </motion.div>
 
         <motion.div
-          variants={fadeUp}
+          variants={fadeIn}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          custom={3}
         >
           <LineButton size="large" analyticsSource="lp_final_cta" />
-          <p className="mt-4 text-xs text-slate-400">
+          <p className="mt-5 text-xs text-slate-500">
             ※ブロック・登録解除はいつでも可能です
           </p>
         </motion.div>
@@ -1003,16 +954,22 @@ function FinalCTASection() {
   );
 }
 
+/* ──────────────────────────────────────────────
+   FOOTER
+   ────────────────────────────────────────────── */
 function LPFooter() {
   return (
-    <footer className="bg-slate-900 px-5 py-8 text-center">
-      <p className="text-xs text-slate-500">
-        © 2026 AIリブートアカデミー　｜　
-        <a href="/privacy" className="text-slate-400 hover:underline">
+    <footer className="border-t border-slate-100 bg-white px-5 py-10 text-center">
+      <p className="mb-2 text-xs font-bold tracking-wider text-slate-400">
+        AIリブートアカデミー
+      </p>
+      <p className="text-[11px] text-slate-400">
+        © 2026 AIリブートアカデミー　|　
+        <a href="/privacy" className="underline hover:text-slate-600">
           プライバシーポリシー
         </a>
-        　｜　
-        <a href="/terms" className="text-slate-400 hover:underline">
+        　|　
+        <a href="/terms" className="underline hover:text-slate-600">
           特定商取引法に基づく表記
         </a>
       </p>
@@ -1020,14 +977,17 @@ function LPFooter() {
   );
 }
 
+/* ──────────────────────────────────────────────
+   MAIN EXPORT
+   ────────────────────────────────────────────── */
 export default function LineDiagnosticLP() {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden bg-white">
       <HeroSection />
       <PainSection />
-      <HowSection />
+      <SolutionSection />
+      <StepsSection />
       <QuestionsSection />
-      <ResultPreviewSection />
       <GiftSection />
       <ToolsSection />
       <NewsletterSection />

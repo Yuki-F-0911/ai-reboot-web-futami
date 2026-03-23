@@ -13,7 +13,14 @@
       "Bash(git stash)",
       "Bash(git stash pop)",
       "Bash(npx vercel --prod)",
-      "Bash(npx vercel --prod --yes)"
+      "Bash(npx vercel --prod --yes)",
+      "Bash(gh api repos/anthropics/skills/git/trees/main?recursive=1 --jq '.tree[] | select\\(.path | startswith\\(\"\"skills/frontend-design\"\"\\)\\) | .path')",
+      "Bash(gh api repos/anthropics/skills/contents/skills/frontend-design/SKILL.md --jq '.content')",
+      "Bash(gh api repos/anthropics/skills/contents/skills/frontend-design/LICENSE.txt --jq '.content')",
+      "Bash(npx tsc --noEmit --project tsconfig.json)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(pip install pdfplumber)",
+      "Bash(pip install pypdf Pillow)"
     ]
   }
 }
