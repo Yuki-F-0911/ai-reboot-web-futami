@@ -54,15 +54,22 @@ function LineButton({
       ? "px-5 py-4 text-sm sm:px-10 sm:py-5 sm:text-lg gap-2.5 sm:gap-3"
       : "px-8 py-4 text-sm sm:text-base gap-2.5";
 
-  const colorClasses =
-    variant === "dark"
-      ? "lp-line-register-btn--dark"
-      : "lp-line-register-btn";
-
   const isLarge = size === "large";
   const labelClass = isLarge
     ? "whitespace-nowrap text-sm leading-tight sm:text-lg sm:leading-normal"
     : "leading-snug";
+  const buttonStyle =
+    variant === "dark"
+      ? {
+          backgroundColor: "#0f172a",
+          color: "#ffffff",
+          boxShadow: "0 10px 30px rgba(15, 23, 42, 0.28)",
+        }
+      : {
+          backgroundColor: "#06c755",
+          color: "#ffffff",
+          boxShadow: "0 12px 32px rgba(6, 199, 85, 0.28)",
+        };
 
   return (
     <motion.a
@@ -72,7 +79,8 @@ function LineButton({
       onClick={() => trackEvent.lineRegisterClick(analyticsSource)}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className={`inline-flex max-w-full items-center justify-center rounded-full font-bold shadow-lg transition-colors ${sizeClasses} ${colorClasses} ${isLarge ? "w-full sm:w-auto" : ""}`}
+      className={`inline-flex max-w-full items-center justify-center rounded-full font-bold transition-colors ${sizeClasses} ${isLarge ? "w-full sm:w-auto" : ""}`}
+      style={buttonStyle}
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
         <path
@@ -107,7 +115,10 @@ function Section({
    ────────────────────────────────────────────── */
 function HeroSection() {
   return (
-    <section className="lp-line-hero relative w-full overflow-hidden bg-slate-900">
+    <section
+      className="relative w-full overflow-hidden"
+      style={{ backgroundColor: "#0b1628", color: "#f1f5f9" }}
+    >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -right-20 top-1/4 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[120px]" />
         <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-cyan-500/8 blur-[100px]" />
@@ -119,7 +130,8 @@ function HeroSection() {
             variants={fadeIn}
             initial={false}
             animate="visible"
-            className="lp-line-hero__eyebrow mb-5 text-sm font-semibold tracking-wider text-blue-400"
+            className="mb-5 text-sm font-semibold tracking-wider"
+            style={{ color: "#60a5fa" }}
           >
             完全無料 ／ 登録30秒 ／ 個人情報不要
           </motion.p>
@@ -131,13 +143,14 @@ function HeroSection() {
             transition={{ delay: 0.15 }}
             className="mb-6 font-serif text-3xl font-black leading-[1.35] tracking-tight sm:text-4xl lg:text-5xl"
           >
-            <span className="text-white">あなたの仕事に合う</span>
+            <span style={{ color: "#ffffff" }}>あなたの仕事に合う</span>
             <br />
-            {/* text-transparent+bg-clip は本番でCSS欠落時に文字が消えるため実色のみ */}
-            <span className="font-black text-cyan-300">AIツールTOP3</span>
-            <span className="text-white">を、</span>
+            <span className="font-black" style={{ color: "#67e8f9" }}>
+              AIツールTOP3
+            </span>
+            <span style={{ color: "#ffffff" }}>を、</span>
             <br />
-            <span className="text-white">無料で診断します。</span>
+            <span style={{ color: "#ffffff" }}>無料で診断します。</span>
           </motion.h1>
 
           <motion.p
@@ -145,7 +158,8 @@ function HeroSection() {
             initial={false}
             animate="visible"
             transition={{ delay: 0.3 }}
-            className="lp-line-hero__lead mb-10 max-w-lg text-base leading-relaxed text-slate-200 sm:text-lg"
+            className="mb-10 max-w-lg text-base leading-relaxed sm:text-lg"
+            style={{ color: "#e2e8f0" }}
           >
             LINEで友だち追加 → 4問に答えるだけ。
             <br />
@@ -160,7 +174,10 @@ function HeroSection() {
             className="flex flex-col items-start gap-4"
           >
             <LineButton size="large" analyticsSource="lp_hero" />
-            <p className="lp-line-hero__muted flex items-center gap-2 text-xs text-slate-400">
+            <p
+              className="flex items-center gap-2 text-xs"
+              style={{ color: "#94a3b8" }}
+            >
               <Shield className="h-3.5 w-3.5" />
               クレジットカード・メールアドレスの入力は不要です
             </p>
@@ -889,7 +906,10 @@ function FAQSection() {
    ────────────────────────────────────────────── */
 function FinalCTASection() {
   return (
-    <section className="lp-line-cta-dark relative w-full overflow-hidden bg-slate-900 px-5 py-20 sm:px-8 sm:py-28">
+    <section
+      className="relative w-full overflow-hidden px-5 py-20 sm:px-8 sm:py-28"
+      style={{ backgroundColor: "#0b1628", color: "#f1f5f9" }}
+    >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px]" />
       </div>
@@ -900,7 +920,8 @@ function FinalCTASection() {
           initial={false}
           whileInView="visible"
           viewport={{ once: true }}
-          className="mb-4 font-serif text-2xl font-black text-white sm:text-4xl"
+          className="mb-4 font-serif text-2xl font-black sm:text-4xl"
+          style={{ color: "#ffffff" }}
         >
           「自分に合うAIツール」が
           <br />
@@ -912,7 +933,8 @@ function FinalCTASection() {
           initial={false}
           whileInView="visible"
           viewport={{ once: true }}
-          className="mb-8 text-base leading-relaxed text-slate-200"
+          className="mb-8 text-base leading-relaxed"
+          style={{ color: "#e2e8f0" }}
         >
           4問答えるだけで、あなたの仕事に本当に合ったAIツールと
           <br className="hidden sm:block" />
@@ -934,7 +956,8 @@ function FinalCTASection() {
           ].map((b) => (
             <span
               key={b.text}
-              className="flex items-center gap-1.5 text-sm font-semibold text-blue-300"
+              className="flex items-center gap-1.5 text-sm font-semibold"
+              style={{ color: "#93c5fd" }}
             >
               {b.icon}
               {b.text}
@@ -949,7 +972,7 @@ function FinalCTASection() {
           viewport={{ once: true }}
         >
           <LineButton size="large" analyticsSource="lp_final_cta" />
-          <p className="mt-5 text-xs text-slate-500">
+          <p className="mt-5 text-xs" style={{ color: "#94a3b8" }}>
             ※ブロック・登録解除はいつでも可能です
           </p>
         </motion.div>
