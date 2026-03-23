@@ -51,13 +51,18 @@ function LineButton({
 }) {
   const sizeClasses =
     size === "large"
-      ? "px-10 py-5 text-base sm:text-lg gap-3"
+      ? "px-5 py-4 text-sm sm:px-10 sm:py-5 sm:text-lg gap-2.5 sm:gap-3"
       : "px-8 py-4 text-sm sm:text-base gap-2.5";
 
   const colorClasses =
     variant === "dark"
-      ? "bg-slate-900 hover:bg-slate-800 text-white"
-      : "bg-[#06C755] hover:bg-[#05b64d] text-white";
+      ? "lp-line-register-btn--dark"
+      : "lp-line-register-btn";
+
+  const isLarge = size === "large";
+  const labelClass = isLarge
+    ? "whitespace-nowrap text-sm leading-tight sm:text-lg sm:leading-normal"
+    : "leading-snug";
 
   return (
     <motion.a
@@ -67,7 +72,7 @@ function LineButton({
       onClick={() => trackEvent.lineRegisterClick(analyticsSource)}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className={`inline-flex items-center justify-center rounded-full font-bold shadow-lg transition-colors ${sizeClasses} ${colorClasses}`}
+      className={`inline-flex max-w-full items-center justify-center rounded-full font-bold shadow-lg transition-colors ${sizeClasses} ${colorClasses} ${isLarge ? "w-full sm:w-auto" : ""}`}
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
         <path
@@ -75,8 +80,8 @@ function LineButton({
           fill="currentColor"
         />
       </svg>
-      <span>{label}</span>
-      <ArrowRight className="h-4 w-4 opacity-60" />
+      <span className={`text-center ${labelClass}`}>{label}</span>
+      <ArrowRight className="h-4 w-4 flex-shrink-0 opacity-60" />
     </motion.a>
   );
 }
@@ -124,16 +129,15 @@ function HeroSection() {
             initial={false}
             animate="visible"
             transition={{ delay: 0.15 }}
-            className="mb-6 font-serif text-3xl font-black leading-[1.35] tracking-tight text-white sm:text-4xl lg:text-5xl"
+            className="mb-6 font-serif text-3xl font-black leading-[1.35] tracking-tight sm:text-4xl lg:text-5xl"
           >
-            あなたの仕事に合う
+            <span className="text-white">あなたの仕事に合う</span>
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-              AIツールTOP3
-            </span>
-            を、
+            {/* text-transparent+bg-clip は本番でCSS欠落時に文字が消えるため実色のみ */}
+            <span className="font-black text-cyan-300">AIツールTOP3</span>
+            <span className="text-white">を、</span>
             <br />
-            無料で診断します。
+            <span className="text-white">無料で診断します。</span>
           </motion.h1>
 
           <motion.p
@@ -165,7 +169,7 @@ function HeroSection() {
 
         <motion.div
           variants={fadeIn}
-          initial="hidden"
+          initial={false}
           animate="visible"
           transition={{ delay: 0.2 }}
           className="relative mx-auto w-full max-w-md flex-shrink-0 lg:mx-0 lg:max-w-lg"
@@ -215,7 +219,7 @@ function PainSection() {
     <Section className="bg-white py-20 sm:py-28">
       <motion.div
         variants={stagger}
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
         className="text-center"
@@ -280,7 +284,7 @@ function SolutionSection() {
     <Section className="bg-slate-50 py-20 sm:py-28">
       <motion.div
         variants={stagger}
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
       >
@@ -379,7 +383,7 @@ function StepsSection() {
     <Section className="bg-white py-20 sm:py-28">
       <motion.div
         variants={stagger}
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
       >
@@ -467,7 +471,7 @@ function QuestionsSection() {
     <Section className="bg-slate-50 py-20 sm:py-28">
       <motion.div
         variants={stagger}
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
       >
@@ -553,7 +557,7 @@ function GiftSection() {
     <Section className="bg-white py-20 sm:py-28">
       <motion.div
         variants={stagger}
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
       >
@@ -640,7 +644,7 @@ function ToolsSection() {
     <Section className="bg-slate-50 py-20 sm:py-28">
       <motion.div
         variants={stagger}
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
         className="text-center"
@@ -724,7 +728,7 @@ function NewsletterSection() {
     <Section className="bg-slate-900 py-20 sm:py-28">
       <motion.div
         variants={stagger}
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
       >
@@ -822,7 +826,7 @@ function FAQSection() {
     <Section className="bg-white py-20 sm:py-28">
       <motion.div
         variants={stagger}
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
         className="mx-auto max-w-2xl"

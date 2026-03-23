@@ -143,9 +143,7 @@
     background-color: #0b1628;
     color: #f1f5f9;
   }
-  .lp-line-hero h1 {
-    color: #ffffff;
-  }
+  /* h1 に color を当てない（text-transparent のグラデ文言が消えるのを防ぐ） */
   .lp-line-hero .lp-line-hero__lead {
     color: #e2e8f0;
   }
@@ -164,6 +162,22 @@
   }
   .lp-line-cta-dark p {
     color: #cbd5e1;
+  }
+
+  /* LINE公式緑: 任意値クラスが本番で落ちても背景が消えないように */
+  .lp-line-register-btn {
+    background-color: #06c755;
+    color: #ffffff;
+  }
+  .lp-line-register-btn:hover {
+    background-color: #05b64d;
+  }
+  .lp-line-register-btn--dark {
+    background-color: #0f172a;
+    color: #ffffff;
+  }
+  .lp-line-register-btn--dark:hover {
+    background-color: #1e293b;
   }
 
   /* パフォーマンス最適化: will-change とcontainmentの追加 */
