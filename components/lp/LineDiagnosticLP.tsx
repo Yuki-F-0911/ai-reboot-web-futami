@@ -102,7 +102,7 @@ function Section({
    ────────────────────────────────────────────── */
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#0b1628]">
+    <section className="lp-line-hero relative w-full overflow-hidden bg-slate-900">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -right-20 top-1/4 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[120px]" />
         <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-cyan-500/8 blur-[100px]" />
@@ -112,16 +112,16 @@ function HeroSection() {
         <div className="flex-1 lg:max-w-xl">
           <motion.p
             variants={fadeIn}
-            initial="hidden"
+            initial={false}
             animate="visible"
-            className="mb-5 text-sm font-semibold tracking-wider text-blue-400"
+            className="lp-line-hero__eyebrow mb-5 text-sm font-semibold tracking-wider text-blue-400"
           >
             完全無料 ／ 登録30秒 ／ 個人情報不要
           </motion.p>
 
           <motion.h1
             variants={fadeIn}
-            initial="hidden"
+            initial={false}
             animate="visible"
             transition={{ delay: 0.15 }}
             className="mb-6 font-serif text-3xl font-black leading-[1.35] tracking-tight text-white sm:text-4xl lg:text-5xl"
@@ -138,10 +138,10 @@ function HeroSection() {
 
           <motion.p
             variants={fadeIn}
-            initial="hidden"
+            initial={false}
             animate="visible"
             transition={{ delay: 0.3 }}
-            className="mb-10 max-w-lg text-base leading-relaxed text-slate-300 sm:text-lg"
+            className="lp-line-hero__lead mb-10 max-w-lg text-base leading-relaxed text-slate-200 sm:text-lg"
           >
             LINEで友だち追加 → 4問に答えるだけ。
             <br />
@@ -150,13 +150,13 @@ function HeroSection() {
 
           <motion.div
             variants={fadeIn}
-            initial="hidden"
+            initial={false}
             animate="visible"
             transition={{ delay: 0.45 }}
             className="flex flex-col items-start gap-4"
           >
             <LineButton size="large" analyticsSource="lp_hero" />
-            <p className="flex items-center gap-2 text-xs text-slate-400">
+            <p className="lp-line-hero__muted flex items-center gap-2 text-xs text-slate-400">
               <Shield className="h-3.5 w-3.5" />
               クレジットカード・メールアドレスの入力は不要です
             </p>
@@ -885,7 +885,7 @@ function FAQSection() {
    ────────────────────────────────────────────── */
 function FinalCTASection() {
   return (
-    <section className="relative overflow-hidden bg-[#0b1628] px-5 py-20 sm:px-8 sm:py-28">
+    <section className="lp-line-cta-dark relative w-full overflow-hidden bg-slate-900 px-5 py-20 sm:px-8 sm:py-28">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px]" />
       </div>
@@ -893,7 +893,7 @@ function FinalCTASection() {
       <div className="relative mx-auto max-w-2xl text-center">
         <motion.h2
           variants={fadeIn}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true }}
           className="mb-4 font-serif text-2xl font-black text-white sm:text-4xl"
@@ -905,10 +905,10 @@ function FinalCTASection() {
 
         <motion.p
           variants={fadeIn}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true }}
-          className="mb-8 text-base leading-relaxed text-slate-300"
+          className="mb-8 text-base leading-relaxed text-slate-200"
         >
           4問答えるだけで、あなたの仕事に本当に合ったAIツールと
           <br className="hidden sm:block" />
@@ -917,7 +917,7 @@ function FinalCTASection() {
 
         <motion.div
           variants={fadeIn}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true }}
           className="mb-8 flex flex-wrap justify-center gap-x-6 gap-y-2"
@@ -940,7 +940,7 @@ function FinalCTASection() {
 
         <motion.div
           variants={fadeIn}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true }}
         >

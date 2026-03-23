@@ -138,6 +138,34 @@
     @apply outline-2 outline-offset-2 outline-ai-purple;
   }
 
+  /* LINE診断LP: 本番で任意値の背景が落ちて白抜けするのを防ぐ（明示的なフォールバック） */
+  .lp-line-hero {
+    background-color: #0b1628;
+    color: #f1f5f9;
+  }
+  .lp-line-hero h1 {
+    color: #ffffff;
+  }
+  .lp-line-hero .lp-line-hero__lead {
+    color: #e2e8f0;
+  }
+  .lp-line-hero .lp-line-hero__muted {
+    color: #94a3b8;
+  }
+  .lp-line-hero .lp-line-hero__eyebrow {
+    color: #60a5fa;
+  }
+  .lp-line-cta-dark {
+    background-color: #0b1628;
+    color: #f1f5f9;
+  }
+  .lp-line-cta-dark h2 {
+    color: #ffffff;
+  }
+  .lp-line-cta-dark p {
+    color: #cbd5e1;
+  }
+
   /* パフォーマンス最適化: will-change とcontainmentの追加 */
   .will-change-transform {
     will-change: transform;
