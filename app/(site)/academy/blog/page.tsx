@@ -38,6 +38,16 @@ type BlogPost = {
 
 const blogPosts: readonly BlogPost[] = [
   {
+    slug: "claude-dispatch-computer-use-2026",
+    title: "Claude Dispatch / Computer Use 2026まとめ｜Anthropic最新発表【2026年3月】",
+    summary:
+      "Claude DispatchとComputer Useを軸に、Anthropicの2026年2〜3月の主要発表を整理。PC操作AIの仕組み、スマホからのタスク委譲、Opus / Sonnet 4.6、1M context、Code Reviewまでまとめて解説します。",
+    category: "最新AIツール",
+    publishedAt: "2026-03-24T09:00:00+09:00",
+    tags: ["Claude Dispatch", "Claude Computer Use", "Anthropic 最新発表", "Claude 2026"],
+    thumbnail: "/images/blog/claude-dispatch-computer-use-2026/slide-01.png",
+  },
+  {
     slug: "gpt-5-4-mini-nano-guide",
     title: "GPT-5.4 miniとnanoの違いとは？料金・性能・使い分けを比較【2026年3月】",
     summary:
