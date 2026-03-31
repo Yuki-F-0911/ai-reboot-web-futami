@@ -14,12 +14,12 @@ export const seminars: SeminarData[] = [
     tag: "NEW",
     date: "2026年4月9日（木）",
     dateShort: "4月9日(木)",
+    eventDate: "2026-04-09",
     time: "20:00-21:30",
     place: "オンライン（Zoom）",
     heroCopy:
       "「AIすごいのはわかる。でも何から始めれば？」そんな方にこそ届けたい、60分の実践セミナー",
     googleFormUrl: "https://luma.com/2l9vjsh7",
-    ended: false,
     hasLandingPage: true,
     metaTitle:
       "初心者でも60分で分かる Gemini × NotebookLM 超入門講座 | AI REBOOT",
@@ -36,12 +36,12 @@ export const seminars: SeminarData[] = [
     tag: "NEW",
     date: "2026年3月26日（木）",
     dateShort: "3月26日(木)",
+    eventDate: "2026-03-26",
     time: "20:00-21:00",
     place: "オンライン（Zoom）",
     heroCopy:
       "「AIに奪われる」側から「AIで市場価値を上げる」側へ。キャリアの主導権を取り戻す",
     googleFormUrl: GOOGLE_FORM_URL,
-    ended: false,
     hasLandingPage: true,
     metaTitle:
       "AIキャリアハック ── 生成AIで市場価値を書き換える60分 | AI REBOOT",
@@ -58,12 +58,12 @@ export const seminars: SeminarData[] = [
     tag: "NEW",
     date: "2026年4月16日（木）",
     dateShort: "4月16日(木)",
+    eventDate: "2026-04-16",
     time: "20:00-21:00",
     place: "オンライン（Zoom）",
     heroCopy:
       "ツールの使い方ではなく「思考のOS」を変える。100日後、替えの利かない人材へ",
     googleFormUrl: GOOGLE_FORM_URL,
-    ended: false,
     hasLandingPage: true,
     metaTitle:
       "AIキャリアハック ── 100日で替えの利かない人材になる方法 | AI REBOOT",
@@ -82,12 +82,12 @@ export const seminars: SeminarData[] = [
     tag: "NEW",
     date: "2026年3月11日（水）",
     dateShort: "3月11日(水)",
+    eventDate: "2026-03-11",
     time: "20:00-21:00",
     place: "オンライン（Zoom）",
     heroCopy:
       "「何をすればいいかわからない」その不安を、行動に変えるロードマップ",
     googleFormUrl: GOOGLE_FORM_URL,
-    ended: true,
     hasLandingPage: true,
     metaTitle:
       "「このままで大丈夫？」を解消するAIキャリア戦略 | AI REBOOT",
@@ -104,12 +104,12 @@ export const seminars: SeminarData[] = [
     tag: "NEW",
     date: "2026年3月18日（水）",
     dateShort: "3月18日(水)",
+    eventDate: "2026-03-18",
     time: "20:00-21:00",
     place: "オンライン（Zoom）",
     heroCopy:
       "「AIを使える」だけでは武器にならない。差がつくのは、思考のOS",
     googleFormUrl: GOOGLE_FORM_URL,
-    ended: true,
     hasLandingPage: true,
     metaTitle: "AIを「武器」に変える人のキャリア戦略 | AI REBOOT",
     metaDescription:
@@ -125,12 +125,12 @@ export const seminars: SeminarData[] = [
     tag: "NEW",
     date: "2026年3月25日（水）",
     dateShort: "3月25日(水)",
+    eventDate: "2026-03-25",
     time: "20:00-21:00",
     place: "オンライン（Zoom）",
     heroCopy:
       "生成AIは、あなたのキャリアを「リセット＆リビルド」する最強の武器になる",
     googleFormUrl: GOOGLE_FORM_URL,
-    ended: true,
     hasLandingPage: true,
     metaTitle:
       "学歴も社歴もリセット。AI時代のキャリア再設計 | AI REBOOT",
@@ -147,6 +147,7 @@ export const seminars: SeminarData[] = [
     tag: "NEW",
     date: "2026年4月1日（水）",
     dateShort: "4月1日(水)",
+    eventDate: "2026-04-01",
     time: "20:00-21:00",
     place: "オンライン（Zoom）",
     heroCopy: "先行者利益を取れる窓は「今」閉じ始めている",
@@ -168,12 +169,12 @@ export const seminars: SeminarData[] = [
     tag: "NEW",
     date: "2026年1月18日（日）",
     dateShort: "1月18日(日)",
+    eventDate: "2026-01-18",
     time: "20:00-21:00",
     place: "オンライン（Zoom）",
     heroCopy:
       "人事・採用のプロ×AI実践者が教える「キャリア下剋上」のロードマップ",
     googleFormUrl: GOOGLE_FORM_URL,
-    ended: true,
     hasLandingPage: true,
     metaTitle: "生成AI時代のキャリア設計論 | AI REBOOT",
     metaDescription:
@@ -189,11 +190,11 @@ export const seminars: SeminarData[] = [
     tag: "コラボ企画",
     date: "2025年12月30日（火）",
     dateShort: "12月30日(火)",
+    eventDate: "2025-12-30",
     time: "19:00-21:00",
     place: "オンライン",
     heroCopy: "",
     googleFormUrl: GOOGLE_FORM_URL,
-    ended: true,
     hasLandingPage: false,
     metaTitle: "",
     metaDescription: "",
@@ -208,17 +209,27 @@ export const seminars: SeminarData[] = [
     tag: "本アカデミー主宰成瀬拓也",
     date: "2026年1月2日（金）",
     dateShort: "1月2日(金)",
+    eventDate: "2026-01-02",
     time: "16:00-17:00",
     place: "オンライン",
     heroCopy: "",
     googleFormUrl: GOOGLE_FORM_URL,
-    ended: true,
     hasLandingPage: false,
     metaTitle: "",
     metaDescription: "",
     ogImageAlt: "",
   },
 ];
+
+function getJSTToday(): string {
+  return new Date().toLocaleDateString("sv-SE", { timeZone: "Asia/Tokyo" });
+}
+
+/** ended が true か、開催日の翌日(JST)を過ぎていれば終了扱い */
+export function isSeminarEnded(s: SeminarData): boolean {
+  if (s.ended) return true;
+  return getJSTToday() > s.eventDate;
+}
 
 export function getAllSeminars(): SeminarData[] {
   return seminars;
@@ -229,11 +240,11 @@ export function getSeminarBySlug(slug: string): SeminarData | undefined {
 }
 
 export function getUpcomingSeminars(): SeminarData[] {
-  return seminars.filter((s) => !s.ended);
+  return seminars.filter((s) => !isSeminarEnded(s));
 }
 
 export function getEndedSeminars(): SeminarData[] {
-  return seminars.filter((s) => s.ended);
+  return seminars.filter((s) => isSeminarEnded(s));
 }
 
 export function getSeminarsWithLandingPage(): SeminarData[] {

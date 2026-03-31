@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { getUpcomingSeminars, getEndedSeminars } from "@/data/seminars";
+import { getUpcomingSeminars, getEndedSeminars, isSeminarEnded } from "@/data/seminars";
 import type { SeminarData } from "@/types/seminar";
 
 const seminarsTitle = "無料オンライン説明会・セミナー | AIリブートアカデミー";
@@ -72,7 +72,7 @@ function SeminarCard({ seminar }: { seminar: SeminarData }) {
                     </p>
                 </div>
                 <div className="md:w-1/4 w-full flex items-center justify-end">
-                    {seminar.ended ? (
+                    {isSeminarEnded(seminar) ? (
                         <span className="w-full px-6 py-3 text-center text-slate-400 font-bold bg-slate-100 rounded-full border border-slate-200">
                             受付終了
                         </span>
