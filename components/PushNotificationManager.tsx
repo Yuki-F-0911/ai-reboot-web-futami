@@ -64,6 +64,7 @@ export default function PushNotificationManager() {
   const [subscribed, setSubscribed] = useState(false)
   const [isSubscriptionChecked, setIsSubscriptionChecked] = useState(false)
   const [statusMessage, setStatusMessage] = useState<string | null>(null)
+  const [retryDismissed, setRetryDismissed] = useState(false)
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -241,7 +242,7 @@ export default function PushNotificationManager() {
     return null
   }
 
-  const showRetryPanel = isSubscriptionChecked && permission === 'granted' && !subscribed
+  const showRetryPanel = isSubscriptionChecked && permission === 'granted' && !subscribed && !retryDismissed
 
   return (
     <>
@@ -274,6 +275,16 @@ export default function PushNotificationManager() {
 
       {showRetryPanel && (
         <aside className="fixed bottom-28 right-4 z-40 w-[min(92vw,24rem)] rounded-2xl border border-blue-200 bg-blue-50 p-4 shadow-xl">
+          <button
+            type="button"
+            onClick={() => setRetryDismissed(true)}
+            className="absolute right-3 top-3 text-blue-400 transition hover:text-blue-700"
+            aria-label="閉じる"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+              <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+            </svg>
+          </button>
           <p className="text-sm font-semibold text-blue-900">通知設定を完了できませんでした。</p>
           <p className="mt-2 text-xs leading-5 text-blue-800">
             ブラウザ権限は許可済みです。再試行して購読を完了してください。

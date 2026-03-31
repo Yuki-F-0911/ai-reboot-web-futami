@@ -90,6 +90,38 @@ function SeminarCard({ seminar }: { seminar: SeminarData }) {
     );
 }
 
+function PastSeminarCard({ seminar }: { seminar: SeminarData }) {
+    return (
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col h-full relative overflow-hidden opacity-70 hover:opacity-100 transition-opacity duration-300">
+            {/* Background Decoration */}
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-slate-100 to-transparent rounded-bl-full opacity-50" />
+
+            <div className="flex flex-col h-full relative z-10">
+                <div className="flex items-center gap-2 mb-3">
+                    <span className="inline-block bg-slate-100 text-slate-500 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200">
+                        {seminar.tag}
+                    </span>
+                    <span className="text-xs font-medium text-slate-500">{seminar.dateShort}</span>
+                </div>
+                
+                <h3 className="text-lg font-bold text-slate-800 mb-3 leading-snug flex-grow">
+                    {seminar.title}
+                </h3>
+                
+                <p className="text-sm text-slate-500 mb-4 line-clamp-3">
+                    {seminar.description}
+                </p>
+
+                <div className="mt-auto pt-4 border-t border-slate-100">
+                    <span className="w-full block py-2 text-center text-slate-400 text-sm font-bold bg-slate-50 rounded-lg border border-slate-100">
+                        受付終了
+                    </span>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 const SeminarsPage = () => {
     const upcomingSeminars = getUpcomingSeminars();
     const endedSeminars = getEndedSeminars();
@@ -132,14 +164,17 @@ const SeminarsPage = () => {
                 {/* 過去のセミナー */}
                 {endedSeminars.length > 0 && (
                     <>
-                        <div className="max-w-4xl mx-auto mb-8">
-                            <h2 className="text-2xl md:text-3xl font-bold text-slate-500 mb-3">
-                                過去のセミナー
+                        <div className="max-w-7xl mx-auto mt-24 mb-8 border-t border-slate-200 pt-16">
+                            <h2 className="text-2xl md:text-3xl font-bold text-slate-500 mb-2 text-center">
+                                過去の代表的なセミナー
                             </h2>
+                            <p className="text-center text-slate-400 text-sm mb-10">
+                                過去に開催されたセミナーの一部をご紹介します。最新の開催情報は上部をご確認ください。
+                            </p>
                         </div>
-                        <div className="max-w-4xl mx-auto grid gap-8 opacity-60">
+                        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {endedSeminars.map((seminar) => (
-                                <SeminarCard key={seminar.slug} seminar={seminar} />
+                                <PastSeminarCard key={seminar.slug} seminar={seminar} />
                             ))}
                         </div>
                     </>

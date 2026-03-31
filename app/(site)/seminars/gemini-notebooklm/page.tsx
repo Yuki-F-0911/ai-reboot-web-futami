@@ -1,36 +1,20 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getSeminarBySlug, getSeminarsWithLandingPage } from "@/data/seminars";
-import {
-    HeroSection,
-    ProblemSection,
-    SolutionSection,
-    TargetSection,
-    InstructorSection,
-    VoicesSection,
-    RegisterSection,
-} from "@/components/seminar/template";
+import { getSeminarBySlug } from "@/data/seminars";
+import HeroSection from "@/components/seminar/gemini-notebooklm/HeroSection";
+import FeatureSection from "@/components/seminar/gemini-notebooklm/FeatureSection";
+import InstructorSection from "@/components/seminar/gemini-notebooklm/InstructorSection";
+import { VoicesSection } from "@/components/seminar/template";
+import RegisterSection from "@/components/seminar/gemini-notebooklm/RegisterSection";
 
 const baseUrl = "https://ai-reboot.io";
+const SLUG = "gemini-notebooklm";
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-    return getSeminarsWithLandingPage()
-        .filter((s) => s.slug !== "career-design" && s.slug !== "gemini-notebooklm")
-        .map((s) => ({ slug: s.slug }));
-}
-
-type Props = {
-    params: Promise<{ slug: string }>;
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { slug } = await params;
-    const seminar = getSeminarBySlug(slug);
+export async function generateMetadata(): Promise<Metadata> {
+    const seminar = getSeminarBySlug(SLUG);
     if (!seminar) return {};
 
-    const url = `${baseUrl}/seminars/${slug}`;
+    const url = `${baseUrl}/seminars/${SLUG}`;
 
     return {
         title: seminar.metaTitle,
@@ -43,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             url,
             images: [
                 {
-                    url: `/seminars/${slug}/opengraph-image`,
+                    url: `/seminars/${SLUG}/opengraph-image`,
                     width: 1200,
                     height: 630,
                     alt: seminar.ogImageAlt,
@@ -58,9 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default async function SeminarPage({ params }: Props) {
-    const { slug } = await params;
-    const seminar = getSeminarBySlug(slug);
+export default function GeminiNotebookLMSeminarPage() {
+    const seminar = getSeminarBySlug(SLUG);
     if (!seminar) notFound();
 
     return (
@@ -74,13 +57,7 @@ export default async function SeminarPage({ params }: Props) {
                 place={seminar.place}
                 googleFormUrl={seminar.googleFormUrl}
             />
-            <ProblemSection
-                headline={seminar.problemHeadline}
-                items={seminar.problemItems}
-                closing={seminar.problemClosing}
-            />
-            <SolutionSection />
-            <TargetSection />
+            <FeatureSection />
             <InstructorSection />
             <VoicesSection />
             <RegisterSection

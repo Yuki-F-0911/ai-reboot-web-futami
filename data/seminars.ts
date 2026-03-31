@@ -6,6 +6,28 @@ const GOOGLE_FORM_URL =
 export const seminars: SeminarData[] = [
   // ── 開催予定セミナー ──
   {
+    slug: "gemini-notebooklm",
+    title: "初心者でも60分で分かる Gemini × NotebookLM 超入門シャドーイング講座",
+    subtitle: "明日の仕事ですぐ使える2大AIツール",
+    description:
+      "いきなり高度なツールを使い始める前に。「明日の仕事ですぐ使える」GeminiとNotebookLMを使い倒す60分の実践セミナーです。「見て終わり」ではなく、一緒に手を動かしてAI活用の基礎体力をつけましょう。",
+    tag: "NEW",
+    date: "2026年4月9日（木）",
+    dateShort: "4月9日(木)",
+    time: "20:00-21:30",
+    place: "オンライン（Zoom）",
+    heroCopy:
+      "「AIすごいのはわかる。でも何から始めれば？」そんな方にこそ届けたい、60分の実践セミナー",
+    googleFormUrl: "https://luma.com/2l9vjsh7",
+    ended: false,
+    hasLandingPage: true,
+    metaTitle:
+      "初心者でも60分で分かる Gemini × NotebookLM 超入門講座 | AI REBOOT",
+    metaDescription:
+      "「何から始めれば？」という初心者向け。明日の仕事ですぐ使えるGeminiとNotebookLMを使い倒す60分間の実践セミナー（シャドーイング形式）です。4月9日(木) 20:00〜21:30 無料オンライン開催。",
+    ogImageAlt: "Gemini × NotebookLM 超入門シャドーイング講座 4月9日",
+  },
+  {
     slug: "ai-career-hack-mar",
     title: "AIキャリアハック ── 生成AIで「市場価値」を書き換える60分",
     subtitle: "AIを味方にしたキャリア戦略",
