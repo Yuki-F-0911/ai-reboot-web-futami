@@ -1,0 +1,536 @@
+/* ──────────────────────────────────────────────
+   Minimal / Clean LINE LP
+   Color: White base + Indigo accent
+   ────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+/* ── Base ── */
+.wrapper {
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  overflow-x: hidden;
+  background: #fafbfc;
+  min-height: 100vh;
+  color: #1a1a2e;
+}
+
+/* ── Section base ── */
+.section {
+  padding: 96px 24px;
+  position: relative;
+}
+
+.sectionAlt {
+  composes: section;
+  background: #ffffff;
+}
+
+.sectionInner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* ── Section label ── */
+.sectionLabel {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #6366f1;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* ── Section title ── */
+.sectionTitle {
+  font-size: clamp(24px, 5vw, 38px);
+  font-weight: 900;
+  line-height: 1.35;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.8;
+  max-width: 580px;
+  margin: 0 auto 48px;
+}
+
+/* ── Thin divider ── */
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 0 auto;
+  max-width: 880px;
+}
+
+/* ─────────────────────────────
+   HERO
+   ───────────────────────────── */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 48px;
+  position: relative;
+  background: #ffffff;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6366f1;
+  margin-bottom: 28px;
+}
+
+.heroTitle {
+  font-size: clamp(28px, 6.5vw, 52px);
+  font-weight: 900;
+  line-height: 1.25;
+  color: #0f172a;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.heroAccent {
+  color: #6366f1;
+}
+
+.heroSubtitle {
+  font-size: clamp(15px, 3vw, 18px);
+  color: #64748b;
+  line-height: 1.8;
+  max-width: 480px;
+  margin: 0 auto 40px;
+}
+
+/* ── CTA Button ── */
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #06c755;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(6, 199, 85, 0.15);
+}
+
+.ctaButton:hover {
+  background: #059e47;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(6, 199, 85, 0.2);
+}
+
+.ctaButtonLarge {
+  composes: ctaButton;
+  font-size: clamp(15px, 3.5vw, 18px);
+  padding: 18px 44px;
+  border-radius: 14px;
+}
+
+.safetyNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 16px;
+}
+
+/* ── Bounce ── */
+@keyframes bounceGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.bounceCta {
+  animation: bounceGentle 2.5s ease-in-out infinite;
+}
+
+/* ─────────────────────────────
+   CARD
+   ───────────────────────────── */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: #c7d2fe;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.06);
+}
+
+.cardAlt {
+  background: #fafbfc;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cardAlt:hover {
+  border-color: #c7d2fe;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.06);
+}
+
+.cardHorizontal {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* ── Icon container ── */
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #eef2ff;
+  color: #6366f1;
+  flex-shrink: 0;
+}
+
+/* ── Card text ── */
+.cardTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.cardDesc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+/* ── Grid layouts ── */
+.gridTwo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .gridTwo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gridThree {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .gridThree {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ─────────────────────────────
+   STEP CARD
+   ───────────────────────────── */
+.stepCard {
+  composes: card;
+  text-align: center;
+  position: relative;
+}
+
+.stepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #eef2ff;
+  color: #6366f1;
+  font-size: 18px;
+  margin: 0 auto 12px;
+}
+
+.stepLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #6366f1;
+  margin-bottom: 6px;
+}
+
+.flowArrow {
+  display: none;
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #c7d2fe;
+  z-index: 2;
+}
+
+@media (min-width: 640px) {
+  .flowArrow {
+    display: block;
+  }
+}
+
+/* ─────────────────────────────
+   QUESTION PREVIEW
+   ───────────────────────────── */
+.questionBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #6366f1;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.optionPill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fafbfc;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #64748b;
+  transition: border-color 0.15s ease;
+}
+
+.optionPill:hover {
+  border-color: #c7d2fe;
+}
+
+.optionDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────
+   GIFT SECTION
+   ───────────────────────────── */
+.giftLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .giftLayout {
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+
+.giftImage {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 320px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.giftContent {
+  flex: 1;
+}
+
+/* ─────────────────────────────
+   PILL TAG (tools)
+   ───────────────────────────── */
+.pillTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #374151;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.pillTag:hover {
+  border-color: #c7d2fe;
+  background: #eef2ff;
+}
+
+.pillTagAdd {
+  composes: pillTag;
+  border-style: dashed;
+  border-color: #6366f1;
+  color: #6366f1;
+  background: #eef2ff;
+}
+
+/* ─────────────────────────────
+   FAQ
+   ───────────────────────────── */
+.faqItem {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+  margin-bottom: 10px;
+}
+
+.faqButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 18px 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.faqButton:hover {
+  background: #fafbfc;
+}
+
+.faqQuestion {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.faqAnswer {
+  padding: 0 20px 18px 56px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+.faqChevron {
+  transition: transform 0.2s ease;
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.faqChevronOpen {
+  composes: faqChevron;
+  transform: rotate(180deg);
+}
+
+/* ─────────────────────────────
+   FINAL CTA
+   ───────────────────────────── */
+.finalCta {
+  padding: 96px 24px;
+  text-align: center;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.finalCtaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #a5b4fc;
+}
+
+.finalTitle {
+  font-size: clamp(24px, 5vw, 38px);
+  font-weight: 900;
+  line-height: 1.35;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+/* ── Highlight banner ── */
+.highlightBanner {
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+/* ─────────────────────────────
+   FOOTER
+   ───────────────────────────── */
+.footer {
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.footerBrand {
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.footerLinks {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.footerLinks a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footerLinks a:hover {
+  color: #6366f1;
+}
+
+/* ── Responsive ── */
+@media (min-width: 768px) {
+  .section,
+  .sectionAlt {
+    padding: 120px 40px;
+  }
+
+  .hero {
+    padding: 100px 40px 64px;
+  }
+
+  .finalCta {
+    padding: 120px 40px;
+  }
+}

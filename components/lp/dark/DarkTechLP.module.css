@@ -1,0 +1,596 @@
+/* ──────────────────────────────────────────────
+   Dark-Tech LINE LP
+   Inspired by daae.shiftinc.jp
+   Color: Deep Navy + Neon Cyan + Blue accents
+   ────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+/* ── Base ── */
+.wrapper {
+  font-family: 'Noto Sans JP', sans-serif;
+  overflow-x: hidden;
+  background: #060c16;
+  min-height: 100vh;
+  color: #e0e8f0;
+}
+
+/* ── Glow utility ── */
+.glowCyan {
+  box-shadow: 0 0 30px rgba(0, 251, 255, 0.08), 0 0 80px rgba(0, 251, 255, 0.04);
+}
+
+.glowBlue {
+  box-shadow: 0 0 40px rgba(74, 144, 226, 0.08);
+}
+
+/* ── Section base ── */
+.section {
+  padding: 100px 24px;
+  position: relative;
+}
+
+.sectionAlt {
+  composes: section;
+  background: linear-gradient(180deg, #060c16 0%, #0a1628 50%, #060c16 100%);
+}
+
+.sectionInner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ── Section label (pill tag) ── */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #00fbff;
+  background: rgba(0, 251, 255, 0.08);
+  border: 1px solid rgba(0, 251, 255, 0.2);
+  border-radius: 999px;
+  padding: 6px 20px;
+  margin-bottom: 16px;
+}
+
+/* ── Section title ── */
+.sectionTitle {
+  font-size: clamp(24px, 5vw, 40px);
+  font-weight: 900;
+  line-height: 1.35;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  color: #8a9ab5;
+  line-height: 1.8;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+/* ─────────────────────────────
+   HERO
+   ───────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0, 100, 180, 0.12) 0%, transparent 60%),
+    linear-gradient(180deg, #060c16 0%, #0a1a30 60%, #060c16 100%);
+}
+
+/* Animated grid background */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 251, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 251, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 251, 255, 0.08);
+  border: 1px solid rgba(0, 251, 255, 0.25);
+  color: #00fbff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+.heroTitle {
+  font-size: clamp(30px, 7vw, 56px);
+  font-weight: 900;
+  line-height: 1.3;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.heroAccent {
+  background: linear-gradient(135deg, #00fbff, #4a90e2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: clamp(14px, 3vw, 18px);
+  color: #8a9ab5;
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 auto 36px;
+}
+
+.heroScrollHint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #4a6080;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+/* ── CTA Button ── */
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #06c755 0%, #04a848 100%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 18px 40px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+  font-family: inherit;
+  box-shadow: 0 0 30px rgba(6, 199, 85, 0.2), 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.ctaButton:hover {
+  box-shadow: 0 0 50px rgba(6, 199, 85, 0.35), 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.ctaButtonLarge {
+  composes: ctaButton;
+  font-size: clamp(15px, 3.5vw, 18px);
+  padding: 20px 48px;
+}
+
+.safetyNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #5a6a80;
+  margin-top: 16px;
+}
+
+/* ── Bounce CTA ── */
+@keyframes bounceGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.bounceCta {
+  animation: bounceGentle 2.5s ease-in-out infinite;
+}
+
+/* ─────────────────────────────
+   GLASS CARD
+   ───────────────────────────── */
+.glassCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px 28px;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glassCard:hover {
+  border-color: rgba(0, 251, 255, 0.2);
+  box-shadow: 0 0 40px rgba(0, 251, 255, 0.05);
+}
+
+.glassCardHorizontal {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* ── Icon container ── */
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 251, 255, 0.2);
+  background: rgba(0, 251, 255, 0.06);
+  color: #00fbff;
+  flex-shrink: 0;
+}
+
+/* ── Card text ── */
+.cardTitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.cardDesc {
+  font-size: 14px;
+  color: #7a8da5;
+  line-height: 1.7;
+}
+
+/* ── Grid layouts ── */
+.gridTwo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .gridTwo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gridThree {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .gridThree {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ─────────────────────────────
+   STEP SECTION
+   ───────────────────────────── */
+.stepCard {
+  composes: glassCard;
+  text-align: center;
+  position: relative;
+}
+
+.stepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 251, 255, 0.15), rgba(74, 144, 226, 0.15));
+  border: 1px solid rgba(0, 251, 255, 0.25);
+  color: #00fbff;
+  font-size: 20px;
+  margin: 0 auto 14px;
+}
+
+.stepLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #00fbff;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+/* ── Flow arrow (desktop) ── */
+.flowArrow {
+  display: none;
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(0, 251, 255, 0.3);
+  z-index: 2;
+}
+
+@media (min-width: 640px) {
+  .flowArrow {
+    display: block;
+  }
+}
+
+/* ─────────────────────────────
+   QUESTION PREVIEW
+   ───────────────────────────── */
+.questionBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #00fbff, #4a90e2);
+  color: #060c16;
+  font-size: 13px;
+  font-weight: 900;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.optionPill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #8a9ab5;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.optionPill:hover {
+  border-color: rgba(0, 251, 255, 0.3);
+  background: rgba(0, 251, 255, 0.04);
+}
+
+.optionDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 251, 255, 0.3);
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────
+   GIFT SECTION
+   ───────────────────────────── */
+.giftLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+@media (min-width: 768px) {
+  .giftLayout {
+    flex-direction: row;
+    gap: 48px;
+  }
+}
+
+.giftImage {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 340px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 251, 255, 0.15);
+  box-shadow: 0 0 60px rgba(0, 251, 255, 0.06);
+}
+
+.giftContent {
+  flex: 1;
+}
+
+/* ─────────────────────────────
+   PILL TAG (tools)
+   ───────────────────────────── */
+.pillTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #c2d9ff;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.pillTag:hover {
+  border-color: rgba(0, 251, 255, 0.3);
+  background: rgba(0, 251, 255, 0.05);
+}
+
+.pillTagAdd {
+  composes: pillTag;
+  border-style: dashed;
+  border-color: rgba(0, 251, 255, 0.3);
+  color: #00fbff;
+}
+
+/* ─────────────────────────────
+   FAQ
+   ───────────────────────────── */
+.faqItem {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  margin-bottom: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.faqItem:hover {
+  border-color: rgba(0, 251, 255, 0.15);
+}
+
+.faqButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 20px 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.faqButton:hover {
+  background: rgba(0, 251, 255, 0.03);
+}
+
+.faqQuestion {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.faqAnswer {
+  padding: 0 24px 20px 68px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #7a8da5;
+}
+
+.faqChevron {
+  transition: transform 0.2s ease;
+  color: #4a6080;
+  flex-shrink: 0;
+}
+
+.faqChevronOpen {
+  composes: faqChevron;
+  transform: rotate(180deg);
+}
+
+/* ─────────────────────────────
+   FINAL CTA
+   ───────────────────────────── */
+.finalCta {
+  padding: 100px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0, 100, 180, 0.1) 0%, transparent 60%),
+    #060c16;
+}
+
+.finalCtaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #00fbff;
+}
+
+/* ─────────────────────────────
+   DIVIDER
+   ───────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 251, 255, 0.15) 50%, transparent 100%);
+  margin: 0;
+}
+
+/* ─────────────────────────────
+   FOOTER
+   ───────────────────────────── */
+.footer {
+  background: #040810;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 36px 24px;
+  text-align: center;
+}
+
+.footerBrand {
+  font-size: 14px;
+  font-weight: 700;
+  color: #8a9ab5;
+  margin-bottom: 8px;
+}
+
+.footerLinks {
+  font-size: 12px;
+  color: #4a6080;
+}
+
+.footerLinks a {
+  color: #4a6080;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footerLinks a:hover {
+  color: #00fbff;
+}
+
+/* ── Responsive ── */
+@media (min-width: 768px) {
+  .section,
+  .sectionAlt {
+    padding: 120px 40px;
+  }
+
+  .hero {
+    padding: 100px 40px 80px;
+  }
+
+  .finalCta {
+    padding: 120px 40px;
+  }
+}
+
+/* ── Glow blob decorations ── */
+.glowBlob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+}
+
+/* ── Section accent bar ── */
+.accentBar {
+  width: 48px;
+  height: 4px;
+  background: linear-gradient(90deg, #00fbff, #4a90e2);
+  border-radius: 2px;
+  margin: 0 auto 24px;
+}
+
+/* ── Gift banner ── */
+.giftBanner {
+  background: linear-gradient(135deg, rgba(0, 251, 255, 0.06), rgba(74, 144, 226, 0.06));
+  border: 1px solid rgba(0, 251, 255, 0.12);
+  border-radius: 16px;
+  padding: 32px 28px;
+  text-align: center;
+}
