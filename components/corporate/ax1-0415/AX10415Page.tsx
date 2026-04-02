@@ -420,7 +420,7 @@ export default function AX10415Page() {
                                 <strong>2026年4月15日（水）開催のご案内：</strong><br />
                                 少人数での1DAY研修です。経営を一緒に担う役員の方との参加も歓迎しています。
                                 <br /><br />
-                                <strong>参加費：50,000円（税込）</strong>
+                                <strong>参加費：55,000円（税込）</strong>
                             </p>
                             <p style={{ marginTop: "2rem" }}>
                                 ここまで読んで「なるほど」と思えた方は、このセミナーで、その準備を最短距離で進める方法を持ち帰っていただけます。
@@ -664,7 +664,7 @@ export default function AX10415Page() {
                             <div className={`${styles.detailsRow} ${styles.detailsRowAlt}`}>
                                 <dt className={styles.detailsLabel}>参加費</dt>
                                 <dd className={styles.detailsValue}>
-                                    50,000円（税込）
+                                    55,000円（税込）
                                 </dd>
                             </div>
                         </dl>
@@ -720,7 +720,7 @@ export default function AX10415Page() {
 
                     <div className={`${styles.entryCard} ${styles.revealTrigger} ${styles.delay200}`}>
                         <p className={styles.entryCardDate}>2026年4月15日（水）10:00〜19:00</p>
-                        <p className={styles.entryCardInfo}>少人数開催 | 都内（参加者に詳細連絡） | 参加費 50,000円（税込）</p>
+                        <p className={styles.entryCardInfo}>少人数開催 | 都内（参加者に詳細連絡） | 参加費 55,000円（税込）</p>
                     </div>
 
                     <div className={`${styles.revealTrigger} ${styles.delay300}`}>
