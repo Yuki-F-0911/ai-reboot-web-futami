@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./AX10604Page.module.css";
-import { AX1EntryForm } from "../ax1-2/AX1EntryForm";
-import CorporateNewsletterCtaBox from "@/components/corporate/CorporateNewsletterCtaBox";
 
 type NavItem = {
     label: string;
@@ -580,11 +578,6 @@ export default function AX10604Page() {
                 </div>
             </section>
 
-            {/* Mid-page Newsletter CTA */}
-            <div className="px-6 py-10">
-                <CorporateNewsletterCtaBox source="ax1-0604" />
-            </div>
-
             {/* Section 7: Audience */}
             <section id="audience" className={`${styles.sectionMa} ${styles.audienceSection}`}>
                 <div className={styles.audienceContainer}>
@@ -723,8 +716,15 @@ export default function AX10604Page() {
                         <p className={styles.entryCardInfo}>少人数開催 | 都内（参加者に詳細連絡） | 参加費 55,000円（税込）</p>
                     </div>
 
-                    <div className={`${styles.revealTrigger} ${styles.delay300}`}>
-                        <AX1EntryForm hideScreeningText entryType="ax1-0604" />
+                    <div className={`${styles.revealTrigger} ${styles.delay300}`} style={{ textAlign: "center", marginTop: "2rem" }}>
+                        <a
+                            href="https://forms.gle/df8F25CenX5edyN88"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.btnPrimary}
+                        >
+                            エントリーはこちら
+                        </a>
                     </div>
                 </div>
             </section>
