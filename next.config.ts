@@ -7,17 +7,22 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/corporate/ax1',
-        destination: '/corporate/ax1-0415',
+        destination: '/corporate/ax1-0604',
         permanent: false,
       },
       {
         source: '/corporate/ax1-2',
-        destination: '/corporate/ax1-0415',
+        destination: '/corporate/ax1-0604',
         permanent: false,
       },
       {
         source: '/corporate/ax1-special',
-        destination: '/corporate/ax1-0415',
+        destination: '/corporate/ax1-0604',
+        permanent: false,
+      },
+      {
+        source: '/corporate/ax1-0415',
+        destination: '/corporate/ax1-0604',
         permanent: false,
       },
     ]
