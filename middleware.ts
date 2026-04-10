@@ -7,6 +7,7 @@ const ax1Events = [
   { path: '/corporate/ax1-2',       eventDate: '2026-01-15' },
   { path: '/corporate/ax1-special', eventDate: '2026-02-25' },
   { path: '/corporate/ax1-0415',    eventDate: '2026-04-15' },
+  { path: '/corporate/ax1-0604',    eventDate: '2026-06-04' },
 ] as const
 
 function getJSTDate(): string {
@@ -48,5 +49,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/willtrust/:path*', '/corporate/ax1', '/corporate/ax1-2', '/corporate/ax1-special', '/corporate/ax1-0415'],
+  matcher: ['/willtrust/:path*', '/corporate/ax1', '/corporate/ax1-2', '/corporate/ax1-special', '/corporate/ax1-0415', '/corporate/ax1-0604'],
 }
