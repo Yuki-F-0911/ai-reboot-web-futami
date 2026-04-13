@@ -1,25 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY, ACADEMY_SPACING } from "./academyDesignTokens";
-
-const comparisonRows = [
-  {
-    label: "学びの中心",
-    others: "AIツールの使い方を知る",
-    reboot: "AI活用力と自己理解を行き来しながら、自分の仕事に落とし込む",
-  },
-  {
-    label: "ゴール",
-    others: "理解して終わる",
-    reboot: "何を作るか、誰に届けるかまで考えて成果物にする",
-  },
-  {
-    label: "学び方",
-    others: "ひとりで進める",
-    reboot: "仲間と対話し、伴走の中で実践を習慣化する",
-  },
-];
 
 const elements = [
   {
@@ -66,6 +47,9 @@ const ConceptSection = () => {
           >
             Concept
           </span>
+          <p className="mb-3 text-sm font-medium" style={{ color: ACADEMY_COLORS.textMuted }}>
+            生成AIを学ぶ場所ではない。人生をリブートする場所。
+          </p>
           <h2
             className="mb-6 text-3xl font-bold leading-tight lg:text-5xl"
             style={{
@@ -96,47 +80,6 @@ const ConceptSection = () => {
             <span>私たちのメッセージを読む</span>
             <span aria-hidden="true">→</span>
           </Link>
-        </div>
-
-        <div
-          className="mb-10 overflow-hidden rounded-sm border"
-          style={{ borderColor: ACADEMY_COLORS.lineSoft, backgroundColor: ACADEMY_COLORS.bgCanvas }}
-        >
-          <div
-            className="grid gap-px lg:grid-cols-[180px_1fr_1fr]"
-            style={{ backgroundColor: ACADEMY_COLORS.lineSoft }}
-          >
-            <div className="hidden p-5 lg:block" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }} />
-            <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
-              <p className="text-sm font-bold" style={{ color: ACADEMY_COLORS.textMuted }}>
-                他スクール・他サークル
-              </p>
-            </div>
-            <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}>
-              <p className="text-sm font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
-                AIリブート
-              </p>
-            </div>
-            {comparisonRows.map((row) => (
-              <React.Fragment key={row.label}>
-                <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
-                  <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: ACADEMY_COLORS.accentMain }}>
-                    {row.label}
-                  </p>
-                </div>
-                <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
-                  <p className="text-sm leading-loose" style={{ color: ACADEMY_COLORS.textMuted }}>
-                    {row.others}
-                  </p>
-                </div>
-                <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}>
-                  <p className="text-sm leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
-                    {row.reboot}
-                  </p>
-                </div>
-              </React.Fragment>
-            ))}
-          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

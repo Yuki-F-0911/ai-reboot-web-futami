@@ -17,6 +17,10 @@ const FinalCtaSection = () => {
           Final Call
         </span>
 
+        <p className="mb-3 text-sm font-medium" style={{ color: ACADEMY_COLORS.textMuted }}>
+          人生を、リブートする。
+        </p>
+
         <h2
           className="mb-8 text-4xl font-bold leading-tight lg:text-6xl"
           style={{

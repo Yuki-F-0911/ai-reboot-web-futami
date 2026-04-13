@@ -131,6 +131,10 @@ const HeroSection = () => {
             AIを仕事の武器にする
           </h1>
 
+          <p className="mb-4 text-sm font-medium lg:text-base" style={{ color: ACADEMY_COLORS.textMuted }}>
+            激変する時代に、自分を再起動する。
+          </p>
+
           <div className="mb-8 space-y-3 sm:mb-10 sm:space-y-4">
             <p
               className="text-lg font-medium leading-relaxed sm:text-xl sm:leading-loose lg:text-2xl"

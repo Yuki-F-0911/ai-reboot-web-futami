@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/academyLanding/sections/HeroSection";
 import ConceptSection from "@/components/academyLanding/sections/ConceptSection";
+import ComparisonSection from "@/components/academyLanding/sections/ComparisonSection";
 import ProgramFlowSection from "@/components/academyLanding/sections/ProgramFlowSection";
 import SkillLevelSection from "@/components/academyLanding/sections/SkillLevelSection";
 import MidCtaSection from "@/components/academyLanding/sections/MidCtaSection";
@@ -119,6 +120,7 @@ export default function AcademyPage() {
       </section>
 
       <ConceptSection />
+      <ComparisonSection />
       <ProgramFlowSection />
       <SkillLevelSection />
       <MidCtaSection />
