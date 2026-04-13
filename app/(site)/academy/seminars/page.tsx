@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { getUpcomingSeminars, getEndedSeminars, isSeminarEnded } from "@/data/seminars";
 import type { SeminarData } from "@/types/seminar";
 
+export const revalidate = 3600;
+
 const seminarsTitle = "無料オンライン説明会・セミナー | AIリブートアカデミー";
 const seminarsDescription =
     "AIリブートアカデミーの無料オンライン説明会・セミナー情報。AIリスキリングを検討中の会社員・個人事業主・転職検討者に向けて、オンライン開催で講座内容や補助金活用を解説します。";
