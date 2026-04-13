@@ -28,11 +28,11 @@ const MidCtaSection = () => {
             color: ACADEMY_COLORS.textStrong,
           }}
         >
-          あなたが使うべきAIを、30秒で診断します
+          何から始めるべきか、30秒で整理します
         </h2>
 
         <p className="mb-4 text-sm leading-loose lg:text-base" style={{ color: ACADEMY_COLORS.textBody }}>
-          LINEで30秒の診断に答えるだけで、ChatGPTやGeminiだけでなく、数十種類の最新AIの中からあなたに最適なAIツール3選がわかります。
+          LINEで30秒の診断に答えるだけで、ChatGPTやGeminiだけでなく、数十種類の最新AIの中からあなたに最適なAIツール3選がわかります。いきなり受講を決める前に、自分がどの領域から始めるべきかを整理できます。
         </p>
         <p className="mb-10 text-sm font-bold leading-loose" style={{ color: ACADEMY_COLORS.textStrong }}>
           さらに無料の攻略本もすぐに届きます。

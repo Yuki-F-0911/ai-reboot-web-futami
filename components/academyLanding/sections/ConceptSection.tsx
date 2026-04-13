@@ -1,6 +1,25 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY, ACADEMY_SPACING } from "./academyDesignTokens";
+
+const comparisonRows = [
+  {
+    label: "学びの中心",
+    others: "AIツールの使い方を知る",
+    reboot: "AI活用力と自己理解を行き来しながら、自分の仕事に落とし込む",
+  },
+  {
+    label: "ゴール",
+    others: "理解して終わる",
+    reboot: "何を作るか、誰に届けるかまで考えて成果物にする",
+  },
+  {
+    label: "学び方",
+    others: "ひとりで進める",
+    reboot: "仲間と対話し、伴走の中で実践を習慣化する",
+  },
+];
 
 const elements = [
   {
@@ -54,11 +73,11 @@ const ConceptSection = () => {
               color: ACADEMY_COLORS.textStrong,
             }}
           >
-            生成AIを学ぶ場所ではない。<br />
-            人生をリブートする場所。
+            AIを学ぶだけで終わらない。<br />
+            仕事とキャリアまで組み替える。
           </h2>
           <p className="mb-6 max-w-3xl text-base leading-loose lg:text-lg" style={{ color: ACADEMY_COLORS.textBody }}>
-            生成AI活用力・自己理解・仲間との学び。この3つを軸に、理解と実践を繰り返しながら、自ら手を動かし変化を習慣に落とし込んでいきます。
+            生成AI活用力・自己理解・仲間との学び。この3つを軸に、理解と実践を繰り返しながら、自ら手を動かし変化を習慣に落とし込みます。AIリブートは、知識を増やすだけではなく、仕事のやり方とキャリアの選び方を変えるための設計です。
           </p>
           <p
             className="mb-6 text-xs font-bold tracking-wider lg:text-sm"
@@ -77,6 +96,47 @@ const ConceptSection = () => {
             <span>私たちのメッセージを読む</span>
             <span aria-hidden="true">→</span>
           </Link>
+        </div>
+
+        <div
+          className="mb-10 overflow-hidden rounded-sm border"
+          style={{ borderColor: ACADEMY_COLORS.lineSoft, backgroundColor: ACADEMY_COLORS.bgCanvas }}
+        >
+          <div
+            className="grid gap-px lg:grid-cols-[180px_1fr_1fr]"
+            style={{ backgroundColor: ACADEMY_COLORS.lineSoft }}
+          >
+            <div className="hidden p-5 lg:block" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }} />
+            <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
+              <p className="text-sm font-bold" style={{ color: ACADEMY_COLORS.textMuted }}>
+                他スクール・他サークル
+              </p>
+            </div>
+            <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}>
+              <p className="text-sm font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
+                AIリブート
+              </p>
+            </div>
+            {comparisonRows.map((row) => (
+              <React.Fragment key={row.label}>
+                <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: ACADEMY_COLORS.accentMain }}>
+                    {row.label}
+                  </p>
+                </div>
+                <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
+                  <p className="text-sm leading-loose" style={{ color: ACADEMY_COLORS.textMuted }}>
+                    {row.others}
+                  </p>
+                </div>
+                <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}>
+                  <p className="text-sm leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
+                    {row.reboot}
+                  </p>
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

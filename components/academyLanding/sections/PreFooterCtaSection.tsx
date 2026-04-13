@@ -19,14 +19,14 @@ const PreFooterCtaSection = () => {
                             color: ACADEMY_COLORS.textStrong
                         }}
                     >
-                        補助金の利用方法も<br className="sm:hidden" />
-                        LINEで詳しくご案内しています
+                        受講の進め方も補助金の使い方も<br className="sm:hidden" />
+                        LINEでまとめて確認できます
                     </h3>
                     <p 
                         className="text-sm leading-loose"
                         style={{ color: ACADEMY_COLORS.textMuted }}
                     >
-                        ご自身が給付の対象になるかどうかの簡易診断も可能です。
+                        ご自身が給付の対象になるかどうかの簡易診断に加えて、説明会と受講の進め方も整理できます。
                     </p>
                 </div>
 

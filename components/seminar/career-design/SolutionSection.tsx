@@ -47,7 +47,7 @@ const SolutionSection = () => {
                             SOLUTION
                         </p>
                         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4 sm:mb-6">
-                            必要なのは、AIを使いこなすための「思考OS」のアップデート
+                            必要なのは、AIを仕事とキャリアに組み込むための土台づくり
                         </h2>
                     </motion.div>
 
@@ -75,7 +75,7 @@ const SolutionSection = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto"
                     >
-                        本セミナーではツールの操作説明はしません。しかし、参加後にはAIを使いこなす土台が完成します。
+                        本セミナーではツールの操作説明だけで終わりません。参加後には、AIをどう学び、どう使い、どう自分の価値につなげるかの土台が整理された状態を目指します。
                     </motion.p>
                 </div>
 

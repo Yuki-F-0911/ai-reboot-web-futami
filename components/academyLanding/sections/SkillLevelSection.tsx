@@ -48,10 +48,10 @@ const SkillLevelSection = () => {
               color: ACADEMY_COLORS.textStrong,
             }}
           >
-            AIスキルの成長ステップ
+            100日後に目指す3つの変化
           </h2>
           <p className="max-w-2xl leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
-            3段階の能力定義に沿って、実務力と自己理解を同時に深める構造です。
+            3段階の能力定義に沿って、AIを触る段階から、仕事に組み込み、自分の価値として語れる段階まで進めます。
           </p>
         </div>
 

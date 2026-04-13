@@ -3,11 +3,17 @@ import type { Metadata } from "next";
 import { getUpcomingSeminars, getEndedSeminars, isSeminarEnded } from "@/data/seminars";
 import type { SeminarData } from "@/types/seminar";
 
+const seminarBenefits = [
+    "AI時代に自分が何を変えるべきか整理できる",
+    "生成AIを仕事にどう組み込むかの視点が持てる",
+    "説明会と受講の前に、自分との相性を判断できる",
+];
+
 export const revalidate = 3600;
 
 const seminarsTitle = "無料オンライン説明会・セミナー | AIリブートアカデミー";
 const seminarsDescription =
-    "AIリブートアカデミーの無料オンライン説明会・セミナー情報。AIリスキリングを検討中の会社員・個人事業主・転職検討者に向けて、オンライン開催で講座内容や補助金活用を解説します。";
+    "AIリブートアカデミーの無料オンライン説明会・セミナー情報。AI時代に仕事やキャリアをどう変えるかを整理したい会社員・個人事業主・転職検討者に向けて、講座内容や補助金活用を解説します。";
 const seminarsUrl = "https://ai-reboot.io/academy/seminars";
 const seminarsOgImagePath = "/academy/seminars/opengraph-image";
 
@@ -135,11 +141,21 @@ const SeminarsPage = () => {
                     <p className="text-orange-500 font-bold text-sm tracking-wider mb-2">
                         SEMINARS & EVENTS
                     </p>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-slate-900 mb-4">セミナー・イベント</h1>
-                    <p className="text-xl text-slate-600 mb-6">AI時代のキャリアや最新トレンドについて気軽に学べるイベントを開催しています</p>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-slate-900 mb-4">まずは無料セミナーで、AI時代の働き方を整理する</h1>
+                    <p className="text-xl text-slate-600 mb-6">AIを学ぶべき理由だけでなく、仕事やキャリアにどうつなげるかまで見える無料イベントを開催しています</p>
                     <p className="text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                        アカデミーへの入会を検討していなくても大丈夫。「ちょっと話を聞いてみたい」「AIについて知りたい」という方も大歓迎です。
+                        アカデミーへの入会を検討していなくても大丈夫です。「何から始めるべきか知りたい」「自分に必要な学び方を整理したい」という方も歓迎しています。
                     </p>
+                    <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+                        {seminarBenefits.map((benefit) => (
+                            <span
+                                key={benefit}
+                                className="rounded-full border border-orange-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-sm"
+                            >
+                                {benefit}
+                            </span>
+                        ))}
+                    </div>
                 </div>
 
                 {/* 開催予定のセミナー */}
@@ -152,7 +168,7 @@ const SeminarsPage = () => {
                             <p className="text-slate-600 leading-relaxed">
                                 対象者: 生成AIスキルを仕事で活かしたい会社員・個人事業主・転職検討中の方
                                 <br />
-                                開催形式: オンライン（Zoom）
+                                開催形式: オンライン（Zoom） / 無料 / 初心者歓迎
                             </p>
                         </div>
                         <div className="max-w-4xl mx-auto grid gap-8 mb-16">

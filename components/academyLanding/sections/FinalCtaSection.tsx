@@ -24,11 +24,12 @@ const FinalCtaSection = () => {
             color: ACADEMY_COLORS.textStrong,
           }}
         >
-          人生を、リブートする。
+          AI時代の働き方を、<br className="hidden sm:block" />
+          100日で組み替える。
         </h2>
 
         <p className="mb-8 max-w-3xl text-base leading-loose lg:text-lg" style={{ color: ACADEMY_COLORS.textBody }}>
-          手を動かし、自分と向き合い、仲間と話す。その繰り返しが、あなたの人生を豊かにする。
+          手を動かし、自分と向き合い、仲間と話す。その繰り返しが、AIを知っているだけの状態を、仕事で使える状態へ変えていきます。
         </p>
 
         <div className="mb-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center">

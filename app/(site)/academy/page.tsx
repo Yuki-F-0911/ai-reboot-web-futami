@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import HeroSection from "@/components/academyLanding/sections/HeroSection";
 import ConceptSection from "@/components/academyLanding/sections/ConceptSection";
 import ProgramFlowSection from "@/components/academyLanding/sections/ProgramFlowSection";
@@ -21,11 +20,11 @@ import {
 
 const academyTitle = "AIリブートアカデミー | AI REBOOT - ウィルフォワード";
 const academyDescription =
-  "生成AIツールを使いこなすためのマインドセットとスキルを身につけ、生成AI時代を生き抜く思考OSをインストールする100日間の実践プログラム。経済産業省リスキリング補助金対象講座。";
+  "AI活用力・自己理解・キャリア設計を100日で鍛え、仕事でAIを使える状態を目指す実践プログラム。2日間の集中キャンプと100日伴走、経済産業省リスキリング補助金対象。";
 const academyUrl = "https://ai-reboot.io/academy";
 const academyOgImagePath = "/academy/opengraph-image";
 const academyCourseStructuredDataDescription =
-  "生成AI活用 × マーケティング × コミュニケーション × キャリアデザインを100日間で学ぶリスキリング講座";
+  "生成AI活用、マーケティング、コミュニケーション、キャリアデザインを通じて、AI時代の仕事力を100日で鍛える実践型リスキリング講座";
 
 const academyFaqItems = [
   {

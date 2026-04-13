@@ -3,6 +3,21 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const takeawayCards = [
+    {
+        label: "このセミナーで見えること",
+        body: "AIを学ぶべき理由ではなく、仕事やキャリアにどう組み込むかの考え方",
+    },
+    {
+        label: "持ち帰れるもの",
+        body: "自分の市場価値をAI時代仕様で見直すための視点と、次の一歩の整理",
+    },
+    {
+        label: "他スクール・他サークルとの違い",
+        body: "ツール紹介だけで終わらず、働き方やキャリアの設計まで一緒に扱うこと",
+    },
+];
+
 const HeroSection = () => {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -78,6 +93,27 @@ const HeroSection = () => {
                         <span className="text-slate-900 font-bold">1月18日(日) 20:00〜21:00</span>
                         <span className="hidden sm:inline text-slate-300">|</span>
                         <span>オンライン（Zoom）</span>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.45 }}
+                        className="grid gap-3 text-left md:grid-cols-3 mb-8 sm:mb-10"
+                    >
+                        {takeawayCards.map((card) => (
+                            <div
+                                key={card.label}
+                                className="rounded-2xl border border-white/70 bg-white/70 p-4 shadow-sm backdrop-blur-sm"
+                            >
+                                <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-orange-500">
+                                    {card.label}
+                                </p>
+                                <p className="text-sm leading-loose text-slate-700">
+                                    {card.body}
+                                </p>
+                            </div>
+                        ))}
                     </motion.div>
 
                     {/* CTA Button */}

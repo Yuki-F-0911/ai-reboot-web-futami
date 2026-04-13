@@ -18,6 +18,12 @@ const RegisterSection = ({ title, dateShort, time, place, googleFormUrl }: Regis
         { label: "開催方法", value: place },
     ];
 
+    const takeaways = [
+        "AIを学ぶ順番と、自分に必要な領域が見える",
+        "仕事にAIを入れるための考え方が持ち帰れる",
+        "次の100日で何を変えるかの判断材料になる",
+    ];
+
     return (
         <section id="register" className="py-12 md:py-24 bg-slate-900 text-white relative overflow-hidden">
             {/* Background Decoration */}
@@ -54,6 +60,19 @@ const RegisterSection = ({ title, dateShort, time, place, googleFormUrl }: Regis
                     transition={{ duration: 0.6, delay: 0.1 }}
                     className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 mb-6 sm:mb-8"
                 >
+                    <div className="mb-6 sm:mb-8 rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5">
+                        <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-orange-300">
+                            TAKEAWAYS
+                        </p>
+                        <div className="grid gap-3 md:grid-cols-3">
+                            {takeaways.map((takeaway) => (
+                                <div key={takeaway} className="rounded-xl bg-white/5 p-3">
+                                    <p className="text-sm leading-loose text-slate-300">{takeaway}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
                     <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                         {eventDetails.map((detail, index) => (
                             <div

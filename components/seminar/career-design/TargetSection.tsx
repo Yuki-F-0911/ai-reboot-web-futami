@@ -36,7 +36,7 @@ const TargetSection = () => {
                         TARGET
                     </p>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                        こんな方におすすめ
+                        こういう悩みがある方に向いています
                     </h2>
                 </motion.div>
 
@@ -71,7 +71,7 @@ const TargetSection = () => {
                     className="text-center mt-8 sm:mt-12"
                 >
                     <p className="text-slate-600 text-base sm:text-lg md:text-xl mb-4 sm:mb-6">
-                        一つでも当てはまる方は、ぜひご参加ください。
+                        一つでも当てはまる方は、この60分で次の一歩を整理できます。
                     </p>
                     <a
                         href="#register"

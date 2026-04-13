@@ -7,7 +7,7 @@ const steps = [
     label: "STEP 01",
     title: "AIリブートキャンプ",
     description:
-      "仲間と共に集中的に学ぶ2日間。生成AIの本質を理解し、100日間の挑戦が始まります。",
+      "仲間と共に集中的に学ぶ2日間。生成AIの本質を理解し、100日間の挑戦で何を変えるかを明確にします。",
     items: ["マインドセットの解体", "AI活用の第一歩", "共創コミュニティ形成"],
     illustration: "/images/bootcamp-illustration.png",
   },
@@ -16,7 +16,7 @@ const steps = [
     label: "STEP 02",
     title: "AIリブート100",
     description:
-      "最新のAI活用事例と実践的なワークショップ。一人ひとりの課題に寄り添うフィードバック。",
+      "最新のAI活用事例と実践的なワークショップ。一人ひとりの課題に寄り添うフィードバックで、仕事への実装を進めます。",
     items: [
       "生成AIの実務実装",
       "マーケティング視点の統合",
@@ -29,7 +29,7 @@ const steps = [
     label: "STEP 03",
     title: "成果発表会",
     description:
-      "100日間の成長と成果を披露する晴れ舞台です。修了証も授与されます。",
+      "100日間の成長と成果を披露する晴れ舞台です。学びを成果物と言葉で振り返り、修了証も授与されます。",
     items: ["キャリアコンサルティング", "ポートフォリオ作成支援", "成果発表・修了証授与"],
     illustration: "/images/presentation-illustration.png",
   },
@@ -56,10 +56,10 @@ const ProgramFlowSection = () => {
               color: ACADEMY_COLORS.textStrong,
             }}
           >
-            プログラムの流れ
+            学んで終わらせない、100日間の流れ
           </h2>
           <p className="max-w-2xl leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
-            2日間の集中研修から始まる100日間の伴走を、時系列で追える構成にしています。
+            2日間の集中研修から始まる100日間の伴走を、何が定着していくのかまで含めて見える構成にしています。
           </p>
         </div>
 
