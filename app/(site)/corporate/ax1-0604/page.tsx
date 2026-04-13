@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import AX10415Page from "@/components/corporate/ax1-0415/AX10415Page";
+import AX10604Page from "@/components/corporate/ax1-0604/AX10604Page";
 
 export const metadata: Metadata = {
     title: "AX-1 | 2026年6月4日（木）開催 | AI REBOOT",
@@ -22,5 +22,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-    return <AX10415Page />;
+    return <AX10604Page />;
 }
