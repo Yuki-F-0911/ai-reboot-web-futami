@@ -4,6 +4,7 @@ import { useState, useEffect, type MouseEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { List, ChevronDown, ChevronUp } from "lucide-react";
 import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY } from "../sections/academyDesignTokens";
+import { renderReadableJapaneseText } from "@/components/typography/ReadableText";
 
 type ArticleTOCItem = {
   id: string;
@@ -107,7 +108,9 @@ export default function ArticleTOC({ items, className = "" }: ArticleTOCProps) {
               >
                 Index
               </p>
-              <p className="text-[11px] font-bold tracking-widest uppercase" style={{ color: ACADEMY_COLORS.textMuted }}>記事の内容をみる</p>
+              <p className="text-balance-ja text-[11px] font-bold tracking-widest uppercase" style={{ color: ACADEMY_COLORS.textMuted }}>
+                {renderReadableJapaneseText("記事の内容をみる")}
+              </p>
             </div>
           </button>
           
@@ -184,7 +187,7 @@ export default function ArticleTOC({ items, className = "" }: ArticleTOCProps) {
                         >
                           {(index + 1).toString().padStart(2, '0')}
                         </span>
-                        <span className="flex-1">{item.label}</span>
+                        <span className="text-pretty-ja flex-1">{renderReadableJapaneseText(item.label)}</span>
                       </a>
                     </div>
                   );

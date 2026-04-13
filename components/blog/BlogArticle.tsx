@@ -5,6 +5,7 @@ import { Marked, Tokens } from 'marked'
 import { ArticleStructuredData, BreadcrumbStructuredData, FAQStructuredData } from '@/components/seo/StructuredData'
 import ArticleShareButtons from '@/components/blog/ArticleShareButtons'
 import CopyAsMarkdownButton from '@/components/blog/CopyAsMarkdownButton'
+import { renderReadableJapaneseText } from '@/components/typography/ReadableText'
 
 interface BlogArticleProps {
   article: News
@@ -264,13 +265,13 @@ export default async function BlogArticle({
               </div>
             </div>
             
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-              {article.title}
+            <h1 className="text-balance-ja text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+              {renderReadableJapaneseText(article.title)}
             </h1>
             
             {article.description && (
-              <p className="text-lg text-gray-600 leading-relaxed">
-                {article.description}
+              <p className="text-pretty-ja text-lg text-gray-600 leading-relaxed">
+                {renderReadableJapaneseText(article.description)}
               </p>
             )}
           </header>
@@ -348,9 +349,9 @@ export default async function BlogArticle({
               {/* CTA */}
               <div className="mt-12 pt-8 border-t border-gray-200">
                 <div className="rounded-2xl border border-gray-200 bg-gradient-to-br from-will-primary/5 via-white to-will-secondary/5 p-6">
-                  <h2 className="text-xl font-bold text-gray-900">次の一手</h2>
-                  <p className="mt-2 text-gray-700">
-                    この記事の内容を、自社のAI活用に落とし込みたい方へ。状況に合わせて最短ルートをご提案します。
+                  <h2 className="text-balance-ja text-xl font-bold text-gray-900">{renderReadableJapaneseText('次の一手')}</h2>
+                  <p className="text-pretty-ja mt-2 text-gray-700">
+                    {renderReadableJapaneseText('この記事の内容を、自社のAI活用に落とし込みたい方へ。状況に合わせて最短ルートをご提案します。')}
                   </p>
                   <div className="mt-5 flex flex-wrap gap-3">
                     <Link
@@ -375,7 +376,7 @@ export default async function BlogArticle({
               {/* 目次 */}
               {toc.length > 0 && (
                 <div className="bg-gray-50 rounded-xl p-6 mb-8">
-                  <h3 className="font-bold text-gray-900 mb-4">目次</h3>
+                  <h3 className="text-balance-ja font-bold text-gray-900 mb-4">{renderReadableJapaneseText('目次')}</h3>
                   <nav>
                     <ul className="space-y-2">
                       {toc.map((heading) => (
@@ -387,7 +388,7 @@ export default async function BlogArticle({
                             href={`#${heading.id}`}
                             className="text-sm text-gray-600 hover:text-will-primary transition-colors block py-1"
                           >
-                            {heading.text}
+                            {renderReadableJapaneseText(heading.text)}
                           </a>
                         </li>
                       ))}
@@ -399,7 +400,7 @@ export default async function BlogArticle({
               {/* おすすめ記事 */}
               {recommendedArticles.length > 0 && (
                 <div className="bg-white border border-gray-200 rounded-xl p-6 mb-8">
-                  <h3 className="font-bold text-gray-900 mb-4">おすすめ記事</h3>
+                  <h3 className="text-balance-ja font-bold text-gray-900 mb-4">{renderReadableJapaneseText('おすすめ記事')}</h3>
                   <div className="space-y-4">
                     {recommendedArticles.map((item) => (
                       <Link
@@ -407,8 +408,8 @@ export default async function BlogArticle({
                         href={`/blog/${item.id}`}
                         className="block group"
                       >
-                        <h4 className="text-sm font-medium text-gray-700 group-hover:text-will-primary transition-colors line-clamp-2">
-                          {item.title}
+                        <h4 className="text-pretty-ja text-sm font-medium text-gray-700 group-hover:text-will-primary transition-colors line-clamp-2">
+                          {renderReadableJapaneseText(item.title)}
                         </h4>
                         <time className="text-xs text-gray-500 mt-1">
                           {new Date(item.publishedAt).toLocaleDateString('ja-JP')}
@@ -421,9 +422,9 @@ export default async function BlogArticle({
 
               {/* CTA */}
               <div className="bg-gradient-to-br from-will-primary/10 to-will-secondary/10 rounded-xl p-6">
-                <h3 className="font-bold text-gray-900 mb-2">AI活用を前に進める</h3>
-                <p className="text-sm text-gray-700 mb-4">
-                  課題整理から社内展開まで、状況に合わせて伴走します。
+                <h3 className="text-balance-ja font-bold text-gray-900 mb-2">{renderReadableJapaneseText('AI活用を前に進める')}</h3>
+                <p className="text-pretty-ja text-sm text-gray-700 mb-4">
+                  {renderReadableJapaneseText('課題整理から社内展開まで、状況に合わせて伴走します。')}
                 </p>
                 <div className="space-y-3">
                   <Link
@@ -449,7 +450,7 @@ export default async function BlogArticle({
       {relatedArticles.length > 0 && (
         <section className="py-16 px-4 bg-gray-50">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">関連記事</h2>
+            <h2 className="text-balance-ja text-2xl font-bold text-gray-900 mb-8">{renderReadableJapaneseText('関連記事')}</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {relatedArticles.slice(0, 3).map((item) => (
                 <Link
@@ -471,8 +472,8 @@ export default async function BlogArticle({
                       </div>
                     )}
                     <div className="p-5">
-                      <h3 className="font-medium text-gray-900 mb-2 group-hover:text-will-primary transition-colors line-clamp-2">
-                        {item.title}
+                      <h3 className="text-pretty-ja font-medium text-gray-900 mb-2 group-hover:text-will-primary transition-colors line-clamp-2">
+                        {renderReadableJapaneseText(item.title)}
                       </h3>
                       <time className="text-sm text-gray-500">
                         {new Date(item.publishedAt).toLocaleDateString('ja-JP')}

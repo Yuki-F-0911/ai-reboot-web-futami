@@ -8,10 +8,18 @@
 .markdown-content h1 {
   @apply text-3xl font-bold text-slate-900 mt-16 mb-8 pb-4 border-b;
   border-color: #e7e5e4; /* lineSoft */
+  text-wrap: balance;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 
 .markdown-content h2 {
   @apply text-2xl font-bold text-slate-900 mt-16 mb-8 pl-4 py-3 relative scroll-mt-28 sm:text-3xl flex items-center bg-stone-50 rounded-r-lg;
+  text-wrap: balance;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 
 .markdown-content h2::before {
@@ -31,6 +39,10 @@
 .markdown-content h3 {
   @apply text-xl font-bold text-slate-900 mt-10 mb-6 flex items-center gap-3 sm:text-2xl border-b pb-2;
   border-color: #e7e5e4; /* lineSoft */
+  text-wrap: balance;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 
 .markdown-content h3::before {
@@ -41,19 +53,35 @@
 
 .markdown-content h4 {
   @apply text-lg font-bold text-slate-800 mt-8 mb-3;
+  text-wrap: balance;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 
 .markdown-content h5 {
   @apply text-lg font-normal text-stone-600 mt-5 mb-2;
+  text-wrap: balance;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 
 .markdown-content h6 {
   @apply text-base font-medium text-stone-600 mt-4 mb-2;
+  text-wrap: balance;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 
 /* 段落スタイル */
 .markdown-content p {
   @apply text-stone-700 leading-[1.8] mb-6 tracking-wide;
+  text-wrap: pretty;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 
 .markdown-content p:first-of-type {
@@ -83,6 +111,10 @@
 
 .markdown-content ul li {
   @apply relative pl-7 mb-3 text-stone-700 leading-[1.8];
+  text-wrap: pretty;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 
 .markdown-content ul li::before {
@@ -99,6 +131,10 @@
 .markdown-content ol li {
   @apply relative pl-10 mb-4 text-stone-700 leading-[1.8];
   counter-increment: item;
+  text-wrap: pretty;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 
 .markdown-content ol li::before {
@@ -138,6 +174,10 @@
 .markdown-content blockquote {
   @apply my-10 pl-8 py-6 pr-6 bg-stone-50 border-l-2 rounded-r-xl text-stone-600 italic relative;
   border-color: #d46a1f; /* accentMain */
+  text-wrap: pretty;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 
 .markdown-content blockquote p {
@@ -233,6 +273,10 @@
 
 .markdown-content td {
   @apply px-6 py-4 text-stone-700 text-sm sm:text-base leading-relaxed;
+  text-wrap: pretty;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 
 .markdown-content td strong {
@@ -247,8 +291,16 @@
 
 .markdown-content dt {
   @apply font-bold text-slate-900 mb-2;
+  text-wrap: balance;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 
 .markdown-content dd {
   @apply ml-6 mb-4 text-stone-600;
+  text-wrap: pretty;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }

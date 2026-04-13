@@ -3,23 +3,24 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Info, AlertCircle, Lightbulb, ChevronDown, LucideIcon } from "lucide-react";
+import { renderReadableJapaneseText } from "@/components/typography/ReadableText";
 
 // --- Headings ---
 
 export const ArticleH2 = ({ id, children, className = "" }: { id?: string; children: React.ReactNode; className?: string }) => (
   <h2
     id={id}
-    className={`group relative mt-16 mb-8 scroll-mt-28 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl ${className}`}
+    className={`text-balance-ja group relative mt-16 mb-8 scroll-mt-28 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl ${className}`}
   >
     <span className="absolute -left-4 top-1 bottom-1 w-1.5 rounded-full bg-gradient-to-b from-will-primary to-will-secondary opacity-80" />
-    {children}
+    {typeof children === "string" ? renderReadableJapaneseText(children) : children}
   </h2>
 );
 
 export const ArticleH3 = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <h3 className={`mt-10 mb-4 text-xl font-bold tracking-tight text-gray-900 flex items-center gap-2 ${className}`}>
+  <h3 className={`text-balance-ja mt-10 mb-4 flex items-center gap-2 text-xl font-bold tracking-tight text-gray-900 ${className}`}>
     <span className="h-1.5 w-1.5 rounded-full bg-will-primary" />
-    {children}
+    {typeof children === "string" ? renderReadableJapaneseText(children) : children}
   </h3>
 );
 
@@ -58,9 +59,9 @@ export const Callout = ({ type = "info", title, children }: { type?: CalloutType
         <Icon size={24} />
       </div>
       <div>
-        {title && <div className="mb-2 font-bold">{title}</div>}
+        {title && <div className="text-balance-ja mb-2 font-bold">{renderReadableJapaneseText(title)}</div>}
         {!title && <div className="mb-2 font-bold">{style.title}</div>}
-        <div className="text-sm leading-relaxed opacity-90 sm:text-base">{children}</div>
+        <div className="text-pretty-ja text-sm leading-relaxed opacity-90 sm:text-base">{children}</div>
       </div>
     </div>
   );
@@ -74,13 +75,13 @@ export const SummaryBox = ({ title = "要点まとめ", items }: { title?: strin
       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-white">
         <Check size={20} strokeWidth={3} />
       </div>
-      <h2 className="text-xl font-bold text-gray-900 sm:text-2xl">{title}</h2>
+      <h2 className="text-balance-ja text-xl font-bold text-gray-900 sm:text-2xl">{renderReadableJapaneseText(title)}</h2>
     </div>
     <ul className="grid gap-4">
       {items.map((item, i) => (
-        <li key={i} className="flex gap-3 text-sm leading-relaxed text-gray-700 sm:text-base">
+        <li key={i} className="text-pretty-ja flex gap-3 text-sm leading-relaxed text-gray-700 sm:text-base">
           <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400" />
-          {item}
+          <span>{renderReadableJapaneseText(item)}</span>
         </li>
       ))}
     </ul>
@@ -112,7 +113,9 @@ export const RichFAQ = ({ items }: { items: readonly { question: string; answer:
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
             className="flex w-full items-center justify-between p-5 text-left transition-colors hover:bg-gray-50"
           >
-            <span className="pr-4 font-bold text-gray-900 sm:text-lg">Q. {item.question}</span>
+            <span className="text-balance-ja pr-4 font-bold text-gray-900 sm:text-lg">
+              Q. {renderReadableJapaneseText(item.question)}
+            </span>
             <motion.div
               animate={{ rotate: openIndex === i ? 180 : 0 }}
               transition={{ duration: 0.2 }}
@@ -129,10 +132,10 @@ export const RichFAQ = ({ items }: { items: readonly { question: string; answer:
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
-                <div className="border-t border-gray-100 bg-gray-50/50 p-5 text-sm leading-relaxed text-gray-700 sm:text-base">
+                <div className="text-pretty-ja border-t border-gray-100 bg-gray-50/50 p-5 text-sm leading-relaxed text-gray-700 sm:text-base">
                   <div className="flex gap-3">
                     <span className="font-bold text-will-primary shrink-0">A.</span>
-                    <div>{item.answer}</div>
+                    <div>{renderReadableJapaneseText(item.answer)}</div>
                   </div>
                 </div>
               </motion.div>
@@ -149,12 +152,12 @@ export const RichFAQ = ({ items }: { items: readonly { question: string; answer:
 export const RichBlockquote = ({ children, cite }: { children: React.ReactNode; cite?: string }) => (
   <blockquote className="relative my-10 rounded-2xl bg-gray-50 py-8 pl-10 pr-8 sm:pl-12">
     <span className="absolute left-4 top-6 text-6xl text-gray-200 font-serif leading-none select-none">&quot;</span>
-    <div className="relative z-10 text-lg italic leading-relaxed text-gray-700 sm:text-xl">
-      {children}
+    <div className="text-pretty-ja relative z-10 text-lg italic leading-relaxed text-gray-700 sm:text-xl">
+      {typeof children === "string" ? renderReadableJapaneseText(children) : children}
     </div>
     {cite && (
-      <cite className="mt-4 block text-sm font-medium not-italic text-gray-500">
-        — {cite}
+      <cite className="text-balance-ja mt-4 block text-sm font-medium not-italic text-gray-500">
+        — {renderReadableJapaneseText(cite)}
       </cite>
     )}
   </blockquote>
