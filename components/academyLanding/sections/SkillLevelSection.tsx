@@ -29,7 +29,7 @@ const levels = [
 
 const SkillLevelSection = () => {
   return (
-    <section className={ACADEMY_SPACING.sectionPy} style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
+    <section id="growth" className={ACADEMY_SPACING.sectionPy} style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
       <div className="container mx-auto max-w-6xl px-6 lg:px-12">
         <div className="mb-16 lg:mb-20">
           <span

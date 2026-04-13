@@ -12,30 +12,27 @@ const heroImages = [
   "/images/hero-slide-v2-4.jpg",
 ];
 
-const outcomeCards = [
+const quickLinks = [
   {
-    label: "100日後に目指す状態",
-    title: "AIを学んで終わらせず、仕事で使える状態へ",
-    body: "ChatGPT・Claude・Geminiを触るだけでなく、自分の仕事のどこにAIを入れるべきか判断できる状態を目指します。",
+    href: "#growth",
+    label: "受講後の変化",
+    body: "100日後に何ができるか",
   },
   {
-    label: "この講座の進め方",
-    title: "2日間の集中キャンプ + 100日伴走 + 成果発表",
-    body: "短期集中で土台をつくり、その後の100日で実践を習慣化。最後は成果を言葉とアウトプットで形にします。",
+    href: "#comparison",
+    label: "他サイトとの比較",
+    body: "何が違うかを先に見る",
   },
   {
-    label: "他スクール・他サークルとの違い",
-    title: "ツール紹介で終わらず、何を作りどう活かすかまで扱う",
-    body: "AI活用力だけでなく、自己理解・キャリア設計・仲間との実践まで一体で進める設計です。",
+    href: "#mentors",
+    label: "講師・メンター",
+    body: "誰が伴走するかを確認",
   },
-];
-
-const topicChips = [
-  "Webサイト制作",
-  "マーケティング",
-  "資料作成",
-  "画像・動画生成",
-  "チャットボット",
+  {
+    href: "#pricing",
+    label: "料金・補助金",
+    body: "費用と制度を確認",
+  },
 ];
 
 
@@ -144,7 +141,7 @@ const HeroSection = () => {
               AI活用力とキャリア設計を、同時に鍛える。
             </p>
             <p className="mx-auto max-w-xl text-[15px] leading-relaxed sm:text-base sm:leading-loose lg:mx-0 lg:text-lg" style={{ color: ACADEMY_COLORS.textBody }}>
-              2日間の集中キャンプから始まり、実践と対話を重ねる100日間で、AI時代に通用する思考と行動を定着させます。他スクール・他サークルのようなツール紹介だけで終わらず、何を作り、どう活かし、どうキャリアにつなげるかまで落とし込みます。
+              2日間の集中キャンプと100日伴走で、AIを学んで終わらせず、仕事とキャリアに落とし込みます。
             </p>
           </div>
 
@@ -179,47 +176,34 @@ const HeroSection = () => {
             </Link>
           </div>
 
-          <div className="mb-10 grid gap-4 lg:grid-cols-3">
-            {outcomeCards.map((card) => (
-              <div
-                key={card.title}
-                className="rounded-sm border p-5 text-left"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.78)",
-                  borderColor: ACADEMY_COLORS.lineSoft,
-                  backdropFilter: "blur(10px)",
-                }}
-              >
-                <p
-                  className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em]"
-                  style={{ color: ACADEMY_COLORS.accentMain, fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+          <div className="mb-10 text-left">
+            <p
+              className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-center lg:text-left"
+              style={{ color: ACADEMY_COLORS.accentMain, fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+            >
+              First Guide
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {quickLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-sm border p-4 transition-opacity hover:opacity-80"
+                  style={{
+                    backgroundColor: "rgba(255,255,255,0.78)",
+                    borderColor: ACADEMY_COLORS.lineSoft,
+                    backdropFilter: "blur(10px)",
+                  }}
                 >
-                  {card.label}
-                </p>
-                <h2 className="mb-3 text-base font-bold leading-snug lg:text-lg" style={{ color: ACADEMY_COLORS.textStrong }}>
-                  {card.title}
-                </h2>
-                <p className="text-sm leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
-                  {card.body}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mb-10 flex flex-wrap justify-center gap-2 lg:justify-start">
-            {topicChips.map((chip) => (
-              <span
-                key={chip}
-                className="rounded-full border px-3 py-1 text-xs font-medium"
-                style={{
-                  color: ACADEMY_COLORS.textMuted,
-                  borderColor: ACADEMY_COLORS.lineSoft,
-                  backgroundColor: "rgba(255,255,255,0.72)",
-                }}
-              >
-                {chip}
-              </span>
-            ))}
+                  <p className="mb-1 text-sm font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
+                    {item.label}
+                  </p>
+                  <p className="text-xs leading-loose" style={{ color: ACADEMY_COLORS.textMuted }}>
+                    {item.body}
+                  </p>
+                </Link>
+              ))}
+            </div>
           </div>
 
 

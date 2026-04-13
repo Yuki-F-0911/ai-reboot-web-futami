@@ -39,6 +39,7 @@ const instructors = [
 const InstructorsSection = () => {
     return (
         <section 
+            id="mentors"
             className={ACADEMY_SPACING.sectionPy}
             style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}
         >

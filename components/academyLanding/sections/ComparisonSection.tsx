@@ -26,7 +26,7 @@ const comparisonRows = [
 
 const ComparisonSection = () => {
   return (
-    <section className={ACADEMY_SPACING.sectionPy} style={{ backgroundColor: ACADEMY_COLORS.bgWarm }}>
+    <section id="comparison" className={ACADEMY_SPACING.sectionPy} style={{ backgroundColor: ACADEMY_COLORS.bgWarm }}>
       <div className="container mx-auto max-w-6xl px-6 lg:px-12">
         <div className="mb-12 lg:mb-16">
           <span
