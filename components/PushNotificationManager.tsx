@@ -4,8 +4,13 @@ import { useEffect, useState } from 'react'
 
 const PAGE_COUNT_KEY = 'push:pageCount'
 const PROMPT_SUPPRESS_UNTIL_KEY = 'push:promptSuppressUntil'
+const RETRY_PANEL_SUPPRESS_UNTIL_KEY = 'push:retryPanelSuppressUntil'
+const RETRY_PENDING_KEY = 'push:retryPending'
 const DENIED_KEY = 'push:denied'
 const REJECT_SUPPRESS_DAYS = 30
+const RETRY_PANEL_SUPPRESS_DAYS = 1
+const STATUS_MESSAGE_DURATION_MS = 4000
+const RETRY_PANEL_AUTO_HIDE_MS = 10000
 
 function urlBase64ToUint8Array(base64String: string): Uint8Array {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
@@ -32,8 +37,8 @@ function isStandaloneMode(): boolean {
   )
 }
 
-function getSuppressUntil(): number {
-  const stored = window.localStorage.getItem(PROMPT_SUPPRESS_UNTIL_KEY)
+function getSuppressUntil(storageKey: string): number {
+  const stored = window.localStorage.getItem(storageKey)
   if (!stored) {
     return 0
   }
@@ -42,10 +47,10 @@ function getSuppressUntil(): number {
   return Number.isFinite(timestamp) ? timestamp : 0
 }
 
-function suppressPrompt(days: number): void {
+function suppressPrompt(storageKey: string, days: number): void {
   const now = Date.now()
   const suppressedUntil = now + days * 24 * 60 * 60 * 1000
-  window.localStorage.setItem(PROMPT_SUPPRESS_UNTIL_KEY, String(suppressedUntil))
+  window.localStorage.setItem(storageKey, String(suppressedUntil))
 }
 
 async function hasCurrentSubscription(): Promise<boolean> {
@@ -64,6 +69,7 @@ export default function PushNotificationManager() {
   const [subscribed, setSubscribed] = useState(false)
   const [isSubscriptionChecked, setIsSubscriptionChecked] = useState(false)
   const [statusMessage, setStatusMessage] = useState<string | null>(null)
+  const [canShowRetryPanel, setCanShowRetryPanel] = useState(false)
   const [retryDismissed, setRetryDismissed] = useState(false)
 
   useEffect(() => {
@@ -87,7 +93,23 @@ export default function PushNotificationManager() {
     setPageCount(nextPageCount)
 
     hasCurrentSubscription()
-      .then((result) => setSubscribed(result))
+      .then((result) => {
+        setSubscribed(result)
+
+        if (result) {
+          window.localStorage.removeItem(RETRY_PENDING_KEY)
+          window.localStorage.removeItem(RETRY_PANEL_SUPPRESS_UNTIL_KEY)
+          setCanShowRetryPanel(false)
+          return
+        }
+
+        const shouldShowRetryPanel =
+          Notification.permission === 'granted' &&
+          window.localStorage.getItem(RETRY_PENDING_KEY) === '1' &&
+          Date.now() >= getSuppressUntil(RETRY_PANEL_SUPPRESS_UNTIL_KEY)
+
+        setCanShowRetryPanel(shouldShowRetryPanel)
+      })
       .catch((error) => {
         console.error('Failed to check current push subscription:', error)
       })
@@ -133,7 +155,7 @@ export default function PushNotificationManager() {
       return
     }
 
-    if (Date.now() < getSuppressUntil()) {
+    if (Date.now() < getSuppressUntil(PROMPT_SUPPRESS_UNTIL_KEY)) {
       setIsVisible(false)
       return
     }
@@ -146,6 +168,59 @@ export default function PushNotificationManager() {
     setIsVisible(true)
   }, [isSupported, permission, scrolledEnough, subscribed, pageCount])
 
+  useEffect(() => {
+    if (!statusMessage) {
+      return
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setStatusMessage(null)
+    }, STATUS_MESSAGE_DURATION_MS)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [statusMessage])
+
+  const showRetryPanel =
+    canShowRetryPanel &&
+    isSubscriptionChecked &&
+    permission === 'granted' &&
+    !subscribed &&
+    !retryDismissed
+
+  useEffect(() => {
+    if (!showRetryPanel) {
+      return
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      suppressPrompt(RETRY_PANEL_SUPPRESS_UNTIL_KEY, RETRY_PANEL_SUPPRESS_DAYS)
+      setRetryDismissed(true)
+      setCanShowRetryPanel(false)
+    }, RETRY_PANEL_AUTO_HIDE_MS)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [showRetryPanel])
+
+  const clearRetryPanel = (options?: { preserveSuppression?: boolean }) => {
+    window.localStorage.removeItem(RETRY_PENDING_KEY)
+    if (!options?.preserveSuppression) {
+      window.localStorage.removeItem(RETRY_PANEL_SUPPRESS_UNTIL_KEY)
+    }
+    setCanShowRetryPanel(false)
+    setRetryDismissed(false)
+  }
+
+  const revealRetryPanel = () => {
+    window.localStorage.setItem(RETRY_PENDING_KEY, '1')
+    window.localStorage.removeItem(RETRY_PANEL_SUPPRESS_UNTIL_KEY)
+    setRetryDismissed(false)
+    setCanShowRetryPanel(true)
+  }
+
   const handleEnableNotifications = async () => {
     setIsLoading(true)
     setStatusMessage(null)
@@ -155,10 +230,11 @@ export default function PushNotificationManager() {
       setPermission(requestedPermission)
 
       if (requestedPermission !== 'granted') {
+        clearRetryPanel()
         if (requestedPermission === 'denied') {
           window.localStorage.setItem(DENIED_KEY, '1')
         }
-        suppressPrompt(REJECT_SUPPRESS_DAYS)
+        suppressPrompt(PROMPT_SUPPRESS_UNTIL_KEY, REJECT_SUPPRESS_DAYS)
         setIsVisible(false)
         setStatusMessage('通知が拒否されました。ブラウザ設定から再度有効化できます。')
         return
@@ -166,6 +242,7 @@ export default function PushNotificationManager() {
 
       const vapidPublicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY
       if (!vapidPublicKey) {
+        revealRetryPanel()
         setStatusMessage('NEXT_PUBLIC_VAPID_PUBLIC_KEY が未設定です。')
         return
       }
@@ -192,12 +269,14 @@ export default function PushNotificationManager() {
         throw new Error(`Failed to save subscription: ${response.status}`)
       }
 
-      suppressPrompt(3650)
+      suppressPrompt(PROMPT_SUPPRESS_UNTIL_KEY, 3650)
+      clearRetryPanel()
       setSubscribed(true)
       setIsVisible(false)
       setStatusMessage('プッシュ通知を有効化しました。')
     } catch (error) {
       console.error('Failed to enable push notifications:', error)
+      revealRetryPanel()
       setStatusMessage('通知設定に失敗しました。時間をおいて再度お試しください。')
     } finally {
       setIsLoading(false)
@@ -224,6 +303,7 @@ export default function PushNotificationManager() {
       }
 
       setSubscribed(false)
+      clearRetryPanel()
       setStatusMessage('プッシュ通知を停止しました。')
     } catch (error) {
       console.error('Failed to disable push notifications:', error)
@@ -234,15 +314,18 @@ export default function PushNotificationManager() {
   }
 
   const handleDismiss = () => {
-    suppressPrompt(REJECT_SUPPRESS_DAYS)
+    suppressPrompt(PROMPT_SUPPRESS_UNTIL_KEY, REJECT_SUPPRESS_DAYS)
     setIsVisible(false)
+  }
+
+  const handleRetryDismiss = () => {
+    suppressPrompt(RETRY_PANEL_SUPPRESS_UNTIL_KEY, RETRY_PANEL_SUPPRESS_DAYS)
+    clearRetryPanel({ preserveSuppression: true })
   }
 
   if (!isSupported) {
     return null
   }
-
-  const showRetryPanel = isSubscriptionChecked && permission === 'granted' && !subscribed && !retryDismissed
 
   return (
     <>
@@ -277,7 +360,7 @@ export default function PushNotificationManager() {
         <aside className="fixed bottom-28 right-4 z-40 w-[min(92vw,24rem)] rounded-2xl border border-blue-200 bg-blue-50 p-4 shadow-xl">
           <button
             type="button"
-            onClick={() => setRetryDismissed(true)}
+            onClick={handleRetryDismiss}
             className="absolute right-3 top-3 text-blue-400 transition hover:text-blue-700"
             aria-label="閉じる"
           >
