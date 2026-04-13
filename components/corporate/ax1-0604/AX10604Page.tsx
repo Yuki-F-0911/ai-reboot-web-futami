@@ -721,7 +721,7 @@ export default function AX10604Page() {
                             href="https://forms.gle/df8F25CenX5edyN88"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={styles.btnPrimary}
+                            className={styles.btnEntryAccent}
                         >
                             エントリーはこちら
                         </a>
@@ -729,6 +729,20 @@ export default function AX10604Page() {
                 </div>
             </section>
 
+
+            {/* LP Footer */}
+            <footer className={styles.lpFooter}>
+                <div className={styles.lpFooterInner}>
+                    <nav className={styles.lpFooterNav}>
+                        <a href="/corporate" className={styles.lpFooterLink}>法人研修</a>
+                        <a href="/company" className={styles.lpFooterLink}>運営会社</a>
+                        <a href="/contact" className={styles.lpFooterLink}>お問い合わせ</a>
+                        <a href="/privacy" className={styles.lpFooterLink}>プライバシーポリシー</a>
+                        <a href="/legal" className={styles.lpFooterLink}>特定商取引法に基づく表記</a>
+                    </nav>
+                    <p className={styles.lpFooterCopy}>© {new Date().getFullYear()} 株式会社ウィルフォワード</p>
+                </div>
+            </footer>
 
             {/* Mobile Menu Overlay */}
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ""}`}>
