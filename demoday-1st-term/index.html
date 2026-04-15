@@ -160,30 +160,25 @@
       color: #fff;
       background-color: var(--dark);
       background-image:
+        /* Will core glow — 元は drop-shadow フィルタで描いていたが、静的な radial-gradient に置き換えて GPU 負荷を削減 */
+        radial-gradient(circle 120px at 55% 50%, rgba(200, 16, 46, 0.55), transparent 70%),
         /* Red glow top-right */
         radial-gradient(ellipse 65% 55% at 82% 12%, rgba(200, 16, 46, 0.32), transparent 70%),
         /* White soft light bottom-left */
         radial-gradient(ellipse 95% 65% at 15% 100%, rgba(255, 255, 255, 0.10), transparent 70%);
-      background-repeat: no-repeat, no-repeat;
-      background-position: top right, bottom left;
-      background-size: auto, auto;
+      background-repeat: no-repeat;
     }
     @media (min-width: 1000px) { #hero { padding: 0 64px; } }
 
-    /* Drifting dot grid */
+    /* Static dot grid (drift アニメは重いので削除) */
     #hero::before {
       content: '';
       position: absolute;
-      inset: -40px;
+      inset: 0;
       background-image: radial-gradient(rgba(255,255,255,0.18) 1.3px, transparent 1.6px);
       background-size: 26px 26px;
       pointer-events: none;
-      animation: dot-drift 16s linear infinite;
       z-index: 0;
-    }
-    @keyframes dot-drift {
-      from { background-position: 0 0; }
-      to   { background-position: 52px 52px; }
     }
 
     /* =====================================================
@@ -200,7 +195,8 @@
       pointer-events: none;
     }
 
-    /* Red Will core — 起点の赤点 */
+    /* Red Will core — 起点の赤点
+       (drop-shadow フィルタは重いので削除。グロー表現は #hero の radial-gradient で代替) */
     .hero-mesh .will-core {
       fill: var(--red);
       transform-origin: center;
@@ -209,19 +205,21 @@
       animation:
         will-core-intro 1.6s ease-out 0.3s forwards,
         will-core-pulse 3.2s ease-in-out 1.9s infinite;
-      filter: drop-shadow(0 0 14px rgba(200,16,46,0.75));
+      will-change: transform, opacity;
     }
 
-    /* 同心円状に放射されるリング (線は拡大してもスケールしない非スケーリングストローク) */
+    /* 同心円状に放射されるリング
+       (non-scaling-stroke は毎フレーム再ラスタライズが発生して重いので削除。
+        通常の stroke にして初期値を細くし、最大 scale も抑える) */
     .hero-mesh .will-ring {
       stroke: var(--red);
-      stroke-width: 0.8;
-      vector-effect: non-scaling-stroke;
+      stroke-width: 0.7;
       fill: none;
       transform-origin: center;
       transform-box: fill-box;
       opacity: 0;
       animation: will-ring 6s ease-out infinite;
+      will-change: transform, opacity;
     }
 
     @keyframes will-core-intro {
@@ -234,9 +232,15 @@
       50%      { transform: scale(1.25); opacity: 1;    }
     }
     @keyframes will-ring {
-      0%   { transform: scale(0.2); opacity: 0;    }
-      7%   {                        opacity: 0.8;  }
-      100% { transform: scale(34);  opacity: 0;    }
+      0%   { transform: scale(0.3); opacity: 0;    }
+      8%   {                        opacity: 0.75; }
+      100% { transform: scale(12);  opacity: 0;    }
+    }
+
+    /* hero が画面外になったらアニメーションを止める (JS で .paused を付与) */
+    .hero-mesh.paused .will-core,
+    .hero-mesh.paused .will-ring {
+      animation-play-state: paused;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -245,6 +249,7 @@
         animation: none;
         opacity: 1;
       }
+      #hero::before { animation: none; }
     }
 
     /* hero-bar は最小化 (上部の divider のみ残す) */
@@ -407,9 +412,7 @@
       width: 46px;
       height: 46px;
       border-radius: 50%;
-      background: rgba(12,12,12,0.78);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: rgba(12,12,12,0.88);
       border: 1px solid rgba(255,255,255,0.24);
       cursor: pointer;
       transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
@@ -436,9 +439,7 @@
       right: 0;
       min-width: 236px;
       padding: 12px 0;
-      background: rgba(12,12,12,0.96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(18,18,18,0.98);
       border: 1px solid rgba(255,255,255,0.14);
       border-radius: 12px;
       box-shadow: 0 24px 60px rgba(0,0,0,0.45);
@@ -490,9 +491,7 @@
         align-items: stretch;
         gap: 8px;
         padding: 12px 5vw 14px;
-        background: rgba(12,12,12,0.96);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background: rgba(12,12,12,0.98);
         border-top: 1px solid rgba(255,255,255,0.16);
         z-index: 70;
       }
@@ -1061,13 +1060,11 @@
        そこから同心円状の赤いリングが画面全体に向けて連続的に放射される
        (viewBox 1600×900 / xMidYMid slice。モバイル縦は x∈[592,1008] が可視) -->
   <svg class="hero-mesh" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <!-- 同心円リング: 1.2秒間隔で放射 (6s 周期 × 5本で途切れなく連続) -->
+    <!-- 同心円リング: 2秒間隔で放射 (6s 周期 × 3本で途切れなく連続、GPU負荷削減のため本数削減) -->
     <g>
       <circle class="will-ring" cx="880" cy="450" r="16" style="animation-delay:1.9s"/>
-      <circle class="will-ring" cx="880" cy="450" r="16" style="animation-delay:3.1s"/>
-      <circle class="will-ring" cx="880" cy="450" r="16" style="animation-delay:4.3s"/>
-      <circle class="will-ring" cx="880" cy="450" r="16" style="animation-delay:5.5s"/>
-      <circle class="will-ring" cx="880" cy="450" r="16" style="animation-delay:6.7s"/>
+      <circle class="will-ring" cx="880" cy="450" r="16" style="animation-delay:3.9s"/>
+      <circle class="will-ring" cx="880" cy="450" r="16" style="animation-delay:5.9s"/>
     </g>
     <!-- Core: 赤い Will 点 -->
     <circle class="will-core" cx="880" cy="450" r="7"/>
@@ -1722,6 +1719,23 @@
     });
   }, { threshold: 0.07 });
   document.querySelectorAll('.appear').forEach(function(el) { obs.observe(el); });
+
+  /* ── hero が画面外に出たら背景アニメーションを止める (負荷削減) ── */
+  (function() {
+    var hero = document.getElementById('hero');
+    var mesh = document.querySelector('.hero-mesh');
+    if (!hero || !mesh || !('IntersectionObserver' in window)) return;
+    var heroObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        mesh.classList.toggle('paused', !e.isIntersecting);
+      });
+    }, { threshold: 0 });
+    heroObs.observe(hero);
+    // ページがバックグラウンドタブになったときも止める
+    document.addEventListener('visibilitychange', function() {
+      mesh.classList.toggle('paused', document.hidden);
+    });
+  })();
 
   /* ── Sticky top-right section menu ── */
   (function() {
