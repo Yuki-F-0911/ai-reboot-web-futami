@@ -1,152 +1,298 @@
-import Image from "next/image";
-import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY, ACADEMY_SPACING } from "./academyDesignTokens";
+import {
+  ACADEMY_COLORS,
+  ACADEMY_TYPOGRAPHY,
+  ACADEMY_SPACING,
+} from "./academyDesignTokens";
 
-const comparisonRows = [
+/**
+ * 比較データ型定義
+ */
+interface ComparisonRow {
+  label: string;
+  aiReboot: string;
+  generalAi: string;
+  careerCoaching: string;
+}
+
+const comparisonData: ComparisonRow[] = [
   {
-    label: "学びの中心",
-    others: "AIツールの使い方を知る",
-    reboot: "AI活用力と自己理解を行き来しながら、自分の仕事に落とし込む",
+    label: "学ぶ対象",
+    aiReboot: "AI × キャリア × 自己理解を統合的に",
+    generalAi: "AIスキルのみ",
+    careerCoaching: "キャリア設計のみ",
+  },
+  {
+    label: "学び方",
+    aiReboot: "2日間の合宿研修 + 100日間の実践伴走",
+    generalAi: "動画視聴・オンライン講座が中心",
+    careerCoaching: "1on1面談が中心",
+  },
+  {
+    label: "コミュニティ",
+    aiReboot: "少人数の仲間と深い共創関係を構築",
+    generalAi: "大規模コミュニティ（つながりは薄い）",
+    careerCoaching: "基本的に個人完結",
   },
   {
     label: "ゴール",
-    others: "理解して終わる",
-    reboot: "何を作るか、誰に届けるかまで考えて成果物にする",
+    aiReboot: "「自分はどう生きたいか」から逆算して人生をリブート",
+    generalAi: "特定スキルの習得・資格取得",
+    careerCoaching: "転職成功・年収アップ",
   },
   {
-    label: "支援体制",
-    others: "ひとりで進める",
-    reboot: "2日間のキャンプと100日伴走で、変化を習慣化する",
+    label: "運営の姿勢",
+    aiReboot: "講師自身が日々AIと向き合う現役の実践者集団",
+    generalAi: "カリキュラム化された教材を提供",
+    careerCoaching: "コーチ/アドバイザーとして助言",
   },
   {
-    label: "AI時代との向き合い方",
-    others: "便利なツールとして触れる",
-    reboot: "キャリアや働き方の前提から見直し、自分の強みに変える",
+    label: "補助金",
+    aiReboot: "経済産業省認定・最大70%補助",
+    generalAi: "講座により異なる",
+    careerCoaching: "対象外が多い",
   },
 ];
 
 const ComparisonSection = () => {
   return (
-    <section id="comparison" className={ACADEMY_SPACING.sectionPy} style={{ backgroundColor: ACADEMY_COLORS.bgWarm }}>
+    <section
+      className={ACADEMY_SPACING.sectionPy}
+      style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}
+    >
       <div className="container mx-auto max-w-6xl px-6 lg:px-12">
-        <div className="mb-12 lg:mb-16">
+        {/* セクションヘッダー */}
+        <div className="mb-16 lg:mb-20">
           <span
             className="mb-4 inline-block text-[10px] font-bold uppercase tracking-[0.2em]"
-            style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric, color: ACADEMY_COLORS.accentMain }}
+            style={{
+              fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+              color: ACADEMY_COLORS.accentMain,
+            }}
           >
             Comparison
           </span>
           <h2
-            className="mb-4 text-3xl font-bold leading-tight lg:text-5xl"
-            style={{ fontFamily: ACADEMY_TYPOGRAPHY.serif, color: ACADEMY_COLORS.textStrong }}
+            className="mb-6 text-3xl font-bold leading-tight lg:text-4xl"
+            style={{
+              fontFamily: ACADEMY_TYPOGRAPHY.serif,
+              color: ACADEMY_COLORS.textStrong,
+            }}
           >
-            他サイトとの比較
+            他のスクールとの違い
           </h2>
-          <p className="max-w-3xl text-base leading-loose lg:text-lg" style={{ color: ACADEMY_COLORS.textBody }}>
-            AIリブートは、ツールの知識を集めるだけの場ではありません。AI時代に合わせて仕事のやり方とキャリアの選び方まで再設計することを、はじめから前提にしています。
+          <p
+            className="max-w-3xl leading-loose"
+            style={{ color: ACADEMY_COLORS.textBody }}
+          >
+            AIリブートアカデミーは、AIスキルを教えるスクールではありません。
+            <br className="hidden lg:block" />
+            「君は何を作りたいの？」「どういう働き方をしたいの？」
+            <br className="hidden lg:block" />
+            AIありの社会で、あなたが本当に生きたい生き方を一緒に見つける場所です。
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+        {/* 比較テーブル — PC */}
+        <div className="hidden lg:block">
           <div
             className="overflow-hidden rounded-sm border"
-            style={{ borderColor: ACADEMY_COLORS.lineSoft, backgroundColor: ACADEMY_COLORS.bgCanvas }}
+            style={{ borderColor: ACADEMY_COLORS.lineSoft }}
           >
-            <div className="grid gap-px lg:grid-cols-[180px_1fr_1fr]" style={{ backgroundColor: ACADEMY_COLORS.lineSoft }}>
-              <div className="hidden p-5 lg:block" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }} />
-              <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
-                <p className="text-sm font-bold" style={{ color: ACADEMY_COLORS.textMuted }}>
-                  他スクール・他サークル
-                </p>
-              </div>
-              <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}>
-                <p className="text-sm font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
-                  AIリブート
-                </p>
-              </div>
-              {comparisonRows.map((row) => (
-                <div key={row.label} className="contents">
-                  <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
-                    <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: ACADEMY_COLORS.accentMain }}>
-                      {row.label}
-                    </p>
-                  </div>
-                  <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgCanvas }}>
-                    <p className="text-sm leading-loose" style={{ color: ACADEMY_COLORS.textMuted }}>
-                      {row.others}
-                    </p>
-                  </div>
-                  <div className="p-5" style={{ backgroundColor: ACADEMY_COLORS.bgPanel }}>
-                    <p className="text-sm leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
-                      {row.reboot}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-4">
+            {/* テーブルヘッダー */}
             <div
-              className="relative overflow-hidden rounded-sm border p-6"
-              style={{ borderColor: ACADEMY_COLORS.lineSoft, backgroundColor: ACADEMY_COLORS.bgPanel }}
+              className="grid grid-cols-4 border-b"
+              style={{
+                borderColor: ACADEMY_COLORS.lineSoft,
+                backgroundColor: ACADEMY_COLORS.bgSection,
+              }}
             >
-              <div className="pointer-events-none absolute -right-4 -top-4 opacity-20">
-                <Image
-                  src="/images/skill-pyramid-illustration.png"
-                  alt=""
-                  width={180}
-                  height={180}
-                  className="h-[180px] w-[180px] object-contain"
-                  aria-hidden="true"
-                />
+              <div className="p-5">
+                <span
+                  className="text-[10px] font-bold uppercase tracking-widest"
+                  style={{
+                    fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                    color: ACADEMY_COLORS.textMuted,
+                  }}
+                >
+                  比較項目
+                </span>
               </div>
-              <p
-                className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em]"
-                style={{ color: ACADEMY_COLORS.accentMain, fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+              <div
+                className="border-l p-5"
+                style={{
+                  borderColor: ACADEMY_COLORS.lineSoft,
+                  backgroundColor: ACADEMY_COLORS.accentSoft,
+                }}
               >
-                Why It Matters
-              </p>
-              <h3 className="mb-3 text-xl font-bold" style={{ color: ACADEMY_COLORS.textStrong }}>
-                AI時代に必要なのは、学ぶ量より変えられる範囲
-              </h3>
-              <p className="text-sm leading-loose" style={{ color: ACADEMY_COLORS.textBody }}>
-                AIツールを知っていることより、自分の仕事に組み込み、キャリアの武器として使えることが重要です。AIリブートはそのための土台づくりから伴走します。
-              </p>
+                <span
+                  className="text-sm font-bold"
+                  style={{ color: ACADEMY_COLORS.accentDeep }}
+                >
+                  AIリブートアカデミー
+                </span>
+              </div>
+              <div
+                className="border-l p-5"
+                style={{ borderColor: ACADEMY_COLORS.lineSoft }}
+              >
+                <span
+                  className="text-sm font-bold"
+                  style={{ color: ACADEMY_COLORS.textMuted }}
+                >
+                  一般的なAIスクール
+                </span>
+              </div>
+              <div
+                className="border-l p-5"
+                style={{ borderColor: ACADEMY_COLORS.lineSoft }}
+              >
+                <span
+                  className="text-sm font-bold"
+                  style={{ color: ACADEMY_COLORS.textMuted }}
+                >
+                  キャリアコーチング
+                </span>
+              </div>
             </div>
 
-            <div
-              className="rounded-sm border p-6"
-              style={{ borderColor: ACADEMY_COLORS.lineSoft, backgroundColor: ACADEMY_COLORS.bgCanvas }}
-            >
-              <p
-                className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em]"
-                style={{ color: ACADEMY_COLORS.accentMain, fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
+            {/* テーブルボディ */}
+            {comparisonData.map((row, index) => (
+              <div
+                key={index}
+                className="grid grid-cols-4 border-b last:border-b-0"
+                style={{ borderColor: ACADEMY_COLORS.lineSoft }}
               >
-                Included
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "AI活用力",
-                  "自己理解",
-                  "キャリア設計",
-                  "仲間との実践",
-                  "成果発表",
-                ].map((item) => (
+                <div
+                  className="p-5"
+                  style={{ backgroundColor: ACADEMY_COLORS.bgSection }}
+                >
                   <span
-                    key={item}
-                    className="rounded-full border px-3 py-1 text-xs font-medium"
+                    className="text-sm font-bold"
+                    style={{ color: ACADEMY_COLORS.textStrong }}
+                  >
+                    {row.label}
+                  </span>
+                </div>
+                <div
+                  className="border-l p-5"
+                  style={{ borderColor: ACADEMY_COLORS.lineSoft }}
+                >
+                  <p
+                    className="text-sm font-medium leading-relaxed"
+                    style={{ color: ACADEMY_COLORS.textStrong }}
+                  >
+                    {row.aiReboot}
+                  </p>
+                </div>
+                <div
+                  className="border-l p-5"
+                  style={{ borderColor: ACADEMY_COLORS.lineSoft }}
+                >
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: ACADEMY_COLORS.textMuted }}
+                  >
+                    {row.generalAi}
+                  </p>
+                </div>
+                <div
+                  className="border-l p-5"
+                  style={{ borderColor: ACADEMY_COLORS.lineSoft }}
+                >
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: ACADEMY_COLORS.textMuted }}
+                  >
+                    {row.careerCoaching}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 比較カード — モバイル */}
+        <div className="space-y-6 lg:hidden">
+          {comparisonData.map((row, index) => (
+            <div
+              key={index}
+              className="rounded-sm border p-5"
+              style={{
+                borderColor: ACADEMY_COLORS.lineSoft,
+                backgroundColor: ACADEMY_COLORS.bgCanvas,
+              }}
+            >
+              <p
+                className="mb-4 text-sm font-bold"
+                style={{ color: ACADEMY_COLORS.textStrong }}
+              >
+                {row.label}
+              </p>
+
+              {/* AIリブート（強調） */}
+              <div
+                className="mb-3 rounded-sm border-l-2 py-2 pl-4"
+                style={{
+                  borderColor: ACADEMY_COLORS.accentMain,
+                  backgroundColor: ACADEMY_COLORS.accentSoft,
+                }}
+              >
+                <p
+                  className="mb-1 text-[10px] font-bold uppercase tracking-widest"
+                  style={{
+                    fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                    color: ACADEMY_COLORS.accentDeep,
+                  }}
+                >
+                  AI Reboot Academy
+                </p>
+                <p
+                  className="text-sm font-medium leading-relaxed"
+                  style={{ color: ACADEMY_COLORS.textStrong }}
+                >
+                  {row.aiReboot}
+                </p>
+              </div>
+
+              {/* 他サービス */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <p
+                    className="mb-1 text-[10px] font-bold uppercase tracking-wider"
                     style={{
-                      borderColor: ACADEMY_COLORS.lineSoft,
-                      backgroundColor: ACADEMY_COLORS.bgPanel,
-                      color: ACADEMY_COLORS.textBody,
+                      fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                      color: ACADEMY_COLORS.textMuted,
                     }}
                   >
-                    {item}
-                  </span>
-                ))}
+                    AIスクール
+                  </p>
+                  <p
+                    className="text-xs leading-relaxed"
+                    style={{ color: ACADEMY_COLORS.textMuted }}
+                  >
+                    {row.generalAi}
+                  </p>
+                </div>
+                <div>
+                  <p
+                    className="mb-1 text-[10px] font-bold uppercase tracking-wider"
+                    style={{
+                      fontFamily: ACADEMY_TYPOGRAPHY.numeric,
+                      color: ACADEMY_COLORS.textMuted,
+                    }}
+                  >
+                    キャリア
+                  </p>
+                  <p
+                    className="text-xs leading-relaxed"
+                    style={{ color: ACADEMY_COLORS.textMuted }}
+                  >
+                    {row.careerCoaching}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

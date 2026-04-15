@@ -187,7 +187,7 @@ export const AcademyGovernment = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="text-center mt-8 text-depth-600"
           >
-            <p>運営会社は2010年設立の株式会社ウィルフォワード</p>
+            <p>運営会社は株式会社ウィルフォワード</p>
           </motion.div>
         </motion.div>
       </div>

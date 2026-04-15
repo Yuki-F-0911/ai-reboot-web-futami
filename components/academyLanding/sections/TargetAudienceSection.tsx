@@ -2,25 +2,25 @@ import { ACADEMY_COLORS, ACADEMY_TYPOGRAPHY, ACADEMY_SPACING } from "./academyDe
 
 const targetAudience = [
     {
-        text: "生成AI活用スキルを活かして、キャリアアップをしたい人",
+        text: "就職して3〜5年。仕事は一段落したけど、「このままでいいのかな」とモヤモヤしている",
         isImportant: false,
     },
     {
-        text: "生成AIによる社会の変化の中で、自分も何かをしなくてはいけないと感じている人",
+        text: "AIで社会が急激に変わっているのを感じていて、自分も何かしないとと焦りを感じている",
         isImportant: false,
     },
     {
-        text: "今の自分の現状に不満やモヤモヤを感じている人",
+        text: "プログラミングスクールに通い始めたけど、本当にやりたいことはそれじゃない気がする",
         isImportant: false,
     },
     {
-        text: "これからの働き方・キャリアを\"AI時代の前提\"で考えたい人",
-        isImportant: false,
-    },
-    {
-        text: "AIスキルを身に付けたいし、それ以上に自分の価値を高めたい人",
+        text: "転職や副業で「稼ぐ」だけでなく、自分の価値を高めたい。自分らしい働き方を見つけたい",
         isImportant: true,
         note: "特に重要",
+    },
+    {
+        text: "一人で学ぶのは続かなかった。同じ方向を向いた仲間と、一緒に変わりたい",
+        isImportant: false,
     },
 ];
 

@@ -47,9 +47,6 @@ const ConceptSection = () => {
           >
             Concept
           </span>
-          <p className="mb-3 text-sm font-medium" style={{ color: ACADEMY_COLORS.textMuted }}>
-            生成AIを学ぶ場所ではない。人生をリブートする場所。
-          </p>
           <h2
             className="mb-6 text-3xl font-bold leading-tight lg:text-5xl"
             style={{
@@ -57,11 +54,14 @@ const ConceptSection = () => {
               color: ACADEMY_COLORS.textStrong,
             }}
           >
-            AIを学ぶだけで終わらない。<br />
-            仕事とキャリアまで組み替える。
+            生成AIを学ぶ場所ではない。<br />
+            人生をリブートする場所。
           </h2>
           <p className="mb-6 max-w-3xl text-base leading-loose lg:text-lg" style={{ color: ACADEMY_COLORS.textBody }}>
-            生成AI活用力・自己理解・仲間との学び。この3つを軸に、理解と実践を繰り返しながら、自ら手を動かし変化を習慣に落とし込みます。AIリブートは、知識を増やすだけではなく、仕事のやり方とキャリアの選び方を変えるための設計です。
+            生成AI活用力・自己理解・仲間との学び。この3つを軸に、理解と実践を繰り返しながら、自ら手を動かし変化を習慣に落とし込んでいきます。
+          </p>
+          <p className="mb-6 max-w-3xl text-sm leading-loose" style={{ color: ACADEMY_COLORS.textMuted }}>
+            「世界を一つの家族にする」——このビジョンのもと、15年間の組織開発・キャリア教育で培った知見を持つウィルフォワードが設計・運営するプログラムです。
           </p>
           <p
             className="mb-6 text-xs font-bold tracking-wider lg:text-sm"
