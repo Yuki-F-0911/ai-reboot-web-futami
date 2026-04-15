@@ -49,7 +49,7 @@ const rebooterStories: RebooterStory[] = [
     phase: "1期生・挑戦中",
   },
   {
-    nickname: "ムスびんさん",
+    nickname: "むすびんさん",
     attribute: "ゲーム開発・仕様設計・シナリオライティング",
     before:
       "現場ではAIはまだ使われておらず、自分もたまにコードを書いてもらう程度。子供と一緒にゲームを作れるようになりたいと参加。",

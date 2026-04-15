@@ -86,8 +86,8 @@ const instructors: Instructor[] = [
 const teamMember = {
   name: "谷出 正直",
   nameEn: "Masanao Tanide",
-  role: "キャリアコンサルタント（国家資格）",
-  company: "日本採用研究所 代表",
+  role: "日本採用研究所 所長 / キャリアコンサルタント（国家資格）",
+  company: "日本採用研究所",
   achievements: [
     "筑波大学大学院 体育研究科修了。エン・ジャパン（株）で新卒採用支援11年、4年連続売上No.1",
     "約150社の新卒採用を成功に導いた採用コンサルティングの専門家",
@@ -95,7 +95,7 @@ const teamMember = {
     "筑波大学・琉球大学・立教大学等でキャリア授業・就職ガイダンスを実施。延べ1,000名以上を支援",
     "AI時代の「強みの再定義」をテーマにしたワークショップを開発・展開",
   ],
-  image: "/images/tanide.jpg",
+  image: "/images/tanide.png",
 };
 
 
@@ -346,7 +346,7 @@ const InstructorsSection = () => {
                 className="mt-5 text-xs"
                 style={{ color: ACADEMY_COLORS.textMuted }}
               >
-                ※ 谷出氏はAIリブートアカデミーの講師ではありませんが、外部の専門家として中立的な立場からキャリア支援を監修しています。
+                ※ 谷出氏は日本採用研究所 所長として、AIリブートアカデミーおよび運営会社とは独立した外部の専門家の立場から、中立的にキャリア支援を監修しています。
               </p>
             </div>
           </div>

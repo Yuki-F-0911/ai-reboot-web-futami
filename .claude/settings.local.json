@@ -20,7 +20,9 @@
       "Bash(npx tsc --noEmit --project tsconfig.json)",
       "mcp__Claude_Preview__preview_start",
       "Bash(pip install pdfplumber)",
-      "Bash(pip install pypdf Pillow)"
+      "Bash(pip install pypdf Pillow)",
+      "Bash(cp /c/Users/yuki0/willforward/ai-reboot-web/tanide.png /c/Users/yuki0/willforward/ai-reboot-web/public/images/tanide.png)",
+      "Bash(cp \"/c/Users/yuki0/willforward/ai-reboot-web/WillForwardロゴA1.jpg\" /c/Users/yuki0/willforward/ai-reboot-web/public/images/willforward-logo.jpg)"
     ]
   }
 }

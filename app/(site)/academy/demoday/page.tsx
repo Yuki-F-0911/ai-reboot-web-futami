@@ -37,7 +37,7 @@ const rebooterTimelines = [
     demoday: "DEMO DAYで発表予定",
   },
   {
-    nickname: "ムスびんさん",
+    nickname: "むすびんさん",
     attribute: "ゲーム開発・仕様設計",
     day0: "AIはまだ現場で使われておらず、コードを書いてもらう程度。子供とゲームを作りたい。",
     midpoint:
