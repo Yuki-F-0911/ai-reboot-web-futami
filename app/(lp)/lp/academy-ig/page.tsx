@@ -71,28 +71,127 @@ export default function AcademyIgLp() {
         </div>
       </section>
 
-      {/* Social proof */}
+      {/* 講師紹介 */}
+      <section className="border-t border-stone-100 bg-stone-50 px-5 py-12">
+        <div className="mx-auto max-w-lg">
+          <p className="mb-2 text-center text-sm font-bold uppercase tracking-widest text-stone-400">
+            Instructors
+          </p>
+          <h2 className="mb-8 text-center text-xl font-bold text-stone-900">
+            講師紹介
+          </h2>
+          <div className="space-y-6">
+
+            {/* 成瀬拓也 */}
+            <div className="rounded-2xl border border-stone-200 bg-white p-6">
+              <div className="mb-4 flex items-center gap-4">
+                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-2xl">
+                  🧭
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-amber-600">Co-Founder / Lead Instructor</p>
+                  <h3 className="text-lg font-bold text-stone-900">成瀬 拓也</h3>
+                </div>
+              </div>
+              <ul className="space-y-2 text-sm text-stone-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                  株式会社ウィルフォワード 代表取締役
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                  経済産業省認定リスキリング支援事業を企画・運営
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                  大手企業・中小企業へのAI導入支援・研修実績多数
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                  「AI時代のキャリア設計」をテーマに講演・ワークショップを全国展開
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                  AIリブートアカデミー カリキュラム設計・100日間伴走プログラム構築者
+                </li>
+              </ul>
+            </div>
+
+            {/* 谷出正直 */}
+            <div className="rounded-2xl border border-stone-200 bg-white p-6">
+              <div className="mb-4 flex items-center gap-4">
+                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-2xl">
+                  🎓
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-amber-600">Career Education Expert</p>
+                  <h3 className="text-lg font-bold text-stone-900">谷出 正直</h3>
+                </div>
+              </div>
+              <ul className="space-y-2 text-sm text-stone-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                  キャリアコンサルタント（国家資格）
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                  大学・専門学校でのキャリア教育講師として延べ1,000名以上を支援
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                  就職・転職・副業・独立など多様なキャリアパスにおける伴走実績
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                  AI時代における「自分の強みの再定義」をテーマにしたワークショップを開発・展開
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                  AIリブートアカデミーでは受講生一人ひとりのキャリア目標設計を担当
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 受講生の声 */}
       <section className="border-t border-stone-100 bg-white px-5 py-12">
         <div className="mx-auto max-w-lg">
-          <p className="mb-8 text-center text-sm font-bold uppercase tracking-widest text-stone-400">
-            受講生の声
+          <p className="mb-2 text-center text-sm font-bold uppercase tracking-widest text-stone-400">
+            Alumni Voices
           </p>
+          <h2 className="mb-8 text-center text-xl font-bold text-stone-900">
+            受講生の声
+          </h2>
           <div className="space-y-4">
             {[
               {
-                text: "AIを使って、月10時間以上の業務を自動化できました。もっと早く始めればよかった。",
-                role: "30代・マーケター",
+                text: "多忙で目的を見失いかけましたが、『人の思いを最速で形にする』という原点に立ち返ることができました。AIを活用してWebサイトのデザイン案を数分で出せるようになり、現場での提案スピードが劇的に変わりました。",
+                role: "30代・建築リペア職",
+                tag: "建築 × AI",
               },
               {
-                text: "文系でITが苦手でしたが、100日で実際に業務改善ツールを作れるようになりました。",
-                role: "40代・人事担当",
+                text: "コードが書けない自分でも、自分の声で動く秘書AIやマニュアル自動化ツールを実際に作れました。『形にできる』という体験が、仕事への向き合い方を根本から変えてくれました。",
+                role: "40代・エンタメ出身",
+                tag: "AI秘書 × 自動化",
               },
               {
-                text: "補助金を使って実質12万円で受講。コスパは最高でした。",
-                role: "20代・フリーランス",
+                text: "メール対応の自動化を皮切りに、各業務の担当AIを束ねる『AIチーム』を構築できました。今は『作業者』ではなく『AIのマネージャー』として動いています。",
+                role: "40代・事業マネジメント",
+                tag: "AIチーム × 事業拡張",
+              },
+              {
+                text: "治療やアスリートサポートの現場で、予約・分析データの自動連携やスマホ専用タスク管理UIを自作。会社の『仕組み』を変えるアプリ開発まで踏み込めるとは思っていませんでした。",
+                role: "20代・治療家・スポーツトレーナー",
+                tag: "医療 × AI実装",
               },
             ].map((v) => (
               <div key={v.role} className="rounded-xl border border-stone-100 bg-stone-50 p-5">
+                <span className="mb-3 inline-block rounded-full bg-amber-100 px-3 py-0.5 text-xs font-bold text-amber-700">
+                  {v.tag}
+                </span>
                 <p className="mb-3 text-sm leading-relaxed text-stone-700">&ldquo;{v.text}&rdquo;</p>
                 <p className="text-xs font-medium text-stone-400">{v.role}</p>
               </div>
