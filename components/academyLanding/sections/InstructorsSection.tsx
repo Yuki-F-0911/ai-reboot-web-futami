@@ -51,7 +51,7 @@ const instructors: Instructor[] = [
     image: "/images/sakamoto.jpg",
   },
   {
-    name: "青木 玲仝",
+    name: "青木 玲仁",
     nameEn: "Ryoto Aoki",
     role: "キャリア支援ディレクター",
     company: "株式会社ウィルフォワード",
@@ -81,13 +81,13 @@ const instructors: Instructor[] = [
 ];
 
 /**
- * ウィルフォワード内のキャリア教育専門家（講師ではないが会社のキャリア支援の信頼性を担う）
+ * 外部のキャリア教育専門家（中立的な立場からのキャリア支援・監修を担う）
  */
 const teamMember = {
   name: "谷出 正直",
   nameEn: "Masanao Tanide",
-  role: "In-House Career Expert｜キャリアコンサルタント（国家資格）",
-  company: "株式会社ウィルフォワード 在籍",
+  role: "キャリアコンサルタント（国家資格）",
+  company: "日本採用研究所 代表",
   achievements: [
     "筑波大学大学院 体育研究科修了。エン・ジャパン（株）で新卒採用支援11年、4年連続売上No.1",
     "約150社の新卒採用を成功に導いた採用コンサルティングの専門家",
@@ -249,7 +249,7 @@ const InstructorsSection = () => {
           ))}
         </div>
 
-        {/* ウィルフォワードのキャリア専門家（在籍メンバー） */}
+        {/* 外部のキャリア専門家（特別アドバイザー） */}
         <div
           className="mt-20 rounded-sm border p-8 lg:mt-28 lg:p-10"
           style={{
@@ -264,7 +264,7 @@ const InstructorsSection = () => {
               color: ACADEMY_COLORS.textMuted,
             }}
           >
-            Willforward Team Member
+            Special Advisor
           </span>
           <h3
             className="mb-8 text-lg font-bold lg:text-xl"
@@ -273,7 +273,7 @@ const InstructorsSection = () => {
               color: ACADEMY_COLORS.textStrong,
             }}
           >
-            ウィルフォワードにはキャリア教育の専門家が在籍しています
+            客観的な視点からキャリア再構築を支える専門家
           </h3>
           <div className="lg:grid lg:grid-cols-12 lg:gap-10">
             {/* 写真 */}
@@ -346,7 +346,7 @@ const InstructorsSection = () => {
                 className="mt-5 text-xs"
                 style={{ color: ACADEMY_COLORS.textMuted }}
               >
-                ※ 谷出はAIリブートアカデミーの講師ではなく、ウィルフォワードのキャリア支援の専門性を担う在籍メンバーです。
+                ※ 谷出氏はAIリブートアカデミーの講師ではありませんが、外部の専門家として中立的な立場からキャリア支援を監修しています。
               </p>
             </div>
           </div>
