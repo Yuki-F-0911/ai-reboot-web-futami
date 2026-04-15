@@ -75,83 +75,101 @@ export default function AcademyIgLp() {
       <section className="border-t border-stone-100 bg-stone-50 px-5 py-12">
         <div className="mx-auto max-w-lg">
           <p className="mb-2 text-center text-sm font-bold uppercase tracking-widest text-stone-400">
-            Instructors
+            Instructor
           </p>
           <h2 className="mb-8 text-center text-xl font-bold text-stone-900">
             講師紹介
           </h2>
-          <div className="space-y-6">
 
-            {/* 成瀬拓也 */}
-            <div className="rounded-2xl border border-stone-200 bg-white p-6">
-              <div className="mb-4 flex items-center gap-4">
-                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-2xl">
-                  🧭
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-amber-600">Co-Founder / Lead Instructor</p>
-                  <h3 className="text-lg font-bold text-stone-900">成瀬 拓也</h3>
-                </div>
+          {/* 成瀬拓也 */}
+          <div className="rounded-2xl border border-stone-200 bg-white p-6">
+            <div className="mb-4 flex items-center gap-4">
+              <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-2xl">
+                🧭
               </div>
-              <ul className="space-y-2 text-sm text-stone-600">
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
-                  株式会社ウィルフォワード 代表取締役
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
-                  経済産業省認定リスキリング支援事業を企画・運営
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
-                  大手企業・中小企業へのAI導入支援・研修実績多数
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
-                  「AI時代のキャリア設計」をテーマに講演・ワークショップを全国展開
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
-                  AIリブートアカデミー カリキュラム設計・100日間伴走プログラム構築者
-                </li>
-              </ul>
-            </div>
-
-            {/* 谷出正直 */}
-            <div className="rounded-2xl border border-stone-200 bg-white p-6">
-              <div className="mb-4 flex items-center gap-4">
-                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-2xl">
-                  🎓
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-amber-600">Career Education Expert</p>
-                  <h3 className="text-lg font-bold text-stone-900">谷出 正直</h3>
-                </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-amber-600">Lead Instructor</p>
+                <h3 className="text-lg font-bold text-stone-900">成瀬 拓也</h3>
+                <p className="text-xs text-stone-400">株式会社ウィルフォワード 代表取締役</p>
               </div>
-              <ul className="space-y-2 text-sm text-stone-600">
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
-                  キャリアコンサルタント（国家資格）
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
-                  大学・専門学校でのキャリア教育講師として延べ1,000名以上を支援
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
-                  就職・転職・副業・独立など多様なキャリアパスにおける伴走実績
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
-                  AI時代における「自分の強みの再定義」をテーマにしたワークショップを開発・展開
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
-                  AIリブートアカデミーでは受講生一人ひとりのキャリア目標設計を担当
-                </li>
-              </ul>
             </div>
+            <ul className="space-y-2 text-sm text-stone-600">
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                経済産業省認定リスキリング支援事業を企画・運営
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                大手・中小企業へのAI導入支援・社内研修を多数実施
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                「AI時代のキャリア設計」をテーマに全国で講演・ワークショップを展開
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                AIリブートアカデミー カリキュラム設計・100日間伴走プログラム構築者
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                Forbes JAPAN・Newsweek Japan 等メディア掲載実績あり（成瀬個人）
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 flex-shrink-0 text-amber-500">▸</span>
+                大手上場企業・スタートアップへの採用支援・人材紹介実績あり（成瀬個人）
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
+      {/* 運営会社の信頼性 */}
+      <section className="border-t border-stone-100 bg-white px-5 py-12">
+        <div className="mx-auto max-w-lg">
+          <p className="mb-2 text-center text-sm font-bold uppercase tracking-widest text-stone-400">
+            About Us
+          </p>
+          <h2 className="mb-2 text-center text-xl font-bold text-stone-900">
+            運営会社について
+          </h2>
+          <p className="mb-8 text-center text-sm text-stone-500">
+            AIリブートアカデミーは、株式会社ウィルフォワードが運営しています。
+          </p>
+
+          {/* 谷出正直 — 会社の信頼性補強 */}
+          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
+            <p className="mb-4 text-xs font-bold uppercase tracking-wider text-stone-400">
+              In-House Career Expert
+            </p>
+            <div className="mb-4 flex items-center gap-4">
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-stone-200 text-xl">
+                🎓
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-stone-900">谷出 正直</h3>
+                <p className="text-xs text-stone-500">ウィルフォワード 在籍 ／ キャリアコンサルタント（国家資格）</p>
+              </div>
+            </div>
+            <p className="mb-3 text-xs leading-relaxed text-stone-500">
+              ウィルフォワードには、キャリア教育の専門家が在籍しています。
+            </p>
+            <ul className="space-y-2 text-sm text-stone-600">
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 flex-shrink-0 text-stone-400">▸</span>
+                大学・専門学校でキャリア教育講師として延べ1,000名以上を支援
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 flex-shrink-0 text-stone-400">▸</span>
+                就職・転職・副業・独立など多様なキャリアパスにおける伴走実績
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 flex-shrink-0 text-stone-400">▸</span>
+                AI時代の「強みの再定義」をテーマにしたワークショップを開発・展開
+              </li>
+            </ul>
+            <p className="mt-4 text-xs text-stone-400">
+              ※ 谷出はAIリブートアカデミーの講師ではなく、ウィルフォワードのキャリア支援の専門性を担う在籍メンバーです。
+            </p>
           </div>
         </div>
       </section>
