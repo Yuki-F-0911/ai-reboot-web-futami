@@ -140,14 +140,6 @@ const OrganizationSection = () => {
               >
                 {cred.label}
               </p>
-              {cred.note && (
-                <p
-                  className="mt-1 text-[10px] leading-snug"
-                  style={{ color: ACADEMY_COLORS.textMuted, opacity: 0.6 }}
-                >
-                  {cred.note}
-                </p>
-              )}
             </div>
           ))}
         </div>
