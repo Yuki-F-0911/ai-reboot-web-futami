@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Next.js (ai-reboot-website)",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "DEMO DAY LP (static)",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "demoday-1st-term", "-l", "8765"],
+      "port": 8765
+    }
+  ]
+}
