@@ -16,7 +16,7 @@ interface AX1EntryFormData {
   industry?: string;
   aiUsageStatus?: string;
   howDidYouKnow?: string;
-  entryType?: "ax1" | "ax1-special" | "ax1-0415";
+  entryType?: "ax1" | "ax1-special" | "ax1-0415" | "ax1-0604";
 }
 
 // 従業員数のラベル変換
@@ -75,7 +75,7 @@ async function sendSlackNotification(data: AX1EntryFormData) {
   console.log('[Slack通知] AX1エントリー - 送信開始');
 
   try {
-    const requiresScreening = data.entryType !== "ax1-special" && data.entryType !== "ax1-0415";
+    const requiresScreening = data.entryType !== "ax1-special" && data.entryType !== "ax1-0415" && data.entryType !== "ax1-0604";
     const blocks: Array<Record<string, unknown>> = [
       {
         type: 'header',
@@ -322,7 +322,7 @@ export async function POST(request: NextRequest) {
     ]);
 
     // 成功レスポンス
-    const requiresScreening = data.entryType !== "ax1-special" && data.entryType !== "ax1-0415";
+    const requiresScreening = data.entryType !== "ax1-special" && data.entryType !== "ax1-0415" && data.entryType !== "ax1-0604";
     return NextResponse.json(
       { 
         success: true,
