@@ -36,7 +36,7 @@ const rebooterStories: RebooterStory[] = [
     after: "AI（Gemini）との壁打ちで「制作進行」が自分の得意分野だと発見。メール情報のスプレッドシート自動整理、カレンダー連携のスケジュール管理システムを自力で構築。短期の仕事先でAIを活用してマニュアルを作成し、ポートフォリオとして形に。",
     quote:
       "AIを学ぶことが自分の価値になると確信しています。自分はWeb制作よりも「制作進行」が得意だと、AIとの対話で気づけました。",
-    phase: "1期生・100日間挑戦中",
+    phase: "1期生・挑戦中",
   },
   {
     nickname: "きばちゃん",
@@ -46,7 +46,7 @@ const rebooterStories: RebooterStory[] = [
     after: "Googleアナリティクス・予約管理システム（Square）のデータを自動でスプレッドシートに反映する仕組みを構築し、実務で稼働中。「みんなで同じレベルでAIの話ができるようになりたい」とサブリーダーに立候補。",
     quote:
       "一人だけがAIを使えても意味がない。周囲を巻き込む力が必要だと気づきました。",
-    phase: "1期生・100日間挑戦中",
+    phase: "1期生・挑戦中",
   },
   {
     nickname: "ムスびんさん",
@@ -56,7 +56,7 @@ const rebooterStories: RebooterStory[] = [
     after: "以前から抱えていたPOSシステムのバグをAIに質問して解決し、大きな自信に。会社導入用のローカルLLM構築で「ナレッジグラフ」という新手法を自ら調査し、環境構築に成功。",
     quote:
       "AIの限界を知ったからこそ、本当に使える領域が見えてきました。",
-    phase: "1期生・100日間挑戦中",
+    phase: "1期生・挑戦中",
   },
   {
     nickname: "カッシーさん",
@@ -66,7 +66,7 @@ const rebooterStories: RebooterStory[] = [
     after: "「脳がしっかり休まっていないとAIと壁打ちできない」という根本的気づきを獲得。知人のパーソナルジムHPをAIで最速プロトタイピング。次のスプリントのリーダーに自ら志願。",
     quote:
       "自分の趣味のためではなく、人のためにAIをどう使うかを考えるようになりました。",
-    phase: "1期生・100日間挑戦中",
+    phase: "1期生・挑戦中",
   },
 ];
 
@@ -113,7 +113,7 @@ const VoicesSection = () => {
               color: ACADEMY_COLORS.textStrong,
             }}
           >
-            1期生5名が、100日間で掴んだ変化
+            1期生が、挑戦の途中で掴みつつある変化
           </h2>
           <p
             className="max-w-3xl leading-loose"
@@ -224,7 +224,7 @@ const VoicesSection = () => {
                     className="text-xs font-bold tracking-widest"
                     style={{ fontFamily: ACADEMY_TYPOGRAPHY.numeric }}
                   >
-                    100 DAYS
+                    IN PROGRESS
                   </span>
                   <div
                     className="h-px flex-grow"
